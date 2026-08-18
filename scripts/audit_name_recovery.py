@@ -19,7 +19,6 @@ def suspicious(code, value):
 
 def explicit_candidate(desc):
     d = clean(desc)
-    # Explicit perfume title followed by a dash and brand, or known "inspired by the notes X" wording.
     m = re.search(r"(?:From €\d+(?:\.\d+)?\s+)?([A-Z0-9][A-Z0-9 '&()./\-]{2,80}?)\s+-\s+[A-ZΑ-Ω][A-ZΑ-Ω '&()./\-]{2,80}(?:\.|\s+(?:Inspired|Similar|Clone|Type)|$)", d)
     if m:
         cand = clean(m.group(1))
@@ -59,3 +58,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+# audit-refresh: final-name-repair
