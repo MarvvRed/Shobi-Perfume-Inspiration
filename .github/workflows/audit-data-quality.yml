@@ -5,6 +5,8 @@ on:
     paths:
       - 'scripts/audit_data_quality.py'
       - '.github/workflows/audit-data-quality.yml'
+      - 'shobi-master.csv'
+      - 'shobi-master-en.csv'
   workflow_dispatch:
 
 permissions:
