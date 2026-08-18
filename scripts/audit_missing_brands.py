@@ -18,6 +18,11 @@ def norm(v):
     return clean(v).casefold()
 
 
+def code_brand_key(code):
+    m = re.match(r"^\s*\d+\s*-\s*([A-Z0-9]+)", clean(code).upper())
+    return m.group(1) if m else ""
+
+
 def main():
     with SOURCE.open("r", encoding="utf-8-sig", newline="") as fh:
         rows = list(csv.DictReader(fh))
@@ -26,10 +31,14 @@ def main():
     canonical = {norm(b): b for b in existing}
 
     slug_to_brands = defaultdict(set)
+    key_to_brands = defaultdict(set)
     for r in rows:
         brand = clean(r.get("brand"))
         if not brand:
             continue
+        key = code_brand_key(r.get("shobi_code"))
+        if key:
+            key_to_brands[key].add(brand)
         for value in r.values():
             value = clean(value)
             if not value.startswith(("http://", "https://")):
@@ -50,15 +59,18 @@ def main():
     for r in missing:
         candidates = set()
         reasons = []
-        for key in ("inspired_by", "shobi_name"):
-            text = clean(r.get(key))
+
+        # Exact brand suffix already used elsewhere in the master.
+        for field in ("inspired_by", "shobi_name"):
+            text = clean(r.get(field))
             if " - " in text:
                 suffix = clean(text.rsplit(" - ", 1)[1])
                 hit = canonical.get(norm(suffix))
                 if hit:
                     candidates.add(hit)
-                    reasons.append(f"{key}-suffix")
+                    reasons.append(f"{field}-suffix")
 
+        # External perfume URL: use only slugs learned as a single brand from populated rows.
         for value in r.values():
             value = clean(value)
             if not value.startswith(("http://", "https://")):
@@ -77,16 +89,25 @@ def main():
                 candidates.add(next(iter(slug_to_brands[lookup])))
                 reasons.append("external-url")
 
+        # Shobi's brand key, e.g. AMG / TMFO / DRC. Use it only if every already-populated
+        # row with that key agrees on the same brand.
+        key = code_brand_key(r.get("shobi_code"))
+        if key and len(key_to_brands.get(key, ())) == 1:
+            candidates.add(next(iter(key_to_brands[key])))
+            reasons.append("shobi-code-key")
+
         if len(candidates) == 1:
             resolved.append((r.get("shobi_code", ""), next(iter(candidates)), "+".join(sorted(set(reasons))), clean(r.get("inspired_by"))))
         else:
             unresolved.append((r.get("shobi_code", ""), ";".join(sorted(candidates)), clean(r.get("inspired_by")), clean(r.get("shobi_url"))))
 
+    ambiguous_keys = {k: sorted(v) for k, v in key_to_brands.items() if len(v) > 1}
     print(f"TOTAL_ROWS={len(rows)}")
     print(f"EXISTING_BRANDS={len(existing)}")
     print(f"BLANK_BRANDS={len(missing)}")
     print(f"SAFE_AUTO_FILL={len(resolved)}")
     print(f"UNRESOLVED={len(unresolved)}")
+    print(f"AMBIGUOUS_CODE_KEYS={len(ambiguous_keys)}")
     print("--- SAFE AUTO FILL ---")
     for code, brand, reason, inspired in resolved:
         print(f"{code}\t{brand}\t{reason}\t{inspired}")
