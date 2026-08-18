@@ -16,11 +16,8 @@ BASE = "https://leparfum.com.gr"
 LIST_URL = BASE + "/en/perfumes?page={page}"
 
 CODE_RE = re.compile(r"^\s*(\d{1,5})\s*-\s*([A-Z0-9]+)(?:\s+([A-ZΑ-Ω0-9]+))?\b", re.I)
-INSPIRED_RE = re.compile(
-    r"(?:Inspired by the fragrance(?: notes)?(?: of)?|inspired by the notes of|by the fragrance notes of)\s+(.+?)(?:\.|$)",
-    re.I,
-)
 GREEK_RE = re.compile(r"[\u0370-\u03ff\u1f00-\u1fff]")
+BAD_NAMES = {"", "notes", "note", "of", "the fragrance notes", "the fragrance notes of", "n/a", "na", "unknown", "-"}
 
 # Confirmed differences between historical master codes and the current English catalog.
 CODE_ALIASES = {
@@ -34,6 +31,31 @@ CODE_ALIASES = {
 
 def clean(text):
     return re.sub(r"\s+", " ", str(text or "")).strip()
+
+
+def valid_name(value, code=""):
+    value = clean(value)
+    return bool(value) and value.casefold() not in BAD_NAMES and value != clean(code)
+
+
+def extract_inspired(desc):
+    desc = clean(desc)
+    patterns = [
+        r"\bInspired by the fragrance notes of\s+(.+?)(?:\.|$)",
+        r"\bInspired by the notes of\s+(.+?)(?:\.|$)",
+        r"\bInspired by the notes\s+(.+?)(?:\.|$)",
+        r"\bInspired by the fragrance\s+(.+?)(?:\.|$)",
+        r"\bInspired by\s+(.+?)(?:\.|$)",
+        r"\bby the fragrance notes of\s+(.+?)(?:\.|$)",
+    ]
+    for pattern in patterns:
+        m = re.search(pattern, desc, re.I)
+        if not m:
+            continue
+        candidate = clean(m.group(1)).strip(" :-")
+        if valid_name(candidate):
+            return candidate
+    return ""
 
 
 def raw_code(value):
@@ -83,10 +105,7 @@ def parse_products(html):
         desc = clean(desc_el.get_text(" ", strip=True)) if desc_el else ""
         text = clean(card.get_text(" ", strip=True))
         status = "IN_STOCK" if re.search(r"\bIn Stock\b", text, re.I) else ""
-        inspired = ""
-        im = INSPIRED_RE.search(desc)
-        if im:
-            inspired = clean(im.group(1))
+        inspired = extract_inspired(desc)
         products.append({
             "code": code,
             "base": base_code(code),
@@ -103,7 +122,7 @@ def apply_product(row, product):
         row["shobi_url"] = product["url"]
     if product["description"]:
         row["description"] = product["description"]
-    if product["inspired_by"]:
+    if product["inspired_by"] and valid_name(product["inspired_by"], row.get("shobi_code")):
         row["inspired_by"] = product["inspired_by"]
         row["shobi_name"] = product["inspired_by"]
     if product["status"]:
@@ -154,14 +173,9 @@ def main():
         code = norm_code(source)
         product = None
 
-        # 390-ACQ exists twice with the same displayed code. The category path is
-        # the stable discriminator: WP002 is women, MP006 is men.
         if source in {"390-ACQ WP", "390-ACQ MP"}:
             wanted = "/fragrances-for-women/" if source.endswith(" WP") else "/fragrances-for-men/"
-            product = next(
-                (p for p in official_by_base.get("390-ACQ", []) if wanted in p.get("url", "")),
-                None,
-            )
+            product = next((p for p in official_by_base.get("390-ACQ", []) if wanted in p.get("url", "")), None)
         else:
             product = official_exact.get(code)
 
@@ -178,10 +192,13 @@ def main():
         apply_product(row, product)
         matched += 1
 
+        # Never leave a code/placeholder as display name when inspired_by is already valid.
+        if valid_name(row.get("inspired_by"), row.get("shobi_code")) and not valid_name(row.get("shobi_name"), row.get("shobi_code")):
+            row["shobi_name"] = clean(row.get("inspired_by"))
+
     english_urls = sum("/en/" in str(r.get("shobi_url", "")) for r in rows)
     english_desc = sum(bool(r.get("description")) and not GREEK_RE.search(str(r.get("description", ""))) for r in rows)
 
-    # Final row-level gates: all master rows must resolve to an English Shobi URL.
     if matched != 2273:
         raise SystemExit(f"Safety stop: only {matched}/2273 master rows matched English Shobi; unresolved={unmatched}")
     if english_urls != 2273:
