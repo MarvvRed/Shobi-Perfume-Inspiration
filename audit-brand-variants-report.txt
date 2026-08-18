@@ -1,7 +1,0 @@
-KEY	ARM	ROWS=72	BRANDS=Armani:55 | Armani Prive:17
-KEY	BYRP	ROWS=4	BRANDS=Byron:2 | Byron Parfums:2
-KEY	INI	ROWS=16	BRANDS=Initio:2 | Initio Parfums Privés:14
-KEY	JOV	ROWS=2	BRANDS=Jovan:1 | Jovoy:1
-KEY	KIL	ROWS=47	BRANDS=Kilian:33 | Kilian Paris:14
-KEY	MARC	ROWS=4	BRANDS=Marc Antoine Barrois:1 | Marc-Antoine Barrois:3
-KEY	VICT	ROWS=39	BRANDS=Victoria'S Secret:35 | Victoria's Secret:4
