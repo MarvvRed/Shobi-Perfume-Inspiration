@@ -8,10 +8,10 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
-  audit:
+  repair:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -20,5 +20,14 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Audit live master
-        run: python scripts/audit_missing_brands.py
+      - name: Fill only validated blank brands
+        run: python scripts/audit_missing_brands.py --write
+      - name: Verify and commit master
+        run: |
+          python scripts/audit_missing_brands.py
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add shobi-master.csv
+          git diff --cached --quiet && exit 0
+          git commit -m "Fill validated missing perfume brands"
+          git push
