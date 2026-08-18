@@ -1,0 +1,24 @@
+name: Audit Missing Brands
+
+on:
+  push:
+    paths:
+      - 'scripts/audit_missing_brands.py'
+      - '.github/workflows/audit-missing-brands.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Audit live master
+        run: python scripts/audit_missing_brands.py
