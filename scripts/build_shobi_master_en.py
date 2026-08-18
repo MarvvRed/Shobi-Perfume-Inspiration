@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# Validation run: English catalog candidate only; live database is untouched.
 import csv
 import re
 import time
@@ -91,10 +92,8 @@ def main():
         for p in products:
             official[p["code"]] = p
 
-        # Stop when there is no link to the next page.
         next_link = soup.select_one("a.next, .pagination .next a, a[rel='next']")
         if not next_link:
-            # Prestashop often exposes the last page number; if current page is already last, stop.
             page_links = []
             for a in soup.select(".pagination a"):
                 t = clean(a.get_text())
@@ -128,7 +127,6 @@ def main():
         if p["status"]:
             row["status"] = p["status"]
 
-    # Safety gates: never create a candidate if coverage is suspicious.
     minimum_matches = max(1800, int(len(rows) * 0.80))
     if matches < minimum_matches:
         raise SystemExit(f"Safety stop: only {matches}/{len(rows)} master codes matched English Shobi")
