@@ -15,13 +15,17 @@ OUTPUT = ROOT / "shobi-master-en.csv"
 BASE = "https://leparfum.com.gr"
 LIST_URL = BASE + "/en/perfumes?page={page}"
 
-CODE_RE = re.compile(r"^\s*(\d{1,5}-[A-Z0-9]+(?:\s+[A-Z0-9]+)?)\b", re.I)
+# The numeric-brand part is the stable Shobi code. Category suffixes such as
+# M, MP, N, W, EL or LUX can differ between catalog views/languages.
+CODE_RE = re.compile(r"^\s*(\d{1,5}-[A-Z0-9]+)\b", re.I)
 INSPIRED_RE = re.compile(r"Inspired by the fragrance notes of\s+(.+?)(?:\.|$)", re.I)
 GREEK_RE = re.compile(r"[\u0370-\u03ff\u1f00-\u1fff]")
 
 
 def norm_code(value):
-    return re.sub(r"\s+", " ", str(value or "").strip()).upper()
+    value = re.sub(r"\s+", " ", str(value or "").strip()).upper()
+    m = re.match(r"^(\d{1,5}-[A-Z0-9]+)", value)
+    return m.group(1) if m else value
 
 
 def clean(text):
@@ -109,9 +113,11 @@ def main():
     matches = 0
     english_desc = 0
     english_urls = 0
+    unmatched = []
     for code, row in by_code.items():
         p = official.get(code)
         if not p:
+            unmatched.append(code)
             continue
         matches += 1
         if p["url"] and "/en/" in p["url"]:
@@ -143,8 +149,11 @@ def main():
     print(f"MASTER_ROWS={len(rows)}")
     print(f"OFFICIAL_EN_PRODUCTS={len(official)}")
     print(f"MATCHED_MASTER_CODES={matches}")
+    print(f"UNMATCHED_MASTER_CODES={len(unmatched)}")
     print(f"ENGLISH_URLS={english_urls}")
     print(f"ENGLISH_DESCRIPTIONS={english_desc}")
+    if unmatched:
+        print("UNMATCHED_CODES=" + ",".join(unmatched))
     print(f"OUTPUT={OUTPUT.name}")
 
 
