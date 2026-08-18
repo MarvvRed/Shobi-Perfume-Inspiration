@@ -26,4 +26,4 @@ jobs:
           python-version: '3.12'
       - name: Audit missing brands only
         run: python scripts/audit_missing_brands.py
-      # Extended audit: includes unambiguous Shobi code-to-brand mapping.
+      # Final audit includes verified mappings for new Shobi brand keys.
