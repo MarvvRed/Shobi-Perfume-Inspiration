@@ -9,6 +9,48 @@ from urllib.parse import urlparse
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / "shobi-master.csv"
 
+# Code keys below are explicit identities confirmed by the perfume names carried
+# by the same Shobi records. They are used only for rows whose brand is blank.
+VERIFIED_KEYS = {
+    "MIN": "Mind Games",
+    "LUS": "Lush",
+    "KYLJ": "Kylie Jenner",
+    "BORN": "BORNTOSTANDOUT",
+    "GISS": "Gissah",
+    "ATEL": "Atelier Materi",
+    "RARB": "Rare Beauty",
+    "INI": "Initio Parfums Privés",
+    "MOOD": "Mood London",
+    "OMA": "Omanluxury",
+    "ARM": "Armani",
+    "LES": "Les Liquides Imaginaires",
+    "VIRT": "The 7 Virtues",
+    "BOYS": "Boy Smells",
+    "OBVI": "Obvious",
+    "NICO": "Nicolai Parfumeur Createur",
+    "FRAG": "Fragrance Du Bois",
+    "KIL": "Kilian",
+    "KAJ": "Kajal",
+    "MIL": "Miller Harris",
+    "SAB": "Sabrina Carpenter",
+    "NAV": "Navitus Parfums",
+    "BYRP": "Byron Parfums",
+    "ROOM": "Room 1015",
+    "GRIT": "Gritti",
+    "CHAB": "Chabaud",
+    "FUGA": "Fugazzi",
+    "PAZZ": "Lorenzo Pazzaglia",
+    "HARM": "The Harmonist",
+    "NES": "Nest",
+    "CHAR": "Charlotte Tilbury",
+    "ARMA": "Armaf",
+    "GLO": "Glossier",
+    "ELIZ": "Elizabeth Arden",
+    "BAN": "Banana Republic",
+    "FRED": "Frederic Malle",
+    "MIS": "Missguided",
+}
+
 
 def clean(v):
     return re.sub(r"\s+", " ", str(v or "")).strip()
@@ -29,9 +71,9 @@ def main():
 
     existing = Counter(clean(r.get("brand")) for r in rows if clean(r.get("brand")))
     canonical = {norm(b): b for b in existing}
-
     slug_to_brands = defaultdict(set)
     key_to_brands = defaultdict(set)
+
     for r in rows:
         brand = clean(r.get("brand"))
         if not brand:
@@ -59,8 +101,6 @@ def main():
     for r in missing:
         candidates = set()
         reasons = []
-
-        # Exact brand suffix already used elsewhere in the master.
         for field in ("inspired_by", "shobi_name"):
             text = clean(r.get(field))
             if " - " in text:
@@ -70,7 +110,6 @@ def main():
                     candidates.add(hit)
                     reasons.append(f"{field}-suffix")
 
-        # External perfume URL: use only slugs learned as a single brand from populated rows.
         for value in r.values():
             value = clean(value)
             if not value.startswith(("http://", "https://")):
@@ -89,28 +128,24 @@ def main():
                 candidates.add(next(iter(slug_to_brands[lookup])))
                 reasons.append("external-url")
 
-        # Shobi's brand key, e.g. AMG / TMFO / DRC. Use it only if every already-populated
-        # row with that key agrees on the same brand.
         key = code_brand_key(r.get("shobi_code"))
         if key and len(key_to_brands.get(key, ())) == 1:
             candidates.add(next(iter(key_to_brands[key])))
             reasons.append("shobi-code-key")
+        elif key in VERIFIED_KEYS:
+            candidates.add(VERIFIED_KEYS[key])
+            reasons.append("verified-code-key")
 
         if len(candidates) == 1:
             resolved.append((r.get("shobi_code", ""), next(iter(candidates)), "+".join(sorted(set(reasons))), clean(r.get("inspired_by"))))
         else:
             unresolved.append((r.get("shobi_code", ""), ";".join(sorted(candidates)), clean(r.get("inspired_by")), clean(r.get("shobi_url"))))
 
-    ambiguous_keys = {k: sorted(v) for k, v in key_to_brands.items() if len(v) > 1}
     print(f"TOTAL_ROWS={len(rows)}")
     print(f"EXISTING_BRANDS={len(existing)}")
     print(f"BLANK_BRANDS={len(missing)}")
     print(f"SAFE_AUTO_FILL={len(resolved)}")
     print(f"UNRESOLVED={len(unresolved)}")
-    print(f"AMBIGUOUS_CODE_KEYS={len(ambiguous_keys)}")
-    print("--- SAFE AUTO FILL ---")
-    for code, brand, reason, inspired in resolved:
-        print(f"{code}\t{brand}\t{reason}\t{inspired}")
     print("--- UNRESOLVED ---")
     for code, candidates, inspired, url in unresolved:
         print(f"{code}\t{candidates}\t{inspired}\t{url}")
