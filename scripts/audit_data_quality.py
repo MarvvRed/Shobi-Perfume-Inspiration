@@ -68,6 +68,8 @@ def main():
         print("BADURL\t" + "\t".join(map(str, item)))
 
     suspicious = []
+    contamination = []
+    artifact_re = re.compile(r"(?:\badd to cart\b|\bfrom\s*€|\b\d+\s+reviews?\b|\b(?:niche perfumes|elegants fragrances|fragrances for (?:men|women))\b)", re.I)
     for i, r in enumerate(rows, 2):
         code = clean(r.get("shobi_code"))
         inspired = clean(r.get("inspired_by"))
@@ -76,9 +78,14 @@ def main():
             low = v.casefold()
             if not v or v == code or low in {"notes", "note", "of", "n/a", "na", "unknown", "-"}:
                 suspicious.append((i, code, f, v))
+            if artifact_re.search(v):
+                contamination.append((i, code, f, v))
     print(f"SUSPICIOUS_NAMES={len(suspicious)}")
     for item in suspicious[:300]:
         print("SUSP\t" + "\t".join(map(str, item)))
+    print(f"UI_TEXT_CONTAMINATION={len(contamination)}")
+    for item in contamination[:300]:
+        print("CONTAM\t" + "\t".join(map(str, item)))
 
     key_brands = defaultdict(set)
     for r in rows:
@@ -91,7 +98,6 @@ def main():
     for k, brands in sorted(ambiguous.items()):
         print(f"AMBIGKEY\t{k}\t{' | '.join(brands)}")
 
-    # Exact identity comparison between live master and English master where possible.
     master_by_code = {clean(r.get("shobi_code")): r for r in rows if clean(r.get("shobi_code"))}
     en_by_code = {clean(r.get("shobi_code")): r for r in en_rows if clean(r.get("shobi_code"))}
     only_master = sorted(set(master_by_code) - set(en_by_code))
@@ -101,7 +107,6 @@ def main():
     for code in only_master[:100]: print(f"ONLYMASTER\t{code}")
     for code in only_en[:100]: print(f"ONLYEN\t{code}")
 
-    # Fields that should be structurally identical between the two datasets.
     common = [f for f in fields if f in en_fields and f in {"shobi_code", "brand", "shobi_url"}]
     mismatches = []
     for code in sorted(set(master_by_code) & set(en_by_code)):
