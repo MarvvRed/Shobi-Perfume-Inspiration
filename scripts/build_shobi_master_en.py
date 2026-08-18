@@ -17,15 +17,19 @@ LIST_URL = BASE + "/en/perfumes?page={page}"
 
 # The numeric-brand part is the stable Shobi code. Category suffixes such as
 # M, MP, N, W, EL or LUX can differ between catalog views/languages.
-CODE_RE = re.compile(r"^\s*(\d{1,5}-[A-Z0-9]+)\b", re.I)
+CODE_RE = re.compile(r"^\s*(\d{1,5})\s*-\s*([A-Z0-9]+)\b", re.I)
 INSPIRED_RE = re.compile(r"Inspired by the fragrance notes of\s+(.+?)(?:\.|$)", re.I)
 GREEK_RE = re.compile(r"[\u0370-\u03ff\u1f00-\u1fff]")
+CODE_ALIASES = {
+    "1685-FRED": "1685-FRE",
+}
 
 
 def norm_code(value):
     value = re.sub(r"\s+", " ", str(value or "").strip()).upper()
-    m = re.match(r"^(\d{1,5}-[A-Z0-9]+)", value)
-    return m.group(1) if m else value
+    m = re.match(r"^(\d{1,5})\s*-\s*([A-Z0-9]+)", value)
+    code = f"{m.group(1)}-{m.group(2)}" if m else value
+    return CODE_ALIASES.get(code, code)
 
 
 def clean(text):
@@ -52,7 +56,7 @@ def parse_products(html):
         m = CODE_RE.search(title)
         if not m:
             continue
-        code = norm_code(m.group(1))
+        code = norm_code(f"{m.group(1)}-{m.group(2)}")
         desc_el = card.select_one(".product-description-short, .product-description, .product-desc")
         desc = clean(desc_el.get_text(" ", strip=True)) if desc_el else ""
         text = clean(card.get_text(" ", strip=True))
