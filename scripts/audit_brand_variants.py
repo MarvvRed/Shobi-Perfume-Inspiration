@@ -15,9 +15,6 @@ def main():
   k=key(r.get('shobi_code'))
   if k in KEYS: groups[k].append(r)
  for k in sorted(KEYS):
-  rowsk=groups[k]
-  counts=Counter(clean(r.get('brand')) for r in rowsk)
-  print(f'KEY\t{k}\tROWS={len(rowsk)}\tBRANDS='+' | '.join(f'{b}:{n}' for b,n in sorted(counts.items())))
-  for r in rowsk:
-   print('ROW\t%s\t%s\t%s\t%s\t%s' % (k,clean(r.get('shobi_code')),clean(r.get('brand')),clean(r.get('inspired_by')),clean(r.get('shobi_url'))))
+  counts=Counter(clean(r.get('brand')) for r in groups[k])
+  print(f'KEY\t{k}\tROWS={len(groups[k])}\tBRANDS='+' | '.join(f'{b}:{n}' for b,n in sorted(counts.items())))
 if __name__=='__main__': main()
