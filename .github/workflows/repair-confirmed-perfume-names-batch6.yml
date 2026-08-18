@@ -1,0 +1,25 @@
+name: Repair Confirmed Perfume Names Batch 6
+on:
+  push:
+    paths:
+      - 'scripts/repair_confirmed_perfume_names_batch6.py'
+      - '.github/workflows/repair-confirmed-perfume-names-batch6.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  repair:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python scripts/repair_confirmed_perfume_names_batch6.py
+      - run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add shobi-master.csv shobi-master-en.csv
+          git diff --cached --quiet && exit 0
+          git commit -m "Repair Journey to China perfume names"
+          git push
