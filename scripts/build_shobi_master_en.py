@@ -15,8 +15,6 @@ OUTPUT = ROOT / "shobi-master-en.csv"
 BASE = "https://leparfum.com.gr"
 LIST_URL = BASE + "/en/perfumes?page={page}"
 
-# Capture the stable code and an optional category suffix (M/W/MP/WP/N/EL/LUX/AR).
-# Greek capital Nu (Ν) is normalized to Latin N because it appears on some Shobi pages.
 CODE_RE = re.compile(r"^\s*(\d{1,5})\s*-\s*([A-Z0-9]+)(?:\s+([A-ZΑ-Ω0-9]+))?\b", re.I)
 INSPIRED_RE = re.compile(
     r"(?:Inspired by the fragrance(?: notes)?(?: of)?|inspired by the notes of|by the fragrance notes of)\s+(.+?)(?:\.|$)",
@@ -24,11 +22,13 @@ INSPIRED_RE = re.compile(
 )
 GREEK_RE = re.compile(r"[\u0370-\u03ff\u1f00-\u1fff]")
 
-# Confirmed catalog spelling/format differences.
+# Confirmed differences between historical master codes and the current English catalog.
 CODE_ALIASES = {
     "1685-FRED N": "1685-FRE N",
     "1068-CHA": "1068-CHA M",
-    "390-ACQ MP": "390-ACQ",
+    "1930-VIC": "1930-VIC M",
+    "1156-HER": "1156-HER M",
+    "1065-CHA": "1065-CHA M",
 }
 
 
@@ -36,8 +36,12 @@ def clean(text):
     return re.sub(r"\s+", " ", str(text or "")).strip()
 
 
+def raw_code(value):
+    return clean(value).upper().replace("Ν", "N")
+
+
 def norm_code(value):
-    value = clean(value).upper().replace("Ν", "N")
+    value = raw_code(value)
     m = re.match(r"^(\d{1,5})\s*-\s*([A-Z0-9]+)(?:\s+([A-Z0-9]+))?", value)
     if not m:
         return value
@@ -70,10 +74,10 @@ def parse_products(html):
         m = CODE_RE.search(title)
         if not m:
             continue
-        raw_code = f"{m.group(1)}-{m.group(2)}"
+        source_code = f"{m.group(1)}-{m.group(2)}"
         if m.group(3):
-            raw_code += f" {m.group(3)}"
-        code = norm_code(raw_code)
+            source_code += f" {m.group(3)}"
+        code = norm_code(source_code)
         href = urljoin(BASE, title_el.get("href") or "")
         desc_el = card.select_one(".product-description-short, .product-description, .product-desc")
         desc = clean(desc_el.get_text(" ", strip=True)) if desc_el else ""
@@ -111,8 +115,8 @@ def main():
         reader = csv.DictReader(fh)
         rows = list(reader)
         fields = reader.fieldnames
-    if not fields or len(rows) < 500:
-        raise SystemExit("Invalid shobi-master.csv")
+    if not fields or len(rows) != 2273:
+        raise SystemExit(f"Invalid shobi-master.csv row count: {len(rows)}")
 
     session = requests.Session()
     session.headers.update({"User-Agent": "Mozilla/5.0 ShobiDatabaseUpdater/1.0"})
@@ -135,8 +139,6 @@ def main():
         page += 1
         time.sleep(0.15)
 
-    # Keep exact full-code identities first. This prevents WP/MP or W/M variants
-    # from being collapsed into one record.
     official_exact = {}
     official_by_base = defaultdict(list)
     for product in official_products:
@@ -148,11 +150,21 @@ def main():
     unmatched = []
 
     for row in rows:
-        raw = row.get("shobi_code")
-        code = norm_code(raw)
-        product = official_exact.get(code)
+        source = raw_code(row.get("shobi_code"))
+        code = norm_code(source)
+        product = None
 
-        # Fallback only when both sides have a single unambiguous base identity.
+        # 390-ACQ exists twice with the same displayed code. The category path is
+        # the stable discriminator: WP002 is women, MP006 is men.
+        if source in {"390-ACQ WP", "390-ACQ MP"}:
+            wanted = "/fragrances-for-women/" if source.endswith(" WP") else "/fragrances-for-men/"
+            product = next(
+                (p for p in official_by_base.get("390-ACQ", []) if wanted in p.get("url", "")),
+                None,
+            )
+        else:
+            product = official_exact.get(code)
+
         if product is None:
             base = base_code(code)
             candidates = official_by_base.get(base, [])
@@ -160,7 +172,7 @@ def main():
                 product = candidates[0]
 
         if product is None:
-            unmatched.append(raw)
+            unmatched.append(row.get("shobi_code"))
             continue
 
         apply_product(row, product)
@@ -169,13 +181,11 @@ def main():
     english_urls = sum("/en/" in str(r.get("shobi_url", "")) for r in rows)
     english_desc = sum(bool(r.get("description")) and not GREEK_RE.search(str(r.get("description", ""))) for r in rows)
 
-    # Row-level safety: do not silently lose or collapse master records.
-    if len(rows) != 2273:
-        raise SystemExit(f"Safety stop: expected 2273 master rows, got {len(rows)}")
-    if matched < 2268:
-        raise SystemExit(f"Safety stop: only {matched}/{len(rows)} master rows matched English Shobi")
-    if english_urls < 2268:
-        raise SystemExit(f"Safety stop: only {english_urls} English URLs")
+    # Final row-level gates: all master rows must resolve to an English Shobi URL.
+    if matched != 2273:
+        raise SystemExit(f"Safety stop: only {matched}/2273 master rows matched English Shobi; unresolved={unmatched}")
+    if english_urls != 2273:
+        raise SystemExit(f"Safety stop: only {english_urls}/2273 English URLs")
     if english_desc < 2100:
         raise SystemExit(f"Safety stop: only {english_desc} non-Greek descriptions")
 
@@ -187,9 +197,7 @@ def main():
     print(f"MASTER_ROWS={len(rows)}")
     print(f"OFFICIAL_EN_PRODUCTS={len(official_products)}")
     print(f"MATCHED_MASTER_ROWS={matched}")
-    print(f"UNMATCHED_MASTER_ROWS={len(unmatched)}")
-    if unmatched:
-        print("UNMATCHED_CODES=" + ",".join(unmatched))
+    print("UNMATCHED_MASTER_ROWS=0")
     print(f"ENGLISH_URLS={english_urls}")
     print(f"ENGLISH_DESCRIPTIONS={english_desc}")
     print(f"OUTPUT={OUTPUT.name}")
