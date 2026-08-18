@@ -1,4 +1,7 @@
 SUSPICIOUS_ROWS=261
+GOOD_INSPIRED_BAD_NAME=222
+BAD_INSPIRED_GOOD_NAME=0
+BOTH_BAD=39
 SINGLE_DESCRIPTION_CANDIDATE=29
 ROW	59	2791-LTN N	Louis Vuitton	of	of	the fragrance notes of	Niche Perfumes 2791-LTN N AR585 From €15.00 2791-LTN N Inspired by the fragrance notes of. Unisex perfume floral, fruity, white floral, fresh, sweet, rose. Add to cart
 ROW	64	2786-LTN N	Louis Vuitton	notes	notes	the fragrance notes	Niche Perfumes 2786-LTN N AR580 From €15.00 2786-LTN N Inspired by the fragrance notes. Citrus, fresh spicy, green, aromatic, herbal, fresh, ozonic. Add to cart
