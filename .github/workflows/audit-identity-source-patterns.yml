@@ -1,0 +1,25 @@
+name: Audit Identity Source Patterns
+on:
+  push:
+    paths:
+      - 'scripts/audit_identity_source_patterns.py'
+      - '.github/workflows/audit-identity-source-patterns.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python scripts/audit_identity_source_patterns.py > audit-identity-source-patterns-report.txt
+      - run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add audit-identity-source-patterns-report.txt
+          git diff --cached --quiet && exit 0
+          git commit -m "Update identity source patterns audit report"
+          git push
