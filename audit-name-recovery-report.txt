@@ -1,43 +1,11 @@
-UNRESOLVED_NAME_ROWS=39
-EXPLICIT_OFFICIAL_CANDIDATES=9
+UNRESOLVED_NAME_ROWS=7
+EXPLICIT_OFFICIAL_CANDIDATES=0
 --- CANDIDATES ---
-CAND	353	2466-ELIZ EL	Elizabeth Arden	WHITE TEA EAU DE PARFUM
-CAND	587	2204-TMFO N	Tom Ford	SOLEIL DE FEU
-CAND	893	1841-BAN WP	Banana Republic	ROSEWOOD
-CAND	910	1824-VAR	John Varvatos	ARTISAN
-CAND	1315	1104-DAV MP	Davidoff	PURE PACIFIC
-CAND	1316	1103-DAV MP	Davidoff	HOT WATER
-CAND	1806	592-ELIZ WP	Elizabeth Arden	RED DOOR
-CAND	1807	591-ELIZ WP	Elizabeth Arden	GREEN TEA YUZU
-CAND	1808	590-ELIZ WP	Elizabeth Arden	AVENUE
 --- STILL UNRESOLVED ---
 MISS	59	2791-LTN N	Louis Vuitton	Niche Perfumes 2791-LTN N AR585 From €15.00 2791-LTN N Inspired by the fragrance notes of. Unisex perfume floral, fruity, white floral, fresh, sweet, rose. Add to cart
 MISS	64	2786-LTN N	Louis Vuitton	Niche Perfumes 2786-LTN N AR580 From €15.00 2786-LTN N Inspired by the fragrance notes. Citrus, fresh spicy, green, aromatic, herbal, fresh, ozonic. Add to cart
 MISS	67	2783-LTN N	Louis Vuitton	Niche Perfumes 2783-LTN N AR578 From €15.00 2783-LTN N Inspired by the fragrance notes. Woody, powdery, warm spicy, aromatic, balsamic. Add to cart
-MISS	114	2723-LTN N	Louis Vuitton	Niche Perfumes 2723-LTN N AR551 From €15.00 2723-LTN N Inspired by the fragrance notes. unisex perfume mossy, white floral, earthy, aromatic, fresh, fresh spicy, green. Add to cart
-MISS	179	2647-LTN N	Louis Vuitton	Niche Perfumes 2647-LTN N AR508 1 Reviews From €15.00 2647-LTN Inspired by the fragrance notes. Add to cart
-MISS	181	2645-LTN N	Louis Vuitton	Niche Perfumes 2645-LTN N AR514 From €15.00 2645-LTN Inspired by the fragrance notes. Oriental Floral fragrance for women. Add to cart
-MISS	198	2627-LTN N	Louis Vuitton	Niche Perfumes 2627-LTN N AR503 From €15.00 2627-LTN Inspired by the fragrance notes. Add to cart
-MISS	361	2458-LTN EL	Louis Vuitton	Elegants Fragrances 2458-LTN EL EL432 From €10.00 2458-LTN Inspired by the fragrance notes. Add to cart
-MISS	472	2332-LTN N	Louis Vuitton	Niche Perfumes 2332-LTN N AR391 From €15.00 2332-LTN Inspired by the fragrance notes. Great summer scent. Add to cart
-MISS	481	2320-LTN N	Louis Vuitton	Niche Perfumes 2320-LTN N AR390 1 Reviews From €15.00 2320-LTN Inspired by the fragrance notes. Add to cart
-MISS	482	2319-LTN N	Louis Vuitton	Niche Perfumes 2319-LTN N AR392 From €15.00 2319-LTN Inspired by the fragrance notes. Good for spring and summer heat, or as an everyday signature fragrance. Add to cart
 MISS	547	2247-LTN	Louis Vuitton	Luxury Perfumes 2247-LTN L LUX017 From €20.00 2247-LTN Inspired by the fragrance notes. Add to cart
-MISS	590	2201-LTN	Louis Vuitton	Luxury Perfumes 2201-LTN L LUX014 From €20.00 2201-LTN Inspired by the fragrance notes. Add to cart
-MISS	596	2193-LTN N	Louis Vuitton	Niche Perfumes 2193-LTN N AR334 1 Reviews From €15.00 2193-LTN Inspired by the fragrance notes. Add to cart
 MISS	597	2192-LTN N	Louis Vuitton	Niche Perfumes 2192-LTN N AR333 From €15.00 2192-LTN Inspired by the fragrance notes. Add to cart
-MISS	641	2141-LTN N	Louis Vuitton	Niche Perfumes 2141-LTN N AR314 1 Reviews From €15.00 2141-LTN Inspired by the fragrance notes. Add to cart
-MISS	672	2109-LTN N	Louis Vuitton	Niche Perfumes 2109-LTN N AR296 From €15.00 2109-LTN Inspired by the fragrance notes. Add to cart
 MISS	696	2073-LTN N	Louis Vuitton	Niche Perfumes 2073-LTN N AR287 From €15.00 2073-LTN Inspired by the fragrance notes. Add to cart
-MISS	751	2011-LTN N	Louis Vuitton	Niche Perfumes 2011-LTN N AR265 From €15.00 2011-LTN Inspired by the fragrance notes. Add to cart
-MISS	764	1997-LTN N	Louis Vuitton	Niche Perfumes 1997-LTN N AR260 From €15.00 1997-LTN Inspired by the fragrance notes. Add to cart
-MISS	765	1996-LTN N	Louis Vuitton	Niche Perfumes 1996-LTN N AR259 From €15.00 1996-LTN Inspired by the fragrance notes. Add to cart
-MISS	950	1768-LTN N	Louis Vuitton	Niche Perfumes 1768-LTN N AR145 From €15.00 1768-LTN Inspired by the fragrance notes. Add to cart
-MISS	967	1750-LTN N	Louis Vuitton	Niche Perfumes 1750-LTN N AR136 From €15.00 1750-LTN Inspired by the fragrance notes. Add to cart
 MISS	999	1699-LTN N	Louis Vuitton	Niche Perfumes 1699-LTN N AR118 1 Reviews From €15.00 1699-LTN Inspired by the fragrance notes. Add to cart
-MISS	1063	1612-LTN N	Louis Vuitton	Niche Perfumes 1612-LTN N AR102 From €15.00 1612-LTN Inspired by the fragrance notes. Add to cart
-MISS	1555	848-NRO WP	Narciso Rodriguez	Fragrances For Women 848-NRO WP WP526 From €9.00 PURE MUSK FOR HER - NARCISO RODRIGUEZ Add to cart
-MISS	1576	826-MIS WP	Missguided	Fragrances For Women 826-MIS WP WP611 From €9.00 BABE POWER - MISSGUIDED PERFUME TYPE Trademarks and Copyrights are the property of their respective manufactures or brands. Our interpretations should not be confused with
-MISS	1592	810-LTN N	Louis Vuitton	Niche Perfumes 810-LTN N AR174 From €15.00 810-LTN Inspired by the fragrance notes. Woody Amber fragrance for women. Add to cart
-MISS	1593	809-LTN N	Louis Vuitton	Niche Perfumes 809-LTN N AR173 From €15.00 809-LTN Inspired by the fragrance notes. Add to cart
-MISS	2248	132-LTN N	Louis Vuitton	Niche Perfumes 132-LTN N AR060 From €15.00 132-LTN Inspired by the fragrance notes. Add to cart
