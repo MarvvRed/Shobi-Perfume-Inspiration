@@ -39,12 +39,13 @@ jobs:
           name: shobi-master-en
           path: shobi-master-en.csv
 
-      - name: Commit candidate only after validation
-        if: github.event_name != 'pull_request'
+      - name: Promote validated candidate on main
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
         run: |
+          cp shobi-master-en.csv shobi-master.csv
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add shobi-master-en.csv
+          git add shobi-master.csv shobi-master-en.csv
           git diff --cached --quiet && exit 0
-          git commit -m "Build validated English Shobi master candidate"
+          git commit -m "Promote validated English Shobi master"
           git push
