@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # Validation run: English catalog candidate only; live database is untouched.
+# Final validation trigger.
 import csv
 import re
 import time
