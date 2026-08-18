@@ -5,6 +5,8 @@ on:
     paths:
       - 'scripts/audit_name_recovery.py'
       - '.github/workflows/audit-name-recovery.yml'
+      - 'shobi-master.csv'
+      - 'shobi-master-en.csv'
   workflow_dispatch:
 
 permissions:
