@@ -1,16 +1,8 @@
-// Read-only enrichment for Best Seller #21-#100.
-// Source: Personal Database/perfume-details.json.
-// Only note pyramids explicitly marked verified are propagated to the live in-memory records.
+// Verified note enrichment for Best Seller #21-#100.
+// Runtime source: bestseller-notes-verified.json, generated from Personal Database/perfume-details.json.
+// Personal Database remains read-only and is never fetched by the browser.
 (function () {
-    const normalizeCode = value => String(value || '').trim().toLowerCase();
     const rankedCodes = () => (window.SHOBI_BESTSELLER_CODES || []).slice(20, 100).map(String);
-
-    function hasVerifiedNotes(details) {
-        if (!details || typeof details !== 'object') return false;
-        if (details.notes_verified === true) return true;
-        const status = String(details.notes_status || '').toLowerCase();
-        return status.includes('verified') && !status.includes('pending') && !status.includes('unverified');
-    }
 
     function unique(values) {
         return [...new Set((values || []).map(v => String(v || '').trim()).filter(Boolean))];
@@ -43,33 +35,35 @@
         const codes = rankedCodes();
         if (!codes.length || !Array.isArray(window.allPerfumes || allPerfumes)) return;
 
-        let detailsDb;
+        let payload;
         try {
-            const response = await fetch('Personal%20Database/perfume-details.json', { cache: 'no-cache' });
+            const response = await fetch('bestseller-notes-verified.json', { cache: 'no-cache' });
             if (!response.ok) throw new Error(`HTTP ${response.status}`);
-            detailsDb = await response.json();
+            payload = await response.json();
         } catch (error) {
-            console.warn('Best Seller note enrichment unavailable:', error);
+            console.warn('Verified Best Seller note payload unavailable:', error);
             return;
         }
 
+        const verifiedDb = payload && payload.perfumes && typeof payload.perfumes === 'object'
+            ? payload.perfumes
+            : {};
         const byCode = new Map(allPerfumes.map(p => [String(p.code || ''), p]));
         const unresolved = [];
         let enriched = 0;
 
         codes.forEach(code => {
             const perfume = byCode.get(code);
-            const details = detailsDb[normalizeCode(code)];
             if (!perfume) {
                 unresolved.push(code);
                 return;
             }
 
-            // Legacy note data is not trusted for #21-#100 unless the Personal Database
-            // explicitly marks the corresponding pyramid as verified.
+            // Never expose legacy/unverified note data on Best Seller #21-#100.
             clearUnverifiedNotes(perfume);
 
-            if (!hasVerifiedNotes(details) || !mergeVerifiedNotes(perfume, details)) {
+            const details = verifiedDb[code];
+            if (!details || !mergeVerifiedNotes(perfume, details)) {
                 unresolved.push(code);
                 return;
             }
@@ -80,7 +74,8 @@
             scope: '21-100',
             total: codes.length,
             enriched,
-            unresolved
+            unresolved,
+            generatedAt: payload.generated_at || null
         };
         console.log(`Verified note enrichment #21-#100: ${enriched}/${codes.length}.`);
         if (unresolved.length) console.info('Best Seller note records still requiring verification:', unresolved);
