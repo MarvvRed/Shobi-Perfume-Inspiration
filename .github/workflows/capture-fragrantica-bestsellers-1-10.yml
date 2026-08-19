@@ -18,44 +18,32 @@ jobs:
     timeout-minutes: 15
 
     steps:
-      - name: Preflight runner diagnostics
+      - name: Runner preflight
         shell: pwsh
-        continue-on-error: true
         run: |
-          Write-Host "=== RUNNER PRECHECK ==="
           Write-Host "Computer: $env:COMPUTERNAME"
           Write-Host "User: $env:USERNAME"
-          Write-Host "Runner workspace: $env:GITHUB_WORKSPACE"
-          Write-Host "PATH: $env:PATH"
           Write-Host "PowerShell: $($PSVersionTable.PSVersion)"
-          foreach ($cmd in @('git','node','npm','npx')) {
-            $found = Get-Command $cmd -ErrorAction SilentlyContinue
-            if ($found) {
-              Write-Host "$cmd => $($found.Source)"
-              & $cmd --version
-            } else {
-              Write-Host "$cmd => NOT FOUND"
-            }
-          }
-          Write-Host "Current dir: $(Get-Location)"
-          Get-ChildItem -Force | Select-Object Name,Mode,Length
-          Write-Host "=== END PRECHECK ==="
-
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Verify repository files
-        shell: pwsh
-        run: |
-          Write-Host "Workspace after checkout: $env:GITHUB_WORKSPACE"
-          Test-Path 'tools/fragrantica-main-notes/auto-capture-bestsellers-1-10.mjs'
-          Test-Path 'tools/fragrantica-main-notes/batches/bestsellers-1-10.json'
-          Get-ChildItem 'tools/fragrantica-main-notes' -Force
+          Write-Host "Workspace: $env:GITHUB_WORKSPACE"
 
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: '22'
+
+      - name: Prepare working files without git
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Force -Path 'tools/fragrantica-main-notes/batches' | Out-Null
+          New-Item -ItemType Directory -Force -Path 'tools/fragrantica-main-notes/results' | Out-Null
+          Invoke-WebRequest -UseBasicParsing `
+            'https://raw.githubusercontent.com/MarvvRed/Shobi-Perfume-Inspiration/main/tools/fragrantica-main-notes/auto-capture-bestsellers-1-10.mjs' `
+            -OutFile 'tools/fragrantica-main-notes/auto-capture-bestsellers-1-10.mjs'
+          Invoke-WebRequest -UseBasicParsing `
+            'https://raw.githubusercontent.com/MarvvRed/Shobi-Perfume-Inspiration/main/tools/fragrantica-main-notes/batches/bestsellers-1-10.json' `
+            -OutFile 'tools/fragrantica-main-notes/batches/bestsellers-1-10.json'
+          Write-Host "Script exists: $(Test-Path 'tools/fragrantica-main-notes/auto-capture-bestsellers-1-10.mjs')"
+          Write-Host "Batch exists: $(Test-Path 'tools/fragrantica-main-notes/batches/bestsellers-1-10.json')"
 
       - name: Verify Node
         shell: pwsh
@@ -81,22 +69,42 @@ jobs:
         shell: pwsh
         run: node tools/fragrantica-main-notes/auto-capture-bestsellers-1-10.mjs
 
-      - name: Commit capture results
+      - name: Save result to repository through GitHub API
         if: always()
         shell: pwsh
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           $RESULT = 'tools/fragrantica-main-notes/results/bestsellers-1-10-auto.json'
           if (-not (Test-Path $RESULT)) {
             Write-Host 'Capture result file was not produced.'
             exit 0
           }
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add $RESULT
-          git diff --cached --quiet
-          if ($LASTEXITCODE -eq 0) {
-            Write-Host 'No result changes to commit.'
-            exit 0
+
+          $api = 'https://api.github.com/repos/MarvvRed/Shobi-Perfume-Inspiration/contents/tools/fragrantica-main-notes/results/bestsellers-1-10-auto.json'
+          $headers = @{
+            Authorization = "Bearer $env:GH_TOKEN"
+            Accept = 'application/vnd.github+json'
+            'X-GitHub-Api-Version' = '2022-11-28'
+            'User-Agent' = 'shobi-fragrantica-self-hosted-runner'
           }
-          git commit -m 'Update Fragrantica bestseller 1-10 capture results'
-          git push
+
+          $sha = $null
+          try {
+            $existing = Invoke-RestMethod -Headers $headers -Uri $api -Method Get
+            $sha = $existing.sha
+          } catch {
+            Write-Host 'No existing result file found; creating it.'
+          }
+
+          $bytes = [System.IO.File]::ReadAllBytes((Resolve-Path $RESULT))
+          $body = @{
+            message = 'Update Fragrantica bestseller 1-10 capture results'
+            content = [Convert]::ToBase64String($bytes)
+            branch = 'main'
+          }
+          if ($sha) { $body.sha = $sha }
+
+          $json = $body | ConvertTo-Json -Depth 5
+          Invoke-RestMethod -Headers $headers -Uri $api -Method Put -ContentType 'application/json' -Body $json | Out-Null
+          Write-Host 'Result saved to repository.'
