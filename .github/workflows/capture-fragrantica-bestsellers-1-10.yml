@@ -10,7 +10,7 @@ on:
 jobs:
   capture:
     runs-on: [self-hosted, Windows, X64]
-    timeout-minutes: 8
+    timeout-minutes: 10
 
     steps:
       - name: CMD baseline
@@ -80,4 +80,60 @@ jobs:
           "%NODEDIR%\node.exe" --version
           if exist "%NODEDIR%\npm.cmd" call "%NODEDIR%\npm.cmd" --version
           echo NODE_PORTABLE_STAGE_OK
+          exit /b 0
+
+      - name: Install Playwright Core from CMD only
+        shell: cmd
+        run: |
+          @echo off
+          setlocal EnableExtensions EnableDelayedExpansion
+          echo === PLAYWRIGHT CORE STAGE ===
+
+          set "NODEEXE="
+          set "NPMCMD="
+
+          where node >nul 2>nul
+          if not errorlevel 1 (
+            for /f "delims=" %%I in ('where node') do if not defined NODEEXE set "NODEEXE=%%I"
+            for /f "delims=" %%I in ('where npm.cmd 2^>nul') do if not defined NPMCMD set "NPMCMD=%%I"
+          )
+
+          if not defined NODEEXE (
+            set "NODEDIR=%RUNNER_TEMP%\shobi-node\node-v22.18.0-win-x64"
+            if exist "!NODEDIR!\node.exe" set "NODEEXE=!NODEDIR!\node.exe"
+            if exist "!NODEDIR!\npm.cmd" set "NPMCMD=!NODEDIR!\npm.cmd"
+          )
+
+          if not defined NODEEXE (
+            echo NODE_UNAVAILABLE_FOR_PLAYWRIGHT
+            exit /b 0
+          )
+          if not defined NPMCMD (
+            echo NPM_UNAVAILABLE_FOR_PLAYWRIGHT
+            exit /b 0
+          )
+
+          echo NODEEXE=!NODEEXE!
+          "!NODEEXE!" --version
+
+          set "WORK=%RUNNER_TEMP%\shobi-playwright"
+          if not exist "!WORK!" mkdir "!WORK!"
+          cd /d "!WORK!"
+
+          if not exist "node_modules\playwright-core\package.json" (
+            echo Installing playwright-core...
+            call "!NPMCMD!" install --no-save --no-audit --no-fund playwright-core@1.55.0
+            if errorlevel 1 (
+              echo PLAYWRIGHT_INSTALL_FAILED
+              exit /b 0
+            )
+          ) else (
+            echo PLAYWRIGHT_ALREADY_PRESENT
+          )
+
+          if exist "node_modules\playwright-core\package.json" (
+            echo PLAYWRIGHT_CORE_STAGE_OK
+          ) else (
+            echo PLAYWRIGHT_PACKAGE_MISSING
+          )
           exit /b 0
