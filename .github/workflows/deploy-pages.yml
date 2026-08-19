@@ -24,21 +24,73 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Inject Official Catcher notes test
+      - name: Apply Official Catcher notes test to deployed enrichment
         shell: bash
         run: |
           node <<'NODE'
           const fs = require('fs');
-          const indexPath = 'Personal Database/index.html';
-          const patchPath = 'Personal Database/catcher-main-notes-test-inline.js';
-          let html = fs.readFileSync(indexPath, 'utf8');
-          const patch = fs.readFileSync(patchPath, 'utf8');
-          const marker = '\nboot();\n';
-          const pos = html.lastIndexOf(marker);
-          if (pos < 0) throw new Error('boot() marker not found in Personal Database/index.html');
-          html = html.slice(0, pos) + '\n' + patch + '\n' + html.slice(pos);
-          fs.writeFileSync(indexPath, html);
-          console.log('Injected Official Catcher 0.3.5 notes test before boot()');
+          const baseDir = 'Personal Database';
+          const runtimePath = `${baseDir}/site-runtime-v2.json`;
+          const enrichmentPath = `${baseDir}/site-enrichment-v2.json`;
+          const catcherPath = `${baseDir}/fragrantica-main-notes.json`;
+
+          const runtime = JSON.parse(fs.readFileSync(runtimePath, 'utf8'));
+          const enrichmentDoc = JSON.parse(fs.readFileSync(enrichmentPath, 'utf8'));
+          const catcher = JSON.parse(fs.readFileSync(catcherPath, 'utf8'));
+          const enrichment = enrichmentDoc.e || {};
+          const catcherById = catcher.perfumes || {};
+
+          const clean = v => String(v || '')
+            .toLowerCase()
+            .normalize('NFD')
+            .replace(/[\u0300-\u036f]/g, '')
+            .replace(/[^a-z0-9]+/g, ' ')
+            .trim();
+          const codeKey = v => String(v || '').toUpperCase().replace(/\s+/g, '');
+          const fragIdFromUrl = url => {
+            const m = String(url || '').match(/-(\d+)\.html(?:[?#]|$)/i);
+            return m ? m[1] : '';
+          };
+
+          const perfumeByCode = new Map((runtime.p || []).map(x => [codeKey(x[0]), { code: x[0], name: x[1], brand: x[2] }]));
+          const catcherByName = new Map();
+          Object.values(catcherById).forEach(src => {
+            const k = clean(src && src.name);
+            if (k && !catcherByName.has(k)) catcherByName.set(k, src);
+          });
+
+          let applied = 0;
+          const appliedRows = [];
+          for (const [code, row] of Object.entries(enrichment)) {
+            if (!Array.isArray(row)) continue;
+            const fragId = fragIdFromUrl(row[4]);
+            let src = fragId && catcherById[fragId];
+            let matchedBy = src ? 'fragrantica-id' : '';
+
+            if (!src) {
+              const p = perfumeByCode.get(codeKey(code));
+              src = p && catcherByName.get(clean(p.name));
+              if (src) matchedBy = 'exact-name';
+            }
+
+            if (!src || !Array.isArray(src.notes) || !src.notes.length) continue;
+            row[2] = src.notes
+              .slice()
+              .sort((a,b) => (Number(a.rank) || 999) - (Number(b.rank) || 999))
+              .slice(0,5)
+              .map(n => String(n.note || '').trim())
+              .filter(Boolean);
+            applied++;
+            appliedRows.push(`${code} -> ${src.name} [${matchedBy}] -> ${row[2].join(' | ')}`);
+          }
+
+          console.log(`Official Catcher notes applied: ${applied}/${Object.keys(catcherById).length}`);
+          appliedRows.forEach(x => console.log(x));
+          if (applied !== Object.keys(catcherById).length) {
+            throw new Error(`Expected to apply ${Object.keys(catcherById).length} catcher records, applied ${applied}. Deployment stopped to avoid partial test data.`);
+          }
+
+          fs.writeFileSync(enrichmentPath, JSON.stringify(enrichmentDoc));
           NODE
 
       - name: Configure Pages
