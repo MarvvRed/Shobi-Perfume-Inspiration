@@ -19,7 +19,7 @@ jobs:
 
     steps:
       - name: Runner preflight
-        shell: pwsh
+        shell: powershell
         run: |
           Write-Host "Computer: $env:COMPUTERNAME"
           Write-Host "User: $env:USERNAME"
@@ -32,7 +32,7 @@ jobs:
           node-version: '22'
 
       - name: Prepare working files without git
-        shell: pwsh
+        shell: powershell
         run: |
           New-Item -ItemType Directory -Force -Path 'tools/fragrantica-main-notes/batches' | Out-Null
           New-Item -ItemType Directory -Force -Path 'tools/fragrantica-main-notes/results' | Out-Null
@@ -46,32 +46,32 @@ jobs:
           Write-Host "Batch exists: $(Test-Path 'tools/fragrantica-main-notes/batches/bestsellers-1-10.json')"
 
       - name: Verify Node
-        shell: pwsh
+        shell: powershell
         run: |
           node --version
           npm --version
           npx --version
 
       - name: Install Playwright package
-        shell: pwsh
+        shell: powershell
         run: npm install --no-save playwright@1.55.0
 
       - name: Install Chromium
-        shell: pwsh
+        shell: powershell
         run: npx playwright install chromium
 
       - name: Smoke test Chromium
-        shell: pwsh
+        shell: powershell
         run: |
           node -e "const { chromium }=require('playwright'); (async()=>{const b=await chromium.launch({headless:true}); const p=await b.newPage(); await p.goto('https://example.com'); console.log(await p.title()); await b.close();})().catch(e=>{console.error(e);process.exit(1)})"
 
       - name: Capture Fragrantica Main Notes
-        shell: pwsh
+        shell: powershell
         run: node tools/fragrantica-main-notes/auto-capture-bestsellers-1-10.mjs
 
       - name: Save result to repository through GitHub API
         if: always()
-        shell: pwsh
+        shell: powershell
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
