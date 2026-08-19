@@ -1,58 +1,35 @@
-// Best sellers #1-#20: make the bottle image an explicit link to the matching Fragrantica page.
+// Best sellers #1-#100: approved card layout. Ranks 21-100 use only verified fields already in shobi-master.csv.
 (function(){
   if(typeof renderVanillaPrototype!=='function') return;
-
-  const fragranticaByRank=[
-    'https://www.fragrantica.com/perfume/Kayali/Vanilla-28-52616.html',
-    'https://www.fragrantica.com/perfume/By-Kilian/Angels-Share-62615.html',
-    'https://www.fragrantica.com/perfume/Byredo/Blanche-6686.html',
-    'https://www.fragrantica.com/perfume/Tom-Ford/Tobacco-Vanille-1825.html',
-    'https://www.fragrantica.com/perfume/ZARKOPERFUME/The-Muse-60665.html',
-    'https://www.fragrantica.com/perfume/Maison-Francis-Kurkdjian/Baccarat-Rouge-540-33519.html',
-    'https://www.fragrantica.com/perfume/Creed/Virgin-Island-Water-899.html',
-    'https://www.fragrantica.com/perfume/Tom-Ford/Lost-Cherry-51411.html',
-    'https://www.fragrantica.com/perfume/Dolce-Gabbana/Devotion-84951.html',
-    'https://www.fragrantica.com/perfume/Sol-de-Janeiro/Brazilian-Crush-Cheirosa-62-56062.html',
-    'https://www.fragrantica.com/perfume/Tom-Ford/Soleil-Blanc-34893.html',
-    'https://www.fragrantica.com/perfume/Byredo/Bal-d-Afrique-6458.html',
-    'https://www.fragrantica.com/perfume/Creed/Aventus-9828.html',
-    'https://www.fragrantica.com/perfume/By-Kilian/Love-Don-t-Be-Shy-4322.html',
-    'https://www.fragrantica.com/perfume/Zadig-Voltaire/This-is-Her-39358.html',
-    'https://www.fragrantica.com/perfume/Matiere-Premiere/Vanilla-Powder-84933.html',
-    'https://www.fragrantica.com/perfume/Giardini-Di-Toscana/Bianco-Latte-64757.html',
-    'https://www.fragrantica.com/perfume/Xerjoff/Naxos-30529.html',
-    'https://www.fragrantica.com/perfume/Diptyque/Philosykos-Eau-de-Parfum-3865.html',
-    'https://www.fragrantica.com/perfume/Burberry/Goddess-83483.html'
-  ];
-
-  const baseRender=renderVanillaPrototype;
+  const codes=(window.SHOBI_BESTSELLER_CODES||[]), rankedSet=new Set(codes.slice(20,100).map(String));
+  const first20Render=renderVanillaPrototype, first20Match=isVanilla28;
+  const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const genderLabel=g=>g==='female'?'Female':g==='male'?'Male':g==='unisex'?'Unisex':'';
+  const seasonMeta=s=>({spring:['🌸','Spring'],summer:['☀️','Summer'],fall:['🍂','Fall'],autumn:['🍂','Autumn'],winter:['❄️','Winter']}[s]||null);
+  isVanilla28=function(p){return first20Match(p)||rankedSet.has(String(p.code||''));};
   renderVanillaPrototype=function(p){
-    const article=baseRender(p);
-    const rank=(window.SHOBI_BESTSELLER_CODES||[]).indexOf(String(p.code||''));
-    const url=fragranticaByRank[rank];
-    if(!url || !article) return article;
-
-    const wrap=article.querySelector('.prototype-image-wrap');
-    const image=wrap?.querySelector('img');
-    if(!wrap || !image || image.closest('.prototype-fragrantica-link')) return article;
-
-    const link=document.createElement('a');
-    link.className='prototype-fragrantica-link';
-    link.href=url;
-    link.target='_blank';
-    link.rel='noopener noreferrer';
-    link.title='View on Fragrantica';
-    link.setAttribute('aria-label','View this perfume on Fragrantica');
-
-    image.parentNode.insertBefore(link,image);
-    link.appendChild(image);
-
-    const hint=document.createElement('span');
-    hint.className='prototype-fragrantica-hint';
-    hint.setAttribute('aria-hidden','true');
-    hint.innerHTML='<i class="fa-solid fa-arrow-up-right-from-square"></i><span>Fragrantica</span>';
-    link.appendChild(hint);
-
+    if(!rankedSet.has(String(p.code||''))) return first20Render(p);
+    const rank=codes.indexOf(String(p.code||''))+1, favorite=state.favorites.includes(p.code), article=document.createElement('article');
+    const g=String(p.genderAffinity||'').toLowerCase(), gl=genderLabel(g), s=String((p.seasons||[])[0]||'').toLowerCase(), sm=seasonMeta(s);
+    const notes=[...(p.notes?.top||[]),...(p.notes?.heart||[]),...(p.notes?.base||[])].filter((v,i,a)=>v&&a.indexOf(v)===i).slice(0,5);
+    const shopUrl=p.shobiUrl||`https://leparfum.com.gr/en/module/iqitsearch/searchiqit?s=${encodeURIComponent(p.code)}`;
+    const noteBadges=notes.map(name=>`<button type="button" class="prototype-meta-badge prototype-filter-badge${state.selectedNote===name?' is-active':''}" data-card-filter="note" data-filter-value="${esc(name)}" title="Filter by ${esc(name)}"><span aria-hidden="true" style="width:22px;height:22px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;flex:0 0 22px;background:var(--color-bg-surface);border:1px solid var(--color-border-light);font-size:10px"><i class="fa-solid fa-droplet"></i></span><span>${esc(name)}</span></button>`).join('');
+    let imageHtml=p.image?`<img src="${esc(p.image)}" alt="${esc(p.inspiredBy)} - ${esc(p.brand)}" loading="lazy" decoding="async">`:'<div class="text-tertiary text-sm">Image not verified</div>';
+    if(p.image&&p.fragranticaUrl) imageHtml=`<a class="prototype-fragrantica-link" href="${esc(p.fragranticaUrl)}" target="_blank" rel="noopener noreferrer" title="View on Fragrantica" aria-label="View this perfume on Fragrantica">${imageHtml}<span class="prototype-fragrantica-hint" aria-hidden="true"><i class="fa-solid fa-arrow-up-right-from-square"></i><span>Fragrantica</span></span></a>`;
+    const genderHtml=gl?`<button type="button" class="prototype-meta-badge prototype-filter-badge${state.activeFilters.gender.includes(g)?' is-active':''}" data-card-filter="gender" data-filter-value="${g}" title="Filter ${gl}" aria-label="Filter ${gl}"><span style="width:22px;height:22px;display:inline-flex;align-items:center;justify-content:center;flex:0 0 22px">${getAudienceIcons(g)}</span><span style="font-size:16px">${gl}</span></button>`:'';
+    const seasonHtml=sm?`${genderHtml?'<span class="text-tertiary">|</span>':''}<button type="button" class="prototype-meta-badge prototype-filter-badge${state.activeFilters.season.includes(s)?' is-active':''}" data-card-filter="season" data-filter-value="${s}" title="Filter ${sm[1]}" aria-label="Filter ${sm[1]}"><span style="width:22px;height:22px;display:inline-flex;align-items:center;justify-content:center;flex:0 0 22px;font-size:1rem">${sm[0]}</span></button>`:'';
+    article.className='perfume-card-prototype bg-surface rounded-xl shadow-lg overflow-hidden flex flex-col';
+    article.innerHTML=`<div class="p-4 pb-3 text-left"><h3 class="text-lg font-bold text-primary leading-tight">${esc(p.inspiredBy)}</h3><div class="mt-1 flex flex-wrap items-center gap-2"><button type="button" data-action="filter-brand" data-brand="${esc(p.brand)}" class="font-medium text-secondary text-left" style="font-size:17px">${esc(p.brand)}</button><span class="text-xs text-secondary">Best Seller #${rank}</span></div></div><div class="prototype-image-wrap">${imageHtml}</div><div class="px-4 pt-3 pb-4 flex flex-col gap-3"><div class="text-sm text-secondary text-left flex items-center gap-3">${genderHtml}${seasonHtml}</div><div class="flex flex-wrap gap-2">${noteBadges}</div><button type="button" data-action="show-details" data-code="${esc(p.code)}" class="prototype-details-btn">More details</button><div class="prototype-actions"><button type="button" class="favorite-btn${favorite?' is-favorite':''}" data-code="${esc(p.code)}">${favorite?'<i class="fa-solid fa-heart"></i>':'<i class="fa-regular fa-heart"></i>'}<span> Favorite</span></button><span class="prototype-divider">|</span><button type="button" class="collection-prototype-btn" title="Collection prototype"><i class="fa-solid fa-plus"></i><span> Collection</span></button></div><a href="${esc(shopUrl)}" target="_blank" rel="noopener noreferrer" class="prototype-shop-btn">Shop on Shobi</a></div>`;
     return article;
+  };
+
+  const fragranticaByRank=['https://www.fragrantica.com/perfume/Kayali/Vanilla-28-52616.html','https://www.fragrantica.com/perfume/By-Kilian/Angels-Share-62615.html','https://www.fragrantica.com/perfume/Byredo/Blanche-6686.html','https://www.fragrantica.com/perfume/Tom-Ford/Tobacco-Vanille-1825.html','https://www.fragrantica.com/perfume/ZARKOPERFUME/The-Muse-60665.html','https://www.fragrantica.com/perfume/Maison-Francis-Kurkdjian/Baccarat-Rouge-540-33519.html','https://www.fragrantica.com/perfume/Creed/Virgin-Island-Water-899.html','https://www.fragrantica.com/perfume/Tom-Ford/Lost-Cherry-51411.html','https://www.fragrantica.com/perfume/Dolce-Gabbana/Devotion-84951.html','https://www.fragrantica.com/perfume/Sol-de-Janeiro/Brazilian-Crush-Cheirosa-62-56062.html','https://www.fragrantica.com/perfume/Tom-Ford/Soleil-Blanc-34893.html','https://www.fragrantica.com/perfume/Byredo/Bal-d-Afrique-6458.html','https://www.fragrantica.com/perfume/Creed/Aventus-9828.html','https://www.fragrantica.com/perfume/By-Kilian/Love-Don-t-Be-Shy-4322.html','https://www.fragrantica.com/perfume/Zadig-Voltaire/This-is-Her-39358.html','https://www.fragrantica.com/perfume/Matiere-Premiere/Vanilla-Powder-84933.html','https://www.fragrantica.com/perfume/Giardini-Di-Toscana/Bianco-Latte-64757.html','https://www.fragrantica.com/perfume/Xerjoff/Naxos-30529.html','https://www.fragrantica.com/perfume/Diptyque/Philosykos-Eau-de-Parfum-3865.html','https://www.fragrantica.com/perfume/Burberry/Goddess-83483.html'];
+  const rank100Render=renderVanillaPrototype;
+  renderVanillaPrototype=function(p){
+    const article=rank100Render(p), idx=codes.indexOf(String(p.code||'')), url=fragranticaByRank[idx];
+    if(!url||!article||idx>=20) return article;
+    const wrap=article.querySelector('.prototype-image-wrap'), image=wrap?.querySelector('img'); if(!wrap||!image||image.closest('.prototype-fragrantica-link')) return article;
+    const link=document.createElement('a'); link.className='prototype-fragrantica-link'; link.href=url; link.target='_blank'; link.rel='noopener noreferrer'; link.title='View on Fragrantica'; link.setAttribute('aria-label','View this perfume on Fragrantica'); image.parentNode.insertBefore(link,image); link.appendChild(image);
+    const hint=document.createElement('span'); hint.className='prototype-fragrantica-hint'; hint.setAttribute('aria-hidden','true'); hint.innerHTML='<i class="fa-solid fa-arrow-up-right-from-square"></i><span>Fragrantica</span>'; link.appendChild(hint); return article;
   };
 })();
