@@ -6,6 +6,7 @@ on:
     paths:
       - 'scripts/audit_bestseller_notes.py'
       - 'Personal Database/perfume-details.json'
+      - 'Personal Database/catalog-lite.json'
       - 'bestsellers-*.js'
       - '.github/workflows/audit-bestseller-notes.yml'
 
@@ -24,7 +25,7 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Generate verified notes payload and audit
+      - name: Generate verified notes payload, audit and work queue
         run: python scripts/audit_bestseller_notes.py
 
       - name: Commit generated audit outputs
@@ -32,7 +33,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add bestseller-notes-audit.json bestseller-notes-verified.json
+          git add bestseller-notes-audit.json bestseller-notes-verified.json bestseller-notes-workqueue.json
           git diff --cached --quiet && exit 0
           git commit -m "Update Best Seller notes audit"
           git push
