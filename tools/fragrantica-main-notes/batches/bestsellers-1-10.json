@@ -1,0 +1,77 @@
+{
+  "batch": "bestsellers-1-10",
+  "scope": "Shobi site Best Seller #1-#10",
+  "status": "ready_for_capture",
+  "targets": [
+    {
+      "rank": 1,
+      "name": "Vanilla 28",
+      "brand": "Kayali Fragrances",
+      "fragrantica_id": 52616,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Kayali-Fragrances/Vanilla-28-52616.html"
+    },
+    {
+      "rank": 2,
+      "name": "Angels' Share",
+      "brand": "Kilian Paris",
+      "fragrantica_id": 62615,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/By-Kilian/Angels-Share-62615.html"
+    },
+    {
+      "rank": 3,
+      "name": "Blanche",
+      "brand": "Byredo",
+      "fragrantica_id": 6686,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Byredo/Blanche-6686.html"
+    },
+    {
+      "rank": 4,
+      "name": "Tobacco Vanille",
+      "brand": "Tom Ford",
+      "fragrantica_id": 1825,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Tom-Ford/Tobacco-Vanille-1825.html"
+    },
+    {
+      "rank": 5,
+      "name": "The Muse",
+      "brand": "ZARKOPERFUME",
+      "fragrantica_id": 60665,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/ZARKOPERFUME/The-Muse-60665.html"
+    },
+    {
+      "rank": 6,
+      "name": "Baccarat Rouge 540",
+      "brand": "Maison Francis Kurkdjian",
+      "fragrantica_id": 33519,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Maison-Francis-Kurkdjian/Baccarat-Rouge-540-33519.html"
+    },
+    {
+      "rank": 7,
+      "name": "Virgin Island Water",
+      "brand": "Creed",
+      "fragrantica_id": 899,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Creed/Virgin-Island-Water-899.html"
+    },
+    {
+      "rank": 8,
+      "name": "Lost Cherry",
+      "brand": "Tom Ford",
+      "fragrantica_id": 51411,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Tom-Ford/Lost-Cherry-51411.html"
+    },
+    {
+      "rank": 9,
+      "name": "Devotion",
+      "brand": "Dolce&Gabbana",
+      "fragrantica_id": 84951,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Dolce-Gabbana/Devotion-84951.html"
+    },
+    {
+      "rank": 10,
+      "name": "Cheirosa '62",
+      "brand": "Sol de Janeiro",
+      "fragrantica_id": 56062,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Sol-de-Janeiro/Cheirosa-62-56062.html"
+    }
+  ]
+}
