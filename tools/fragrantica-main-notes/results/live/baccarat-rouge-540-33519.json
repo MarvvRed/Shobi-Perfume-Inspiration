@@ -1,0 +1,65 @@
+{
+  "source": "firefox-extension",
+  "batch": "bestsellers-1-10",
+  "target": {
+    "rank": 6,
+    "name": "Baccarat Rouge 540",
+    "brand": "Maison Francis Kurkdjian",
+    "url": "https://www.fragrantica.com/perfume/Maison-Francis-Kurkdjian/Baccarat-Rouge-540-33519.html"
+  },
+  "perfume": "Baccarat Rouge 540 Maison Francis Kurkdjian for women and men",
+  "url": "https://www.fragrantica.com/perfume/Maison-Francis-Kurkdjian/Baccarat-Rouge-540-33519.html",
+  "capture_method": "show-votes-top5",
+  "captured_at": "2026-08-19T23:15:31.901Z",
+  "total_voted_notes": 10,
+  "saved_note_count": 5,
+  "weights_sum": null,
+  "notes": [
+    {
+      "rank": 1,
+      "note": "Amberwood",
+      "sastojak_id": 691,
+      "votes": 3480,
+      "weight": null,
+      "percentage": null,
+      "pyramid_level": null
+    },
+    {
+      "rank": 2,
+      "note": "Saffron",
+      "sastojak_id": 55,
+      "votes": 3072,
+      "weight": null,
+      "percentage": null,
+      "pyramid_level": null
+    },
+    {
+      "rank": 3,
+      "note": "Ambergris",
+      "sastojak_id": 524,
+      "votes": 2161,
+      "weight": null,
+      "percentage": null,
+      "pyramid_level": null
+    },
+    {
+      "rank": 4,
+      "note": "Fir Resin",
+      "sastojak_id": 205,
+      "votes": 2058,
+      "weight": null,
+      "percentage": null,
+      "pyramid_level": null
+    },
+    {
+      "rank": 5,
+      "note": "Cedar",
+      "sastojak_id": 41,
+      "votes": 1798,
+      "weight": null,
+      "percentage": null,
+      "pyramid_level": null
+    }
+  ],
+  "received_at": "2026-08-19T23:15:32.142Z"
+}
