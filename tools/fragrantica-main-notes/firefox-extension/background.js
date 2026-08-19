@@ -26,14 +26,16 @@ async function setState(state) {
 
 async function pingRunner() {
   try {
-    const res = await fetch(`http://127.0.0.1:8765/health?ts=${Date.now()}`, { cache: 'no-store' });
+    const res = await fetch('http://127.0.0.1:8765/health', { cache: 'no-store' });
     const ok = res.ok;
     await browser.storage.local.set({ bridgeStatus: { ok, at: new Date().toISOString(), status: res.status } });
-    if (ok) await browser.browserAction.setBadgeText({ text: 'BR' });
+    await browser.browserAction.setBadgeText({ text: ok ? 'BR' : '!' });
+    console.log('SHOBI_BRIDGE_PING', ok ? 'OK' : 'FAIL', res.status);
     return ok;
   } catch (error) {
     await browser.storage.local.set({ bridgeStatus: { ok: false, at: new Date().toISOString(), error: String(error) } });
     await browser.browserAction.setBadgeText({ text: '!' });
+    console.error('SHOBI_BRIDGE_PING_ERROR', error);
     return false;
   }
 }
@@ -45,8 +47,10 @@ async function sendToRunner(payload) {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload)
     });
+    console.log('SHOBI_CAPTURE_POST', res.status);
     return res.ok;
-  } catch {
+  } catch (error) {
+    console.error('SHOBI_CAPTURE_POST_ERROR', error);
     return false;
   }
 }
