@@ -4,16 +4,21 @@ on:
   push:
     branches: [main]
     paths:
+      - 'tools/fragrantica-main-notes/auto-capture-bestsellers-1-10.mjs'
+      - 'tools/fragrantica-main-notes/batches/bestsellers-1-10.json'
       - '.github/workflows/capture-fragrantica-bestsellers-1-10.yml'
   workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   capture:
     runs-on: [self-hosted, Windows, X64]
-    timeout-minutes: 5
+    timeout-minutes: 15
 
     steps:
-      - name: Bare runner smoke test
+      - name: Runner smoke test
         shell: cmd
         run: |
           echo === SHOBI RUNNER SMOKE TEST ===
@@ -21,9 +26,59 @@ jobs:
           echo COMPUTERNAME=%COMPUTERNAME%
           echo USERNAME=%USERNAME%
           echo CD=%CD%
-          where cmd
-          where powershell
-          where git
-          where node
-          timeout /t 20 /nobreak
+          where cmd || echo cmd not found
+          where powershell || echo powershell not found
+          where git || echo git not found
+          where node || echo node not found before setup-node
           echo RUNNER_SMOKE_OK
+
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Verify Node
+        shell: cmd
+        run: |
+          node --version
+          npm --version
+          npx --version
+
+      - name: Install Playwright package
+        shell: cmd
+        run: npm install --no-save playwright@1.55.0
+
+      - name: Install Chromium
+        shell: cmd
+        run: npx playwright install chromium
+
+      - name: Smoke test Chromium
+        shell: cmd
+        run: node -e "const {chromium}=require('playwright');(async()=>{const b=await chromium.launch({headless:true});const p=await b.newPage();await p.goto('https://example.com',{timeout:15000});console.log('CHROMIUM_OK',await p.title());await b.close();})().catch(e=>{console.error(e);process.exit(1)})"
+
+      - name: Capture Fragrantica Main Notes
+        shell: cmd
+        run: node tools\fragrantica-main-notes\auto-capture-bestsellers-1-10.mjs
+
+      - name: Commit capture results
+        if: always()
+        shell: powershell
+        run: |
+          $RESULT = 'tools/fragrantica-main-notes/results/bestsellers-1-10-auto.json'
+          if (-not (Test-Path $RESULT)) {
+            Write-Host 'Capture result file was not produced.'
+            exit 0
+          }
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add $RESULT
+          git diff --cached --quiet
+          if ($LASTEXITCODE -eq 0) {
+            Write-Host 'No result changes to commit.'
+            exit 0
+          }
+          git commit -m 'Update Fragrantica bestseller 1-10 capture results'
+          git push
