@@ -9,13 +9,28 @@
   emit('diagnostic', { stage: 'page-catcher-boot', detail: `readyState=${document.readyState}` });
 
   const seen = new Set();
+  let pdCalls = 0;
+
+  const describe = value => {
+    try {
+      if (value === null) return 'null';
+      if (value === undefined) return 'undefined';
+      if (Array.isArray(value)) return `array(${value.length})`;
+      const type = typeof value;
+      if (type !== 'object') return type;
+      const keys = Object.keys(value).slice(0, 12);
+      return `object keys=[${keys.join(',')}]`;
+    } catch {
+      return 'uninspectable';
+    }
+  };
 
   const captureDecoded = decoded => {
     try {
-      if (!decoded || !Array.isArray(decoded.notes) || !decoded.notes.length || !decoded.weights_sum) return;
+      if (!decoded || !Array.isArray(decoded.notes) || !decoded.notes.length || !decoded.weights_sum) return false;
 
       const sig = decoded.notes.map(n => `${n.sastojak_id}:${n.weight}`).join('|');
-      if (seen.has(sig)) return;
+      if (seen.has(sig)) return true;
       seen.add(sig);
 
       emit('diagnostic', { stage: 'decoded-candidate', detail: `notes=${decoded.notes.length};sum=${decoded.weights_sum}` });
@@ -45,8 +60,10 @@
           notes
         }
       });
+      return true;
     } catch (error) {
       emit('page-error', { error: String(error) });
+      return false;
     }
   };
 
@@ -80,8 +97,30 @@
       if (typeof fn !== 'function') return fn;
       if (fn.__shobiWrapped) return fn;
       const wrapped = function(...args) {
-        const result = fn.apply(this, args);
-        Promise.resolve(result).then(captureDecoded);
+        pdCalls += 1;
+        emit('diagnostic', {
+          stage: 'pd-call',
+          detail: `#${pdCalls};args=${args.length};arg0=${describe(args[0])}`
+        });
+
+        let result;
+        try {
+          result = fn.apply(this, args);
+        } catch (error) {
+          emit('page-error', { error: `_pd threw: ${String(error)}` });
+          throw error;
+        }
+
+        emit('diagnostic', {
+          stage: 'pd-return',
+          detail: `#${pdCalls};${describe(result)};then=${typeof result?.then}`
+        });
+
+        Promise.resolve(result).then(value => {
+          emit('diagnostic', { stage: 'pd-resolved', detail: `#${pdCalls};${describe(value)}` });
+          captureDecoded(value);
+        }).catch(error => emit('page-error', { error: `_pd resolve: ${String(error)}` }));
+
         return result;
       };
       wrapped.__shobiWrapped = true;
@@ -110,6 +149,33 @@
     emit('diagnostic', { stage: 'pd-property-hook-installed' });
   } catch (error) {
     emit('page-error', { error: `_pd hook: ${String(error)}` });
+  }
+
+  // Fragrantica lazily initializes parts of perfume pages. Trigger normal page
+  // visibility without clicking anything or interacting with security checks.
+  const triggerLazyContent = async () => {
+    const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
+    try {
+      await sleep(1800);
+      const height = Math.max(document.documentElement?.scrollHeight || 0, document.body?.scrollHeight || 0);
+      emit('diagnostic', { stage: 'lazy-trigger-start', detail: `height=${height}` });
+      if (height > 0) {
+        for (const fraction of [0.3, 0.55, 0.75]) {
+          window.scrollTo({ top: Math.floor(height * fraction), behavior: 'auto' });
+          await sleep(700);
+        }
+        window.scrollTo({ top: 0, behavior: 'auto' });
+      }
+      emit('diagnostic', { stage: 'lazy-trigger-done', detail: `pdCalls=${pdCalls}` });
+    } catch (error) {
+      emit('page-error', { error: `lazy trigger: ${String(error)}` });
+    }
+  };
+
+  if (document.readyState === 'loading') {
+    window.addEventListener('DOMContentLoaded', triggerLazyContent, { once: true });
+  } else {
+    triggerLazyContent();
   }
 
   emit('installed');
