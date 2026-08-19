@@ -1,0 +1,60 @@
+{
+  "database_name": "Shobi Project Database",
+  "status": "canonical",
+  "updated": "2026-08-17",
+  "purpose": "Single internal registry of canonical project assets, sources, approved UI baselines and data-flow rules.",
+  "assets": {
+    "definitive_site": {
+      "path": "preview-v2/index.html",
+      "public_url": "https://marvvred.github.io/Shobi-Perfume-Inspiration/preview-v2/",
+      "status": "approved-definitive",
+      "blob_sha": "02794feec410deb5de8d04e689619a05afab03f4",
+      "rule": "All future site work starts from this file or from an explicitly approved successor."
+    },
+    "canonical_card": {
+      "path": "design-library/card-v2-perfect.html",
+      "registry": "design-library/index.json",
+      "status": "approved-canonical",
+      "reference_perfume_code": "1067-CHA",
+      "applies_to": "all perfume cards",
+      "rule": "Preserve the approved Card V2 structure and behavior unless explicitly changed by the user."
+    },
+    "shobi_master": {
+      "path": "shobi-master.csv",
+      "status": "canonical-data-source",
+      "role": "Normalized personal master database populated from official Shobi data and approved enrichment.",
+      "rule": "Canonical perfume-level values belong here before being propagated to runtime/site outputs."
+    },
+    "shobi_bestsellers": {
+      "path": "shobi-bestsellers.json",
+      "status": "canonical-acquisition-output",
+      "source": "Official Shobi Sales, highest to lowest ordering",
+      "rule": "Best Seller Rank is acquired from Shobi ordering and written into shobi-master.csv."
+    },
+    "site_runtime": {
+      "path": "site-runtime-v2.json",
+      "status": "derived-runtime",
+      "source": "shobi-master.csv",
+      "rule": "Runtime is a generated delivery layer and must not supersede the master CSV as source of truth."
+    },
+    "source_documentation": {
+      "path": "DATA-SOURCES.md",
+      "status": "canonical-documentation",
+      "role": "Documents source provenance and acquisition rules."
+    }
+  },
+  "data_flow": [
+    "Official Shobi / approved external source",
+    "Acquisition and validation",
+    "shobi-master.csv",
+    "site-runtime-v2.json",
+    "preview-v2/index.html"
+  ],
+  "operating_rules": [
+    "Read this registry before structural changes, rebuilds or migrations.",
+    "Do not treat root index.html or index-v2.html as the definitive site unless the user explicitly promotes them.",
+    "Do not duplicate canonical data into a second competing master source.",
+    "Derived files may be regenerated; canonical sources and approved design references must be preserved.",
+    "When a new definitive version is approved, update this registry immediately."
+  ]
+}
