@@ -5,6 +5,7 @@ const TOKEN = process.env.GH_TOKEN;
 const OWNER = 'MarvvRed';
 const REPO = 'Shobi-Perfume-Inspiration';
 const BRANCH = 'main';
+const DATABASE_PATH = 'Personal Database/fragrantica-main-notes.json';
 
 if (!TOKEN) {
   console.error('GH_TOKEN missing');
@@ -51,6 +52,68 @@ function slugFromUrl(url) {
   }
 }
 
+function fragranticaIdFromUrl(url) {
+  const m = String(url || '').match(/-(\d+)\.html(?:[?#]|$)/i);
+  return m ? Number(m[1]) : null;
+}
+
+async function getGithubJson(filePath) {
+  const apiPath = `/repos/${OWNER}/${REPO}/contents/${encodeURIComponent(filePath).replace(/%2F/g, '/')}`;
+  const existing = await gh('GET', `${apiPath}?ref=${BRANCH}`);
+  const json = JSON.parse(Buffer.from(existing.content.replace(/\n/g, ''), 'base64').toString('utf8'));
+  return { json, sha: existing.sha, apiPath };
+}
+
+async function putGithubJson(filePath, value, message, sha) {
+  const apiPath = `/repos/${OWNER}/${REPO}/contents/${encodeURIComponent(filePath).replace(/%2F/g, '/')}`;
+  const body = {
+    message,
+    content: Buffer.from(JSON.stringify(value, null, 2) + '\n').toString('base64'),
+    branch: BRANCH,
+    ...(sha ? { sha } : {})
+  };
+  await gh('PUT', apiPath, body);
+}
+
+async function upsertDatabase(data, normalized) {
+  const id = fragranticaIdFromUrl(normalized.url);
+  if (!id) throw new Error(`Cannot extract Fragrantica ID from ${normalized.url}`);
+
+  const { json: db, sha } = await getGithubJson(DATABASE_PATH);
+  db.schema_version = 1;
+  db.source = 'official-catcher-0.3.5';
+  db.perfumes = db.perfumes || {};
+
+  const notes = normalized.notes.map((n, i) => ({
+    rank: n.rank || i + 1,
+    note: n.note,
+    sastojak_id: n.sastojak_id ?? null,
+    votes: n.votes ?? null
+  }));
+
+  db.perfumes[String(id)] = {
+    fragrantica_id: id,
+    name: data.target?.name || normalized.perfume || null,
+    brand: data.target?.brand || null,
+    url: normalized.url,
+    capture_method: normalized.capture_method || null,
+    total_voted_notes: normalized.total_voted_notes ?? null,
+    saved_note_count: notes.length,
+    notes
+  };
+
+  db.perfume_count = Object.keys(db.perfumes).length;
+  db.updated_at = new Date().toISOString();
+
+  await putGithubJson(
+    DATABASE_PATH,
+    db,
+    `Update main-notes database: ${data.target?.name || normalized.perfume || id}`,
+    sha
+  );
+  console.log(`DATABASE_UPDATED ${DATABASE_PATH} ${id}`);
+}
+
 async function saveCapture(data) {
   const payload = data?.payload;
   if (!payload?.url || !Array.isArray(payload.notes) || !payload.notes.length) throw new Error('Invalid capture payload');
@@ -84,7 +147,9 @@ async function saveCapture(data) {
 
   await gh('PUT', apiPath, body);
   console.log(`SAVED ${filePath}`);
-  return filePath;
+
+  await upsertDatabase(data, normalized);
+  return { filePath, databasePath: DATABASE_PATH };
 }
 
 const server = http.createServer(async (req, res) => {
@@ -98,7 +163,7 @@ const server = http.createServer(async (req, res) => {
   }
   if (req.method === 'GET' && req.url === '/health') {
     res.writeHead(200, { 'Content-Type': 'application/json' });
-    return res.end(JSON.stringify({ ok: true }));
+    return res.end(JSON.stringify({ ok: true, database: DATABASE_PATH }));
   }
   if (req.method === 'POST' && req.url === '/capture') {
     let raw = '';
@@ -109,9 +174,9 @@ const server = http.createServer(async (req, res) => {
     req.on('end', async () => {
       try {
         const data = JSON.parse(raw);
-        const file = await saveCapture(data);
+        const saved = await saveCapture(data);
         res.writeHead(200, { 'Content-Type': 'application/json' });
-        res.end(JSON.stringify({ ok: true, file }));
+        res.end(JSON.stringify({ ok: true, file: saved.filePath, database: saved.databasePath }));
       } catch (e) {
         console.error('CAPTURE_ERROR', e.message);
         res.writeHead(400, { 'Content-Type': 'application/json' });
@@ -126,6 +191,7 @@ const server = http.createServer(async (req, res) => {
 
 server.listen(8765, '127.0.0.1', () => {
   console.log('SHOBI_LOCAL_BRIDGE_READY http://127.0.0.1:8765');
+  console.log(`SHOBI_DATABASE ${DATABASE_PATH}`);
 });
 
 setTimeout(() => {
