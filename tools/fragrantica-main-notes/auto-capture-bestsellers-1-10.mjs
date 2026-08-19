@@ -13,6 +13,8 @@ const context = await browser.newContext({
   userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0',
   viewport: { width: 1440, height: 1200 }
 });
+context.setDefaultTimeout(5000);
+context.setDefaultNavigationTimeout(30000);
 
 const results = [];
 
@@ -40,12 +42,25 @@ function sanitizeCapture(decoded) {
   };
 }
 
-for (const target of batch.targets) {
+async function writeCheckpoint() {
+  const summary = {
+    batch: batch.batch,
+    generated_at: new Date().toISOString(),
+    total: batch.targets.length,
+    processed: results.length,
+    captured: results.filter(r => r.status === 'captured').length,
+    failed: results.filter(r => r.status === 'failed').length,
+    results
+  };
+  await fs.mkdir(path.dirname(outputPath), { recursive: true });
+  await fs.writeFile(outputPath, JSON.stringify(summary, null, 2) + '\n', 'utf8');
+}
+
+async function captureTarget(target) {
   const page = await context.newPage();
 
   await page.addInitScript(() => {
     window.__shobiDecodedCaptures = [];
-
     let nativePd;
     let wrappedPd;
 
@@ -65,9 +80,7 @@ for (const target of batch.targets) {
       Object.defineProperty(window, '_pd', {
         configurable: true,
         enumerable: true,
-        get() {
-          return wrappedPd || nativePd;
-        },
+        get() { return wrappedPd || nativePd; },
         set(fn) {
           nativePd = fn;
           wrappedPd = typeof fn === 'function' ? makeWrapped(fn) : fn;
@@ -93,25 +106,29 @@ for (const target of batch.targets) {
     console.log(`[#${target.rank}] ${target.name}`);
     const response = await page.goto(target.fragrantica_url, {
       waitUntil: 'domcontentloaded',
-      timeout: 45000
+      timeout: 30000
     });
 
     if (response && response.status() >= 400) {
       throw new Error(`HTTP ${response.status()}`);
     }
 
-    await page.waitForTimeout(1500);
+    await page.waitForTimeout(1200);
+
+    // Bounded scrolling only. Fragrantica can continuously increase scrollHeight
+    // while lazy-loading ads/content, so never loop against live scrollHeight.
     await page.evaluate(async () => {
       const sleep = ms => new Promise(r => setTimeout(r, ms));
-      for (let y = 0; y <= document.body.scrollHeight; y += 700) {
-        window.scrollTo(0, y);
-        await sleep(120);
+      const maxY = Math.max(document.documentElement.scrollHeight, document.body?.scrollHeight || 0);
+      const steps = 10;
+      for (let i = 1; i <= steps; i++) {
+        window.scrollTo(0, Math.floor(maxY * i / steps));
+        await sleep(100);
       }
       window.scrollTo(0, 0);
     });
 
     const candidates = [
-      'text=/notes/i',
       'text=/perfume pyramid/i',
       '[href*="#notes"]',
       '[href*="notes"]'
@@ -119,14 +136,14 @@ for (const target of batch.targets) {
     for (const selector of candidates) {
       try {
         const loc = page.locator(selector).first();
-        if (await loc.count()) await loc.click({ timeout: 1200 }).catch(() => {});
+        if (await loc.count()) await loc.click({ timeout: 1000 }).catch(() => {});
       } catch {}
     }
 
     await page.waitForFunction(
       () => Array.isArray(window.__shobiDecodedCaptures) && window.__shobiDecodedCaptures.length > 0,
       null,
-      { timeout: 20000 }
+      { timeout: 12000 }
     );
 
     const decoded = await page.evaluate(() => window.__shobiDecodedCaptures.at(-1));
@@ -143,27 +160,36 @@ for (const target of batch.targets) {
     row.error = String(error?.message || error);
     console.log(`  ✗ ${row.error}`);
   } finally {
-    results.push(row);
-    await page.close();
+    await page.close().catch(() => {});
   }
+
+  return row;
 }
 
-await browser.close();
+for (const target of batch.targets) {
+  const row = await Promise.race([
+    captureTarget(target),
+    new Promise(resolve => setTimeout(() => resolve({
+      rank: target.rank,
+      name: target.name,
+      brand: target.brand,
+      fragrantica_id: target.fragrantica_id,
+      url: target.fragrantica_url,
+      status: 'failed',
+      captured_at: null,
+      weights_sum: null,
+      notes: [],
+      error: 'Per-target hard timeout after 55 seconds'
+    }), 55000))
+  ]);
 
-const summary = {
-  batch: batch.batch,
-  generated_at: new Date().toISOString(),
-  total: results.length,
-  captured: results.filter(r => r.status === 'captured').length,
-  failed: results.filter(r => r.status === 'failed').length,
-  results
-};
+  results.push(row);
+  await writeCheckpoint();
+}
 
-await fs.mkdir(path.dirname(outputPath), { recursive: true });
-await fs.writeFile(outputPath, JSON.stringify(summary, null, 2) + '\n', 'utf8');
+await browser.close().catch(() => {});
+await writeCheckpoint();
+
+const capturedCount = results.filter(r => r.status === 'captured').length;
 console.log(`\nSaved ${outputPath}`);
-console.log(`Captured ${summary.captured}/${summary.total}`);
-
-// Deliberately exit successfully even with partial failures so the workflow can
-// commit the diagnostic result JSON. The result file carries per-target status.
-// Trigger marker: 2026-08-19 automatic batch run.
+console.log(`Captured ${capturedCount}/${batch.targets.length}`);
