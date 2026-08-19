@@ -10,7 +10,7 @@ on:
 jobs:
   capture:
     runs-on: [self-hosted, Windows, X64]
-    timeout-minutes: 5
+    timeout-minutes: 8
 
     steps:
       - name: CMD baseline
@@ -24,62 +24,60 @@ jobs:
           echo CMD_BASELINE_OK
           exit /b 0
 
-      - name: Node check
+      - name: Ensure Node from CMD only
         shell: cmd
         run: |
           @echo off
-          echo === NODE CHECK ===
+          setlocal EnableExtensions EnableDelayedExpansion
+          echo === NODE PORTABLE STAGE ===
+
           where node >nul 2>nul
-          if errorlevel 1 (
-            echo NODE_NOT_FOUND
-          ) else (
+          if not errorlevel 1 (
+            echo NODE_FOUND_IN_PATH
             node --version
+            where npm >nul 2>nul
+            if not errorlevel 1 call npm --version
+            echo NODE_PORTABLE_STAGE_OK
+            exit /b 0
           )
-          where npm >nul 2>nul
-          if errorlevel 1 (
-            echo NPM_NOT_FOUND
-          ) else (
-            call npm --version
-          )
-          echo NODE_STAGE_OK
-          exit /b 0
 
-      - name: PowerShell executable check
-        shell: cmd
-        run: |
-          @echo off
-          echo === POWERSHELL CHECK ===
-          where powershell >nul 2>nul
-          if errorlevel 1 (
-            echo POWERSHELL_NOT_FOUND
-            exit /b 0
-          )
-          powershell -NoProfile -NonInteractive -Command "$PSVersionTable.PSVersion.ToString(); Write-Output 'POWERSHELL_EXEC_OK'"
-          if errorlevel 1 (
-            echo POWERSHELL_EXEC_FAILED
-            exit /b 0
-          )
-          echo POWERSHELL_STAGE_OK
-          exit /b 0
+          set "RUNTIME=%RUNNER_TEMP%\shobi-node"
+          set "NODEDIR=%RUNTIME%\node-v22.18.0-win-x64"
+          set "NODEZIP=%RUNTIME%\node.zip"
+          if not exist "%RUNTIME%" mkdir "%RUNTIME%"
 
-      - name: Edge discovery only
-        shell: cmd
-        run: |
-          @echo off
-          echo === EDGE DISCOVERY ===
-          set "EDGE1=%ProgramFiles(x86)%\Microsoft\Edge\Application\msedge.exe"
-          set "EDGE2=%ProgramFiles%\Microsoft\Edge\Application\msedge.exe"
-          if exist "%EDGE1%" (
-            echo EDGE_FOUND=%EDGE1%
-            "%EDGE1%" --version
-            echo EDGE_STAGE_OK
+          if not exist "%NODEDIR%\node.exe" (
+            echo Downloading portable Node with curl...
+            where curl.exe >nul 2>nul
+            if errorlevel 1 (
+              echo CURL_NOT_FOUND
+              exit /b 0
+            )
+            curl.exe -L --fail --silent --show-error "https://nodejs.org/dist/v22.18.0/node-v22.18.0-win-x64.zip" -o "%NODEZIP%"
+            if errorlevel 1 (
+              echo NODE_DOWNLOAD_FAILED
+              exit /b 0
+            )
+
+            echo Extracting portable Node with tar...
+            where tar.exe >nul 2>nul
+            if errorlevel 1 (
+              echo TAR_NOT_FOUND
+              exit /b 0
+            )
+            tar.exe -xf "%NODEZIP%" -C "%RUNTIME%"
+            if errorlevel 1 (
+              echo NODE_EXTRACT_FAILED
+              exit /b 0
+            )
+          )
+
+          if not exist "%NODEDIR%\node.exe" (
+            echo NODE_EXE_NOT_CREATED
             exit /b 0
           )
-          if exist "%EDGE2%" (
-            echo EDGE_FOUND=%EDGE2%
-            "%EDGE2%" --version
-            echo EDGE_STAGE_OK
-            exit /b 0
-          )
-          echo EDGE_NOT_FOUND
+
+          "%NODEDIR%\node.exe" --version
+          if exist "%NODEDIR%\npm.cmd" call "%NODEDIR%\npm.cmd" --version
+          echo NODE_PORTABLE_STAGE_OK
           exit /b 0
