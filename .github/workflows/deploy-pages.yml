@@ -24,6 +24,23 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Inject Official Catcher notes test
+        shell: bash
+        run: |
+          node <<'NODE'
+          const fs = require('fs');
+          const indexPath = 'Personal Database/index.html';
+          const patchPath = 'Personal Database/catcher-main-notes-test-inline.js';
+          let html = fs.readFileSync(indexPath, 'utf8');
+          const patch = fs.readFileSync(patchPath, 'utf8');
+          const marker = '\nboot();\n';
+          const pos = html.lastIndexOf(marker);
+          if (pos < 0) throw new Error('boot() marker not found in Personal Database/index.html');
+          html = html.slice(0, pos) + '\n' + patch + '\n' + html.slice(pos);
+          fs.writeFileSync(indexPath, html);
+          console.log('Injected Official Catcher 0.3.5 notes test before boot()');
+          NODE
+
       - name: Configure Pages
         uses: actions/configure-pages@v5
 
