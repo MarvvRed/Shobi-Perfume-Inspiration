@@ -1,0 +1,65 @@
+{
+  "source": "firefox-extension",
+  "batch": "bestsellers-1-10",
+  "target": {
+    "rank": 8,
+    "name": "Lost Cherry",
+    "brand": "Tom Ford",
+    "url": "https://www.fragrantica.com/perfume/Tom-Ford/Lost-Cherry-51411.html"
+  },
+  "perfume": "Lost Cherry Tom Ford for women and men",
+  "url": "https://www.fragrantica.com/perfume/Tom-Ford/Lost-Cherry-51411.html",
+  "capture_method": "show-votes-top5",
+  "captured_at": "2026-08-19T23:15:42.999Z",
+  "total_voted_notes": 17,
+  "saved_note_count": 5,
+  "weights_sum": null,
+  "notes": [
+    {
+      "rank": 1,
+      "note": "Sour Cherry",
+      "sastojak_id": 176,
+      "votes": 4195,
+      "weight": null,
+      "percentage": null,
+      "pyramid_level": null
+    },
+    {
+      "rank": 2,
+      "note": "Bitter Almond",
+      "sastojak_id": 130,
+      "votes": 3076,
+      "weight": null,
+      "percentage": null,
+      "pyramid_level": null
+    },
+    {
+      "rank": 3,
+      "note": "Black Cherry",
+      "sastojak_id": 1376,
+      "votes": 1865,
+      "weight": null,
+      "percentage": null,
+      "pyramid_level": null
+    },
+    {
+      "rank": 4,
+      "note": "Vanilla",
+      "sastojak_id": 74,
+      "votes": 1620,
+      "weight": null,
+      "percentage": null,
+      "pyramid_level": null
+    },
+    {
+      "rank": 5,
+      "note": "Tonka Bean",
+      "sastojak_id": 73,
+      "votes": 1486,
+      "weight": null,
+      "percentage": null,
+      "pyramid_level": null
+    }
+  ],
+  "received_at": "2026-08-19T23:15:43.235Z"
+}
