@@ -1,0 +1,51 @@
+name: Build English Shobi Master
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'scripts/build_shobi_master_en.py'
+      - '.github/workflows/build-shobi-master-en.yml'
+  pull_request:
+    paths:
+      - 'scripts/build_shobi_master_en.py'
+      - '.github/workflows/build-shobi-master-en.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install parser dependencies
+        run: pip install requests beautifulsoup4
+
+      - name: Build validated English candidate
+        run: python scripts/build_shobi_master_en.py
+
+      - name: Keep candidate as artifact on pull requests
+        if: github.event_name == 'pull_request'
+        uses: actions/upload-artifact@v4
+        with:
+          name: shobi-master-en
+          path: shobi-master-en.csv
+
+      - name: Promote validated candidate on main
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+        run: |
+          cp shobi-master-en.csv shobi-master.csv
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add shobi-master.csv shobi-master-en.csv
+          git diff --cached --quiet && exit 0
+          git commit -m "Promote validated English Shobi master"
+          git push

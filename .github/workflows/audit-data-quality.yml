@@ -1,0 +1,34 @@
+name: Audit Data Quality
+
+on:
+  push:
+    paths:
+      - 'scripts/audit_data_quality.py'
+      - '.github/workflows/audit-data-quality.yml'
+      - 'shobi-master.csv'
+      - 'shobi-master-en.csv'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Audit database quality
+        run: python scripts/audit_data_quality.py > audit-data-quality-report.txt
+      - name: Publish audit report
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add audit-data-quality-report.txt
+          git diff --cached --quiet && exit 0
+          git commit -m "Update data quality audit report"
+          git push

@@ -1,0 +1,39 @@
+TOTAL_ROWS=2273
+TOTAL_COLUMNS=22
+EN_ROWS=2273
+EN_COLUMNS=22
+FIELDS=shobi_code|shobi_name|inspired_by|brand|gender|status|new|shobi_url|identity_source_type|identity_source_url|identity_verified|identity_match_rule|secondary_identity_source|fragrantica_url|top_notes|heart_notes|base_notes|notes|season|image|description|last_built_utc
+--- BLANK COUNTS ---
+shobi_code	0
+shobi_name	0
+inspired_by	0
+brand	0
+gender	0
+status	0
+new	0
+shobi_url	0
+identity_source_type	0
+identity_source_url	54
+identity_verified	0
+identity_match_rule	569
+secondary_identity_source	760
+fragrantica_url	1170
+top_notes	1577
+heart_notes	1577
+base_notes	1577
+notes	1576
+season	2010
+image	1659
+description	0
+last_built_utc	0
+DUPLICATE_SHOBI_CODE=0
+DUPLICATE_SHOBI_URL=0
+MALFORMED_URLS=0
+SUSPICIOUS_NAMES=0
+UI_TEXT_CONTAMINATION=0
+AMBIGUOUS_BRAND_KEYS=2
+AMBIGKEY	ARM	Armani | Armani Prive
+AMBIGKEY	JOV	Jovan | Jovoy
+ONLY_MASTER_CODES=0
+ONLY_EN_CODES=0
+STRUCTURAL_MASTER_EN_MISMATCHES=0
