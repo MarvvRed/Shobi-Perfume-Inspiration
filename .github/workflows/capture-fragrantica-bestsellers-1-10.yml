@@ -15,7 +15,7 @@ permissions:
 jobs:
   capture:
     runs-on: [self-hosted, Windows, X64]
-    timeout-minutes: 12
+    timeout-minutes: 15
 
     steps:
       - name: CMD baseline
@@ -77,14 +77,14 @@ jobs:
           if not exist "node_modules\playwright-core\package.json" call "!NPMCMD!" install --no-save --no-audit --no-fund playwright-core@1.55.0
           exit /b 0
 
-      - name: Capture Vanilla 28 Main Notes
+      - name: Capture Vanilla 28 with persistent Edge profile
         shell: cmd
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           @echo off
           setlocal EnableExtensions EnableDelayedExpansion
-          echo === VANILLA 28 CATCHER ===
+          echo === VANILLA 28 PERSISTENT PROFILE CATCHER ===
           set "NODEEXE="
           where node >nul 2>nul
           if not errorlevel 1 for /f "delims=" %%I in ('where node') do if not defined NODEEXE set "NODEEXE=%%I"
@@ -102,12 +102,16 @@ jobs:
           if not defined EDGEEXE if exist "%ProgramFiles%\Microsoft\Edge\Application\msedge.exe" set "EDGEEXE=%ProgramFiles%\Microsoft\Edge\Application\msedge.exe"
           if not defined EDGEEXE (echo EDGE_NOT_FOUND& exit /b 0)
 
+          if not exist "C:\Shobi" mkdir "C:\Shobi"
+          if not exist "C:\Shobi\EdgeProfile" mkdir "C:\Shobi\EdgeProfile"
+
           cd /d "!WORK!"
           curl.exe -L --fail --silent --show-error "https://raw.githubusercontent.com/MarvvRed/Shobi-Perfume-Inspiration/main/tools/fragrantica-main-notes/runner-capture-one.cjs" -o runner-capture-one.cjs
           curl.exe -L --fail --silent --show-error "https://raw.githubusercontent.com/MarvvRed/Shobi-Perfume-Inspiration/main/tools/fragrantica-main-notes/upload-capture-result.cjs" -o upload-capture-result.cjs
           if errorlevel 1 (echo SCRIPT_DOWNLOAD_FAILED& exit /b 0)
 
           set "EDGEEXE=!EDGEEXE!"
+          set "SHOBI_PROFILE=C:\Shobi\EdgeProfile"
           set "SHOBI_OUT=!WORK!\vanilla-28-capture.json"
           "!NODEEXE!" runner-capture-one.cjs
           set "RC=!ERRORLEVEL!"
