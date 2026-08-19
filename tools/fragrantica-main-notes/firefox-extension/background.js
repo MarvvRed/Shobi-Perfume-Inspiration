@@ -24,6 +24,20 @@ async function setState(state) {
   await browser.browserAction.setBadgeText({ text: state.running ? `${count}/10` : (count ? `${count}` : '') });
 }
 
+async function pingRunner() {
+  try {
+    const res = await fetch(`http://127.0.0.1:8765/health?ts=${Date.now()}`, { cache: 'no-store' });
+    const ok = res.ok;
+    await browser.storage.local.set({ bridgeStatus: { ok, at: new Date().toISOString(), status: res.status } });
+    if (ok) await browser.browserAction.setBadgeText({ text: 'BR' });
+    return ok;
+  } catch (error) {
+    await browser.storage.local.set({ bridgeStatus: { ok: false, at: new Date().toISOString(), error: String(error) } });
+    await browser.browserAction.setBadgeText({ text: '!' });
+    return false;
+  }
+}
+
 async function sendToRunner(payload) {
   try {
     const res = await fetch('http://127.0.0.1:8765/capture', {
@@ -62,6 +76,11 @@ browser.browserAction.onClicked.addListener(async () => {
 });
 
 browser.runtime.onMessage.addListener(async (message, sender) => {
+  if (message.type === 'installed') {
+    await pingRunner();
+    return;
+  }
+
   if (message.type !== 'capture') return;
 
   const payload = message.payload;
@@ -81,3 +100,5 @@ browser.runtime.onMessage.addListener(async (message, sender) => {
   state.results[String(target.rank)] = { rank: target.rank, name: target.name, status: 'captured', captured_at: payload.captured_at };
   await advance(state);
 });
+
+pingRunner();
