@@ -51,20 +51,44 @@
     return null;
   }
 
+  function plainNoteName(link) {
+    let raw = clean(link.textContent) || clean(link.querySelector('img[alt]')?.alt) || clean(link.getAttribute('title'));
+    if (!raw) return '';
+    // If votes are already visible, remove the leading vote count.
+    raw = raw.replace(/^\s*[0-9][0-9.,\s]*\s*(?=[^0-9])/, '');
+    return clean(raw);
+  }
+
+  function parsePlainNotes(root) {
+    const best = new Map();
+    for (const link of root?.querySelectorAll?.('a[href*="/notes/"]') || []) {
+      const name = plainNoteName(link);
+      if (!name || name.length > 80 || /^notes?$/i.test(name)) continue;
+      const id = noteId(link);
+      const key = id != null ? `id:${id}` : `name:${name.toLowerCase()}`;
+      if (best.has(key)) continue;
+      best.set(key, {
+        note: name,
+        sastojak_id: id,
+        votes: null,
+        weight: null,
+        percentage: null,
+        pyramid_level: levelForLink(link, root)
+      });
+    }
+    return [...best.values()].map((n, i) => ({ ...n, rank: i + 1 }));
+  }
+
   function parseVotedNotes(root) {
     const best = new Map();
-
     for (const link of root?.querySelectorAll?.('a[href*="/notes/"]') || []) {
       const raw = clean(link.textContent) || clean(link.querySelector('img[alt]')?.alt) || clean(link.getAttribute('title'));
       if (!raw) continue;
-
       const m = raw.match(/^\s*([0-9][0-9.,\s]*)\s*([^0-9].*?)\s*$/);
       if (!m) continue;
-
       const votes = Number(m[1].replace(/[^0-9]/g, ''));
       const name = clean(m[2]);
       if (!Number.isFinite(votes) || votes <= 0 || !name || name.length > 80) continue;
-
       const id = noteId(link);
       const level = levelForLink(link, root);
       const key = id != null ? `id:${id}` : `name:${name.toLowerCase()}`;
@@ -75,15 +99,22 @@
 
     return [...best.values()]
       .sort((a, b) => b.votes - a.votes || a.note.localeCompare(b.note))
-      .map((n, i) => ({
-        rank: i + 1,
-        note: n.note,
-        sastojak_id: n.sastojak_id,
-        votes: n.votes,
-        weight: null,
-        percentage: null,
-        pyramid_level: n.pyramid_level
-      }));
+      .map((n, i) => ({ rank: i + 1, note: n.note, sastojak_id: n.sastojak_id, votes: n.votes, weight: null, percentage: null, pyramid_level: n.pyramid_level }));
+  }
+
+  function sendCapture(notes, method, totalVotedNotes = null) {
+    emit('capture', {
+      payload: {
+        perfume: document.querySelector('h1')?.innerText?.trim() || document.title,
+        url: location.href.split('#')[0],
+        capture_method: method,
+        captured_at: new Date().toISOString(),
+        total_voted_notes: totalVotedNotes,
+        saved_note_count: notes.length,
+        weights_sum: null,
+        notes
+      }
+    });
   }
 
   async function run() {
@@ -106,6 +137,16 @@
       return;
     }
 
+    // Core rule: if the perfume has 5 notes or fewer, there is nothing to rank.
+    // Save every available note directly, without requiring vote counts.
+    const plainNotes = parsePlainNotes(root);
+    emit('diagnostic', { stage: 'plain-notes-scan', detail: `found=${plainNotes.length}; ${plainNotes.map(n => n.note).join(' | ')}` });
+    if (plainNotes.length >= 1 && plainNotes.length <= 5) {
+      emit('diagnostic', { stage: 'under5-ready', detail: `available=${plainNotes.length};saved=${plainNotes.length}; ${plainNotes.map(n => `#${n.rank} ${n.note}`).join(' | ')}` });
+      sendCapture(plainNotes, 'all-notes-when-five-or-fewer', null);
+      return;
+    }
+
     const stateText = clean(btn.textContent).toLowerCase();
     if (/^hide\s+votes$/.test(stateText)) {
       emit('diagnostic', { stage: 'votes-already-visible', detail: 'Hide votes detected; parsing without clicking' });
@@ -124,10 +165,7 @@
     for (let attempt = 1; attempt <= 8; attempt++) {
       await sleep(attempt === 1 ? 700 : 350);
       ranked = parseVotedNotes(root);
-      emit('diagnostic', {
-        stage: 'votes-scan',
-        detail: `attempt=${attempt};found=${ranked.length}; ${ranked.slice(0, 8).map(n => `${n.note}=${n.votes}`).join(' | ')}`
-      });
+      emit('diagnostic', { stage: 'votes-scan', detail: `attempt=${attempt};found=${ranked.length}; ${ranked.slice(0, 8).map(n => `${n.note}=${n.votes}`).join(' | ')}` });
       if (ranked.length >= 1) break;
     }
 
@@ -136,27 +174,9 @@
       return;
     }
 
-    // Official rule: save up to 5 notes. If the perfume has fewer than 5 voted notes,
-    // save all available notes and consider the capture valid.
-    const savedCount = Math.min(5, ranked.length);
-    const top5 = ranked.slice(0, savedCount).map((n, i) => ({ ...n, rank: i + 1 }));
-    emit('diagnostic', {
-      stage: 'top5-ready',
-      detail: `available=${ranked.length};saved=${savedCount}; ` + top5.map(n => `#${n.rank} ${n.note}=${n.votes}`).join(' | ')
-    });
-
-    emit('capture', {
-      payload: {
-        perfume: document.querySelector('h1')?.innerText?.trim() || document.title,
-        url: location.href.split('#')[0],
-        capture_method: 'show-votes-top5',
-        captured_at: new Date().toISOString(),
-        total_voted_notes: ranked.length,
-        saved_note_count: savedCount,
-        weights_sum: null,
-        notes: top5
-      }
-    });
+    const top5 = ranked.slice(0, 5).map((n, i) => ({ ...n, rank: i + 1 }));
+    emit('diagnostic', { stage: 'top5-ready', detail: `available=${ranked.length};saved=${top5.length}; ` + top5.map(n => `#${n.rank} ${n.note}=${n.votes}`).join(' | ') });
+    sendCapture(top5, 'show-votes-top5', ranked.length);
   }
 
   run().catch(e => emit('page-error', { error: `Show votes top5 collector: ${String(e)}` }));
