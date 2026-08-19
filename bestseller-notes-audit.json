@@ -1,0 +1,574 @@
+{
+  "scope": "Best Seller #21-#100",
+  "generated_at": "2026-08-19T14:38:06.701995+00:00",
+  "source": "Personal Database/perfume-details.json (read-only)",
+  "counts": {
+    "total": 80,
+    "verified": 8,
+    "pending": 37,
+    "missing": 35,
+    "verified_empty": 0
+  },
+  "records": [
+    {
+      "rank": 21,
+      "code": "2398-FRE LUX",
+      "state": "pending",
+      "notes_status": "",
+      "notes_validation_version": 30
+    },
+    {
+      "rank": 22,
+      "code": "401-ARIA WP",
+      "state": "missing",
+      "notes_status": "",
+      "notes_validation_version": null
+    },
+    {
+      "rank": 23,
+      "code": "1660-ESCE EL",
+      "state": "pending",
+      "notes_status": "secondary_exact_pending_crosscheck",
+      "notes_validation_version": 66
+    },
+    {
+      "rank": 24,
+      "code": "1067-CHA",
+      "state": "pending",
+      "notes_status": "secondary_exact_pending_crosscheck",
+      "notes_validation_version": 66
+    },
+    {
+      "rank": 25,
+      "code": "1499-BYR EL",
+      "state": "missing",
+      "notes_status": "",
+      "notes_validation_version": null
+    },
+    {
+      "rank": 26,
+      "code": "485-CAR WP",
+      "state": "missing",
+      "notes_status": "",
+      "notes_validation_version": null
+    },
+    {
+      "rank": 27,
+      "code": "1520-YZLO W",
+      "state": "pending",
+      "notes_status": "secondary_exact_pending_crosscheck",
+      "notes_validation_version": 66
+    },
+    {
+      "rank": 28,
+      "code": "152-PARF N",
+      "state": "missing",
+      "notes_status": "",
+      "notes_validation_version": null
+    },
+    {
+      "rank": 29,
+      "code": "1735-XER N",
+      "state": "missing",
+      "notes_status": "",
+      "notes_validation_version": null
+    },
+    {
+      "rank": 30,
+      "code": "1498-BYR EL",
+      "state": "missing",
+      "notes_status": "",
+      "notes_validation_version": null
+    },
+    {
+      "rank": 31,
+      "code": "132-LTN N",
+      "state": "pending",
+      "notes_status": "secondary_exact_pending_crosscheck",
+      "notes_validation_version": 66
+    },
+    {
+      "rank": 32,
+      "code": "1919-PRA WP",
+      "state": "missing",
+      "notes_status": "",
+      "notes_validation_version": null
+    },
+    {
+      "rank": 33,
+      "code": "1764-GUR W",
+      "state": "missing",
+      "notes_status": "",
+      "notes_validation_version": null
+    },
+    {
+      "rank": 34,
+      "code": "131-LEL N",
+      "state": "pending",
+      "notes_status": "secondary_exact_pending_crosscheck",
+      "notes_validation_version": 66
+    },
+    {
+      "rank": 35,
+      "code": "848-NRO WP",
+      "state": "verified",
+      "notes_status": "",
+      "notes_validation_version": "kaggle-fragrantica-reviewed-v4.4"
+    },
+    {
+      "rank": 36,
+      "code": "2348-AMG",
+      "state": "missing",
+      "notes_status": "",
+      "notes_validation_version": null
+    },
+    {
+      "rank": 37,
+      "code": "303-JOM EL",
+      "state": "pending",
+      "notes_status": "secondary_exact_pending_crosscheck",
+      "notes_validation_version": 66
+    },
+    {
+      "rank": 38,
+      "code": "2155-KAY EL",
+      "state": "verified",
+      "notes_status": "verified_primary_official",
+      "notes_validation_version": "official-kayali-2026-08-14-v1"
+    },
+    {
+      "rank": 39,
+      "code": "750-KEN W",
+      "state": "pending",
+      "notes_status": "secondary_exact_pending_crosscheck",
+      "notes_validation_version": 66
+    },
+    {
+      "rank": 40,
+      "code": "1553-MNT N",
+      "state": "verified",
+      "notes_status": "verified_primary_official",
+      "notes_validation_version": "official-montale-2026-08-14-v1"
+    },
+    {
+      "rank": 41,
+      "code": "937-VAL WP",
+      "state": "verified",
+      "notes_status": "",
+      "notes_validation_version": "kaggle-fragrantica-alias-v4.1"
+    },
+    {
+      "rank": 42,
+      "code": "1937-BIL AR",
+      "state": "missing",
+      "notes_status": "",
+      "notes_validation_version": null
+    },
+    {
+      "rank": 43,
+      "code": "425-BRB WP",
+      "state": "pending",
+      "notes_status": "secondary_exact_pending_crosscheck",
+      "notes_validation_version": 66
+    },
+    {
+      "rank": 44,
+      "code": "1883-NISH N",
+      "state": "missing",
+      "notes_status": "",
+      "notes_validation_version": null
+    },
+    {
+      "rank": 45,
+      "code": "760-KIL WP",
+      "state": "pending",
+      "notes_status": "",
+      "notes_validation_version": 30
+    },
+    {
+      "rank": 46,
+      "code": "1493-ACQ WP",
+      "state": "verified",
+      "notes_status": "",
+      "notes_validation_version": 65
+    },
+    {
+      "rank": 47,
+      "code": "2235-PRA WP",
+      "state": "missing",
+      "notes_status": "",
+      "notes_validation_version": null
+    },
+    {
+      "rank": 48,
+      "code": "361-TMFO EL",
+      "state": "pending",
+      "notes_status": "secondary_exact_pending_crosscheck",
+      "notes_validation_version": 66
+    },
+    {
+      "rank": 49,
+      "code": "2346-TMFO EL",
+      "state": "missing",
+      "notes_status": "",
+      "notes_validation_version": null
+    },
+    {
+      "rank": 50,
+      "code": "981-YZLO W",
+      "state": "pending",
+      "notes_status": "secondary_exact_pending_crosscheck",
+      "notes_validation_version": 66
+    },
+    {
+      "rank": 51,
+      "code": "977-YZLO W",
+      "state": "pending",
+      "notes_status": "secondary_exact_pending_crosscheck",
+      "notes_validation_version": 66
+    },
+    {
+      "rank": 52,
+      "code": "364-TMFO EL",
+      "state": "pending",
+      "notes_status": "secondary_exact_pending_crosscheck",
+      "notes_validation_version": 66
+    },
+    {
+      "rank": 53,
+      "code": "847-NRO WP",
+      "state": "verified",
+      "notes_status": "",
+      "notes_validation_version": "kaggle-fragrantica-alias-v4.1"
+    },
+    {
+      "rank": 54,
+      "code": "1909-XER N",
+      "state": "pending",
+      "notes_status": "secondary_exact_pending_crosscheck",
+      "notes_validation_version": 66
+    },
+    {
+      "rank": 55,
+      "code": "2150-LEL EL",
+      "state": "pending",
+      "notes_status": "secondary_exact_pending_crosscheck",
+      "notes_validation_version": 66
+    },
+    {
+      "rank": 56,
+      "code": "430-BRB WP",
+      "state": "pending",
+      "notes_status": "",
+      "notes_validation_version": 30
+    },
+    {
+      "rank": 57,
+      "code": "1635-XER N",
+      "state": "missing",
+      "notes_status": "",
+      "notes_validation_version": null
+    },
+    {
+      "rank": 58,
+      "code": "2365-DIP N",
+      "state": "pending",
+      "notes_status": "secondary_exact_pending_crosscheck",
+      "notes_validation_version": 66
+    },
+    {
+      "rank": 59,
+      "code": "2320-LTN N",
+      "state": "missing",
+      "notes_status": "",
+      "notes_validation_version": null
+    },
+    {
+      "rank": 60,
+      "code": "528-DRC W",
+      "state": "pending",
+      "notes_status": "secondary_exact_pending_crosscheck",
+      "notes_validation_version": 66
+    },
+    {
+      "rank": 61,
+      "code": "1974-MARG EL",
+      "state": "pending",
+      "notes_status": "secondary_exact_pending_crosscheck",
+      "notes_validation_version": 66
+    },
+    {
+      "rank": 62,
+      "code": "1801-JUL EL",
+      "state": "pending",
+      "notes_status": "secondary_exact_linear_composition",
+      "notes_validation_version": 68
+    },
+    {
+      "rank": 63,
+      "code": "694-GUR W",
+      "state": "missing",
+      "notes_status": "",
+      "notes_validation_version": null
+    },
+    {
+      "rank": 64,
+      "code": "2136-PARF",
+      "state": "missing",
+      "notes_status": "",
+      "notes_validation_version": null
+    },
+    {
+      "rank": 65,
+      "code": "2161-GUR W",
+      "state": "missing",
+      "notes_status": "",
+      "notes_validation_version": null
+    },
+    {
+      "rank": 66,
+      "code": "1946-MARC N",
+      "state": "missing",
+      "notes_status": "",
+      "notes_validation_version": null
+    },
+    {
+      "rank": 67,
+      "code": "1850-LEL N",
+      "state": "missing",
+      "notes_status": "",
+      "notes_validation_version": null
+    },
+    {
+      "rank": 68,
+      "code": "151-PARF N",
+      "state": "missing",
+      "notes_status": "",
+      "notes_validation_version": null
+    },
+    {
+      "rank": 69,
+      "code": "761-KIL WP",
+      "state": "missing",
+      "notes_status": "",
+      "notes_validation_version": null
+    },
+    {
+      "rank": 70,
+      "code": "641-FRE WP",
+      "state": "pending",
+      "notes_status": "",
+      "notes_validation_version": 30
+    },
+    {
+      "rank": 71,
+      "code": "154-PARF N",
+      "state": "missing",
+      "notes_status": "",
+      "notes_validation_version": null
+    },
+    {
+      "rank": 72,
+      "code": "1887-XER N",
+      "state": "missing",
+      "notes_status": "",
+      "notes_validation_version": null
+    },
+    {
+      "rank": 73,
+      "code": "506-CHA W",
+      "state": "missing",
+      "notes_status": "",
+      "notes_validation_version": null
+    },
+    {
+      "rank": 74,
+      "code": "210-CRD EL",
+      "state": "missing",
+      "notes_status": "",
+      "notes_validation_version": null
+    },
+    {
+      "rank": 75,
+      "code": "268-JOM EL",
+      "state": "pending",
+      "notes_status": "secondary_exact_pending_crosscheck",
+      "notes_validation_version": 66
+    },
+    {
+      "rank": 76,
+      "code": "1112-DSQ MP",
+      "state": "pending",
+      "notes_status": "secondary_exact_pending_crosscheck",
+      "notes_validation_version": 66
+    },
+    {
+      "rank": 77,
+      "code": "879-PRA WP",
+      "state": "pending",
+      "notes_status": "",
+      "notes_validation_version": 30
+    },
+    {
+      "rank": 78,
+      "code": "2167-GUL MP",
+      "state": "missing",
+      "notes_status": "",
+      "notes_validation_version": null
+    },
+    {
+      "rank": 79,
+      "code": "513-CHL WP",
+      "state": "verified",
+      "notes_status": "",
+      "notes_validation_version": "kaggle-fragrantica-exact-v4.0"
+    },
+    {
+      "rank": 80,
+      "code": "1737-GIV W",
+      "state": "pending",
+      "notes_status": "secondary_exact_pending_crosscheck",
+      "notes_validation_version": 66
+    },
+    {
+      "rank": 81,
+      "code": "1513-KIL WP",
+      "state": "pending",
+      "notes_status": "secondary_exact_pending_crosscheck",
+      "notes_validation_version": 66
+    },
+    {
+      "rank": 82,
+      "code": "1978-ARM",
+      "state": "pending",
+      "notes_status": "secondary_exact_pending_crosscheck",
+      "notes_validation_version": 66
+    },
+    {
+      "rank": 83,
+      "code": "1476-NRO WP",
+      "state": "missing",
+      "notes_status": "",
+      "notes_validation_version": null
+    },
+    {
+      "rank": 84,
+      "code": "318-MNT EL",
+      "state": "verified",
+      "notes_status": "verified_primary_official",
+      "notes_validation_version": "official-montale-2026-08-14-v1"
+    },
+    {
+      "rank": 85,
+      "code": "1775-DIP N",
+      "state": "pending",
+      "notes_status": "secondary_exact_pending_crosscheck",
+      "notes_validation_version": 66
+    },
+    {
+      "rank": 86,
+      "code": "1651-TMU W",
+      "state": "pending",
+      "notes_status": "secondary_exact_pending_crosscheck",
+      "notes_validation_version": 66
+    },
+    {
+      "rank": 87,
+      "code": "1846-MAN EL",
+      "state": "missing",
+      "notes_status": "",
+      "notes_validation_version": null
+    },
+    {
+      "rank": 88,
+      "code": "2053-BDIK",
+      "state": "missing",
+      "notes_status": "",
+      "notes_validation_version": null
+    },
+    {
+      "rank": 89,
+      "code": "355-TMFO EL",
+      "state": "pending",
+      "notes_status": "",
+      "notes_validation_version": 30
+    },
+    {
+      "rank": 90,
+      "code": "1528-KUR N",
+      "state": "pending",
+      "notes_status": "secondary_exact_pending_crosscheck",
+      "notes_validation_version": 66
+    },
+    {
+      "rank": 91,
+      "code": "359-TMFO EL",
+      "state": "missing",
+      "notes_status": "",
+      "notes_validation_version": null
+    },
+    {
+      "rank": 92,
+      "code": "2369-MAN EL",
+      "state": "missing",
+      "notes_status": "",
+      "notes_validation_version": null
+    },
+    {
+      "rank": 93,
+      "code": "1618-NISH N",
+      "state": "missing",
+      "notes_status": "",
+      "notes_validation_version": null
+    },
+    {
+      "rank": 94,
+      "code": "2154-KAY EL",
+      "state": "pending",
+      "notes_status": "",
+      "notes_validation_version": 30
+    },
+    {
+      "rank": 95,
+      "code": "225-DIP EL",
+      "state": "pending",
+      "notes_status": "secondary_exact_pending_crosscheck",
+      "notes_validation_version": 66
+    },
+    {
+      "rank": 96,
+      "code": "2261-PARF",
+      "state": "missing",
+      "notes_status": "",
+      "notes_validation_version": null
+    },
+    {
+      "rank": 97,
+      "code": "1085-DRC",
+      "state": "pending",
+      "notes_status": "secondary_exact_pending_crosscheck",
+      "notes_validation_version": 66
+    },
+    {
+      "rank": 98,
+      "code": "124-INI N",
+      "state": "pending",
+      "notes_status": "secondary_exact_pending_crosscheck",
+      "notes_validation_version": 66
+    },
+    {
+      "rank": 99,
+      "code": "181-XER N",
+      "state": "missing",
+      "notes_status": "",
+      "notes_validation_version": null
+    },
+    {
+      "rank": 100,
+      "code": "955-VICT WP",
+      "state": "pending",
+      "notes_status": "secondary_exact_pending_crosscheck",
+      "notes_validation_version": 66
+    }
+  ]
+}

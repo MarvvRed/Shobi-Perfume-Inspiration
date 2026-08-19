@@ -1,0 +1,185 @@
+{
+  "scope": "Best Seller #21-#100",
+  "generated_at": "2026-08-19T14:38:06.701995+00:00",
+  "source": "Personal Database/perfume-details.json (read-only; verified records only)",
+  "perfumes": {
+    "848-NRO WP": {
+      "rank": 35,
+      "top_notes": [
+        "musk"
+      ],
+      "heart_notes": [
+        "flowers"
+      ],
+      "base_notes": [
+        "cashmeran"
+      ],
+      "notes_source": "Kaggle / Fragrantica dataset",
+      "notes_source_url": "https://www.fragrantica.com/perfume/narciso-rodriguez/pure-musc-for-her-53441.html",
+      "notes_status": "",
+      "notes_validation_version": "kaggle-fragrantica-reviewed-v4.4"
+    },
+    "2155-KAY EL": {
+      "rank": 38,
+      "top_notes": [
+        "Pistachio Gelato",
+        "Hazelnut",
+        "Italian Bergamot",
+        "Sweet Rum",
+        "Cardamom"
+      ],
+      "heart_notes": [
+        "White Peach",
+        "Muguet",
+        "Jasmine",
+        "Raspberry",
+        "White Peony",
+        "Green Pear",
+        "Geranium"
+      ],
+      "base_notes": [
+        "Whipped Cream",
+        "Marshmallow",
+        "Cotton Candy",
+        "Turkish Delight",
+        "Cocoa",
+        "Cedarwood",
+        "Sandalwood",
+        "Tonka"
+      ],
+      "notes_source": "KAYALI official",
+      "notes_source_url": "https://us.kayali.com/products/yum-pistachio-gelato-33",
+      "notes_status": "verified_primary_official",
+      "notes_validation_version": "official-kayali-2026-08-14-v1"
+    },
+    "1553-MNT N": {
+      "rank": 40,
+      "top_notes": [
+        "Bergamot",
+        "Saffron"
+      ],
+      "heart_notes": [
+        "Rose",
+        "Oud"
+      ],
+      "base_notes": [
+        "Amber",
+        "Oakmoss",
+        "Tonka Bean",
+        "Leather",
+        "Brown Sugar",
+        "White Musk"
+      ],
+      "notes_source": "Montale official",
+      "notes_source_url": "https://montaleparfums.com/ita/en/oriental/282-arabians-tonka.html",
+      "notes_status": "verified_primary_official",
+      "notes_validation_version": "official-montale-2026-08-14-v1"
+    },
+    "937-VAL WP": {
+      "rank": 41,
+      "top_notes": [
+        "black currant",
+        "pink pepper",
+        "bergamot"
+      ],
+      "heart_notes": [
+        "jasmine",
+        "jasmine sambac",
+        "jasmine tea"
+      ],
+      "base_notes": [
+        "bourbon vanilla",
+        "cashmeran",
+        "guaiac wood"
+      ],
+      "notes_source": "Kaggle / Fragrantica dataset",
+      "notes_source_url": "https://www.fragrantica.com/perfume/valentino/valentino-donna-born-in-roma-55805.html",
+      "notes_status": "",
+      "notes_validation_version": "kaggle-fragrantica-alias-v4.1"
+    },
+    "1493-ACQ WP": {
+      "rank": 46,
+      "top_notes": [
+        "Italian Lemon",
+        "Italian Bergamot",
+        "Grapefruit"
+      ],
+      "heart_notes": [
+        "Fig Nectar",
+        "Pink Pepper",
+        "Jasmine Petals"
+      ],
+      "base_notes": [
+        "Fig Wood",
+        "Cedarwood",
+        "Benzoin"
+      ],
+      "notes_source": "SmellyCat + TidyTuesday/Parfumo cross-verification",
+      "notes_source_url": "https://www.parfumo.com/Perfumes/Acqua_di_Parma/fico-di-amalfi",
+      "notes_status": "",
+      "notes_validation_version": 65
+    },
+    "847-NRO WP": {
+      "rank": 53,
+      "top_notes": [
+        "jasmine",
+        "bulgarian rose",
+        "orange blossom"
+      ],
+      "heart_notes": [
+        "musk"
+      ],
+      "base_notes": [
+        "coumarin",
+        "cedar",
+        "vetiver",
+        "patchouli"
+      ],
+      "notes_source": "Kaggle / Fragrantica dataset",
+      "notes_source_url": "https://www.fragrantica.com/perfume/narciso-rodriguez/narciso-poudree-36679.html",
+      "notes_status": "",
+      "notes_validation_version": "kaggle-fragrantica-alias-v4.1"
+    },
+    "513-CHL WP": {
+      "rank": 79,
+      "top_notes": [
+        "pink pepper",
+        "african orange flower"
+      ],
+      "heart_notes": [
+        "iris",
+        "lilac",
+        "hyacinth",
+        "heliotrope",
+        "wisteria"
+      ],
+      "base_notes": [
+        "powdery notes",
+        "rice",
+        "musk"
+      ],
+      "notes_source": "Kaggle / Fragrantica dataset",
+      "notes_source_url": "https://www.fragrantica.com/perfume/chloe/love-9370.html",
+      "notes_status": "",
+      "notes_validation_version": "kaggle-fragrantica-exact-v4.0"
+    },
+    "318-MNT EL": {
+      "rank": 84,
+      "top_notes": [
+        "Bitter Orange"
+      ],
+      "heart_notes": [
+        "Cacao",
+        "Vanilla"
+      ],
+      "base_notes": [
+        "Coffee Bean",
+        "Tonka Bean"
+      ],
+      "notes_source": "Montale official",
+      "notes_source_url": "https://montaleparfums.com/ita/en/gourmand/35-24-chocolate-greedy-argent.html",
+      "notes_status": "verified_primary_official",
+      "notes_validation_version": "official-montale-2026-08-14-v1"
+    }
+  }
+}
