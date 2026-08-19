@@ -4,7 +4,7 @@ on:
   push:
     branches: [main]
     paths:
-      - 'tools/fragrantica-main-notes/auto-capture-bestsellers-1-10.mjs'
+      - 'tools/fragrantica-main-notes/local-one-click/capture.mjs'
       - 'tools/fragrantica-main-notes/batches/bestsellers-1-10.json'
       - '.github/workflows/capture-fragrantica-bestsellers-1-10.yml'
   workflow_dispatch:
@@ -18,69 +18,77 @@ jobs:
     timeout-minutes: 20
 
     steps:
-      - name: Self-contained Windows capture
+      - name: Configure runner auto-start for future jobs
+        shell: powershell
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $runnerRoot = 'C:\Windows\System32\actions-runner'
+          if (-not (Test-Path (Join-Path $runnerRoot 'run.cmd'))) {
+            throw "GitHub runner not found at $runnerRoot"
+          }
+
+          $startup = [Environment]::GetFolderPath('Startup')
+          $launcher = Join-Path $startup 'Shobi-GitHub-Runner.cmd'
+          $lines = @(
+            '@echo off',
+            'cd /d C:\Windows\System32\actions-runner',
+            'start "" /min run.cmd'
+          )
+          Set-Content -Path $launcher -Value $lines -Encoding ASCII
+          Write-Host "Runner auto-start installed: $launcher"
+
+      - name: Capture Fragrantica on this PC
         shell: powershell
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           $ErrorActionPreference = 'Stop'
-          Write-Host '=== SHOBI SELF-HOSTED CAPTURE ==='
+          Write-Host '=== SHOBI LOCAL FRAGRANTICA CAPTURE ==='
           Write-Host "Computer: $env:COMPUTERNAME"
           Write-Host "User: $env:USERNAME"
-          Write-Host "Workspace: $env:GITHUB_WORKSPACE"
 
-          $root = Join-Path $env:GITHUB_WORKSPACE 'shobi-capture'
-          $tools = Join-Path $root 'tools\fragrantica-main-notes'
-          $batchDir = Join-Path $tools 'batches'
-          $resultsDir = Join-Path $tools 'results'
+          $root = Join-Path $env:GITHUB_WORKSPACE 'shobi-local-capture'
+          $toolDir = Join-Path $root 'tools\fragrantica-main-notes\local-one-click'
+          $batchDir = Join-Path $root 'tools\fragrantica-main-notes\batches'
+          New-Item -ItemType Directory -Force -Path $toolDir | Out-Null
           New-Item -ItemType Directory -Force -Path $batchDir | Out-Null
-          New-Item -ItemType Directory -Force -Path $resultsDir | Out-Null
-          Set-Location $root
+          Set-Location $toolDir
 
-          Write-Host 'Downloading capture script and batch...'
-          Invoke-WebRequest -UseBasicParsing 'https://raw.githubusercontent.com/MarvvRed/Shobi-Perfume-Inspiration/main/tools/fragrantica-main-notes/auto-capture-bestsellers-1-10.mjs' -OutFile (Join-Path $tools 'auto-capture-bestsellers-1-10.mjs')
+          Write-Host 'Downloading latest capture code from GitHub...'
+          Invoke-WebRequest -UseBasicParsing 'https://raw.githubusercontent.com/MarvvRed/Shobi-Perfume-Inspiration/main/tools/fragrantica-main-notes/local-one-click/capture.mjs' -OutFile (Join-Path $toolDir 'capture.mjs')
           Invoke-WebRequest -UseBasicParsing 'https://raw.githubusercontent.com/MarvvRed/Shobi-Perfume-Inspiration/main/tools/fragrantica-main-notes/batches/bestsellers-1-10.json' -OutFile (Join-Path $batchDir 'bestsellers-1-10.json')
 
           $node = Get-Command node -ErrorAction SilentlyContinue
           if (-not $node) {
-            Write-Host 'Node not found; installing portable Node 22 locally...'
-            $index = Invoke-RestMethod 'https://nodejs.org/dist/index.json'
-            $release = $index | Where-Object { $_.version -like 'v22.*' -and $_.lts } | Select-Object -First 1
-            if (-not $release) { throw 'Could not resolve a Node 22 LTS release.' }
-            $nodeZip = "node-$($release.version)-win-x64.zip"
-            $nodeUrl = "https://nodejs.org/dist/$($release.version)/$nodeZip"
-            $nodeZipPath = Join-Path $root $nodeZip
-            Invoke-WebRequest -UseBasicParsing $nodeUrl -OutFile $nodeZipPath
-            Expand-Archive -Force $nodeZipPath -DestinationPath $root
-            $nodeDir = Join-Path $root "node-$($release.version)-win-x64"
+            Write-Host 'Node not found; preparing portable Node 22...'
+            $runtime = Join-Path $root '.runtime'
+            New-Item -ItemType Directory -Force -Path $runtime | Out-Null
+            $version = 'v22.18.0'
+            $zip = Join-Path $runtime 'node.zip'
+            $nodeDir = Join-Path $runtime 'node-v22.18.0-win-x64'
+            if (-not (Test-Path (Join-Path $nodeDir 'node.exe'))) {
+              Invoke-WebRequest -UseBasicParsing "https://nodejs.org/dist/$version/node-$version-win-x64.zip" -OutFile $zip
+              Expand-Archive -Force $zip -DestinationPath $runtime
+            }
             $env:PATH = "$nodeDir;$env:PATH"
           }
 
           Write-Host "Node: $(node --version)"
-          Write-Host "npm: $(npm --version)"
-          Write-Host "npx: $(npx --version)"
-
-          Write-Host 'Installing Playwright package...'
-          npm install --no-save playwright@1.55.0
+          Write-Host 'Preparing Playwright Core...'
+          npm install --no-save --no-audit --no-fund playwright-core@1.55.0
           if ($LASTEXITCODE -ne 0) { throw "npm install failed with exit code $LASTEXITCODE" }
 
-          Write-Host 'Installing Chromium...'
-          npx playwright install chromium
-          if ($LASTEXITCODE -ne 0) { throw "Playwright Chromium install failed with exit code $LASTEXITCODE" }
-
-          Write-Host 'Smoke testing Chromium...'
-          node -e "const {chromium}=require('playwright');(async()=>{const b=await chromium.launch({headless:true});const p=await b.newPage();await p.goto('https://example.com',{timeout:15000});console.log('CHROMIUM_OK',await p.title());await b.close();})().catch(e=>{console.error(e);process.exit(1)})"
-          if ($LASTEXITCODE -ne 0) { throw "Chromium smoke test failed with exit code $LASTEXITCODE" }
-
-          Write-Host 'Running Fragrantica capture...'
-          node (Join-Path $tools 'auto-capture-bestsellers-1-10.mjs')
+          Write-Host 'Launching local capture through Microsoft Edge...'
+          node (Join-Path $toolDir 'capture.mjs')
           $captureExit = $LASTEXITCODE
           Write-Host "Capture exit code: $captureExit"
 
-          $result = Join-Path $resultsDir 'bestsellers-1-10-auto.json'
-          if (-not (Test-Path $result)) { throw 'Capture result JSON was not produced.' }
+          $result = Join-Path $toolDir 'results\bestsellers-1-10.json'
+          if (-not (Test-Path $result)) {
+            throw 'Capture result JSON was not produced.'
+          }
 
-          Write-Host 'Saving result to repository through GitHub API...'
+          Write-Host 'Saving capture result back to GitHub...'
           $api = 'https://api.github.com/repos/MarvvRed/Shobi-Perfume-Inspiration/contents/tools/fragrantica-main-notes/results/bestsellers-1-10-auto.json'
           $headers = @{
             Authorization = "Bearer $env:GH_TOKEN"
@@ -88,6 +96,7 @@ jobs:
             'X-GitHub-Api-Version' = '2022-11-28'
             'User-Agent' = 'shobi-fragrantica-self-hosted-runner'
           }
+
           $sha = $null
           try {
             $existing = Invoke-RestMethod -Headers $headers -Uri $api -Method Get
@@ -103,6 +112,7 @@ jobs:
             branch = 'main'
           }
           if ($sha) { $body.sha = $sha }
+
           $json = $body | ConvertTo-Json -Depth 5
           Invoke-RestMethod -Headers $headers -Uri $api -Method Put -ContentType 'application/json' -Body $json | Out-Null
           Write-Host 'RESULT_SAVED_TO_REPO'
