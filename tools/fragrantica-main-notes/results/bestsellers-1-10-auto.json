@@ -1,0 +1,130 @@
+{
+  "batch": "bestsellers-1-10",
+  "generated_at": "2026-08-19T17:27:36.682Z",
+  "total": 10,
+  "processed": 10,
+  "captured": 0,
+  "failed": 10,
+  "results": [
+    {
+      "rank": 1,
+      "name": "Vanilla 28",
+      "brand": "Kayali Fragrances",
+      "fragrantica_id": 52616,
+      "url": "https://www.fragrantica.com/perfume/Kayali-Fragrances/Vanilla-28-52616.html",
+      "status": "failed",
+      "captured_at": null,
+      "weights_sum": null,
+      "notes": [],
+      "error": "page.waitForFunction: Timeout 12000ms exceeded."
+    },
+    {
+      "rank": 2,
+      "name": "Angels' Share",
+      "brand": "Kilian Paris",
+      "fragrantica_id": 62615,
+      "url": "https://www.fragrantica.com/perfume/By-Kilian/Angels-Share-62615.html",
+      "status": "failed",
+      "captured_at": null,
+      "weights_sum": null,
+      "notes": [],
+      "error": "HTTP 403"
+    },
+    {
+      "rank": 3,
+      "name": "Blanche",
+      "brand": "Byredo",
+      "fragrantica_id": 6686,
+      "url": "https://www.fragrantica.com/perfume/Byredo/Blanche-6686.html",
+      "status": "failed",
+      "captured_at": null,
+      "weights_sum": null,
+      "notes": [],
+      "error": "HTTP 403"
+    },
+    {
+      "rank": 4,
+      "name": "Tobacco Vanille",
+      "brand": "Tom Ford",
+      "fragrantica_id": 1825,
+      "url": "https://www.fragrantica.com/perfume/Tom-Ford/Tobacco-Vanille-1825.html",
+      "status": "failed",
+      "captured_at": null,
+      "weights_sum": null,
+      "notes": [],
+      "error": "HTTP 403"
+    },
+    {
+      "rank": 5,
+      "name": "The Muse",
+      "brand": "ZARKOPERFUME",
+      "fragrantica_id": 60665,
+      "url": "https://www.fragrantica.com/perfume/ZARKOPERFUME/The-Muse-60665.html",
+      "status": "failed",
+      "captured_at": null,
+      "weights_sum": null,
+      "notes": [],
+      "error": "HTTP 403"
+    },
+    {
+      "rank": 6,
+      "name": "Baccarat Rouge 540",
+      "brand": "Maison Francis Kurkdjian",
+      "fragrantica_id": 33519,
+      "url": "https://www.fragrantica.com/perfume/Maison-Francis-Kurkdjian/Baccarat-Rouge-540-33519.html",
+      "status": "failed",
+      "captured_at": null,
+      "weights_sum": null,
+      "notes": [],
+      "error": "HTTP 403"
+    },
+    {
+      "rank": 7,
+      "name": "Virgin Island Water",
+      "brand": "Creed",
+      "fragrantica_id": 899,
+      "url": "https://www.fragrantica.com/perfume/Creed/Virgin-Island-Water-899.html",
+      "status": "failed",
+      "captured_at": null,
+      "weights_sum": null,
+      "notes": [],
+      "error": "HTTP 403"
+    },
+    {
+      "rank": 8,
+      "name": "Lost Cherry",
+      "brand": "Tom Ford",
+      "fragrantica_id": 51411,
+      "url": "https://www.fragrantica.com/perfume/Tom-Ford/Lost-Cherry-51411.html",
+      "status": "failed",
+      "captured_at": null,
+      "weights_sum": null,
+      "notes": [],
+      "error": "HTTP 403"
+    },
+    {
+      "rank": 9,
+      "name": "Devotion",
+      "brand": "Dolce&Gabbana",
+      "fragrantica_id": 84951,
+      "url": "https://www.fragrantica.com/perfume/Dolce-Gabbana/Devotion-84951.html",
+      "status": "failed",
+      "captured_at": null,
+      "weights_sum": null,
+      "notes": [],
+      "error": "HTTP 403"
+    },
+    {
+      "rank": 10,
+      "name": "Cheirosa '62",
+      "brand": "Sol de Janeiro",
+      "fragrantica_id": 56062,
+      "url": "https://www.fragrantica.com/perfume/Sol-de-Janeiro/Cheirosa-62-56062.html",
+      "status": "failed",
+      "captured_at": null,
+      "weights_sum": null,
+      "notes": [],
+      "error": "HTTP 403"
+    }
+  ]
+}
