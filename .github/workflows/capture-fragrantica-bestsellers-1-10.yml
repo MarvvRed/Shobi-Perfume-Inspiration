@@ -13,27 +13,18 @@ jobs:
     timeout-minutes: 5
 
     steps:
-      - name: Deterministic CMD smoke test
+      - name: CMD baseline
         shell: cmd
         run: |
           @echo off
-          echo === SHOBI DETERMINISTIC SMOKE TEST ===
+          echo === CMD BASELINE ===
           echo COMPUTERNAME=%COMPUTERNAME%
           echo USERNAME=%USERNAME%
           echo CD=%CD%
-          echo.
-          echo [cmd]
-          where cmd >nul 2>nul
-          if errorlevel 1 (echo NOT_FOUND) else (where cmd)
-          echo.
-          echo [powershell]
-          where powershell >nul 2>nul
-          if errorlevel 1 (echo NOT_FOUND) else (where powershell)
-          echo.
-          echo SHOBI_SMOKE_OK
+          echo CMD_BASELINE_OK
           exit /b 0
 
-      - name: Node check only
+      - name: Node check
         shell: cmd
         run: |
           @echo off
@@ -41,14 +32,54 @@ jobs:
           where node >nul 2>nul
           if errorlevel 1 (
             echo NODE_NOT_FOUND
-            exit /b 0
+          ) else (
+            node --version
           )
-          node --version
           where npm >nul 2>nul
           if errorlevel 1 (
             echo NPM_NOT_FOUND
+          ) else (
+            call npm --version
+          )
+          echo NODE_STAGE_OK
+          exit /b 0
+
+      - name: PowerShell executable check
+        shell: cmd
+        run: |
+          @echo off
+          echo === POWERSHELL CHECK ===
+          where powershell >nul 2>nul
+          if errorlevel 1 (
+            echo POWERSHELL_NOT_FOUND
             exit /b 0
           )
-          call npm --version
-          echo NODE_CHECK_OK
+          powershell -NoProfile -NonInteractive -Command "$PSVersionTable.PSVersion.ToString(); Write-Output 'POWERSHELL_EXEC_OK'"
+          if errorlevel 1 (
+            echo POWERSHELL_EXEC_FAILED
+            exit /b 0
+          )
+          echo POWERSHELL_STAGE_OK
+          exit /b 0
+
+      - name: Edge discovery only
+        shell: cmd
+        run: |
+          @echo off
+          echo === EDGE DISCOVERY ===
+          set "EDGE1=%ProgramFiles(x86)%\Microsoft\Edge\Application\msedge.exe"
+          set "EDGE2=%ProgramFiles%\Microsoft\Edge\Application\msedge.exe"
+          if exist "%EDGE1%" (
+            echo EDGE_FOUND=%EDGE1%
+            "%EDGE1%" --version
+            echo EDGE_STAGE_OK
+            exit /b 0
+          )
+          if exist "%EDGE2%" (
+            echo EDGE_FOUND=%EDGE2%
+            "%EDGE2%" --version
+            echo EDGE_STAGE_OK
+            exit /b 0
+          )
+          echo EDGE_NOT_FOUND
           exit /b 0
