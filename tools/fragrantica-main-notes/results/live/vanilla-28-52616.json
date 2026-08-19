@@ -1,16 +1,11 @@
 {
   "source": "firefox-extension",
   "batch": "bestsellers-1-10",
-  "target": {
-    "rank": 1,
-    "name": "Vanilla 28",
-    "brand": "Kayali Fragrances",
-    "url": "https://www.fragrantica.com/perfume/Kayali-Fragrances/Vanilla-28-52616.html"
-  },
+  "target": null,
   "perfume": "Vanilla | 28 Kayali Fragrances for women and men",
-  "url": "https://www.fragrantica.com/perfume/Kayali-Fragrances/Vanilla-28-52616.html",
+  "url": "https://www.fragrantica.com/perfume/Kayali/Vanilla-28-52616.html",
   "capture_method": "show-votes-top5",
-  "captured_at": "2026-08-19T23:15:04.668Z",
+  "captured_at": "2026-08-19T23:40:20.767Z",
   "total_voted_notes": 8,
   "saved_note_count": 5,
   "weights_sum": null,
@@ -61,5 +56,5 @@
       "pyramid_level": null
     }
   ],
-  "received_at": "2026-08-19T23:15:05.020Z"
+  "received_at": "2026-08-19T23:40:21.115Z"
 }
