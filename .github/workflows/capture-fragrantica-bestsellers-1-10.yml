@@ -30,17 +30,25 @@ jobs:
           where powershell >nul 2>nul
           if errorlevel 1 (echo NOT_FOUND) else (where powershell)
           echo.
-          echo [node]
-          where node >nul 2>nul
-          if errorlevel 1 (echo NOT_FOUND) else (where node)
-          echo.
-          echo [npm]
-          where npm >nul 2>nul
-          if errorlevel 1 (echo NOT_FOUND) else (where npm)
-          echo.
-          echo [msedge]
-          where msedge >nul 2>nul
-          if errorlevel 1 (echo NOT_FOUND) else (where msedge)
-          echo.
           echo SHOBI_SMOKE_OK
+          exit /b 0
+
+      - name: Node check only
+        shell: cmd
+        run: |
+          @echo off
+          echo === NODE CHECK ===
+          where node >nul 2>nul
+          if errorlevel 1 (
+            echo NODE_NOT_FOUND
+            exit /b 0
+          )
+          node --version
+          where npm >nul 2>nul
+          if errorlevel 1 (
+            echo NPM_NOT_FOUND
+            exit /b 0
+          )
+          call npm --version
+          echo NODE_CHECK_OK
           exit /b 0
