@@ -8,12 +8,12 @@
 
   emit('diagnostic', { stage: 'page-catcher-boot', detail: `readyState=${document.readyState}` });
 
-  function findShowVotes() {
+  function findVoteToggle() {
     return [...document.querySelectorAll('button,a,[role="button"],span,div')].filter(el => {
       const t = clean(el.textContent);
       const a = clean(el.getAttribute?.('aria-label'));
       const title = clean(el.getAttribute?.('title'));
-      return /^show\s+votes$/i.test(t) || /show\s+votes/i.test(a) || /show\s+votes/i.test(title);
+      return /^(show|hide)\s+votes$/i.test(t) || /(show|hide)\s+votes/i.test(a) || /(show|hide)\s+votes/i.test(title);
     });
   }
 
@@ -58,8 +58,6 @@
       const raw = clean(link.textContent) || clean(link.querySelector('img[alt]')?.alt) || clean(link.getAttribute('title'));
       if (!raw) continue;
 
-      // After "Show votes", Fragrantica renders the vote count immediately before the note name,
-      // e.g. "2585Brown sugar" or "1830Tonka Bean".
       const m = raw.match(/^\s*([0-9][0-9.,\s]*)\s*([^0-9].*?)\s*$/);
       if (!m) continue;
 
@@ -94,10 +92,10 @@
     }
     await sleep(1200);
 
-    const buttons = findShowVotes();
-    emit('diagnostic', { stage: 'show-votes-found', detail: `count=${buttons.length}` });
+    const buttons = findVoteToggle();
+    emit('diagnostic', { stage: 'vote-toggle-found', detail: `count=${buttons.length}; states=${buttons.slice(0,4).map(b => clean(b.textContent)).join(' | ')}` });
     if (!buttons.length) {
-      emit('diagnostic', { stage: 'show-votes-missing', detail: 'No Show votes control found' });
+      emit('diagnostic', { stage: 'vote-toggle-missing', detail: 'No Show votes / Hide votes control found' });
       return;
     }
 
@@ -108,19 +106,23 @@
       return;
     }
 
-    try { btn.scrollIntoView({ block: 'center', behavior: 'auto' }); } catch {}
-    await sleep(250);
-
-    try { btn.click(); }
-    catch (e) {
-      emit('page-error', { error: `Show votes click: ${String(e)}` });
-      return;
+    const stateText = clean(btn.textContent).toLowerCase();
+    if (/^hide\s+votes$/.test(stateText)) {
+      emit('diagnostic', { stage: 'votes-already-visible', detail: 'Hide votes detected; parsing without clicking' });
+    } else {
+      try { btn.scrollIntoView({ block: 'center', behavior: 'auto' }); } catch {}
+      await sleep(250);
+      try { btn.click(); }
+      catch (e) {
+        emit('page-error', { error: `Show votes click: ${String(e)}` });
+        return;
+      }
+      emit('diagnostic', { stage: 'show-votes-clicked' });
     }
-    emit('diagnostic', { stage: 'show-votes-clicked' });
 
     let ranked = [];
     for (let attempt = 1; attempt <= 8; attempt++) {
-      await sleep(attempt === 1 ? 900 : 350);
+      await sleep(attempt === 1 ? 700 : 350);
       ranked = parseVotedNotes(root);
       emit('diagnostic', {
         stage: 'votes-scan',
