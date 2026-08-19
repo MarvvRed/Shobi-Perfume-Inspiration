@@ -6,6 +6,8 @@
     window.postMessage({ source: 'shobi-main-notes-page', type, ...detail }, '*');
   };
 
+  emit('diagnostic', { stage: 'page-catcher-boot', detail: `readyState=${document.readyState}` });
+
   const seen = new Set();
 
   const captureDecoded = decoded => {
@@ -15,6 +17,8 @@
       const sig = decoded.notes.map(n => `${n.sastojak_id}:${n.weight}`).join('|');
       if (seen.has(sig)) return;
       seen.add(sig);
+
+      emit('diagnostic', { stage: 'decoded-candidate', detail: `notes=${decoded.notes.length};sum=${decoded.weights_sum}` });
 
       const getLevel = id => {
         if (decoded.pyramid?.top?.some(n => n.sastojak_id === id)) return 'top';
@@ -63,6 +67,7 @@
       };
       wrappedThen.__shobiWrapped = true;
       Promise.prototype.then = wrappedThen;
+      emit('diagnostic', { stage: 'promise-hook-installed' });
     }
   } catch (error) {
     emit('page-error', { error: `Promise hook: ${String(error)}` });
@@ -87,6 +92,9 @@
     if (typeof window._pd === 'function') {
       nativePd = window._pd;
       wrappedPd = wrapPd(nativePd);
+      emit('diagnostic', { stage: 'pd-found-immediately' });
+    } else {
+      emit('diagnostic', { stage: 'pd-not-present-at-boot' });
     }
 
     Object.defineProperty(window, '_pd', {
@@ -96,8 +104,10 @@
       set(fn) {
         nativePd = fn;
         wrappedPd = wrapPd(fn);
+        emit('diagnostic', { stage: 'pd-assigned', detail: `type=${typeof fn}` });
       }
     });
+    emit('diagnostic', { stage: 'pd-property-hook-installed' });
   } catch (error) {
     emit('page-error', { error: `_pd hook: ${String(error)}` });
   }
