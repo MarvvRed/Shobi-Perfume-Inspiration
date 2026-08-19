@@ -17,14 +17,22 @@
     });
   }
 
-  function findPyramidRoot(btn) {
+  function findNotesRoot(btn) {
+    const candidates = [];
     let n = btn;
-    for (let i = 0; n && i < 10; i++, n = n.parentElement) {
+    for (let i = 0; n && i < 12; i++, n = n.parentElement) {
+      const links = [...(n.querySelectorAll?.('a[href*="/notes/"]') || [])];
+      if (!links.length) continue;
       const txt = clean(n.textContent).toLowerCase();
-      const noteLinks = n.querySelectorAll?.('a[href*="/notes/"]') || [];
-      if (noteLinks.length >= 1 && (txt.includes('perfume pyramid') || txt.includes('top notes') || txt.includes('middle notes') || txt.includes('base notes'))) return n;
+      const score =
+        (txt.includes('fragrance notes') ? 0 : 10) +
+        (txt.includes('perfume pyramid') ? 0 : 5) +
+        links.length;
+      candidates.push({ node: n, links: links.length, score });
     }
-    return btn.closest('section') || btn.parentElement?.parentElement?.parentElement;
+    if (!candidates.length) return null;
+    candidates.sort((a, b) => a.score - b.score || a.links - b.links);
+    return candidates[0].node;
   }
 
   function noteId(link) {
@@ -54,7 +62,6 @@
   function plainNoteName(link) {
     let raw = clean(link.textContent) || clean(link.querySelector('img[alt]')?.alt) || clean(link.getAttribute('title'));
     if (!raw) return '';
-    // If votes are already visible, remove the leading vote count.
     raw = raw.replace(/^\s*[0-9][0-9.,\s]*\s*(?=[^0-9])/, '');
     return clean(raw);
   }
@@ -131,16 +138,15 @@
     }
 
     const btn = buttons[0];
-    const root = findPyramidRoot(btn);
+    const root = findNotesRoot(btn);
     if (!root) {
-      emit('diagnostic', { stage: 'show-votes-missing-root', detail: 'Perfume pyramid root not found' });
+      emit('diagnostic', { stage: 'notes-root-missing', detail: 'Fragrance notes block not found' });
       return;
     }
 
-    // Core rule: if the perfume has 5 notes or fewer, there is nothing to rank.
-    // Save every available note directly, without requiring vote counts.
     const plainNotes = parsePlainNotes(root);
     emit('diagnostic', { stage: 'plain-notes-scan', detail: `found=${plainNotes.length}; ${plainNotes.map(n => n.note).join(' | ')}` });
+
     if (plainNotes.length >= 1 && plainNotes.length <= 5) {
       emit('diagnostic', { stage: 'under5-ready', detail: `available=${plainNotes.length};saved=${plainNotes.length}; ${plainNotes.map(n => `#${n.rank} ${n.note}`).join(' | ')}` });
       sendCapture(plainNotes, 'all-notes-when-five-or-fewer', null);
