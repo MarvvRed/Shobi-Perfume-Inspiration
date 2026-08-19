@@ -1,5 +1,5 @@
 @echo off
-setlocal
+setlocal EnableExtensions EnableDelayedExpansion
 cd /d "%~dp0"
 title Shobi Fragrantica Main Notes - One Click
 
@@ -10,26 +10,29 @@ echo ===============================================
 echo.
 
 set "NODE_EXE=node"
+set "NPM_CMD=npm"
 where node >nul 2>nul
 if errorlevel 1 (
   echo [1/4] Node non trovato. Preparo una copia portable locale...
   set "NODE_VERSION=v22.18.0"
   set "NODE_DIR=%CD%\.runtime\node-v22.18.0-win-x64"
   set "NODE_ZIP=%CD%\.runtime\node.zip"
-  if not exist "%NODE_DIR%\node.exe" (
+  if not exist "!NODE_DIR!\node.exe" (
     if not exist "%CD%\.runtime" mkdir "%CD%\.runtime"
-    powershell -NoProfile -ExecutionPolicy Bypass -Command "Invoke-WebRequest -UseBasicParsing 'https://nodejs.org/dist/v22.18.0/node-v22.18.0-win-x64.zip' -OutFile '%NODE_ZIP%'; Expand-Archive -Force '%NODE_ZIP%' '%CD%\.runtime'"
+    powershell -NoProfile -ExecutionPolicy Bypass -Command "$ErrorActionPreference='Stop'; Invoke-WebRequest -UseBasicParsing 'https://nodejs.org/dist/v22.18.0/node-v22.18.0-win-x64.zip' -OutFile '!NODE_ZIP!'; Expand-Archive -Force -Path '!NODE_ZIP!' -DestinationPath '%CD%\.runtime'"
     if errorlevel 1 goto :fail
   )
-  set "PATH=%NODE_DIR%;%PATH%"
-  set "NODE_EXE=%NODE_DIR%\node.exe"
+  set "PATH=!NODE_DIR!;!PATH!"
+  set "NODE_EXE=!NODE_DIR!\node.exe"
+  set "NPM_CMD=!NODE_DIR!\npm.cmd"
+  echo       Node portable pronto.
 ) else (
   echo [1/4] Node trovato.
 )
 
 echo [2/4] Preparo Playwright Core...
 if not exist "node_modules\playwright-core\package.json" (
-  call npm install --no-save --no-audit --no-fund playwright-core@1.55.0
+  call "!NPM_CMD!" install --no-save --no-audit --no-fund playwright-core@1.55.0
   if errorlevel 1 goto :fail
 ) else (
   echo       Playwright Core gia presente.
@@ -38,7 +41,7 @@ if not exist "node_modules\playwright-core\package.json" (
 echo [3/4] Avvio la cattura automatica dei 10 bestseller...
 echo       Si aprira Microsoft Edge. Non devi fare nulla.
 echo.
-"%NODE_EXE%" capture.mjs
+"!NODE_EXE!" capture.mjs
 if errorlevel 1 goto :fail
 
 echo.
