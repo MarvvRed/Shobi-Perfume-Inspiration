@@ -30,7 +30,6 @@ jobs:
           @echo off
           setlocal EnableExtensions EnableDelayedExpansion
           echo === NODE PORTABLE STAGE ===
-
           where node >nul 2>nul
           if not errorlevel 1 (
             echo NODE_FOUND_IN_PATH
@@ -40,43 +39,23 @@ jobs:
             echo NODE_PORTABLE_STAGE_OK
             exit /b 0
           )
-
           set "RUNTIME=%RUNNER_TEMP%\shobi-node"
           set "NODEDIR=%RUNTIME%\node-v22.18.0-win-x64"
           set "NODEZIP=%RUNTIME%\node.zip"
           if not exist "%RUNTIME%" mkdir "%RUNTIME%"
-
           if not exist "%NODEDIR%\node.exe" (
             echo Downloading portable Node with curl...
             where curl.exe >nul 2>nul
-            if errorlevel 1 (
-              echo CURL_NOT_FOUND
-              exit /b 0
-            )
+            if errorlevel 1 (echo CURL_NOT_FOUND& exit /b 0)
             curl.exe -L --fail --silent --show-error "https://nodejs.org/dist/v22.18.0/node-v22.18.0-win-x64.zip" -o "%NODEZIP%"
-            if errorlevel 1 (
-              echo NODE_DOWNLOAD_FAILED
-              exit /b 0
-            )
-
+            if errorlevel 1 (echo NODE_DOWNLOAD_FAILED& exit /b 0)
             echo Extracting portable Node with tar...
             where tar.exe >nul 2>nul
-            if errorlevel 1 (
-              echo TAR_NOT_FOUND
-              exit /b 0
-            )
+            if errorlevel 1 (echo TAR_NOT_FOUND& exit /b 0)
             tar.exe -xf "%NODEZIP%" -C "%RUNTIME%"
-            if errorlevel 1 (
-              echo NODE_EXTRACT_FAILED
-              exit /b 0
-            )
+            if errorlevel 1 (echo NODE_EXTRACT_FAILED& exit /b 0)
           )
-
-          if not exist "%NODEDIR%\node.exe" (
-            echo NODE_EXE_NOT_CREATED
-            exit /b 0
-          )
-
+          if not exist "%NODEDIR%\node.exe" (echo NODE_EXE_NOT_CREATED& exit /b 0)
           "%NODEDIR%\node.exe" --version
           if exist "%NODEDIR%\npm.cmd" call "%NODEDIR%\npm.cmd" --version
           echo NODE_PORTABLE_STAGE_OK
@@ -88,51 +67,31 @@ jobs:
           @echo off
           setlocal EnableExtensions EnableDelayedExpansion
           echo === PLAYWRIGHT CORE STAGE ===
-
           set "NODEEXE="
           set "NPMCMD="
-
           where node >nul 2>nul
           if not errorlevel 1 (
             for /f "delims=" %%I in ('where node') do if not defined NODEEXE set "NODEEXE=%%I"
             for /f "delims=" %%I in ('where npm.cmd 2^>nul') do if not defined NPMCMD set "NPMCMD=%%I"
           )
-
           if not defined NODEEXE (
             set "NODEDIR=%RUNNER_TEMP%\shobi-node\node-v22.18.0-win-x64"
             if exist "!NODEDIR!\node.exe" set "NODEEXE=!NODEDIR!\node.exe"
             if exist "!NODEDIR!\npm.cmd" set "NPMCMD=!NODEDIR!\npm.cmd"
           )
-
-          if not defined NODEEXE (
-            echo NODE_UNAVAILABLE_FOR_PLAYWRIGHT
-            exit /b 0
-          )
-          if not defined NPMCMD (
-            echo NPM_UNAVAILABLE_FOR_PLAYWRIGHT
-            exit /b 0
-          )
-
+          if not defined NODEEXE (echo NODE_UNAVAILABLE_FOR_PLAYWRIGHT& exit /b 0)
+          if not defined NPMCMD (echo NPM_UNAVAILABLE_FOR_PLAYWRIGHT& exit /b 0)
           set "WORK=%RUNNER_TEMP%\shobi-playwright"
           if not exist "!WORK!" mkdir "!WORK!"
           cd /d "!WORK!"
-
           if not exist "node_modules\playwright-core\package.json" (
             echo Installing playwright-core...
             call "!NPMCMD!" install --no-save --no-audit --no-fund playwright-core@1.55.0
-            if errorlevel 1 (
-              echo PLAYWRIGHT_INSTALL_FAILED
-              exit /b 0
-            )
+            if errorlevel 1 (echo PLAYWRIGHT_INSTALL_FAILED& exit /b 0)
           ) else (
             echo PLAYWRIGHT_ALREADY_PRESENT
           )
-
-          if exist "node_modules\playwright-core\package.json" (
-            echo PLAYWRIGHT_CORE_STAGE_OK
-          ) else (
-            echo PLAYWRIGHT_PACKAGE_MISSING
-          )
+          if exist "node_modules\playwright-core\package.json" (echo PLAYWRIGHT_CORE_STAGE_OK) else (echo PLAYWRIGHT_PACKAGE_MISSING)
           exit /b 0
 
       - name: Launch Edge through Playwright Core
@@ -141,7 +100,6 @@ jobs:
           @echo off
           setlocal EnableExtensions EnableDelayedExpansion
           echo === EDGE PLAYWRIGHT STAGE ===
-
           set "NODEEXE="
           where node >nul 2>nul
           if not errorlevel 1 for /f "delims=" %%I in ('where node') do if not defined NODEEXE set "NODEEXE=%%I"
@@ -149,25 +107,13 @@ jobs:
             set "NODEDIR=%RUNNER_TEMP%\shobi-node\node-v22.18.0-win-x64"
             if exist "!NODEDIR!\node.exe" set "NODEEXE=!NODEDIR!\node.exe"
           )
-          if not defined NODEEXE (
-            echo NODE_UNAVAILABLE_FOR_EDGE_TEST
-            exit /b 0
-          )
-
+          if not defined NODEEXE (echo NODE_UNAVAILABLE_FOR_EDGE_TEST& exit /b 0)
           set "WORK=%RUNNER_TEMP%\shobi-playwright"
-          if not exist "!WORK!\node_modules\playwright-core\package.json" (
-            echo PLAYWRIGHT_UNAVAILABLE_FOR_EDGE_TEST
-            exit /b 0
-          )
-
+          if not exist "!WORK!\node_modules\playwright-core\package.json" (echo PLAYWRIGHT_UNAVAILABLE_FOR_EDGE_TEST& exit /b 0)
           set "EDGEEXE="
           if exist "%ProgramFiles(x86)%\Microsoft\Edge\Application\msedge.exe" set "EDGEEXE=%ProgramFiles(x86)%\Microsoft\Edge\Application\msedge.exe"
           if not defined EDGEEXE if exist "%ProgramFiles%\Microsoft\Edge\Application\msedge.exe" set "EDGEEXE=%ProgramFiles%\Microsoft\Edge\Application\msedge.exe"
-          if not defined EDGEEXE (
-            echo EDGE_NOT_FOUND
-            exit /b 0
-          )
-
+          if not defined EDGEEXE (echo EDGE_NOT_FOUND& exit /b 0)
           cd /d "!WORK!"
           > edge-smoke.cjs echo const { chromium } = require('playwright-core');
           >> edge-smoke.cjs echo (async () =^> {
@@ -177,12 +123,51 @@ jobs:
           >> edge-smoke.cjs echo   console.log('EDGE_TITLE=' + await page.title());
           >> edge-smoke.cjs echo   await browser.close();
           >> edge-smoke.cjs echo })().then(() =^> process.exit(0)).catch(e =^> { console.error(e); process.exit(2); });
-
           set "EDGEEXE=!EDGEEXE!"
           "!NODEEXE!" edge-smoke.cjs
+          if errorlevel 1 (echo EDGE_PLAYWRIGHT_FAILED& exit /b 0)
+          echo EDGE_PLAYWRIGHT_OK
+          exit /b 0
+
+      - name: Visit Vanilla 28 on Fragrantica
+        shell: cmd
+        run: |
+          @echo off
+          setlocal EnableExtensions EnableDelayedExpansion
+          echo === FRAGRANTICA ONE PAGE TEST ===
+          set "NODEEXE="
+          where node >nul 2>nul
+          if not errorlevel 1 for /f "delims=" %%I in ('where node') do if not defined NODEEXE set "NODEEXE=%%I"
+          if not defined NODEEXE (
+            set "NODEDIR=%RUNNER_TEMP%\shobi-node\node-v22.18.0-win-x64"
+            if exist "!NODEDIR!\node.exe" set "NODEEXE=!NODEDIR!\node.exe"
+          )
+          if not defined NODEEXE (echo NODE_UNAVAILABLE_FOR_FRAGRANTICA& exit /b 0)
+          set "WORK=%RUNNER_TEMP%\shobi-playwright"
+          if not exist "!WORK!\node_modules\playwright-core\package.json" (echo PLAYWRIGHT_UNAVAILABLE_FOR_FRAGRANTICA& exit /b 0)
+          set "EDGEEXE="
+          if exist "%ProgramFiles(x86)%\Microsoft\Edge\Application\msedge.exe" set "EDGEEXE=%ProgramFiles(x86)%\Microsoft\Edge\Application\msedge.exe"
+          if not defined EDGEEXE if exist "%ProgramFiles%\Microsoft\Edge\Application\msedge.exe" set "EDGEEXE=%ProgramFiles%\Microsoft\Edge\Application\msedge.exe"
+          if not defined EDGEEXE (echo EDGE_NOT_FOUND_FOR_FRAGRANTICA& exit /b 0)
+          cd /d "!WORK!"
+          > fragrantica-one.cjs echo const { chromium } = require('playwright-core');
+          >> fragrantica-one.cjs echo (async () =^> {
+          >> fragrantica-one.cjs echo   const browser = await chromium.launch({ executablePath: process.env.EDGEEXE, headless: true });
+          >> fragrantica-one.cjs echo   const context = await browser.newContext({ locale: 'en-US' });
+          >> fragrantica-one.cjs echo   const page = await context.newPage();
+          >> fragrantica-one.cjs echo   const response = await page.goto('https://www.fragrantica.com/perfume/Kayali-Fragrances/Vanilla-28-52616.html', { waitUntil: 'domcontentloaded', timeout: 30000 });
+          >> fragrantica-one.cjs echo   console.log('FRAGRANTICA_STATUS=' + (response ? response.status() : 'NO_RESPONSE'));
+          >> fragrantica-one.cjs echo   console.log('FRAGRANTICA_URL=' + page.url());
+          >> fragrantica-one.cjs echo   console.log('FRAGRANTICA_TITLE=' + await page.title());
+          >> fragrantica-one.cjs echo   await page.waitForTimeout(3000);
+          >> fragrantica-one.cjs echo   console.log('FRAGRANTICA_HTML_LENGTH=' + (await page.content()).length);
+          >> fragrantica-one.cjs echo   await browser.close();
+          >> fragrantica-one.cjs echo })().then(() =^> process.exit(0)).catch(e =^> { console.error('FRAGRANTICA_ERROR=' + e.message); process.exit(2); });
+          set "EDGEEXE=!EDGEEXE!"
+          "!NODEEXE!" fragrantica-one.cjs
           if errorlevel 1 (
-            echo EDGE_PLAYWRIGHT_FAILED
+            echo FRAGRANTICA_ONE_PAGE_FAILED
             exit /b 0
           )
-          echo EDGE_PLAYWRIGHT_OK
+          echo FRAGRANTICA_ONE_PAGE_OK
           exit /b 0
