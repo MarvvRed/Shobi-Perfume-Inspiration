@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Shobi Fragrantica Main Notes Collector",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "Captures Fragrantica Main Notes from normal Firefox browsing and forwards them to the local GitHub runner bridge.",
   "permissions": [
     "storage",
