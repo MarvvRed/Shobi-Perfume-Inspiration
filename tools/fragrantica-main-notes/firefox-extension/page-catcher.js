@@ -1,130 +1,58 @@
 (() => {
   if (window.__shobiMainNotesPageCatcher) return;
   window.__shobiMainNotesPageCatcher = true;
+  const emit=(type,detail={})=>window.postMessage({source:'shobi-main-notes-page',type,...detail},'*');
+  const clean=s=>(s||'').replace(/\s+/g,' ').trim();
+  const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+  emit('diagnostic',{stage:'page-catcher-boot',detail:`readyState=${document.readyState}`});
 
-  const emit = (type, detail = {}) => window.postMessage({ source: 'shobi-main-notes-page', type, ...detail }, '*');
-  const clean = s => (s || '').replace(/\s+/g, ' ').trim();
-  const sleep = ms => new Promise(r => setTimeout(r, ms));
-  const sent = new Set();
-
-  emit('diagnostic', { stage: 'page-catcher-boot', detail: `readyState=${document.readyState}` });
-
-  function noteName(link) {
-    const img = link.querySelector('img[alt]');
-    let name = clean(link.textContent) || clean(img?.alt) || clean(link.getAttribute('title'));
-    return name.replace(/^(top|middle|heart|base) notes?\s*/i, '').trim();
+  function describe(el){
+    if(!el) return 'null';
+    const tag=el.tagName?.toLowerCase()||'?';
+    const id=el.id?`#${el.id}`:'';
+    const cls=typeof el.className==='string'&&el.className?'.'+el.className.trim().split(/\s+/).slice(0,4).join('.'):'';
+    return `${tag}${id}${cls} text="${clean(el.textContent).slice(0,180)}"`;
   }
 
-  function noteId(link) {
-    const href = link.getAttribute('href') || '';
-    const m = href.match(/\/notes\/[^/]*?(\d+)(?:\.html)?(?:[?#]|$)/i) || href.match(/(?:id=)(\d+)/i);
-    return m ? Number(m[1]) : null;
+  function findShowNotes(){
+    const all=[...document.querySelectorAll('button,a,[role="button"],span,div,strong,b')];
+    return all.filter(el=>/^show\s+notes$/i.test(clean(el.textContent)) || /show\s+notes/i.test(clean(el.getAttribute?.('aria-label'))) || /show\s+notes/i.test(clean(el.getAttribute?.('title'))));
   }
 
-  function headingLevel(el) {
-    const t = clean(el?.textContent).toLowerCase();
-    if (/^top notes?$/.test(t)) return 'top';
-    if (/^(middle|heart) notes?$/.test(t)) return 'middle';
-    if (/^base notes?$/.test(t)) return 'base';
-    return null;
-  }
-
-  function findPyramidRoot() {
-    const headings = [...document.querySelectorAll('h2,h3,h4,h5,h6,strong,b,div,span')];
-    const pyramidHeading = headings.find(el => {
-      const t = clean(el.textContent).toLowerCase();
-      return t === 'perfume pyramid' || t === 'fragrance notes';
-    });
-    if (!pyramidHeading) return null;
-
-    let node = pyramidHeading;
-    for (let i = 0; node && i < 8; i++, node = node.parentElement) {
-      const links = node.querySelectorAll?.('a[href*="/notes/"]') || [];
-      const text = clean(node.textContent).toLowerCase();
-      const hasLevels = /top notes?|middle notes?|heart notes?|base notes?/.test(text);
-      if (links.length >= 2 && hasLevels) return node;
-    }
-    return pyramidHeading.parentElement;
-  }
-
-  function levelForLink(link, root) {
-    let node = link;
-    for (let depth = 0; node && node !== root && depth < 10; depth++, node = node.parentElement) {
-      let prev = node.previousElementSibling;
-      for (let i = 0; prev && i < 6; i++, prev = prev.previousElementSibling) {
-        const direct = headingLevel(prev);
-        if (direct) return direct;
-        const nestedHeading = [...prev.querySelectorAll?.('h2,h3,h4,h5,h6,strong,b,div,span') || []].reverse().find(headingLevel);
-        if (nestedHeading) return headingLevel(nestedHeading);
+  function scanNoteVoteLike(){
+    const hits=[];
+    const selectors=['[data-note]','[data-sastojak]','[data-weight]','[data-votes]','[class*="note"]','[id*="note"]','[class*="ingredient"]','[id*="ingredient"]'];
+    for(const sel of selectors){
+      for(const el of document.querySelectorAll(sel)){
+        const t=clean(el.textContent);
+        if(!t || t.length>500) continue;
+        hits.push(`${sel}:${describe(el)}`);
+        if(hits.length>=20) return hits;
       }
     }
-
-    const all = [...root.querySelectorAll('*')];
-    const idx = all.indexOf(link);
-    for (let i = idx - 1; i >= 0 && i > idx - 80; i--) {
-      const level = headingLevel(all[i]);
-      if (level) return level;
-    }
-    return null;
+    return hits;
   }
 
-  function extractPyramidNotes() {
-    const root = findPyramidRoot();
-    if (!root) return { root: null, notes: [] };
-
-    const links = [...root.querySelectorAll('a[href*="/notes/"]')];
-    const notes = [];
-    const seen = new Set();
-
-    for (const link of links) {
-      const name = noteName(link);
-      if (!name || name.length > 60 || /^notes?$/i.test(name)) continue;
-      const level = levelForLink(link, root);
-      if (!level) continue;
-      const key = `${name.toLowerCase()}|${level}`;
-      if (seen.has(key)) continue;
-      seen.add(key);
-      notes.push({
-        rank: notes.length + 1,
-        note: name,
-        sastojak_id: noteId(link),
-        weight: null,
-        percentage: null,
-        pyramid_level: level
-      });
-    }
-    return { root, notes };
+  async function run(){
+    if(document.readyState==='loading') await new Promise(r=>document.addEventListener('DOMContentLoaded',r,{once:true}));
+    await sleep(1500);
+    const buttons=findShowNotes();
+    emit('diagnostic',{stage:'show-notes-found',detail:`count=${buttons.length}; ${buttons.slice(0,5).map(describe).join(' || ')}`});
+    if(!buttons.length){ emit('diagnostic',{stage:'show-notes-missing',detail:'No Show Notes control found'}); return; }
+    const btn=buttons[0];
+    try{btn.scrollIntoView({block:'center',behavior:'auto'});}catch{}
+    await sleep(500);
+    const before=scanNoteVoteLike();
+    emit('diagnostic',{stage:'show-notes-before',detail:before.length?before.slice(0,8).join(' || '):'none'});
+    try{btn.click(); emit('diagnostic',{stage:'show-notes-clicked',detail:describe(btn)});}catch(e){emit('page-error',{error:`Show Notes click: ${String(e)}`});return;}
+    await sleep(1500);
+    const after=scanNoteVoteLike();
+    emit('diagnostic',{stage:'show-notes-after',detail:after.length?after.slice(0,12).join(' || '):'none'});
+    const parent=btn.parentElement?.parentElement?.parentElement;
+    emit('diagnostic',{stage:'show-notes-parent',detail:describe(parent)});
+    const nearby=[...(parent?.querySelectorAll?.('a[href*="/notes/"],img[alt],input,button,[style*="width"],[class*="bar"],[class*="progress"]')||[])].slice(0,30);
+    emit('diagnostic',{stage:'show-notes-nearby',detail:nearby.length?nearby.map(describe).join(' || '):'none'});
   }
-
-  function capture(notes, reason) {
-    if (notes.length < 2) return false;
-    const sig = notes.map(n => `${n.note}:${n.pyramid_level}`).join('|');
-    if (sent.has(sig)) return true;
-    sent.add(sig);
-    emit('diagnostic', { stage: 'pyramid-candidate', detail: `notes=${notes.length};reason=${reason};names=${notes.map(n => `${n.note}[${n.pyramid_level}]`).join(' | ')}` });
-    emit('capture', { payload: {
-      perfume: document.querySelector('h1')?.innerText?.trim() || document.title,
-      url: location.href.split('#')[0],
-      capture_method: 'dom-perfume-pyramid',
-      weights_sum: null,
-      captured_at: new Date().toISOString(),
-      notes
-    }});
-    return true;
-  }
-
-  async function run() {
-    if (document.readyState === 'loading') await new Promise(resolve => document.addEventListener('DOMContentLoaded', resolve, { once: true }));
-    for (let attempt = 1; attempt <= 10; attempt++) {
-      await sleep(attempt === 1 ? 1000 : 700);
-      const { root, notes } = extractPyramidNotes();
-      emit('diagnostic', { stage: 'pyramid-scan', detail: `attempt=${attempt};root=${!!root};notes=${notes.length}` });
-      if (capture(notes, `attempt-${attempt}`)) return;
-      try { root?.scrollIntoView({ block: 'center', behavior: 'auto' }); } catch {}
-    }
-    emit('diagnostic', { stage: 'pyramid-finished', detail: 'no capture' });
-  }
-
-  run().catch(error => emit('page-error', { error: `Pyramid collector: ${String(error)}` }));
+  run().catch(e=>emit('page-error',{error:`Show Notes diagnostic: ${String(e)}`}));
   emit('installed');
 })();
