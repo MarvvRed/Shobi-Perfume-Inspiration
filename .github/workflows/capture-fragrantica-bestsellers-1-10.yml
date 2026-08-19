@@ -4,107 +4,26 @@ on:
   push:
     branches: [main]
     paths:
-      - 'tools/fragrantica-main-notes/auto-capture-bestsellers-1-10.mjs'
-      - 'tools/fragrantica-main-notes/batches/bestsellers-1-10.json'
       - '.github/workflows/capture-fragrantica-bestsellers-1-10.yml'
   workflow_dispatch:
-
-permissions:
-  contents: write
 
 jobs:
   capture:
     runs-on: [self-hosted, Windows, X64]
-    timeout-minutes: 15
+    timeout-minutes: 5
 
     steps:
-      - name: Runner preflight
-        shell: powershell
+      - name: Bare runner smoke test
+        shell: cmd
         run: |
-          Write-Host "Computer: $env:COMPUTERNAME"
-          Write-Host "User: $env:USERNAME"
-          Write-Host "PowerShell: $($PSVersionTable.PSVersion)"
-          Write-Host "Workspace: $env:GITHUB_WORKSPACE"
-
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: '22'
-
-      - name: Prepare working files without git
-        shell: powershell
-        run: |
-          New-Item -ItemType Directory -Force -Path 'tools/fragrantica-main-notes/batches' | Out-Null
-          New-Item -ItemType Directory -Force -Path 'tools/fragrantica-main-notes/results' | Out-Null
-          Invoke-WebRequest -UseBasicParsing `
-            'https://raw.githubusercontent.com/MarvvRed/Shobi-Perfume-Inspiration/main/tools/fragrantica-main-notes/auto-capture-bestsellers-1-10.mjs' `
-            -OutFile 'tools/fragrantica-main-notes/auto-capture-bestsellers-1-10.mjs'
-          Invoke-WebRequest -UseBasicParsing `
-            'https://raw.githubusercontent.com/MarvvRed/Shobi-Perfume-Inspiration/main/tools/fragrantica-main-notes/batches/bestsellers-1-10.json' `
-            -OutFile 'tools/fragrantica-main-notes/batches/bestsellers-1-10.json'
-          Write-Host "Script exists: $(Test-Path 'tools/fragrantica-main-notes/auto-capture-bestsellers-1-10.mjs')"
-          Write-Host "Batch exists: $(Test-Path 'tools/fragrantica-main-notes/batches/bestsellers-1-10.json')"
-
-      - name: Verify Node
-        shell: powershell
-        run: |
-          node --version
-          npm --version
-          npx --version
-
-      - name: Install Playwright package
-        shell: powershell
-        run: npm install --no-save playwright@1.55.0
-
-      - name: Install Chromium
-        shell: powershell
-        run: npx playwright install chromium
-
-      - name: Smoke test Chromium
-        shell: powershell
-        run: |
-          node -e "const { chromium }=require('playwright'); (async()=>{const b=await chromium.launch({headless:true}); const p=await b.newPage(); await p.goto('https://example.com'); console.log(await p.title()); await b.close();})().catch(e=>{console.error(e);process.exit(1)})"
-
-      - name: Capture Fragrantica Main Notes
-        shell: powershell
-        run: node tools/fragrantica-main-notes/auto-capture-bestsellers-1-10.mjs
-
-      - name: Save result to repository through GitHub API
-        if: always()
-        shell: powershell
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          $RESULT = 'tools/fragrantica-main-notes/results/bestsellers-1-10-auto.json'
-          if (-not (Test-Path $RESULT)) {
-            Write-Host 'Capture result file was not produced.'
-            exit 0
-          }
-
-          $api = 'https://api.github.com/repos/MarvvRed/Shobi-Perfume-Inspiration/contents/tools/fragrantica-main-notes/results/bestsellers-1-10-auto.json'
-          $headers = @{
-            Authorization = "Bearer $env:GH_TOKEN"
-            Accept = 'application/vnd.github+json'
-            'X-GitHub-Api-Version' = '2022-11-28'
-            'User-Agent' = 'shobi-fragrantica-self-hosted-runner'
-          }
-
-          $sha = $null
-          try {
-            $existing = Invoke-RestMethod -Headers $headers -Uri $api -Method Get
-            $sha = $existing.sha
-          } catch {
-            Write-Host 'No existing result file found; creating it.'
-          }
-
-          $bytes = [System.IO.File]::ReadAllBytes((Resolve-Path $RESULT))
-          $body = @{
-            message = 'Update Fragrantica bestseller 1-10 capture results'
-            content = [Convert]::ToBase64String($bytes)
-            branch = 'main'
-          }
-          if ($sha) { $body.sha = $sha }
-
-          $json = $body | ConvertTo-Json -Depth 5
-          Invoke-RestMethod -Headers $headers -Uri $api -Method Put -ContentType 'application/json' -Body $json | Out-Null
-          Write-Host 'Result saved to repository.'
+          echo === SHOBI RUNNER SMOKE TEST ===
+          ver
+          echo COMPUTERNAME=%COMPUTERNAME%
+          echo USERNAME=%USERNAME%
+          echo CD=%CD%
+          where cmd
+          where powershell
+          where git
+          where node
+          timeout /t 20 /nobreak
+          echo RUNNER_SMOKE_OK
