@@ -4,6 +4,7 @@ const { chromium } = require('playwright-core');
 
 const EDGEEXE = process.env.EDGEEXE;
 const OUT = process.env.SHOBI_OUT || path.join(process.cwd(), 'vanilla-28-capture.json');
+const PROFILE = process.env.SHOBI_PROFILE || 'C:\\Shobi\\EdgeProfile';
 const URL = 'https://www.fragrantica.com/perfume/Kayali-Fragrances/Vanilla-28-52616.html';
 
 function clean(decoded) {
@@ -31,9 +32,18 @@ function clean(decoded) {
 }
 
 (async () => {
-  const browser = await chromium.launch({ executablePath: EDGEEXE, headless: true, args: ['--disable-blink-features=AutomationControlled'] });
-  const context = await browser.newContext({ locale: 'en-US' });
-  const page = await context.newPage();
+  fs.mkdirSync(PROFILE, { recursive: true });
+  console.log('PROFILE=' + PROFILE);
+
+  const context = await chromium.launchPersistentContext(PROFILE, {
+    executablePath: EDGEEXE,
+    headless: false,
+    locale: 'en-US',
+    viewport: { width: 1365, height: 900 }
+  });
+
+  const pages = context.pages();
+  const page = pages[0] || await context.newPage();
 
   await page.addInitScript(() => {
     window.__shobiDecodedCaptures = [];
@@ -71,24 +81,36 @@ function clean(decoded) {
     } catch {}
   });
 
-  const response = await page.goto(URL, { waitUntil: 'domcontentloaded', timeout: 30000 });
+  const response = await page.goto(URL, { waitUntil: 'domcontentloaded', timeout: 45000 });
   console.log('STATUS=' + (response ? response.status() : 'NO_RESPONSE'));
-  console.log('TITLE=' + await page.title());
 
-  await page.waitForTimeout(1200);
-  await page.evaluate(async () => {
-    const sleep = ms => new Promise(r => setTimeout(r, ms));
-    const h = Math.max(document.documentElement.scrollHeight, document.body?.scrollHeight || 0);
-    for (const f of [0.2, 0.4, 0.6, 0.8, 1]) {
-      window.scrollTo(0, Math.floor(h * f));
-      await sleep(300);
-    }
-    window.scrollTo(0, Math.floor(h * 0.45));
-  });
+  // Give normal browser-side checks time to finish. If an interstitial remains,
+  // we report it instead of trying to circumvent it.
+  const deadline = Date.now() + 60000;
+  let title = await page.title();
+  while (/just a moment/i.test(title) && Date.now() < deadline) {
+    await page.waitForTimeout(3000);
+    title = await page.title();
+    console.log('WAITING_TITLE=' + title);
+  }
+  console.log('TITLE=' + title);
 
-  try {
-    await page.waitForFunction(() => window.__shobiDecodedCaptures?.length > 0, null, { timeout: 20000 });
-  } catch {}
+  if (!/just a moment/i.test(title)) {
+    await page.waitForTimeout(1500);
+    await page.evaluate(async () => {
+      const sleep = ms => new Promise(r => setTimeout(r, ms));
+      const h = Math.max(document.documentElement.scrollHeight, document.body?.scrollHeight || 0);
+      for (const f of [0.2, 0.4, 0.6, 0.8, 1]) {
+        window.scrollTo(0, Math.floor(h * f));
+        await sleep(400);
+      }
+      window.scrollTo(0, Math.floor(h * 0.45));
+    });
+
+    try {
+      await page.waitForFunction(() => window.__shobiDecodedCaptures?.length > 0, null, { timeout: 25000 });
+    } catch {}
+  }
 
   const decoded = await page.evaluate(() => window.__shobiDecodedCaptures?.at(-1) || null);
   const result = clean(decoded);
@@ -99,6 +121,7 @@ function clean(decoded) {
   } else {
     const diagnostic = {
       captured: false,
+      persistent_profile: PROFILE,
       url: page.url(),
       title: await page.title(),
       html_length: (await page.content()).length,
@@ -106,10 +129,10 @@ function clean(decoded) {
       timestamp: new Date().toISOString()
     };
     fs.writeFileSync(OUT, JSON.stringify(diagnostic, null, 2) + '\n');
-    console.log('CAPTURE_MISS candidates=' + diagnostic.captured_candidates);
+    console.log('CAPTURE_MISS candidates=' + diagnostic.captured_candidates + ' title=' + diagnostic.title);
   }
 
-  await browser.close();
+  await context.close();
 })().catch(err => {
   console.error('CAPTURE_FATAL=' + (err?.stack || err));
   process.exit(2);
