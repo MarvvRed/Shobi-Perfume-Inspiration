@@ -6,7 +6,11 @@ on:
     paths:
       - '.github/workflows/capture-fragrantica-bestsellers-1-10.yml'
       - 'tools/fragrantica-main-notes/runner-capture-one.cjs'
+      - 'tools/fragrantica-main-notes/upload-capture-result.cjs'
   workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   capture:
@@ -75,6 +79,8 @@ jobs:
 
       - name: Capture Vanilla 28 Main Notes
         shell: cmd
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           @echo off
           setlocal EnableExtensions EnableDelayedExpansion
@@ -98,6 +104,7 @@ jobs:
 
           cd /d "!WORK!"
           curl.exe -L --fail --silent --show-error "https://raw.githubusercontent.com/MarvvRed/Shobi-Perfume-Inspiration/main/tools/fragrantica-main-notes/runner-capture-one.cjs" -o runner-capture-one.cjs
+          curl.exe -L --fail --silent --show-error "https://raw.githubusercontent.com/MarvvRed/Shobi-Perfume-Inspiration/main/tools/fragrantica-main-notes/upload-capture-result.cjs" -o upload-capture-result.cjs
           if errorlevel 1 (echo SCRIPT_DOWNLOAD_FAILED& exit /b 0)
 
           set "EDGEEXE=!EDGEEXE!"
@@ -106,9 +113,8 @@ jobs:
           set "RC=!ERRORLEVEL!"
           echo CAPTURE_EXIT=!RC!
           if exist "!SHOBI_OUT!" (
-            echo === CAPTURE JSON ===
             type "!SHOBI_OUT!"
-            echo === END JSON ===
+            "!NODEEXE!" upload-capture-result.cjs
           ) else (
             echo CAPTURE_JSON_MISSING
           )
