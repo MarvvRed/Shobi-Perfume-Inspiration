@@ -1,0 +1,65 @@
+{
+  "source": "firefox-extension",
+  "batch": "bestsellers-1-10",
+  "target": {
+    "rank": 9,
+    "name": "Devotion",
+    "brand": "Dolce&Gabbana",
+    "url": "https://www.fragrantica.com/perfume/Dolce-Gabbana/Devotion-84951.html"
+  },
+  "perfume": "Devotion Dolce&Gabbana for women",
+  "url": "https://www.fragrantica.com/perfume/Dolce-Gabbana/Devotion-84951.html",
+  "capture_method": "all-notes-when-five-or-fewer",
+  "captured_at": "2026-08-19T23:15:48.093Z",
+  "total_voted_notes": null,
+  "saved_note_count": 5,
+  "weights_sum": null,
+  "notes": [
+    {
+      "note": "Candied Lemon",
+      "sastojak_id": 1485,
+      "votes": null,
+      "weight": null,
+      "percentage": null,
+      "pyramid_level": "top",
+      "rank": 1
+    },
+    {
+      "note": "Panacotta",
+      "sastojak_id": 500,
+      "votes": null,
+      "weight": null,
+      "percentage": null,
+      "pyramid_level": "middle",
+      "rank": 2
+    },
+    {
+      "note": "Orange Blossom",
+      "sastojak_id": 16,
+      "votes": null,
+      "weight": null,
+      "percentage": null,
+      "pyramid_level": "middle",
+      "rank": 3
+    },
+    {
+      "note": "Rum",
+      "sastojak_id": 201,
+      "votes": null,
+      "weight": null,
+      "percentage": null,
+      "pyramid_level": "middle",
+      "rank": 4
+    },
+    {
+      "note": "Vanilla",
+      "sastojak_id": 74,
+      "votes": null,
+      "weight": null,
+      "percentage": null,
+      "pyramid_level": "base",
+      "rank": 5
+    }
+  ],
+  "received_at": "2026-08-19T23:15:48.342Z"
+}
