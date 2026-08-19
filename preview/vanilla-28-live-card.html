@@ -3,10 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <base href="../">
   <title>Vanilla 28 Live Renderer Preview</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-  <link rel="stylesheet" href="../style.css?v=6">
+  <link rel="stylesheet" href="style.css?v=6">
 </head>
 <body class="bg-base font-sans">
   <div class="page-grid mx-auto p-4 sm:p-6 lg:p-8 gap-6" style="grid-template-columns:1fr">
@@ -28,18 +29,17 @@
 
   <div id="perfume-modal" class="fixed inset-0 z-30 flex items-center justify-center p-4 invisible opacity-0 transition-opacity duration-300"><div id="modal-overlay" class="absolute inset-0 bg-black bg-opacity-75 cursor-pointer"></div><div id="modal-content" class="relative bg-surface rounded-lg shadow-xl w-full max-w-2xl max-h-[90vh] overflow-y-auto transition-all duration-300 transform -translate-y-10 opacity-0"><div class="p-6 border-b border-light"><button id="modal-close-btn" class="absolute top-4 right-4 text-tertiary"><i class="fas fa-times fa-2x"></i></button><h2 id="modal-inspiredBy" class="text-2xl font-bold text-primary"></h2><p id="modal-brand" class="text-lg text-secondary"></p><p id="modal-code" class="text-sm font-mono text-tertiary mt-1"></p></div><div class="p-6 space-y-4"><div><h4 class="font-semibold text-primary">Description</h4><p id="modal-description" class="text-secondary"></p></div><div><h4 class="font-semibold text-primary">Notes</h4><div id="modal-notes" class="text-secondary space-y-1"></div></div><div><h4 class="font-semibold text-primary">Essence Boost Guide</h4><div id="modal-boost-guide" class="p-3 bg-subtle rounded-md mt-2"></div></div></div><div class="p-6 bg-subtle rounded-b-lg"><a id="modal-shobiLink" target="_blank" rel="noopener noreferrer" class="block w-full text-center px-4 py-3 rounded-md text-lg font-medium text-white bg-blue-600">Buy this at Shobi</a></div></div></div>
 
-  <script src="../script.js?v=2"></script>
-  <script src="../bestsellers-1.js?v=1"></script><script src="../bestsellers-2.js?v=1"></script><script src="../bestsellers-3.js?v=1"></script><script src="../bestsellers-4.js?v=1"></script><script src="../bestsellers-5.js?v=1"></script>
-  <script src="../pagination.js?v=12"></script>
-  <script src="../sorting-bestsellers.js?v=1"></script>
+  <script src="script.js?v=2"></script>
+  <script src="bestsellers-1.js?v=1"></script><script src="bestsellers-2.js?v=1"></script><script src="bestsellers-3.js?v=1"></script><script src="bestsellers-4.js?v=1"></script><script src="bestsellers-5.js?v=1"></script>
+  <script src="pagination.js?v=12"></script>
+  <script src="sorting-bestsellers.js?v=1"></script>
   <script>
     (function showOnlyLiveVanilla(){
       let attempts=0;
       const timer=setInterval(()=>{
         attempts++;
-        if(Array.isArray(window.allPerfumes||allPerfumes) && (window.allPerfumes||allPerfumes).length){
-          const list=window.allPerfumes||allPerfumes;
-          const vanilla=list.find(p=>String(p.code||'').toUpperCase().startsWith('305-KAY'));
+        if(typeof allPerfumes!=='undefined' && Array.isArray(allPerfumes) && allPerfumes.length){
+          const vanilla=allPerfumes.find(p=>String(p.code||'').toUpperCase().startsWith('305-KAY'));
           if(vanilla){
             state.searchQuery='';state.selectedBrand=null;state.showingFavorites=false;state.activeFilters.gender=[];state.activeFilters.brands=[];state.activeFilters.season=[];state.selectedNote=null;state.currentPage=1;
             displayPerfumes([vanilla]);
