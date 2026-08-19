@@ -1,36 +1,11 @@
 {
   "manifest_version": 2,
   "name": "Shobi Fragrantica Main Notes Collector",
-  "version": "0.2.8",
-  "description": "Captures only the rendered Fragrantica perfume pyramid notes and forwards them to the local GitHub runner bridge.",
-  "permissions": [
-    "storage",
-    "tabs",
-    "downloads",
-    "https://fragrantica.com/*",
-    "https://www.fragrantica.com/*",
-    "https://*.fragrantica.com/*",
-    "http://127.0.0.1:8765/*"
-  ],
-  "background": {
-    "scripts": ["background.js"]
-  },
-  "content_scripts": [
-    {
-      "matches": [
-        "https://fragrantica.com/*",
-        "https://www.fragrantica.com/*",
-        "https://*.fragrantica.com/*"
-      ],
-      "js": ["bridge-content.js"],
-      "run_at": "document_start",
-      "all_frames": false
-    }
-  ],
-  "browser_action": {
-    "default_title": "Shobi Main Notes Collector"
-  },
-  "web_accessible_resources": [
-    "page-catcher.js"
-  ]
+  "version": "0.2.9",
+  "description": "Targets Fragrantica Show Notes to identify the user-voted note data for top-5 extraction.",
+  "permissions": ["storage","tabs","downloads","https://fragrantica.com/*","https://www.fragrantica.com/*","https://*.fragrantica.com/*","http://127.0.0.1:8765/*"],
+  "background": {"scripts":["background.js"]},
+  "content_scripts": [{"matches":["https://fragrantica.com/*","https://www.fragrantica.com/*","https://*.fragrantica.com/*"],"js":["bridge-content.js"],"run_at":"document_start","all_frames":false}],
+  "browser_action":{"default_title":"Shobi Main Notes Collector"},
+  "web_accessible_resources":["page-catcher.js"]
 }
