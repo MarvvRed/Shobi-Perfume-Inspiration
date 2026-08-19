@@ -1,10 +1,12 @@
 {
   "scope": "Best Seller #21-#100",
-  "generated_at": "2026-08-19T14:38:06.701995+00:00",
+  "generated_at": "2026-08-19T14:40:24.978434+00:00",
   "source": "Personal Database/perfume-details.json (read-only; verified records only)",
   "perfumes": {
     "848-NRO WP": {
       "rank": 35,
+      "name": "848-NRO WP",
+      "brand": "",
       "top_notes": [
         "musk"
       ],
@@ -21,6 +23,8 @@
     },
     "2155-KAY EL": {
       "rank": 38,
+      "name": "YUM PISTACHIO GELATO - KAYALI",
+      "brand": "Kayali",
       "top_notes": [
         "Pistachio Gelato",
         "Hazelnut",
@@ -54,6 +58,8 @@
     },
     "1553-MNT N": {
       "rank": 40,
+      "name": "ARABIANS TONKA - MONTALE",
+      "brand": "Montale",
       "top_notes": [
         "Bergamot",
         "Saffron"
@@ -77,6 +83,8 @@
     },
     "937-VAL WP": {
       "rank": 41,
+      "name": "DONNA BORN IN ROMA - VALENTINO",
+      "brand": "",
       "top_notes": [
         "black currant",
         "pink pepper",
@@ -99,6 +107,8 @@
     },
     "1493-ACQ WP": {
       "rank": 46,
+      "name": "αρώματος FICO DI AMALFI",
+      "brand": "Acqua Di Parma",
       "top_notes": [
         "Italian Lemon",
         "Italian Bergamot",
@@ -121,6 +131,8 @@
     },
     "847-NRO WP": {
       "rank": 53,
+      "name": "847-NRO WP",
+      "brand": "",
       "top_notes": [
         "jasmine",
         "bulgarian rose",
@@ -142,6 +154,8 @@
     },
     "513-CHL WP": {
       "rank": 79,
+      "name": "LOVE - CHLOE",
+      "brand": "Chloé",
       "top_notes": [
         "pink pepper",
         "african orange flower"
@@ -165,6 +179,8 @@
     },
     "318-MNT EL": {
       "rank": 84,
+      "name": "CHOCOLATE GREEDY",
+      "brand": "Montale",
       "top_notes": [
         "Bitter Orange"
       ],

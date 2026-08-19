@@ -1,7 +1,7 @@
 {
   "scope": "Best Seller #21-#100",
-  "generated_at": "2026-08-19T14:38:06.701995+00:00",
-  "source": "Personal Database/perfume-details.json (read-only)",
+  "generated_at": "2026-08-19T14:40:24.978434+00:00",
+  "source": "Personal Database/perfume-details.json + catalog-lite.json (read-only)",
   "counts": {
     "total": 80,
     "verified": 8,
@@ -13,6 +13,9 @@
     {
       "rank": 21,
       "code": "2398-FRE LUX",
+      "name": "Acne Studios",
+      "brand": "",
+      "gender": "unisex",
       "state": "pending",
       "notes_status": "",
       "notes_validation_version": 30
@@ -20,6 +23,9 @@
     {
       "rank": 22,
       "code": "401-ARIA WP",
+      "name": "CLOUD - ARIANA GRANDE",
+      "brand": "Ariana Grande",
+      "gender": "women",
       "state": "missing",
       "notes_status": "",
       "notes_validation_version": null
@@ -27,6 +33,9 @@
     {
       "rank": 23,
       "code": "1660-ESCE EL",
+      "name": "MOLECULE 01",
+      "brand": "Escentric Molecules",
+      "gender": "unisex",
       "state": "pending",
       "notes_status": "secondary_exact_pending_crosscheck",
       "notes_validation_version": 66
@@ -34,6 +43,9 @@
     {
       "rank": 24,
       "code": "1067-CHA",
+      "name": "BLEU",
+      "brand": "Chanel",
+      "gender": "men",
       "state": "pending",
       "notes_status": "secondary_exact_pending_crosscheck",
       "notes_validation_version": 66
@@ -41,6 +53,9 @@
     {
       "rank": 25,
       "code": "1499-BYR EL",
+      "name": "αρώματος MOJAVE GHOST",
+      "brand": "Byredo",
+      "gender": "unisex",
       "state": "missing",
       "notes_status": "",
       "notes_validation_version": null
@@ -48,6 +63,9 @@
     {
       "rank": 26,
       "code": "485-CAR WP",
+      "name": "GOOD GIRL",
+      "brand": "Carolina Herrera",
+      "gender": "women",
       "state": "missing",
       "notes_status": "",
       "notes_validation_version": null
@@ -55,6 +73,9 @@
     {
       "rank": 27,
       "code": "1520-YZLO W",
+      "name": "LIBRE INTENSE",
+      "brand": "Ysl",
+      "gender": "women",
       "state": "pending",
       "notes_status": "secondary_exact_pending_crosscheck",
       "notes_validation_version": 66
@@ -62,6 +83,9 @@
     {
       "rank": 28,
       "code": "152-PARF N",
+      "name": "DELINA EXCLUSIF - PARFUMS DE MARLY",
+      "brand": "Parfums de Marly",
+      "gender": "women",
       "state": "missing",
       "notes_status": "",
       "notes_validation_version": null
@@ -69,6 +93,9 @@
     {
       "rank": 29,
       "code": "1735-XER N",
+      "name": "ITALICA",
+      "brand": "Xerjoff",
+      "gender": "unisex",
       "state": "missing",
       "notes_status": "",
       "notes_validation_version": null
@@ -76,6 +103,9 @@
     {
       "rank": 30,
       "code": "1498-BYR EL",
+      "name": "αρώματος GYPSY WATER",
+      "brand": "Byredo",
+      "gender": "unisex",
       "state": "missing",
       "notes_status": "",
       "notes_validation_version": null
@@ -83,6 +113,9 @@
     {
       "rank": 31,
       "code": "132-LTN N",
+      "name": "OMBRE NOMADE",
+      "brand": "Louis Vuitton",
+      "gender": "unisex",
       "state": "pending",
       "notes_status": "secondary_exact_pending_crosscheck",
       "notes_validation_version": 66
@@ -90,6 +123,9 @@
     {
       "rank": 32,
       "code": "1919-PRA WP",
+      "name": "PARADOXE - PRADA",
+      "brand": "Prada",
+      "gender": "women",
       "state": "missing",
       "notes_status": "",
       "notes_validation_version": null
@@ -97,6 +133,9 @@
     {
       "rank": 33,
       "code": "1764-GUR W",
+      "name": "AQUA ALLEGORIA COCONUT FIZZ",
+      "brand": "Guerlain",
+      "gender": "women",
       "state": "missing",
       "notes_status": "",
       "notes_validation_version": null
@@ -104,6 +143,9 @@
     {
       "rank": 34,
       "code": "131-LEL N",
+      "name": "Le Labo Santal 33",
+      "brand": "Le Labo",
+      "gender": "unisex",
       "state": "pending",
       "notes_status": "secondary_exact_pending_crosscheck",
       "notes_validation_version": 66
@@ -111,6 +153,9 @@
     {
       "rank": 35,
       "code": "848-NRO WP",
+      "name": "848-NRO WP",
+      "brand": "",
+      "gender": "women",
       "state": "verified",
       "notes_status": "",
       "notes_validation_version": "kaggle-fragrantica-reviewed-v4.4"
@@ -118,6 +163,9 @@
     {
       "rank": 36,
       "code": "2348-AMG",
+      "name": "Guidance",
+      "brand": "Amouage",
+      "gender": "women",
       "state": "missing",
       "notes_status": "",
       "notes_validation_version": null
@@ -125,6 +173,9 @@
     {
       "rank": 37,
       "code": "303-JOM EL",
+      "name": "Wood Sage & Sea Salt Jo Malone",
+      "brand": "Jo Malone London",
+      "gender": "unisex",
       "state": "pending",
       "notes_status": "secondary_exact_pending_crosscheck",
       "notes_validation_version": 66
@@ -132,6 +183,9 @@
     {
       "rank": 38,
       "code": "2155-KAY EL",
+      "name": "YUM PISTACHIO GELATO - KAYALI",
+      "brand": "Kayali",
+      "gender": "women",
       "state": "verified",
       "notes_status": "verified_primary_official",
       "notes_validation_version": "official-kayali-2026-08-14-v1"
@@ -139,6 +193,9 @@
     {
       "rank": 39,
       "code": "750-KEN W",
+      "name": "FLOWER L ELIXIR - KENZO",
+      "brand": "Kenzo",
+      "gender": "women",
       "state": "pending",
       "notes_status": "secondary_exact_pending_crosscheck",
       "notes_validation_version": 66
@@ -146,6 +203,9 @@
     {
       "rank": 40,
       "code": "1553-MNT N",
+      "name": "ARABIANS TONKA - MONTALE",
+      "brand": "Montale",
+      "gender": "unisex",
       "state": "verified",
       "notes_status": "verified_primary_official",
       "notes_validation_version": "official-montale-2026-08-14-v1"
@@ -153,6 +213,9 @@
     {
       "rank": 41,
       "code": "937-VAL WP",
+      "name": "DONNA BORN IN ROMA - VALENTINO",
+      "brand": "",
+      "gender": "women",
       "state": "verified",
       "notes_status": "",
       "notes_validation_version": "kaggle-fragrantica-alias-v4.1"
@@ -160,6 +223,9 @@
     {
       "rank": 42,
       "code": "1937-BIL AR",
+      "name": "αρώματος Eilish Billie Eilish",
+      "brand": "Billie Eilish",
+      "gender": "unisex",
       "state": "missing",
       "notes_status": "",
       "notes_validation_version": null
@@ -167,6 +233,9 @@
     {
       "rank": 43,
       "code": "425-BRB WP",
+      "name": "αρώματος Burberry Her",
+      "brand": "Burberry",
+      "gender": "women",
       "state": "pending",
       "notes_status": "secondary_exact_pending_crosscheck",
       "notes_validation_version": 66
@@ -174,6 +243,9 @@
     {
       "rank": 44,
       "code": "1883-NISH N",
+      "name": "Fragrance WULONG CHA - NISHANE",
+      "brand": "Nishane",
+      "gender": "unisex",
       "state": "missing",
       "notes_status": "",
       "notes_validation_version": null
@@ -181,6 +253,9 @@
     {
       "rank": 45,
       "code": "760-KIL WP",
+      "name": "BLACK PHANTOM - KILIAN",
+      "brand": "Kilian Paris",
+      "gender": "unisex",
       "state": "pending",
       "notes_status": "",
       "notes_validation_version": 30
@@ -188,6 +263,9 @@
     {
       "rank": 46,
       "code": "1493-ACQ WP",
+      "name": "αρώματος FICO DI AMALFI",
+      "brand": "Acqua Di Parma",
+      "gender": "unisex",
       "state": "verified",
       "notes_status": "",
       "notes_validation_version": 65
@@ -195,6 +273,9 @@
     {
       "rank": 47,
       "code": "2235-PRA WP",
+      "name": "PARADOXE INTENSE - PRADA",
+      "brand": "Prada",
+      "gender": "women",
       "state": "missing",
       "notes_status": "",
       "notes_validation_version": null
@@ -202,6 +283,9 @@
     {
       "rank": 48,
       "code": "361-TMFO EL",
+      "name": "OMBRE LEATHER",
+      "brand": "Tom Ford",
+      "gender": "unisex",
       "state": "pending",
       "notes_status": "secondary_exact_pending_crosscheck",
       "notes_validation_version": 66
@@ -209,6 +293,9 @@
     {
       "rank": 49,
       "code": "2346-TMFO EL",
+      "name": "2346-TMFO EL",
+      "brand": "",
+      "gender": "unisex",
       "state": "missing",
       "notes_status": "",
       "notes_validation_version": null
@@ -216,6 +303,9 @@
     {
       "rank": 50,
       "code": "981-YZLO W",
+      "name": "LIBRE",
+      "brand": "Ysl",
+      "gender": "women",
       "state": "pending",
       "notes_status": "secondary_exact_pending_crosscheck",
       "notes_validation_version": 66
@@ -223,6 +313,9 @@
     {
       "rank": 51,
       "code": "977-YZLO W",
+      "name": "BLACK OPIUM Ανατολίτικο Πικάντικο",
+      "brand": "Ysl",
+      "gender": "women",
       "state": "pending",
       "notes_status": "secondary_exact_pending_crosscheck",
       "notes_validation_version": 66
@@ -230,6 +323,9 @@
     {
       "rank": 52,
       "code": "364-TMFO EL",
+      "name": "OUD WOOD",
+      "brand": "Tom Ford",
+      "gender": "unisex",
       "state": "pending",
       "notes_status": "secondary_exact_pending_crosscheck",
       "notes_validation_version": 66
@@ -237,6 +333,9 @@
     {
       "rank": 53,
       "code": "847-NRO WP",
+      "name": "847-NRO WP",
+      "brand": "",
+      "gender": "women",
       "state": "verified",
       "notes_status": "",
       "notes_validation_version": "kaggle-fragrantica-alias-v4.1"
@@ -244,6 +343,9 @@
     {
       "rank": 54,
       "code": "1909-XER N",
+      "name": "TORINO 21",
+      "brand": "Xerjoff",
+      "gender": "unisex",
       "state": "pending",
       "notes_status": "secondary_exact_pending_crosscheck",
       "notes_validation_version": 66
@@ -251,6 +353,9 @@
     {
       "rank": 55,
       "code": "2150-LEL EL",
+      "name": "THE MATCHA 26 - LE LABO",
+      "brand": "Le Labo",
+      "gender": "unisex",
       "state": "pending",
       "notes_status": "secondary_exact_pending_crosscheck",
       "notes_validation_version": 66
@@ -258,6 +363,9 @@
     {
       "rank": 56,
       "code": "430-BRB WP",
+      "name": "The Beat EDT",
+      "brand": "Burberry",
+      "gender": "women",
       "state": "pending",
       "notes_status": "",
       "notes_validation_version": 30
@@ -265,6 +373,9 @@
     {
       "rank": 57,
       "code": "1635-XER N",
+      "name": "LIRA",
+      "brand": "Xerjoff",
+      "gender": "women",
       "state": "missing",
       "notes_status": "",
       "notes_validation_version": null
@@ -272,6 +383,9 @@
     {
       "rank": 58,
       "code": "2365-DIP N",
+      "name": "αρώματος L'EAU PAPIER",
+      "brand": "Diptyque",
+      "gender": "unisex",
       "state": "pending",
       "notes_status": "secondary_exact_pending_crosscheck",
       "notes_validation_version": 66
@@ -279,6 +393,9 @@
     {
       "rank": 59,
       "code": "2320-LTN N",
+      "name": "IMAGINATION",
+      "brand": "Louis Vuitton",
+      "gender": "men",
       "state": "missing",
       "notes_status": "",
       "notes_validation_version": null
@@ -286,6 +403,9 @@
     {
       "rank": 60,
       "code": "528-DRC W",
+      "name": "HYPNOTIC POISON",
+      "brand": "Christian Dior",
+      "gender": "women",
       "state": "pending",
       "notes_status": "secondary_exact_pending_crosscheck",
       "notes_validation_version": 66
@@ -293,6 +413,9 @@
     {
       "rank": 61,
       "code": "1974-MARG EL",
+      "name": "BUBBLE BATH",
+      "brand": "Maison Margiela Replica",
+      "gender": "unisex",
       "state": "pending",
       "notes_status": "secondary_exact_pending_crosscheck",
       "notes_validation_version": 66
@@ -300,6 +423,9 @@
     {
       "rank": 62,
       "code": "1801-JUL EL",
+      "name": "NOT A PERFUME - JULIETTE HAS A GUN",
+      "brand": "Juliette Has A Gun",
+      "gender": "unisex",
       "state": "pending",
       "notes_status": "secondary_exact_linear_composition",
       "notes_validation_version": 68
@@ -307,6 +433,9 @@
     {
       "rank": 63,
       "code": "694-GUR W",
+      "name": "TERRACOTTA LE PARFUM - GUERLAIN",
+      "brand": "Guerlain",
+      "gender": "women",
       "state": "missing",
       "notes_status": "",
       "notes_validation_version": null
@@ -314,6 +443,9 @@
     {
       "rank": 64,
       "code": "2136-PARF",
+      "name": "VALAYA",
+      "brand": "Parfums de Marly",
+      "gender": "women",
       "state": "missing",
       "notes_status": "",
       "notes_validation_version": null
@@ -321,6 +453,9 @@
     {
       "rank": 65,
       "code": "2161-GUR W",
+      "name": "AQUA ALLEGORIA MANDARINE BASILIC - Guerlain",
+      "brand": "Guerlain",
+      "gender": "women",
       "state": "missing",
       "notes_status": "",
       "notes_validation_version": null
@@ -328,6 +463,9 @@
     {
       "rank": 66,
       "code": "1946-MARC N",
+      "name": "GANYMEDE - MARC ANTOINE BARROIS",
+      "brand": "Marc Antoine Barrois",
+      "gender": "unisex",
       "state": "missing",
       "notes_status": "",
       "notes_validation_version": null
@@ -335,6 +473,9 @@
     {
       "rank": 67,
       "code": "1850-LEL N",
+      "name": "ANOTHER 13 - LE LABO",
+      "brand": "Le Labo",
+      "gender": "unisex",
       "state": "missing",
       "notes_status": "",
       "notes_validation_version": null
@@ -342,6 +483,9 @@
     {
       "rank": 68,
       "code": "151-PARF N",
+      "name": "DELINA - PARFUMS DE MARLY",
+      "brand": "Parfums de Marly",
+      "gender": "women",
       "state": "missing",
       "notes_status": "",
       "notes_validation_version": null
@@ -349,6 +493,9 @@
     {
       "rank": 69,
       "code": "761-KIL WP",
+      "name": "GOOD GIRL GONE BAD - KILIAN",
+      "brand": "Kilian",
+      "gender": "women",
       "state": "missing",
       "notes_status": "",
       "notes_validation_version": null
@@ -356,6 +503,9 @@
     {
       "rank": 70,
       "code": "641-FRE WP",
+      "name": "PORTRAIT OF A LADY",
+      "brand": "Frederic Malle",
+      "gender": "women",
       "state": "pending",
       "notes_status": "",
       "notes_validation_version": 30
@@ -363,6 +513,9 @@
     {
       "rank": 71,
       "code": "154-PARF N",
+      "name": "LAYTON - PARFUMS DE MARLY",
+      "brand": "Parfums de Marly",
+      "gender": "men",
       "state": "missing",
       "notes_status": "",
       "notes_validation_version": null
@@ -370,6 +523,9 @@
     {
       "rank": 72,
       "code": "1887-XER N",
+      "name": "ERBA PURA",
+      "brand": "Xerjoff",
+      "gender": "unisex",
       "state": "missing",
       "notes_status": "",
       "notes_validation_version": null
@@ -377,6 +533,9 @@
     {
       "rank": 73,
       "code": "506-CHA W",
+      "name": "COCON MADEM",
+      "brand": "Chanel",
+      "gender": "women",
       "state": "missing",
       "notes_status": "",
       "notes_validation_version": null
@@ -384,6 +543,9 @@
     {
       "rank": 74,
       "code": "210-CRD EL",
+      "name": "GREEN IRISH TWEED",
+      "brand": "Creed",
+      "gender": "men",
       "state": "missing",
       "notes_status": "",
       "notes_validation_version": null
@@ -391,6 +553,9 @@
     {
       "rank": 75,
       "code": "268-JOM EL",
+      "name": "MYRRH & TONKA",
+      "brand": "Jo Malone London",
+      "gender": "unisex",
       "state": "pending",
       "notes_status": "secondary_exact_pending_crosscheck",
       "notes_validation_version": 66
@@ -398,6 +563,9 @@
     {
       "rank": 76,
       "code": "1112-DSQ MP",
+      "name": "HE WOOD ROCKY MOUNTAIN",
+      "brand": "Dsquared²",
+      "gender": "men",
       "state": "pending",
       "notes_status": "secondary_exact_pending_crosscheck",
       "notes_validation_version": 66
@@ -405,6 +573,9 @@
     {
       "rank": 77,
       "code": "879-PRA WP",
+      "name": "INFUSION D'IRIS - PRADA",
+      "brand": "Prada",
+      "gender": "women",
       "state": "pending",
       "notes_status": "",
       "notes_validation_version": 30
@@ -412,6 +583,9 @@
     {
       "rank": 78,
       "code": "2167-GUL MP",
+      "name": "LE MALE ELIXIR",
+      "brand": "Jean Paul Gaultier",
+      "gender": "men",
       "state": "missing",
       "notes_status": "",
       "notes_validation_version": null
@@ -419,6 +593,9 @@
     {
       "rank": 79,
       "code": "513-CHL WP",
+      "name": "LOVE - CHLOE",
+      "brand": "Chloé",
+      "gender": "women",
       "state": "verified",
       "notes_status": "",
       "notes_validation_version": "kaggle-fragrantica-exact-v4.0"
@@ -426,6 +603,9 @@
     {
       "rank": 80,
       "code": "1737-GIV W",
+      "name": "L'INTERDIT ROUGE EDP",
+      "brand": "Givenchy",
+      "gender": "women",
       "state": "pending",
       "notes_status": "secondary_exact_pending_crosscheck",
       "notes_validation_version": 66
@@ -433,6 +613,9 @@
     {
       "rank": 81,
       "code": "1513-KIL WP",
+      "name": "PRINCESS - KILIAN PERFUME",
+      "brand": "Kilian",
+      "gender": "women",
       "state": "pending",
       "notes_status": "secondary_exact_pending_crosscheck",
       "notes_validation_version": 66
@@ -440,6 +623,9 @@
     {
       "rank": 82,
       "code": "1978-ARM",
+      "name": "STRONGER WITH YOU INTENSENLY",
+      "brand": "Armani",
+      "gender": "men",
       "state": "pending",
       "notes_status": "secondary_exact_pending_crosscheck",
       "notes_validation_version": 66
@@ -447,6 +633,9 @@
     {
       "rank": 83,
       "code": "1476-NRO WP",
+      "name": "MUSC NOIR FOR HER - NARCISO RODRIGUEZ",
+      "brand": "Narciso Rodriguez",
+      "gender": "women",
       "state": "missing",
       "notes_status": "",
       "notes_validation_version": null
@@ -454,6 +643,9 @@
     {
       "rank": 84,
       "code": "318-MNT EL",
+      "name": "CHOCOLATE GREEDY",
+      "brand": "Montale",
+      "gender": "unisex",
       "state": "verified",
       "notes_status": "verified_primary_official",
       "notes_validation_version": "official-montale-2026-08-14-v1"
@@ -461,6 +653,9 @@
     {
       "rank": 85,
       "code": "1775-DIP N",
+      "name": "αρώματος ORPHEON EAU DE PARFUM",
+      "brand": "Diptyque",
+      "gender": "unisex",
       "state": "pending",
       "notes_status": "secondary_exact_pending_crosscheck",
       "notes_validation_version": 66
@@ -468,6 +663,9 @@
     {
       "rank": 86,
       "code": "1651-TMU W",
+      "name": "ALIEN GODDESS",
+      "brand": "Mugler",
+      "gender": "women",
       "state": "pending",
       "notes_status": "secondary_exact_pending_crosscheck",
       "notes_validation_version": 66
@@ -475,6 +673,9 @@
     {
       "rank": 87,
       "code": "1846-MAN EL",
+      "name": "COCO VANILLE - MANCERA",
+      "brand": "Mancera",
+      "gender": "unisex",
       "state": "missing",
       "notes_status": "",
       "notes_validation_version": null
@@ -482,6 +683,9 @@
     {
       "rank": 88,
       "code": "2053-BDIK",
+      "name": "GRIS CHARNEL EXTRAIT - BDK",
+      "brand": "Bdk Parfums",
+      "gender": "unisex",
       "state": "missing",
       "notes_status": "",
       "notes_validation_version": null
@@ -489,6 +693,9 @@
     {
       "rank": 89,
       "code": "355-TMFO EL",
+      "name": "NEROLI PORTOFINO",
+      "brand": "Tom Ford",
+      "gender": "unisex",
       "state": "pending",
       "notes_status": "",
       "notes_validation_version": 30
@@ -496,6 +703,9 @@
     {
       "rank": 90,
       "code": "1528-KUR N",
+      "name": "BACCARAT ROUGE 540 EXTRAIT DE PARFUM",
+      "brand": "Maison Francis Kurkdjian",
+      "gender": "unisex",
       "state": "pending",
       "notes_status": "secondary_exact_pending_crosscheck",
       "notes_validation_version": 66
@@ -503,6 +713,9 @@
     {
       "rank": 91,
       "code": "359-TMFO EL",
+      "name": "NOIR EXTREME",
+      "brand": "Tom Ford",
+      "gender": "men",
       "state": "missing",
       "notes_status": "",
       "notes_validation_version": null
@@ -510,6 +723,9 @@
     {
       "rank": 92,
       "code": "2369-MAN EL",
+      "name": "AMORE CAFFE - MANCERA",
+      "brand": "Mancera",
+      "gender": "unisex",
       "state": "missing",
       "notes_status": "",
       "notes_validation_version": null
@@ -517,6 +733,9 @@
     {
       "rank": 93,
       "code": "1618-NISH N",
+      "name": "ANI - NISHANE",
+      "brand": "Nishane",
+      "gender": "unisex",
       "state": "missing",
       "notes_status": "",
       "notes_validation_version": null
@@ -524,6 +743,9 @@
     {
       "rank": 94,
       "code": "2154-KAY EL",
+      "name": "αρώματος Utopia Vanilla Coco 21 Kayali",
+      "brand": "Kayali",
+      "gender": "women",
       "state": "pending",
       "notes_status": "",
       "notes_validation_version": 30
@@ -531,6 +753,9 @@
     {
       "rank": 95,
       "code": "225-DIP EL",
+      "name": "αρώματος EAU DES SENS",
+      "brand": "Diptyque",
+      "gender": "unisex",
       "state": "pending",
       "notes_status": "secondary_exact_pending_crosscheck",
       "notes_validation_version": 66
@@ -538,6 +763,9 @@
     {
       "rank": 96,
       "code": "2261-PARF",
+      "name": "ALTHAIR - PARFUMS DE MARLY",
+      "brand": "Parfums de Marly",
+      "gender": "unisex",
       "state": "missing",
       "notes_status": "",
       "notes_validation_version": null
@@ -545,6 +773,9 @@
     {
       "rank": 97,
       "code": "1085-DRC",
+      "name": "SAUVAGE",
+      "brand": "Christian Dior",
+      "gender": "men",
       "state": "pending",
       "notes_status": "secondary_exact_pending_crosscheck",
       "notes_validation_version": 66
@@ -552,6 +783,9 @@
     {
       "rank": 98,
       "code": "124-INI N",
+      "name": "Side Effect - Initio Parfums Prives",
+      "brand": "Initio Parfums Privés",
+      "gender": "unisex",
       "state": "pending",
       "notes_status": "secondary_exact_pending_crosscheck",
       "notes_validation_version": 66
@@ -559,6 +793,9 @@
     {
       "rank": 99,
       "code": "181-XER N",
+      "name": "ALEXANDRIA II",
+      "brand": "Xerjoff",
+      "gender": "unisex",
       "state": "missing",
       "notes_status": "",
       "notes_validation_version": null
@@ -566,6 +803,9 @@
     {
       "rank": 100,
       "code": "955-VICT WP",
+      "name": "COCONUT PASSION - VICTORIA'S SECRET",
+      "brand": "Victoria'S Secret",
+      "gender": "women",
       "state": "pending",
       "notes_status": "secondary_exact_pending_crosscheck",
       "notes_validation_version": 66
