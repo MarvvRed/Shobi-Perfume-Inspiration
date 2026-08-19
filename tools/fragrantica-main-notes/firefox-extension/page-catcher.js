@@ -22,7 +22,7 @@
     for (let i = 0; n && i < 10; i++, n = n.parentElement) {
       const txt = clean(n.textContent).toLowerCase();
       const noteLinks = n.querySelectorAll?.('a[href*="/notes/"]') || [];
-      if (noteLinks.length >= 2 && (txt.includes('perfume pyramid') || txt.includes('top notes') || txt.includes('base notes'))) return n;
+      if (noteLinks.length >= 1 && (txt.includes('perfume pyramid') || txt.includes('top notes') || txt.includes('middle notes') || txt.includes('base notes'))) return n;
     }
     return btn.closest('section') || btn.parentElement?.parentElement?.parentElement;
   }
@@ -128,7 +128,7 @@
         stage: 'votes-scan',
         detail: `attempt=${attempt};found=${ranked.length}; ${ranked.slice(0, 8).map(n => `${n.note}=${n.votes}`).join(' | ')}`
       });
-      if (ranked.length >= 2) break;
+      if (ranked.length >= 1) break;
     }
 
     if (!ranked.length) {
@@ -136,10 +136,13 @@
       return;
     }
 
-    const top5 = ranked.slice(0, 5).map((n, i) => ({ ...n, rank: i + 1 }));
+    // Official rule: save up to 5 notes. If the perfume has fewer than 5 voted notes,
+    // save all available notes and consider the capture valid.
+    const savedCount = Math.min(5, ranked.length);
+    const top5 = ranked.slice(0, savedCount).map((n, i) => ({ ...n, rank: i + 1 }));
     emit('diagnostic', {
       stage: 'top5-ready',
-      detail: top5.map(n => `#${n.rank} ${n.note}=${n.votes}`).join(' | ')
+      detail: `available=${ranked.length};saved=${savedCount}; ` + top5.map(n => `#${n.rank} ${n.note}=${n.votes}`).join(' | ')
     });
 
     emit('capture', {
@@ -149,6 +152,7 @@
         capture_method: 'show-votes-top5',
         captured_at: new Date().toISOString(),
         total_voted_notes: ranked.length,
+        saved_note_count: savedCount,
         weights_sum: null,
         notes: top5
       }
