@@ -1,8 +1,78 @@
-// Lightweight pagination layer for Shobi Perfume Inspiration.
+// Lightweight pagination and sorting layer for Shobi Perfume Inspiration.
 // Search and filters still run on the full dataset; only the visible page is rendered.
 
 state.currentPage = 1;
 state.pageSize = 50;
+state.sortOrder = 'brand-az';
+
+// Official Shobi "Best Sellers Fragrances" order (sales, highest to lowest).
+// Perfumes not in this official list follow afterwards in Brand A-Z order.
+const OFFICIAL_BEST_SELLER_CODES = [
+    '451-BYR WP',
+    '1651-TMU W',
+    '1553-MNT N',
+    '1498-BYR EL',
+    '1508-KIL WP',
+    '454-BYR WP',
+    '803-LAU WP',
+    '401-ARIA WP',
+    '152-PARF N',
+    '318-MNT EL',
+    '762-KIL WP',
+    '305-KAY EL',
+    '694-GUR W',
+    '449-BYR WP',
+    '111-BAC N',
+    '765-KIL WP',
+    '760-KIL WP',
+    '148-PARF N',
+    '103-ARB AR',
+    '371-TMFO EL',
+    '761-KIL WP',
+    '1270-VAN MP',
+    '1136-ARM M',
+    '1123-ARM M'
+];
+
+const BEST_SELLER_RANK = new Map(
+    OFFICIAL_BEST_SELLER_CODES.map((code, index) => [code, index])
+);
+
+function compareText(a, b) {
+    return String(a || '').localeCompare(String(b || ''), undefined, {
+        sensitivity: 'base',
+        numeric: true
+    });
+}
+
+function sortPerfumes(perfumes) {
+    const sorted = [...perfumes];
+
+    sorted.sort((a, b) => {
+        if (state.sortOrder === 'best-seller') {
+            const rankA = BEST_SELLER_RANK.has(a.code) ? BEST_SELLER_RANK.get(a.code) : Infinity;
+            const rankB = BEST_SELLER_RANK.has(b.code) ? BEST_SELLER_RANK.get(b.code) : Infinity;
+            if (rankA !== rankB) return rankA - rankB;
+            return compareText(a.brand, b.brand) || compareText(a.inspiredBy, b.inspiredBy);
+        }
+
+        if (state.sortOrder === 'brand-za') {
+            return compareText(b.brand, a.brand) || compareText(b.inspiredBy, a.inspiredBy);
+        }
+
+        if (state.sortOrder === 'name-az') {
+            return compareText(a.inspiredBy, b.inspiredBy) || compareText(a.brand, b.brand);
+        }
+
+        if (state.sortOrder === 'name-za') {
+            return compareText(b.inspiredBy, a.inspiredBy) || compareText(a.brand, b.brand);
+        }
+
+        return compareText(a.brand, b.brand) || compareText(a.inspiredBy, b.inspiredBy);
+    });
+
+    return sorted;
+}
 
 function buildPaginationUi() {
     const resultsCount = document.getElementById('results-count');
@@ -17,11 +87,28 @@ function buildPaginationUi() {
         resultsCount.parentNode.insertBefore(toolbar, resultsCount);
         toolbar.appendChild(resultsCount);
 
-        const label = document.createElement('label');
-        label.className = 'flex items-center gap-2 text-sm text-secondary';
-        label.innerHTML = '<span>Per page</span><select id="page-size-select" class="border-base rounded-md bg-surface text-primary px-3 py-2 focus-ring"><option value="50" selected>50</option><option value="75">75</option><option value="100">100</option></select>';
-        toolbar.appendChild(label);
-        label.querySelector('select').addEventListener('change', e => {
+        const controls = document.createElement('div');
+        controls.className = 'flex flex-wrap items-center gap-3 sm:justify-end';
+
+        const sortLabel = document.createElement('label');
+        sortLabel.className = 'flex items-center gap-2 text-sm text-secondary';
+        sortLabel.innerHTML = '<span>Sort</span><select id="sort-select" class="border-base rounded-md bg-surface text-primary px-3 py-2 focus-ring"><option value="brand-az" selected>Brand A–Z</option><option value="brand-za">Brand Z–A</option><option value="name-az">Name A–Z</option><option value="name-za">Name Z–A</option><option value="best-seller">Best seller</option></select>';
+        controls.appendChild(sortLabel);
+
+        const pageLabel = document.createElement('label');
+        pageLabel.className = 'flex items-center gap-2 text-sm text-secondary';
+        pageLabel.innerHTML = '<span>Per page</span><select id="page-size-select" class="border-base rounded-md bg-surface text-primary px-3 py-2 focus-ring"><option value="50" selected>50</option><option value="75">75</option><option value="100">100</option></select>';
+        controls.appendChild(pageLabel);
+
+        toolbar.appendChild(controls);
+
+        sortLabel.querySelector('select').addEventListener('change', e => {
+            state.sortOrder = e.target.value || 'brand-az';
+            state.currentPage = 1;
+            applyFiltersAndRender();
+        });
+
+        pageLabel.querySelector('select').addEventListener('change', e => {
             state.pageSize = Number(e.target.value) || 50;
             state.currentPage = 1;
             applyFiltersAndRender();
@@ -124,12 +211,13 @@ function displayPerfumes(perfumes) {
     const resultsCount = document.getElementById('results-count');
     container.innerHTML = '';
 
-    const totalResults = perfumes.length;
+    const orderedPerfumes = sortPerfumes(perfumes);
+    const totalResults = orderedPerfumes.length;
     const totalPages = Math.max(1, Math.ceil(totalResults / state.pageSize));
     state.currentPage = Math.min(Math.max(1, state.currentPage), totalPages);
     const start = totalResults ? (state.currentPage - 1) * state.pageSize : 0;
     const end = Math.min(start + state.pageSize, totalResults);
-    const visiblePerfumes = perfumes.slice(start, end);
+    const visiblePerfumes = orderedPerfumes.slice(start, end);
 
     let text = totalResults ? `Showing ${start + 1}–${end} of ${totalResults}` : 'Showing 0';
     if (state.selectedBrand) text += ` result(s) for "${state.selectedBrand}"`;
