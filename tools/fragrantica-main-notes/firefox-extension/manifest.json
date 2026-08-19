@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
   "name": "Shobi Fragrantica Main Notes Collector",
-  "version": "0.3.4",
-  "description": "For perfumes with five or fewer notes, saves all notes directly; otherwise ranks notes by Show votes and keeps the top five.",
+  "version": "0.3.5",
+  "description": "Scopes extraction to the local fragrance-notes block; perfumes with five or fewer notes save all notes directly, otherwise Show votes selects the top five.",
   "permissions": ["storage","tabs","downloads","https://fragrantica.com/*","https://www.fragrantica.com/*","https://*.fragrantica.com/*","http://127.0.0.1:8765/*"],
   "background": {"scripts":["background.js"]},
   "content_scripts": [{"matches":["https://fragrantica.com/*","https://www.fragrantica.com/*","https://*.fragrantica.com/*"],"js":["bridge-content.js"],"run_at":"document_start","all_frames":false}],
