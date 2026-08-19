@@ -1,0 +1,51 @@
+<!--
+  DEFAULT CARD REFERENCE — VANILLA 28
+  Snapshot/reference copy of the approved Vanilla 28 card.
+  This file is NOT loaded by the live site and is intended only as a base for future card work.
+  Source implementation currently lives in pagination.js -> renderVanillaPrototype(p).
+-->
+
+<article class="perfume-card-prototype bg-surface rounded-xl shadow-lg overflow-hidden flex flex-col">
+  <div class="p-4 pb-3 text-left">
+    <h3 class="text-lg font-bold text-primary leading-tight">VANILLA 28</h3>
+    <div class="mt-1 flex flex-wrap items-center gap-2">
+      <button type="button" data-action="filter-brand" data-brand="Kayali" class="font-medium text-secondary hover:underline text-left" style="font-size:17px">Kayali</button>
+      <span class="inline-flex items-center whitespace-nowrap rounded-full border border-base bg-base px-2.5 py-1 text-xs font-semibold text-primary">Best Seller #1</span>
+    </div>
+  </div>
+
+  <div class="prototype-image-wrap">
+    <img src="https://fimgs.net/mdimg/perfume-thumbs/dark-375x500.52616.2x.avif" alt="Vanilla 28 - Kayali" loading="lazy" decoding="async">
+  </div>
+
+  <div class="px-4 pt-3 pb-4 flex flex-col gap-3">
+    <div class="text-sm text-secondary text-left flex items-center gap-3">
+      <button type="button" class="prototype-meta-badge prototype-filter-badge" data-card-filter="gender" data-filter-value="female" title="Filter Female" aria-label="Filter Female">
+        <span style="width:22px;height:22px;display:inline-flex;align-items:center;justify-content:center;flex:0 0 22px"><!-- getAudienceIcons('female') --></span>
+        <span style="font-size:16px">Female</span>
+      </button>
+      <span class="text-tertiary">|</span>
+      <button type="button" class="prototype-meta-badge prototype-filter-badge" data-card-filter="season" data-filter-value="winter" title="Filter Winter" aria-label="Filter Winter">
+        <span style="width:22px;height:22px;display:inline-flex;align-items:center;justify-content:center;flex:0 0 22px;font-size:1rem">❄️</span>
+      </button>
+    </div>
+
+    <div class="flex flex-wrap gap-2">
+      <button type="button" class="prototype-meta-badge prototype-filter-badge" data-card-filter="note" data-filter-value="Vanilla Orchid"><img src="https://fimgs.net/mdimg/sastojci/t.154.jpg" alt="" width="22" height="22" loading="lazy" decoding="async" style="width:22px;height:22px;object-fit:cover;border-radius:50%;flex:0 0 22px"><span>Vanilla Orchid</span></button>
+      <button type="button" class="prototype-meta-badge prototype-filter-badge" data-card-filter="note" data-filter-value="Jasmine"><img src="https://fimgs.net/mdimg/sastojci/t.14.jpg" alt="" width="22" height="22" loading="lazy" decoding="async" style="width:22px;height:22px;object-fit:cover;border-radius:50%;flex:0 0 22px"><span>Jasmine</span></button>
+      <button type="button" class="prototype-meta-badge prototype-filter-badge" data-card-filter="note" data-filter-value="Brown Sugar"><img src="https://fimgs.net/mdimg/sastojci/t.521.jpg" alt="" width="22" height="22" loading="lazy" decoding="async" style="width:22px;height:22px;object-fit:cover;border-radius:50%;flex:0 0 22px"><span>Brown Sugar</span></button>
+      <button type="button" class="prototype-meta-badge prototype-filter-badge" data-card-filter="note" data-filter-value="Amberwood"><img src="https://fimgs.net/mdimg/sastojci/t.691.jpg" alt="" width="22" height="22" loading="lazy" decoding="async" style="width:22px;height:22px;object-fit:cover;border-radius:50%;flex:0 0 22px"><span>Amberwood</span></button>
+      <button type="button" class="prototype-meta-badge prototype-filter-badge" data-card-filter="note" data-filter-value="Musk"><img src="https://fimgs.net/mdimg/sastojci/t.4.jpg" alt="" width="22" height="22" loading="lazy" decoding="async" style="width:22px;height:22px;object-fit:cover;border-radius:50%;flex:0 0 22px"><span>Musk</span></button>
+    </div>
+
+    <button type="button" class="prototype-details-btn">More details</button>
+
+    <div class="prototype-actions">
+      <button type="button" class="favorite-btn"><i class="fa-regular fa-heart"></i><span> Favorite</span></button>
+      <span class="prototype-divider">|</span>
+      <button type="button" class="collection-prototype-btn" title="Collection prototype"><i class="fa-solid fa-plus"></i><span> Collection</span></button>
+    </div>
+
+    <a href="#" class="prototype-shop-btn">Shop on Shobi</a>
+  </div>
+</article>
