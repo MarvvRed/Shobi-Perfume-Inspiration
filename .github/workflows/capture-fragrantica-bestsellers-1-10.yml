@@ -18,37 +18,51 @@ jobs:
     timeout-minutes: 15
 
     steps:
-      - name: Runner diagnostics
+      - name: Preflight runner diagnostics
         shell: pwsh
+        continue-on-error: true
         run: |
-          Write-Host "OS: $([System.Environment]::OSVersion.VersionString)"
-          Write-Host "PWD: $(Get-Location)"
-          Write-Host "USER: $env:USERNAME"
+          Write-Host "=== RUNNER PRECHECK ==="
+          Write-Host "Computer: $env:COMPUTERNAME"
+          Write-Host "User: $env:USERNAME"
+          Write-Host "Runner workspace: $env:GITHUB_WORKSPACE"
           Write-Host "PATH: $env:PATH"
-          Write-Host "Git:"
-          git --version
-          Write-Host "Node:"
-          node --version
-          Write-Host "NPM:"
-          npm --version
-          Write-Host "NPX:"
-          npx --version
+          Write-Host "PowerShell: $($PSVersionTable.PSVersion)"
+          foreach ($cmd in @('git','node','npm','npx')) {
+            $found = Get-Command $cmd -ErrorAction SilentlyContinue
+            if ($found) {
+              Write-Host "$cmd => $($found.Source)"
+              & $cmd --version
+            } else {
+              Write-Host "$cmd => NOT FOUND"
+            }
+          }
+          Write-Host "Current dir: $(Get-Location)"
+          Get-ChildItem -Force | Select-Object Name,Mode,Length
+          Write-Host "=== END PRECHECK ==="
 
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Verify repository files
+        shell: pwsh
+        run: |
+          Write-Host "Workspace after checkout: $env:GITHUB_WORKSPACE"
+          Test-Path 'tools/fragrantica-main-notes/auto-capture-bestsellers-1-10.mjs'
+          Test-Path 'tools/fragrantica-main-notes/batches/bestsellers-1-10.json'
+          Get-ChildItem 'tools/fragrantica-main-notes' -Force
 
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: '22'
 
-      - name: Verify workspace
+      - name: Verify Node
         shell: pwsh
         run: |
-          Write-Host "Workspace: $env:GITHUB_WORKSPACE"
-          Get-ChildItem -Force
-          Test-Path 'tools/fragrantica-main-notes/auto-capture-bestsellers-1-10.mjs'
-          Test-Path 'tools/fragrantica-main-notes/batches/bestsellers-1-10.json'
+          node --version
+          npm --version
+          npx --version
 
       - name: Install Playwright package
         shell: pwsh
@@ -58,10 +72,10 @@ jobs:
         shell: pwsh
         run: npx playwright install chromium
 
-      - name: Verify Chromium launch
+      - name: Smoke test Chromium
         shell: pwsh
         run: |
-          node -e "const { chromium } = require('playwright'); (async()=>{ const b=await chromium.launch({headless:true}); console.log('CHROMIUM_OK'); await b.close(); })().catch(e=>{console.error(e);process.exit(1)})"
+          node -e "const { chromium }=require('playwright'); (async()=>{const b=await chromium.launch({headless:true}); const p=await b.newPage(); await p.goto('https://example.com'); console.log(await p.title()); await b.close();})().catch(e=>{console.error(e);process.exit(1)})"
 
       - name: Capture Fragrantica Main Notes
         shell: pwsh
