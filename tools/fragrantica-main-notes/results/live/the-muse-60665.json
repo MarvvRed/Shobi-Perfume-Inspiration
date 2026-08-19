@@ -1,0 +1,47 @@
+{
+  "source": "firefox-extension",
+  "batch": "bestsellers-1-10",
+  "target": {
+    "rank": 5,
+    "name": "The Muse",
+    "brand": "ZARKOPERFUME",
+    "url": "https://www.fragrantica.com/perfume/ZARKOPERFUME/The-Muse-60665.html"
+  },
+  "perfume": "The Muse ZARKOPERFUME for women",
+  "url": "https://www.fragrantica.com/perfume/ZARKOPERFUME/The-Muse-60665.html",
+  "capture_method": "all-notes-when-five-or-fewer",
+  "captured_at": "2026-08-19T23:15:25.953Z",
+  "total_voted_notes": null,
+  "saved_note_count": 3,
+  "weights_sum": null,
+  "notes": [
+    {
+      "note": "Cotton Flower",
+      "sastojak_id": 301,
+      "votes": null,
+      "weight": null,
+      "percentage": null,
+      "pyramid_level": null,
+      "rank": 1
+    },
+    {
+      "note": "White Musk",
+      "sastojak_id": 4,
+      "votes": null,
+      "weight": null,
+      "percentage": null,
+      "pyramid_level": null,
+      "rank": 2
+    },
+    {
+      "note": "White Oud",
+      "sastojak_id": 777,
+      "votes": null,
+      "weight": null,
+      "percentage": null,
+      "pyramid_level": null,
+      "rank": 3
+    }
+  ],
+  "received_at": "2026-08-19T23:15:26.199Z"
+}
