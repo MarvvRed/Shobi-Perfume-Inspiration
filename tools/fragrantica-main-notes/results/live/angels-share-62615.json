@@ -1,0 +1,64 @@
+{
+  "source": "firefox-extension",
+  "batch": "bestsellers-1-10",
+  "target": {
+    "rank": 2,
+    "name": "Angels' Share",
+    "brand": "Kilian Paris",
+    "url": "https://www.fragrantica.com/perfume/By-Kilian/Angels-Share-62615.html"
+  },
+  "perfume": "Angels' Share By Kilian for women and men",
+  "url": "https://www.fragrantica.com/perfume/By-Kilian/Angels-Share-62615.html",
+  "capture_method": "show-votes-top5",
+  "captured_at": "2026-08-19T22:40:27.247Z",
+  "total_voted_notes": 9,
+  "weights_sum": null,
+  "notes": [
+    {
+      "rank": 1,
+      "note": "Cognac",
+      "sastojak_id": 280,
+      "votes": 4678,
+      "weight": null,
+      "percentage": null,
+      "pyramid_level": null
+    },
+    {
+      "rank": 2,
+      "note": "Cinnamon",
+      "sastojak_id": 65,
+      "votes": 4635,
+      "weight": null,
+      "percentage": null,
+      "pyramid_level": null
+    },
+    {
+      "rank": 3,
+      "note": "Vanilla",
+      "sastojak_id": 74,
+      "votes": 3202,
+      "weight": null,
+      "percentage": null,
+      "pyramid_level": null
+    },
+    {
+      "rank": 4,
+      "note": "Praline",
+      "sastojak_id": 198,
+      "votes": 2980,
+      "weight": null,
+      "percentage": null,
+      "pyramid_level": null
+    },
+    {
+      "rank": 5,
+      "note": "Tonka Bean",
+      "sastojak_id": 73,
+      "votes": 2423,
+      "weight": null,
+      "percentage": null,
+      "pyramid_level": null
+    }
+  ],
+  "received_at": "2026-08-19T22:40:27.497Z"
+}
