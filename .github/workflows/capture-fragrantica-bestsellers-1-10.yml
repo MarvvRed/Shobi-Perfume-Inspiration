@@ -19,23 +19,18 @@ jobs:
 
     steps:
       - name: Configure runner auto-start for future jobs
-        shell: powershell
+        continue-on-error: true
+        shell: cmd
         run: |
-          $ErrorActionPreference = 'Stop'
-          $runnerRoot = 'C:\Windows\System32\actions-runner'
-          if (-not (Test-Path (Join-Path $runnerRoot 'run.cmd'))) {
-            throw "GitHub runner not found at $runnerRoot"
-          }
-
-          $startup = [Environment]::GetFolderPath('Startup')
-          $launcher = Join-Path $startup 'Shobi-GitHub-Runner.cmd'
-          $lines = @(
-            '@echo off',
-            'cd /d C:\Windows\System32\actions-runner',
-            'start "" /min run.cmd'
-          )
-          Set-Content -Path $launcher -Value $lines -Encoding ASCII
-          Write-Host "Runner auto-start installed: $launcher"
+          echo === CONFIGURE AUTO START ===
+          set "STARTUP=%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup"
+          if not exist "%STARTUP%" mkdir "%STARTUP%"
+          > "%STARTUP%\Shobi-GitHub-Runner.cmd" echo @echo off
+          >> "%STARTUP%\Shobi-GitHub-Runner.cmd" echo cd /d C:\Windows\System32\actions-runner
+          >> "%STARTUP%\Shobi-GitHub-Runner.cmd" echo start "" /min run.cmd
+          echo Runner auto-start launcher written to:
+          echo %STARTUP%\Shobi-GitHub-Runner.cmd
+          exit /b 0
 
       - name: Capture Fragrantica on this PC
         shell: powershell
@@ -58,8 +53,8 @@ jobs:
           Invoke-WebRequest -UseBasicParsing 'https://raw.githubusercontent.com/MarvvRed/Shobi-Perfume-Inspiration/main/tools/fragrantica-main-notes/local-one-click/capture.mjs' -OutFile (Join-Path $toolDir 'capture.mjs')
           Invoke-WebRequest -UseBasicParsing 'https://raw.githubusercontent.com/MarvvRed/Shobi-Perfume-Inspiration/main/tools/fragrantica-main-notes/batches/bestsellers-1-10.json' -OutFile (Join-Path $batchDir 'bestsellers-1-10.json')
 
-          $node = Get-Command node -ErrorAction SilentlyContinue
-          if (-not $node) {
+          $nodeCmd = Get-Command node.exe -ErrorAction SilentlyContinue
+          if (-not $nodeCmd) {
             Write-Host 'Node not found; preparing portable Node 22...'
             $runtime = Join-Path $root '.runtime'
             New-Item -ItemType Directory -Force -Path $runtime | Out-Null
@@ -73,13 +68,19 @@ jobs:
             $env:PATH = "$nodeDir;$env:PATH"
           }
 
-          Write-Host "Node: $(node --version)"
+          $nodeExe = (Get-Command node.exe -ErrorAction Stop).Source
+          $npmCmd = Join-Path (Split-Path $nodeExe) 'npm.cmd'
+          if (-not (Test-Path $npmCmd)) {
+            $npmCmd = (Get-Command npm.cmd -ErrorAction Stop).Source
+          }
+
+          Write-Host "Node: $(& $nodeExe --version)"
           Write-Host 'Preparing Playwright Core...'
-          npm install --no-save --no-audit --no-fund playwright-core@1.55.0
+          & $npmCmd install --no-save --no-audit --no-fund playwright-core@1.55.0
           if ($LASTEXITCODE -ne 0) { throw "npm install failed with exit code $LASTEXITCODE" }
 
           Write-Host 'Launching local capture through Microsoft Edge...'
-          node (Join-Path $toolDir 'capture.mjs')
+          & $nodeExe (Join-Path $toolDir 'capture.mjs')
           $captureExit = $LASTEXITCODE
           Write-Host "Capture exit code: $captureExit"
 
