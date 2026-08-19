@@ -1,0 +1,65 @@
+{
+  "source": "firefox-extension",
+  "batch": "bestsellers-1-10",
+  "target": {
+    "rank": 7,
+    "name": "Virgin Island Water",
+    "brand": "Creed",
+    "url": "https://www.fragrantica.com/perfume/Creed/Virgin-Island-Water-899.html"
+  },
+  "perfume": "Virgin Island Water 2007 Creed for women and men",
+  "url": "https://www.fragrantica.com/perfume/Creed/Virgin-Island-Water-899.html",
+  "capture_method": "show-votes-top5",
+  "captured_at": "2026-08-19T23:15:37.498Z",
+  "total_voted_notes": 11,
+  "saved_note_count": 5,
+  "weights_sum": null,
+  "notes": [
+    {
+      "rank": 1,
+      "note": "Coconut",
+      "sastojak_id": 138,
+      "votes": 3235,
+      "weight": null,
+      "percentage": null,
+      "pyramid_level": null
+    },
+    {
+      "rank": 2,
+      "note": "Lime",
+      "sastojak_id": 78,
+      "votes": 3133,
+      "weight": null,
+      "percentage": null,
+      "pyramid_level": null
+    },
+    {
+      "rank": 3,
+      "note": "White Rum",
+      "sastojak_id": 201,
+      "votes": 1379,
+      "weight": null,
+      "percentage": null,
+      "pyramid_level": null
+    },
+    {
+      "rank": 4,
+      "note": "Sugar Cane",
+      "sastojak_id": 200,
+      "votes": 1280,
+      "weight": null,
+      "percentage": null,
+      "pyramid_level": null
+    },
+    {
+      "rank": 5,
+      "note": "White Bergamot",
+      "sastojak_id": 75,
+      "votes": 1140,
+      "weight": null,
+      "percentage": null,
+      "pyramid_level": null
+    }
+  ],
+  "received_at": "2026-08-19T23:15:37.727Z"
+}
