@@ -1,0 +1,64 @@
+{
+  "source": "firefox-extension",
+  "batch": "bestsellers-1-10",
+  "target": {
+    "rank": 3,
+    "name": "Blanche",
+    "brand": "Byredo",
+    "url": "https://www.fragrantica.com/perfume/Byredo/Blanche-6686.html"
+  },
+  "perfume": "Blanche Byredo for women",
+  "url": "https://www.fragrantica.com/perfume/Byredo/Blanche-6686.html",
+  "capture_method": "show-votes-top5",
+  "captured_at": "2026-08-19T22:40:33.328Z",
+  "total_voted_notes": 9,
+  "weights_sum": null,
+  "notes": [
+    {
+      "rank": 1,
+      "note": "Aldehydes",
+      "sastojak_id": 165,
+      "votes": 2026,
+      "weight": null,
+      "percentage": null,
+      "pyramid_level": null
+    },
+    {
+      "rank": 2,
+      "note": "Musk",
+      "sastojak_id": 4,
+      "votes": 1306,
+      "weight": null,
+      "percentage": null,
+      "pyramid_level": null
+    },
+    {
+      "rank": 3,
+      "note": "Peony",
+      "sastojak_id": 155,
+      "votes": 935,
+      "weight": null,
+      "percentage": null,
+      "pyramid_level": null
+    },
+    {
+      "rank": 4,
+      "note": "Violet",
+      "sastojak_id": 116,
+      "votes": 830,
+      "weight": null,
+      "percentage": null,
+      "pyramid_level": null
+    },
+    {
+      "rank": 5,
+      "note": "African Orange Flower",
+      "sastojak_id": 16,
+      "votes": 552,
+      "weight": null,
+      "percentage": null,
+      "pyramid_level": null
+    }
+  ],
+  "received_at": "2026-08-19T22:40:33.591Z"
+}
