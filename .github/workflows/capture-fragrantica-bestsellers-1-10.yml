@@ -5,8 +5,8 @@ on:
     branches: [main]
     paths:
       - '.github/workflows/capture-fragrantica-bestsellers-1-10.yml'
-      - 'tools/fragrantica-main-notes/runner-capture-one.cjs'
-      - 'tools/fragrantica-main-notes/upload-capture-result.cjs'
+      - 'tools/fragrantica-main-notes/local-github-bridge.cjs'
+      - 'tools/fragrantica-main-notes/firefox-extension/**'
   workflow_dispatch:
 
 permissions:
@@ -15,111 +15,42 @@ permissions:
 jobs:
   capture:
     runs-on: [self-hosted, Windows, X64]
-    timeout-minutes: 15
+    timeout-minutes: 35
 
     steps:
-      - name: CMD baseline
-        shell: cmd
-        run: |
-          @echo off
-          echo === CMD BASELINE ===
-          echo COMPUTERNAME=%COMPUTERNAME%
-          echo USERNAME=%USERNAME%
-          echo CD=%CD%
-          echo CMD_BASELINE_OK
-          exit /b 0
-
-      - name: Ensure Node from CMD only
-        shell: cmd
-        run: |
-          @echo off
-          setlocal EnableExtensions EnableDelayedExpansion
-          where node >nul 2>nul
-          if not errorlevel 1 (
-            node --version
-            exit /b 0
-          )
-          set "RUNTIME=%RUNNER_TEMP%\shobi-node"
-          set "NODEDIR=%RUNTIME%\node-v22.18.0-win-x64"
-          set "NODEZIP=%RUNTIME%\node.zip"
-          if not exist "%RUNTIME%" mkdir "%RUNTIME%"
-          if not exist "%NODEDIR%\node.exe" (
-            curl.exe -L --fail --silent --show-error "https://nodejs.org/dist/v22.18.0/node-v22.18.0-win-x64.zip" -o "%NODEZIP%"
-            if errorlevel 1 exit /b 0
-            tar.exe -xf "%NODEZIP%" -C "%RUNTIME%"
-            if errorlevel 1 exit /b 0
-          )
-          if exist "%NODEDIR%\node.exe" "%NODEDIR%\node.exe" --version
-          exit /b 0
-
-      - name: Ensure Playwright Core
-        shell: cmd
-        run: |
-          @echo off
-          setlocal EnableExtensions EnableDelayedExpansion
-          set "NODEEXE="
-          set "NPMCMD="
-          where node >nul 2>nul
-          if not errorlevel 1 (
-            for /f "delims=" %%I in ('where node') do if not defined NODEEXE set "NODEEXE=%%I"
-            for /f "delims=" %%I in ('where npm.cmd 2^>nul') do if not defined NPMCMD set "NPMCMD=%%I"
-          )
-          if not defined NODEEXE (
-            set "NODEDIR=%RUNNER_TEMP%\shobi-node\node-v22.18.0-win-x64"
-            if exist "!NODEDIR!\node.exe" set "NODEEXE=!NODEDIR!\node.exe"
-            if exist "!NODEDIR!\npm.cmd" set "NPMCMD=!NODEDIR!\npm.cmd"
-          )
-          if not defined NODEEXE exit /b 0
-          if not defined NPMCMD exit /b 0
-          set "WORK=%RUNNER_TEMP%\shobi-playwright"
-          if not exist "!WORK!" mkdir "!WORK!"
-          cd /d "!WORK!"
-          if not exist "node_modules\playwright-core\package.json" call "!NPMCMD!" install --no-save --no-audit --no-fund playwright-core@1.55.0
-          exit /b 0
-
-      - name: Capture Vanilla 28 with persistent Edge profile
+      - name: Start Firefox to GitHub local bridge
         shell: cmd
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           @echo off
           setlocal EnableExtensions EnableDelayedExpansion
-          echo === VANILLA 28 PERSISTENT PROFILE CATCHER ===
+          echo === SHOBI FIREFOX GITHUB BRIDGE ===
+
           set "NODEEXE="
           where node >nul 2>nul
           if not errorlevel 1 for /f "delims=" %%I in ('where node') do if not defined NODEEXE set "NODEEXE=%%I"
+
           if not defined NODEEXE (
-            set "NODEDIR=%RUNNER_TEMP%\shobi-node\node-v22.18.0-win-x64"
-            if exist "!NODEDIR!\node.exe" set "NODEEXE=!NODEDIR!\node.exe"
+            set "RUNTIME=%RUNNER_TEMP%\shobi-node"
+            set "NODEDIR=!RUNTIME!\node-v22.18.0-win-x64"
+            set "NODEZIP=!RUNTIME!\node.zip"
+            if not exist "!RUNTIME!" mkdir "!RUNTIME!"
+            if not exist "!NODEDIR!\node.exe" (
+              curl.exe -L --fail --silent --show-error "https://nodejs.org/dist/v22.18.0/node-v22.18.0-win-x64.zip" -o "!NODEZIP!"
+              if errorlevel 1 exit /b 1
+              tar.exe -xf "!NODEZIP!" -C "!RUNTIME!"
+              if errorlevel 1 exit /b 1
+            )
+            set "NODEEXE=!NODEDIR!\node.exe"
           )
-          if not defined NODEEXE (echo NODE_UNAVAILABLE& exit /b 0)
 
-          set "WORK=%RUNNER_TEMP%\shobi-playwright"
-          if not exist "!WORK!\node_modules\playwright-core\package.json" (echo PLAYWRIGHT_UNAVAILABLE& exit /b 0)
-
-          set "EDGEEXE="
-          if exist "%ProgramFiles(x86)%\Microsoft\Edge\Application\msedge.exe" set "EDGEEXE=%ProgramFiles(x86)%\Microsoft\Edge\Application\msedge.exe"
-          if not defined EDGEEXE if exist "%ProgramFiles%\Microsoft\Edge\Application\msedge.exe" set "EDGEEXE=%ProgramFiles%\Microsoft\Edge\Application\msedge.exe"
-          if not defined EDGEEXE (echo EDGE_NOT_FOUND& exit /b 0)
-
-          if not exist "C:\Shobi" mkdir "C:\Shobi"
-          if not exist "C:\Shobi\EdgeProfile" mkdir "C:\Shobi\EdgeProfile"
-
+          set "WORK=%RUNNER_TEMP%\shobi-firefox-bridge"
+          if not exist "!WORK!" mkdir "!WORK!"
           cd /d "!WORK!"
-          curl.exe -L --fail --silent --show-error "https://raw.githubusercontent.com/MarvvRed/Shobi-Perfume-Inspiration/main/tools/fragrantica-main-notes/runner-capture-one.cjs" -o runner-capture-one.cjs
-          curl.exe -L --fail --silent --show-error "https://raw.githubusercontent.com/MarvvRed/Shobi-Perfume-Inspiration/main/tools/fragrantica-main-notes/upload-capture-result.cjs" -o upload-capture-result.cjs
-          if errorlevel 1 (echo SCRIPT_DOWNLOAD_FAILED& exit /b 0)
 
-          set "EDGEEXE=!EDGEEXE!"
-          set "SHOBI_PROFILE=C:\Shobi\EdgeProfile"
-          set "SHOBI_OUT=!WORK!\vanilla-28-capture.json"
-          "!NODEEXE!" runner-capture-one.cjs
-          set "RC=!ERRORLEVEL!"
-          echo CAPTURE_EXIT=!RC!
-          if exist "!SHOBI_OUT!" (
-            type "!SHOBI_OUT!"
-            "!NODEEXE!" upload-capture-result.cjs
-          ) else (
-            echo CAPTURE_JSON_MISSING
-          )
-          exit /b 0
+          curl.exe -L --fail --silent --show-error "https://raw.githubusercontent.com/MarvvRed/Shobi-Perfume-Inspiration/main/tools/fragrantica-main-notes/local-github-bridge.cjs" -o local-github-bridge.cjs
+          if errorlevel 1 exit /b 1
+
+          echo Bridge will listen on 127.0.0.1:8765 for 30 minutes.
+          "!NODEEXE!" local-github-bridge.cjs
