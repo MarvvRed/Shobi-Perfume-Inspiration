@@ -6,66 +6,101 @@
     window.postMessage({ source: 'shobi-main-notes-page', type, ...detail }, '*');
   };
 
-  const install = () => {
-    if (typeof window._pd !== 'function') return false;
-    if (window._pd.__shobiWrapped) return true;
+  const seen = new Set();
 
-    const nativePd = window._pd;
+  const captureDecoded = decoded => {
+    try {
+      if (!decoded || !Array.isArray(decoded.notes) || !decoded.notes.length || !decoded.weights_sum) return;
 
-    const wrapped = function(arg, ...rest) {
-      const result = nativePd.call(this, arg, ...rest);
+      const sig = decoded.notes.map(n => `${n.sastojak_id}:${n.weight}`).join('|');
+      if (seen.has(sig)) return;
+      seen.add(sig);
 
-      Promise.resolve(result).then(decoded => {
-        if (!decoded?.notes?.length || !decoded?.weights_sum) return;
+      const getLevel = id => {
+        if (decoded.pyramid?.top?.some(n => n.sastojak_id === id)) return 'top';
+        if (decoded.pyramid?.middle?.some(n => n.sastojak_id === id)) return 'middle';
+        if (decoded.pyramid?.base?.some(n => n.sastojak_id === id)) return 'base';
+        return null;
+      };
 
-        const getLevel = id => {
-          if (decoded.pyramid?.top?.some(n => n.sastojak_id === id)) return 'top';
-          if (decoded.pyramid?.middle?.some(n => n.sastojak_id === id)) return 'middle';
-          if (decoded.pyramid?.base?.some(n => n.sastojak_id === id)) return 'base';
-          return null;
-        };
+      const notes = decoded.notes.map((n, i) => ({
+        rank: i + 1,
+        note: n.pyramid_title || n.engleski || n.note_title,
+        sastojak_id: n.sastojak_id,
+        weight: n.weight,
+        percentage: +(n.weight / decoded.weights_sum * 100).toFixed(2),
+        pyramid_level: getLevel(n.sastojak_id)
+      }));
 
-        const notes = decoded.notes.map((n, i) => ({
-          rank: i + 1,
-          note: n.pyramid_title || n.engleski || n.note_title,
-          sastojak_id: n.sastojak_id,
-          weight: n.weight,
-          percentage: +(n.weight / decoded.weights_sum * 100).toFixed(2),
-          pyramid_level: getLevel(n.sastojak_id)
-        }));
-
-        emit('capture', {
-          payload: {
-            perfume: document.querySelector('h1')?.innerText?.trim() || document.title,
-            url: location.href.split('#')[0],
-            weights_sum: decoded.weights_sum,
-            captured_at: new Date().toISOString(),
-            notes
-          }
-        });
-      }).catch(error => emit('page-error', { error: String(error) }));
-
-      return result;
-    };
-
-    wrapped.__shobiWrapped = true;
-    wrapped.__shobiNative = nativePd;
-    window._pd = wrapped;
-    emit('installed');
-    return true;
+      emit('capture', {
+        payload: {
+          perfume: document.querySelector('h1')?.innerText?.trim() || document.title,
+          url: location.href.split('#')[0],
+          weights_sum: decoded.weights_sum,
+          captured_at: new Date().toISOString(),
+          notes
+        }
+      });
+    } catch (error) {
+      emit('page-error', { error: String(error) });
+    }
   };
 
-  if (install()) return;
+  try {
+    const nativeThen = Promise.prototype.then;
+    if (!nativeThen.__shobiWrapped) {
+      const wrappedThen = function(onFulfilled, onRejected) {
+        const wrappedFulfilled = typeof onFulfilled === 'function'
+          ? function(value) {
+              captureDecoded(value);
+              return onFulfilled.apply(this, arguments);
+            }
+          : function(value) {
+              captureDecoded(value);
+              return value;
+            };
+        return nativeThen.call(this, wrappedFulfilled, onRejected);
+      };
+      wrappedThen.__shobiWrapped = true;
+      Promise.prototype.then = wrappedThen;
+    }
+  } catch (error) {
+    emit('page-error', { error: `Promise hook: ${String(error)}` });
+  }
 
-  const started = Date.now();
-  const timer = setInterval(() => {
-    if (install()) {
-      clearInterval(timer);
-      return;
+  try {
+    let nativePd;
+    let wrappedPd;
+    const wrapPd = fn => {
+      if (typeof fn !== 'function') return fn;
+      if (fn.__shobiWrapped) return fn;
+      const wrapped = function(...args) {
+        const result = fn.apply(this, args);
+        Promise.resolve(result).then(captureDecoded);
+        return result;
+      };
+      wrapped.__shobiWrapped = true;
+      wrapped.__shobiNative = fn;
+      return wrapped;
+    };
+
+    if (typeof window._pd === 'function') {
+      nativePd = window._pd;
+      wrappedPd = wrapPd(nativePd);
     }
-    if (Date.now() - started > 30000) {
-      clearInterval(timer);
-      emit('page-error', { error: '_pd not found within 30 seconds' });
-    }
-  }, 25);
+
+    Object.defineProperty(window, '_pd', {
+      configurable: true,
+      enumerable: true,
+      get() { return wrappedPd || nativePd; },
+      set(fn) {
+        nativePd = fn;
+        wrappedPd = wrapPd(fn);
+      }
+    });
+  } catch (error) {
+    emit('page-error', { error: `_pd hook: ${String(error)}` });
+  }
+
+  emit('installed');
 })();
