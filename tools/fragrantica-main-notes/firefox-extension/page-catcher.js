@@ -11,26 +11,23 @@
   const seen = new Set();
   let pdCalls = 0;
 
-  const describe = value => {
+  const summarize = value => {
     try {
       if (value === null) return 'null';
-      if (value === undefined) return 'undefined';
-      if (Array.isArray(value)) return `array(${value.length})`;
-      const type = typeof value;
-      if (type !== 'object') return type;
-      const keys = Object.keys(value).slice(0, 12);
-      return `object keys=[${keys.join(',')}]`;
+      if (Array.isArray(value)) return `array len=${value.length}`;
+      if (typeof value === 'object') return `object keys=[${Object.keys(value).slice(0, 12).join(',')}]`;
+      return `${typeof value}${typeof value === 'string' ? ` len=${value.length}` : ''}`;
     } catch {
-      return 'uninspectable';
+      return typeof value;
     }
   };
 
   const captureDecoded = decoded => {
     try {
-      if (!decoded || !Array.isArray(decoded.notes) || !decoded.notes.length || !decoded.weights_sum) return false;
+      if (!decoded || !Array.isArray(decoded.notes) || !decoded.notes.length || !decoded.weights_sum) return;
 
       const sig = decoded.notes.map(n => `${n.sastojak_id}:${n.weight}`).join('|');
-      if (seen.has(sig)) return true;
+      if (seen.has(sig)) return;
       seen.add(sig);
 
       emit('diagnostic', { stage: 'decoded-candidate', detail: `notes=${decoded.notes.length};sum=${decoded.weights_sum}` });
@@ -60,10 +57,8 @@
           notes
         }
       });
-      return true;
     } catch (error) {
       emit('page-error', { error: String(error) });
-      return false;
     }
   };
 
@@ -97,30 +92,20 @@
       if (typeof fn !== 'function') return fn;
       if (fn.__shobiWrapped) return fn;
       const wrapped = function(...args) {
-        pdCalls += 1;
-        emit('diagnostic', {
-          stage: 'pd-call',
-          detail: `#${pdCalls};args=${args.length};arg0=${describe(args[0])}`
-        });
+        const id = ++pdCalls;
+        let argDetail = `args=${args.length}`;
+        if (args.length) argDetail += `;arg0=${summarize(args[0])}`;
+        emit('diagnostic', { stage: 'pd-call', detail: `#${id};${argDetail}` });
 
-        let result;
-        try {
-          result = fn.apply(this, args);
-        } catch (error) {
-          emit('page-error', { error: `_pd threw: ${String(error)}` });
-          throw error;
-        }
-
-        emit('diagnostic', {
-          stage: 'pd-return',
-          detail: `#${pdCalls};${describe(result)};then=${typeof result?.then}`
-        });
+        const result = fn.apply(this, args);
+        emit('diagnostic', { stage: 'pd-return', detail: `#${id};${summarize(result)};then=${typeof result?.then}` });
 
         Promise.resolve(result).then(value => {
-          emit('diagnostic', { stage: 'pd-resolved', detail: `#${pdCalls};${describe(value)}` });
+          emit('diagnostic', { stage: 'pd-resolved', detail: `#${id};${summarize(value)}` });
           captureDecoded(value);
-        }).catch(error => emit('page-error', { error: `_pd resolve: ${String(error)}` }));
-
+        }, error => {
+          emit('diagnostic', { stage: 'pd-rejected', detail: `#${id};${String(error)}` });
+        });
         return result;
       };
       wrapped.__shobiWrapped = true;
@@ -151,32 +136,59 @@
     emit('page-error', { error: `_pd hook: ${String(error)}` });
   }
 
-  // Fragrantica lazily initializes parts of perfume pages. Trigger normal page
-  // visibility without clicking anything or interacting with security checks.
-  const triggerLazyContent = async () => {
-    const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
-    try {
-      await sleep(1800);
-      const height = Math.max(document.documentElement?.scrollHeight || 0, document.body?.scrollHeight || 0);
-      emit('diagnostic', { stage: 'lazy-trigger-start', detail: `height=${height}` });
-      if (height > 0) {
-        for (const fraction of [0.3, 0.55, 0.75]) {
-          window.scrollTo({ top: Math.floor(height * fraction), behavior: 'auto' });
-          await sleep(700);
-        }
-        window.scrollTo({ top: 0, behavior: 'auto' });
-      }
-      emit('diagnostic', { stage: 'lazy-trigger-done', detail: `pdCalls=${pdCalls}` });
-    } catch (error) {
-      emit('page-error', { error: `lazy trigger: ${String(error)}` });
-    }
-  };
+  const sleep = ms => new Promise(r => setTimeout(r, ms));
 
-  if (document.readyState === 'loading') {
-    window.addEventListener('DOMContentLoaded', triggerLazyContent, { once: true });
-  } else {
-    triggerLazyContent();
+  async function triggerNotesSections() {
+    if (document.readyState === 'loading') {
+      await new Promise(resolve => document.addEventListener('DOMContentLoaded', resolve, { once: true }));
+    }
+    await sleep(1200);
+
+    const labels = ['main notes', 'perfume pyramid', 'fragrance notes', 'notes'];
+    const candidates = [...document.querySelectorAll('h2,h3,h4,h5,strong,b,div,span')]
+      .filter(el => {
+        const t = (el.textContent || '').trim().toLowerCase();
+        if (!t || t.length > 80) return false;
+        return labels.some(label => t === label || t.includes(label));
+      })
+      .slice(0, 12);
+
+    emit('diagnostic', {
+      stage: 'notes-section-scan',
+      detail: candidates.length
+        ? candidates.map(el => (el.textContent || '').trim().slice(0, 40)).join(' | ')
+        : 'none'
+    });
+
+    for (const el of candidates) {
+      try {
+        el.scrollIntoView({ block: 'center', behavior: 'auto' });
+        await sleep(1200);
+      } catch {}
+    }
+
+    const height = Math.max(document.documentElement.scrollHeight, document.body?.scrollHeight || 0);
+    emit('diagnostic', { stage: 'progressive-scroll-start', detail: `height=${height}` });
+
+    const step = Math.max(500, Math.floor(window.innerHeight * 0.7));
+    for (let y = 0; y < height; y += step) {
+      window.scrollTo(0, y);
+      await sleep(700);
+    }
+
+    for (let y = Math.max(0, height - step); y > 0; y -= step * 2) {
+      window.scrollTo(0, y);
+      await sleep(500);
+    }
+
+    window.scrollTo(0, 0);
+    emit('diagnostic', { stage: 'notes-trigger-done', detail: `pdCalls=${pdCalls}` });
+
+    await sleep(20000);
+    emit('diagnostic', { stage: 'monitor-finished', detail: `pdCalls=${pdCalls};captures=${seen.size}` });
   }
+
+  triggerNotesSections().catch(error => emit('page-error', { error: `notes trigger: ${String(error)}` }));
 
   emit('installed');
 })();
