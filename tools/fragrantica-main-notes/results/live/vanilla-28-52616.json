@@ -9,466 +9,74 @@
   },
   "perfume": "Vanilla | 28 Kayali Fragrances for women and men",
   "url": "https://www.fragrantica.com/perfume/Kayali-Fragrances/Vanilla-28-52616.html",
-  "capture_method": "dom-rendered-notes",
+  "capture_method": "dom-perfume-pyramid",
   "weights_sum": null,
-  "captured_at": "2026-08-19T22:04:00.365Z",
+  "captured_at": "2026-08-19T22:09:57.275Z",
   "notes": [
     {
       "rank": 1,
-      "note": "Notes",
-      "sastojak_id": null,
+      "note": "Vanilla Orchid",
+      "sastojak_id": 154,
       "weight": null,
       "percentage": null,
-      "pyramid_level": null
+      "pyramid_level": "top"
     },
     {
       "rank": 2,
-      "note": "Vanilla Orchid",
-      "sastojak_id": null,
+      "note": "Jasmine",
+      "sastojak_id": 14,
       "weight": null,
       "percentage": null,
       "pyramid_level": "top"
     },
     {
       "rank": 3,
-      "note": "Jasmine",
-      "sastojak_id": null,
+      "note": "Brown sugar",
+      "sastojak_id": 521,
       "weight": null,
       "percentage": null,
-      "pyramid_level": "top"
+      "pyramid_level": "middle"
     },
     {
       "rank": 4,
-      "note": "Brown sugar",
-      "sastojak_id": null,
+      "note": "Tonka Bean",
+      "sastojak_id": 73,
       "weight": null,
       "percentage": null,
       "pyramid_level": "middle"
     },
     {
       "rank": 5,
-      "note": "Tonka Bean",
-      "sastojak_id": null,
+      "note": "Amber",
+      "sastojak_id": 54,
       "weight": null,
       "percentage": null,
-      "pyramid_level": "middle"
+      "pyramid_level": "base"
     },
     {
       "rank": 6,
-      "note": "Amber",
-      "sastojak_id": null,
+      "note": "Amberwood",
+      "sastojak_id": 691,
       "weight": null,
       "percentage": null,
       "pyramid_level": "base"
     },
     {
       "rank": 7,
-      "note": "Amberwood",
-      "sastojak_id": null,
+      "note": "Musk",
+      "sastojak_id": 4,
       "weight": null,
       "percentage": null,
       "pyramid_level": "base"
     },
     {
       "rank": 8,
-      "note": "Musk",
-      "sastojak_id": null,
-      "weight": null,
-      "percentage": null,
-      "pyramid_level": "base"
-    },
-    {
-      "rank": 9,
       "note": "Patchouli",
-      "sastojak_id": null,
+      "sastojak_id": 34,
       "weight": null,
       "percentage": null,
       "pyramid_level": "base"
-    },
-    {
-      "rank": 10,
-      "note": "Fragrantica Light",
-      "sastojak_id": null,
-      "weight": null,
-      "percentage": null,
-      "pyramid_level": null
-    },
-    {
-      "rank": 11,
-      "note": "Fragrantica Dark",
-      "sastojak_id": null,
-      "weight": null,
-      "percentage": null,
-      "pyramid_level": null
-    },
-    {
-      "rank": 12,
-      "note": "User avatar",
-      "sastojak_id": null,
-      "weight": null,
-      "percentage": null,
-      "pyramid_level": null
-    },
-    {
-      "rank": 13,
-      "note": "perfume Vanilla | 28 Kayali Fragrances for women and men",
-      "sastojak_id": null,
-      "weight": null,
-      "percentage": null,
-      "pyramid_level": null
-    },
-    {
-      "rank": 14,
-      "note": "Kayali Fragrances",
-      "sastojak_id": null,
-      "weight": null,
-      "percentage": null,
-      "pyramid_level": null
-    },
-    {
-      "rank": 15,
-      "note": "Kayali Vanilla 28 Eau de Parfum da d... (152.00 EUR)",
-      "sastojak_id": null,
-      "weight": null,
-      "percentage": null,
-      "pyramid_level": null
-    },
-    {
-      "rank": 16,
-      "note": "Many items for sale on",
-      "sastojak_id": null,
-      "weight": null,
-      "percentage": null,
-      "pyramid_level": null
-    },
-    {
-      "rank": 17,
-      "note": "Gabriela Chelariu",
-      "sastojak_id": null,
-      "weight": null,
-      "percentage": null,
-      "pyramid_level": "top"
-    },
-    {
-      "rank": 18,
-      "note": "Kayali Fragrances Yum Boujee Marshmallow | 81",
-      "sastojak_id": null,
-      "weight": null,
-      "percentage": null,
-      "pyramid_level": null
-    },
-    {
-      "rank": 19,
-      "note": "Kayali Fragrances Vanilla Candy Rock Sugar | 42",
-      "sastojak_id": null,
-      "weight": null,
-      "percentage": null,
-      "pyramid_level": null
-    },
-    {
-      "rank": 20,
-      "note": "Kayali Fragrances Yum Pistachio Gelato | 33",
-      "sastojak_id": null,
-      "weight": null,
-      "percentage": null,
-      "pyramid_level": null
-    },
-    {
-      "rank": 21,
-      "note": "Kayali Fragrances The Wedding Silk Santal | 36",
-      "sastojak_id": null,
-      "weight": null,
-      "percentage": null,
-      "pyramid_level": null
-    },
-    {
-      "rank": 22,
-      "note": "Kayali Fragrances Eden Sparkling Lychee | 39 Eau de Parfum",
-      "sastojak_id": null,
-      "weight": null,
-      "percentage": null,
-      "pyramid_level": null
-    },
-    {
-      "rank": 23,
-      "note": "Kayali Fragrances Eden Juicy Apple | 01 Eau De Parfum",
-      "sastojak_id": null,
-      "weight": null,
-      "percentage": null,
-      "pyramid_level": null
-    },
-    {
-      "rank": 24,
-      "note": "Kayali Fragrances Fleur Majesty Rose Royale | 31",
-      "sastojak_id": null,
-      "weight": null,
-      "percentage": null,
-      "pyramid_level": null
-    },
-    {
-      "rank": 25,
-      "note": "Kayali Fragrances Lovefest Burning Cherry | 48 Eau de Parfum",
-      "sastojak_id": null,
-      "weight": null,
-      "percentage": null,
-      "pyramid_level": null
-    },
-    {
-      "rank": 26,
-      "note": "Kayali Fragrances Utopia Vanilla Coco 21",
-      "sastojak_id": null,
-      "weight": null,
-      "percentage": null,
-      "pyramid_level": null
-    },
-    {
-      "rank": 27,
-      "note": "Kayali Fragrances Freedom Musk Santal | 34 Eau de Parfum",
-      "sastojak_id": null,
-      "weight": null,
-      "percentage": null,
-      "pyramid_level": null
-    },
-    {
-      "rank": 28,
-      "note": "Kayali Fragrances Eden Sweet Peach | 35 Eau de Parfum",
-      "sastojak_id": null,
-      "weight": null,
-      "percentage": null,
-      "pyramid_level": null
-    },
-    {
-      "rank": 29,
-      "note": "Kayali Fragrances Musk 12",
-      "sastojak_id": null,
-      "weight": null,
-      "percentage": null,
-      "pyramid_level": null
-    },
-    {
-      "rank": 30,
-      "note": "Kayali Fragrances Freedom Musk Matcha | 45 Eau de Parfum",
-      "sastojak_id": null,
-      "weight": null,
-      "percentage": null,
-      "pyramid_level": null
-    },
-    {
-      "rank": 31,
-      "note": "Kayali Fragrances Eden Plush Pear | 23 Eau de Parfum",
-      "sastojak_id": null,
-      "weight": null,
-      "percentage": null,
-      "pyramid_level": null
-    },
-    {
-      "rank": 32,
-      "note": "Kayali Fragrances Boujee Kitty Caramel Milk | 22",
-      "sastojak_id": null,
-      "weight": null,
-      "percentage": null,
-      "pyramid_level": null
-    },
-    {
-      "rank": 33,
-      "note": "Kayali Fragrances Oudgasm Chocolate Oud | 11",
-      "sastojak_id": null,
-      "weight": null,
-      "percentage": null,
-      "pyramid_level": null
-    },
-    {
-      "rank": 34,
-      "note": "Fragrances For First Dates May 21, 2025 65 by Iulia Halatz",
-      "sastojak_id": null,
-      "weight": null,
-      "percentage": null,
-      "pyramid_level": null
-    },
-    {
-      "rank": 35,
-      "note": "Billie Eilish Eilish",
-      "sastojak_id": null,
-      "weight": null,
-      "percentage": null,
-      "pyramid_level": null
-    },
-    {
-      "rank": 36,
-      "note": "Carolina Herrera Good Girl",
-      "sastojak_id": null,
-      "weight": null,
-      "percentage": null,
-      "pyramid_level": null
-    },
-    {
-      "rank": 37,
-      "note": "Maison Francis Kurkdjian Baccarat Rouge 540",
-      "sastojak_id": null,
-      "weight": null,
-      "percentage": null,
-      "pyramid_level": null
-    },
-    {
-      "rank": 38,
-      "note": "By Kilian Angels' Share",
-      "sastojak_id": null,
-      "weight": null,
-      "percentage": null,
-      "pyramid_level": null
-    },
-    {
-      "rank": 39,
-      "note": "Maison Martin Margiela By the Fireplace",
-      "sastojak_id": null,
-      "weight": null,
-      "percentage": null,
-      "pyramid_level": null
-    },
-    {
-      "rank": 40,
-      "note": "Ariana Grande Cloud",
-      "sastojak_id": null,
-      "weight": null,
-      "percentage": null,
-      "pyramid_level": null
-    },
-    {
-      "rank": 41,
-      "note": "By Kilian Love Don't Be Shy",
-      "sastojak_id": null,
-      "weight": null,
-      "percentage": null,
-      "pyramid_level": null
-    },
-    {
-      "rank": 42,
-      "note": "Giardini Di Toscana Bianco Latte",
-      "sastojak_id": null,
-      "weight": null,
-      "percentage": null,
-      "pyramid_level": null
-    },
-    {
-      "rank": 43,
-      "note": "Yves Saint Laurent Black Opium",
-      "sastojak_id": null,
-      "weight": null,
-      "percentage": null,
-      "pyramid_level": null
-    },
-    {
-      "rank": 44,
-      "note": "Burberry Burberry Her",
-      "sastojak_id": null,
-      "weight": null,
-      "percentage": null,
-      "pyramid_level": null
-    },
-    {
-      "rank": 45,
-      "note": "Dior Hypnotic Poison",
-      "sastojak_id": null,
-      "weight": null,
-      "percentage": null,
-      "pyramid_level": null
-    },
-    {
-      "rank": 46,
-      "note": "Valentino Valentino Donna Born In Roma",
-      "sastojak_id": null,
-      "weight": null,
-      "percentage": null,
-      "pyramid_level": null
-    },
-    {
-      "rank": 47,
-      "note": "Sol de Janeiro Cheirosa '62",
-      "sastojak_id": null,
-      "weight": null,
-      "percentage": null,
-      "pyramid_level": null
-    },
-    {
-      "rank": 48,
-      "note": "Casamorati 1888 Lira",
-      "sastojak_id": null,
-      "weight": null,
-      "percentage": null,
-      "pyramid_level": null
-    },
-    {
-      "rank": 49,
-      "note": "Yves Saint Laurent Libre",
-      "sastojak_id": null,
-      "weight": null,
-      "percentage": null,
-      "pyramid_level": null
-    },
-    {
-      "rank": 50,
-      "note": "Burberry Goddess",
-      "sastojak_id": null,
-      "weight": null,
-      "percentage": null,
-      "pyramid_level": null
-    },
-    {
-      "rank": 51,
-      "note": "Parfums de Marly Delina",
-      "sastojak_id": null,
-      "weight": null,
-      "percentage": null,
-      "pyramid_level": null
-    },
-    {
-      "rank": 52,
-      "note": "perfume Vanilla | 28 Kayali Fragrances",
-      "sastojak_id": null,
-      "weight": null,
-      "percentage": null,
-      "pyramid_level": "top"
-    },
-    {
-      "rank": 53,
-      "note": "perfume Yum Boujee Marshmallow | 81 Kayali Fragrances",
-      "sastojak_id": null,
-      "weight": null,
-      "percentage": null,
-      "pyramid_level": "top"
-    },
-    {
-      "rank": 54,
-      "note": "perfume Yatagan Caron",
-      "sastojak_id": null,
-      "weight": null,
-      "percentage": null,
-      "pyramid_level": "top"
-    },
-    {
-      "rank": 55,
-      "note": "perfume Luna Rossa Black Prada",
-      "sastojak_id": null,
-      "weight": null,
-      "percentage": null,
-      "pyramid_level": "top"
-    },
-    {
-      "rank": 56,
-      "note": "ESXENCE 2026: A ship sails the way you name it by jeca Yes",
-      "sastojak_id": null,
-      "weight": null,
-      "percentage": null,
-      "pyramid_level": "top"
-    },
-    {
-      "rank": 57,
-      "note": "Scented...Car Mats?! by Chrizzle73 OK, these are CUTE!",
-      "sastojak_id": null,
-      "weight": null,
-      "percentage": null,
-      "pyramid_level": "top"
     }
   ],
-  "received_at": "2026-08-19T22:04:00.683Z"
+  "received_at": "2026-08-19T22:09:57.629Z"
 }
