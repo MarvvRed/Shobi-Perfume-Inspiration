@@ -9,74 +9,56 @@
   },
   "perfume": "Vanilla | 28 Kayali Fragrances for women and men",
   "url": "https://www.fragrantica.com/perfume/Kayali-Fragrances/Vanilla-28-52616.html",
-  "capture_method": "dom-perfume-pyramid",
+  "capture_method": "show-votes-top5",
+  "captured_at": "2026-08-19T22:29:41.249Z",
+  "total_voted_notes": 8,
   "weights_sum": null,
-  "captured_at": "2026-08-19T22:09:57.275Z",
   "notes": [
     {
       "rank": 1,
-      "note": "Vanilla Orchid",
-      "sastojak_id": 154,
+      "note": "Brown sugar",
+      "sastojak_id": 521,
+      "votes": 2585,
       "weight": null,
       "percentage": null,
-      "pyramid_level": "top"
+      "pyramid_level": null
     },
     {
       "rank": 2,
-      "note": "Jasmine",
-      "sastojak_id": 14,
+      "note": "Tonka Bean",
+      "sastojak_id": 73,
+      "votes": 1830,
       "weight": null,
       "percentage": null,
-      "pyramid_level": "top"
+      "pyramid_level": null
     },
     {
       "rank": 3,
-      "note": "Brown sugar",
-      "sastojak_id": 521,
+      "note": "Amber",
+      "sastojak_id": 54,
+      "votes": 1524,
       "weight": null,
       "percentage": null,
-      "pyramid_level": "middle"
+      "pyramid_level": null
     },
     {
       "rank": 4,
-      "note": "Tonka Bean",
-      "sastojak_id": 73,
+      "note": "Amberwood",
+      "sastojak_id": 691,
+      "votes": 1082,
       "weight": null,
       "percentage": null,
-      "pyramid_level": "middle"
+      "pyramid_level": null
     },
     {
       "rank": 5,
-      "note": "Amber",
-      "sastojak_id": 54,
+      "note": "Vanilla Orchid",
+      "sastojak_id": 154,
+      "votes": 1024,
       "weight": null,
       "percentage": null,
-      "pyramid_level": "base"
-    },
-    {
-      "rank": 6,
-      "note": "Amberwood",
-      "sastojak_id": 691,
-      "weight": null,
-      "percentage": null,
-      "pyramid_level": "base"
-    },
-    {
-      "rank": 7,
-      "note": "Musk",
-      "sastojak_id": 4,
-      "weight": null,
-      "percentage": null,
-      "pyramid_level": "base"
-    },
-    {
-      "rank": 8,
-      "note": "Patchouli",
-      "sastojak_id": 34,
-      "weight": null,
-      "percentage": null,
-      "pyramid_level": "base"
+      "pyramid_level": null
     }
   ],
-  "received_at": "2026-08-19T22:09:57.629Z"
+  "received_at": "2026-08-19T22:29:41.609Z"
 }
