@@ -1,0 +1,38 @@
+name: Audit Best Seller Notes
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'scripts/audit_bestseller_notes.py'
+      - 'Personal Database/perfume-details.json'
+      - 'bestsellers-*.js'
+      - '.github/workflows/audit-bestseller-notes.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Generate verified notes payload and audit
+        run: python scripts/audit_bestseller_notes.py
+
+      - name: Commit generated audit outputs
+        if: github.ref == 'refs/heads/main'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add bestseller-notes-audit.json bestseller-notes-verified.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Update Best Seller notes audit"
+          git push
