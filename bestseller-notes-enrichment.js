@@ -16,6 +16,12 @@
         return [...new Set((values || []).map(v => String(v || '').trim()).filter(Boolean))];
     }
 
+    function clearUnverifiedNotes(perfume) {
+        if (!perfume) return;
+        perfume.notes = { top: [], heart: [], base: [] };
+        perfume.notesProvenance = { verified: false };
+    }
+
     function mergeVerifiedNotes(perfume, details) {
         const top = unique(details.top_notes);
         const heart = unique(details.heart_notes);
@@ -54,7 +60,16 @@
         codes.forEach(code => {
             const perfume = byCode.get(code);
             const details = detailsDb[normalizeCode(code)];
-            if (!perfume || !hasVerifiedNotes(details) || !mergeVerifiedNotes(perfume, details)) {
+            if (!perfume) {
+                unresolved.push(code);
+                return;
+            }
+
+            // Legacy note data is not trusted for #21-#100 unless the Personal Database
+            // explicitly marks the corresponding pyramid as verified.
+            clearUnverifiedNotes(perfume);
+
+            if (!hasVerifiedNotes(details) || !mergeVerifiedNotes(perfume, details)) {
                 unresolved.push(code);
                 return;
             }
