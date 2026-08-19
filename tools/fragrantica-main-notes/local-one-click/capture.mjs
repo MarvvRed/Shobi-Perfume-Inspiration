@@ -70,31 +70,53 @@ async function checkpoint() {
 async function captureOne(target) {
   const page = await context.newPage();
 
+  // Install before any Fragrantica page script runs.
+  // We intercept every fulfilled Promise because Fragrantica's own code calls
+  // _pd(payload).then(decoded => ...). This works even when _pd is hidden inside
+  // a webpack/module scope and is not exposed as window._pd.
   await page.addInitScript(() => {
     window.__shobiDecodedCaptures = [];
-    let nativePd;
-    let wrappedPd;
 
-    const wrap = fn => function(...args) {
-      const result = fn.apply(this, args);
-      Promise.resolve(result).then(decoded => {
-        try {
-          if (decoded?.notes?.length && decoded?.weights_sum) {
-            window.__shobiDecodedCaptures.push(decoded);
-          }
-        } catch {}
-      });
-      return result;
+    const captureIfMainNotes = value => {
+      try {
+        if (value && Array.isArray(value.notes) && value.notes.length > 0 && value.weights_sum) {
+          window.__shobiDecodedCaptures.push(value);
+        }
+      } catch {}
     };
 
     try {
+      const nativeThen = Promise.prototype.then;
+      Promise.prototype.then = function(onFulfilled, onRejected) {
+        const wrappedFulfilled = typeof onFulfilled === 'function'
+          ? function(value) {
+              captureIfMainNotes(value);
+              return onFulfilled.apply(this, arguments);
+            }
+          : function(value) {
+              captureIfMainNotes(value);
+              return value;
+            };
+        return nativeThen.call(this, wrappedFulfilled, onRejected);
+      };
+    } catch {}
+
+    // Secondary hook for pages where _pd happens to be global.
+    try {
+      let nativePd;
+      let wrappedPd;
+      const wrapPd = fn => function(...args) {
+        const result = fn.apply(this, args);
+        Promise.resolve(result).then(value => captureIfMainNotes(value));
+        return result;
+      };
       Object.defineProperty(window, '_pd', {
         configurable: true,
         enumerable: true,
         get() { return wrappedPd || nativePd; },
         set(fn) {
           nativePd = fn;
-          wrappedPd = typeof fn === 'function' ? wrap(fn) : fn;
+          wrappedPd = typeof fn === 'function' ? wrapPd(fn) : fn;
         }
       });
     } catch {}
@@ -125,9 +147,10 @@ async function captureOne(target) {
       const h = Math.max(document.documentElement.scrollHeight, document.body?.scrollHeight || 0);
       for (const f of [0.20, 0.40, 0.60, 0.80, 1.0]) {
         window.scrollTo(0, Math.floor(h * f));
-        await sleep(180);
+        await sleep(220);
       }
       window.scrollTo(0, Math.floor(h * 0.45));
+      await sleep(500);
     });
 
     for (const selector of ['text=/perfume pyramid/i', '[href*="#notes"]', '[href*="notes"]']) {
@@ -140,7 +163,7 @@ async function captureOne(target) {
     await page.waitForFunction(
       () => Array.isArray(window.__shobiDecodedCaptures) && window.__shobiDecodedCaptures.length > 0,
       null,
-      { timeout: 12000 }
+      { timeout: 18000 }
     );
 
     const decoded = await page.evaluate(() => window.__shobiDecodedCaptures.at(-1));
@@ -151,7 +174,7 @@ async function captureOne(target) {
     row.captured_at = new Date().toISOString();
     row.weights_sum = clean.weights_sum;
     row.notes = clean.notes;
-    console.log(`   OK: ${row.notes.length} note`);
+    console.log(`   OK: ${row.notes.length} note | weights_sum=${row.weights_sum}`);
   } catch (e) {
     row.status = 'failed';
     row.error = String(e?.message || e);
@@ -176,8 +199,8 @@ for (const target of batch.targets) {
       captured_at: null,
       weights_sum: null,
       notes: [],
-      error: 'Timeout locale 35s'
-    }), 35000))
+      error: 'Timeout locale 45s'
+    }), 45000))
   ]);
   results.push(result);
   await checkpoint();
