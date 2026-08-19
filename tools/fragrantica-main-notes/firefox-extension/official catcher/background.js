@@ -25,9 +25,7 @@ browser.runtime.onMessage.addListener(async (message, sender) => {
   if (message.type === 'installed') { console.log('SHOBI_PAGE_CATCHER_INSTALLED', message.url || ''); await pingRunner(); return; }
   if (message.type !== 'capture') return;
   console.log('SHOBI_CAPTURE_RECEIVED', message.payload?.perfume || '', message.payload?.notes?.length || 0);
-  const payload = message.payload;
-  const state = await getState();
-  const target = BATCH.find(x => x.url === payload.url) || BATCH[state.index];
+  const payload = message.payload; const state = await getState(); const target = BATCH.find(x => x.url === payload.url) || BATCH[state.index];
   await sendToRunner({ source: 'firefox-extension', batch: 'bestsellers-1-10', target, payload });
   if (!state.running || !sender.tab || sender.tab.id !== state.tabId || !target) return;
   if (state.results[String(target.rank)]) return;
