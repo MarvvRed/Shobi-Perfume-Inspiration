@@ -1,0 +1,81 @@
+{
+  "source": "firefox-extension",
+  "batch": "bestsellers-1-10",
+  "target": {
+    "rank": 1,
+    "name": "Vanilla 28",
+    "brand": "Kayali Fragrances",
+    "url": "https://www.fragrantica.com/perfume/Kayali-Fragrances/Vanilla-28-52616.html"
+  },
+  "perfume": "Vanilla | 28 Kayali Fragrances for women and men",
+  "url": "https://www.fragrantica.com/perfume/Kayali-Fragrances/Vanilla-28-52616.html",
+  "weights_sum": 10092,
+  "captured_at": "2026-08-19T22:01:34.821Z",
+  "notes": [
+    {
+      "rank": 1,
+      "note": "Brown sugar",
+      "sastojak_id": 521,
+      "weight": 2585,
+      "percentage": 25.61,
+      "pyramid_level": "middle"
+    },
+    {
+      "rank": 2,
+      "note": "Tonka Bean",
+      "sastojak_id": 73,
+      "weight": 1830,
+      "percentage": 18.13,
+      "pyramid_level": "middle"
+    },
+    {
+      "rank": 3,
+      "note": "Amber",
+      "sastojak_id": 54,
+      "weight": 1524,
+      "percentage": 15.1,
+      "pyramid_level": "base"
+    },
+    {
+      "rank": 4,
+      "note": "Amberwood",
+      "sastojak_id": 691,
+      "weight": 1082,
+      "percentage": 10.72,
+      "pyramid_level": "base"
+    },
+    {
+      "rank": 5,
+      "note": "Vanilla Orchid",
+      "sastojak_id": 154,
+      "weight": 1024,
+      "percentage": 10.15,
+      "pyramid_level": "top"
+    },
+    {
+      "rank": 6,
+      "note": "Musk",
+      "sastojak_id": 4,
+      "weight": 933,
+      "percentage": 9.24,
+      "pyramid_level": "base"
+    },
+    {
+      "rank": 7,
+      "note": "Patchouli",
+      "sastojak_id": 34,
+      "weight": 762,
+      "percentage": 7.55,
+      "pyramid_level": "base"
+    },
+    {
+      "rank": 8,
+      "note": "Jasmine",
+      "sastojak_id": 14,
+      "weight": 352,
+      "percentage": 3.49,
+      "pyramid_level": "top"
+    }
+  ],
+  "received_at": "2026-08-19T22:01:35.177Z"
+}
