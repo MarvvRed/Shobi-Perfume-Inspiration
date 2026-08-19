@@ -6,9 +6,11 @@ from datetime import datetime, timezone
 
 ROOT = Path(__file__).resolve().parents[1]
 DETAILS = ROOT / "Personal Database" / "perfume-details.json"
+CATALOG = ROOT / "Personal Database" / "catalog-lite.json"
 BESTSELLER_FILES = [ROOT / f"bestsellers-{i}.js" for i in range(1, 6)]
 AUDIT_OUT = ROOT / "bestseller-notes-audit.json"
 VERIFIED_OUT = ROOT / "bestseller-notes-verified.json"
+WORKQUEUE_OUT = ROOT / "bestseller-notes-workqueue.json"
 
 TARGET_START = 21
 TARGET_END = 100
@@ -45,11 +47,28 @@ def extract_ranking():
     for path in BESTSELLER_FILES:
         if not path.exists():
             continue
-        text = path.read_text(encoding="utf-8")
-        codes.extend(pattern.findall(text))
+        codes.extend(pattern.findall(path.read_text(encoding="utf-8")))
     if len(codes) < TARGET_END:
         raise SystemExit(f"Only {len(codes)} bestseller codes found; expected at least {TARGET_END}")
     return codes
+
+
+def load_catalog():
+    if not CATALOG.exists():
+        return {}
+    raw = json.loads(CATALOG.read_text(encoding="utf-8"))
+    result = {}
+    for item in raw.get("p", []):
+        if not isinstance(item, list) or not item:
+            continue
+        code = str(item[0] or "").strip()
+        result[code] = {
+            "name": str(item[1] or "").strip() if len(item) > 1 else "",
+            "brand": str(item[2] or "").strip() if len(item) > 2 else "",
+            "gender": str(item[3] or "").strip() if len(item) > 3 else "",
+            "stock": str(item[4] or "").strip() if len(item) > 4 else "",
+        }
+    return result
 
 
 def main():
@@ -58,14 +77,17 @@ def main():
 
     ranking = extract_ranking()
     details = json.loads(DETAILS.read_text(encoding="utf-8"))
+    catalog = load_catalog()
 
     verified = {}
     rows = []
+    workqueue = []
     target_codes = ranking[TARGET_START - 1:TARGET_END]
 
     for rank, code in enumerate(target_codes, start=TARGET_START):
         key = normalize_code(code)
         record = details.get(key)
+        meta = catalog.get(code, {})
         state = "missing"
         top = heart = base = []
         source = source_url = notes_status = ""
@@ -84,9 +106,23 @@ def main():
             else:
                 state = "pending" if record else "missing"
 
+        row = {
+            "rank": rank,
+            "code": code,
+            "name": meta.get("name", ""),
+            "brand": meta.get("brand", ""),
+            "gender": meta.get("gender", ""),
+            "state": state,
+            "notes_status": notes_status,
+            "notes_validation_version": validation_version,
+        }
+        rows.append(row)
+
         if state == "verified":
             verified[code] = {
                 "rank": rank,
+                "name": meta.get("name", ""),
+                "brand": meta.get("brand", ""),
                 "top_notes": top,
                 "heart_notes": heart,
                 "base_notes": base,
@@ -95,15 +131,21 @@ def main():
                 "notes_status": notes_status,
                 "notes_validation_version": validation_version,
             }
+        else:
+            workqueue.append({
+                "priority": 1 if state == "pending" else 2,
+                "rank": rank,
+                "code": code,
+                "name": meta.get("name", ""),
+                "brand": meta.get("brand", ""),
+                "gender": meta.get("gender", ""),
+                "state": state,
+                "existing_status": notes_status,
+                "existing_validation_version": validation_version,
+                "next_action": "cross-check existing exact-code pyramid" if state == "pending" else "find exact perfume identity and authoritative note pyramid",
+            })
 
-        rows.append({
-            "rank": rank,
-            "code": code,
-            "state": state,
-            "notes_status": notes_status,
-            "notes_validation_version": validation_version,
-        })
-
+    workqueue.sort(key=lambda r: (r["priority"], r["rank"]))
     counts = {
         "total": len(rows),
         "verified": sum(r["state"] == "verified" for r in rows),
@@ -116,7 +158,7 @@ def main():
     audit = {
         "scope": "Best Seller #21-#100",
         "generated_at": generated,
-        "source": "Personal Database/perfume-details.json (read-only)",
+        "source": "Personal Database/perfume-details.json + catalog-lite.json (read-only)",
         "counts": counts,
         "records": rows,
     }
@@ -126,9 +168,17 @@ def main():
         "source": "Personal Database/perfume-details.json (read-only; verified records only)",
         "perfumes": verified,
     }
+    queue_payload = {
+        "scope": "Best Seller #21-#100",
+        "generated_at": generated,
+        "rule": "Priority 1 = existing exact-code notes need cross-check; Priority 2 = note record missing.",
+        "counts": counts,
+        "queue": workqueue,
+    }
 
     AUDIT_OUT.write_text(json.dumps(audit, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     VERIFIED_OUT.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    WORKQUEUE_OUT.write_text(json.dumps(queue_payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
     print(f"TOTAL={counts['total']}")
     print(f"VERIFIED={counts['verified']}")
