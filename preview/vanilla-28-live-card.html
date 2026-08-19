@@ -3,59 +3,53 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vanilla 28 Live Card Preview</title>
+  <title>Vanilla 28 Live Renderer Preview</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   <link rel="stylesheet" href="../style.css?v=6">
 </head>
-<body class="bg-base font-sans min-h-screen">
-  <main class="min-h-screen flex items-start justify-center p-8">
-    <div style="width:260px;max-width:100%">
-      <article class="perfume-card-prototype bg-surface rounded-xl shadow-lg overflow-hidden flex flex-col">
-        <div class="p-4 pb-3 text-left">
-          <h3 class="text-lg font-bold text-primary leading-tight">VANILLA 28</h3>
-          <div class="mt-1 flex flex-wrap items-center gap-2">
-            <button type="button" class="font-medium text-secondary hover:underline text-left" style="font-size:17px">Kayali</button>
-            <span class="inline-flex items-center whitespace-nowrap rounded-full border border-base bg-base px-2.5 py-1 text-xs font-semibold text-primary">Best Seller #1</span>
-          </div>
-        </div>
+<body class="bg-base font-sans">
+  <div class="page-grid mx-auto p-4 sm:p-6 lg:p-8 gap-6" style="grid-template-columns:1fr">
+    <aside id="filter-sidebar" class="hidden">
+      <div id="gender-filters"></div><div id="brand-filters"></div><div id="season-filters"></div><div id="occasion-filters"></div><div id="accord-filters"></div>
+      <button id="reset-all-filters-btn-desktop"></button><button id="reset-all-filters-btn-mobile"></button>
+    </aside>
+    <main id="main-content">
+      <input id="search-input" class="hidden" />
+      <div id="brand-info-container" class="hidden"><div id="brand-info-content"></div><button id="clear-brand-filter"></button></div>
+      <button id="favorites-btn" class="hidden"></button><span id="favorites-count" class="hidden"></span>
+      <div id="active-filters-display" class="hidden"></div>
+      <div id="results-count" class="hidden"></div>
+      <div id="resultsContainer" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-6"></div>
+    </main>
+  </div>
 
-        <div class="prototype-image-wrap">
-          <img src="https://fimgs.net/mdimg/perfume-thumbs/dark-375x500.52616.2x.avif" alt="Vanilla 28 - Kayali" loading="eager" decoding="async">
-        </div>
+  <template id="perfume-card-template"><div class="bg-surface rounded-lg shadow-lg overflow-hidden flex flex-col transition-transform duration-200 hover:scale-[1.03]"><div class="p-5 relative flex-grow flex flex-col"><button class="favorite-btn absolute top-4 right-4 text-2xl icon-base-color hover:text-red-500"><i class="fa-regular fa-heart"></i></button><div data-action="show-details" class="cursor-pointer"><p class="text-xs font-mono text-tertiary mb-1" data-field="code"></p><h3 class="text-lg font-bold text-primary mb-1" data-field="inspiredBy"></h3></div><button data-action="filter-brand" class="text-sm text-secondary mb-3 text-left hover:underline" data-field="brand"></button><div data-field="audience-icons" class="flex space-x-3 text-base mb-3"></div><p data-field="description" class="hidden lg:block text-sm text-secondary mb-4 truncate-3-lines"></p><div data-field="type-icons" class="flex space-x-3 text-base mb-4"></div><div class="mt-auto"><a data-field="shobiLink" target="_blank" rel="noopener noreferrer" class="block w-full text-center px-4 py-2 rounded-md text-sm font-medium text-white bg-blue-600">Buy at Shobi</a></div></div></div></template>
 
-        <div class="px-4 pt-3 pb-4 flex flex-col gap-3">
-          <div class="text-sm text-secondary text-left flex items-center gap-3">
-            <button type="button" class="prototype-meta-badge prototype-filter-badge" title="Filter Female" aria-label="Filter Female">
-              <span style="width:22px;height:22px;display:inline-flex;align-items:center;justify-content:center;flex:0 0 22px"><i class="fas fa-venus text-red-600" title="Female" aria-label="Female"></i></span>
-              <span style="font-size:16px">Female</span>
-            </button>
-            <span class="text-tertiary">|</span>
-            <button type="button" class="prototype-meta-badge prototype-filter-badge" title="Filter Winter" aria-label="Filter Winter">
-              <span style="width:22px;height:22px;display:inline-flex;align-items:center;justify-content:center;flex:0 0 22px;font-size:1rem">❄️</span>
-            </button>
-          </div>
+  <div id="perfume-modal" class="fixed inset-0 z-30 flex items-center justify-center p-4 invisible opacity-0 transition-opacity duration-300"><div id="modal-overlay" class="absolute inset-0 bg-black bg-opacity-75 cursor-pointer"></div><div id="modal-content" class="relative bg-surface rounded-lg shadow-xl w-full max-w-2xl max-h-[90vh] overflow-y-auto transition-all duration-300 transform -translate-y-10 opacity-0"><div class="p-6 border-b border-light"><button id="modal-close-btn" class="absolute top-4 right-4 text-tertiary"><i class="fas fa-times fa-2x"></i></button><h2 id="modal-inspiredBy" class="text-2xl font-bold text-primary"></h2><p id="modal-brand" class="text-lg text-secondary"></p><p id="modal-code" class="text-sm font-mono text-tertiary mt-1"></p></div><div class="p-6 space-y-4"><div><h4 class="font-semibold text-primary">Description</h4><p id="modal-description" class="text-secondary"></p></div><div><h4 class="font-semibold text-primary">Notes</h4><div id="modal-notes" class="text-secondary space-y-1"></div></div><div><h4 class="font-semibold text-primary">Essence Boost Guide</h4><div id="modal-boost-guide" class="p-3 bg-subtle rounded-md mt-2"></div></div></div><div class="p-6 bg-subtle rounded-b-lg"><a id="modal-shobiLink" target="_blank" rel="noopener noreferrer" class="block w-full text-center px-4 py-3 rounded-md text-lg font-medium text-white bg-blue-600">Buy this at Shobi</a></div></div></div>
 
-          <div class="flex flex-wrap gap-2">
-            <button type="button" class="prototype-meta-badge prototype-filter-badge"><img src="https://fimgs.net/mdimg/sastojci/t.154.jpg" alt="" width="22" height="22" style="width:22px;height:22px;object-fit:cover;border-radius:50%;flex:0 0 22px"><span>Vanilla Orchid</span></button>
-            <button type="button" class="prototype-meta-badge prototype-filter-badge"><img src="https://fimgs.net/mdimg/sastojci/t.14.jpg" alt="" width="22" height="22" style="width:22px;height:22px;object-fit:cover;border-radius:50%;flex:0 0 22px"><span>Jasmine</span></button>
-            <button type="button" class="prototype-meta-badge prototype-filter-badge"><img src="https://fimgs.net/mdimg/sastojci/t.521.jpg" alt="" width="22" height="22" style="width:22px;height:22px;object-fit:cover;border-radius:50%;flex:0 0 22px"><span>Brown Sugar</span></button>
-            <button type="button" class="prototype-meta-badge prototype-filter-badge"><img src="https://fimgs.net/mdimg/sastojci/t.691.jpg" alt="" width="22" height="22" style="width:22px;height:22px;object-fit:cover;border-radius:50%;flex:0 0 22px"><span>Amberwood</span></button>
-            <button type="button" class="prototype-meta-badge prototype-filter-badge"><img src="https://fimgs.net/mdimg/sastojci/t.4.jpg" alt="" width="22" height="22" style="width:22px;height:22px;object-fit:cover;border-radius:50%;flex:0 0 22px"><span>Musk</span></button>
-          </div>
-
-          <button type="button" class="prototype-details-btn">More details</button>
-
-          <div class="prototype-actions">
-            <button type="button" class="favorite-btn"><i class="fa-regular fa-heart"></i><span> Favorite</span></button>
-            <span class="prototype-divider">|</span>
-            <button type="button" class="collection-prototype-btn"><i class="fa-solid fa-plus"></i><span> Collection</span></button>
-          </div>
-
-          <a href="#" class="prototype-shop-btn">Shop on Shobi</a>
-        </div>
-      </article>
-    </div>
-  </main>
+  <script src="../script.js?v=2"></script>
+  <script src="../bestsellers-1.js?v=1"></script><script src="../bestsellers-2.js?v=1"></script><script src="../bestsellers-3.js?v=1"></script><script src="../bestsellers-4.js?v=1"></script><script src="../bestsellers-5.js?v=1"></script>
+  <script src="../pagination.js?v=12"></script>
+  <script src="../sorting-bestsellers.js?v=1"></script>
+  <script>
+    (function showOnlyLiveVanilla(){
+      let attempts=0;
+      const timer=setInterval(()=>{
+        attempts++;
+        if(Array.isArray(window.allPerfumes||allPerfumes) && (window.allPerfumes||allPerfumes).length){
+          const list=window.allPerfumes||allPerfumes;
+          const vanilla=list.find(p=>String(p.code||'').toUpperCase().startsWith('305-KAY'));
+          if(vanilla){
+            state.searchQuery='';state.selectedBrand=null;state.showingFavorites=false;state.activeFilters.gender=[];state.activeFilters.brands=[];state.activeFilters.season=[];state.selectedNote=null;state.currentPage=1;
+            displayPerfumes([vanilla]);
+            clearInterval(timer);
+            return;
+          }
+        }
+        if(attempts>100) clearInterval(timer);
+      },100);
+    })();
+  </script>
 </body>
 </html>
