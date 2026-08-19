@@ -1,23 +1,26 @@
-# OFFICIAL CATCHER — 0.3.1
+# OFFICIAL CATCHER — Shobi Fragrantica Main Notes Collector
 
-**FROZEN VALIDATED SNAPSHOT — DO NOT MODIFY**
+## Status
 
-This folder is a protected reference copy of the Shobi Fragrantica Official Catcher version **0.3.1**, validated end-to-end on Kayali Vanilla 28.
+**OFFICIAL / VALIDATED — version 0.3.5**
 
-## Official extraction method
+This folder is the frozen reference copy of the currently validated catcher.
 
-Perfume Pyramid → **Show votes** → read real vote counts for every ingredient note → deduplicate → sort descending by votes → save **Top 5 most-voted notes** → local bridge → GitHub.
+Validation: successful end-to-end batch of 10/10 perfumes, including both extraction paths.
 
-It does **not** use Main Accords and does **not** use the plain pyramid order as the ranking.
+## Official rules
 
-## Validation reference — Vanilla 28
+- **1–5 fragrance notes:** save every available note directly. No vote ranking is required because every note belongs in the result.
+- **6+ fragrance notes:** use **Perfume Pyramid / Fragrance Notes → Show votes**, read the real vote counts, sort descending, and save the **Top 5 most-voted notes**.
+- `Hide votes` is accepted as an already-open vote state.
+- Extraction is scoped to the local fragrance-notes block around the vote control to avoid counting unrelated `/notes/` links elsewhere on the page.
 
-1. Brown sugar — 2585 votes
-2. Tonka Bean — 1830 votes
-3. Amber — 1524 votes
-4. Amberwood — 1082 votes
-5. Vanilla Orchid — 1024 votes
+## Validated edge cases
 
-Expected capture method: `show-votes-top5`.
+- **The Muse — ZARKOPERFUME:** 3 notes → all 3 saved successfully.
+- **Devotion — Dolce&Gabbana:** exactly 5 notes → all 5 saved successfully.
+- **Cheirosa '62 — Sol de Janeiro:** more than 5 notes → Top 5 selected correctly by vote count.
 
-This snapshot exists so future development can continue in the parent `firefox-extension` folder without risking loss of the known-good 0.3.1 catcher.
+## Protection rule
+
+Treat this directory as the known-good official snapshot. Do not modify it during experimental development. New changes should be made and tested in the parent `firefox-extension` directory first, and only promoted here after validation.
