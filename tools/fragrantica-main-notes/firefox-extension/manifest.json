@@ -1,13 +1,15 @@
 {
   "manifest_version": 2,
   "name": "Shobi Fragrantica Main Notes Collector",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Captures Fragrantica Main Notes from normal Firefox browsing and forwards them to the local GitHub runner bridge.",
   "permissions": [
     "storage",
     "tabs",
     "downloads",
+    "https://fragrantica.com/*",
     "https://www.fragrantica.com/*",
+    "https://*.fragrantica.com/*",
     "http://127.0.0.1:8765/*"
   ],
   "background": {
@@ -15,9 +17,14 @@
   },
   "content_scripts": [
     {
-      "matches": ["https://www.fragrantica.com/perfume/*"],
+      "matches": [
+        "https://fragrantica.com/*",
+        "https://www.fragrantica.com/*",
+        "https://*.fragrantica.com/*"
+      ],
       "js": ["bridge-content.js"],
-      "run_at": "document_start"
+      "run_at": "document_start",
+      "all_frames": false
     }
   ],
   "browser_action": {
