@@ -1,0 +1,28 @@
+{
+  "manifest_version": 2,
+  "name": "Shobi Fragrantica Main Notes Collector",
+  "version": "0.1.0",
+  "description": "Automates capture of Fragrantica Main Notes for the Shobi research batches.",
+  "permissions": [
+    "storage",
+    "tabs",
+    "downloads",
+    "https://www.fragrantica.com/*"
+  ],
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.fragrantica.com/perfume/*"],
+      "js": ["bridge-content.js"],
+      "run_at": "document_start"
+    }
+  ],
+  "browser_action": {
+    "default_title": "Shobi Main Notes Collector"
+  },
+  "web_accessible_resources": [
+    "page-catcher.js"
+  ]
+}
