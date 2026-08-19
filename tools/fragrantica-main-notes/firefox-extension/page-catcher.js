@@ -3,116 +3,128 @@
   window.__shobiMainNotesPageCatcher = true;
 
   const emit = (type, detail = {}) => window.postMessage({ source: 'shobi-main-notes-page', type, ...detail }, '*');
+  const clean = s => (s || '').replace(/\s+/g, ' ').trim();
+  const sleep = ms => new Promise(r => setTimeout(r, ms));
+  const sent = new Set();
+
   emit('diagnostic', { stage: 'page-catcher-boot', detail: `readyState=${document.readyState}` });
 
-  const sent = new Set();
-  const sleep = ms => new Promise(r => setTimeout(r, ms));
+  function noteName(link) {
+    const img = link.querySelector('img[alt]');
+    let name = clean(link.textContent) || clean(img?.alt) || clean(link.getAttribute('title'));
+    return name.replace(/^(top|middle|heart|base) notes?\s*/i, '').trim();
+  }
 
-  const clean = s => (s || '').replace(/\s+/g, ' ').trim();
-  const levelFromText = text => {
-    const t = clean(text).toLowerCase();
-    if (t.includes('top note')) return 'top';
-    if (t.includes('middle note') || t.includes('heart note')) return 'middle';
-    if (t.includes('base note')) return 'base';
+  function noteId(link) {
+    const href = link.getAttribute('href') || '';
+    const m = href.match(/\/notes\/[^/]*?(\d+)(?:\.html)?(?:[?#]|$)/i) || href.match(/(?:id=)(\d+)/i);
+    return m ? Number(m[1]) : null;
+  }
+
+  function headingLevel(el) {
+    const t = clean(el?.textContent).toLowerCase();
+    if (/^top notes?$/.test(t)) return 'top';
+    if (/^(middle|heart) notes?$/.test(t)) return 'middle';
+    if (/^base notes?$/.test(t)) return 'base';
     return null;
-  };
+  }
 
-  function nearestLevel(el) {
-    let node = el;
+  function findPyramidRoot() {
+    const headings = [...document.querySelectorAll('h2,h3,h4,h5,h6,strong,b,div,span')];
+    const pyramidHeading = headings.find(el => {
+      const t = clean(el.textContent).toLowerCase();
+      return t === 'perfume pyramid' || t === 'fragrance notes';
+    });
+    if (!pyramidHeading) return null;
+
+    let node = pyramidHeading;
     for (let i = 0; node && i < 8; i++, node = node.parentElement) {
-      const direct = levelFromText(node.previousElementSibling?.textContent || '') || levelFromText(node.parentElement?.previousElementSibling?.textContent || '');
-      if (direct) return direct;
-      const txt = clean(node.textContent || '');
-      if (txt.length < 120) {
-        const own = levelFromText(txt);
-        if (own) return own;
+      const links = node.querySelectorAll?.('a[href*="/notes/"]') || [];
+      const text = clean(node.textContent).toLowerCase();
+      const hasLevels = /top notes?|middle notes?|heart notes?|base notes?/.test(text);
+      if (links.length >= 2 && hasLevels) return node;
+    }
+    return pyramidHeading.parentElement;
+  }
+
+  function levelForLink(link, root) {
+    let node = link;
+    for (let depth = 0; node && node !== root && depth < 10; depth++, node = node.parentElement) {
+      let prev = node.previousElementSibling;
+      for (let i = 0; prev && i < 6; i++, prev = prev.previousElementSibling) {
+        const direct = headingLevel(prev);
+        if (direct) return direct;
+        const nestedHeading = [...prev.querySelectorAll?.('h2,h3,h4,h5,h6,strong,b,div,span') || []].reverse().find(headingLevel);
+        if (nestedHeading) return headingLevel(nestedHeading);
       }
+    }
+
+    const all = [...root.querySelectorAll('*')];
+    const idx = all.indexOf(link);
+    for (let i = idx - 1; i >= 0 && i > idx - 80; i--) {
+      const level = headingLevel(all[i]);
+      if (level) return level;
     }
     return null;
   }
 
-  function extractDomNotes() {
-    const found = [];
-    const seenNames = new Set();
+  function extractPyramidNotes() {
+    const root = findPyramidRoot();
+    if (!root) return { root: null, notes: [] };
 
-    const candidates = [
-      ...document.querySelectorAll('a[href*="/notes/"]'),
-      ...document.querySelectorAll('img[alt]')
-    ];
+    const links = [...root.querySelectorAll('a[href*="/notes/"]')];
+    const notes = [];
+    const seen = new Set();
 
-    for (const el of candidates) {
-      const a = el.matches?.('a') ? el : el.closest?.('a');
-      const href = a?.getAttribute?.('href') || '';
-      const isNoteLink = href.includes('/notes/');
-      const img = el.matches?.('img') ? el : el.querySelector?.('img[alt]');
-      let name = clean(a?.textContent || '') || clean(img?.alt || '') || clean(el.getAttribute?.('title') || '');
-      name = name.replace(/^(top|middle|heart|base) notes?\s*/i, '').trim();
-      if (!name || name.length > 60) continue;
-      if (!isNoteLink && !img) continue;
-      if (/^(search|logo|facebook|instagram|youtube|pinterest)$/i.test(name)) continue;
-      const key = name.toLowerCase();
-      if (seenNames.has(key)) continue;
-      seenNames.add(key);
-      found.push({
-        rank: found.length + 1,
+    for (const link of links) {
+      const name = noteName(link);
+      if (!name || name.length > 60 || /^notes?$/i.test(name)) continue;
+      const level = levelForLink(link, root);
+      if (!level) continue;
+      const key = `${name.toLowerCase()}|${level}`;
+      if (seen.has(key)) continue;
+      seen.add(key);
+      notes.push({
+        rank: notes.length + 1,
         note: name,
-        sastojak_id: null,
+        sastojak_id: noteId(link),
         weight: null,
         percentage: null,
-        pyramid_level: nearestLevel(a || el)
+        pyramid_level: level
       });
     }
-
-    return found;
+    return { root, notes };
   }
 
-  function emitDomCapture(notes, reason) {
-    if (!Array.isArray(notes) || notes.length < 2) return false;
-    const sig = notes.map(n => `${n.note}:${n.pyramid_level || ''}`).join('|');
+  function capture(notes, reason) {
+    if (notes.length < 2) return false;
+    const sig = notes.map(n => `${n.note}:${n.pyramid_level}`).join('|');
     if (sent.has(sig)) return true;
     sent.add(sig);
-    emit('diagnostic', { stage: 'dom-candidate', detail: `notes=${notes.length};reason=${reason};names=${notes.slice(0, 12).map(n => n.note).join(' | ')}` });
-    emit('capture', {
-      payload: {
-        perfume: document.querySelector('h1')?.innerText?.trim() || document.title,
-        url: location.href.split('#')[0],
-        capture_method: 'dom-rendered-notes',
-        weights_sum: null,
-        captured_at: new Date().toISOString(),
-        notes
-      }
-    });
+    emit('diagnostic', { stage: 'pyramid-candidate', detail: `notes=${notes.length};reason=${reason};names=${notes.map(n => `${n.note}[${n.pyramid_level}]`).join(' | ')}` });
+    emit('capture', { payload: {
+      perfume: document.querySelector('h1')?.innerText?.trim() || document.title,
+      url: location.href.split('#')[0],
+      capture_method: 'dom-perfume-pyramid',
+      weights_sum: null,
+      captured_at: new Date().toISOString(),
+      notes
+    }});
     return true;
   }
 
-  async function runDomCollector() {
+  async function run() {
     if (document.readyState === 'loading') await new Promise(resolve => document.addEventListener('DOMContentLoaded', resolve, { once: true }));
-    await sleep(1000);
-
-    for (let attempt = 1; attempt <= 8; attempt++) {
-      const notes = extractDomNotes();
-      emit('diagnostic', { stage: 'dom-scan', detail: `attempt=${attempt};notes=${notes.length}` });
-      if (emitDomCapture(notes, `attempt-${attempt}`)) return;
-
-      const heading = [...document.querySelectorAll('h2,h3,h4,h5,strong,b,div,span')].find(el => {
-        const t = clean(el.textContent).toLowerCase();
-        return t && t.length < 80 && (t.includes('perfume pyramid') || t === 'notes' || t.includes('fragrance notes'));
-      });
-      try { heading?.scrollIntoView({ block: 'center', behavior: 'auto' }); } catch {}
-      await sleep(1200);
+    for (let attempt = 1; attempt <= 10; attempt++) {
+      await sleep(attempt === 1 ? 1000 : 700);
+      const { root, notes } = extractPyramidNotes();
+      emit('diagnostic', { stage: 'pyramid-scan', detail: `attempt=${attempt};root=${!!root};notes=${notes.length}` });
+      if (capture(notes, `attempt-${attempt}`)) return;
+      try { root?.scrollIntoView({ block: 'center', behavior: 'auto' }); } catch {}
     }
-
-    const h = Math.max(document.documentElement.scrollHeight, document.body?.scrollHeight || 0);
-    for (let y = 0; y < h; y += Math.max(500, Math.floor(window.innerHeight * 0.8))) {
-      window.scrollTo(0, y);
-      await sleep(500);
-      const notes = extractDomNotes();
-      if (emitDomCapture(notes, `scroll-${y}`)) return;
-    }
-    window.scrollTo(0, 0);
-    emit('diagnostic', { stage: 'dom-finished', detail: 'no capture' });
+    emit('diagnostic', { stage: 'pyramid-finished', detail: 'no capture' });
   }
 
-  runDomCollector().catch(error => emit('page-error', { error: `DOM collector: ${String(error)}` }));
+  run().catch(error => emit('page-error', { error: `Pyramid collector: ${String(error)}` }));
   emit('installed');
 })();
