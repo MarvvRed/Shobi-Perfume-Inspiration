@@ -100,7 +100,6 @@ for (const target of batch.targets) {
       throw new Error(`HTTP ${response.status()}`);
     }
 
-    // Trigger lazy-loaded sections without relying on a specific page layout.
     await page.waitForTimeout(1500);
     await page.evaluate(async () => {
       const sleep = ms => new Promise(r => setTimeout(r, ms));
@@ -111,7 +110,6 @@ for (const target of batch.targets) {
       window.scrollTo(0, 0);
     });
 
-    // If the page has an obvious notes/perfume-pyramid control, click it too.
     const candidates = [
       'text=/notes/i',
       'text=/perfume pyramid/i',
@@ -168,3 +166,4 @@ console.log(`Captured ${summary.captured}/${summary.total}`);
 
 // Deliberately exit successfully even with partial failures so the workflow can
 // commit the diagnostic result JSON. The result file carries per-target status.
+// Trigger marker: 2026-08-19 automatic batch run.
