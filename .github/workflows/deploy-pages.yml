@@ -59,6 +59,19 @@ jobs:
             if (k && !catcherByName.has(k)) catcherByName.set(k, src);
           });
 
+          function explicitAlias(p) {
+            if (!p) return null;
+            const name = clean(p.name);
+            const brand = clean(p.brand);
+            // Vanilla 28 is stored in the site catalogue with extra Kayali wording,
+            // so exact-name matching cannot resolve it. Restrict this alias to the
+            // known Fragrantica record and Kayali identity only.
+            if (catcherById['52616'] && name.includes('vanilla 28') && (name.includes('kayali') || brand.includes('kayali'))) {
+              return catcherById['52616'];
+            }
+            return null;
+          }
+
           let applied = 0;
           const appliedRows = [];
           for (const [code, row] of Object.entries(enrichment)) {
@@ -66,11 +79,16 @@ jobs:
             const fragId = fragIdFromUrl(row[4]);
             let src = fragId && catcherById[fragId];
             let matchedBy = src ? 'fragrantica-id' : '';
+            const p = perfumeByCode.get(codeKey(code));
 
             if (!src) {
-              const p = perfumeByCode.get(codeKey(code));
               src = p && catcherByName.get(clean(p.name));
               if (src) matchedBy = 'exact-name';
+            }
+
+            if (!src) {
+              src = explicitAlias(p);
+              if (src) matchedBy = 'explicit-alias';
             }
 
             if (!src || !Array.isArray(src.notes) || !src.notes.length) continue;
@@ -86,6 +104,8 @@ jobs:
 
           console.log(`Official Catcher notes applied: ${applied}/${Object.keys(catcherById).length}`);
           appliedRows.forEach(x => console.log(x));
+          const missing = Object.values(catcherById).filter(src => !appliedRows.some(row => row.includes(`-> ${src.name} [`))).map(src => `${src.fragrantica_id || '?'}:${src.name}`);
+          if (missing.length) console.log('Missing catcher matches:', missing.join(' | '));
           if (applied !== Object.keys(catcherById).length) {
             throw new Error(`Expected to apply ${Object.keys(catcherById).length} catcher records, applied ${applied}. Deployment stopped to avoid partial test data.`);
           }
