@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
   "name": "Shobi Fragrantica Main Notes Collector",
-  "version": "0.2.7",
-  "description": "Captures rendered Fragrantica notes from normal Firefox browsing and forwards them to the local GitHub runner bridge.",
+  "version": "0.2.8",
+  "description": "Captures only the rendered Fragrantica perfume pyramid notes and forwards them to the local GitHub runner bridge.",
   "permissions": [
     "storage",
     "tabs",
