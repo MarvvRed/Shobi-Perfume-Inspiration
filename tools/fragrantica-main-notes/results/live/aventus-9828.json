@@ -1,0 +1,65 @@
+{
+  "source": "firefox-extension",
+  "batch": "bestsellers-11-20",
+  "target": {
+    "rank": 13,
+    "name": "Aventus",
+    "brand": "Creed",
+    "url": "https://www.fragrantica.com/perfume/Creed/Aventus-9828.html"
+  },
+  "perfume": "Aventus Creed for men",
+  "url": "https://www.fragrantica.com/perfume/Creed/Aventus-9828.html",
+  "capture_method": "show-votes-top5",
+  "captured_at": "2026-08-20T01:48:55.487Z",
+  "total_voted_notes": 13,
+  "saved_note_count": 5,
+  "weights_sum": null,
+  "notes": [
+    {
+      "rank": 1,
+      "note": "Pineapple",
+      "sastojak_id": 170,
+      "votes": 5303,
+      "weight": null,
+      "percentage": null,
+      "pyramid_level": null
+    },
+    {
+      "rank": 2,
+      "note": "Birch",
+      "sastojak_id": 31,
+      "votes": 4022,
+      "weight": null,
+      "percentage": null,
+      "pyramid_level": null
+    },
+    {
+      "rank": 3,
+      "note": "Bergamot",
+      "sastojak_id": 75,
+      "votes": 2819,
+      "weight": null,
+      "percentage": null,
+      "pyramid_level": null
+    },
+    {
+      "rank": 4,
+      "note": "Musk",
+      "sastojak_id": 4,
+      "votes": 2568,
+      "weight": null,
+      "percentage": null,
+      "pyramid_level": null
+    },
+    {
+      "rank": 5,
+      "note": "Black Currant",
+      "sastojak_id": 132,
+      "votes": 2228,
+      "weight": null,
+      "percentage": null,
+      "pyramid_level": null
+    }
+  ],
+  "received_at": "2026-08-20T01:48:55.722Z"
+}
