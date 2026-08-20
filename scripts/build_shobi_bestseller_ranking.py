@@ -6,14 +6,13 @@ import time
 from pathlib import Path
 
 from bs4 import BeautifulSoup
-from playwright.sync_api import sync_playwright, TimeoutError as PlaywrightTimeoutError
+from playwright.sync_api import sync_playwright, TimeoutError as PlaywrightTimeoutError, Error as PlaywrightError
 
 ROOT = Path(__file__).resolve().parents[1]
 MASTER = ROOT / "shobi-master-en.csv"
 OUTPUT = ROOT / "bestseller-ranking.js"
 BASE_URL = "https://leparfum.com.gr/en/best-sales?category_rewrite=best-sales&resultsPerPage=36&page={}"
 
-# These were already manually verified on the site. They also act as a parser safety check.
 EXPECTED_FIRST_20 = [
     "305-KAY EL","1508-KIL WP","451-BYR WP","374-TMFO EL","1899-ZARK EL",
     "111-BAC N","220-CRD EL","350-TMFO EL","2216-DOL WP","2129-SOL EL",
@@ -51,10 +50,23 @@ def load_master_codes():
 
 def open_best_sales(page, page_number):
     url = BASE_URL.format(page_number)
-    page.goto(url, wait_until="domcontentloaded", timeout=60000)
+    last_error = None
+    for attempt in range(1, 5):
+        try:
+            page.goto(url, wait_until="commit", timeout=60000)
+            try:
+                page.wait_for_load_state("domcontentloaded", timeout=30000)
+            except PlaywrightTimeoutError:
+                pass
+            last_error = None
+            break
+        except PlaywrightError as exc:
+            last_error = exc
+            print(f"BEST_SALES_NAV_RETRY page={page_number} attempt={attempt} error={exc}")
+            page.wait_for_timeout(1500 * attempt)
+    if last_error is not None:
+        raise SystemExit(f"Safety stop: Playwright could not open Best sales page {page_number} after retries: {last_error}")
 
-    # Shobi sometimes redirects non-browser clients to a browser challenge.
-    # In Chromium we allow the normal challenge page a short period to complete itself.
     deadline = time.time() + 30
     while "/browser-challenge" in page.url and time.time() < deadline:
         page.wait_for_timeout(1000)
@@ -93,7 +105,7 @@ def main():
     skipped_non_perfume = 0
 
     with sync_playwright() as pw:
-        browser = pw.chromium.launch(headless=True)
+        browser = pw.chromium.launch(headless=True, args=["--disable-http2"])
         context = browser.new_context(
             locale="en-US",
             timezone_id="Europe/Athens",
@@ -123,11 +135,7 @@ def main():
                 if code in seen_codes:
                     continue
                 seen_codes.add(code)
-                filtered.append({
-                    "rank": len(filtered) + 1,
-                    "globalRank": global_rank,
-                    "code": code,
-                })
+                filtered.append({"rank": len(filtered) + 1, "globalRank": global_rank, "code": code})
 
             next_link = soup.select_one("a.next, .pagination .next a, a[rel='next']")
             if not next_link:
@@ -135,7 +143,7 @@ def main():
                 if not nums or page_number >= max(nums):
                     break
             page_number += 1
-            page.wait_for_timeout(150)
+            page.wait_for_timeout(250)
 
         context.close()
         browser.close()
