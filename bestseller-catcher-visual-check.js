@@ -30,7 +30,7 @@
     card.dataset.noteRowsReady = '1';
   }
 
-  function addStatusBadge(card, exactMatch) {
+  function addStatusBadge(card, exactMatch, reason) {
     const imageWrap = card.querySelector('.prototype-image-wrap');
     if (!imageWrap || imageWrap.querySelector('.catcher-status-badge')) return;
     imageWrap.style.position = 'relative';
@@ -39,10 +39,10 @@
     badge.className = `catcher-status-badge ${exactMatch ? 'catcher-verified-badge' : 'catcher-error-badge'}`;
     badge.title = exactMatch
       ? 'Notes verified: card matches Official Catcher / Fragrantica'
-      : 'Notes mismatch: card does not match Official Catcher / Fragrantica';
+      : (reason || 'Notes not verified with Official Catcher / Fragrantica');
     badge.setAttribute('aria-label', exactMatch
       ? 'Notes verified with Official Catcher'
-      : 'Notes mismatch with Official Catcher');
+      : 'Notes not verified with Official Catcher');
     badge.innerHTML = exactMatch
       ? '<i class="fa-solid fa-check"></i>'
       : '<i class="fa-solid fa-xmark"></i>';
@@ -65,7 +65,15 @@
     if (!code) return;
 
     const expectedPairs = (window.SHOBI_CATCHER_NOTES_BY_CODE || {})[code];
-    if (!Array.isArray(expectedPairs) || !expectedPairs.length) return;
+    const hasRecord = Array.isArray(expectedPairs) && expectedPairs.length > 0;
+
+    if (!hasRecord) {
+      card.dataset.catcherVisualChecked = '1';
+      card.dataset.catcherNotesMatch = 'false';
+      card.dataset.catcherStatus = 'missing-record';
+      addStatusBadge(card, false, 'Official Catcher record missing or unavailable');
+      return;
+    }
 
     const expected = expectedPairs.map(pair => escText(Array.isArray(pair) ? pair[0] : pair)).filter(Boolean);
     const actual = Array.from(card.querySelectorAll('[data-card-filter="note"]'))
@@ -75,7 +83,8 @@
     const exactMatch = expected.length === actual.length && expected.every((name, i) => name === actual[i]);
     card.dataset.catcherVisualChecked = '1';
     card.dataset.catcherNotesMatch = exactMatch ? 'true' : 'false';
-    addStatusBadge(card, exactMatch);
+    card.dataset.catcherStatus = exactMatch ? 'verified' : 'mismatch';
+    addStatusBadge(card, exactMatch, exactMatch ? '' : 'Card notes differ from Official Catcher / Fragrantica');
   }
 
   function verifyAll() {
