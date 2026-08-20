@@ -1,7 +1,9 @@
-name: Build English Shobi Master
+name: Sync English Shobi Catalog
 
 on:
   workflow_dispatch:
+  schedule:
+    - cron: '17 3 * * *'
   push:
     paths:
       - 'scripts/build_shobi_master_en.py'
@@ -14,12 +16,18 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: sync-english-shobi-catalog
+  cancel-in-progress: false
+
 jobs:
-  build:
+  sync:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -29,8 +37,29 @@ jobs:
       - name: Install parser dependencies
         run: pip install requests beautifulsoup4
 
-      - name: Build validated English candidate
+      - name: Build safe English catalog candidate
         run: python scripts/build_shobi_master_en.py
+
+      - name: Show catalog diff summary
+        shell: bash
+        run: |
+          python - <<'PY'
+          import csv
+          from pathlib import Path
+          def rows(path):
+              with Path(path).open('r', encoding='utf-8-sig', newline='') as f:
+                  return list(csv.DictReader(f))
+          old=rows('shobi-master.csv')
+          new=rows('shobi-master-en.csv')
+          old_codes={r.get('shobi_code','') for r in old}
+          new_codes={r.get('shobi_code','') for r in new}
+          print(f'OLD_ROWS={len(old)}')
+          print(f'NEW_ROWS={len(new)}')
+          print(f'ADDED={len(new_codes-old_codes)}')
+          print(f'REMOVED={len(old_codes-new_codes)}')
+          if old_codes-new_codes:
+              raise SystemExit('Safety stop: candidate removed catalog codes')
+          PY
 
       - name: Keep candidate as artifact on pull requests
         if: github.event_name == 'pull_request'
@@ -39,13 +68,17 @@ jobs:
           name: shobi-master-en
           path: shobi-master-en.csv
 
-      - name: Promote validated candidate on main
+      - name: Promote validated English catalog on main
         if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+        shell: bash
         run: |
           cp shobi-master-en.csv shobi-master.csv
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add shobi-master.csv shobi-master-en.csv
-          git diff --cached --quiet && exit 0
-          git commit -m "Promote validated English Shobi master"
+          if git diff --cached --quiet; then
+            echo "No English Shobi catalog changes."
+            exit 0
+          fi
+          git commit -m "Sync English Shobi catalog"
           git push
