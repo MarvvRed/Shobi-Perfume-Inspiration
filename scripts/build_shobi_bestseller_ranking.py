@@ -5,8 +5,8 @@ import re
 import time
 from pathlib import Path
 
-import requests
 from bs4 import BeautifulSoup
+from playwright.sync_api import sync_playwright, TimeoutError as PlaywrightTimeoutError
 
 ROOT = Path(__file__).resolve().parents[1]
 MASTER = ROOT / "shobi-master-en.csv"
@@ -49,13 +49,25 @@ def load_master_codes():
         raise SystemExit(f"Safety stop: master unexpectedly small ({len(codes)} codes)")
     return codes
 
-def fetch_page(session, page):
-    url = BASE_URL.format(page)
-    r = session.get(url, timeout=40, allow_redirects=True)
-    r.raise_for_status()
-    if "/en/best-sales" not in r.url:
-        raise SystemExit(f"Safety stop: Best sales redirected unexpectedly: {r.url}")
-    return r.text
+def open_best_sales(page, page_number):
+    url = BASE_URL.format(page_number)
+    page.goto(url, wait_until="domcontentloaded", timeout=60000)
+
+    # Shobi sometimes redirects non-browser clients to a browser challenge.
+    # In Chromium we allow the normal challenge page a short period to complete itself.
+    deadline = time.time() + 30
+    while "/browser-challenge" in page.url and time.time() < deadline:
+        page.wait_for_timeout(1000)
+
+    if "/en/best-sales" not in page.url:
+        raise SystemExit(f"Safety stop: Playwright Best sales did not reach expected page: {page.url}")
+
+    try:
+        page.wait_for_selector("article.product-miniature", timeout=30000)
+    except PlaywrightTimeoutError:
+        raise SystemExit(f"Safety stop: no Best sales product cards rendered on page {page_number}: {page.url}")
+
+    return page.content()
 
 def parse_page(html):
     soup = BeautifulSoup(html, "html.parser")
@@ -75,44 +87,58 @@ def parse_page(html):
 
 def main():
     master_codes = load_master_codes()
-    session = requests.Session()
-    session.headers.update({"User-Agent": "Mozilla/5.0 ShobiDatabaseBestSellerSync/1.0"})
-
     filtered = []
     seen_codes = set()
     global_rank = 0
-    page = 1
     skipped_non_perfume = 0
 
-    while page <= 150:
-        products, soup = parse_page(fetch_page(session, page))
-        if not products:
-            if page == 1:
-                raise SystemExit("Safety stop: no products parsed from Shobi Best sales")
-            break
+    with sync_playwright() as pw:
+        browser = pw.chromium.launch(headless=True)
+        context = browser.new_context(
+            locale="en-US",
+            timezone_id="Europe/Athens",
+            viewport={"width": 1440, "height": 1000},
+            user_agent=(
+                "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
+                "(KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36"
+            ),
+        )
+        page = context.new_page()
+        page.set_default_timeout(30000)
 
-        for product in products:
-            global_rank += 1
-            code = product["code"]
-            if not code or code not in master_codes:
-                skipped_non_perfume += 1
-                continue
-            if code in seen_codes:
-                continue
-            seen_codes.add(code)
-            filtered.append({
-                "rank": len(filtered) + 1,
-                "globalRank": global_rank,
-                "code": code,
-            })
-
-        next_link = soup.select_one("a.next, .pagination .next a, a[rel='next']")
-        if not next_link:
-            nums = [int(clean(a.get_text())) for a in soup.select(".pagination a") if clean(a.get_text()).isdigit()]
-            if not nums or page >= max(nums):
+        page_number = 1
+        while page_number <= 150:
+            products, soup = parse_page(open_best_sales(page, page_number))
+            if not products:
+                if page_number == 1:
+                    raise SystemExit("Safety stop: no products parsed from Shobi Best sales")
                 break
-        page += 1
-        time.sleep(0.12)
+
+            for product in products:
+                global_rank += 1
+                code = product["code"]
+                if not code or code not in master_codes:
+                    skipped_non_perfume += 1
+                    continue
+                if code in seen_codes:
+                    continue
+                seen_codes.add(code)
+                filtered.append({
+                    "rank": len(filtered) + 1,
+                    "globalRank": global_rank,
+                    "code": code,
+                })
+
+            next_link = soup.select_one("a.next, .pagination .next a, a[rel='next']")
+            if not next_link:
+                nums = [int(clean(a.get_text())) for a in soup.select(".pagination a") if clean(a.get_text()).isdigit()]
+                if not nums or page_number >= max(nums):
+                    break
+            page_number += 1
+            page.wait_for_timeout(150)
+
+        context.close()
+        browser.close()
 
     codes = [x["code"] for x in filtered]
     if len(codes) < 2000:
@@ -122,7 +148,7 @@ def main():
 
     payload = json.dumps(filtered, ensure_ascii=False, separators=(",", ":"))
     js = (
-        "// AUTO-GENERATED from Shobi EN Best sales. Do not edit manually.\n"
+        "// AUTO-GENERATED from Shobi EN Best sales via Playwright Chromium. Do not edit manually.\n"
         "// rank = perfume-only rank shown on our site; globalRank = original Shobi all-products position.\n"
         f"window.SHOBI_BESTSELLER_RANKING={payload};\n"
         "window.SHOBI_BESTSELLER_CODES=window.SHOBI_BESTSELLER_RANKING.map(x=>x.code);\n"
