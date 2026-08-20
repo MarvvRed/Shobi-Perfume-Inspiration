@@ -1,0 +1,65 @@
+{
+  "source": "firefox-extension",
+  "batch": "bestsellers-11-20",
+  "target": {
+    "rank": 16,
+    "name": "Vanilla Powder",
+    "brand": "Matiere Premiere",
+    "url": "https://www.fragrantica.com/perfume/Matiere-Premiere/Vanilla-Powder-84933.html"
+  },
+  "perfume": "Vanilla Powder Matiere Premiere for women and men",
+  "url": "https://www.fragrantica.com/perfume/Matiere-Premiere/Vanilla-Powder-84933.html",
+  "capture_method": "show-votes-top5",
+  "captured_at": "2026-08-20T01:49:16.505Z",
+  "total_voted_notes": 7,
+  "saved_note_count": 5,
+  "weights_sum": null,
+  "notes": [
+    {
+      "rank": 1,
+      "note": "Vanilla Absolute",
+      "sastojak_id": 74,
+      "votes": 793,
+      "weight": null,
+      "percentage": null,
+      "pyramid_level": null
+    },
+    {
+      "rank": 2,
+      "note": "Coconut Powder",
+      "sastojak_id": 1484,
+      "votes": 702,
+      "weight": null,
+      "percentage": null,
+      "pyramid_level": null
+    },
+    {
+      "rank": 3,
+      "note": "Musk",
+      "sastojak_id": 4,
+      "votes": 571,
+      "weight": null,
+      "percentage": null,
+      "pyramid_level": null
+    },
+    {
+      "rank": 4,
+      "note": "Palo Santo",
+      "sastojak_id": 597,
+      "votes": 469,
+      "weight": null,
+      "percentage": null,
+      "pyramid_level": null
+    },
+    {
+      "rank": 5,
+      "note": "Coconut",
+      "sastojak_id": 138,
+      "votes": 328,
+      "weight": null,
+      "percentage": null,
+      "pyramid_level": null
+    }
+  ],
+  "received_at": "2026-08-20T01:49:16.748Z"
+}
