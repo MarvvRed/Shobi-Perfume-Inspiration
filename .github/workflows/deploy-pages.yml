@@ -28,69 +28,36 @@ jobs:
         shell: bash
         run: |
           node <<'NODE'
-          const fs = require('fs');
-          const baseDir = 'Personal Database';
-          const runtimePath = `${baseDir}/site-runtime-v2.json`;
-          const enrichmentPath = `${baseDir}/site-enrichment-v2.json`;
-          const catcherPath = `${baseDir}/fragrantica-main-notes.json`;
-
-          const runtime = JSON.parse(fs.readFileSync(runtimePath, 'utf8'));
-          const enrichmentDoc = JSON.parse(fs.readFileSync(enrichmentPath, 'utf8'));
-          const catcher = JSON.parse(fs.readFileSync(catcherPath, 'utf8'));
-          const enrichment = enrichmentDoc.e || {};
-          const catcherById = catcher.perfumes || {};
-
-          const clean = v => String(v || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, ' ').trim();
-          const codeKey = v => String(v || '').toUpperCase().replace(/\s+/g, '');
-          const fragIdFromUrl = url => { const m = String(url || '').match(/-(\d+)\.html(?:[?#]|$)/i); return m ? m[1] : ''; };
-          const perfumeByCode = new Map((runtime.p || []).map(x => [codeKey(x[0]), { code:x[0], name:x[1], brand:x[2] }]));
-          const catcherByName = new Map();
-          Object.values(catcherById).forEach(src => { const k=clean(src&&src.name); if(k&&!catcherByName.has(k)) catcherByName.set(k,src); });
-
-          function explicitAlias(p) {
-            if (!p) return null;
-            const name=clean(p.name), brand=clean(p.brand);
-            const aliases=[
-              {id:'52616',names:['vanilla 28'],brands:['kayali']},{id:'34893',names:['soleil blanc'],brands:['tom ford']},
-              {id:'6458',names:['bal d afrique','bal dafrique'],brands:['byredo']},{id:'9828',names:['aventus'],brands:['creed']},
-              {id:'4322',names:['love don t be shy','love dont be shy'],brands:['kilian','by kilian']},{id:'39358',names:['this is her'],brands:['zadig voltaire','zadig volatire']},
-              {id:'84933',names:['vanilla powder'],brands:['matiere premiere']},{id:'64757',names:['bianco latte'],brands:['giardini di toscana']},
-              {id:'30529',names:['xj 1861 naxos','naxos'],brands:['xerjoff']},{id:'3865',names:['philosykos eau de parfum','philosykos'],brands:['diptyque']},
-              {id:'83483',names:['goddess','burberry goddess'],brands:['burberry']}
-            ];
-            for(const alias of aliases){ const src=catcherById[alias.id]; if(!src) continue; const nm=alias.names.some(n=>name===n||name.includes(n)); const bm=!brand||alias.brands.some(b=>brand.includes(b)); if(nm&&bm)return src; }
-            return null;
-          }
-
-          const appliedRows=[];
-          const matchedIds=new Set();
-          for(const [code,row] of Object.entries(enrichment)){
-            if(!Array.isArray(row)) continue;
-            const fragId=fragIdFromUrl(row[4]);
-            let src=fragId&&catcherById[fragId];
-            let matchedBy=src?'fragrantica-id':'';
-            const p=perfumeByCode.get(codeKey(code));
-            if(!src){src=p&&catcherByName.get(clean(p.name));if(src)matchedBy='exact-name';}
-            if(!src){src=explicitAlias(p);if(src)matchedBy='explicit-alias';}
-            if(!src||!Array.isArray(src.notes)||!src.notes.length) continue;
+          const fs=require('fs');
+          const baseDir='Personal Database';
+          const runtime=JSON.parse(fs.readFileSync(`${baseDir}/site-runtime-v2.json`,'utf8'));
+          const enrichmentDoc=JSON.parse(fs.readFileSync(`${baseDir}/site-enrichment-v2.json`,'utf8'));
+          const catcher=JSON.parse(fs.readFileSync(`${baseDir}/fragrantica-main-notes.json`,'utf8'));
+          const enrichment=enrichmentDoc.e||{}, catcherById=catcher.perfumes||{};
+          const clean=v=>String(v||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,' ').trim();
+          const codeKey=v=>String(v||'').toUpperCase().replace(/\s+/g,'');
+          const fragIdFromUrl=url=>{const m=String(url||'').match(/-(\d+)\.html(?:[?#]|$)/i);return m?m[1]:'';};
+          const perfumeByCode=new Map((runtime.p||[]).map(x=>[codeKey(x[0]),{code:x[0],name:x[1],brand:x[2]}]));
+          const catcherByName=new Map(); Object.values(catcherById).forEach(src=>{const k=clean(src&&src.name);if(k&&!catcherByName.has(k))catcherByName.set(k,src);});
+          function explicitAlias(p){if(!p)return null;const name=clean(p.name),brand=clean(p.brand);const aliases=[
+            {id:'52616',names:['vanilla 28'],brands:['kayali']},{id:'34893',names:['soleil blanc'],brands:['tom ford']},{id:'6458',names:['bal d afrique','bal dafrique'],brands:['byredo']},
+            {id:'9828',names:['aventus'],brands:['creed']},{id:'4322',names:['love don t be shy','love dont be shy'],brands:['kilian','by kilian']},{id:'39358',names:['this is her'],brands:['zadig voltaire','zadig volatire']},
+            {id:'84933',names:['vanilla powder'],brands:['matiere premiere']},{id:'64757',names:['bianco latte'],brands:['giardini di toscana']},{id:'30529',names:['xj 1861 naxos','naxos'],brands:['xerjoff']},
+            {id:'3865',names:['philosykos eau de parfum','philosykos'],brands:['diptyque']},{id:'83483',names:['goddess','burberry goddess'],brands:['burberry']}];
+            for(const a of aliases){const src=catcherById[a.id];if(!src)continue;const nm=a.names.some(n=>name===n||name.includes(n));const bm=!brand||a.brands.some(b=>brand.includes(b));if(nm&&bm)return src;}return null;}
+          const appliedRows=[],matchedIds=new Set();
+          for(const [code,row] of Object.entries(enrichment)){if(!Array.isArray(row))continue;const fragId=fragIdFromUrl(row[4]);let src=fragId&&catcherById[fragId],matchedBy=src?'fragrantica-id':'';const p=perfumeByCode.get(codeKey(code));
+            if(!src){src=p&&catcherByName.get(clean(p.name));if(src)matchedBy='exact-name';}if(!src){src=explicitAlias(p);if(src)matchedBy='explicit-alias';}if(!src||!Array.isArray(src.notes)||!src.notes.length)continue;
             row[2]=src.notes.slice().sort((a,b)=>(Number(a.rank)||999)-(Number(b.rank)||999)).slice(0,5).map(n=>String(n.note||'').trim()).filter(Boolean);
-            const srcId=String(src.fragrantica_id||fragId||'');
-            if(srcId) matchedIds.add(srcId);
-            appliedRows.push({code,perfume:src.name,fragrantica_id:srcId,matched_by:matchedBy,notes:row[2]});
-          }
-
-          const expected=Object.keys(catcherById).length;
-          const applied=matchedIds.size;
+            const srcId=Object.keys(catcherById).find(id=>catcherById[id]===src)||String(src.fragrantica_id||fragId||''); if(srcId)matchedIds.add(String(srcId));
+            appliedRows.push({code,perfume:src.name,fragrantica_id:String(src.fragrantica_id||srcId),catcher_key:String(srcId),matched_by:matchedBy,notes:row[2]});}
+          const expected=Object.keys(catcherById).length,applied=matchedIds.size;
           const missing=Object.entries(catcherById).filter(([id])=>!matchedIds.has(String(id))).map(([id,src])=>`${id}:${src.name}`);
-          console.log(`Official Catcher unique records applied: ${applied}/${expected} (${appliedRows.length} site rows updated)`);
-          appliedRows.forEach(x=>console.log(`${x.code} -> ${x.perfume} [${x.matched_by}] -> ${x.notes.join(' | ')}`));
-          if(missing.length) console.log('Missing catcher matches:',missing.join(' | '));
-          if(applied!==expected) throw new Error(`Expected ${expected} unique catcher records, matched ${applied}. Deployment stopped to avoid partial data.`);
-
-          fs.writeFileSync(enrichmentPath,JSON.stringify(enrichmentDoc));
+          console.log(`Official Catcher unique records applied: ${applied}/${expected} (${appliedRows.length} site rows updated)`);appliedRows.forEach(x=>console.log(`${x.code} -> ${x.perfume} [${x.matched_by}] -> ${x.notes.join(' | ')}`));
+          if(missing.length)console.log('Missing catcher matches:',missing.join(' | '));if(applied!==expected)throw new Error(`Expected ${expected} unique catcher records, matched ${applied}. Deployment stopped to avoid partial data.`);
+          fs.writeFileSync(`${baseDir}/site-enrichment-v2.json`,JSON.stringify(enrichmentDoc));
           const deployStatus={schema_version:1,success:true,workflow:'Deploy Pages',commit_sha:process.env.GITHUB_SHA||'',generated_at:new Date().toISOString(),catcher:'official-catcher-0.3.8',applied,expected,site_rows_updated:appliedRows.length,missing:[],matches:appliedRows};
-          const statusJson=JSON.stringify(deployStatus,null,2)+'\n';
-          fs.writeFileSync(`${baseDir}/deploy-status.json`,statusJson);fs.writeFileSync('deploy-status.json',statusJson);
+          const statusJson=JSON.stringify(deployStatus,null,2)+'\n';fs.writeFileSync(`${baseDir}/deploy-status.json`,statusJson);fs.writeFileSync('deploy-status.json',statusJson);
           console.log(`Deploy status written: success=true, catcher=${applied}/${expected}, site_rows=${appliedRows.length}, sha=${deployStatus.commit_sha}`);
           NODE
 
