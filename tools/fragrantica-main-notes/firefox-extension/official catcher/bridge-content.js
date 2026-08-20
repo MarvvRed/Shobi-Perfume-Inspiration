@@ -20,7 +20,25 @@
     if (msg.type === 'diagnostic') {
       browser.runtime.sendMessage({ type: 'diagnostic', stage: msg.stage, detail: msg.detail, url: location.href });
     } else if (msg.type === 'capture') {
-      browser.runtime.sendMessage({ type: 'capture', payload: msg.payload });
+      Promise.resolve(browser.runtime.sendMessage({ type: 'capture', payload: msg.payload }))
+        .then(result => {
+          window.postMessage({
+            source: 'shobi-main-notes-extension',
+            type: 'save-result',
+            ok: !!result?.ok,
+            error: result?.error || null,
+            notes: msg.payload?.notes?.length || 0
+          }, '*');
+        })
+        .catch(error => {
+          window.postMessage({
+            source: 'shobi-main-notes-extension',
+            type: 'save-result',
+            ok: false,
+            error: String(error?.message || error),
+            notes: msg.payload?.notes?.length || 0
+          }, '*');
+        });
     } else if (msg.type === 'installed') {
       browser.runtime.sendMessage({ type: 'installed', url: location.href });
     } else if (msg.type === 'page-error') {
