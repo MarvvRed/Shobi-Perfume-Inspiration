@@ -19,7 +19,6 @@ CODE_RE = re.compile(r"^\s*(\d{1,5})\s*-\s*([A-Z0-9]+)(?:\s+([A-ZΑ-Ω0-9]+))?\b
 GREEK_RE = re.compile(r"[\u0370-\u03ff\u1f00-\u1fff]")
 BAD_NAMES = {"", "notes", "note", "of", "the fragrance notes", "the fragrance notes of", "n/a", "na", "unknown", "-"}
 
-# Confirmed differences between historical master codes and the current English catalog.
 CODE_ALIASES = {
     "1685-FRED N": "1685-FRE N",
     "1068-CHA": "1068-CHA M",
@@ -93,11 +92,6 @@ def fetch_page(session, page):
     r.raise_for_status()
     if not is_english_url(r.url):
         raise SystemExit(f"Safety stop: English catalog request redirected outside /en/: {r.url}")
-    if GREEK_RE.search(r.text[:20000]):
-        # Navigation may contain a Greek language option, so only reject when Greek text is substantial.
-        greek_chars = len(GREEK_RE.findall(r.text))
-        if greek_chars > 120:
-            raise SystemExit(f"Safety stop: page {page} looks Greek ({greek_chars} Greek characters)")
     return r.text
 
 
@@ -137,12 +131,28 @@ def parse_products(html):
     return products, soup
 
 
+def validate_page_products(products, page):
+    if not products:
+        return
+    suspicious = []
+    for product in products:
+        fields = [product.get("description", ""), product.get("inspired_by", ""), product.get("title_tail", "")]
+        greek_chars = sum(len(GREEK_RE.findall(str(value or ""))) for value in fields)
+        if greek_chars:
+            suspicious.append((product.get("code", ""), greek_chars))
+    if len(suspicious) > max(3, int(len(products) * 0.25)):
+        raise SystemExit(
+            f"Safety stop: page {page} has Greek text in {len(suspicious)}/{len(products)} extracted products; "
+            f"examples={suspicious[:5]}"
+        )
+
+
 def apply_product(row, product):
     if product["url"] and is_english_url(product["url"]):
         row["shobi_url"] = product["url"]
     if product["description"] and not GREEK_RE.search(product["description"]):
         row["description"] = product["description"]
-    if product["inspired_by"] and valid_name(product["inspired_by"], row.get("shobi_code")):
+    if product["inspired_by"] and valid_name(product["inspired_by"], row.get("shobi_code")) and not GREEK_RE.search(product["inspired_by"]):
         row["inspired_by"] = product["inspired_by"]
         row["shobi_name"] = product["inspired_by"]
     elif product.get("title_tail") and valid_name(product["title_tail"], row.get("shobi_code")) and not GREEK_RE.search(product["title_tail"]):
@@ -182,13 +192,14 @@ def main():
         raise SystemExit(f"Safety stop: master unexpectedly small ({starting_count} rows)")
 
     session = requests.Session()
-    session.headers.update({"User-Agent": "Mozilla/5.0 ShobiDatabaseUpdater/2.0"})
+    session.headers.update({"User-Agent": "Mozilla/5.0 ShobiDatabaseUpdater/2.1"})
 
     official_products = []
     page = 1
     while page <= 250:
         html = fetch_page(session, page)
         products, soup = parse_products(html)
+        validate_page_products(products, page)
         if not products:
             if page == 1:
                 raise SystemExit("English Shobi page parser found no products")
@@ -202,7 +213,6 @@ def main():
         page += 1
         time.sleep(0.15)
 
-    # Deduplicate catalog rows by normalized code, preferring the last English occurrence.
     official_exact = {}
     official_by_base = defaultdict(list)
     for product in official_products:
@@ -246,7 +256,6 @@ def main():
         if valid_name(row.get("inspired_by"), row.get("shobi_code")) and not valid_name(row.get("shobi_name"), row.get("shobi_code")):
             row["shobi_name"] = clean(row.get("inspired_by"))
 
-    # Add genuinely new English catalog codes. Never auto-delete historical rows.
     added = []
     for product in official_products:
         if product["code"] in existing_norm:
@@ -256,13 +265,10 @@ def main():
         existing_norm[product["code"]] = row
         added.append(product["code"])
 
-    # Safety checks: source must remain English and the sync must not rewrite the catalog into Greek.
     english_urls = sum(is_english_url(r.get("shobi_url", "")) for r in rows if r.get("shobi_url"))
     greek_names = [r.get("shobi_code") for r in rows if GREEK_RE.search(str(r.get("shobi_name", ""))) or GREEK_RE.search(str(r.get("inspired_by", "")))]
     greek_desc = [r.get("shobi_code") for r in rows if GREEK_RE.search(str(r.get("description", "")))]
 
-    # Existing catalog matching may be slightly below 100% when Shobi temporarily hides products,
-    # but a large collapse means the parser/source changed and must never be promoted.
     min_expected_matches = max(2100, int(starting_count * 0.90))
     if matched < min_expected_matches:
         raise SystemExit(f"Safety stop: only {matched}/{starting_count} existing rows matched English Shobi")
