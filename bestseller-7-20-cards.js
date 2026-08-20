@@ -1,4 +1,4 @@
-// Best sellers #7-#20: approved Vanilla-card structure with verified fragrance identities and Fragrantica-aligned gender. #7-#10 use Official Catcher 0.3.5 notes.
+// Best sellers #7-#20: approved Vanilla-card structure with verified fragrance identities and Fragrantica-aligned gender. #7-#10 use Official Catcher 0.3.5 notes and ingredient IDs.
 (function(){
   const codes=(window.SHOBI_BESTSELLER_CODES||[]).slice(6,20);
   if(codes.length<14 || typeof isVanilla28!=='function' || typeof renderVanillaPrototype!=='function') return;
@@ -20,8 +20,14 @@
     C(12,{title:'PHILOSYKOS EAU DE PARFUM',brand:'Diptyque',gender:'unisex',genderLabel:'Unisex',season:'summer',seasonIcon:'☀️',seasonLabel:'Summer',fid:'3865',image:'https://fimgs.net/mdimg/perfume-thumbs/dark-375x500.3865.2x.avif',notes:['Fig Leaf','Fig','Green Notes','Coconut','Fig Tree']}),
     C(13,{title:'GODDESS',brand:'Burberry',gender:'female',genderLabel:'Female',season:'fall',seasonIcon:'🍂',seasonLabel:'Fall',fid:'83483',image:'https://fimgs.net/mdimg/perfume-thumbs/dark-375x500.83483.2x.avif',notes:['Vanilla','Lavender','Cacao','Ginger','Vanilla Caviar']})
   ]);
-  const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-  const knownNoteImages={Vanilla:'74',Jasmine:'14','Pink Pepper':'91','Tonka Bean':'73',Musk:'4',Cedar:'41',Hedione:'640'};
+  const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot',"'":'&#39;'}[c]));
+  const knownNoteImages={
+    Vanilla:'74',Jasmine:'14','Pink Pepper':'91','Tonka Bean':'73',Musk:'4',Cedar:'41',Hedione:'640',
+    Coconut:'138',Lime:'78','White Rum':'201','Sugar Cane':'200','White Bergamot':'75',
+    'Sour Cherry':'176','Bitter Almond':'130','Black Cherry':'1376',
+    'Candied Lemon':'1485',Panacotta:'500','Orange Blossom':'16',Rum:'201',
+    Caramel:'183',Pistachio:'221',Almond:'130',Salt:'231'
+  };
   const noteBadge=name=>{const id=knownNoteImages[name];const visual=id?`<img src="https://fimgs.net/mdimg/sastojci/t.${id}.jpg" alt="" width="22" height="22" loading="lazy" decoding="async" style="width:22px;height:22px;object-fit:cover;border-radius:50%;flex:0 0 22px">`:`<span aria-hidden="true" style="width:22px;height:22px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;flex:0 0 22px;background:var(--color-bg-surface);border:1px solid var(--color-border-light);font-size:10px"><i class="fa-solid fa-droplet"></i></span>`;return `<button type="button" class="prototype-meta-badge prototype-filter-badge${state.selectedNote===name?' is-active':''}" data-card-filter="note" data-filter-value="${esc(name)}" title="Filter by ${esc(name)}">${visual}<span>${esc(name)}</span></button>`;};
   isVanilla28=function(p){return baseMatch(p)||codes.includes(String(p.code||''));};
   renderVanillaPrototype=function(p){
