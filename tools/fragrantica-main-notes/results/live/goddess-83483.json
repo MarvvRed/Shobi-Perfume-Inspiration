@@ -1,0 +1,65 @@
+{
+  "source": "firefox-extension",
+  "batch": "bestsellers-11-20",
+  "target": {
+    "rank": 20,
+    "name": "Goddess",
+    "brand": "Burberry",
+    "url": "https://www.fragrantica.com/perfume/Burberry/Goddess-83483.html"
+  },
+  "perfume": "Goddess Burberry for women",
+  "url": "https://www.fragrantica.com/perfume/Burberry/Goddess-83483.html",
+  "capture_method": "votes-all-notes-when-five-or-fewer",
+  "captured_at": "2026-08-20T01:49:45.080Z",
+  "total_voted_notes": 5,
+  "saved_note_count": 5,
+  "weights_sum": null,
+  "notes": [
+    {
+      "rank": 1,
+      "note": "Vanilla Absolute",
+      "sastojak_id": 74,
+      "votes": 3025,
+      "weight": null,
+      "percentage": null,
+      "pyramid_level": null
+    },
+    {
+      "rank": 2,
+      "note": "Lavender",
+      "sastojak_id": 1,
+      "votes": 1963,
+      "weight": null,
+      "percentage": null,
+      "pyramid_level": null
+    },
+    {
+      "rank": 3,
+      "note": "Vanilla Caviar",
+      "sastojak_id": 1460,
+      "votes": 1806,
+      "weight": null,
+      "percentage": null,
+      "pyramid_level": null
+    },
+    {
+      "rank": 4,
+      "note": "Cacao",
+      "sastojak_id": 135,
+      "votes": 1084,
+      "weight": null,
+      "percentage": null,
+      "pyramid_level": null
+    },
+    {
+      "rank": 5,
+      "note": "Ginger",
+      "sastojak_id": 62,
+      "votes": 1029,
+      "weight": null,
+      "percentage": null,
+      "pyramid_level": null
+    }
+  ],
+  "received_at": "2026-08-20T01:49:45.327Z"
+}
