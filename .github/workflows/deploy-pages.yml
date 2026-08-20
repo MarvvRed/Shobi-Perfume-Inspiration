@@ -24,7 +24,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Apply Official Catcher notes test to deployed enrichment
+      - name: Apply Official Catcher notes to deployed enrichment
         shell: bash
         run: |
           node <<'NODE'
@@ -63,9 +63,6 @@ jobs:
             if (!p) return null;
             const name = clean(p.name);
             const brand = clean(p.brand);
-            // Vanilla 28 is stored in the site catalogue with extra Kayali wording,
-            // so exact-name matching cannot resolve it. Restrict this alias to the
-            // known Fragrantica record and Kayali identity only.
             if (catcherById['52616'] && name.includes('vanilla 28') && (name.includes('kayali') || brand.includes('kayali'))) {
               return catcherById['52616'];
             }
@@ -85,13 +82,12 @@ jobs:
               src = p && catcherByName.get(clean(p.name));
               if (src) matchedBy = 'exact-name';
             }
-
             if (!src) {
               src = explicitAlias(p);
               if (src) matchedBy = 'explicit-alias';
             }
-
             if (!src || !Array.isArray(src.notes) || !src.notes.length) continue;
+
             row[2] = src.notes
               .slice()
               .sort((a,b) => (Number(a.rank) || 999) - (Number(b.rank) || 999))
@@ -99,12 +95,7 @@ jobs:
               .map(n => String(n.note || '').trim())
               .filter(Boolean);
             applied++;
-            appliedRows.push({
-              code,
-              perfume: src.name,
-              matched_by: matchedBy,
-              notes: row[2]
-            });
+            appliedRows.push({ code, perfume: src.name, matched_by: matchedBy, notes: row[2] });
           }
 
           const expected = Object.keys(catcherById).length;
@@ -115,7 +106,7 @@ jobs:
             .map(src => `${src.fragrantica_id || '?'}:${src.name}`);
           if (missing.length) console.log('Missing catcher matches:', missing.join(' | '));
           if (applied !== expected) {
-            throw new Error(`Expected to apply ${expected} catcher records, applied ${applied}. Deployment stopped to avoid partial test data.`);
+            throw new Error(`Expected to apply ${expected} catcher records, applied ${applied}. Deployment stopped to avoid partial data.`);
           }
 
           fs.writeFileSync(enrichmentPath, JSON.stringify(enrichmentDoc));
@@ -126,7 +117,7 @@ jobs:
             workflow: 'Deploy Pages',
             commit_sha: process.env.GITHUB_SHA || '',
             generated_at: new Date().toISOString(),
-            catcher: 'official-catcher-0.3.5',
+            catcher: 'official-catcher-0.3.8',
             applied,
             expected,
             missing: [],
