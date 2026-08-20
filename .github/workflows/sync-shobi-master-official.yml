@@ -127,3 +127,5 @@ jobs:
           if [ -f sync-failure-summary.txt ]; then DETAILS="$(cat sync-failure-summary.txt)"; else DETAILS="Failure happened before or outside the catalog parser. Open the workflow run for step details."; fi
           BODY=$(printf 'The official automatic Shobi Master sync FAILED. The current Master was NOT promoted.\n\nRun: %s\n\nDiagnostic tail:\n```\n%s\n```' "$RUN_URL" "$DETAILS")
           gh issue create --title "Shobi Master automatic sync FAILED" --body "$BODY"
+
+# verification trigger: 2026-08-20 Playwright/Chromium end-to-end test
