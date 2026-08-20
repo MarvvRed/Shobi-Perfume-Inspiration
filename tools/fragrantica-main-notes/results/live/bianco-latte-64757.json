@@ -1,0 +1,65 @@
+{
+  "source": "firefox-extension",
+  "batch": "bestsellers-11-20",
+  "target": {
+    "rank": 17,
+    "name": "Bianco Latte",
+    "brand": "Giardini Di Toscana",
+    "url": "https://www.fragrantica.com/perfume/Giardini-Di-Toscana/Bianco-Latte-64757.html"
+  },
+  "perfume": "Bianco Latte Giardini Di Toscana for women and men",
+  "url": "https://www.fragrantica.com/perfume/Giardini-Di-Toscana/Bianco-Latte-64757.html",
+  "capture_method": "votes-all-notes-when-five-or-fewer",
+  "captured_at": "2026-08-20T01:49:24.111Z",
+  "total_voted_notes": 5,
+  "saved_note_count": 5,
+  "weights_sum": null,
+  "notes": [
+    {
+      "rank": 1,
+      "note": "Vanilla",
+      "sastojak_id": 74,
+      "votes": 2319,
+      "weight": null,
+      "percentage": null,
+      "pyramid_level": null
+    },
+    {
+      "rank": 2,
+      "note": "Caramel",
+      "sastojak_id": 183,
+      "votes": 2219,
+      "weight": null,
+      "percentage": null,
+      "pyramid_level": null
+    },
+    {
+      "rank": 3,
+      "note": "Coumarin",
+      "sastojak_id": 259,
+      "votes": 1220,
+      "weight": null,
+      "percentage": null,
+      "pyramid_level": null
+    },
+    {
+      "rank": 4,
+      "note": "Honey",
+      "sastojak_id": 181,
+      "votes": 1192,
+      "weight": null,
+      "percentage": null,
+      "pyramid_level": null
+    },
+    {
+      "rank": 5,
+      "note": "White Musk",
+      "sastojak_id": 4,
+      "votes": 833,
+      "weight": null,
+      "percentage": null,
+      "pyramid_level": null
+    }
+  ],
+  "received_at": "2026-08-20T01:49:24.369Z"
+}
