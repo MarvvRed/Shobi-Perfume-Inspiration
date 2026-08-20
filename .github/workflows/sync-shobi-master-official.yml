@@ -1,162 +1,23 @@
-name: Sync Official Shobi Master
+name: Sync Official Shobi Master (Direct diagnostic only)
+
+# Direct access from GitHub-hosted runners is blocked by leparfum.com.gr
+# (browser challenge / connection reset). The official weekly path is now:
+# Windows local authorized capture -> incoming snapshot -> Process Local Shobi Snapshot.
+# Keep this workflow manual only for future diagnostics.
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: '0 21 * * 1'
-    - cron: '0 22 * * 1'
-  push:
-    paths:
-      - 'scripts/sync_shobi_master_official.py'
-      - '.github/workflows/sync-shobi-master-official.yml'
 
 permissions:
-  contents: write
-  issues: write
-
-concurrency:
-  group: official-shobi-master-sync
-  cancel-in-progress: false
+  contents: read
 
 jobs:
-  sync:
+  diagnostic:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - name: Keep scheduled run only at 23:00 Europe/Rome
-        id: timeguard
-        shell: python
-        env:
-          EVENT_NAME: ${{ github.event_name }}
-          SCHEDULE_EXPR: ${{ github.event.schedule }}
+      - uses: actions/checkout@v4
+      - name: Explain disabled direct path
         run: |
-          import os
-          from datetime import datetime
-          from zoneinfo import ZoneInfo
-          event=os.environ.get('EVENT_NAME',''); expr=os.environ.get('SCHEDULE_EXPR',''); run=True
-          if event=='schedule':
-              now=datetime.now(ZoneInfo('Europe/Rome')); offset=int(now.utcoffset().total_seconds()//3600)
-              expected='0 21 * * 1' if offset==2 else '0 22 * * 1'; run=expr==expected
-          with open(os.environ['GITHUB_OUTPUT'],'a',encoding='utf-8') as f: f.write(f"run={'true' if run else 'false'}\n")
-          print(f"event={event} schedule={expr} run={run}")
-
-      - name: Set up Python
-        if: steps.timeguard.outputs.run == 'true'
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
-
-      - name: Install browser dependencies
-        if: steps.timeguard.outputs.run == 'true'
-        run: |
-          pip install beautifulsoup4 playwright
-          playwright install --with-deps chromium
-
-      - name: Build and compare live Shobi catalog
-        if: steps.timeguard.outputs.run == 'true'
-        id: build
-        shell: bash
-        run: |
-          set +e
-          xvfb-run -a python scripts/sync_shobi_master_official.py > sync.log 2>&1
-          CODE=$?
-          cat sync.log
-          if [ "$CODE" -ne 0 ]; then
-            tail -n 120 sync.log > sync-failure-summary.txt
-            exit "$CODE"
-          fi
-          set -e
-          python - <<'PY' >> "$GITHUB_OUTPUT"
-          import json
-          from pathlib import Path
-          r=json.loads(Path('Shobi Master Database/latest-sync-report.json').read_text(encoding='utf-8'))
-          for k in ('changed','new','modified','removed','shobi_perfumes','total_perfumes_cards'):
-              v=r[k]
-              if isinstance(v,bool): v=str(v).lower()
-              print(f'{k}={v}')
-          print(f"current_exists={'true' if Path('Shobi Master Database/shobi-master-current.csv').exists() else 'false'}")
-          PY
-
-      - name: Persist successful check and promote only when needed
-        if: steps.timeguard.outputs.run == 'true' && success()
-        shell: bash
-        run: |
-          DATE="$(date -u +%F)"
-          mkdir -p "Shobi Master Database/reports" "Shobi Master Database/snapshots"
-          cp "Shobi Master Database/latest-sync-report.json" "Shobi Master Database/reports/latest.json"
-          cp "Shobi Master Database/latest-sync-changes.csv" "Shobi Master Database/reports/latest-changes.csv"
-          if [ "${{ steps.build.outputs.changed }}" = "true" ] || [ "${{ steps.build.outputs.current_exists }}" = "false" ]; then
-            cp "Shobi Master Database/shobi-master-candidate.csv" "Shobi Master Database/shobi-master-current.csv"
-            cp "Shobi Master Database/shobi-master-candidate.csv" "Shobi Master Database/snapshots/${DATE}.csv"
-            cp "Shobi Master Database/latest-sync-report.json" "Shobi Master Database/reports/${DATE}.json"
-            cp "Shobi Master Database/latest-sync-changes.csv" "Shobi Master Database/reports/${DATE}-changes.csv"
-          fi
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add "Shobi Master Database/reports/latest.json" "Shobi Master Database/reports/latest-changes.csv"
-          if [ "${{ steps.build.outputs.changed }}" = "true" ] || [ "${{ steps.build.outputs.current_exists }}" = "false" ]; then
-            git add "Shobi Master Database/shobi-master-current.csv" "Shobi Master Database/snapshots/${DATE}.csv" "Shobi Master Database/reports/${DATE}.json" "Shobi Master Database/reports/${DATE}-changes.csv"
-          fi
-          if git diff --cached --quiet; then
-            echo "No repository changes to commit."
-          else
-            git commit -m "Record official Shobi Master check ${DATE}"
-            git push
-          fi
-
-      - name: Clean temporary files
-        if: steps.timeguard.outputs.run == 'true' && success()
-        run: |
-          rm -f "Shobi Master Database/shobi-master-candidate.csv" \
-                "Shobi Master Database/latest-sync-report.json" \
-                "Shobi Master Database/latest-sync-changes.csv"
-
-      - name: Create GitHub issue when catalog changed
-        if: steps.timeguard.outputs.run == 'true' && steps.build.outputs.changed == 'true'
-        env:
-          GH_TOKEN: ${{ github.token }}
-          NEW: ${{ steps.build.outputs.new }}
-          MODIFIED: ${{ steps.build.outputs.modified }}
-          REMOVED: ${{ steps.build.outputs.removed }}
-          TOTAL: ${{ steps.build.outputs.shobi_perfumes }}
-        shell: bash
-        run: |
-          cat > issue-body.txt <<EOF
-          Automatic live sync completed successfully.
-
-          - NEW: ${NEW}
-          - MODIFIED: ${MODIFIED}
-          - REMOVED: ${REMOVED}
-          - Current true Shobi perfumes: ${TOTAL}
-
-          The baseline v1 was not modified. See Shobi Master Database/reports for the exact diff.
-          EOF
-          gh issue create --title "Shobi Master updated automatically" --body-file issue-body.txt
-
-      - name: Create failure issue with diagnostics
-        if: failure() && steps.timeguard.outputs.run == 'true'
-        env:
-          GH_TOKEN: ${{ github.token }}
-          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-        shell: bash
-        run: |
-          if [ -f sync-failure-summary.txt ]; then
-            cp sync-failure-summary.txt failure-details.txt
-          else
-            printf '%s\n' 'Failure happened before or outside the catalog parser. Open the workflow run for step details.' > failure-details.txt
-          fi
-          {
-            echo 'The official automatic Shobi Master sync FAILED. The current Master was NOT promoted.'
-            echo
-            echo "Run: ${RUN_URL}"
-            echo
-            echo 'Diagnostic tail:'
-            echo '```'
-            cat failure-details.txt
-            echo '```'
-          } > issue-body.txt
-          gh issue create --title "Shobi Master automatic sync FAILED" --body-file issue-body.txt
+          echo "Direct Shobi acquisition from GitHub-hosted runners is intentionally disabled."
+          echo "Use local-agent/shobi_local_capture.py on the authorized Windows machine."
+          echo "The pushed incoming snapshot is validated by .github/workflows/process-shobi-incoming.yml."
