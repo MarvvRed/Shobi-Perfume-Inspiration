@@ -3,7 +3,7 @@ name: Sync Official Shobi Master
 on:
   workflow_dispatch:
   schedule:
-    # GitHub cron is UTC. We run both possible UTC hours for 23:00 Europe/Rome
+    # GitHub cron is UTC. Run both possible UTC hours for 23:00 Europe/Rome
     # and keep only the one matching the current Rome UTC offset.
     - cron: '0 21 * * 1'
     - cron: '0 22 * * 1'
@@ -64,8 +64,17 @@ jobs:
       - name: Build and compare live Shobi catalog
         if: steps.timeguard.outputs.run == 'true'
         id: build
+        shell: bash
         run: |
-          python scripts/sync_shobi_master_official.py
+          set +e
+          python scripts/sync_shobi_master_official.py > sync.log 2>&1
+          CODE=$?
+          cat sync.log
+          if [ "$CODE" -ne 0 ]; then
+            tail -n 100 sync.log > sync-failure-summary.txt
+            exit "$CODE"
+          fi
+          set -e
           python - <<'PY' >> "$GITHUB_OUTPUT"
           import json
           from pathlib import Path
@@ -97,7 +106,7 @@ jobs:
           git push
 
       - name: Clean temporary candidate files
-        if: steps.timeguard.outputs.run == 'true'
+        if: steps.timeguard.outputs.run == 'true' && success()
         shell: bash
         run: |
           rm -f "Shobi Master Database/shobi-master-candidate.csv" \
@@ -117,11 +126,17 @@ jobs:
             --title "Shobi Master updated automatically" \
             --body "Automatic live sync completed successfully.\n\n- NEW: ${NEW}\n- MODIFIED: ${MODIFIED}\n- REMOVED: ${REMOVED}\n- Current true Shobi perfumes: ${TOTAL}\n\nThe baseline v1 was not modified. See Shobi Master Database/reports for the exact diff."
 
-      - name: Create failure issue
+      - name: Create failure issue with diagnostics
         if: failure() && steps.timeguard.outputs.run == 'true'
         env:
           GH_TOKEN: ${{ github.token }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        shell: bash
         run: |
-          gh issue create \
-            --title "Shobi Master automatic sync FAILED" \
-            --body "The official automatic Shobi Master sync stopped on a safety check or technical error. The current Master was NOT promoted. Inspect this workflow run before making any database change."
+          if [ -f sync-failure-summary.txt ]; then
+            DETAILS="$(cat sync-failure-summary.txt)"
+          else
+            DETAILS="Failure happened before or outside the catalog parser. Open the workflow run for step details."
+          fi
+          BODY=$(printf 'The official automatic Shobi Master sync FAILED. The current Master was NOT promoted.\n\nRun: %s\n\nDiagnostic tail:\n```\n%s\n```' "$RUN_URL" "$DETAILS")
+          gh issue create --title "Shobi Master automatic sync FAILED" --body "$BODY"
