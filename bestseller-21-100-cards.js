@@ -1,6 +1,9 @@
-// Best sellers #21-#100. Uses ONLY fields already present in shobi-master.csv; no guessed perfume data.
+// Verified Best Seller card support beyond #20.
+// IMPORTANT: ranking is independent from shobi-master.csv row order.
+// At the moment only #21 has been explicitly verified here.
 (function(){
-  const ranked=(window.SHOBI_BESTSELLER_CODES||[]).slice(20,100);
+  const ranked=["1644-DRC M"];
+  const rankByCode=new Map([["1644-DRC M",21]]);
   if(!ranked.length || typeof isVanilla28!=='function' || typeof renderVanillaPrototype!=='function') return;
   const rankedSet=new Set(ranked.map(String));
   const baseMatch=isVanilla28, baseRender=renderVanillaPrototype;
@@ -12,7 +15,7 @@
   isVanilla28=function(p){return baseMatch(p)||rankedSet.has(String(p.code||''));};
   renderVanillaPrototype=function(p){
     if(!rankedSet.has(String(p.code||''))) return baseRender(p);
-    const rank=(window.SHOBI_BESTSELLER_CODES||[]).indexOf(String(p.code||''))+1;
+    const rank=rankByCode.get(String(p.code||''));
     const favorite=state.favorites.includes(p.code), article=document.createElement('article');
     const g=String(p.genderAffinity||'').toLowerCase(), gl=genderLabel(g);
     const s=String((p.seasons||[])[0]||'').toLowerCase(), sm=seasonMeta(s);
