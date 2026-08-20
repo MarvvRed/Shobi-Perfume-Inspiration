@@ -30,6 +30,31 @@
     card.dataset.noteRowsReady = '1';
   }
 
+  function addStatusBadge(card, exactMatch) {
+    const imageWrap = card.querySelector('.prototype-image-wrap');
+    if (!imageWrap || imageWrap.querySelector('.catcher-status-badge')) return;
+    imageWrap.style.position = 'relative';
+
+    const badge = document.createElement('span');
+    badge.className = `catcher-status-badge ${exactMatch ? 'catcher-verified-badge' : 'catcher-error-badge'}`;
+    badge.title = exactMatch
+      ? 'Notes verified: card matches Official Catcher / Fragrantica'
+      : 'Notes mismatch: card does not match Official Catcher / Fragrantica';
+    badge.setAttribute('aria-label', exactMatch
+      ? 'Notes verified with Official Catcher'
+      : 'Notes mismatch with Official Catcher');
+    badge.innerHTML = exactMatch
+      ? '<i class="fa-solid fa-check"></i>'
+      : '<i class="fa-solid fa-xmark"></i>';
+    badge.style.cssText = [
+      'position:absolute','right:10px','bottom:10px','width:28px','height:28px',
+      'border-radius:9999px','display:flex','align-items:center','justify-content:center',
+      `background:${exactMatch ? '#16a34a' : '#dc2626'}`,'color:white','border:2px solid white',
+      'box-shadow:0 2px 8px rgba(0,0,0,.28)','font-size:14px','z-index:2'
+    ].join(';');
+    imageWrap.appendChild(badge);
+  }
+
   function verifyCard(card) {
     if (!card) return;
     layoutNotes(card);
@@ -50,24 +75,7 @@
     const exactMatch = expected.length === actual.length && expected.every((name, i) => name === actual[i]);
     card.dataset.catcherVisualChecked = '1';
     card.dataset.catcherNotesMatch = exactMatch ? 'true' : 'false';
-    if (!exactMatch) return;
-
-    const imageWrap = card.querySelector('.prototype-image-wrap');
-    if (!imageWrap || imageWrap.querySelector('.catcher-verified-badge')) return;
-    imageWrap.style.position = 'relative';
-
-    const badge = document.createElement('span');
-    badge.className = 'catcher-verified-badge';
-    badge.title = 'Notes verified: card matches Official Catcher / Fragrantica';
-    badge.setAttribute('aria-label', 'Notes verified with Official Catcher');
-    badge.innerHTML = '<i class="fa-solid fa-check"></i>';
-    badge.style.cssText = [
-      'position:absolute','right:10px','bottom:10px','width:28px','height:28px',
-      'border-radius:9999px','display:flex','align-items:center','justify-content:center',
-      'background:#16a34a','color:white','border:2px solid white',
-      'box-shadow:0 2px 8px rgba(0,0,0,.28)','font-size:14px','z-index:2'
-    ].join(';');
-    imageWrap.appendChild(badge);
+    addStatusBadge(card, exactMatch);
   }
 
   function verifyAll() {
