@@ -60,6 +60,16 @@ def price_value(text):
     return m.group(1).replace(",", ".") if m else ""
 
 
+def normalize_compare(field, value):
+    value = clean(value)
+    if field == "price_from_eur" and value:
+        try:
+            return f"{float(value.replace(',', '.')):.6f}"
+        except ValueError:
+            pass
+    return value
+
+
 def load_csv(path):
     with path.open("r", encoding="utf-8-sig", newline="") as f:
         return list(csv.DictReader(f))
@@ -174,7 +184,11 @@ def merge_live_with_history(live_rows, old_rows):
 
 def changed_fields(a, b):
     ignore = {"last_seen", "source"}
-    return [k for k in FIELDS if k not in ignore and clean(a.get(k)) != clean(b.get(k))]
+    return [
+        k for k in FIELDS
+        if k not in ignore
+        and normalize_compare(k, a.get(k)) != normalize_compare(k, b.get(k))
+    ]
 
 
 def main():
