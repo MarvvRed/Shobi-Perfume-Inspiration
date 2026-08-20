@@ -1,0 +1,65 @@
+{
+  "source": "firefox-extension",
+  "batch": "bestsellers-11-20",
+  "target": {
+    "rank": 18,
+    "name": "XJ 1861 Naxos",
+    "brand": "Xerjoff",
+    "url": "https://www.fragrantica.com/perfume/Xerjoff/XJ-1861-Naxos-30529.html"
+  },
+  "perfume": "XJ 1861 Naxos Xerjoff for women and men",
+  "url": "https://www.fragrantica.com/perfume/Xerjoff/XJ-1861-Naxos-30529.html",
+  "capture_method": "show-votes-top5",
+  "captured_at": "2026-08-20T01:49:31.177Z",
+  "total_voted_notes": 10,
+  "saved_note_count": 5,
+  "weights_sum": null,
+  "notes": [
+    {
+      "rank": 1,
+      "note": "Honey",
+      "sastojak_id": 181,
+      "votes": 4603,
+      "weight": null,
+      "percentage": null,
+      "pyramid_level": null
+    },
+    {
+      "rank": 2,
+      "note": "Tobacco Leaf",
+      "sastojak_id": 96,
+      "votes": 3305,
+      "weight": null,
+      "percentage": null,
+      "pyramid_level": null
+    },
+    {
+      "rank": 3,
+      "note": "Lavender",
+      "sastojak_id": 1,
+      "votes": 3285,
+      "weight": null,
+      "percentage": null,
+      "pyramid_level": null
+    },
+    {
+      "rank": 4,
+      "note": "Vanilla",
+      "sastojak_id": 74,
+      "votes": 2891,
+      "weight": null,
+      "percentage": null,
+      "pyramid_level": null
+    },
+    {
+      "rank": 5,
+      "note": "Tonka Bean",
+      "sastojak_id": 73,
+      "votes": 2247,
+      "weight": null,
+      "percentage": null,
+      "pyramid_level": null
+    }
+  ],
+  "received_at": "2026-08-20T01:49:31.580Z"
+}
