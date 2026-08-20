@@ -1,100 +1,21 @@
-name: Sync English Shobi Catalog
+name: Legacy Sync English Shobi Catalog
+
+# LEGACY WORKFLOW.
+# The official catalog is now maintained by sync-shobi-master-official.yml
+# inside `Shobi Master Database/`. This workflow is kept manual-only so it
+# cannot overwrite or compete with the official Master pipeline.
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: '17 3 * * *'
-  push:
-    paths:
-      - 'scripts/build_shobi_master_en.py'
-      - '.github/workflows/build-shobi-master-en.yml'
-  pull_request:
-    paths:
-      - 'scripts/build_shobi_master_en.py'
-      - '.github/workflows/build-shobi-master-en.yml'
 
 permissions:
-  contents: write
-  actions: write
-
-concurrency:
-  group: sync-english-shobi-catalog
-  cancel-in-progress: false
+  contents: read
 
 jobs:
-  sync:
+  legacy-info:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
-
-      - name: Install parser dependencies
-        run: pip install requests beautifulsoup4
-
-      - name: Build authoritative perfume-only English catalog candidate
-        run: python scripts/build_shobi_master_en.py
-
-      - name: Show and validate catalog diff summary
-        shell: bash
+      - name: Legacy workflow disabled
         run: |
-          python - <<'PY'
-          import csv
-          from pathlib import Path
-          def rows(path):
-              with Path(path).open('r', encoding='utf-8-sig', newline='') as f:
-                  return list(csv.DictReader(f))
-          old=rows('shobi-master.csv')
-          new=rows('shobi-master-en.csv')
-          old_codes={r.get('shobi_code','') for r in old if r.get('shobi_code')}
-          new_codes={r.get('shobi_code','') for r in new if r.get('shobi_code')}
-          added=new_codes-old_codes
-          removed=old_codes-new_codes
-          print(f'OLD_ROWS={len(old)}')
-          print(f'NEW_ROWS={len(new)}')
-          print(f'ADDED={len(added)}')
-          print(f'REMOVED_AS_NOT_IN_OFFICIAL_EN_PERFUMES={len(removed)}')
-          print(f'ADDED_EXAMPLES={sorted(added)[:30]}')
-          print(f'REMOVED_EXAMPLES={sorted(removed)[:30]}')
-          if len(new) < 2200:
-              raise SystemExit('Safety stop: perfume-only candidate unexpectedly small')
-          if len(removed) > max(200, int(len(old)*0.08)):
-              raise SystemExit('Safety stop: suspicious mass removal from master')
-          PY
-
-      - name: Keep catalog candidate as artifact on pull requests
-        if: github.event_name == 'pull_request'
-        uses: actions/upload-artifact@v4
-        with:
-          name: shobi-catalog-candidate
-          path: shobi-master-en.csv
-
-      - name: Promote validated perfume-only catalog on main
-        id: promote
-        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
-        shell: bash
-        run: |
-          cp shobi-master-en.csv shobi-master.csv
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add shobi-master.csv shobi-master-en.csv
-          if git diff --cached --quiet; then
-            echo "changed=false" >> "$GITHUB_OUTPUT"
-            echo "No Shobi catalog changes. Bestseller ranking remains frozen."
-            exit 0
-          fi
-          git commit -m "Sync perfume-only Shobi catalog"
-          git push
-          echo "changed=true" >> "$GITHUB_OUTPUT"
-
-      - name: Deploy updated catalog to GitHub Pages
-        if: steps.promote.outputs.changed == 'true'
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: gh workflow run deploy-pages.yml --ref main
+          echo "This legacy sync is intentionally manual-only."
+          echo "Use .github/workflows/sync-shobi-master-official.yml for the official Shobi Master Database."
