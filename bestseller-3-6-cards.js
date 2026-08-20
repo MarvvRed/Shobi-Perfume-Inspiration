@@ -1,13 +1,15 @@
-// Best sellers #3-#6: approved Vanilla-card structure, Fragrantica-aligned gender and perfume data.
+// Best sellers #1-#6: approved Vanilla-card structure. #1-#3 use Official Catcher 0.3.5 notes.
 (function(){
-  const codes=(window.SHOBI_BESTSELLER_CODES||[]).slice(2,6);
-  if(codes.length<4 || typeof isVanilla28!=='function' || typeof renderVanillaPrototype!=='function') return;
+  const codes=(window.SHOBI_BESTSELLER_CODES||[]).slice(0,6);
+  if(codes.length<6 || typeof isVanilla28!=='function' || typeof renderVanillaPrototype!=='function') return;
   const baseMatch=isVanilla28, baseRender=renderVanillaPrototype;
   const configs={
-    [codes[0]]:{title:'BLANCHE',brand:'Byredo',gender:'female',genderLabel:'Female',season:'spring',seasonIcon:'🌸',seasonLabel:'Spring',image:'https://fimgs.net/mdimg/perfume-thumbs/dark-375x500.6686.2x.avif',notes:[['Aldehydes','154'],['Rose','105'],['Pink Pepper','91'],['Violet','116'],['Musk','4']]},
-    [codes[1]]:{title:'TOBACCO VANILLE',brand:'Tom Ford',gender:'unisex',genderLabel:'Unisex',season:'winter',seasonIcon:'❄️',seasonLabel:'Winter',image:'https://fimgs.net/mdimg/perfume-thumbs/dark-375x500.1825.2x.avif',notes:[['Tobacco Leaf','96'],['Vanilla','74'],['Cacao','75'],['Tonka Bean','73'],['Dried Fruits','230']]},
-    [codes[2]]:{title:'THE MUSE',brand:'ZARKOPERFUME',gender:'female',genderLabel:'Female',season:'spring',seasonIcon:'🌸',seasonLabel:'Spring',image:'https://fimgs.net/mdimg/perfume-thumbs/dark-375x500.60665.2x.avif',notes:[['Cotton Flower','1008'],['White Musk','4'],['White Oud','114']],emptyThirdRow:true},
-    [codes[3]]:{title:'BACCARAT ROUGE 540',brand:'Maison Francis Kurkdjian',gender:'unisex',genderLabel:'Unisex',season:'winter',seasonIcon:'❄️',seasonLabel:'Winter',image:'https://fimgs.net/mdimg/perfume-thumbs/dark-375x500.33519.2x.avif',notes:[['Saffron','55'],['Jasmine','14'],['Amberwood','691'],['Hedione','640'],['Cedar','41']]}
+    [codes[0]]:{title:'VANILLA 28',brand:'Kayali',gender:'unisex',genderLabel:'Unisex',season:'winter',seasonIcon:'❄️',seasonLabel:'Winter',image:'https://fimgs.net/mdimg/perfume-thumbs/dark-375x500.52616.2x.avif',notes:[['Brown Sugar','521'],['Tonka Bean','73'],['Amber','54'],['Amberwood','691'],['Vanilla Orchid','154']]},
+    [codes[1]]:{title:"ANGELS' SHARE",brand:'Kilian Paris',gender:'unisex',genderLabel:'Unisex',season:'winter',seasonIcon:'❄️',seasonLabel:'Winter',image:'https://fimgs.net/mdimg/perfume-thumbs/dark-375x500.62615.2x.avif',notes:[['Cognac','280'],['Cinnamon','65'],['Vanilla','74'],['Praline','198'],['Tonka Bean','73']]},
+    [codes[2]]:{title:'BLANCHE',brand:'Byredo',gender:'female',genderLabel:'Female',season:'spring',seasonIcon:'🌸',seasonLabel:'Spring',image:'https://fimgs.net/mdimg/perfume-thumbs/dark-375x500.6686.2x.avif',notes:[['Aldehydes','165'],['Musk','4'],['Peony','155'],['Violet','116'],['African Orange Flower','16']]},
+    [codes[3]]:{title:'TOBACCO VANILLE',brand:'Tom Ford',gender:'unisex',genderLabel:'Unisex',season:'winter',seasonIcon:'❄️',seasonLabel:'Winter',image:'https://fimgs.net/mdimg/perfume-thumbs/dark-375x500.1825.2x.avif',notes:[['Tobacco Leaf','96'],['Vanilla','74'],['Cacao','75'],['Tonka Bean','73'],['Dried Fruits','230']]},
+    [codes[4]]:{title:'THE MUSE',brand:'ZARKOPERFUME',gender:'female',genderLabel:'Female',season:'spring',seasonIcon:'🌸',seasonLabel:'Spring',image:'https://fimgs.net/mdimg/perfume-thumbs/dark-375x500.60665.2x.avif',notes:[['Cotton Flower','1008'],['White Musk','4'],['White Oud','114']],emptyThirdRow:true},
+    [codes[5]]:{title:'BACCARAT ROUGE 540',brand:'Maison Francis Kurkdjian',gender:'unisex',genderLabel:'Unisex',season:'winter',seasonIcon:'❄️',seasonLabel:'Winter',image:'https://fimgs.net/mdimg/perfume-thumbs/dark-375x500.33519.2x.avif',notes:[['Saffron','55'],['Jasmine','14'],['Amberwood','691'],['Hedione','640'],['Cedar','41']]}
   };
   const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   isVanilla28=function(p){return baseMatch(p)||codes.includes(String(p.code||''));};
