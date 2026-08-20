@@ -1,0 +1,11 @@
+{
+  "manifest_version": 2,
+  "name": "Shobi Fragrantica Main Notes Collector — Test 11-20",
+  "version": "0.3.9",
+  "description": "Test copy based on frozen Official Catcher 0.3.8, configured for Best Sellers 11-20 only.",
+  "permissions": ["storage","tabs","downloads","https://fragrantica.com/*","https://www.fragrantica.com/*","https://*.fragrantica.com/*","http://127.0.0.1:8765/*"],
+  "background": {"scripts":["background.js"]},
+  "content_scripts": [{"matches":["https://fragrantica.com/*","https://www.fragrantica.com/*","https://*.fragrantica.com/*"],"js":["bridge-content.js"],"run_at":"document_start","all_frames":false}],
+  "browser_action":{"default_title":"Shobi Main Notes Collector — Test 11-20"},
+  "web_accessible_resources":["page-catcher.js"]
+}
