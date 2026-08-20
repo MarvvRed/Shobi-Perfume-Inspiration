@@ -2,9 +2,40 @@
   if (window.__shobiMainNotesPageCatcher) return;
   window.__shobiMainNotesPageCatcher = true;
 
+  const VERSION = '0.3.7';
   const emit = (type, detail = {}) => window.postMessage({ source: 'shobi-main-notes-page', type, ...detail }, '*');
   const clean = s => (s || '').replace(/\s+/g, ' ').trim();
   const sleep = ms => new Promise(r => setTimeout(r, ms));
+
+  function ensureStatusBadge() {
+    let el = document.getElementById('__shobi-catcher-status');
+    if (el) return el;
+    el = document.createElement('div');
+    el.id = '__shobi-catcher-status';
+    Object.assign(el.style, {
+      position: 'fixed',
+      right: '16px',
+      bottom: '16px',
+      zIndex: '2147483647',
+      padding: '10px 14px',
+      borderRadius: '10px',
+      font: '600 13px/1.35 Arial, sans-serif',
+      color: '#111827',
+      background: '#fde68a',
+      border: '1px solid rgba(0,0,0,.18)',
+      boxShadow: '0 4px 14px rgba(0,0,0,.22)',
+      maxWidth: '320px'
+    });
+    (document.body || document.documentElement).appendChild(el);
+    return el;
+  }
+
+  function setStatus(kind, text) {
+    const el = ensureStatusBadge();
+    const bg = kind === 'ok' ? '#bbf7d0' : kind === 'error' ? '#fecaca' : '#fde68a';
+    el.style.background = bg;
+    el.textContent = text;
+  }
 
   emit('diagnostic', { stage: 'page-catcher-boot', detail: `readyState=${document.readyState}` });
 
@@ -98,17 +129,29 @@
 
   function sendCapture(notes, method, totalVotedNotes = null) {
     emit('capture', { payload: { perfume: document.querySelector('h1')?.innerText?.trim() || document.title, url: location.href.split('#')[0], capture_method: method, captured_at: new Date().toISOString(), total_voted_notes: totalVotedNotes, saved_note_count: notes.length, weights_sum: null, notes } });
+    setStatus('ok', `🟢 Catcher ${VERSION}: Captured — ${notes.length} note${notes.length === 1 ? '' : 's'}`);
   }
 
   async function run() {
     if (document.readyState === 'loading') await new Promise(r => document.addEventListener('DOMContentLoaded', r, { once: true }));
+    setStatus('working', `🟡 Catcher ${VERSION}: Capturing…`);
     await sleep(1200);
+
     const buttons = findVoteToggle();
     emit('diagnostic', { stage: 'vote-toggle-found', detail: `count=${buttons.length}; states=${buttons.slice(0,4).map(b => clean(b.textContent)).join(' | ')}` });
-    if (!buttons.length) { emit('diagnostic', { stage: 'vote-toggle-missing', detail: 'No Show votes / Hide votes control found' }); return; }
+    if (!buttons.length) {
+      setStatus('error', `🔴 Catcher ${VERSION}: Error — vote control not found`);
+      emit('diagnostic', { stage: 'vote-toggle-missing', detail: 'No Show votes / Hide votes control found' });
+      return;
+    }
+
     const btn = buttons[0];
     const root = findNotesRoot(btn);
-    if (!root) { emit('diagnostic', { stage: 'notes-root-missing', detail: 'Fragrance notes block not found' }); return; }
+    if (!root) {
+      setStatus('error', `🔴 Catcher ${VERSION}: Error — notes block not found`);
+      emit('diagnostic', { stage: 'notes-root-missing', detail: 'Fragrance notes block not found' });
+      return;
+    }
 
     const plainNotes = parsePlainNotes(root);
     emit('diagnostic', { stage: 'plain-notes-scan', detail: `found=${plainNotes.length}; ${plainNotes.map(n => n.note).join(' | ')}` });
@@ -118,7 +161,12 @@
     else {
       try { btn.scrollIntoView({ block: 'center', behavior: 'auto' }); } catch {}
       await sleep(250);
-      try { btn.click(); } catch (e) { emit('page-error', { error: `Show votes click: ${String(e)}` }); return; }
+      try { btn.click(); }
+      catch (e) {
+        setStatus('error', `🔴 Catcher ${VERSION}: Error — Show votes failed`);
+        emit('page-error', { error: `Show votes click: ${String(e)}` });
+        return;
+      }
       emit('diagnostic', { stage: 'show-votes-clicked' });
     }
 
@@ -145,9 +193,13 @@
       return;
     }
 
+    setStatus('error', `🔴 Catcher ${VERSION}: Error — no voted notes parsed`);
     emit('diagnostic', { stage: 'votes-finished', detail: 'No voted notes parsed' });
   }
 
-  run().catch(e => emit('page-error', { error: `Show votes top5 collector: ${String(e)}` }));
+  run().catch(e => {
+    setStatus('error', `🔴 Catcher ${VERSION}: Error`);
+    emit('page-error', { error: `Show votes top5 collector: ${String(e)}` });
+  });
   emit('installed');
 })();
