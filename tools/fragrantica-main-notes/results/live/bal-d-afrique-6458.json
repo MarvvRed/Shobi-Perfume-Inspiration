@@ -1,0 +1,65 @@
+{
+  "source": "firefox-extension",
+  "batch": "bestsellers-11-20",
+  "target": {
+    "rank": 12,
+    "name": "Bal d'Afrique",
+    "brand": "Byredo",
+    "url": "https://www.fragrantica.com/perfume/Byredo/Bal-d-Afrique-6458.html"
+  },
+  "perfume": "Bal d'Afrique Byredo for women and men",
+  "url": "https://www.fragrantica.com/perfume/Byredo/Bal-d-Afrique-6458.html",
+  "capture_method": "show-votes-top5",
+  "captured_at": "2026-08-20T01:48:48.600Z",
+  "total_voted_notes": 7,
+  "saved_note_count": 5,
+  "weights_sum": null,
+  "notes": [
+    {
+      "rank": 1,
+      "note": "Vetiver",
+      "sastojak_id": 2,
+      "votes": 1962,
+      "weight": null,
+      "percentage": null,
+      "pyramid_level": null
+    },
+    {
+      "rank": 2,
+      "note": "Violet",
+      "sastojak_id": 116,
+      "votes": 992,
+      "weight": null,
+      "percentage": null,
+      "pyramid_level": null
+    },
+    {
+      "rank": 3,
+      "note": "Cyclamen",
+      "sastojak_id": 166,
+      "votes": 679,
+      "weight": null,
+      "percentage": null,
+      "pyramid_level": null
+    },
+    {
+      "rank": 4,
+      "note": "Bergamot",
+      "sastojak_id": 75,
+      "votes": 310,
+      "weight": null,
+      "percentage": null,
+      "pyramid_level": null
+    },
+    {
+      "rank": 5,
+      "note": "African Marigold",
+      "sastojak_id": 1713,
+      "votes": 219,
+      "weight": null,
+      "percentage": null,
+      "pyramid_level": null
+    }
+  ],
+  "received_at": "2026-08-20T01:48:48.844Z"
+}
