@@ -1,0 +1,65 @@
+{
+  "source": "firefox-extension",
+  "batch": "bestsellers-11-20",
+  "target": {
+    "rank": 11,
+    "name": "Soleil Blanc",
+    "brand": "Tom Ford",
+    "url": "https://www.fragrantica.com/perfume/Tom-Ford/Soleil-Blanc-34893.html"
+  },
+  "perfume": "Soleil Blanc Tom Ford for women and men",
+  "url": "https://www.fragrantica.com/perfume/Tom-Ford/Soleil-Blanc-34893.html",
+  "capture_method": "show-votes-top5",
+  "captured_at": "2026-08-20T01:48:41.664Z",
+  "total_voted_notes": 11,
+  "saved_note_count": 5,
+  "weights_sum": null,
+  "notes": [
+    {
+      "rank": 1,
+      "note": "Coconut",
+      "sastojak_id": 138,
+      "votes": 1742,
+      "weight": null,
+      "percentage": null,
+      "pyramid_level": null
+    },
+    {
+      "rank": 2,
+      "note": "Tuberose",
+      "sastojak_id": 25,
+      "votes": 1289,
+      "weight": null,
+      "percentage": null,
+      "pyramid_level": null
+    },
+    {
+      "rank": 3,
+      "note": "Ylang-Ylang",
+      "sastojak_id": 24,
+      "votes": 1187,
+      "weight": null,
+      "percentage": null,
+      "pyramid_level": null
+    },
+    {
+      "rank": 4,
+      "note": "Jasmine",
+      "sastojak_id": 14,
+      "votes": 888,
+      "weight": null,
+      "percentage": null,
+      "pyramid_level": null
+    },
+    {
+      "rank": 5,
+      "note": "Pistachio",
+      "sastojak_id": 221,
+      "votes": 757,
+      "weight": null,
+      "percentage": null,
+      "pyramid_level": null
+    }
+  ],
+  "received_at": "2026-08-20T01:48:41.963Z"
+}
