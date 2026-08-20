@@ -37,6 +37,11 @@ def valid_name(value, code=""):
     return bool(value) and value.casefold() not in BAD_NAMES and value != clean(code)
 
 
+def safe_english(value):
+    value = clean(value)
+    return value if value and not GREEK_RE.search(value) else ""
+
+
 def is_english_url(url):
     try:
         parsed = urlparse(str(url or ""))
@@ -60,7 +65,7 @@ def extract_inspired(desc):
         if not m:
             continue
         candidate = clean(m.group(1)).strip(" :-")
-        if valid_name(candidate):
+        if valid_name(candidate) and not GREEK_RE.search(candidate):
             return candidate
     return ""
 
@@ -114,11 +119,13 @@ def parse_products(html):
         if not is_english_url(href):
             continue
         desc_el = card.select_one(".product-description-short, .product-description, .product-desc")
-        desc = clean(desc_el.get_text(" ", strip=True)) if desc_el else ""
+        raw_desc = clean(desc_el.get_text(" ", strip=True)) if desc_el else ""
         text = clean(card.get_text(" ", strip=True))
         status = "IN_STOCK" if re.search(r"\bIn Stock\b", text, re.I) else ""
+        raw_title_tail = clean(title[m.end():]).strip(" -–—:|")
+        desc = safe_english(raw_desc)
+        title_tail = safe_english(raw_title_tail)
         inspired = extract_inspired(desc)
-        title_tail = clean(title[m.end():]).strip(" -–—:|")
         products.append({
             "code": code,
             "base": base_code(code),
@@ -127,35 +134,26 @@ def parse_products(html):
             "inspired_by": inspired,
             "title_tail": title_tail,
             "status": status,
+            "had_greek_fields": bool(GREEK_RE.search(raw_desc) or GREEK_RE.search(raw_title_tail)),
         })
     return products, soup
 
 
-def validate_page_products(products, page):
-    if not products:
-        return
-    suspicious = []
-    for product in products:
-        fields = [product.get("description", ""), product.get("inspired_by", ""), product.get("title_tail", "")]
-        greek_chars = sum(len(GREEK_RE.findall(str(value or ""))) for value in fields)
-        if greek_chars:
-            suspicious.append((product.get("code", ""), greek_chars))
-    if len(suspicious) > max(3, int(len(products) * 0.25)):
-        raise SystemExit(
-            f"Safety stop: page {page} has Greek text in {len(suspicious)}/{len(products)} extracted products; "
-            f"examples={suspicious[:5]}"
-        )
+def report_page_products(products, page):
+    greek_filtered = [p["code"] for p in products if p.get("had_greek_fields")]
+    if greek_filtered:
+        print(f"PAGE_{page}_GREEK_FIELDS_IGNORED={len(greek_filtered)} examples={greek_filtered[:8]}")
 
 
 def apply_product(row, product):
     if product["url"] and is_english_url(product["url"]):
         row["shobi_url"] = product["url"]
-    if product["description"] and not GREEK_RE.search(product["description"]):
+    if product["description"]:
         row["description"] = product["description"]
-    if product["inspired_by"] and valid_name(product["inspired_by"], row.get("shobi_code")) and not GREEK_RE.search(product["inspired_by"]):
+    if product["inspired_by"] and valid_name(product["inspired_by"], row.get("shobi_code")):
         row["inspired_by"] = product["inspired_by"]
         row["shobi_name"] = product["inspired_by"]
-    elif product.get("title_tail") and valid_name(product["title_tail"], row.get("shobi_code")) and not GREEK_RE.search(product["title_tail"]):
+    elif product.get("title_tail") and valid_name(product["title_tail"], row.get("shobi_code")):
         if not valid_name(row.get("shobi_name"), row.get("shobi_code")):
             row["shobi_name"] = product["title_tail"]
         if not valid_name(row.get("inspired_by"), row.get("shobi_code")):
@@ -165,15 +163,15 @@ def apply_product(row, product):
 
 
 def new_row(fields, product):
+    name = product["inspired_by"] or product.get("title_tail") or ""
+    if not valid_name(name, product["code"]):
+        return None
     row = {field: "" for field in fields}
     row["shobi_code"] = product["code"]
-    name = product["inspired_by"] or product.get("title_tail") or product["code"]
-    if GREEK_RE.search(name):
-        name = product["code"]
     row["shobi_name"] = name
     row["inspired_by"] = name
     row["shobi_url"] = product["url"]
-    row["description"] = product["description"] if product["description"] and not GREEK_RE.search(product["description"]) else ""
+    row["description"] = product["description"]
     row["status"] = product["status"]
     if "new" in row:
         row["new"] = "1"
@@ -192,14 +190,14 @@ def main():
         raise SystemExit(f"Safety stop: master unexpectedly small ({starting_count} rows)")
 
     session = requests.Session()
-    session.headers.update({"User-Agent": "Mozilla/5.0 ShobiDatabaseUpdater/2.1"})
+    session.headers.update({"User-Agent": "Mozilla/5.0 ShobiDatabaseUpdater/2.2"})
 
     official_products = []
     page = 1
     while page <= 250:
         html = fetch_page(session, page)
         products, soup = parse_products(html)
-        validate_page_products(products, page)
+        report_page_products(products, page)
         if not products:
             if page == 1:
                 raise SystemExit("English Shobi page parser found no products")
@@ -257,15 +255,18 @@ def main():
             row["shobi_name"] = clean(row.get("inspired_by"))
 
     added = []
+    skipped_new_without_english_name = []
     for product in official_products:
         if product["code"] in existing_norm:
             continue
         row = new_row(fields, product)
+        if row is None:
+            skipped_new_without_english_name.append(product["code"])
+            continue
         rows.append(row)
         existing_norm[product["code"]] = row
         added.append(product["code"])
 
-    english_urls = sum(is_english_url(r.get("shobi_url", "")) for r in rows if r.get("shobi_url"))
     greek_names = [r.get("shobi_code") for r in rows if GREEK_RE.search(str(r.get("shobi_name", ""))) or GREEK_RE.search(str(r.get("inspired_by", "")))]
     greek_desc = [r.get("shobi_code") for r in rows if GREEK_RE.search(str(r.get("description", "")))]
 
@@ -291,10 +292,12 @@ def main():
     print(f"MATCHED_EXISTING_ROWS={matched}")
     print(f"UNMATCHED_EXISTING_ROWS={len(unmatched)}")
     print(f"NEW_ROWS_ADDED={len(added)}")
+    print(f"NEW_ROWS_SKIPPED_NO_ENGLISH_NAME={len(skipped_new_without_english_name)}")
     if added:
         print("NEW_CODES=" + ",".join(added))
+    if skipped_new_without_english_name:
+        print("SKIPPED_NEW_CODES=" + ",".join(skipped_new_without_english_name))
     print(f"MASTER_ROWS_AFTER={len(rows)}")
-    print(f"ENGLISH_URLS={english_urls}")
     print("SOURCE_LANGUAGE=ENGLISH_ONLY")
     print(f"OUTPUT={OUTPUT.name}")
 
