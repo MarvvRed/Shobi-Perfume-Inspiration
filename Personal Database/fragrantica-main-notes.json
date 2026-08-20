@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "official-catcher-0.3.5",
-  "updated_at": "2026-08-20T01:49:32.727Z",
-  "perfume_count": 18,
+  "updated_at": "2026-08-20T01:49:39.786Z",
+  "perfume_count": 19,
   "perfumes": {
     "899": {
       "fragrantica_id": 899,
@@ -83,6 +83,47 @@
           "note": "Cacao",
           "sastojak_id": 135,
           "votes": 3462
+        }
+      ]
+    },
+    "3865": {
+      "fragrantica_id": 3865,
+      "name": "Philosykos Eau de Parfum",
+      "brand": "Diptyque",
+      "url": "https://www.fragrantica.com/perfume/Diptyque/Philosykos-3865.html",
+      "capture_method": "show-votes-top5",
+      "total_voted_notes": 7,
+      "saved_note_count": 5,
+      "notes": [
+        {
+          "rank": 1,
+          "note": "Fig Leaf",
+          "sastojak_id": 150,
+          "votes": 3044
+        },
+        {
+          "rank": 2,
+          "note": "Fig",
+          "sastojak_id": 247,
+          "votes": 2332
+        },
+        {
+          "rank": 3,
+          "note": "Green Notes",
+          "sastojak_id": 318,
+          "votes": 2057
+        },
+        {
+          "rank": 4,
+          "note": "Coconut",
+          "sastojak_id": 138,
+          "votes": 1600
+        },
+        {
+          "rank": 5,
+          "note": "Fig Tree",
+          "sastojak_id": 431,
+          "votes": 1512
         }
       ]
     },
