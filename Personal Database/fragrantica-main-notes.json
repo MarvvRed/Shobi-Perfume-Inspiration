@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "official-catcher-0.3.5",
-  "updated_at": "2026-08-20T01:48:43.149Z",
-  "perfume_count": 11,
+  "updated_at": "2026-08-20T01:48:50.082Z",
+  "perfume_count": 12,
   "perfumes": {
     "899": {
       "fragrantica_id": 899,
@@ -83,6 +83,47 @@
           "note": "Cacao",
           "sastojak_id": 135,
           "votes": 3462
+        }
+      ]
+    },
+    "6458": {
+      "fragrantica_id": 6458,
+      "name": "Bal d'Afrique",
+      "brand": "Byredo",
+      "url": "https://www.fragrantica.com/perfume/Byredo/Bal-d-Afrique-6458.html",
+      "capture_method": "show-votes-top5",
+      "total_voted_notes": 7,
+      "saved_note_count": 5,
+      "notes": [
+        {
+          "rank": 1,
+          "note": "Vetiver",
+          "sastojak_id": 2,
+          "votes": 1962
+        },
+        {
+          "rank": 2,
+          "note": "Violet",
+          "sastojak_id": 116,
+          "votes": 992
+        },
+        {
+          "rank": 3,
+          "note": "Cyclamen",
+          "sastojak_id": 166,
+          "votes": 679
+        },
+        {
+          "rank": 4,
+          "note": "Bergamot",
+          "sastojak_id": 75,
+          "votes": 310
+        },
+        {
+          "rank": 5,
+          "note": "African Marigold",
+          "sastojak_id": 1713,
+          "votes": 219
         }
       ]
     },
