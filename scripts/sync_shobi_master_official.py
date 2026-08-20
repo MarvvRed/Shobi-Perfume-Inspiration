@@ -18,7 +18,7 @@ CANDIDATE = MASTER_DIR / "shobi-master-candidate.csv"
 REPORT_JSON = MASTER_DIR / "latest-sync-report.json"
 REPORT_CSV = MASTER_DIR / "latest-sync-changes.csv"
 BASE = "https://leparfum.com.gr"
-LIST_URL = BASE + "/en/perfumes?page={page}"
+SHOW_ALL_URL = BASE + "/en/perfumes?resultsPerPage=99999"
 RULE = "Choose+Bottle+Extra Essence"
 FIELDS = [
     "prestashop_product_id","shobi_code","shobi_name","reference",
@@ -126,12 +126,12 @@ def parse_page(html):
     return rows, len(all_cards), soup
 
 
-def get_with_retries(session, url, page, attempts=6):
+def get_with_retries(session, url, attempts=6):
     last_error = None
     for attempt in range(1, attempts + 1):
         try:
-            response = session.get(url, timeout=60, allow_redirects=True)
-            print(f"FETCH page={page} attempt={attempt}/{attempts} status={response.status_code} url={response.url} bytes={len(response.content)}")
+            response = session.get(url, timeout=120, allow_redirects=True)
+            print(f"FETCH attempt={attempt}/{attempts} status={response.status_code} url={response.url} bytes={len(response.content)}")
             if response.status_code in {429, 500, 502, 503, 504}:
                 raise requests.HTTPError(f"retryable HTTP {response.status_code}", response=response)
             response.raise_for_status()
@@ -140,16 +140,9 @@ def get_with_retries(session, url, page, attempts=6):
             last_error = exc
             if attempt == attempts:
                 break
-            wait = min(30, 2 ** (attempt - 1))
-            print(f"RETRY page={page} attempt={attempt}/{attempts} wait={wait}s error={type(exc).__name__}: {exc}")
+            wait = min(60, 3 * (2 ** (attempt - 1)))
+            print(f"RETRY attempt={attempt}/{attempts} wait={wait}s error={type(exc).__name__}: {exc}")
             time.sleep(wait)
-            # Drop stale keep-alive connections before retrying.
-            session.close()
-            session.headers.update({
-                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/126.0 Safari/537.36",
-                "Accept-Language": "en-US,en;q=0.9",
-                "Connection": "close",
-            })
     raise last_error
 
 
@@ -160,32 +153,15 @@ def fetch_catalog():
         "Accept-Language": "en-US,en;q=0.9",
         "Connection": "close",
     })
-    found = []
-    total_cards = 0
-    for page in range(1, 251):
-        requested = LIST_URL.format(page=page)
-        r = get_with_retries(s, requested, page)
-        rows, cards, soup = parse_page(r.text)
-        print(f"PARSE page={page} cards={cards} shobi={len(rows)} cumulative_cards={total_cards + cards} cumulative_shobi={len(found) + len(rows)}")
-        if page == 1 and cards == 0:
-            title = clean(soup.title.get_text(" ", strip=True) if soup.title else "")
-            print(f"PAGE1_TITLE={title}")
-            print(f"PAGE1_HTML_PREFIX={clean(r.text[:1200])}")
-            raise SystemExit("Safety stop: no product cards found on /en/perfumes")
-        if cards == 0:
-            break
-        found.extend(rows)
-        total_cards += cards
-        next_link = soup.select_one("a.next, .pagination .next a, a[rel='next']")
-        nums = [int(clean(a.get_text())) for a in soup.select(".pagination a") if clean(a.get_text()).isdigit()]
-        print(f"PAGINATION page={page} next={bool(next_link)} numeric_pages={nums[-10:] if nums else []}")
-        if not next_link:
-            if not nums or page >= max(nums):
-                break
-        # Intentionally polite pacing: this is a weekly maintenance job, not a scraper race.
-        time.sleep(0.75)
-    print(f"FETCH_COMPLETE pages_processed={page} total_cards={total_cards} shobi_rows={len(found)}")
-    return found, total_cards
+    r = get_with_retries(s, SHOW_ALL_URL)
+    rows, cards, soup = parse_page(r.text)
+    print(f"SHOW_ALL cards={cards} shobi={len(rows)}")
+    if cards == 0:
+        title = clean(soup.title.get_text(" ", strip=True) if soup.title else "")
+        print(f"PAGE_TITLE={title}")
+        print(f"HTML_PREFIX={clean(r.text[:1200])}")
+        raise SystemExit("Safety stop: no product cards found on official Show All endpoint")
+    return rows, cards
 
 
 def merge_live_with_history(live_rows, old_rows):
@@ -204,7 +180,7 @@ def merge_live_with_history(live_rows, old_rows):
         row["last_seen"] = today
         row["status"] = "ACTIVE"
         row["classification_rule"] = RULE
-        row["source"] = "SHOBI_LIVE_PAGINATED"
+        row["source"] = "SHOBI_LIVE_SHOW_ALL"
         merged.append(row)
     return merged
 
@@ -267,6 +243,7 @@ def main():
     report = {
         "date": date.today().isoformat(),
         "baseline_file": old_path.name,
+        "source_url": SHOW_ALL_URL,
         "total_perfumes_cards": total_cards,
         "shobi_perfumes": len(merged),
         "new": len(new_ids),
