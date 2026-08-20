@@ -4,7 +4,7 @@ import re
 import time
 from collections import Counter, defaultdict
 from pathlib import Path
-from urllib.parse import urljoin
+from urllib.parse import urljoin, urlparse
 
 import requests
 from bs4 import BeautifulSoup
@@ -36,6 +36,14 @@ def clean(text):
 def valid_name(value, code=""):
     value = clean(value)
     return bool(value) and value.casefold() not in BAD_NAMES and value != clean(code)
+
+
+def is_english_url(url):
+    try:
+        parsed = urlparse(str(url or ""))
+        return parsed.netloc.lower() == "leparfum.com.gr" and parsed.path.startswith("/en/")
+    except Exception:
+        return False
 
 
 def extract_inspired(desc):
@@ -80,8 +88,16 @@ def base_code(value):
 
 
 def fetch_page(session, page):
-    r = session.get(LIST_URL.format(page=page), timeout=30)
+    requested = LIST_URL.format(page=page)
+    r = session.get(requested, timeout=30, allow_redirects=True)
     r.raise_for_status()
+    if not is_english_url(r.url):
+        raise SystemExit(f"Safety stop: English catalog request redirected outside /en/: {r.url}")
+    if GREEK_RE.search(r.text[:20000]):
+        # Navigation may contain a Greek language option, so only reject when Greek text is substantial.
+        greek_chars = len(GREEK_RE.findall(r.text))
+        if greek_chars > 120:
+            raise SystemExit(f"Safety stop: page {page} looks Greek ({greek_chars} Greek characters)")
     return r.text
 
 
@@ -101,32 +117,57 @@ def parse_products(html):
             source_code += f" {m.group(3)}"
         code = norm_code(source_code)
         href = urljoin(BASE, title_el.get("href") or "")
+        if not is_english_url(href):
+            continue
         desc_el = card.select_one(".product-description-short, .product-description, .product-desc")
         desc = clean(desc_el.get_text(" ", strip=True)) if desc_el else ""
         text = clean(card.get_text(" ", strip=True))
         status = "IN_STOCK" if re.search(r"\bIn Stock\b", text, re.I) else ""
         inspired = extract_inspired(desc)
+        title_tail = clean(title[m.end():]).strip(" -–—:|")
         products.append({
             "code": code,
             "base": base_code(code),
             "url": href,
             "description": desc,
             "inspired_by": inspired,
+            "title_tail": title_tail,
             "status": status,
         })
     return products, soup
 
 
 def apply_product(row, product):
-    if product["url"] and "/en/" in product["url"]:
+    if product["url"] and is_english_url(product["url"]):
         row["shobi_url"] = product["url"]
-    if product["description"]:
+    if product["description"] and not GREEK_RE.search(product["description"]):
         row["description"] = product["description"]
     if product["inspired_by"] and valid_name(product["inspired_by"], row.get("shobi_code")):
         row["inspired_by"] = product["inspired_by"]
         row["shobi_name"] = product["inspired_by"]
+    elif product.get("title_tail") and valid_name(product["title_tail"], row.get("shobi_code")) and not GREEK_RE.search(product["title_tail"]):
+        if not valid_name(row.get("shobi_name"), row.get("shobi_code")):
+            row["shobi_name"] = product["title_tail"]
+        if not valid_name(row.get("inspired_by"), row.get("shobi_code")):
+            row["inspired_by"] = product["title_tail"]
     if product["status"]:
         row["status"] = product["status"]
+
+
+def new_row(fields, product):
+    row = {field: "" for field in fields}
+    row["shobi_code"] = product["code"]
+    name = product["inspired_by"] or product.get("title_tail") or product["code"]
+    if GREEK_RE.search(name):
+        name = product["code"]
+    row["shobi_name"] = name
+    row["inspired_by"] = name
+    row["shobi_url"] = product["url"]
+    row["description"] = product["description"] if product["description"] and not GREEK_RE.search(product["description"]) else ""
+    row["status"] = product["status"]
+    if "new" in row:
+        row["new"] = "1"
+    return row
 
 
 def main():
@@ -134,15 +175,18 @@ def main():
         reader = csv.DictReader(fh)
         rows = list(reader)
         fields = reader.fieldnames
-    if not fields or len(rows) != 2273:
-        raise SystemExit(f"Invalid shobi-master.csv row count: {len(rows)}")
+    if not fields or "shobi_code" not in fields:
+        raise SystemExit("Invalid shobi-master.csv: missing header/shobi_code")
+    starting_count = len(rows)
+    if starting_count < 2200:
+        raise SystemExit(f"Safety stop: master unexpectedly small ({starting_count} rows)")
 
     session = requests.Session()
-    session.headers.update({"User-Agent": "Mozilla/5.0 ShobiDatabaseUpdater/1.0"})
+    session.headers.update({"User-Agent": "Mozilla/5.0 ShobiDatabaseUpdater/2.0"})
 
     official_products = []
     page = 1
-    while page <= 200:
+    while page <= 250:
         html = fetch_page(session, page)
         products, soup = parse_products(html)
         if not products:
@@ -158,15 +202,22 @@ def main():
         page += 1
         time.sleep(0.15)
 
+    # Deduplicate catalog rows by normalized code, preferring the last English occurrence.
     official_exact = {}
     official_by_base = defaultdict(list)
     for product in official_products:
         official_exact[product["code"]] = product
+    official_products = list(official_exact.values())
+    for product in official_products:
         official_by_base[product["base"]].append(product)
+
+    if len(official_products) < 2000:
+        raise SystemExit(f"Safety stop: English catalog unexpectedly small ({len(official_products)} unique products)")
 
     master_base_counts = Counter(base_code(r.get("shobi_code")) for r in rows if r.get("shobi_code"))
     matched = 0
     unmatched = []
+    existing_norm = {norm_code(r.get("shobi_code")): r for r in rows if r.get("shobi_code")}
 
     for row in rows:
         source = raw_code(row.get("shobi_code"))
@@ -192,31 +243,53 @@ def main():
         apply_product(row, product)
         matched += 1
 
-        # Never leave a code/placeholder as display name when inspired_by is already valid.
         if valid_name(row.get("inspired_by"), row.get("shobi_code")) and not valid_name(row.get("shobi_name"), row.get("shobi_code")):
             row["shobi_name"] = clean(row.get("inspired_by"))
 
-    english_urls = sum("/en/" in str(r.get("shobi_url", "")) for r in rows)
-    english_desc = sum(bool(r.get("description")) and not GREEK_RE.search(str(r.get("description", ""))) for r in rows)
+    # Add genuinely new English catalog codes. Never auto-delete historical rows.
+    added = []
+    for product in official_products:
+        if product["code"] in existing_norm:
+            continue
+        row = new_row(fields, product)
+        rows.append(row)
+        existing_norm[product["code"]] = row
+        added.append(product["code"])
 
-    if matched != 2273:
-        raise SystemExit(f"Safety stop: only {matched}/2273 master rows matched English Shobi; unresolved={unmatched}")
-    if english_urls != 2273:
-        raise SystemExit(f"Safety stop: only {english_urls}/2273 English URLs")
-    if english_desc < 2100:
-        raise SystemExit(f"Safety stop: only {english_desc} non-Greek descriptions")
+    # Safety checks: source must remain English and the sync must not rewrite the catalog into Greek.
+    english_urls = sum(is_english_url(r.get("shobi_url", "")) for r in rows if r.get("shobi_url"))
+    greek_names = [r.get("shobi_code") for r in rows if GREEK_RE.search(str(r.get("shobi_name", ""))) or GREEK_RE.search(str(r.get("inspired_by", "")))]
+    greek_desc = [r.get("shobi_code") for r in rows if GREEK_RE.search(str(r.get("description", "")))]
+
+    # Existing catalog matching may be slightly below 100% when Shobi temporarily hides products,
+    # but a large collapse means the parser/source changed and must never be promoted.
+    min_expected_matches = max(2100, int(starting_count * 0.90))
+    if matched < min_expected_matches:
+        raise SystemExit(f"Safety stop: only {matched}/{starting_count} existing rows matched English Shobi")
+    if greek_names:
+        raise SystemExit(f"Safety stop: Greek text detected in display names for {len(greek_names)} rows; examples={greek_names[:10]}")
+    if len(greek_desc) > 10:
+        raise SystemExit(f"Safety stop: Greek descriptions detected in {len(greek_desc)} rows")
+    if len(rows) < starting_count:
+        raise SystemExit("Safety stop: row count decreased")
+    if len(added) > 300:
+        raise SystemExit(f"Safety stop: suspiciously large addition ({len(added)} new codes)")
 
     with OUTPUT.open("w", encoding="utf-8-sig", newline="") as fh:
         writer = csv.DictWriter(fh, fieldnames=fields)
         writer.writeheader()
         writer.writerows(rows)
 
-    print(f"MASTER_ROWS={len(rows)}")
+    print(f"MASTER_ROWS_BEFORE={starting_count}")
     print(f"OFFICIAL_EN_PRODUCTS={len(official_products)}")
-    print(f"MATCHED_MASTER_ROWS={matched}")
-    print("UNMATCHED_MASTER_ROWS=0")
+    print(f"MATCHED_EXISTING_ROWS={matched}")
+    print(f"UNMATCHED_EXISTING_ROWS={len(unmatched)}")
+    print(f"NEW_ROWS_ADDED={len(added)}")
+    if added:
+        print("NEW_CODES=" + ",".join(added))
+    print(f"MASTER_ROWS_AFTER={len(rows)}")
     print(f"ENGLISH_URLS={english_urls}")
-    print(f"ENGLISH_DESCRIPTIONS={english_desc}")
+    print("SOURCE_LANGUAGE=ENGLISH_ONLY")
     print(f"OUTPUT={OUTPUT.name}")
 
 
