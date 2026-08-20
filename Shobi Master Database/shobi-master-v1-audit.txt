@@ -1,0 +1,36 @@
+SHOBI MASTER v1 - AUDIT
+Snapshot: 2026-08-20
+Cards in live Show All DOM: 2562
+True Shobi perfumes classified: 2343
+Excluded/non-Shobi/non-personal: 219
+
+PRIMARY KEY
+prestashop_product_id missing: 0
+prestashop_product_id unique: 2343/2343
+duplicate ID groups: 0
+
+URL
+URL missing: 0
+URL unique: 2343/2343
+duplicate URL groups: 0
+
+REFERENCE
+reference missing: 0
+reference unique: 2318/2343
+duplicate reference groups: 23
+rows involved in duplicate references: 48
+
+NAME
+name missing: 0
+name unique: 2341/2343
+duplicate name groups: 2
+rows involved in duplicate names: 4
+
+OPTIONAL EXTRACTION
+inspired_by extracted from explicit official wording: 2033
+inspired_by left blank (no safe explicit phrase): 310
+shobi_code extracted: 2323
+shobi_code left blank: 20
+
+CLASSIFICATION RULE
+Choose + Bottle + Extra Essence
