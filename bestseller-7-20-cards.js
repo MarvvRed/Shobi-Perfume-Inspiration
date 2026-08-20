@@ -1,14 +1,14 @@
-// Best sellers #7-#20: approved Vanilla-card structure with verified fragrance identities and Fragrantica-aligned gender.
+// Best sellers #7-#20: approved Vanilla-card structure with verified fragrance identities and Fragrantica-aligned gender. #7-#10 use Official Catcher 0.3.5 notes.
 (function(){
   const codes=(window.SHOBI_BESTSELLER_CODES||[]).slice(6,20);
   if(codes.length<14 || typeof isVanilla28!=='function' || typeof renderVanillaPrototype!=='function') return;
   const baseMatch=isVanilla28, baseRender=renderVanillaPrototype;
   const C=(i,c)=>[codes[i],c];
   const configs=Object.fromEntries([
-    C(0,{title:'VIRGIN ISLAND WATER',brand:'Creed',gender:'unisex',genderLabel:'Unisex',season:'summer',seasonIcon:'☀️',seasonLabel:'Summer',fid:'899',image:'https://fimgs.net/mdimg/perfume-thumbs/dark-375x500.899.2x.avif',notes:['Coconut','Lime','White Rum','Sugar Cane','Bergamot']}),
-    C(1,{title:'LOST CHERRY',brand:'Tom Ford',gender:'unisex',genderLabel:'Unisex',season:'fall',seasonIcon:'🍂',seasonLabel:'Fall',fid:'51411',image:'https://fimgs.net/mdimg/perfume-thumbs/dark-375x500.51411.2x.avif',notes:['Bitter Almond','Black Cherry','Cherry Liqueur','Sour Cherry','Plum']}),
+    C(0,{title:'VIRGIN ISLAND WATER',brand:'Creed',gender:'unisex',genderLabel:'Unisex',season:'summer',seasonIcon:'☀️',seasonLabel:'Summer',fid:'899',image:'https://fimgs.net/mdimg/perfume-thumbs/dark-375x500.899.2x.avif',notes:['Coconut','Lime','White Rum','Sugar Cane','White Bergamot']}),
+    C(1,{title:'LOST CHERRY',brand:'Tom Ford',gender:'unisex',genderLabel:'Unisex',season:'fall',seasonIcon:'🍂',seasonLabel:'Fall',fid:'51411',image:'https://fimgs.net/mdimg/perfume-thumbs/dark-375x500.51411.2x.avif',notes:['Sour Cherry','Bitter Almond','Black Cherry','Vanilla','Tonka Bean']}),
     C(2,{title:'DEVOTION',brand:'Dolce&Gabbana',gender:'female',genderLabel:'Female',season:'fall',seasonIcon:'🍂',seasonLabel:'Fall',fid:'84951',image:'https://fimgs.net/mdimg/perfume-thumbs/dark-375x500.84951.2x.avif',notes:['Candied Lemon','Panacotta','Orange Blossom','Rum','Vanilla']}),
-    C(3,{title:"CHEIROSA '62",brand:'Sol de Janeiro',gender:'female',genderLabel:'Female',season:'summer',seasonIcon:'☀️',seasonLabel:'Summer',fid:'56062',image:'https://fimgs.net/mdimg/perfume-thumbs/dark-375x500.56062.2x.avif',notes:['Pistachio','Almond','Heliotrope','Jasmine','Caramel']}),
+    C(3,{title:"CHEIROSA '62",brand:'Sol de Janeiro',gender:'female',genderLabel:'Female',season:'summer',seasonIcon:'☀️',seasonLabel:'Summer',fid:'56062',image:'https://fimgs.net/mdimg/perfume-thumbs/dark-375x500.56062.2x.avif',notes:['Caramel','Vanilla','Pistachio','Almond','Salt']}),
     C(4,{title:'SOLEIL BLANC',brand:'Tom Ford',gender:'unisex',genderLabel:'Unisex',season:'summer',seasonIcon:'☀️',seasonLabel:'Summer',fid:'34893',image:'https://fimgs.net/mdimg/perfume-thumbs/dark-375x500.34893.2x.avif',notes:['Pistachio','Bergamot','Cardamom','Pink Pepper','Tuberose']}),
     C(5,{title:"BAL D'AFRIQUE",brand:'Byredo',gender:'unisex',genderLabel:'Unisex',season:'spring',seasonIcon:'🌸',seasonLabel:'Spring',fid:'6458',image:'https://fimgs.net/mdimg/perfume-thumbs/dark-375x500.6458.2x.avif',notes:['Bergamot','African Marigold','Buchu','Violet','Cyclamen']}),
     C(6,{title:'AVENTUS',brand:'Creed',gender:'male',genderLabel:'Male',season:'spring',seasonIcon:'🌸',seasonLabel:'Spring',fid:'9828',image:'https://fimgs.net/mdimg/perfume-thumbs/dark-375x500.9828.2x.avif',notes:['Bergamot','Black Currant','Apple','Lemon','Pink Pepper']}),
