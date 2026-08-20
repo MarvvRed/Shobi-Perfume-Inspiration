@@ -1,0 +1,60 @@
+{
+  "source": "firefox-extension",
+  "batch": "bestsellers-1-10",
+  "target": null,
+  "perfume": "Cheirosa '62 Sol de Janeiro for women",
+  "url": "https://www.fragrantica.com/perfume/Sol-de-Janeiro/Brazilian-Crush-Cheirosa-62-56062.html",
+  "capture_method": "show-votes-top5",
+  "captured_at": "2026-08-20T01:11:18.695Z",
+  "total_voted_notes": 8,
+  "saved_note_count": 5,
+  "weights_sum": null,
+  "notes": [
+    {
+      "rank": 1,
+      "note": "Caramel",
+      "sastojak_id": 183,
+      "votes": 2299,
+      "weight": null,
+      "percentage": null,
+      "pyramid_level": null
+    },
+    {
+      "rank": 2,
+      "note": "Vanilla",
+      "sastojak_id": 74,
+      "votes": 2016,
+      "weight": null,
+      "percentage": null,
+      "pyramid_level": null
+    },
+    {
+      "rank": 3,
+      "note": "Pistachio",
+      "sastojak_id": 221,
+      "votes": 1823,
+      "weight": null,
+      "percentage": null,
+      "pyramid_level": null
+    },
+    {
+      "rank": 4,
+      "note": "Almond",
+      "sastojak_id": 130,
+      "votes": 1417,
+      "weight": null,
+      "percentage": null,
+      "pyramid_level": null
+    },
+    {
+      "rank": 5,
+      "note": "Salt",
+      "sastojak_id": 231,
+      "votes": 974,
+      "weight": null,
+      "percentage": null,
+      "pyramid_level": null
+    }
+  ],
+  "received_at": "2026-08-20T01:11:18.989Z"
+}
