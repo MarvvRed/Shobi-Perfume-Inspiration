@@ -40,10 +40,10 @@ jobs:
       - name: Install parser dependencies
         run: pip install requests beautifulsoup4
 
-      - name: Build safe English catalog candidate
+      - name: Build authoritative perfume-only English catalog candidate
         run: python scripts/build_shobi_master_en.py
 
-      - name: Show catalog diff summary
+      - name: Show and validate catalog diff summary
         shell: bash
         run: |
           python - <<'PY'
@@ -54,14 +54,20 @@ jobs:
                   return list(csv.DictReader(f))
           old=rows('shobi-master.csv')
           new=rows('shobi-master-en.csv')
-          old_codes={r.get('shobi_code','') for r in old}
-          new_codes={r.get('shobi_code','') for r in new}
+          old_codes={r.get('shobi_code','') for r in old if r.get('shobi_code')}
+          new_codes={r.get('shobi_code','') for r in new if r.get('shobi_code')}
+          added=new_codes-old_codes
+          removed=old_codes-new_codes
           print(f'OLD_ROWS={len(old)}')
           print(f'NEW_ROWS={len(new)}')
-          print(f'ADDED={len(new_codes-old_codes)}')
-          print(f'REMOVED={len(old_codes-new_codes)}')
-          if old_codes-new_codes:
-              raise SystemExit('Safety stop: candidate removed catalog codes')
+          print(f'ADDED={len(added)}')
+          print(f'REMOVED_AS_NOT_IN_OFFICIAL_EN_PERFUMES={len(removed)}')
+          print(f'ADDED_EXAMPLES={sorted(added)[:30]}')
+          print(f'REMOVED_EXAMPLES={sorted(removed)[:30]}')
+          if len(new) < 2200:
+              raise SystemExit('Safety stop: perfume-only candidate unexpectedly small')
+          if len(removed) > max(200, int(len(old)*0.08)):
+              raise SystemExit('Safety stop: suspicious mass removal from master')
           PY
 
       - name: Build perfume-only Best Seller ranking
@@ -76,7 +82,7 @@ jobs:
             shobi-master-en.csv
             bestseller-ranking.js
 
-      - name: Promote validated English catalog and ranking on main
+      - name: Promote validated perfume-only catalog and ranking on main
         id: promote
         if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
         shell: bash
@@ -90,7 +96,7 @@ jobs:
             echo "No Shobi catalog/ranking changes."
             exit 0
           fi
-          git commit -m "Sync English Shobi catalog and bestseller ranking"
+          git commit -m "Sync perfume-only Shobi catalog and bestseller ranking"
           git push
           echo "changed=true" >> "$GITHUB_OUTPUT"
 
