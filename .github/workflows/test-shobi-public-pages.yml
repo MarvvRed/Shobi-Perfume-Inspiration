@@ -1,0 +1,20 @@
+name: Test Shobi Public Paginated Access
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'scripts/test_shobi_public_pages.py'
+      - '.github/workflows/test-shobi-public-pages.yml'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install beautifulsoup4
+      - name: Test public paginated catalog access
+        run: python scripts/test_shobi_public_pages.py
