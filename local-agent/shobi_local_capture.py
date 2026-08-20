@@ -3,7 +3,6 @@ import argparse
 import json
 import os
 import subprocess
-import sys
 import time
 from datetime import datetime, timezone
 from pathlib import Path
@@ -63,7 +62,6 @@ def run(cmd):
 def capture(setup=False):
     PROFILE.mkdir(parents=True, exist_ok=True)
     OUT.parent.mkdir(parents=True, exist_ok=True)
-
     opts = Options()
     opts.add_argument('-profile')
     opts.add_argument(str(PROFILE))
@@ -76,14 +74,12 @@ def capture(setup=False):
             input()
         else:
             time.sleep(8)
-
         perfumes = driver.execute_async_script(JS_FETCH, PERFUMES_XHR, 'perfumes')
         if not perfumes or not perfumes.get('ok'):
             raise RuntimeError(f"Perfumes XHR failed: {perfumes}")
         category = driver.execute_async_script(JS_FETCH, SHOBI_XHR, 'category')
         if not category or not category.get('ok'):
             raise RuntimeError(f"Shobi category XHR failed: {category}")
-
         rows = perfumes['rows']
         ids = [r['prestashop_product_id'] for r in rows]
         category_ids = category['ids']
@@ -96,7 +92,6 @@ def capture(setup=False):
         missing = sorted(set(ids) - set(category_ids), key=lambda x: int(x) if x.isdigit() else x)
         if missing:
             raise RuntimeError(f"Safety stop: {len(missing)} Shobi perfume IDs absent from /el/shobi; sample={missing[:20]}")
-
         payload = {
             'captured_at_utc': datetime.now(timezone.utc).isoformat(),
             'capture_host': os.environ.get('COMPUTERNAME','windows-local-agent'),
@@ -119,7 +114,6 @@ def capture(setup=False):
 
 
 def push_snapshot():
-    run(['git','pull','--ff-only'])
     run(['git','add',str(OUT.relative_to(ROOT))])
     status = subprocess.run(['git','diff','--cached','--quiet'], cwd=ROOT)
     if status.returncode == 0:
