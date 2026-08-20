@@ -109,12 +109,10 @@
     const btn = buttons[0];
     const root = findNotesRoot(btn);
     if (!root) { emit('diagnostic', { stage: 'notes-root-missing', detail: 'Fragrance notes block not found' }); return; }
+
     const plainNotes = parsePlainNotes(root);
     emit('diagnostic', { stage: 'plain-notes-scan', detail: `found=${plainNotes.length}; ${plainNotes.map(n => n.note).join(' | ')}` });
-    if (plainNotes.length >= 1 && plainNotes.length <= 5) {
-      emit('diagnostic', { stage: 'under5-ready', detail: `available=${plainNotes.length};saved=${plainNotes.length}; ${plainNotes.map(n => `#${n.rank} ${n.note}`).join(' | ')}` });
-      sendCapture(plainNotes, 'all-notes-when-five-or-fewer', null); return;
-    }
+
     const stateText = clean(btn.textContent).toLowerCase();
     if (/^hide\s+votes$/.test(stateText)) emit('diagnostic', { stage: 'votes-already-visible', detail: 'Hide votes detected; parsing without clicking' });
     else {
@@ -123,17 +121,31 @@
       try { btn.click(); } catch (e) { emit('page-error', { error: `Show votes click: ${String(e)}` }); return; }
       emit('diagnostic', { stage: 'show-votes-clicked' });
     }
+
     let ranked = [];
     for (let attempt = 1; attempt <= 8; attempt++) {
       await sleep(attempt === 1 ? 700 : 350);
       ranked = parseVotedNotes(root);
       emit('diagnostic', { stage: 'votes-scan', detail: `attempt=${attempt};found=${ranked.length}; ${ranked.slice(0, 8).map(n => `${n.note}=${n.votes}`).join(' | ')}` });
-      if (ranked.length >= 1) break;
+      const enoughForSmallSet = plainNotes.length >= 1 && plainNotes.length <= 5 && ranked.length >= plainNotes.length;
+      if (enoughForSmallSet || ranked.length >= 5) break;
     }
-    if (!ranked.length) { emit('diagnostic', { stage: 'votes-finished', detail: 'No voted notes parsed' }); return; }
-    const top5 = ranked.slice(0, 5).map((n, i) => ({ ...n, rank: i + 1 }));
-    emit('diagnostic', { stage: 'top5-ready', detail: `available=${ranked.length};saved=${top5.length}; ` + top5.map(n => `#${n.rank} ${n.note}=${n.votes}`).join(' | ') });
-    sendCapture(top5, 'show-votes-top5', ranked.length);
+
+    if (ranked.length) {
+      const saved = ranked.slice(0, 5).map((n, i) => ({ ...n, rank: i + 1 }));
+      const method = plainNotes.length >= 1 && plainNotes.length <= 5 ? 'votes-all-notes-when-five-or-fewer' : 'show-votes-top5';
+      emit('diagnostic', { stage: 'top5-ready', detail: `available=${ranked.length};saved=${saved.length}; ` + saved.map(n => `#${n.rank} ${n.note}=${n.votes}`).join(' | ') });
+      sendCapture(saved, method, ranked.length);
+      return;
+    }
+
+    if (plainNotes.length >= 1 && plainNotes.length <= 5) {
+      emit('diagnostic', { stage: 'under5-fallback', detail: `votes unavailable; available=${plainNotes.length};saved=${plainNotes.length}; ${plainNotes.map(n => `#${n.rank} ${n.note}`).join(' | ')}` });
+      sendCapture(plainNotes, 'all-notes-when-five-or-fewer-no-votes-fallback', null);
+      return;
+    }
+
+    emit('diagnostic', { stage: 'votes-finished', detail: 'No voted notes parsed' });
   }
 
   run().catch(e => emit('page-error', { error: `Show votes top5 collector: ${String(e)}` }));
