@@ -1,11 +1,39 @@
-// Visual verification for Official Catcher notes on rendered Best Seller cards.
-// A green check is shown only when the note names visible on the card exactly
-// match the Catcher runtime notes, in the same order.
+// Visual verification + real three-row note layout for Official Catcher Best Seller cards.
 (function () {
   function escText(v) { return String(v || '').trim(); }
 
+  function layoutNotes(card) {
+    if (!card || card.dataset.noteRowsReady === '1') return;
+    const buttons = Array.from(card.querySelectorAll('[data-card-filter="note"]'));
+    if (buttons.length < 3 || buttons.length > 5) return;
+
+    const host = buttons[0].parentElement;
+    if (!host || !buttons.every(btn => btn.parentElement === host)) return;
+
+    let groups;
+    if (buttons.length === 5) groups = [[0,1],[2,3],[4]];
+    else if (buttons.length === 4) groups = [[0,1],[2],[3]];
+    else groups = [[0],[1],[2]];
+
+    const rows = document.createElement('div');
+    rows.className = 'catcher-note-rows';
+    groups.forEach(indexes => {
+      const row = document.createElement('div');
+      row.className = 'catcher-note-row';
+      indexes.forEach(index => row.appendChild(buttons[index]));
+      rows.appendChild(row);
+    });
+
+    host.innerHTML = '';
+    host.className = 'catcher-note-rows';
+    while (rows.firstChild) host.appendChild(rows.firstChild);
+    card.dataset.noteRowsReady = '1';
+  }
+
   function verifyCard(card) {
-    if (!card || card.dataset.catcherVisualChecked === '1') return;
+    if (!card) return;
+    layoutNotes(card);
+    if (card.dataset.catcherVisualChecked === '1') return;
 
     const details = card.querySelector('[data-action="show-details"][data-code]');
     const code = details && escText(details.dataset.code);
@@ -22,7 +50,6 @@
     const exactMatch = expected.length === actual.length && expected.every((name, i) => name === actual[i]);
     card.dataset.catcherVisualChecked = '1';
     card.dataset.catcherNotesMatch = exactMatch ? 'true' : 'false';
-
     if (!exactMatch) return;
 
     const imageWrap = card.querySelector('.prototype-image-wrap');
@@ -35,21 +62,10 @@
     badge.setAttribute('aria-label', 'Notes verified with Official Catcher');
     badge.innerHTML = '<i class="fa-solid fa-check"></i>';
     badge.style.cssText = [
-      'position:absolute',
-      'right:10px',
-      'bottom:10px',
-      'width:28px',
-      'height:28px',
-      'border-radius:9999px',
-      'display:flex',
-      'align-items:center',
-      'justify-content:center',
-      'background:#16a34a',
-      'color:white',
-      'border:2px solid white',
-      'box-shadow:0 2px 8px rgba(0,0,0,.28)',
-      'font-size:14px',
-      'z-index:2'
+      'position:absolute','right:10px','bottom:10px','width:28px','height:28px',
+      'border-radius:9999px','display:flex','align-items:center','justify-content:center',
+      'background:#16a34a','color:white','border:2px solid white',
+      'box-shadow:0 2px 8px rgba(0,0,0,.28)','font-size:14px','z-index:2'
     ].join(';');
     imageWrap.appendChild(badge);
   }
