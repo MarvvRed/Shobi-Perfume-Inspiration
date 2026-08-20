@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "source": "official-catcher-0.3.5",
-  "updated_at": "2026-08-20T01:41:20.352Z",
+  "updated_at": "2026-08-20T01:42:08.753Z",
   "perfume_count": 10,
   "perfumes": {
     "899": {
@@ -296,27 +296,27 @@
       "name": "The Muse",
       "brand": "ZARKOPERFUME",
       "url": "https://www.fragrantica.com/perfume/ZARKOPERFUME/The-Muse-60665.html",
-      "capture_method": "all-notes-when-five-or-fewer",
-      "total_voted_notes": null,
+      "capture_method": "votes-all-notes-when-five-or-fewer",
+      "total_voted_notes": 3,
       "saved_note_count": 3,
       "notes": [
         {
           "rank": 1,
           "note": "Cotton Flower",
           "sastojak_id": 301,
-          "votes": null
+          "votes": 450
         },
         {
           "rank": 2,
           "note": "White Musk",
           "sastojak_id": 4,
-          "votes": null
+          "votes": 370
         },
         {
           "rank": 3,
           "note": "White Oud",
           "sastojak_id": 777,
-          "votes": null
+          "votes": 155
         }
       ]
     },
