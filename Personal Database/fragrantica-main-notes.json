@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "source": "official-catcher-0.3.5",
-  "updated_at": "2026-08-20T02:09:03.393Z",
+  "updated_at": "2026-08-20T02:09:27.805Z",
   "perfume_count": 20,
   "perfumes": {
     "899": {
@@ -773,8 +773,8 @@
     },
     "84951": {
       "fragrantica_id": 84951,
-      "name": "Devotion",
-      "brand": "Dolce&Gabbana",
+      "name": "Devotion Dolce&Gabbana for women",
+      "brand": null,
       "url": "https://www.fragrantica.com/perfume/Dolce-Gabbana/Devotion-84951.html",
       "capture_method": "votes-all-notes-when-five-or-fewer",
       "total_voted_notes": 5,
