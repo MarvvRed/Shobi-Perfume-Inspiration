@@ -126,19 +126,45 @@ def parse_page(html):
     return rows, len(all_cards), soup
 
 
+def get_with_retries(session, url, page, attempts=6):
+    last_error = None
+    for attempt in range(1, attempts + 1):
+        try:
+            response = session.get(url, timeout=60, allow_redirects=True)
+            print(f"FETCH page={page} attempt={attempt}/{attempts} status={response.status_code} url={response.url} bytes={len(response.content)}")
+            if response.status_code in {429, 500, 502, 503, 504}:
+                raise requests.HTTPError(f"retryable HTTP {response.status_code}", response=response)
+            response.raise_for_status()
+            return response
+        except requests.RequestException as exc:
+            last_error = exc
+            if attempt == attempts:
+                break
+            wait = min(30, 2 ** (attempt - 1))
+            print(f"RETRY page={page} attempt={attempt}/{attempts} wait={wait}s error={type(exc).__name__}: {exc}")
+            time.sleep(wait)
+            # Drop stale keep-alive connections before retrying.
+            session.close()
+            session.headers.update({
+                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/126.0 Safari/537.36",
+                "Accept-Language": "en-US,en;q=0.9",
+                "Connection": "close",
+            })
+    raise last_error
+
+
 def fetch_catalog():
     s = requests.Session()
     s.headers.update({
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/126.0 Safari/537.36",
         "Accept-Language": "en-US,en;q=0.9",
+        "Connection": "close",
     })
     found = []
     total_cards = 0
     for page in range(1, 251):
         requested = LIST_URL.format(page=page)
-        r = s.get(requested, timeout=45, allow_redirects=True)
-        print(f"FETCH page={page} status={r.status_code} url={r.url} bytes={len(r.content)}")
-        r.raise_for_status()
+        r = get_with_retries(s, requested, page)
         rows, cards, soup = parse_page(r.text)
         print(f"PARSE page={page} cards={cards} shobi={len(rows)} cumulative_cards={total_cards + cards} cumulative_shobi={len(found) + len(rows)}")
         if page == 1 and cards == 0:
@@ -156,7 +182,8 @@ def fetch_catalog():
         if not next_link:
             if not nums or page >= max(nums):
                 break
-        time.sleep(0.20)
+        # Intentionally polite pacing: this is a weekly maintenance job, not a scraper race.
+        time.sleep(0.75)
     print(f"FETCH_COMPLETE pages_processed={page} total_cards={total_cards} shobi_rows={len(found)}")
     return found, total_cards
 
