@@ -63,8 +63,27 @@ jobs:
             if (!p) return null;
             const name = clean(p.name);
             const brand = clean(p.brand);
-            if (catcherById['52616'] && name.includes('vanilla 28') && (name.includes('kayali') || brand.includes('kayali'))) {
-              return catcherById['52616'];
+
+            const aliases = [
+              { id: '52616', names: ['vanilla 28'], brands: ['kayali'] },
+              { id: '34893', names: ['soleil blanc'], brands: ['tom ford'] },
+              { id: '6458', names: ['bal d afrique','bal dafrique'], brands: ['byredo'] },
+              { id: '9828', names: ['aventus'], brands: ['creed'] },
+              { id: '4322', names: ['love don t be shy','love dont be shy'], brands: ['kilian','by kilian'] },
+              { id: '39358', names: ['this is her'], brands: ['zadig voltaire','zadig volatire'] },
+              { id: '84933', names: ['vanilla powder'], brands: ['matiere premiere'] },
+              { id: '64757', names: ['bianco latte'], brands: ['giardini di toscana'] },
+              { id: '30529', names: ['xj 1861 naxos','naxos'], brands: ['xerjoff'] },
+              { id: '3865', names: ['philosykos eau de parfum','philosykos'], brands: ['diptyque'] },
+              { id: '83483', names: ['goddess','burberry goddess'], brands: ['burberry'] }
+            ];
+
+            for (const alias of aliases) {
+              const src = catcherById[alias.id];
+              if (!src) continue;
+              const nameMatch = alias.names.some(n => name === n || name.includes(n));
+              const brandMatch = !brand || alias.brands.some(b => brand.includes(b));
+              if (nameMatch && brandMatch) return src;
             }
             return null;
           }
