@@ -1,12 +1,7 @@
-// Bestseller sorting uses only explicitly verified ranks and never shobi-master.csv row order.
-// #1-#20 come from the previously validated ranking; #21 is Sauvage Elixir.
-const VERIFIED_BESTSELLER_CODES = [
-    ...(window.SHOBI_BESTSELLER_CODES || []).slice(0, 20),
-    "1644-DRC M"
-];
-
+// Bestseller sorting uses the generated perfume-only Shobi ranking.
+// It is independent from shobi-master.csv row order.
 const FULL_BEST_SELLER_RANK = new Map(
-    VERIFIED_BESTSELLER_CODES.map((code, index) => [String(code), index])
+    Object.entries(window.SHOBI_BESTSELLER_RANK_BY_CODE || {}).map(([code, rank]) => [String(code), Number(rank)])
 );
 
 sortPerfumes = function(perfumes) {
@@ -38,4 +33,4 @@ sortPerfumes = function(perfumes) {
     return sorted;
 };
 
-console.log(`Loaded ${FULL_BEST_SELLER_RANK.size} verified Shobi bestseller ranks.`);
+console.log(`Loaded ${FULL_BEST_SELLER_RANK.size} filtered Shobi perfume bestseller ranks.`);
