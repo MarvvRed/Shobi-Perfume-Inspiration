@@ -1,0 +1,13 @@
+{
+  "date": "2026-08-20",
+  "baseline_file": "shobi-master-v1.csv",
+  "total_perfumes_cards": 2562,
+  "shobi_perfumes": 2343,
+  "new": 0,
+  "modified": 2343,
+  "removed": 0,
+  "changed": true,
+  "classification_rule": "Choose+Bottle+Extra Essence",
+  "primary_key": "prestashop_product_id",
+  "safety": "PASS"
+}
