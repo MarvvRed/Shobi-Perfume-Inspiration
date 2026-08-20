@@ -84,15 +84,17 @@ jobs:
 
             const src=match.src;
             row[2]=src.notes.slice().sort((a,b)=>(Number(a.rank)||999)-(Number(b.rank)||999)).slice(0,5).map(n=>String(n.note||'').trim()).filter(Boolean);
-            matchedIds.add(match.id);
-            appliedRows.push({code,perfume:src.name,fragrantica_id:String(src.fragrantica_id||match.id),catcher_key:match.id,matched_by:matchedBy,notes:row[2]});
+            matchedIds.add(String(match.id));
+            appliedRows.push({code,perfume:src.name,fragrantica_id:String(src.fragrantica_id||match.id),catcher_key:String(match.id),matched_by:matchedBy,notes:row[2]});
           }
 
           const expected=Object.keys(catcherById).length;
           const applied=matchedIds.size;
           const missing=Object.entries(catcherById).filter(([id])=>!matchedIds.has(String(id))).map(([id,src])=>`${id}:${src.name}`);
+          console.log(`Matched catcher keys: ${Array.from(matchedIds).sort((a,b)=>Number(a)-Number(b)).join(', ')}`);
+          console.log(`Aventus catcher key 9828 matched: ${matchedIds.has('9828')}`);
           console.log(`Official Catcher unique records applied: ${applied}/${expected} (${appliedRows.length} site rows updated)`);
-          appliedRows.forEach(x=>console.log(`${x.code} -> ${x.perfume} [${x.matched_by}] -> ${x.notes.join(' | ')}`));
+          appliedRows.forEach(x=>console.log(`${x.code} -> ${x.perfume} [${x.matched_by}] [catcher:${x.catcher_key}] -> ${x.notes.join(' | ')}`));
           if(missing.length)console.log('Missing catcher matches:',missing.join(' | '));
           if(applied!==expected)throw new Error(`Expected ${expected} unique catcher records, matched ${applied}. Deployment stopped to avoid partial data.`);
 
