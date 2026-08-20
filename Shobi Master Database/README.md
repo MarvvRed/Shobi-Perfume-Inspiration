@@ -1,27 +1,42 @@
 # Shobi Master Database
 
-Catalogo master dei veri profumi Shobi estratti dallo snapshot live completo della pagina `/en/perfumes`.
+Questa cartella è la **Single Source of Truth ufficiale** del catalogo Shobi per il progetto Shobi Perfume Inspiration.
 
-## Versione iniziale
+## Baseline ufficiale
 
-- Snapshot: 2026-08-20
-- Prodotti presenti nella pagina Show All: 2.562
-- Veri profumi Shobi inclusi nel Master: 2.343
-- Regola di classificazione: `Choose + Bottle + Extra Essence`
-- Primary key: `prestashop_product_id`
-- `prestashop_product_id`: 2.343/2.343 presenti, 2.343/2.343 unici, 0 duplicati
+- `shobi-master-v1.csv` = baseline congelata del 2026-08-20.
+- 2.343 veri profumi Shobi.
+- Regola ufficiale di identificazione: `Choose + Bottle + Extra Essence`.
+- Primary key: `prestashop_product_id`.
 
-## Principi
+## Aggiornamento automatico
 
-Il Master include soltanto prodotti che superano la firma tecnica Shobi verificata. I prefissi reference (`WP`, `AR`, `EL`, `MP`, `LUX`, `MIX`, `UAE`) non sono usati come condizione primaria.
+Il catalogo ufficiale viene controllato automaticamente tramite GitHub Actions, senza dipendere da browser, Show All, console o sessioni manuali.
 
-`prestashop_product_id` identifica il record tecnico del prodotto ed è la primary key del Master. `reference`, nome, URL e categoria sono attributi e possono cambiare o non essere univoci.
+Workflow ufficiale:
 
-I campi non ricavabili con certezza dai dati ufficiali non vengono inventati: rimangono vuoti in attesa di verifica.
+`.github/workflows/sync-shobi-master-official.yml`
 
-## File
+Script ufficiale:
 
-- `shobi-master-v1.csv` — catalogo master completo, 2.343 record.
-- `shobi-master-v1-audit.txt` — audit della generazione iniziale.
+`scripts/sync_shobi_master_official.py`
 
-La metodologia e la regola di estrazione sono documentate separatamente nella cartella `Shobi Catalog Extractor`.
+La pipeline:
+
+1. legge direttamente tutte le pagine live di `https://leparfum.com.gr/en/perfumes`;
+2. riconosce i veri profumi Shobi tramite la firma `Choose + Bottle + Extra Essence`;
+3. estrae `prestashop_product_id` direttamente dalle card;
+4. confronta il nuovo snapshot con il Master corrente;
+5. classifica le differenze in `NEW`, `MODIFIED`, `REMOVED`;
+6. applica safety checks prima di qualunque promozione;
+7. aggiorna `shobi-master-current.csv` solo se il controllo è valido;
+8. salva un report delle differenze in `reports/`;
+9. non modifica mai `shobi-master-v1.csv`, che resta la baseline storica congelata.
+
+## Regola di sicurezza
+
+Se la struttura del sito cambia, se la firma Shobi non viene più trovata, se gli ID diventano duplicati/mancanti o se il numero di prodotti cambia in modo anomalo, la pipeline deve **fallire senza aggiornare il Master**.
+
+I prefissi (`WP`, `MP`, `EL`, `AR`, `LUX`, `MIX`, `UAE`, ecc.) sono segnali secondari e non vengono usati come condizione necessaria per identificare un vero Shobi.
+
+Vedi anche `CHECKPOINT-MASTER-V1.md` per il checkpoint ufficiale che ha istituito questa baseline.
