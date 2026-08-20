@@ -15,6 +15,7 @@ on:
 
 permissions:
   contents: write
+  actions: write
 
 concurrency:
   group: sync-english-shobi-catalog
@@ -69,6 +70,7 @@ jobs:
           path: shobi-master-en.csv
 
       - name: Promote validated English catalog on main
+        id: promote
         if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
         shell: bash
         run: |
@@ -77,8 +79,16 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add shobi-master.csv shobi-master-en.csv
           if git diff --cached --quiet; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
             echo "No English Shobi catalog changes."
             exit 0
           fi
           git commit -m "Sync English Shobi catalog"
           git push
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+
+      - name: Deploy updated catalog to GitHub Pages
+        if: steps.promote.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run deploy-pages.yml --ref main
