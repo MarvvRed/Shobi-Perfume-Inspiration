@@ -7,10 +7,12 @@ on:
   push:
     paths:
       - 'scripts/build_shobi_master_en.py'
+      - 'scripts/build_shobi_bestseller_ranking.py'
       - '.github/workflows/build-shobi-master-en.yml'
   pull_request:
     paths:
       - 'scripts/build_shobi_master_en.py'
+      - 'scripts/build_shobi_bestseller_ranking.py'
       - '.github/workflows/build-shobi-master-en.yml'
 
 permissions:
@@ -62,14 +64,19 @@ jobs:
               raise SystemExit('Safety stop: candidate removed catalog codes')
           PY
 
-      - name: Keep candidate as artifact on pull requests
+      - name: Build perfume-only Best Seller ranking
+        run: python scripts/build_shobi_bestseller_ranking.py
+
+      - name: Keep candidates as artifacts on pull requests
         if: github.event_name == 'pull_request'
         uses: actions/upload-artifact@v4
         with:
-          name: shobi-master-en
-          path: shobi-master-en.csv
+          name: shobi-sync-candidates
+          path: |
+            shobi-master-en.csv
+            bestseller-ranking.js
 
-      - name: Promote validated English catalog on main
+      - name: Promote validated English catalog and ranking on main
         id: promote
         if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
         shell: bash
@@ -77,13 +84,13 @@ jobs:
           cp shobi-master-en.csv shobi-master.csv
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add shobi-master.csv shobi-master-en.csv
+          git add shobi-master.csv shobi-master-en.csv bestseller-ranking.js
           if git diff --cached --quiet; then
             echo "changed=false" >> "$GITHUB_OUTPUT"
-            echo "No English Shobi catalog changes."
+            echo "No Shobi catalog/ranking changes."
             exit 0
           fi
-          git commit -m "Sync English Shobi catalog"
+          git commit -m "Sync English Shobi catalog and bestseller ranking"
           git push
           echo "changed=true" >> "$GITHUB_OUTPUT"
 
