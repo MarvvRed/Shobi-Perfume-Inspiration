@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "official-catcher-0.3.5",
-  "updated_at": "2026-08-20T01:48:57.027Z",
-  "perfume_count": 13,
+  "updated_at": "2026-08-20T01:49:03.931Z",
+  "perfume_count": 14,
   "perfumes": {
     "899": {
       "fragrantica_id": 899,
@@ -83,6 +83,47 @@
           "note": "Cacao",
           "sastojak_id": 135,
           "votes": 3462
+        }
+      ]
+    },
+    "4322": {
+      "fragrantica_id": 4322,
+      "name": "Love Don't Be Shy",
+      "brand": "By Kilian",
+      "url": "https://www.fragrantica.com/perfume/By-Kilian/Love-Don-t-Be-Shy-4322.html",
+      "capture_method": "show-votes-top5",
+      "total_voted_notes": 16,
+      "saved_note_count": 5,
+      "notes": [
+        {
+          "rank": 1,
+          "note": "Sugar",
+          "sastojak_id": 200,
+          "votes": 2900
+        },
+        {
+          "rank": 2,
+          "note": "Vanilla",
+          "sastojak_id": 74,
+          "votes": 2481
+        },
+        {
+          "rank": 3,
+          "note": "Caramel",
+          "sastojak_id": 183,
+          "votes": 2395
+        },
+        {
+          "rank": 4,
+          "note": "Orange Blossom",
+          "sastojak_id": 16,
+          "votes": 2344
+        },
+        {
+          "rank": 5,
+          "note": "Neroli",
+          "sastojak_id": 17,
+          "votes": 1732
         }
       ]
     },
