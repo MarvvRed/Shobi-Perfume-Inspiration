@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "official-catcher-0.3.5",
-  "updated_at": "2026-08-20T01:49:18.278Z",
-  "perfume_count": 16,
+  "updated_at": "2026-08-20T01:49:25.675Z",
+  "perfume_count": 17,
   "perfumes": {
     "899": {
       "fragrantica_id": 899,
@@ -563,6 +563,47 @@
           "note": "Tonka Bean",
           "sastojak_id": 73,
           "votes": 2423
+        }
+      ]
+    },
+    "64757": {
+      "fragrantica_id": 64757,
+      "name": "Bianco Latte",
+      "brand": "Giardini Di Toscana",
+      "url": "https://www.fragrantica.com/perfume/Giardini-Di-Toscana/Bianco-Latte-64757.html",
+      "capture_method": "votes-all-notes-when-five-or-fewer",
+      "total_voted_notes": 5,
+      "saved_note_count": 5,
+      "notes": [
+        {
+          "rank": 1,
+          "note": "Vanilla",
+          "sastojak_id": 74,
+          "votes": 2319
+        },
+        {
+          "rank": 2,
+          "note": "Caramel",
+          "sastojak_id": 183,
+          "votes": 2219
+        },
+        {
+          "rank": 3,
+          "note": "Coumarin",
+          "sastojak_id": 259,
+          "votes": 1220
+        },
+        {
+          "rank": 4,
+          "note": "Honey",
+          "sastojak_id": 181,
+          "votes": 1192
+        },
+        {
+          "rank": 5,
+          "note": "White Musk",
+          "sastojak_id": 4,
+          "votes": 833
         }
       ]
     },
