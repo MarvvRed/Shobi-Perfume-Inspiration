@@ -74,10 +74,11 @@ jobs:
               v=r[k]
               if isinstance(v,bool): v=str(v).lower()
               print(f'{k}={v}')
+          print(f"current_exists={'true' if Path('Shobi Master Database/shobi-master-current.csv').exists() else 'false'}")
           PY
 
       - name: Promote validated candidate
-        if: steps.timeguard.outputs.run == 'true' && steps.build.outputs.changed == 'true'
+        if: steps.timeguard.outputs.run == 'true' && (steps.build.outputs.changed == 'true' || steps.build.outputs.current_exists == 'false')
         shell: bash
         run: |
           DATE="$(date -u +%F)"
