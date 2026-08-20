@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "source": "official-catcher-0.3.5",
-  "updated_at": "2026-08-20T01:51:34.218Z",
+  "updated_at": "2026-08-20T02:09:03.393Z",
   "perfume_count": 20,
   "perfumes": {
     "899": {
@@ -275,7 +275,7 @@
           "rank": 3,
           "note": "Bergamot",
           "sastojak_id": 75,
-          "votes": 2819
+          "votes": 2818
         },
         {
           "rank": 4,
