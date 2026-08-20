@@ -1,12 +1,61 @@
-// Verified note enrichment for Best Seller #21-#100.
-// Runtime source: bestseller-notes-verified.json, generated from Personal Database/perfume-details.json.
-// Personal Database remains read-only and is never fetched by the browser.
+// Verified note enrichment for Best Sellers.
+// #1-#20 are loaded directly from the Official Catcher before first render.
+// #21-#100 keep using bestseller-notes-verified.json.
 (function () {
-    const rankedCodes = () => (window.SHOBI_BESTSELLER_CODES || []).slice(20, 100).map(String);
+    const catcherFids1to20 = [
+        '52616','62615','6686','1825','60665','33519','899','51411','84951','56062',
+        '34893','6458','9828','4322','39358','84933','64757','30529','3865','83483'
+    ];
 
     function unique(values) {
         return [...new Set((values || []).map(v => String(v || '').trim()).filter(Boolean))];
     }
+
+    async function loadOfficialCatcherForFirst20() {
+        const codes = (window.SHOBI_BESTSELLER_CODES || []).slice(0, 20).map(String);
+        if (codes.length < 20) {
+            console.warn(`Official Catcher card bridge: expected 20 Best Seller codes, found ${codes.length}.`);
+            return;
+        }
+
+        try {
+            const response = await fetch('Personal Database/fragrantica-main-notes.json', { cache: 'no-cache' });
+            if (!response.ok) throw new Error(`HTTP ${response.status}`);
+            const payload = await response.json();
+            const perfumes = payload && payload.perfumes && typeof payload.perfumes === 'object' ? payload.perfumes : {};
+            const byCode = {};
+            const missing = [];
+
+            catcherFids1to20.forEach((fid, index) => {
+                const record = perfumes[fid];
+                const code = codes[index];
+                if (!record || !Array.isArray(record.notes) || !record.notes.length) {
+                    missing.push(`#${index + 1}:${fid}`);
+                    return;
+                }
+                byCode[code] = record.notes
+                    .slice()
+                    .sort((a, b) => (Number(a.rank) || 999) - (Number(b.rank) || 999))
+                    .slice(0, 5)
+                    .map(note => [String(note.note || '').trim(), String(note.sastojak_id || '').trim()])
+                    .filter(pair => pair[0]);
+            });
+
+            window.SHOBI_CATCHER_NOTES_BY_CODE = byCode;
+            window.SHOBI_CATCHER_CARD_AUDIT = {
+                scope: '1-20',
+                total: 20,
+                loaded: Object.keys(byCode).length,
+                missing
+            };
+            console.log(`Official Catcher card bridge #1-#20: ${Object.keys(byCode).length}/20 loaded.`);
+            if (missing.length) console.warn('Official Catcher card bridge missing:', missing);
+        } catch (error) {
+            console.error('Official Catcher card bridge failed; static card fallbacks remain active.', error);
+        }
+    }
+
+    const rankedCodes = () => (window.SHOBI_BESTSELLER_CODES || []).slice(20, 100).map(String);
 
     function clearUnverifiedNotes(perfume) {
         if (!perfume) return;
@@ -59,7 +108,6 @@
                 return;
             }
 
-            // Never expose legacy/unverified note data on Best Seller #21-#100.
             clearUnverifiedNotes(perfume);
 
             const details = verifiedDb[code];
@@ -84,6 +132,7 @@
     if (typeof init === 'function') {
         const baseInit = init;
         init = async function () {
+            await loadOfficialCatcherForFirst20();
             await baseInit();
             await enrichBestSellerNotes();
             if (typeof applyFiltersAndRender === 'function') applyFiltersAndRender();
