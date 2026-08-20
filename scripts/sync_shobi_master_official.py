@@ -18,7 +18,9 @@ REPORT_JSON = MASTER_DIR / "latest-sync-report.json"
 REPORT_CSV = MASTER_DIR / "latest-sync-changes.csv"
 BASE = "https://leparfum.com.gr"
 SHOW_ALL_URL = BASE + "/en/perfumes?resultsPerPage=99999"
+SHOBI_CATEGORY_URL = BASE + "/el/shobi?resultsPerPage=99999"
 RULE = "Choose+Bottle+Extra Essence"
+SECONDARY_RULE = "prestashop_product_id present in /el/shobi"
 FIELDS = ["prestashop_product_id","shobi_code","shobi_name","reference","reference_prefix","inspired_by","category","price_from_eur","official_description","url","first_seen","last_seen","status","classification_rule","source"]
 
 
@@ -71,27 +73,48 @@ def parse_page(html):
         rows.append({"prestashop_product_id":pid,"shobi_code":extract_code(title,desc),"shobi_name":title,"reference":reference,"reference_prefix":pm.group(0).upper() if pm else "","inspired_by":extract_inspired(desc),"category":category,"price_from_eur":price,"official_description":desc,"url":url})
     return rows,len(all_cards),soup
 
+def parse_category_ids(html):
+    soup=BeautifulSoup(html,"html.parser")
+    cards=soup.select("article.product-miniature[data-id-product]")
+    ids=[clean(card.get("data-id-product")) for card in cards]
+    return ids,len(cards)
+
+def browser_navigate(page,url,min_cards,label):
+    print(f"BROWSER_NAVIGATE label={label} url={url}")
+    page.goto(url,wait_until="domcontentloaded",timeout=120000)
+    for i in range(12):
+        title=page.title(); final_url=page.url
+        cards=page.locator("article.product-miniature[data-id-product]").count()
+        print(f"BROWSER_WAIT label={label} step={i} title={title!r} url={final_url} cards={cards}")
+        if cards >= min_cards: break
+        page.wait_for_timeout(5000)
+    html=page.content(); final_url=page.url; final_title=page.title()
+    if "__browser-challenge" in final_url or final_title.lower()=="browser verification":
+        raise SystemExit(f"Safety stop: Shobi browser verification did not grant normal automated browser access for {label}")
+    return html,final_url,final_title
+
 def fetch_catalog():
-    # Use a standard, non-stealth Chromium session and let Shobi's own browser
-    # verification decide whether normal browser access is allowed.
+    # Use one standard, non-stealth Chromium session for both official signals.
+    # Primary signal: /en/perfumes + Choose/Bottle/Extra Essence signature.
+    # Secondary independent signal: membership of the same product ID in /el/shobi.
     with sync_playwright() as p:
         browser=p.chromium.launch(headless=False)
         context=browser.new_context(locale="en-US")
         page=context.new_page()
-        print(f"BROWSER_NAVIGATE {SHOW_ALL_URL}")
-        page.goto(SHOW_ALL_URL,wait_until="domcontentloaded",timeout=120000)
-        for i in range(12):
-            title=page.title(); url=page.url
-            cards=page.locator("article.product-miniature[data-id-product]").count()
-            print(f"BROWSER_WAIT step={i} title={title!r} url={url} cards={cards}")
-            if cards >= 2400: break
-            page.wait_for_timeout(5000)
-        html=page.content(); final_url=page.url; final_title=page.title(); browser.close()
-    rows,cards,soup=parse_page(html)
-    print(f"SHOW_ALL title={final_title!r} url={final_url} cards={cards} shobi={len(rows)}")
-    if cards==0 or "__browser-challenge" in final_url or final_title.lower()=="browser verification":
-        raise SystemExit("Safety stop: Shobi browser verification did not grant normal automated browser access")
-    return rows,cards
+
+        html,final_url,final_title=browser_navigate(page,SHOW_ALL_URL,2400,"perfumes")
+        rows,cards,_=parse_page(html)
+        print(f"SHOW_ALL title={final_title!r} url={final_url} cards={cards} shobi={len(rows)}")
+        if cards==0:
+            browser.close()
+            raise SystemExit("Safety stop: no product cards detected on /en/perfumes")
+
+        category_html,category_final_url,category_final_title=browser_navigate(page,SHOBI_CATEGORY_URL,3000,"shobi-category")
+        category_ids,category_cards=parse_category_ids(category_html)
+        print(f"SHOBI_CATEGORY title={category_final_title!r} url={category_final_url} cards={category_cards} unique_ids={len(set(category_ids))}")
+        browser.close()
+
+    return rows,cards,category_ids,category_cards
 
 def merge_live_with_history(live_rows,old_rows):
     today=date.today().isoformat(); old={r["prestashop_product_id"]:r for r in old_rows}; merged=[]
@@ -112,12 +135,23 @@ def main():
     old_path=CURRENT if CURRENT.exists() else BASELINE
     if not old_path.exists(): raise SystemExit("Safety stop: no official Shobi Master baseline found")
     old_rows=load_csv(old_path); old_by_id={r["prestashop_product_id"]:r for r in old_rows}; print(f"BASELINE file={old_path.name} rows={len(old_rows)}")
-    raw_live,total_cards=fetch_catalog(); ids=[r["prestashop_product_id"] for r in raw_live]; print(f"VALIDATE total_cards={total_cards} shobi={len(raw_live)} unique_ids={len(set(ids))}")
+    raw_live,total_cards,category_ids,category_cards=fetch_catalog(); ids=[r["prestashop_product_id"] for r in raw_live]; print(f"VALIDATE total_cards={total_cards} shobi={len(raw_live)} unique_ids={len(set(ids))}")
     if any(not x for x in ids): raise SystemExit("Safety stop: live Shobi product missing prestashop_product_id")
     if len(ids)!=len(set(ids)): raise SystemExit("Safety stop: duplicate prestashop_product_id in live Shobi catalog")
     if len(raw_live)<2200: raise SystemExit(f"Safety stop: only {len(raw_live)} Shobi perfumes detected")
     if total_cards<2400: raise SystemExit(f"Safety stop: only {total_cards} total Perfumes cards detected")
     if abs(len(raw_live)-len(old_rows))>max(300,int(len(old_rows)*0.12)): raise SystemExit(f"Safety stop: suspicious catalog-size jump old={len(old_rows)} live={len(raw_live)}")
+
+    if any(not x for x in category_ids): raise SystemExit("Safety stop: /el/shobi product missing prestashop_product_id")
+    if len(category_ids)!=len(set(category_ids)): raise SystemExit("Safety stop: duplicate prestashop_product_id in /el/shobi")
+    if category_cards<3000: raise SystemExit(f"Safety stop: only {category_cards} products detected in /el/shobi")
+    category_id_set=set(category_ids); live_id_set=set(ids); missing_from_category=sorted(live_id_set-category_id_set,key=lambda x:int(x) if x.isdigit() else x)
+    if missing_from_category:
+        sample=",".join(missing_from_category[:20])
+        raise SystemExit(f"Safety stop: {len(missing_from_category)} signature-certified Shobi perfumes are absent from /el/shobi; sample={sample}")
+    category_extra=len(category_id_set-live_id_set)
+    print(f"CROSSCHECK rule={SECONDARY_RULE!r} category={len(category_id_set)} perfumes={len(live_id_set)} missing=0 category_extra={category_extra}")
+
     merged=merge_live_with_history(raw_live,old_rows); live_by_id={r["prestashop_product_id"]:r for r in merged}; old_ids,live_ids=set(old_by_id),set(live_by_id)
     new_ids=sorted(live_ids-old_ids,key=lambda x:int(x) if x.isdigit() else x); removed_ids=sorted(old_ids-live_ids,key=lambda x:int(x) if x.isdigit() else x); modified=[]
     for pid in sorted(old_ids&live_ids,key=lambda x:int(x) if x.isdigit() else x):
@@ -131,7 +165,7 @@ def main():
     for pid in removed_ids:
         r=old_by_id[pid]; changes.append({"change":"REMOVED","prestashop_product_id":pid,"shobi_name":r["shobi_name"],"reference":r["reference"],"fields":""})
     write_csv(CANDIDATE,merged); write_csv(REPORT_CSV,changes,["change","prestashop_product_id","shobi_name","reference","fields"])
-    report={"date":date.today().isoformat(),"baseline_file":old_path.name,"source_url":SHOW_ALL_URL,"total_perfumes_cards":total_cards,"shobi_perfumes":len(merged),"new":len(new_ids),"modified":len(modified),"removed":len(removed_ids),"changed":bool(changes),"classification_rule":RULE,"primary_key":"prestashop_product_id","safety":"PASS"}
+    report={"date":date.today().isoformat(),"baseline_file":old_path.name,"source_url":SHOW_ALL_URL,"secondary_source_url":SHOBI_CATEGORY_URL,"total_perfumes_cards":total_cards,"shobi_perfumes":len(merged),"shobi_category_products":len(category_id_set),"shobi_category_extra_products":category_extra,"shobi_category_missing_perfumes":0,"new":len(new_ids),"modified":len(modified),"removed":len(removed_ids),"changed":bool(changes),"classification_rule":RULE,"secondary_validation_rule":SECONDARY_RULE,"primary_key":"prestashop_product_id","safety":"PASS"}
     REPORT_JSON.write_text(json.dumps(report,indent=2,ensure_ascii=False),encoding="utf-8"); print(json.dumps(report,indent=2))
 
 if __name__=="__main__": main()
