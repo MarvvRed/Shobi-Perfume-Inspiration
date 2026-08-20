@@ -1,0 +1,65 @@
+{
+  "source": "firefox-extension",
+  "batch": "bestsellers-11-20",
+  "target": {
+    "rank": 19,
+    "name": "Philosykos Eau de Parfum",
+    "brand": "Diptyque",
+    "url": "https://www.fragrantica.com/perfume/Diptyque/Philosykos-3865.html"
+  },
+  "perfume": "Philosykos Eau de Parfum Diptyque for women and men",
+  "url": "https://www.fragrantica.com/perfume/Diptyque/Philosykos-3865.html",
+  "capture_method": "show-votes-top5",
+  "captured_at": "2026-08-20T01:49:38.200Z",
+  "total_voted_notes": 7,
+  "saved_note_count": 5,
+  "weights_sum": null,
+  "notes": [
+    {
+      "rank": 1,
+      "note": "Fig Leaf",
+      "sastojak_id": 150,
+      "votes": 3044,
+      "weight": null,
+      "percentage": null,
+      "pyramid_level": null
+    },
+    {
+      "rank": 2,
+      "note": "Fig",
+      "sastojak_id": 247,
+      "votes": 2332,
+      "weight": null,
+      "percentage": null,
+      "pyramid_level": null
+    },
+    {
+      "rank": 3,
+      "note": "Green Notes",
+      "sastojak_id": 318,
+      "votes": 2057,
+      "weight": null,
+      "percentage": null,
+      "pyramid_level": null
+    },
+    {
+      "rank": 4,
+      "note": "Coconut",
+      "sastojak_id": 138,
+      "votes": 1600,
+      "weight": null,
+      "percentage": null,
+      "pyramid_level": null
+    },
+    {
+      "rank": 5,
+      "note": "Fig Tree",
+      "sastojak_id": 431,
+      "votes": 1512,
+      "weight": null,
+      "percentage": null,
+      "pyramid_level": null
+    }
+  ],
+  "received_at": "2026-08-20T01:49:38.462Z"
+}
