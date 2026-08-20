@@ -99,18 +99,43 @@ jobs:
               .map(n => String(n.note || '').trim())
               .filter(Boolean);
             applied++;
-            appliedRows.push(`${code} -> ${src.name} [${matchedBy}] -> ${row[2].join(' | ')}`);
+            appliedRows.push({
+              code,
+              perfume: src.name,
+              matched_by: matchedBy,
+              notes: row[2]
+            });
           }
 
-          console.log(`Official Catcher notes applied: ${applied}/${Object.keys(catcherById).length}`);
-          appliedRows.forEach(x => console.log(x));
-          const missing = Object.values(catcherById).filter(src => !appliedRows.some(row => row.includes(`-> ${src.name} [`))).map(src => `${src.fragrantica_id || '?'}:${src.name}`);
+          const expected = Object.keys(catcherById).length;
+          console.log(`Official Catcher notes applied: ${applied}/${expected}`);
+          appliedRows.forEach(x => console.log(`${x.code} -> ${x.perfume} [${x.matched_by}] -> ${x.notes.join(' | ')}`));
+          const missing = Object.values(catcherById)
+            .filter(src => !appliedRows.some(row => row.perfume === src.name))
+            .map(src => `${src.fragrantica_id || '?'}:${src.name}`);
           if (missing.length) console.log('Missing catcher matches:', missing.join(' | '));
-          if (applied !== Object.keys(catcherById).length) {
-            throw new Error(`Expected to apply ${Object.keys(catcherById).length} catcher records, applied ${applied}. Deployment stopped to avoid partial test data.`);
+          if (applied !== expected) {
+            throw new Error(`Expected to apply ${expected} catcher records, applied ${applied}. Deployment stopped to avoid partial test data.`);
           }
 
           fs.writeFileSync(enrichmentPath, JSON.stringify(enrichmentDoc));
+
+          const deployStatus = {
+            schema_version: 1,
+            success: true,
+            workflow: 'Deploy Pages',
+            commit_sha: process.env.GITHUB_SHA || '',
+            generated_at: new Date().toISOString(),
+            catcher: 'official-catcher-0.3.5',
+            applied,
+            expected,
+            missing: [],
+            matches: appliedRows
+          };
+          const statusJson = JSON.stringify(deployStatus, null, 2) + '\n';
+          fs.writeFileSync(`${baseDir}/deploy-status.json`, statusJson);
+          fs.writeFileSync('deploy-status.json', statusJson);
+          console.log(`Deploy status written: success=true, catcher=${applied}/${expected}, sha=${deployStatus.commit_sha}`);
           NODE
 
       - name: Configure Pages
