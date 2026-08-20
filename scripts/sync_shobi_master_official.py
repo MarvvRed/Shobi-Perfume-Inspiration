@@ -89,11 +89,16 @@ def parse_page(html):
         if not signature_href:
             continue
         pid = clean(card.get("data-id-product"))
-        title = clean((card.select_one(".product-title") or {}).get_text(" ", strip=True) if card.select_one(".product-title") else "")
-        reference = clean((card.select_one(".product-reference") or {}).get_text(" ", strip=True) if card.select_one(".product-reference") else "")
-        category = clean((card.select_one(".product-category-name") or {}).get_text(" ", strip=True) if card.select_one(".product-category-name") else "")
-        desc = clean((card.select_one(".product-description-short") or {}).get_text(" ", strip=True) if card.select_one(".product-description-short") else "")
-        price = price_value((card.select_one(".product-price") or {}).get_text(" ", strip=True) if card.select_one(".product-price") else "")
+        title_node = card.select_one(".product-title")
+        ref_node = card.select_one(".product-reference")
+        category_node = card.select_one(".product-category-name")
+        desc_node = card.select_one(".product-description-short")
+        price_node = card.select_one(".product-price")
+        title = clean(title_node.get_text(" ", strip=True) if title_node else "")
+        reference = clean(ref_node.get_text(" ", strip=True) if ref_node else "")
+        category = clean(category_node.get_text(" ", strip=True) if category_node else "")
+        desc = clean(desc_node.get_text(" ", strip=True) if desc_node else "")
+        price = price_value(price_node.get_text(" ", strip=True) if price_node else "")
         url = urljoin(BASE, signature_href.split("#", 1)[0])
         pm = re.match(r"^[A-Za-z]+", reference)
         rows.append({
@@ -114,26 +119,35 @@ def parse_page(html):
 def fetch_catalog():
     s = requests.Session()
     s.headers.update({
-        "User-Agent": "Mozilla/5.0 (compatible; ShobiMasterUpdater/1.0; +https://github.com/MarvvRed/Shobi-Perfume-Inspiration)"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/126.0 Safari/537.36",
+        "Accept-Language": "en-US,en;q=0.9",
     })
     found = []
     total_cards = 0
     for page in range(1, 251):
-        r = s.get(LIST_URL.format(page=page), timeout=45)
+        requested = LIST_URL.format(page=page)
+        r = s.get(requested, timeout=45, allow_redirects=True)
+        print(f"FETCH page={page} status={r.status_code} url={r.url} bytes={len(r.content)}")
         r.raise_for_status()
         rows, cards, soup = parse_page(r.text)
+        print(f"PARSE page={page} cards={cards} shobi={len(rows)} cumulative_cards={total_cards + cards} cumulative_shobi={len(found) + len(rows)}")
         if page == 1 and cards == 0:
+            title = clean(soup.title.get_text(" ", strip=True) if soup.title else "")
+            print(f"PAGE1_TITLE={title}")
+            print(f"PAGE1_HTML_PREFIX={clean(r.text[:1200])}")
             raise SystemExit("Safety stop: no product cards found on /en/perfumes")
         if cards == 0:
             break
         found.extend(rows)
         total_cards += cards
         next_link = soup.select_one("a.next, .pagination .next a, a[rel='next']")
+        nums = [int(clean(a.get_text())) for a in soup.select(".pagination a") if clean(a.get_text()).isdigit()]
+        print(f"PAGINATION page={page} next={bool(next_link)} numeric_pages={nums[-10:] if nums else []}")
         if not next_link:
-            nums = [int(clean(a.get_text())) for a in soup.select(".pagination a") if clean(a.get_text()).isdigit()]
             if not nums or page >= max(nums):
                 break
         time.sleep(0.20)
+    print(f"FETCH_COMPLETE pages_processed={page} total_cards={total_cards} shobi_rows={len(found)}")
     return found, total_cards
 
 
@@ -147,7 +161,6 @@ def merge_live_with_history(live_rows, old_rows):
         if prev:
             row.update(prev)
         for k, v in live.items():
-            # Never erase a known value just because a listing field is temporarily blank.
             if v != "" or not prev:
                 row[k] = v
         row["first_seen"] = prev.get("first_seen", today) if prev else today
@@ -170,9 +183,11 @@ def main():
         raise SystemExit("Safety stop: no official Shobi Master baseline found")
     old_rows = load_csv(old_path)
     old_by_id = {r["prestashop_product_id"]: r for r in old_rows}
+    print(f"BASELINE file={old_path.name} rows={len(old_rows)}")
 
     raw_live, total_cards = fetch_catalog()
     ids = [r["prestashop_product_id"] for r in raw_live]
+    print(f"VALIDATE total_cards={total_cards} shobi={len(raw_live)} unique_ids={len(set(ids))}")
     if any(not x for x in ids):
         raise SystemExit("Safety stop: live Shobi product missing prestashop_product_id")
     if len(ids) != len(set(ids)):
