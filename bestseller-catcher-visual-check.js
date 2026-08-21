@@ -42,6 +42,65 @@
     return card.dataset.catcherCode || '';
   }
 
+  function noteNames(card) {
+    return Array.from(card.querySelectorAll('[data-card-filter="note"]'))
+      .map(el => escText(el.dataset.filterValue))
+      .filter(Boolean);
+  }
+
+  function sameNotes(expected, actual) {
+    return expected.length === actual.length && expected.every((name, i) => name === actual[i]);
+  }
+
+  function rebuildNotesFromVerified(card, expectedPairs) {
+    const existing = Array.from(card.querySelectorAll('[data-card-filter="note"]'));
+    if (!existing.length) return false;
+    const host = existing[0].parentElement;
+    if (!host || !existing.every(btn => btn.parentElement === host)) return false;
+
+    host.innerHTML = '';
+    expectedPairs.forEach(pair => {
+      const name = escText(Array.isArray(pair) ? pair[0] : pair);
+      const id = escText(Array.isArray(pair) ? pair[1] : '');
+      if (!name) return;
+
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'prototype-meta-badge prototype-filter-badge' +
+        ((window.state && state.selectedNote === name) ? ' is-active' : '');
+      btn.dataset.cardFilter = 'note';
+      btn.dataset.filterValue = name;
+      btn.title = `Filter by ${name}`;
+
+      if (id) {
+        const img = document.createElement('img');
+        img.src = `https://fimgs.net/mdimg/sastojci/t.${id}.jpg`;
+        img.alt = '';
+        img.width = 22;
+        img.height = 22;
+        img.loading = 'lazy';
+        img.decoding = 'async';
+        img.style.cssText = 'width:22px;height:22px;object-fit:cover;border-radius:50%;flex:0 0 22px';
+        btn.appendChild(img);
+      } else {
+        const visual = document.createElement('span');
+        visual.setAttribute('aria-hidden', 'true');
+        visual.style.cssText = 'width:22px;height:22px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;flex:0 0 22px;background:var(--color-bg-surface);border:1px solid var(--color-border-light);font-size:10px';
+        visual.innerHTML = '<i class="fa-solid fa-droplet"></i>';
+        btn.appendChild(visual);
+      }
+
+      const text = document.createElement('span');
+      text.textContent = name;
+      btn.appendChild(text);
+      host.appendChild(btn);
+    });
+
+    card.dataset.noteRowsReady = '0';
+    card.dataset.catcherAutoHealed = 'true';
+    return true;
+  }
+
   function layoutNotes(card) {
     if (!card || card.dataset.noteRowsReady === '1') return;
     const buttons = Array.from(card.querySelectorAll('[data-card-filter="note"]'));
@@ -78,7 +137,9 @@
     const badge = document.createElement('span');
     badge.className = `catcher-status-badge ${exactMatch ? 'catcher-verified-badge' : 'catcher-error-badge'}`;
     badge.title = exactMatch
-      ? 'Notes verified: card matches Official Catcher / Fragrantica'
+      ? (card.dataset.catcherAutoHealed === 'true'
+          ? 'Notes auto-corrected and verified with Official Catcher / Fragrantica'
+          : 'Notes verified: card matches Official Catcher / Fragrantica')
       : (reason || 'Notes not verified with Official Catcher / Fragrantica');
     badge.setAttribute('aria-label', exactMatch
       ? 'Notes verified with Official Catcher'
@@ -98,7 +159,6 @@
   function verifyCard(card) {
     if (!card) return;
     const code = prepareCard(card);
-    layoutNotes(card);
     if (card.dataset.catcherVisualChecked === '1') return;
     if (!code) return;
 
@@ -106,6 +166,7 @@
     const hasRecord = Array.isArray(expectedPairs) && expectedPairs.length > 0;
 
     if (!hasRecord) {
+      layoutNotes(card);
       card.dataset.catcherVisualChecked = '1';
       card.dataset.catcherNotesMatch = 'false';
       card.dataset.catcherStatus = 'missing-record';
@@ -114,15 +175,23 @@
     }
 
     const expected = expectedPairs.map(pair => escText(Array.isArray(pair) ? pair[0] : pair)).filter(Boolean);
-    const actual = Array.from(card.querySelectorAll('[data-card-filter="note"]'))
-      .map(el => escText(el.dataset.filterValue))
-      .filter(Boolean);
+    let actual = noteNames(card);
+    let exactMatch = sameNotes(expected, actual);
 
-    const exactMatch = expected.length === actual.length && expected.every((name, i) => name === actual[i]);
+    // A mismatch is actionable: the verified catcher record is authoritative.
+    // Repair the rendered card automatically, then verify again before deciding badge state.
+    if (!exactMatch && rebuildNotesFromVerified(card, expectedPairs)) {
+      actual = noteNames(card);
+      exactMatch = sameNotes(expected, actual);
+    }
+
+    layoutNotes(card);
     card.dataset.catcherVisualChecked = '1';
     card.dataset.catcherNotesMatch = exactMatch ? 'true' : 'false';
-    card.dataset.catcherStatus = exactMatch ? 'verified' : 'mismatch';
-    addStatusBadge(card, exactMatch, exactMatch ? '' : 'Card notes differ from Official Catcher / Fragrantica');
+    card.dataset.catcherStatus = exactMatch
+      ? (card.dataset.catcherAutoHealed === 'true' ? 'auto-healed' : 'verified')
+      : 'mismatch-after-autoheal';
+    addStatusBadge(card, exactMatch, exactMatch ? '' : 'Card notes still differ after automatic repair');
   }
 
   function verifyAll() {
