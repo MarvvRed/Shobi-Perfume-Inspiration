@@ -2,6 +2,7 @@
 import csv
 import json
 import re
+import unicodedata
 from collections import defaultdict
 from datetime import datetime, timezone
 from pathlib import Path
@@ -38,10 +39,16 @@ def norm_code(value):
 
 
 def base_code(value):
-    """Return stable Shobi code token, e.g. '2348-AMG N' -> '2348-AMG'."""
     value = norm_code(value)
     m = re.match(r'^(\d{2,5}-[A-Z0-9]+)', value)
     return m.group(1) if m else ''
+
+
+def norm_text(value):
+    value = unicodedata.normalize('NFKD', clean(value)).encode('ascii', 'ignore').decode('ascii')
+    value = value.upper().replace('&', ' AND ')
+    value = re.sub(r'[^A-Z0-9]+', ' ', value)
+    return ' '.join(value.split())
 
 
 def default_gender(master_row):
@@ -52,6 +59,38 @@ def default_gender(master_row):
     if prefix == 'WP' or 'for women' in category:
         return 'women'
     return 'unisex'
+
+
+def norm_gender(value):
+    value = clean(value).lower()
+    if value in {'male', 'man', 'men', 'masculine', 'm'}:
+        return 'men'
+    if value in {'female', 'woman', 'women', 'feminine', 'f'}:
+        return 'women'
+    if value in {'unisex', 'u', 'men & women', 'women & men', 'male & female', 'female & male'}:
+        return 'unisex'
+    return value
+
+
+def master_names(master):
+    names = {
+        norm_text(master.get('inspired_by')),
+        norm_text(master.get('shobi_name')),
+        norm_text(master.get('official_description')),
+    }
+    # Description is useful only as a fallback token source; exact long description
+    # must not itself create a match.
+    names.discard('')
+    return names
+
+
+def enrichment_names(row):
+    names = {
+        norm_text(row.get('inspired_by')),
+        norm_text(row.get('shobi_name')),
+    }
+    names.discard('')
+    return names
 
 
 def minimal_site_row(master_row, headers):
@@ -97,16 +136,12 @@ def main():
 
     master_rows = read_csv(MASTER)
     enrichment_rows = read_csv(ENRICHMENT)
-    if not master_rows:
-        raise SystemExit('Safety stop: official Master is empty')
-    if not enrichment_rows:
-        raise SystemExit('Safety stop: site enrichment CSV is empty')
+    if not master_rows or not enrichment_rows:
+        raise SystemExit('Safety stop: required CSV is empty')
 
     master_ids = [clean(r.get('prestashop_product_id')) for r in master_rows]
-    if any(not x for x in master_ids):
-        raise SystemExit('Safety stop: Master row missing prestashop_product_id')
-    if len(master_ids) != len(set(master_ids)):
-        raise SystemExit('Safety stop: duplicate prestashop_product_id in Master')
+    if any(not x for x in master_ids) or len(master_ids) != len(set(master_ids)):
+        raise SystemExit('Safety stop: invalid/duplicate prestashop_product_id in Master')
 
     enrichment_headers = list(enrichment_rows[0].keys())
     output_headers = ['prestashop_product_id'] + [h for h in enrichment_headers if h != 'prestashop_product_id']
@@ -114,91 +149,109 @@ def main():
     by_url = defaultdict(list)
     by_code = defaultdict(list)
     by_base_code = defaultdict(list)
+    by_name = defaultdict(list)
+    row_names = []
     for idx, row in enumerate(enrichment_rows):
         u = norm_url(row.get('shobi_url'))
         c = norm_code(row.get('shobi_code'))
         b = base_code(row.get('shobi_code'))
-        if u:
-            by_url[u].append(idx)
-        if c:
-            by_code[c].append(idx)
-        if b:
-            by_base_code[b].append(idx)
+        names = enrichment_names(row)
+        row_names.append(names)
+        if u: by_url[u].append(idx)
+        if c: by_code[c].append(idx)
+        if b: by_base_code[b].append(idx)
+        for n in names: by_name[n].append(idx)
 
     used = set()
     output = []
-    matched_by_url = 0
-    matched_by_code = 0
-    matched_by_base_code = 0
+    counters = defaultdict(int)
     unmatched = []
     ambiguous = []
+    resolution_details = []
 
     for master in master_rows:
         pid = clean(master.get('prestashop_product_id'))
-        master_url = norm_url(master.get('url'))
-        master_full_code = norm_code(master.get('shobi_name'))
-        master_base_code = base_code(master.get('shobi_code')) or base_code(master.get('shobi_name'))
+        m_url = norm_url(master.get('url'))
+        m_full = norm_code(master.get('shobi_name'))
+        m_base = base_code(master.get('shobi_code')) or base_code(master.get('shobi_name'))
+        m_gender = default_gender(master)
+        m_names = {norm_text(master.get('inspired_by'))}
+        m_names.discard('')
 
-        # Build independent deterministic signals. A duplicated URL must never
-        # block a unique code match. Stable Shobi base code is preferred because
-        # suffixes (N/W/MP/EL) and URL slugs can change while the code token stays.
-        signals = []
-        if master_base_code and len(by_base_code.get(master_base_code, [])) == 1:
-            signals.append(('base_code', by_base_code[master_base_code][0]))
-        if master_full_code and len(by_code.get(master_full_code, [])) == 1:
-            signals.append(('code', by_code[master_full_code][0]))
-        if master_url and len(by_url.get(master_url, [])) == 1:
-            signals.append(('url', by_url[master_url][0]))
+        evidence = defaultdict(set)
+        if m_url:
+            for i in by_url.get(m_url, []): evidence[i].add('url')
+        if m_full:
+            for i in by_code.get(m_full, []): evidence[i].add('code')
+        if m_base:
+            for i in by_base_code.get(m_base, []): evidence[i].add('base_code')
+        for n in m_names:
+            for i in by_name.get(n, []): evidence[i].add('name')
 
-        signal_indexes = {idx for _, idx in signals}
-        candidates = []
-        match_type = ''
-        if len(signal_indexes) == 1:
-            idx = next(iter(signal_indexes))
-            # Deterministic priority for reporting only.
-            kinds = [kind for kind, i in signals if i == idx]
-            match_type = 'base_code' if 'base_code' in kinds else ('code' if 'code' in kinds else 'url')
-            candidates = [idx]
-        elif len(signal_indexes) > 1:
+        scored = []
+        for idx, kinds in evidence.items():
+            if idx in used:
+                continue
+            row = enrichment_rows[idx]
+            eg = norm_gender(row.get('gender'))
+            gender_ok = (not eg or eg == m_gender or eg == 'unisex' or m_gender == 'unisex')
+            score = 0
+            if 'code' in kinds: score += 120
+            if 'url' in kinds: score += 100
+            if 'base_code' in kinds: score += 80
+            if 'name' in kinds: score += 70
+            if gender_ok: score += 5
+            anchors = kinds & {'code', 'url', 'base_code'}
+            # Strict acceptance: identity anchor plus corroboration, or a unique
+            # full-code match. Name-only matches are allowed only when globally
+            # unique and gender-compatible.
+            safe = False
+            rule = ''
+            if 'code' in kinds and len(by_code.get(m_full, [])) == 1:
+                safe = True; rule = 'unique-full-code'
+            elif anchors and ('name' in kinds) and gender_ok:
+                safe = True; rule = 'identity-anchor+exact-name'
+            elif 'url' in kinds and len(by_url.get(m_url, [])) == 1 and ('base_code' in kinds or 'code' in kinds):
+                safe = True; rule = 'unique-url+code-anchor'
+            elif 'base_code' in kinds and len(by_base_code.get(m_base, [])) == 1:
+                safe = True; rule = 'unique-base-code'
+            elif kinds == {'name'}:
+                n = next(iter(m_names), '')
+                if n and len(by_name.get(n, [])) == 1 and gender_ok:
+                    safe = True; rule = 'unique-exact-name+gender'
+            scored.append((score, idx, kinds, safe, rule))
+
+        safe_scored = [x for x in scored if x[3]]
+        safe_scored.sort(key=lambda x: (-x[0], x[1]))
+        chosen = None
+        if safe_scored:
+            top = safe_scored[0]
+            same_top = [x for x in safe_scored if x[0] == top[0]]
+            if len(same_top) == 1:
+                chosen = top
+            else:
+                ambiguous.append({'prestashop_product_id': pid, 'reason': 'equal-safe-score', 'candidates': [x[1] for x in same_top]})
+        elif evidence:
             ambiguous.append({
                 'prestashop_product_id': pid,
-                'reason': 'conflicting-unique-signals',
-                'signals': [{'type': k, 'index': i} for k, i in signals],
+                'reason': 'evidence-without-safe-convergence',
+                'candidates': [{'index': i, 'signals': sorted(k)} for i, k in evidence.items() if i not in used][:10],
             })
-        else:
-            # Only report duplicate evidence as ambiguity if no deterministic
-            # unique signal was available.
-            if master_base_code and len(by_base_code.get(master_base_code, [])) > 1:
-                ambiguous.append({'prestashop_product_id': pid, 'reason': 'duplicate-enrichment-base-code', 'value': master_base_code})
-            elif master_full_code and len(by_code.get(master_full_code, [])) > 1:
-                ambiguous.append({'prestashop_product_id': pid, 'reason': 'duplicate-enrichment-code', 'value': master_full_code})
-            elif master_url and len(by_url.get(master_url, [])) > 1:
-                ambiguous.append({'prestashop_product_id': pid, 'reason': 'duplicate-enrichment-url', 'value': master_url})
 
-        if candidates:
-            idx = candidates[0]
-            if idx in used:
-                ambiguous.append({'prestashop_product_id': pid, 'reason': 'enrichment-row-reused', 'index': idx})
-                site = minimal_site_row(master, enrichment_headers)
-                unmatched.append(pid)
-            else:
-                used.add(idx)
-                site = dict(enrichment_rows[idx])
-                if match_type == 'base_code':
-                    matched_by_base_code += 1
-                elif match_type == 'code':
-                    matched_by_code += 1
-                else:
-                    matched_by_url += 1
-                # Master owns identity/existence and official Shobi URL/description.
-                site['shobi_url'] = clean(master.get('url')) or clean(site.get('shobi_url'))
-                if clean(master.get('official_description')):
-                    site['description'] = clean(master.get('official_description'))
-                if not clean(site.get('shobi_code')):
-                    site['shobi_code'] = clean(master.get('shobi_name'))
-                if not clean(site.get('inspired_by')):
-                    site['inspired_by'] = clean(master.get('inspired_by')) or clean(master.get('shobi_name'))
-                site['last_built_utc'] = datetime.now(timezone.utc).isoformat()
+        if chosen:
+            score, idx, kinds, _, rule = chosen
+            used.add(idx)
+            counters[rule] += 1
+            site = dict(enrichment_rows[idx])
+            site['shobi_url'] = clean(master.get('url')) or clean(site.get('shobi_url'))
+            if clean(master.get('official_description')):
+                site['description'] = clean(master.get('official_description'))
+            if not clean(site.get('shobi_code')):
+                site['shobi_code'] = clean(master.get('shobi_name'))
+            if not clean(site.get('inspired_by')):
+                site['inspired_by'] = clean(master.get('inspired_by')) or clean(master.get('shobi_name'))
+            site['last_built_utc'] = datetime.now(timezone.utc).isoformat()
+            resolution_details.append({'prestashop_product_id': pid, 'enrichment_index': idx, 'rule': rule, 'signals': sorted(kinds), 'score': score})
         else:
             site = minimal_site_row(master, enrichment_headers)
             unmatched.append(pid)
@@ -207,32 +260,23 @@ def main():
         for h in enrichment_headers:
             if h == 'prestashop_product_id':
                 continue
-            out[h] = clean(site.get(h)) if h not in {'description'} else str(site.get(h) or '').strip()
+            out[h] = clean(site.get(h)) if h != 'description' else str(site.get(h) or '').strip()
         output.append(out)
 
     out_ids = [r['prestashop_product_id'] for r in output]
-    if len(output) != len(master_rows):
-        raise SystemExit(f'Safety stop: output rows {len(output)} != Master rows {len(master_rows)}')
-    if len(out_ids) != len(set(out_ids)):
-        raise SystemExit('Safety stop: duplicate prestashop_product_id in site candidate')
-    if set(out_ids) != set(master_ids):
+    if len(output) != len(master_rows) or len(out_ids) != len(set(out_ids)) or set(out_ids) != set(master_ids):
         raise SystemExit('Safety stop: candidate identity set differs from official Master')
 
-    matched = matched_by_url + matched_by_code + matched_by_base_code
+    matched = len(master_rows) - len(unmatched)
     coverage = matched / len(master_rows)
     if coverage < 0.90:
         raise SystemExit(f'Safety stop: enrichment coverage too low: {matched}/{len(master_rows)} ({coverage:.2%})')
 
     orphans = [idx for idx in range(len(enrichment_rows)) if idx not in used]
-    duplicate_enrichment_urls = sum(1 for v in by_url.values() if len(v) > 1)
-    duplicate_enrichment_codes = sum(1 for v in by_code.values() if len(v) > 1)
-    duplicate_enrichment_base_codes = sum(1 for v in by_base_code.values() if len(v) > 1)
-
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     with CANDIDATE.open('w', encoding='utf-8-sig', newline='') as f:
         w = csv.DictWriter(f, fieldnames=output_headers)
-        w.writeheader()
-        w.writerows(output)
+        w.writeheader(); w.writerows(output)
 
     report = {
         'built_at_utc': datetime.now(timezone.utc).isoformat(),
@@ -244,15 +288,10 @@ def main():
         'existing_site_rows': len(enrichment_rows),
         'candidate_rows': len(output),
         'matched_total': matched,
-        'matched_by_base_code': matched_by_base_code,
-        'matched_by_code': matched_by_code,
-        'matched_by_url': matched_by_url,
+        'match_rules': dict(sorted(counters.items())),
         'unmatched_master_rows': len(unmatched),
         'unmatched_master_sample': unmatched[:50],
         'orphan_enrichment_rows': len(orphans),
-        'duplicate_enrichment_urls': duplicate_enrichment_urls,
-        'duplicate_enrichment_codes': duplicate_enrichment_codes,
-        'duplicate_enrichment_base_codes': duplicate_enrichment_base_codes,
         'ambiguous_matches': len(ambiguous),
         'ambiguous_sample': ambiguous[:50],
         'identity_set_exact_match': True,
