@@ -1,0 +1,57 @@
+name: Integrate Fragrantica 41-100
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/integrate-fragrantica-41-100.yml'
+
+permissions:
+  contents: write
+  actions: read
+
+jobs:
+  integrate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download successful catcher artifacts
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p /tmp/catcher/first /tmp/catcher/retry
+          gh run download 32529280776 -n fragrantica-playwright-41-100 -D /tmp/catcher/first
+          gh run download 32531598262 -n fragrantica-playwright-41-100 -D /tmp/catcher/retry
+      - name: Merge 60 verified results into enrichment dataset
+        run: |
+          node <<'NODE'
+          const fs=require('fs'),path=require('path');
+          const dirs=['/tmp/catcher/first','/tmp/catcher/retry'];
+          const byRank=new Map();
+          for(const dir of dirs) for(const f of fs.readdirSync(dir)) if(/^\d{3}-.*\.json$/.test(f)){
+            const d=JSON.parse(fs.readFileSync(path.join(dir,f),'utf8'));
+            if(d.rank>=41&&d.rank<=100&&Array.isArray(d.notes)&&d.notes.length) byRank.set(Number(d.rank),d);
+          }
+          const missing=[];for(let r=41;r<=100;r++)if(!byRank.has(r))missing.push(r);
+          if(missing.length)throw new Error('Missing catcher ranks: '+missing.join(','));
+          const merged={schema_version:1,source:'playwright-cdp-real-edge-merged',range:[41,100],success_count:60,failure_count:0,results:[...byRank.values()].sort((a,b)=>a.rank-b.rank),failures:[]};
+          fs.writeFileSync('Personal Database/fragrantica-main-notes-41-100.json',JSON.stringify(merged,null,2)+'\n');
+          const csvPath='Shobi Master Database/bestseller-top100-enrichment.csv';
+          const text=fs.readFileSync(csvPath,'utf8').replace(/^\uFEFF/,'');
+          function parseLine(line){const a=[];let s='',q=false;for(let i=0;i<line.length;i++){const c=line[i];if(c==='"'){if(q&&line[i+1]==='"'){s+='"';i++;}else q=!q;}else if(c===','&&!q){a.push(s);s='';}else s+=c;}a.push(s);return a;}
+          function esc(v){v=String(v??'');return /[",\n]/.test(v)?'"'+v.replace(/"/g,'""')+'"':v;}
+          const lines=text.split(/\r?\n/).filter(Boolean), header=parseLine(lines.shift());
+          const ir=header.indexOf('rank'), ic=header.indexOf('shobi_code'), im=header.indexOf('main_notes'), inc=header.indexOf('note_count'), iss=header.indexOf('source_status'), ie=header.indexOf('exception');
+          const rows=lines.map(parseLine);
+          for(const row of rows){const rank=Number(row[ir]);if(rank<41||rank>100)continue;const d=byRank.get(rank);if(!d)throw new Error('No result rank '+rank);if(String(row[ic]).trim()!==String(d.shobi_code).trim())throw new Error(`Code mismatch rank ${rank}: ${row[ic]} != ${d.shobi_code}`);const notes=d.notes.slice().sort((a,b)=>(a.rank||999)-(b.rank||999)).slice(0,5).map(n=>String(n.note||'').trim()).filter(Boolean);row[im]=notes.join('|');row[inc]=String(notes.length);row[iss]='fragrantica-votes-verified';row[ie]=notes.length<5?`fragrantica-voted-notes-count-${notes.length}`:'';}
+          fs.writeFileSync(csvPath,[header,...rows].map(r=>r.map(esc).join(',')).join('\n')+'\n');
+          console.log('INTEGRATION_OK ranks=60 dataset_rows=41-100');
+          NODE
+      - name: Commit verified dataset
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add 'Personal Database/fragrantica-main-notes-41-100.json' 'Shobi Master Database/bestseller-top100-enrichment.csv'
+          git commit -m 'Integrate verified Fragrantica notes for bestseller 41-100'
+          git push
