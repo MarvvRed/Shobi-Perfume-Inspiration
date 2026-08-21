@@ -1,0 +1,33 @@
+name: Fetch Fragrantica Social Cards Top100
+
+on:
+  push:
+    branches:
+      - feat/social-card-top100-fetch
+    paths:
+      - 'scripts/fetch-fragrantica-social-cards.mjs'
+      - '.github/workflows/fetch-fragrantica-social-cards.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+tasks:
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Fetch Top100 social cards
+        run: node scripts/fetch-fragrantica-social-cards.mjs
+        continue-on-error: true
+      - name: Upload social cards artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: fragrantica-social-cards-top100
+          path: artifacts/fragrantica-social-cards-top100
+          if-no-files-found: error
