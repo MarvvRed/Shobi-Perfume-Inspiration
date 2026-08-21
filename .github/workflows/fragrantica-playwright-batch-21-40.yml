@@ -33,6 +33,10 @@ jobs:
         shell: cmd
         run: curl.exe --fail --silent --show-error http://127.0.0.1:9222/json/version
 
+      - name: Apply source-locked Fragrantica URLs for ranks 21-40
+        shell: cmd
+        run: node tools\fragrantica-main-notes\apply-url-overrides-21-40.cjs
+
       - name: Capture Fragrantica ranks 21-40
         shell: cmd
         run: node tools\fragrantica-main-notes\playwright-batch-21-40.cjs
