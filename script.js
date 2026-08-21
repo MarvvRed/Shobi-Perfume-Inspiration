@@ -77,8 +77,15 @@ function normalizeGender(value) {
     return gender;
 }
 
+function perfumeIdentity(perfume) {
+    const pid = String(perfume?.prestashopProductId || '').trim();
+    if (pid) return `pid:${pid}`;
+    return `code:${String(perfume?.code || '').trim()}`;
+}
+
 function mapCsvRow(row) {
     return {
+        prestashopProductId: row.prestashop_product_id || '',
         code: row.shobi_code,
         shobiName: row.shobi_name,
         inspiredBy: row.inspired_by || row.shobi_name,
@@ -138,6 +145,7 @@ async function loadLegacyDatabase() {
 
     allPerfumes = allPerfumes.filter(p => p && p.code && p.inspiredBy).map(p => ({
         ...p,
+        prestashopProductId: p.prestashopProductId || p.prestashop_product_id || '',
         genderAffinity: normalizeGender(p.genderAffinity),
         mainAccords: (p.mainAccords || []).map(a => String(a).toLowerCase()),
         seasons: (p.seasons || []).map(s => String(s).toLowerCase()).filter(Boolean),
@@ -160,7 +168,8 @@ function displayPerfumes(perfumes) {
     if (!perfumes.length) { container.innerHTML = '<p class="text-secondary col-span-full">No perfumes matched your selection.</p>'; return; }
     perfumes.forEach(p => {
         const card = template.content.cloneNode(true);
-        const isFavorite = state.favorites.includes(p.code);
+        const identity = perfumeIdentity(p);
+        const isFavorite = state.favorites.includes(identity);
         card.querySelector('[data-field="code"]').textContent = p.code;
         card.querySelector('[data-field="inspiredBy"]').textContent = p.inspiredBy;
         card.querySelector('[data-field="brand"]').textContent = p.brand;
@@ -168,16 +177,19 @@ function displayPerfumes(perfumes) {
         card.querySelector('[data-field="shobiLink"]').href = p.shobiUrl || `https://leparfum.com.gr/en/module/iqitsearch/searchiqit?s=${encodeURIComponent(p.code)}`;
         const favButton = card.querySelector('.favorite-btn');
         favButton.dataset.code = p.code;
+        favButton.dataset.identity = identity;
         favButton.innerHTML = isFavorite ? '<i class="fa-solid fa-heart"></i>' : '<i class="fa-regular fa-heart"></i>';
         if (isFavorite) favButton.classList.add('is-favorite');
         card.querySelector('[data-field="audience-icons"]').innerHTML = getAudienceIcons(p.genderAffinity);
         card.querySelector('[data-field="type-icons"]').innerHTML = getTypeIcons(p.mainAccords);
-        card.querySelector('[data-action="show-details"]').dataset.code = p.code;
+        const detailsTarget = card.querySelector('[data-action="show-details"]');
+        detailsTarget.dataset.code = p.code;
+        detailsTarget.dataset.identity = identity;
         card.querySelector('[data-action="filter-brand"]').dataset.brand = p.brand;
         container.appendChild(card);
     });
     container.querySelectorAll('.favorite-btn').forEach(btn => btn.addEventListener('click', toggleFavorite));
-    container.querySelectorAll('[data-action="show-details"]').forEach(el => el.addEventListener('click', e => showPerfumeModal(e.currentTarget.dataset.code)));
+    container.querySelectorAll('[data-action="show-details"]').forEach(el => el.addEventListener('click', e => showPerfumeModal(e.currentTarget.dataset.identity || e.currentTarget.dataset.code)));
     container.querySelectorAll('[data-action="filter-brand"]').forEach(btn => btn.addEventListener('click', e => handleBrandFilterClick(e.currentTarget.dataset.brand)));
 }
 
@@ -185,7 +197,7 @@ function getFilteredPerfumes() {
     let filtered = [...allPerfumes];
     if (state.selectedBrand) filtered = filtered.filter(p => p.brand === state.selectedBrand);
     else if (state.activeFilters.brands.length) filtered = filtered.filter(p => state.activeFilters.brands.includes(p.brand));
-    else if (state.showingFavorites) filtered = filtered.filter(p => state.favorites.includes(p.code));
+    else if (state.showingFavorites) filtered = filtered.filter(p => state.favorites.includes(perfumeIdentity(p)));
     if (state.activeFilters.gender.length) filtered = filtered.filter(p => state.activeFilters.gender.includes(p.genderAffinity));
     if (state.activeFilters.season.length) filtered = filtered.filter(p => state.activeFilters.season.some(season => p.seasons.includes(season)));
     if (state.searchQuery) {
@@ -248,15 +260,44 @@ const SCENT_ICON_MAP = {
 function getTypeIcons(accords) { if (!Array.isArray(accords)) return ''; return accords.map(a => SCENT_ICON_MAP[String(a).toLowerCase()] || '').filter(Boolean).join(' '); }
 
 function toggleFavorite(event) {
-    event.stopPropagation(); const code = event.currentTarget.dataset.code; const index = state.favorites.indexOf(code);
-    if (index >= 0) state.favorites.splice(index, 1); else state.favorites.push(code);
-    localStorage.setItem('shobi-favorites', JSON.stringify(state.favorites)); document.getElementById('favorites-count').textContent = state.favorites.length; applyFiltersAndRender();
+    event.stopPropagation();
+    const identity = event.currentTarget.dataset.identity || `code:${event.currentTarget.dataset.code || ''}`;
+    const index = state.favorites.indexOf(identity);
+    if (index >= 0) state.favorites.splice(index, 1); else state.favorites.push(identity);
+    localStorage.setItem('shobi-favorites', JSON.stringify(state.favorites));
+    document.getElementById('favorites-count').textContent = state.favorites.length;
+    applyFiltersAndRender();
 }
-function loadFavorites() { try { state.favorites = JSON.parse(localStorage.getItem('shobi-favorites') || '[]'); } catch { state.favorites = []; } document.getElementById('favorites-count').textContent = state.favorites.length; }
+
+function loadFavorites() {
+    let saved = [];
+    try { saved = JSON.parse(localStorage.getItem('shobi-favorites') || '[]'); } catch { saved = []; }
+    if (!Array.isArray(saved)) saved = [];
+
+    const validKeys = new Set(allPerfumes.map(perfumeIdentity));
+    const migrated = [];
+    saved.forEach(value => {
+        const raw = String(value || '');
+        if (validKeys.has(raw)) {
+            migrated.push(raw);
+            return;
+        }
+        // Backward compatibility with the original favorites format, which stored raw Shobi codes.
+        allPerfumes.filter(p => String(p.code || '') === raw).forEach(p => migrated.push(perfumeIdentity(p)));
+        if (raw.startsWith('code:')) {
+            const oldCode = raw.slice(5);
+            allPerfumes.filter(p => String(p.code || '') === oldCode).forEach(p => migrated.push(perfumeIdentity(p)));
+        }
+    });
+    state.favorites = [...new Set(migrated)];
+    localStorage.setItem('shobi-favorites', JSON.stringify(state.favorites));
+    document.getElementById('favorites-count').textContent = state.favorites.length;
+}
 
 const modal = document.getElementById('perfume-modal'); const modalContent = document.getElementById('modal-content');
-function showPerfumeModal(code) {
-    const perfume = allPerfumes.find(p => p.code === code); if (!perfume) return;
+function showPerfumeModal(identityOrCode) {
+    const perfume = allPerfumes.find(p => perfumeIdentity(p) === identityOrCode) || allPerfumes.find(p => p.code === identityOrCode);
+    if (!perfume) return;
     document.getElementById('modal-inspiredBy').textContent = perfume.inspiredBy; document.getElementById('modal-brand').textContent = perfume.brand; document.getElementById('modal-code').textContent = perfume.code; document.getElementById('modal-description').textContent = perfume.description || 'No description available.';
     const notes = document.getElementById('modal-notes'); const parts = [];
     if (perfume.notes.top.length) parts.push(`<p><strong class="text-primary">Top:</strong> ${perfume.notes.top.join(', ')}</p>`); if (perfume.notes.heart.length) parts.push(`<p><strong class="text-primary">Heart:</strong> ${perfume.notes.heart.join(', ')}</p>`); if (perfume.notes.base.length) parts.push(`<p><strong class="text-primary">Base:</strong> ${perfume.notes.base.join(', ')}</p>`); notes.innerHTML = parts.length ? parts.join('') : '<p>No note details available.</p>';
