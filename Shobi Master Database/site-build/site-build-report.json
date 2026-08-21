@@ -1,30 +1,29 @@
 {
-  "built_at_utc": "2026-08-21T00:45:44.125082+00:00",
+  "built_at_utc": "2026-08-21T00:47:08.798080+00:00",
   "mode": "STAGING_ONLY_DO_NOT_PUBLISH_YET",
   "official_master": "Shobi Master Database/shobi-master-current.csv",
   "enrichment_source": "shobi-master.csv",
   "candidate": "Shobi Master Database/site-build/shobi-master-site-candidate.csv",
   "unresolved_diagnostics": "Shobi Master Database/site-build/site-build-unresolved.json",
+  "ambiguous_diagnostics": "Shobi Master Database/site-build/site-build-ambiguous.json",
   "master_rows": 2343,
   "existing_site_rows": 2468,
   "candidate_rows": 2343,
-  "matched_total": 2312,
+  "matched_total": 2316,
   "match_rules": {
+    "duplicate-identity-richest-enrichment": 3,
     "identity-anchor+exact-name": 101,
     "unique-base-code": 31,
     "unique-full-code": 2156,
-    "unique-url+code-anchor": 24
+    "unique-url+code-anchor": 24,
+    "unique-url+numeric-code+official-source": 1
   },
-  "unmatched_master_rows": 31,
+  "unmatched_master_rows": 27,
   "unmatched_master_sample": [
-    "169",
-    "3958",
-    "3891",
     "3567",
     "2622",
     "999",
     "2111",
-    "2416",
     "2376",
     "2271",
     "3485",
@@ -49,45 +48,9 @@
     "2688",
     "1419"
   ],
-  "orphan_enrichment_rows": 156,
-  "ambiguous_matches": 5,
+  "orphan_enrichment_rows": 152,
+  "ambiguous_matches": 1,
   "ambiguous_sample": [
-    {
-      "prestashop_product_id": "169",
-      "reason": "equal-safe-score",
-      "candidates": [
-        1340,
-        2450
-      ]
-    },
-    {
-      "prestashop_product_id": "3958",
-      "reason": "equal-safe-score",
-      "candidates": [
-        486,
-        2309
-      ]
-    },
-    {
-      "prestashop_product_id": "3891",
-      "reason": "equal-safe-score",
-      "candidates": [
-        535,
-        2312
-      ]
-    },
-    {
-      "prestashop_product_id": "2416",
-      "reason": "evidence-without-safe-convergence",
-      "candidates": [
-        {
-          "index": 1005,
-          "signals": [
-            "url"
-          ]
-        }
-      ]
-    },
     {
       "prestashop_product_id": "831",
       "reason": "evidence-without-safe-convergence",
@@ -95,6 +58,6 @@
     }
   ],
   "identity_set_exact_match": true,
-  "enrichment_coverage": 0.986769,
+  "enrichment_coverage": 0.988476,
   "safety": "PASS"
 }

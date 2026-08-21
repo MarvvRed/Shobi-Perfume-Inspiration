@@ -1,165 +1,8 @@
 {
-  "built_at_utc": "2026-08-21T00:45:44.124558+00:00",
+  "built_at_utc": "2026-08-21T00:47:08.798080+00:00",
   "purpose": "AUDIT_ONLY_UNRESOLVED_MASTER_TO_SITE_ENRICHMENT",
-  "unresolved_count": 31,
+  "unresolved_count": 27,
   "items": [
-    {
-      "master": {
-        "prestashop_product_id": "169",
-        "shobi_code": "1073-DRC",
-        "shobi_name": "1073-DRC M Perfume",
-        "reference": "MP069",
-        "reference_prefix": "MP",
-        "inspired_by": "HOMME PARFUM",
-        "category": "Fragrances For Men",
-        "url": "https://leparfum.com.gr/en/fragrances-for-men/1073-drc-m-perfume",
-        "gender_from_master": "men"
-      },
-      "reason": "equal-safe-score",
-      "candidate_count": 2,
-      "candidates": [
-        {
-          "index": 1340,
-          "already_used": false,
-          "signals": [
-            "base_code",
-            "name",
-            "url"
-          ],
-          "shobi_code": "1073-DRC",
-          "base_code": "1073-DRC",
-          "shobi_name": "HOMME PARFUM",
-          "inspired_by": "HOMME PARFUM",
-          "brand": "Christian Dior",
-          "gender": "men",
-          "shobi_url": "https://leparfum.com.gr/en/fragrances-for-men/1073-drc-m-perfume#/1-choose-eau_de_parfum/2-bottle-30ml/3-extra_essence-0ml",
-          "identity_source_type": "SHOBI_OFFICIAL_EXPLICIT",
-          "identity_source_url": "https://raw.githubusercontent.com/smellyCat-deep/shobi_inspiration/main/database_complete.json"
-        },
-        {
-          "index": 2450,
-          "already_used": false,
-          "signals": [
-            "base_code",
-            "name",
-            "url"
-          ],
-          "shobi_code": "1073-DRC M",
-          "base_code": "1073-DRC",
-          "shobi_name": "HOMME PARFUM",
-          "inspired_by": "HOMME PARFUM",
-          "brand": "",
-          "gender": "",
-          "shobi_url": "https://leparfum.com.gr/en/fragrances-for-men/1073-drc-m-perfume#/1-choose-eau_de_parfum/2-bottle-30ml/3-extra_essence-0ml",
-          "identity_source_type": "",
-          "identity_source_url": ""
-        }
-      ]
-    },
-    {
-      "master": {
-        "prestashop_product_id": "3958",
-        "shobi_code": "",
-        "shobi_name": "2313 - DRC M",
-        "reference": "MP358",
-        "reference_prefix": "MP",
-        "inspired_by": "Sauvage Parfum",
-        "category": "Fragrances For Men",
-        "url": "https://leparfum.com.gr/en/fragrances-for-men/2313-drc-m",
-        "gender_from_master": "men"
-      },
-      "reason": "equal-safe-score",
-      "candidate_count": 2,
-      "candidates": [
-        {
-          "index": 486,
-          "already_used": false,
-          "signals": [
-            "name",
-            "url"
-          ],
-          "shobi_code": "2313-DRC",
-          "base_code": "2313-DRC",
-          "shobi_name": "Sauvage Parfum",
-          "inspired_by": "Sauvage Parfum",
-          "brand": "Christian Dior",
-          "gender": "men",
-          "shobi_url": "https://leparfum.com.gr/en/fragrances-for-men/2313-drc-m#/1-choose-eau_de_parfum/2-bottle-30ml/3-extra_essence-0ml",
-          "identity_source_type": "SHOBI_OFFICIAL_EXPLICIT",
-          "identity_source_url": "https://raw.githubusercontent.com/smellyCat-deep/shobi_inspiration/main/database_complete.json"
-        },
-        {
-          "index": 2309,
-          "already_used": false,
-          "signals": [
-            "name",
-            "url"
-          ],
-          "shobi_code": "2313-DRC M",
-          "base_code": "2313-DRC",
-          "shobi_name": "Sauvage Parfum",
-          "inspired_by": "Sauvage Parfum",
-          "brand": "",
-          "gender": "",
-          "shobi_url": "https://leparfum.com.gr/en/fragrances-for-men/2313-drc-m#/1-choose-eau_de_parfum/2-bottle-30ml/3-extra_essence-0ml",
-          "identity_source_type": "",
-          "identity_source_url": ""
-        }
-      ]
-    },
-    {
-      "master": {
-        "prestashop_product_id": "3891",
-        "shobi_code": "2259-GIV",
-        "shobi_name": "2259-GIV M Perfume",
-        "reference": "MP353",
-        "reference_prefix": "MP",
-        "inspired_by": "GENTLEMAN RESERVE EAU DE PARFUM PRIVE",
-        "category": "Fragrances For Men",
-        "url": "https://leparfum.com.gr/en/fragrances-for-men/2259-giv-m-perfume",
-        "gender_from_master": "men"
-      },
-      "reason": "equal-safe-score",
-      "candidate_count": 2,
-      "candidates": [
-        {
-          "index": 535,
-          "already_used": false,
-          "signals": [
-            "base_code",
-            "name",
-            "url"
-          ],
-          "shobi_code": "2259-GIV",
-          "base_code": "2259-GIV",
-          "shobi_name": "GENTLEMAN RESERVE EAU DE PARFUM PRIVE",
-          "inspired_by": "GENTLEMAN RESERVE EAU DE PARFUM PRIVE",
-          "brand": "Givenchy",
-          "gender": "men",
-          "shobi_url": "https://leparfum.com.gr/en/fragrances-for-men/2259-giv-m-perfume#/1-choose-eau_de_parfum/2-bottle-30ml/3-extra_essence-0ml",
-          "identity_source_type": "SHOBI_OFFICIAL_EXPLICIT",
-          "identity_source_url": "https://raw.githubusercontent.com/smellyCat-deep/shobi_inspiration/main/database_complete.json"
-        },
-        {
-          "index": 2312,
-          "already_used": false,
-          "signals": [
-            "base_code",
-            "name",
-            "url"
-          ],
-          "shobi_code": "2259-GIV M",
-          "base_code": "2259-GIV",
-          "shobi_name": "GENTLEMAN RESERVE EAU DE PARFUM PRIVE",
-          "inspired_by": "GENTLEMAN RESERVE EAU DE PARFUM PRIVE",
-          "brand": "",
-          "gender": "",
-          "shobi_url": "https://leparfum.com.gr/en/fragrances-for-men/2259-giv-m-perfume#/1-choose-eau_de_parfum/2-bottle-30ml/3-extra_essence-0ml",
-          "identity_source_type": "",
-          "identity_source_url": ""
-        }
-      ]
-    },
     {
       "master": {
         "prestashop_product_id": "3567",
@@ -223,39 +66,6 @@
       "reason": "no-enrichment-evidence",
       "candidate_count": 0,
       "candidates": []
-    },
-    {
-      "master": {
-        "prestashop_product_id": "2416",
-        "shobi_code": "1685-FRE",
-        "shobi_name": "1685-FRE N",
-        "reference": "AR117",
-        "reference_prefix": "AR",
-        "inspired_by": "the notes of EN PASSANT Woman's perfume",
-        "category": "Niche Perfumes",
-        "url": "https://leparfum.com.gr/en/niche-perfumes/1685-fre-n",
-        "gender_from_master": "unisex"
-      },
-      "reason": "evidence-without-safe-convergence",
-      "candidate_count": 1,
-      "candidates": [
-        {
-          "index": 1005,
-          "already_used": false,
-          "signals": [
-            "url"
-          ],
-          "shobi_code": "1685-FRED N",
-          "base_code": "1685-FRED",
-          "shobi_name": "EN PASSANT Woman's perfume",
-          "inspired_by": "EN PASSANT Woman's perfume",
-          "brand": "Frederic Malle",
-          "gender": "women",
-          "shobi_url": "https://leparfum.com.gr/en/niche-perfumes/1685-fre-n#/1-choose-eau_de_parfum/2-bottle-30ml/3-extra_essence-0ml",
-          "identity_source_type": "SHOBI_OFFICIAL_EXPLICIT",
-          "identity_source_url": "https://leparfum.com.gr/el/niche-αρώματα/1685-fred-n#/1-επιλέξτε-άρωμα/2-μπουκάλι-30ml/3-ενίσχυση-0ml"
-        }
-      ]
     },
     {
       "master": {
@@ -551,6 +361,7 @@
             "base_code",
             "code"
           ],
+          "quality": 15,
           "shobi_code": "777-LAL WP",
           "base_code": "777-LAL",
           "shobi_name": "SCULPTEUR D' EPICES",
