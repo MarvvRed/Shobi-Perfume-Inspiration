@@ -3,9 +3,10 @@ import csv
 import json
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[1]
-MASTER = ROOT / 'shobi-master.csv'
-RUNTIME = ROOT / 'site-runtime-v2.json'
+SCRIPT_DIR = Path(__file__).resolve().parent
+REPO_ROOT = SCRIPT_DIR.parents[1]
+MASTER = REPO_ROOT / 'shobi-master.csv'
+RUNTIME = SCRIPT_DIR.parent / 'site-runtime-v2.json'
 
 
 def truthy(value):
@@ -53,7 +54,7 @@ def main():
         encoding='utf-8',
     )
 
-    print(f'RUNTIME_REBUILT rows={len(products)} unique_codes={len(seen)}')
+    print(f'RUNTIME_REBUILT source={MASTER} rows={len(products)} unique_codes={len(seen)}')
 
 
 if __name__ == '__main__':
