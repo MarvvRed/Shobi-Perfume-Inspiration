@@ -1,0 +1,37 @@
+name: Audit Bestseller Top 100 Source Lock
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'Shobi Master Database/bestseller-top100-enrichment.csv'
+      - 'Shobi Master Database/bestseller-top100-source-lock.csv'
+      - 'scripts/audit_bestseller_top100_source_lock.py'
+      - '.github/workflows/audit-bestseller-top100-source-lock.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Audit source lock coverage
+        run: python scripts/audit_bestseller_top100_source_lock.py
+      - name: Commit audit summary
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add bestseller-top100-source-lock-summary.txt
+          if git diff --cached --quiet; then
+            exit 0
+          fi
+          git commit -m "Audit Best Seller Top 100 source lock"
+          git push
