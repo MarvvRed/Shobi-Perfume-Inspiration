@@ -4,7 +4,21 @@
   const base=v=>{const m=String(v||'').trim().toUpperCase().match(/^(\d+)-([A-Z0-9]+)/);return m?`${m[1]}-${m[2]}`:norm(v);};
   const entries=(window.SHOBI_BESTSELLER_RANKING||[]).filter(x=>Number(x.rank)>20&&Number(x.rank)<=100);
   if(!entries.length || typeof isVanilla28!=='function' || typeof renderVanillaPrototype!=='function') return;
-  const rankByCode=new Map(entries.map(x=>[norm(x.code),Number(x.rank)])), rankedSet=new Set(rankByCode.keys());
+
+  const rankByCode=new Map(entries.map(x=>[norm(x.code),Number(x.rank)]));
+  const rankByBase=new Map(), ambiguousRankBases=new Set();
+  entries.forEach(x=>{
+    const b=base(x.code), rank=Number(x.rank);
+    if(!rankByBase.has(b)) rankByBase.set(b,rank);
+    else if(rankByBase.get(b)!==rank){ambiguousRankBases.add(b);rankByBase.delete(b);}
+  });
+  const rankFor=p=>{
+    const exact=rankByCode.get(norm(p.code));
+    if(Number.isFinite(exact)) return exact;
+    const b=base(p.code);
+    return !ambiguousRankBases.has(b)&&rankByBase.has(b)?rankByBase.get(b):null;
+  };
+
   const locked=window.SHOBI_TOP100_ENRICHMENT_BY_CODE||{}, baseMatch=isVanilla28, baseRender=renderVanillaPrototype;
   const lockedByBase=new Map(), ambiguousLockedBases=new Set();
   Object.entries(locked).forEach(([code,row])=>{const b=base(code);if(!lockedByBase.has(b))lockedByBase.set(b,row);else if(lockedByBase.get(b)!==row){ambiguousLockedBases.add(b);lockedByBase.delete(b);}});
@@ -14,10 +28,10 @@
   const dataFor=p=>{const exact=locked[norm(p.code)];if(exact)return exact;const b=base(p.code);return !ambiguousLockedBases.has(b)?(lockedByBase.get(b)||null):null;};
   const notesFor=p=>{const d=dataFor(p);if(d&&Array.isArray(d.main_notes)&&d.main_notes.length)return d.main_notes.slice(0,5);return [...(p.notes?.top||[]),...(p.notes?.heart||[]),...(p.notes?.base||[])].filter((v,i,a)=>v&&a.indexOf(v)===i).slice(0,5);};
   const noteBadge=name=>`<button type="button" class="prototype-meta-badge prototype-filter-badge${state.selectedNote===name?' is-active':''}" data-card-filter="note" data-filter-value="${esc(name)}" title="Filter by ${esc(name)}"><span aria-hidden="true" style="width:22px;height:22px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;flex:0 0 22px;background:var(--color-bg-surface);border:1px solid var(--color-border-light);font-size:10px"><i class="fa-solid fa-droplet"></i></span><span>${esc(name)}</span></button>`;
-  isVanilla28=function(p){return baseMatch(p)||rankedSet.has(norm(p.code));};
+  isVanilla28=function(p){return baseMatch(p)||Number.isFinite(rankFor(p));};
   renderVanillaPrototype=function(p){
-    const code=norm(p.code); if(!rankedSet.has(code)) return baseRender(p);
-    const d=dataFor(p), rank=rankByCode.get(code), favorite=state.favorites.includes(p.code), article=document.createElement('article');
+    const rank=rankFor(p); if(!Number.isFinite(rank)) return baseRender(p);
+    const d=dataFor(p), favorite=state.favorites.includes(p.code), article=document.createElement('article');
     const g=String(d?.gender||p.genderAffinity||'').toLowerCase(), gl=genderLabel(g);
     const s=String(d?.season||(p.seasons||[])[0]||'').toLowerCase(), sm=seasonMeta(s);
     const notes=notesFor(p), noteBadges=notes.map(noteBadge).join('');
