@@ -1,30 +1,10 @@
 BESTSELLER TOP 100 SOURCE LOCK AUDIT
 TOTAL=100
-SOURCE_LOCKED=17/100
-PENDING_SOURCE_LOCK=83/100
+SOURCE_LOCKED=37/100
+PENDING_SOURCE_LOCK=63/100
 PRODUCTION_READY=0
 
 PENDING:
-#1 305-KAY EL | Vanilla 28
-#2 1508-KIL WP | Angels' Share
-#3 451-BYR WP | Blanche
-#4 374-TMFO EL | Tobacco Vanille
-#5 1899-ZARK EL | The Muse
-#6 111-BAC N | Baccarat Rouge 540
-#7 220-CRD EL | Virgin Island Water
-#8 350-TMFO EL | Lost Cherry
-#9 2216-DOL WP | Devotion
-#10 2129-SOL EL | Cheirosa '62
-#11 371-TMFO EL | Soleil Blanc
-#12 449-BYR WP | Bal d'Afrique
-#13 204-CRD EL | Aventus
-#14 765-KIL WP | Love Don't Be Shy
-#15 994-ZAD WP | This Is Her
-#16 2371-MATIE EL | Vanilla Powder
-#17 2206-GIA LUX | Bianco Latte
-#18 179-XER N | XJ 1861 Naxos
-#19 229-DIP EL | Philosykos Eau de Parfum
-#20 2162-BRB WP | Goddess
 #25 485-CAR WP | Good Girl
 #27 152-PARF N | Delina Exclusif
 #28 1735-XER N | Italica
