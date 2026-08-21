@@ -7,6 +7,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 MASTER = ROOT / 'shobi-master.csv'
 RANKING = ROOT / 'bestseller-ranking.js'
+LEGACY = ROOT / 'Personal Database' / 'site-enrichment-v2.json'
 OUT_CSV = ROOT / 'bestseller-top100-audit.csv'
 OUT_SUMMARY = ROOT / 'bestseller-top100-audit-summary.txt'
 
@@ -21,6 +22,18 @@ def norm_code(v):
 
 def split_pipe(v):
     return [clean(x) for x in str(v or '').split('|') if clean(x)]
+
+
+def dedupe(values):
+    out = []
+    seen = set()
+    for value in values:
+        value = clean(value)
+        key = value.casefold()
+        if value and key not in seen:
+            seen.add(key)
+            out.append(value)
+    return out
 
 
 def load_ranking():
@@ -38,10 +51,8 @@ def load_ranking():
 def note_list(row):
     values = []
     for col in ('top_notes', 'heart_notes', 'base_notes'):
-        for n in split_pipe(row.get(col)):
-            if n.casefold() not in {x.casefold() for x in values}:
-                values.append(n)
-    return values
+        values.extend(split_pipe(row.get(col)))
+    return dedupe(values)
 
 
 def main():
@@ -54,17 +65,30 @@ def main():
         if code and code not in by_code:
             by_code[code] = row
 
+    legacy_doc = json.loads(LEGACY.read_text(encoding='utf-8'))
+    legacy_by_code = {norm_code(k): v for k, v in (legacy_doc.get('e') or {}).items()}
+
     audit = []
     for item in ranking:
         rank = int(item['rank'])
         code = clean(item['code'])
-        row = by_code.get(norm_code(code))
+        key = norm_code(code)
+        row = by_code.get(key)
+        legacy = legacy_by_code.get(key) or []
+        legacy_seasons = dedupe(legacy[0] if len(legacy) > 0 and isinstance(legacy[0], list) else [])
+        legacy_notes = dedupe(legacy[2] if len(legacy) > 2 and isinstance(legacy[2], list) else [])
+        legacy_frag = clean(legacy[4] if len(legacy) > 4 else '')
+
         if not row:
             audit.append({
                 'rank': rank, 'shobi_code': code, 'inspired_by': '', 'brand': '', 'gender': '',
                 'season': '', 'note_count': 0, 'main_5_notes': '', 'fragrantica_url': '',
+                'legacy_season': '|'.join(legacy_seasons), 'legacy_note_count': len(legacy_notes),
+                'legacy_main_5_notes': '|'.join(legacy_notes[:5]), 'legacy_fragrantica_url': legacy_frag,
                 'name_ok': 0, 'brand_ok': 0, 'gender_ok': 0, 'season_ok': 0, 'notes5_ok': 0,
-                'fragrantica_ok': 0, 'complete_core': 0, 'status': 'MISSING_FROM_MASTER'
+                'fragrantica_ok': 0, 'legacy_season_ok': int(bool(legacy_seasons)),
+                'legacy_notes5_ok': int(len(legacy_notes) >= 5), 'legacy_fragrantica_ok': int(legacy_frag.startswith('http')),
+                'complete_core': 0, 'status': 'MISSING_FROM_MASTER'
             })
             continue
 
@@ -100,12 +124,19 @@ def main():
             'note_count': len(notes),
             'main_5_notes': '|'.join(notes[:5]),
             'fragrantica_url': frag,
+            'legacy_season': '|'.join(legacy_seasons),
+            'legacy_note_count': len(legacy_notes),
+            'legacy_main_5_notes': '|'.join(legacy_notes[:5]),
+            'legacy_fragrantica_url': legacy_frag,
             'name_ok': int(name_ok),
             'brand_ok': int(brand_ok),
             'gender_ok': int(gender_ok),
             'season_ok': int(season_ok),
             'notes5_ok': int(notes5_ok),
             'fragrantica_ok': int(frag_ok),
+            'legacy_season_ok': int(bool(legacy_seasons)),
+            'legacy_notes5_ok': int(len(legacy_notes) >= 5),
+            'legacy_fragrantica_ok': int(legacy_frag.startswith('http')),
             'complete_core': int(complete_core),
             'status': 'OK' if complete_core else 'MISSING:' + ','.join(missing),
         })
@@ -121,9 +152,12 @@ def main():
 
     missing_master = sum(x['status'] == 'MISSING_FROM_MASTER' for x in audit)
     incomplete = [x for x in audit if not int(x['complete_core'])]
+    recoverable_season = sum(not int(x['season_ok']) and int(x['legacy_season_ok']) for x in audit)
+    recoverable_notes = sum(not int(x['notes5_ok']) and int(x['legacy_notes5_ok']) for x in audit)
+    recoverable_frag = sum(not int(x['fragrantica_ok']) and int(x['legacy_fragrantica_ok']) for x in audit)
     summary = [
         'BESTSELLER TOP 100 ENRICHMENT AUDIT',
-        f'TOTAL=100',
+        'TOTAL=100',
         f'MISSING_FROM_MASTER={missing_master}',
         f'NAME_OK={count("name_ok")}/100',
         f'BRAND_OK={count("brand_ok")}/100',
@@ -134,6 +168,14 @@ def main():
         f'COMPLETE_CORE={count("complete_core")}/100',
         f'INCOMPLETE_CORE={len(incomplete)}/100',
         '',
+        'LEGACY SOURCE COVERAGE:',
+        f'LEGACY_SEASON_OK={count("legacy_season_ok")}/100',
+        f'LEGACY_NOTES5_OK={count("legacy_notes5_ok")}/100',
+        f'LEGACY_FRAGRANTICA_OK={count("legacy_fragrantica_ok")}/100',
+        f'PUBLIC_MISSING_SEASON_RECOVERABLE_FROM_LEGACY={recoverable_season}',
+        f'PUBLIC_MISSING_NOTES5_RECOVERABLE_FROM_LEGACY={recoverable_notes}',
+        f'PUBLIC_MISSING_FRAGRANTICA_RECOVERABLE_FROM_LEGACY={recoverable_frag}',
+        '',
         'INCOMPLETE_ROWS:',
     ]
     summary.extend(
@@ -141,8 +183,7 @@ def main():
         for x in incomplete
     )
     OUT_SUMMARY.write_text('\n'.join(summary) + '\n', encoding='utf-8')
-
-    print('\n'.join(summary[:11]))
+    print('\n'.join(summary[:19]))
 
 
 if __name__ == '__main__':
