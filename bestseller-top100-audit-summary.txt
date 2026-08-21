@@ -1,0 +1,111 @@
+BESTSELLER TOP 100 ENRICHMENT AUDIT
+TOTAL=100
+MISSING_FROM_MASTER=4
+NAME_OK=96/100
+BRAND_OK=95/100
+GENDER_OK=96/100
+SEASON_OK=4/100
+NOTES5_OK=22/100
+FRAGRANTICA_OK=43/100
+COMPLETE_CORE=2/100
+INCOMPLETE_CORE=98/100
+
+INCOMPLETE_ROWS:
+#1 305-KAY EL | VANILLA 28 - KAYALI | MISSING:season,notes5,fragrantica
+#2 1508-KIL WP | ANGELS SHARE - KILIAN | MISSING:season,notes5
+#3 451-BYR WP | Blanche | MISSING:season,notes5
+#4 374-TMFO EL | TOBACCO VANILLE | MISSING:season
+#5 1899-ZARK EL | THE MUSE - ZARKOPERFUME | MISSING:season,notes5
+#6 111-BAC N | ROUGE 540 - BACCARAT | MISSING:season,notes5
+#7 220-CRD EL | Virgin Island Water | MISSING:season
+#8 350-TMFO EL | LOST CHERRY | MISSING:season
+#9 2216-DOL WP | DEVOTION | MISSING:season,notes5
+#10 2129-SOL EL | BRAZILIAN CRUSH CHEIROSA 62 - SOL DE JANEIRO | MISSING:season,notes5
+#11 371-TMFO EL | SOLEIL BLANC | MISSING:season
+#12 449-BYR WP | BAL D'AFRIQUE | MISSING:season,notes5,fragrantica
+#13 204-CRD EL | Avent | MISSING:season,notes5,fragrantica
+#14 765-KIL WP | LOVE DONT BE SHY - KILIAN | MISSING:season,notes5,fragrantica
+#15 994-ZAD WP | THIS IS HER - ZADIG & VOLTAIRE | MISSING:season,notes5
+#16 2371-MATIE EL | VANILLA POWDER | MISSING:season
+#17 2206-GIA LUX | BIANCO LATTE | MISSING:season
+#18 179-XER N | 1861 NAXOS | MISSING:season
+#19 229-DIP EL | Philosykos Eau de Parfum | MISSING:season,notes5,fragrantica
+#20 2162-BRB WP | Goddess | MISSING:season,notes5,fragrantica
+#21 1644-DRC M | SAUVAGE ELIXIR | MISSING:brand,season,notes5,fragrantica
+#22 2398-FRE LUX | Acne Studios | MISSING:season,notes5,fragrantica
+#23 401-ARIA WP | CLOUD - ARIANA GRANDE | MISSING:season,notes5,fragrantica
+#24 1660-ESCE EL | MOLECULE 01 | MISSING:season,notes5,fragrantica
+#25 1067-CHA | - | MISSING_FROM_MASTER
+#26 1499-BYR EL | MOJAVE GHOST | MISSING:season,notes5,fragrantica
+#27 485-CAR WP | GOOD GIRL | MISSING:season
+#28 1520-YZLO W | LIBRE INTENSE | MISSING:season,notes5,fragrantica
+#29 152-PARF N | DELINA EXCLUSIF - PARFUMS DE MARLY | MISSING:season,notes5,fragrantica
+#30 1735-XER N | ITALICA | MISSING:season,notes5,fragrantica
+#31 1498-BYR EL | GYPSY WATER | MISSING:season,notes5,fragrantica
+#32 132-LTN N | OMBRE NOMADE | MISSING:season,notes5,fragrantica
+#33 1919-PRA WP | PARADOXE - PRADA | MISSING:season,notes5,fragrantica
+#34 1764-GUR W | AQUA ALLEGORIA COCONUT FIZZ - GUERLAIN | MISSING:season
+#35 131-LEL N | Le Labo Santal 33 | MISSING:season,notes5,fragrantica
+#36 848-NRO WP | PURE MUSK FOR HER | MISSING:season,notes5
+#38 303-JOM EL | Wood Sage & Sea Salt Jo Malone | MISSING:season,notes5,fragrantica
+#39 2155-KAY EL | YUM PISTACHIO GELATO - KAYALI | MISSING:season,notes5
+#40 750-KEN W | FLOWER L ELIXIR - KENZO | MISSING:season,notes5
+#41 1553-MNT N | ARABIANS TONKA - MONTALE | MISSING:season,notes5
+#42 937-VAL WP | DONNA BORN IN ROMA - VALENTINO | MISSING:season,notes5
+#43 1937-BIL AR | Eilish Billie Eilish | MISSING:season,notes5,fragrantica
+#44 425-BRB WP | Burberry Her | MISSING:season,notes5,fragrantica
+#45 1883-NISH N | Fragrance WULONG CHA - NISHANE | MISSING:season,notes5,fragrantica
+#46 760-KIL WP | BLACK PHANTOM - KILIAN | MISSING:season,notes5,fragrantica
+#47 1493-ACQ WP | - | MISSING_FROM_MASTER
+#48 2235-PRA WP | PARADOXE INTENSE - PRADA | MISSING:season,notes5,fragrantica
+#49 361-TMFO EL | OMBRE LEATHER | MISSING:season,notes5,fragrantica
+#50 2346-TMFO EL | VANILLA SEX | MISSING:season,notes5,fragrantica
+#51 981-YZLO W | LIBRE | MISSING:season,notes5,fragrantica
+#52 977-YZLO W | of BLACK OPIUM | MISSING:season,notes5,fragrantica
+#53 364-TMFO EL | OUD WOOD | MISSING:season,notes5,fragrantica
+#54 847-NRO WP | POUDREE NARCISO - NARCISO RODRIGUEZ | MISSING:season,notes5
+#55 1909-XER N | TORINO 21 | MISSING:season,notes5,fragrantica
+#56 2150-LEL EL | THE MATCHA 26 - LE LABO | MISSING:season,notes5,fragrantica
+#57 430-BRB WP | The Beat EDT | MISSING:season,notes5
+#58 1635-XER N | LIRA | MISSING:season
+#59 2365-DIP N | L'EAU PAPIER | MISSING:season,notes5,fragrantica
+#60 2320-LTN N | IMAGINATION | MISSING:season
+#61 528-DRC W | HYPNOTIC POISON | MISSING:season,notes5,fragrantica
+#62 1974-MARG EL | BUBBLE BATH | MISSING:season,notes5,fragrantica
+#63 1801-JUL EL | NOT A PERFUME - JULIETTE HAS A GUN | MISSING:season,notes5,fragrantica
+#64 694-GUR W | TERRACOTTA LE PARFUM - GUERLAIN | MISSING:season,notes5,fragrantica
+#66 2161-GUR W | AQUA ALLEGORIA MANDARINE BASILIC - Guerlain | MISSING:season,notes5
+#67 1946-MARC N | GANYMEDE - MARC ANTOINE BARROIS | MISSING:season,notes5,fragrantica
+#68 1850-LEL N | ANOTHER 13 - LE LABO | MISSING:season,notes5,fragrantica
+#69 151-PARF N | DELINA - PARFUMS DE MARLY | MISSING:season,notes5,fragrantica
+#70 761-KIL WP | GOOD GIRL GONE BAD - KILIAN | MISSING:season,notes5,fragrantica
+#71 641-FRE WP | PORTRAIT OF A LADY | MISSING:season
+#72 154-PARF N | LAYTON - PARFUMS DE MARLY | MISSING:season,notes5,fragrantica
+#73 1887-XER N | ERBA PURA | MISSING:season
+#74 506-CHA W | of COCON MADEM | MISSING:season,notes5,fragrantica
+#75 210-CRD EL | GREEN IRISH TWEED | MISSING:season
+#76 268-JOM EL | MYRRH & TONKA - JO MALONE | MISSING:season,notes5
+#77 1112-DSQ MP | HE WOOD ROCKY MOUNTAIN | MISSING:season,notes5,fragrantica
+#78 879-PRA WP | INFUSION D'IRIS - PRADA | MISSING:season,notes5,fragrantica
+#79 2167-GUL MP | LE MALE ELIXIR | MISSING:season
+#80 513-CHL WP | LOVE - CHLOE | MISSING:season,notes5
+#81 1737-GIV W | L INTERDIT ROUGE EDP | MISSING:season,notes5,fragrantica
+#82 1513-KIL WP | PRINCESS - KILIAN PERFUME | MISSING:season,notes5
+#83 1978-ARM | - | MISSING_FROM_MASTER
+#84 1476-NRO WP | MUSC NOIR FOR HER - NARCISO RODRIGUEZ | MISSING:season,notes5,fragrantica
+#85 318-MNT EL | CHOCOLATE GREEDY | MISSING:season,notes5,fragrantica
+#86 1775-DIP N | ORPHEON EAU DE PARFUM | MISSING:season,notes5
+#87 1651-TMU W | ALIEN GODDESS | MISSING:season
+#88 1846-MAN EL | COCO VANILLE - MANCERA | MISSING:season,notes5,fragrantica
+#89 2053-BDIK | GRIS CHARNEL EXTRAIT - BDK | MISSING:notes5
+#90 355-TMFO EL | NEROLI PORTOFINO | MISSING:season
+#91 1528-KUR N | BACCARAT ROUGE 540 EXTRAIT | MISSING:season
+#92 359-TMFO EL | NOIR EXTREME | MISSING:season
+#93 2369-MAN EL | AMORE CAFFE - MANCERA | MISSING:season,notes5,fragrantica
+#94 1618-NISH N | ANI - NISHANE | MISSING:season,notes5,fragrantica
+#95 2154-KAY EL | UTOPIA VANILLA COCO 21 - KAYALI | MISSING:season,notes5,fragrantica
+#96 225-DIP EL | EL EAU DES SENS | MISSING:season,notes5,fragrantica
+#97 2261-PARF | ALTHAIR - PARFUMS DE MARLY | MISSING:notes5
+#98 1085-DRC | - | MISSING_FROM_MASTER
+#99 124-INI N | Side Effect - Initio Parfums Prives | MISSING:season,notes5,fragrantica
+#100 181-XER N | ALEXANDRIA II | MISSING:season
