@@ -6,6 +6,7 @@ const { chromium } = require('playwright');
 const ROOT = process.cwd();
 const CDP_URL = process.env.SHOBI_CDP_URL || 'http://127.0.0.1:9222';
 const OUT_DIR = process.env.SHOBI_CATCHER_OUT || path.join(ROOT, 'tools', 'fragrantica-main-notes', 'results', 'playwright-41-100');
+const SHOBI_BESTSELLER_URL = 'https://leparfum.com.gr/en/perfumes?resultsPerPage=99999&order=product.sales.desc&from-xhr=';
 const readJson = p => JSON.parse(fs.readFileSync(path.join(ROOT, p), 'utf8'));
 const ENRICHMENT = readJson('Personal Database/site-enrichment-v2.json');
 const RUNTIME = readJson('Personal Database/site-runtime-v2.json');
@@ -28,9 +29,16 @@ const SOURCE_LOCK_FILES = [
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 const clean = s => String(s || '').replace(/\s+/g, ' ').trim();
 const keyOf = code => String(code || '').replace(/\s+/g, '').toUpperCase();
+const urlCodeSlug = code => String(code || '').trim().toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
 const slug = code => String(code).replace(/[^a-z0-9]+/gi, '-').replace(/^-|-$/g, '').toLowerCase();
 const isFragUrl = s => /^https:\/\/(www\.)?fragrantica\.(com|it)\//i.test(String(s || ''));
-const runtimeByCode = new Map((RUNTIME.p || []).map(row => [keyOf(row[0]), row]));
+const runtimeRows = (RUNTIME.p || []).filter(Array.isArray);
+const runtimeByCode = new Map(runtimeRows.map(row => [keyOf(row[0]), row]));
+const runtimeByUrlSlug = new Map();
+for (const row of runtimeRows) {
+  const s = urlCodeSlug(row[0]);
+  if (s && !runtimeByUrlSlug.has(s)) runtimeByUrlSlug.set(s, row);
+}
 
 function findFragUrlDeep(node, targetKey, depth = 0) {
   if (depth > 12 || node == null) return '';
@@ -54,12 +62,6 @@ function findFragUrlDeep(node, targetKey, depth = 0) {
   if (typeof node === 'object') {
     for (const [k, v] of Object.entries(node)) {
       if (keyOf(k) === targetKey) {
-        const u = findFragUrlDeep(v, targetKey, depth + 1);
-        if (u) return u;
-      }
-    }
-    for (const v of Object.values(node)) {
-      if (Array.isArray(v) && v.some(x => typeof x === 'string' && keyOf(x) === targetKey)) {
         const u = findFragUrlDeep(v, targetKey, depth + 1);
         if (u) return u;
       }
@@ -98,35 +100,66 @@ function resolveUrl(code) {
     const u = resolveFromTextFile(rel, code);
     if (u) return { url: u, source: rel };
   }
-  const masterUrl = resolveFromTextFile('shobi-master.csv', code) || resolveFromTextFile('Shobi Master Database/shobi-master-current.csv', code);
-  if (masterUrl) return { url: masterUrl, source: 'master-csv' };
+  const masterUrl = resolveFromTextFile('Shobi Master Database/shobi-master-current.csv', code);
+  if (masterUrl) return { url: masterUrl, source: 'master-current' };
   return { url: '', source: '' };
 }
 
-function canonicalTargets() {
-  const ranked = [];
-  for (const row of (RUNTIME.p || [])) {
-    if (!Array.isArray(row) || row.length < 7) continue;
-    const rank = Number(row[6]);
-    if (!Number.isInteger(rank) || rank < 41 || rank > 100) continue;
-    ranked.push({ rank, code: row[0], name: row[1] || row[0], brand: row[2] || '' });
+function matchRuntimeFromHref(href) {
+  const lower = String(href || '').toLowerCase();
+  for (const [s, row] of runtimeByUrlSlug) {
+    if (lower.includes('/' + s) || lower.includes(s + '?') || lower.endsWith(s)) return row;
   }
-  ranked.sort((a,b)=>a.rank-b.rank);
-  const seenRanks = new Set();
-  const unique = [];
-  for (const x of ranked) {
-    if (seenRanks.has(x.rank)) throw new Error(`DUPLICATE_CANONICAL_RANK_${x.rank}`);
-    seenRanks.add(x.rank);
-    unique.push(x);
-  }
-  const missingRanks = [];
-  for (let r=41;r<=100;r++) if (!seenRanks.has(r)) missingRanks.push(r);
-  if (missingRanks.length) throw new Error(`CANONICAL_RANKS_MISSING_${missingRanks.join('_')}`);
-  if (unique.length !== 60) throw new Error(`CANONICAL_TARGET_COUNT_${unique.length}`);
-  return unique.map(x => {
-    const resolved = resolveUrl(x.code);
-    return { ...x, key:keyOf(x.code), url:resolved.url, url_source:resolved.source };
+  return null;
+}
+
+async function extractLiveTop100(page) {
+  console.log(`SHOBI_RANKING_URL ${SHOBI_BESTSELLER_URL}`);
+  await page.goto(SHOBI_BESTSELLER_URL, { waitUntil: 'domcontentloaded', timeout: 90000 });
+  await sleep(5000);
+
+  const hrefs = await page.evaluate(() => {
+    const out = [];
+    const push = href => {
+      href = String(href || '').trim();
+      if (!href || !/^https?:/i.test(href)) return;
+      if (!/leparfum\.com\.gr\//i.test(href)) return;
+      if (!/\/\d{1,4}-[a-z0-9-]+/i.test(href)) return;
+      out.push(href);
+    };
+    const cards = document.querySelectorAll('.product-miniature, .js-product-miniature, article.product, article');
+    for (const card of cards) {
+      const links = card.querySelectorAll('a[href]');
+      for (const a of links) {
+        const href = a.href;
+        if (/\/\d{1,4}-[a-z0-9-]+/i.test(href || '')) { push(href); break; }
+      }
+    }
+    if (out.length < 100) {
+      for (const a of document.querySelectorAll('a[href]')) push(a.href);
+    }
+    return out;
   });
+
+  const seen = new Set();
+  const rows = [];
+  for (const href of hrefs) {
+    const row = matchRuntimeFromHref(href);
+    if (!row) continue;
+    const k = keyOf(row[0]);
+    if (seen.has(k)) continue;
+    seen.add(k);
+    rows.push(row);
+    if (rows.length >= 100) break;
+  }
+
+  fs.mkdirSync(OUT_DIR, { recursive: true });
+  fs.writeFileSync(path.join(OUT_DIR, 'shobi-live-hrefs.json'), JSON.stringify(hrefs.slice(0, 500), null, 2) + '\n');
+  fs.writeFileSync(path.join(OUT_DIR, 'bestseller-top100-live.json'), JSON.stringify({ captured_at:new Date().toISOString(), count:rows.length, codes:rows.map(r=>r[0]) }, null, 2) + '\n');
+  console.log(`LIVE_MATCHED ${rows.length}`);
+  if (rows.length < 100) throw new Error(`LIVE_TOP100_INCOMPLETE_${rows.length}`);
+  console.log(`LIVE_TOP100 ${rows.slice(0,100).map((r,i)=>`#${i+1} ${r[0]}`).join(' | ')}`);
+  return rows.slice(0,100);
 }
 
 async function findVoteControl(page) {
@@ -208,10 +241,22 @@ async function capture(page, target) {
 async function main() {
   fs.rmSync(OUT_DIR,{recursive:true,force:true});
   fs.mkdirSync(OUT_DIR,{recursive:true});
-  const targets = canonicalTargets();
+
+  const browser = await chromium.connectOverCDP(CDP_URL,{timeout:15000});
+  const context = browser.contexts()[0];
+  if (!context) throw new Error('CDP_NO_BROWSER_CONTEXT');
+  const pages = context.pages();
+  const page = pages[0] || await context.newPage();
+
+  const liveTop100 = await extractLiveTop100(page);
+  const targets = liveTop100.slice(40,100).map((row,i)=>{
+    const code=row[0];
+    const resolved=resolveUrl(code);
+    return {rank:41+i,code,name:row[1]||code,brand:row[2]||'',url:resolved.url,url_source:resolved.source};
+  });
   fs.writeFileSync(path.join(OUT_DIR,'canonical-targets-41-100.json'),JSON.stringify(targets,null,2)+'\n');
   console.log(`TARGETS ${targets.length}: ${targets.map(x=>`#${x.rank} ${x.code}`).join(' | ')}`);
-  for (const t of targets) console.log(`RESOLVE #${t.rank} ${t.code}: ${t.url || 'MISSING'} ${t.url_source || ''}`);
+  for(const t of targets) console.log(`RESOLVE #${t.rank} ${t.code}: ${t.url || 'MISSING'} ${t.url_source || ''}`);
 
   const missing=targets.filter(t=>!isFragUrl(t.url));
   fs.writeFileSync(path.join(OUT_DIR,'missing-fragrantica-urls.json'),JSON.stringify(missing,null,2)+'\n');
@@ -219,12 +264,6 @@ async function main() {
     for(const t of missing) console.error(`MISSING_URL #${t.rank} ${t.code} ${t.name}`);
     throw new Error(`FRAGRANTICA_URLS_MISSING_${missing.length}`);
   }
-
-  const browser=await chromium.connectOverCDP(CDP_URL,{timeout:15000});
-  const context=browser.contexts()[0];
-  if(!context) throw new Error('CDP_NO_BROWSER_CONTEXT');
-  const pages=context.pages();
-  const page=pages.find(p=>/fragrantica\.(com|it)/i.test(p.url())) || pages[0] || await context.newPage();
 
   const results=[], failures=[];
   for(const target of targets){
