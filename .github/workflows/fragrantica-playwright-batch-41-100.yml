@@ -1,0 +1,46 @@
+name: Fragrantica Playwright Batch 41-100
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  catcher-batch:
+    runs-on: [self-hosted, Windows, X64]
+    timeout-minutes: 120
+    env:
+      SHOBI_CDP_URL: http://127.0.0.1:9222
+      SHOBI_CATCHER_OUT: ${{ github.workspace }}\tools\fragrantica-main-notes\results\playwright-41-100
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install Playwright client
+        shell: cmd
+        run: |
+          call npm init -y
+          call npm install --no-save playwright@1.55.0
+
+      - name: Verify Edge debugging endpoint
+        shell: cmd
+        run: curl.exe --fail --silent --show-error http://127.0.0.1:9222/json/version
+
+      - name: Capture live Best Seller ranks and Fragrantica 41-100
+        shell: cmd
+        run: node tools\fragrantica-main-notes\playwright-batch-41-100.cjs
+
+      - name: Upload batch results and diagnostics
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: fragrantica-playwright-41-100
+          path: tools/fragrantica-main-notes/results/playwright-41-100/*.json
+          if-no-files-found: warn
