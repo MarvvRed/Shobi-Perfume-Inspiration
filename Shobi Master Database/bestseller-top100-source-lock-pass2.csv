@@ -1,27 +1,33 @@
 rank,shobi_code,status,primary_source,secondary_source,verified_fields,notes
-44,760-KIL WP,source-locked,https://www.fragrantica.it/perfume/By-Kilian/Black-Phantom-43632.html,,identity|gender|notes,Unisex; pyramid starts Rum then Dark Chocolate Coffee Almond Heliotrope; staging note selection requires correction
-47,2346-TMFO EL,source-locked,https://www.fragrantica.com/perfume/Tom-Ford/Vanilla-Sex-88588.html,https://www.fragrantica.it/news/Vanilla-Sex-di-Tom-Ford-5698.html,identity|gender|notes,Unisex; source discrepancy between encyclopedia and launch pyramid documented; do not promote staging notes unchanged
+44,760-KIL WP,source-locked,https://www.fragrantica.it/perfume/By-Kilian/Black-Phantom-43632.html,,identity|gender|notes,Unisex; staging requires corrected pyramid selection
+45,2235-PRA WP,source-locked,https://www.fragrantica.com/perfume/Prada/Prada-Paradoxe-Intense-83988.html,,identity|gender|notes,Female; Neroli Pear Bergamot Jasmine Neroli Essence are valid first five
+46,361-TMFO EL,source-locked,https://www.fragrantica.com/perfume/Tom-Ford/Ombre-Leather-2018-50239.html,,identity|gender|notes,Unisex; Cardamom Leather Jasmine Sambac Amber Moss valid first five
+47,2346-TMFO EL,source-locked,https://www.fragrantica.com/perfume/Tom-Ford/Vanilla-Sex-88588.html,https://www.fragrantica.it/news/Vanilla-Sex-di-Tom-Ford-5698.html,identity|gender|notes,Unisex; source discrepancy documented; do not promote staging unchanged
+48,981-YZLO W,source-locked,https://www.fragrantica.it/perfume/Yves-Saint-Laurent/Libre-56077.html,,identity|gender|notes,Female; Lavender Mandarin Black Currant Petitgrain Lavender valid first five
 49,977-YZLO W,source-locked,https://www.fragrantica.com/perfume/Yves-Saint-Laurent/Black-Opium-25324.html,,identity|gender|notes,Female; Pear Pink Pepper Orange Blossom Coffee Jasmine confirmed
-50,364-TMFO EL,source-locked,https://www.fragrantica.com/perfume/Tom-Ford/Oud-Wood-1826.html,,identity|gender|notes,Unisex; Oud Brazilian Rosewood Cardamom Sandalwood Sichuan Pepper are valid first-five display notes
+50,364-TMFO EL,source-locked,https://www.fragrantica.com/perfume/Tom-Ford/Oud-Wood-1826.html,,identity|gender|notes,Unisex; Oud Brazilian Rosewood Cardamom Sandalwood Sichuan Pepper valid
+51,847-NRO WP,source-locked,https://www.fragrantica.it/perfume/Narciso-Rodriguez/Narciso-Poudree-36679.html,,identity|gender|notes,Female; identity and published pyramid source-locked
 52,1909-XER N,source-locked,https://www.fragrantica.it/perfume/Xerjoff/Torino21-70424.html,https://www.xerjoff.com/it/products/torino21-eau-de-parfum-15ml,identity|gender|notes,Unisex; Mint Lemon Basil Thyme Black Currant confirmed
-53,2150-LEL EL,source-locked,https://www.fragrantica.com/perfume/Le-Labo/The-Matcha-26-69731.html,,identity|gender|notes,Unisex; exactly five published notes Fig Cedar Matcha Tea Bitter Orange Vetiver
-56,2365-DIP N,source-locked,https://www.fragrantica.com/perfume/Diptyque/L-Eau-Papier-78658.html,,identity|gender|notes,Unisex; corrected composition is Musk White Musk Sesame Mimosa Woody Notes; staging Rice Steam data must not be promoted
-61,694-GUR W,source-locked,https://www.fragrantica.com/perfume/Guerlain/Terracotta-Le-Parfum-24785.html,,identity|gender|notes,Female; Tiare Flower Coconut Bergamot Jasmine Ylang-Ylang valid first-five pyramid notes
-64,1946-MARC N,source-locked,https://www.fragrantica.com/perfume/Marc-Antoine-Barrois/Ganymede-54720.html,,identity|gender|notes,Unisex; Saffron Italian Mandarin Chinese Osmanthus Immortelle Violet Leaf valid pyramid notes
-65,1850-LEL N,source-locked,https://www.fragrantica.it/perfume/Le-Labo/Another-13-10131.html,,identity|gender|notes,Unisex; staging order must be corrected to published pyramid beginning Pear Apple Citrus Ambrette Amyl Salicylate
-66,151-PARF N,source-locked,https://www.fragrantica.it/perfume/Parfums-de-Marly/Delina-43871.html,,identity|gender|notes,Female; Litchi Rhubarb Bergamot Nutmeg Black Currant are published top notes
-70,1887-XER N,source-locked,https://www.fragrantica.com/perfume/Xerjoff/Erba-Pura-55157.html,,identity|gender|notes,Unisex; Sicilian Orange Calabrian Bergamot Sicilian Lemon Fruits White Musk valid first five
-71,506-CHA W,source-locked,https://www.fragrantica.it/perfume/Chanel/Coco-Mademoiselle-611.html,,identity|gender|notes,Female; Orange Mandarin Bergamot Orange Blossom Turkish Rose valid first five
-72,210-CRD EL,source-locked,https://www.fragrantica.com/perfume/Creed/Green-Irish-Tweed-474.html,,identity|gender|notes,Male; exactly five published notes Iris Vervain Violet Leaf Ambergris Sandalwood
-73,268-JOM EL,source-locked,https://www.fragrantica.com/perfume/Jo-Malone-London/Myrrh-Tonka-42027.html,,identity|gender|notes,Unisex; exactly five published notes Lavender Myrrh Tonka Bean Vanilla Almond
-76,2167-GUL MP,source-locked,https://www.fragrantica.it/perfume/Jean-Paul-Gaultier/Le-Male-Elixir-81642.html,,identity|gender|notes,Male; opening Lavender Mint confirmed
-79,1513-KIL WP,source-locked,https://www.fragrantica.com/perfume/By-Kilian/Princess-90174.html,,identity|gender|notes,Current 2022 Princess is unisex and has exactly three published notes Marshmallow Matcha Tea Ginger; staging female gender corrected
-80,1476-NRO WP,source-locked,https://www.fragrantica.com/perfume/Narciso%20Rodriguez/Narciso-Rodriguez-Musc-Noir-For-Her-64730.html,,identity|gender|notes,Female; exactly four published notes Plum Musk Heliotrope Suede
-85,2053-BDIK,source-locked,https://www.fragrantica.com/perfume/BDK-Parfums/Gris-Charnel-Extrait-73645.html,,identity|gender|notes,Unisex; corrected first five are Cardamom Fig Black Tea Iris Bourbon Vetiver
-86,355-TMFO EL,source-locked,https://www.fragrantica.com/perfume/Tom-Ford/Neroli-Portofino-12192.html,,identity|gender|notes,Unisex; Bergamot Mandarin Lemon Bitter Orange Lavender are published first five
-87,1528-KUR N,source-locked,https://www.fragrantica.com/perfume/Maison-Francis-Kurkdjian/Baccarat-Rouge-540-Extrait-de-Parfum-46066.html,,identity|gender|notes,Unisex; Bitter Almond Saffron Egyptian Jasmine Virginia Cedar Ambergris are valid first five
-88,359-TMFO EL,source-locked,https://www.fragrantica.it/perfume/Tom-Ford/Noir-Extreme-29675.html,,identity|gender|notes,Male; Cardamom Nutmeg Saffron Mandarin Neroli are published top five
-89,2369-MAN EL,source-locked,https://www.fragrantica.com/perfume/Mancera/Amore-Caffe-87409.html,,identity|gender|notes,Unisex; Coffee Amaretto Ice Cream Speculoos Brown Sugar are valid first five
-90,1618-NISH N,source-locked,https://www.fragrantica.com/perfume/Nishane/Ani-54785.html,,identity|gender|notes,Unisex; Ginger Bergamot Pink Pepper Green Notes Cardamom are valid first five
+53,2150-LEL EL,source-locked,https://www.fragrantica.com/perfume/Le-Labo/The-Matcha-26-69731.html,,identity|gender|notes,Unisex; exactly five published notes
+55,1635-XER N,source-locked,https://www.fragrantica.it/perfume/Xerjoff/Lira-11801.html,,identity|gender|notes,Female; Blood Orange Bergamot Lavender Cinnamon Jasmine valid first five
+56,2365-DIP N,source-locked,https://www.fragrantica.com/perfume/Diptyque/L-Eau-Papier-78658.html,,identity|gender|notes,Unisex; corrected composition; staging Rice Steam must not be promoted
+57,2320-LTN N,source-locked,https://www.fragrantica.com/perfume/Louis-Vuitton/imagination-67370.html,https://it.louisvuitton.com/ita-it/momenti-lv/imagination,identity|gender|notes,Male; Citron Calabrian Bergamot Sicilian Orange Tunisian Neroli Nigerian Ginger valid first five
+61,694-GUR W,source-locked,https://www.fragrantica.com/perfume/Guerlain/Terracotta-Le-Parfum-24785.html,,identity|gender|notes,Female; source-locked
+64,1946-MARC N,source-locked,https://www.fragrantica.com/perfume/Marc-Antoine-Barrois/Ganymede-54720.html,,identity|gender|notes,Unisex; source-locked
+65,1850-LEL N,source-locked,https://www.fragrantica.it/perfume/Le-Labo/Another-13-10131.html,,identity|gender|notes,Unisex; staging order corrected to published pyramid beginning Pear Apple Citrus Ambrette Amyl Salicylate
+66,151-PARF N,source-locked,https://www.fragrantica.it/perfume/Parfums-de-Marly/Delina-43871.html,,identity|gender|notes,Female; Litchi Rhubarb Bergamot Nutmeg Black Currant published top notes
+70,1887-XER N,source-locked,https://www.fragrantica.com/perfume/Xerjoff/Erba-Pura-55157.html,,identity|gender|notes,Unisex; source-locked
+71,506-CHA W,source-locked,https://www.fragrantica.it/perfume/Chanel/Coco-Mademoiselle-611.html,,identity|gender|notes,Female; source-locked
+72,210-CRD EL,source-locked,https://www.fragrantica.com/perfume/Creed/Green-Irish-Tweed-474.html,,identity|gender|notes,Male; exactly five published notes
+73,268-JOM EL,source-locked,https://www.fragrantica.com/perfume/Jo-Malone-London/Myrrh-Tonka-42027.html,,identity|gender|notes,Unisex; exactly five published notes
+76,2167-GUL MP,source-locked,https://www.fragrantica.it/perfume/Jean-Paul-Gaultier/Le-Male-Elixir-81642.html,,identity|gender|notes,Male; source-locked
+79,1513-KIL WP,source-locked,https://www.fragrantica.com/perfume/By-Kilian/Princess-90174.html,,identity|gender|notes,Unisex; exactly three published notes Marshmallow Matcha Tea Ginger
+80,1476-NRO WP,source-locked,https://www.fragrantica.com/perfume/Narciso%20Rodriguez/Narciso-Rodriguez-Musc-Noir-For-Her-64730.html,,identity|gender|notes,Female; exactly four published notes
+85,2053-BDIK,source-locked,https://www.fragrantica.com/perfume/BDK-Parfums/Gris-Charnel-Extrait-73645.html,,identity|gender|notes,Unisex; Cardamom Fig Black Tea Iris Bourbon Vetiver valid first five
+86,355-TMFO EL,source-locked,https://www.fragrantica.com/perfume/Tom-Ford/Neroli-Portofino-12192.html,,identity|gender|notes,Unisex; published first five confirmed
+87,1528-KUR N,source-locked,https://www.fragrantica.com/perfume/Maison-Francis-Kurkdjian/Baccarat-Rouge-540-Extrait-de-Parfum-46066.html,,identity|gender|notes,Unisex; published first five confirmed
+88,359-TMFO EL,source-locked,https://www.fragrantica.it/perfume/Tom-Ford/Noir-Extreme-29675.html,,identity|gender|notes,Male; published top five confirmed
+89,2369-MAN EL,source-locked,https://www.fragrantica.com/perfume/Mancera/Amore-Caffe-87409.html,,identity|gender|notes,Unisex; published first five confirmed
+90,1618-NISH N,source-locked,https://www.fragrantica.com/perfume/Nishane/Ani-54785.html,,identity|gender|notes,Unisex; published first five confirmed
 91,2154-KAY EL,source-locked,https://www.fragrantica.com/perfume/Kayali/Utopia-Vanilla-Coco-21-68220.html,,identity|gender|notes,Unisex not female; Coconut Milk Honeysuckle Pear Blossom Italian Lemon Tuberose valid first five
-95,181-XER N,source-locked,https://www.fragrantica.com/perfume/Xerjoff/Alexandria-II-17786.html,,identity|gender|notes,Unisex; Palisander Rosewood Lavender Apple Cinnamon Rose valid first five
+95,181-XER N,source-locked,https://www.fragrantica.com/perfume/Xerjoff/Alexandria-II-17786.html,,identity|gender|notes,Unisex; published first five confirmed
