@@ -17,9 +17,22 @@ function targets(){
     const lines=read(rel).split(/\r?\n/).filter(Boolean); const h=csv(lines.shift());
     const ir=h.indexOf('rank'),ic=h.indexOf('shobi_code'),iu=h.indexOf('primary_source');
     if(ir<0||ic<0||iu<0) throw new Error(`BAD_LOCK_HEADER ${rel}`);
-    for(const line of lines){const r=csv(line),rank=Number(r[ir]);if(rank<41||rank>100)continue;const code=clean(r[ic]),url=clean(r[iu]);if(!code||!/^https:\/\/(?:www\.)?fragrantica\.(?:com|it)\//i.test(url))continue;byRank.set(rank,{rank,code,url,url_source:rel});}
+    for(const line of lines){
+      const r=csv(line),rank=Number(r[ir]);
+      if(rank<41||rank>100)continue;
+      const code=clean(r[ic]); let url=clean(r[iu]);
+      if(!code)continue;
+      if(!/^https:\/\/(?:www\.)?fragrantica\.(?:com|it)\//i.test(url)){
+        const fallback=r.map(clean).find(v=>/^https:\/\/(?:www\.)?fragrantica\.(?:com|it)\//i.test(v));
+        if(fallback)url=fallback;
+      }
+      if(!/^https:\/\/(?:www\.)?fragrantica\.(?:com|it)\//i.test(url))continue;
+      byRank.set(rank,{rank,code,url,url_source:rel});
+    }
   }
-  const out=[];for(let rank=41;rank<=100;rank++){const t=byRank.get(rank);if(!t)throw new Error(`SOURCE_LOCK_MISSING_RANK_${rank}`);out.push(t);}
+  const out=[];const missing=[];
+  for(let rank=41;rank<=100;rank++){const t=byRank.get(rank);if(!t)missing.push(rank);else out.push(t);}
+  if(missing.length)throw new Error(`SOURCE_LOCK_MISSING_RANKS_${missing.join('_')}`);
   return out;
 }
 async function findVoteControl(page){const all=page.locator('button,a,[role="button"],span,div');for(let i=0,n=await all.count();i<n;i++){const e=all.nth(i),txt=clean(await e.innerText().catch(()=>'')),aria=clean(await e.getAttribute('aria-label').catch(()=>'')),title=clean(await e.getAttribute('title').catch(()=>''));if(/^(show|hide)\s+votes$/i.test(txt)||/(show|hide)\s+votes/i.test(aria)||/(show|hide)\s+votes/i.test(title))return e;}return null;}
