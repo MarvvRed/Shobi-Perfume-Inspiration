@@ -23,17 +23,13 @@ async function findVoteControl(page) {
 
 async function collect(page) {
   const control = await findVoteControl(page);
-  if (await control.count() === 0) {
-    throw new Error('SHOW_VOTES_NOT_FOUND: session may not be logged in, page changed, or Fragrantica blocked the browser');
-  }
-
+  if (await control.count() === 0) throw new Error('SHOW_VOTES_NOT_FOUND: session may not be logged in, page changed, or Fragrantica blocked the browser');
   const label = clean(await control.innerText().catch(() => ''));
   if (!/^Hide\s+votes$/i.test(label)) {
     await control.scrollIntoViewIfNeeded().catch(() => {});
     await control.click({ timeout: 10000 });
     await sleep(1000);
   }
-
   const notes = await page.evaluate(() => {
     const clean = s => String(s || '').replace(/\s+/g, ' ').trim();
     const noteId = href => {
@@ -56,7 +52,6 @@ async function collect(page) {
     }
     return [...best.values()].sort((a,b) => b.votes-a.votes || a.note.localeCompare(b.note));
   });
-
   if (!notes.length) throw new Error('VOTED_NOTES_NOT_PARSED');
   return notes;
 }
@@ -64,38 +59,18 @@ async function collect(page) {
 async function main() {
   fs.mkdirSync(PROFILE_DIR, { recursive: true });
   fs.mkdirSync(OUT_DIR, { recursive: true });
-
-  const context = await chromium.launchPersistentContext(PROFILE_DIR, {
-    headless: false,
-    viewport: { width: 1440, height: 1000 },
-    locale: 'en-US'
-  });
+  const context = await chromium.launchPersistentContext(PROFILE_DIR, { headless: false, viewport: { width: 1440, height: 1000 }, locale: 'en-US' });
   const pages = context.pages();
   const page = pages[0] || await context.newPage();
 
   if (LOGIN_MODE) {
     console.log(`LOGIN_PROFILE ${PROFILE_DIR}`);
-    console.log('LOGIN_MODE_OPENING Fragrantica. Log in in this browser window.');
+    console.log('LOGIN_MODE_OPENING Fragrantica. Log in manually in this browser window.');
+    console.log('IMPORTANT: after login is complete, CLOSE THE CHROMIUM WINDOW YOURSELF. The persistent profile will be saved.');
     await page.goto('https://www.fragrantica.com/', { waitUntil: 'domcontentloaded', timeout: 60000 });
-    console.log('LOGIN_MODE_WAITING up to 10 minutes. Close is automatic after Show votes becomes available on the test perfume.');
-    const deadline = Date.now() + 10 * 60 * 1000;
-    while (Date.now() < deadline) {
-      try {
-        await page.goto(URL, { waitUntil: 'domcontentloaded', timeout: 60000 });
-        await sleep(1500);
-        const c = await findVoteControl(page);
-        if (await c.count()) {
-          console.log('LOGIN_SESSION_CONFIRMED');
-          await context.close();
-          return;
-        }
-      } catch (e) {
-        console.log('LOGIN_CHECK_RETRY', e.message);
-      }
-      await sleep(5000);
-    }
-    await context.close();
-    throw new Error('LOGIN_SESSION_NOT_CONFIRMED_WITHIN_TIMEOUT');
+    await new Promise(resolve => context.on('close', resolve));
+    console.log('LOGIN_BROWSER_CLOSED_PROFILE_SAVED');
+    return;
   }
 
   console.log(`PROFILE ${PROFILE_DIR}`);
@@ -103,31 +78,14 @@ async function main() {
   console.log(`URL ${URL}`);
   await page.goto(URL, { waitUntil: 'domcontentloaded', timeout: 60000 });
   await sleep(1800);
-
   const ranked = await collect(page);
   const top5 = ranked.slice(0, 5).map((n, i) => ({ rank: i + 1, ...n }));
   const idMatch = URL.match(/-(\d+)\.html(?:[?#]|$)/i);
-  const payload = {
-    schema_version: 1,
-    source: 'playwright-persistent-profile',
-    capture_method: ranked.length <= 5 ? 'all-voted-notes-five-or-fewer' : 'show-votes-top5',
-    captured_at: new Date().toISOString(),
-    rank: RANK,
-    shobi_code: CODE,
-    fragrantica_id: idMatch ? Number(idMatch[1]) : null,
-    name: NAME,
-    url: URL,
-    total_voted_notes: ranked.length,
-    saved_note_count: top5.length,
-    notes: top5
-  };
+  const payload = { schema_version: 1, source: 'playwright-persistent-profile', capture_method: ranked.length <= 5 ? 'all-voted-notes-five-or-fewer' : 'show-votes-top5', captured_at: new Date().toISOString(), rank: RANK, shobi_code: CODE, fragrantica_id: idMatch ? Number(idMatch[1]) : null, name: NAME, url: URL, total_voted_notes: ranked.length, saved_note_count: top5.length, notes: top5 };
   fs.writeFileSync(OUT_FILE, JSON.stringify(payload, null, 2) + '\n');
   console.log(`CAPTURE_OK ${OUT_FILE}`);
   for (const n of top5) console.log(`#${n.rank} ${n.note} votes=${n.votes} sastojak_id=${n.sastojak_id ?? ''}`);
   await context.close();
 }
 
-main().catch(err => {
-  console.error('CATCHER_FATAL', err && err.stack ? err.stack : err);
-  process.exit(1);
-});
+main().catch(err => { console.error('CATCHER_FATAL', err && err.stack ? err.stack : err); process.exit(1); });
