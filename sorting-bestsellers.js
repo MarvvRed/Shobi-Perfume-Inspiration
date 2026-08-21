@@ -37,17 +37,52 @@ function getBestSellerRank(code) {
     return Infinity;
 }
 
-sortPerfumes = function(perfumes) {
-    const sorted = [...perfumes];
+function chooseCanonicalBestSellerVariant(current, candidate) {
+    if (!current) return candidate;
 
-    sorted.sort((a, b) => {
-        if (state.sortOrder === 'best-seller') {
+    const currentExact = FULL_BEST_SELLER_RANK.has(normalizeBestSellerCode(current.code));
+    const candidateExact = FULL_BEST_SELLER_RANK.has(normalizeBestSellerCode(candidate.code));
+
+    // Prefer the exact variant explicitly present in the official ranking.
+    if (candidateExact && !currentExact) return candidate;
+    if (currentExact && !candidateExact) return current;
+
+    const currentRank = getBestSellerRank(current.code);
+    const candidateRank = getBestSellerRank(candidate.code);
+    if (candidateRank < currentRank) return candidate;
+    if (currentRank < candidateRank) return current;
+
+    // Stable deterministic fallback if two catalog rows share the same base code.
+    return compareText(candidate.code, current.code) < 0 ? candidate : current;
+}
+
+function dedupeBestSellerVariants(perfumes) {
+    const byBase = new Map();
+    perfumes.forEach(perfume => {
+        const base = bestSellerBaseCode(perfume.code);
+        byBase.set(base, chooseCanonicalBestSellerVariant(byBase.get(base), perfume));
+    });
+    return [...byBase.values()];
+}
+
+sortPerfumes = function(perfumes) {
+    let sorted = [...perfumes];
+
+    if (state.sortOrder === 'best-seller') {
+        // A Best Seller position represents one Shobi perfume/base-code, not all
+        // catalog variants (MIX, alternate suffixes, etc.). Keep the catalog
+        // complete for every other sort, but collapse variants here only.
+        sorted = dedupeBestSellerVariants(sorted);
+        sorted.sort((a, b) => {
             const rankA = getBestSellerRank(a.code);
             const rankB = getBestSellerRank(b.code);
             if (rankA !== rankB) return rankA - rankB;
             return compareText(a.brand, b.brand) || compareText(a.inspiredBy, b.inspiredBy);
-        }
+        });
+        return sorted;
+    }
 
+    sorted.sort((a, b) => {
         if (state.sortOrder === 'brand-za') {
             return compareText(b.brand, a.brand) || compareText(b.inspiredBy, a.inspiredBy);
         }
