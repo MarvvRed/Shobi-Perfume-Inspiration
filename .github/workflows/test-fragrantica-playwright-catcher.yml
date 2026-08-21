@@ -2,12 +2,6 @@ name: Test Fragrantica Playwright Catcher
 
 on:
   workflow_dispatch:
-    inputs:
-      login_mode:
-        description: 'Open persistent browser profile for one-time Fragrantica login'
-        required: true
-        default: false
-        type: boolean
 
 permissions:
   contents: read
@@ -21,6 +15,7 @@ jobs:
       FRAGRANTICA_NAME: Sauvage Elixir
       SHOBI_RANK: '21'
       SHOBI_CODE: 1644-DRC M
+      SHOBI_CDP_URL: http://127.0.0.1:9222
       SHOBI_CATCHER_OUT: ${{ github.workspace }}\tools\fragrantica-main-notes\results\playwright
 
     steps:
@@ -32,25 +27,22 @@ jobs:
         with:
           node-version: '22'
 
-      - name: Install Playwright
+      - name: Install Playwright client
         shell: cmd
         run: |
           call npm init -y
           call npm install --no-save playwright@1.55.0
-          call npx playwright install chromium
 
-      - name: One-time Fragrantica login
-        if: ${{ inputs.login_mode }}
+      - name: Verify real Chrome debugging endpoint
         shell: cmd
-        run: node tools\fragrantica-main-notes\playwright-catcher.cjs --login
+        run: curl.exe --fail --silent --show-error http://127.0.0.1:9222/json/version
 
       - name: Capture Sauvage Elixir Top 5 voted notes
-        if: ${{ !inputs.login_mode }}
         shell: cmd
         run: node tools\fragrantica-main-notes\playwright-catcher.cjs
 
       - name: Upload catcher result
-        if: ${{ !inputs.login_mode && always() }}
+        if: ${{ always() }}
         uses: actions/upload-artifact@v4
         with:
           name: fragrantica-playwright-sauvage-elixir
