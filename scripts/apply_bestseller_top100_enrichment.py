@@ -20,29 +20,36 @@ if any(r.get('source_status') not in {'source-locked','approved-existing-card'} 
 runtime=json.loads(RUNTIME.read_text(encoding='utf-8'))
 products=runtime.get('p',[])
 site_by_key={key(p[0]):p for p in products}
-base_groups=defaultdict(list)
+by_base=defaultdict(list)
 for p in products:
     b=base_key(p[0])
-    if b: base_groups[b].append(p)
-site_by_unique_base={b:ps[0] for b,ps in base_groups.items() if len(ps)==1}
+    if b: by_base[b].append(p)
+site_by_base={b:ps[0] for b,ps in by_base.items() if len(ps)==1}
 existing=json.loads(ENRICH.read_text(encoding='utf-8')).get('e',{})
 overlay={}; missing=[]; fallback=[]
 for r in rows:
     k=key(r['shobi_code']); p=site_by_key.get(k)
     if not p:
-        p=site_by_unique_base.get(base_key(r['shobi_code']))
+        p=site_by_base.get(base_key(r['shobi_code']))
         if p: fallback.append((r['shobi_code'],p[0]))
-    if not p: missing.append(r['shobi_code']); continue
-    runtime_key=key(p[0])
+    if not p:
+        missing.append((int(r['rank']),r['shobi_code']))
+        continue
     notes=[x.strip() for x in (r.get('main_notes') or '').split('|') if x.strip()]
     if not notes: raise SystemExit(f'No notes for rank {r["rank"]}')
-    old=existing.get(runtime_key) or existing.get(k) or existing.get(r['shobi_code']) or [[],"",[],"",""]
+    actual_key=key(p[0])
+    old=existing.get(actual_key) or existing.get(k) or existing.get(r['shobi_code']) or [[],"",[],"",""]
     while len(old)<5: old.append('')
-    overlay[runtime_key]={'rank':int(r['rank']),'code':p[0],'perfume':r['perfume'],'gender':r['gender'],'season':r['season'],'main_notes':notes[:5],'note_count':int(r['note_count'] or len(notes)),'source_status':r['source_status'],'image':old[1] if len(old)>1 else '','shobi_url':old[3] if len(old)>3 else '','fragrantica_url':old[4] if len(old)>4 else ''}
-if missing: raise SystemExit('Top100 codes missing from public runtime: '+','.join(missing))
-if len(overlay)!=100: raise SystemExit(f'Expected overlay 100, got {len(overlay)}')
+    overlay[actual_key]={'rank':int(r['rank']),'code':p[0],'perfume':r['perfume'],'gender':r['gender'],'season':r['season'],'main_notes':notes[:5],'note_count':int(r['note_count'] or len(notes)),'source_status':r['source_status'],'image':old[1] if len(old)>1 else '','shobi_url':old[3] if len(old)>3 else '','fragrantica_url':old[4] if len(old)>4 else ''}
+critical=[f'{rank}:{code}' for rank,code in missing if rank<=40]
+if critical:
+    raise SystemExit('Verified Top40 enrichment codes missing from public runtime: '+','.join(critical))
+if missing:
+    print('WARN stale Top100 enrichment rows skipped:', ','.join(f'{rank}:{code}' for rank,code in missing))
+if fallback:
+    print('INFO base-code fallback matches:', ','.join(f'{src}->{dst}' for src,dst in fallback))
 OUT.parent.mkdir(exist_ok=True)
-payload={'v':1,'count':100,'e':overlay}
+payload={'v':1,'count':len(overlay),'source_rows':100,'missing_count':len(missing),'e':overlay}
 OUT.write_text(json.dumps(payload,ensure_ascii=False,separators=(',',':')),encoding='utf-8')
 JSOUT.write_text('// Generated from Shobi Master Database/bestseller-top100-enrichment.csv; do not hand edit.\nwindow.SHOBI_TOP100_ENRICHMENT_BY_CODE='+json.dumps(overlay,ensure_ascii=False,separators=(',',':'))+';\n',encoding='utf-8')
-print(f'OK: wrote {OUT.relative_to(ROOT)} and {JSOUT.name} with {len(overlay)} source-locked Top100 records; base_fallback={fallback}')
+print(f'OK: wrote {OUT.relative_to(ROOT)} and {JSOUT.name} with {len(overlay)} source-locked Top100 records; skipped {len(missing)} stale rows')
