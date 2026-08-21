@@ -30,9 +30,6 @@ jobs:
         with:
           ref: main
 
-      - name: Build static Top 100 enrichment
-        run: python scripts/apply_bestseller_top100_enrichment.py
-
       - name: Build verified catcher map 1-100
         shell: bash
         run: |
