@@ -1,0 +1,42 @@
+{
+  "built_at_utc": "2026-08-21T00:47:21.985232+00:00",
+  "purpose": "AUDIT_ONLY_AMBIGUOUS_MASTER_TO_SITE_ENRICHMENT",
+  "ambiguous_count": 1,
+  "items": [
+    {
+      "master": {
+        "prestashop_product_id": "831",
+        "shobi_code": "777-LAL",
+        "shobi_name": "777-LAL WP",
+        "reference": "WP331",
+        "reference_prefix": "WP",
+        "inspired_by": "SCULPTEUR D' EPICES - LALIQUE",
+        "category": "Fragrances For Women",
+        "url": "https://leparfum.com.gr/en/fragrances-for-women/sculpteur-epices-lalique-woman",
+        "gender_from_master": "women"
+      },
+      "reason": "evidence-without-safe-convergence",
+      "candidate_count": 1,
+      "candidates": [
+        {
+          "index": 1623,
+          "already_used": true,
+          "signals": [
+            "base_code",
+            "code"
+          ],
+          "quality": 15,
+          "shobi_code": "777-LAL WP",
+          "base_code": "777-LAL",
+          "shobi_name": "SCULPTEUR D' EPICES",
+          "inspired_by": "SCULPTEUR D' EPICES",
+          "brand": "Lalique",
+          "gender": "unisex",
+          "shobi_url": "https://leparfum.com.gr/en/fragrances-for-men/sculpteur-d-epices-lalique-type#/1-choose-eau_de_parfum/2-bottle-30ml/3-extra_essence-0ml",
+          "identity_source_type": "SECONDARY_EXACT_CODE",
+          "identity_source_url": "https://raw.githubusercontent.com/smellyCat-deep/shobi_inspiration/main/database_complete.json"
+        }
+      ]
+    }
+  ]
+}
