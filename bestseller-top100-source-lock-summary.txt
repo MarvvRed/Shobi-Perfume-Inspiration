@@ -1,21 +1,10 @@
 BESTSELLER TOP 100 SOURCE LOCK AUDIT
 TOTAL=100
-SOURCE_LOCKED=37/100
-PENDING_SOURCE_LOCK=63/100
+SOURCE_LOCKED=48/100
+PENDING_SOURCE_LOCK=52/100
 PRODUCTION_READY=0
 
 PENDING:
-#25 485-CAR WP | Good Girl
-#27 152-PARF N | Delina Exclusif
-#28 1735-XER N | Italica
-#30 132-LTN N | Ombre Nomade
-#34 848-NRO WP | Pure Musc For Her
-#35 2348-AMG | Guidance
-#36 303-JOM EL | Wood Sage & Sea Salt
-#37 2155-KAY EL | Yum Pistachio Gelato 33
-#38 750-KEN W | Flower by Kenzo L'Elixir
-#39 1553-MNT N | Arabians Tonka
-#40 937-VAL WP | Donna Born In Roma
 #44 760-KIL WP | Black Phantom
 #45 2235-PRA WP | Prada Paradoxe Intense
 #46 361-TMFO EL | Ombre Leather
