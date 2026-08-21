@@ -1,27 +1,25 @@
-// Generic Best Seller cards for every generated perfume rank beyond #20.
+// Generic Best Seller cards for ranks #21-#100, driven by source-locked enrichment.
 (function(){
-  const entries=(window.SHOBI_BESTSELLER_RANKING||[]).filter(x=>Number(x.rank)>20);
+  const norm=v=>String(v||'').toUpperCase().replace(/\s+/g,'');
+  const entries=(window.SHOBI_BESTSELLER_RANKING||[]).filter(x=>Number(x.rank)>20&&Number(x.rank)<=100);
   if(!entries.length || typeof isVanilla28!=='function' || typeof renderVanillaPrototype!=='function') return;
-  const rankByCode=new Map(entries.map(x=>[String(x.code),Number(x.rank)]));
-  const rankedSet=new Set(rankByCode.keys());
-  const baseMatch=isVanilla28, baseRender=renderVanillaPrototype;
+  const rankByCode=new Map(entries.map(x=>[norm(x.code),Number(x.rank)])), rankedSet=new Set(rankByCode.keys());
+  const locked=window.SHOBI_TOP100_ENRICHMENT_BY_CODE||{}, baseMatch=isVanilla28, baseRender=renderVanillaPrototype;
   const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const genderLabel=g=>g==='female'?'Female':g==='male'?'Male':g==='unisex'?'Unisex':'';
   const seasonMeta=s=>({spring:['🌸','Spring'],summer:['☀️','Summer'],fall:['🍂','Fall'],autumn:['🍂','Autumn'],winter:['❄️','Winter']}[s]||null);
-  const allNotes=p=>[...(p.notes?.top||[]),...(p.notes?.heart||[]),...(p.notes?.base||[])].filter((v,i,a)=>v&&a.indexOf(v)===i).slice(0,5);
+  const dataFor=p=>locked[norm(p.code)]||null;
+  const notesFor=p=>{const d=dataFor(p);if(d&&Array.isArray(d.main_notes)&&d.main_notes.length)return d.main_notes.slice(0,5);return [...(p.notes?.top||[]),...(p.notes?.heart||[]),...(p.notes?.base||[])].filter((v,i,a)=>v&&a.indexOf(v)===i).slice(0,5);};
   const noteBadge=name=>`<button type="button" class="prototype-meta-badge prototype-filter-badge${state.selectedNote===name?' is-active':''}" data-card-filter="note" data-filter-value="${esc(name)}" title="Filter by ${esc(name)}"><span aria-hidden="true" style="width:22px;height:22px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;flex:0 0 22px;background:var(--color-bg-surface);border:1px solid var(--color-border-light);font-size:10px"><i class="fa-solid fa-droplet"></i></span><span>${esc(name)}</span></button>`;
-  isVanilla28=function(p){return baseMatch(p)||rankedSet.has(String(p.code||''));};
+  isVanilla28=function(p){return baseMatch(p)||rankedSet.has(norm(p.code));};
   renderVanillaPrototype=function(p){
-    const code=String(p.code||'');
-    if(!rankedSet.has(code)) return baseRender(p);
-    const rank=rankByCode.get(code);
-    const favorite=state.favorites.includes(p.code), article=document.createElement('article');
-    const g=String(p.genderAffinity||'').toLowerCase(), gl=genderLabel(g);
-    const s=String((p.seasons||[])[0]||'').toLowerCase(), sm=seasonMeta(s);
-    const notes=allNotes(p), noteBadges=notes.map(noteBadge).join('');
-    const shopUrl=p.shobiUrl||`https://leparfum.com.gr/en/module/iqitsearch/searchiqit?s=${encodeURIComponent(p.code)}`;
-    const image=p.image||'';
-    const imageHtml=image?`<img src="${esc(image)}" alt="${esc(p.inspiredBy)} - ${esc(p.brand)}" loading="lazy" decoding="async">`:`<div class="text-tertiary text-sm">Image not verified</div>`;
+    const code=norm(p.code); if(!rankedSet.has(code)) return baseRender(p);
+    const d=dataFor(p), rank=rankByCode.get(code), favorite=state.favorites.includes(p.code), article=document.createElement('article');
+    const g=String(d?.gender||p.genderAffinity||'').toLowerCase(), gl=genderLabel(g);
+    const s=String(d?.season||(p.seasons||[])[0]||'').toLowerCase(), sm=seasonMeta(s);
+    const notes=notesFor(p), noteBadges=notes.map(noteBadge).join('');
+    const shopUrl=d?.shobi_url||p.shobiUrl||`https://leparfum.com.gr/en/module/iqitsearch/searchiqit?s=${encodeURIComponent(p.code)}`;
+    const image=d?.image||p.image||'', imageHtml=image?`<img src="${esc(image)}" alt="${esc(p.inspiredBy)} - ${esc(p.brand)}" loading="lazy" decoding="async">`:`<div class="text-tertiary text-sm">Image not verified</div>`;
     const genderHtml=gl?`<button type="button" class="prototype-meta-badge prototype-filter-badge${state.activeFilters.gender.includes(g)?' is-active':''}" data-card-filter="gender" data-filter-value="${g}" title="Filter ${gl}" aria-label="Filter ${gl}"><span style="width:22px;height:22px;display:inline-flex;align-items:center;justify-content:center;flex:0 0 22px">${getAudienceIcons(g)}</span><span style="font-size:16px">${gl}</span></button>`:'';
     const seasonHtml=sm?`${genderHtml?'<span class="text-tertiary">|</span>':''}<button type="button" class="prototype-meta-badge prototype-filter-badge${state.activeFilters.season.includes(s)?' is-active':''}" data-card-filter="season" data-filter-value="${s}" title="Filter ${sm[1]}" aria-label="Filter ${sm[1]}"><span style="width:22px;height:22px;display:inline-flex;align-items:center;justify-content:center;flex:0 0 22px;font-size:1rem">${sm[0]}</span></button>`:'';
     article.className='perfume-card-prototype bg-surface rounded-xl shadow-lg overflow-hidden flex flex-col';
