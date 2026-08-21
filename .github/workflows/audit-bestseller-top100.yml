@@ -1,0 +1,47 @@
+name: Audit Bestseller Top 100 Enrichment
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'scripts/audit_bestseller_top100.py'
+      - 'bestseller-ranking.js'
+      - 'shobi-master.csv'
+      - '.github/workflows/audit-bestseller-top100.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: audit-bestseller-top100
+  cancel-in-progress: true
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Audit Top 100 enrichment
+        run: python scripts/audit_bestseller_top100.py
+
+      - name: Commit audit report if changed
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add bestseller-top100-audit.csv bestseller-top100-audit-summary.txt
+          if git diff --cached --quiet; then
+            echo "Audit unchanged."
+            exit 0
+          fi
+          git commit -m "Audit Best Seller Top 100 enrichment"
+          git push
