@@ -1,14 +1,14 @@
 {
   "mode": "STAGING_REGRESSION_AUDIT_DO_NOT_PUBLISH_YET",
   "master_rows": 2343,
-  "current_site_rows": 2468,
+  "current_site_rows": 2343,
   "candidate_rows": 2343,
   "renderable_rows_current_frontend_semantics": 2343,
-  "removed_legacy_rows_vs_current": 125,
-  "matched_enrichment_rows": 2317,
-  "minimal_official_master_rows": 26,
+  "removed_legacy_rows_vs_current": 0,
+  "matched_enrichment_rows": null,
+  "minimal_official_master_rows": null,
   "ambiguous_matches": 0,
-  "enrichment_coverage": 0.988903,
+  "enrichment_coverage": null,
   "missing_required_columns": [],
   "missing_required_values": {
     "prestashop_product_id": 0,
@@ -25,14 +25,14 @@
     ]
   ],
   "rich_field_nonempty_counts_current_site": {
-    "brand": 2273,
-    "fragrantica_url": 1103,
-    "top_notes": 696,
-    "heart_notes": 696,
-    "base_notes": 696,
-    "notes": 697,
-    "season": 263,
-    "image": 614
+    "brand": 2126,
+    "fragrantica_url": 968,
+    "top_notes": 575,
+    "heart_notes": 575,
+    "base_notes": 575,
+    "notes": 576,
+    "season": 137,
+    "image": 567
   },
   "rich_field_nonempty_counts_candidate": {
     "brand": 2126,
