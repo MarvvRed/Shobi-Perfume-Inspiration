@@ -21,7 +21,6 @@ jobs:
       FRAGRANTICA_NAME: Sauvage Elixir
       SHOBI_RANK: '21'
       SHOBI_CODE: 1644-DRC M
-      SHOBI_FRAGRANTICA_PROFILE: ${{ env.USERPROFILE }}\.shobi-fragrantica-playwright-profile
       SHOBI_CATCHER_OUT: ${{ github.workspace }}\tools\fragrantica-main-notes\results\playwright
 
     steps:
