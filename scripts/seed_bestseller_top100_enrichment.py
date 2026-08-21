@@ -50,25 +50,34 @@ def main():
     with MASTER.open('r',encoding='utf-8-sig',newline='') as f:
         rows=list(csv.DictReader(f))
     by_code={key(r.get('shobi_code')):r for r in rows if clean(r.get('shobi_code'))}
+    existing={}
+    if OUT.exists():
+        with OUT.open('r',encoding='utf-8-sig',newline='') as f:
+            for r in csv.DictReader(f):
+                if clean(r.get('verified')) == '1': existing[key(r.get('shobi_code'))]=r
     out=[]
     for item in ranking():
         code=clean(item['code']); master=by_code.get(key(code))
         if not master: raise SystemExit(f'Top100 code missing from Master: {code}')
         approved=APPROVED.get(code)
+        kept=existing.get(key(code)) if not approved else None
+        if approved:
+            season, notes, frag, image = approved
+            source, verified = 'approved-existing-card', '1'
+        elif kept:
+            season=clean(kept.get('season')); notes=[x for x in clean(kept.get('main_notes')).split('|') if clean(x)]
+            frag=clean(kept.get('fragrantica_url')); image=clean(kept.get('image'))
+            source=clean(kept.get('source')) or 'verified-external'; verified='1'
+        else:
+            season=clean(master.get('season')); notes=[x for x in clean(master.get('notes')).split('|') if clean(x)]
+            frag=clean(master.get('fragrantica_url')); image=clean(master.get('image'))
+            source='pending-external-enrichment'; verified='0'
         out.append({
-            'rank':item['rank'],
-            'prestashop_product_id':clean(master.get('prestashop_product_id')),
-            'shobi_code':code,
-            'inspired_by':clean(master.get('inspired_by') or master.get('shobi_name')),
-            'brand':clean(master.get('brand')),
-            'gender':clean(master.get('gender')),
-            'season':approved[0] if approved else clean(master.get('season')),
-            'main_notes':'|'.join(approved[1]) if approved else clean(master.get('notes')),
-            'fragrantica_url':approved[2] if approved else clean(master.get('fragrantica_url')),
-            'image':approved[3] if approved else clean(master.get('image')),
-            'source':'approved-existing-card' if approved else 'pending-external-enrichment',
-            'verified':'1' if approved else '0',
-            'note_count':len(approved[1]) if approved else len([x for x in clean(master.get('notes')).split('|') if clean(x)]),
+            'rank':item['rank'], 'prestashop_product_id':clean(master.get('prestashop_product_id')),
+            'shobi_code':code, 'inspired_by':clean(master.get('inspired_by') or master.get('shobi_name')),
+            'brand':clean(master.get('brand')), 'gender':clean(master.get('gender')),
+            'season':season, 'main_notes':'|'.join(notes), 'fragrantica_url':frag, 'image':image,
+            'source':source, 'verified':verified, 'note_count':len(notes),
         })
     OUT.parent.mkdir(parents=True,exist_ok=True)
     fields=list(out[0])
