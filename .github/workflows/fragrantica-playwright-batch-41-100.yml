@@ -8,7 +8,7 @@ on:
       - '.github/triggers/fragrantica-41-100.txt'
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   catcher-batch:
@@ -37,14 +37,34 @@ jobs:
         shell: cmd
         run: curl.exe --fail --silent --show-error http://127.0.0.1:9222/json/version
 
-      - name: Capture live Best Seller ranks and Fragrantica 41-100
-        shell: cmd
-        run: node tools\fragrantica-main-notes\playwright-batch-41-100.cjs
+      - name: Capture canonical Best Seller ranks and Fragrantica 41-100
+        shell: powershell
+        run: |
+          New-Item -ItemType Directory -Force -Path "$env:SHOBI_CATCHER_OUT" | Out-Null
+          & node tools\fragrantica-main-notes\playwright-batch-41-100.cjs 2>&1 | Tee-Object -FilePath "$env:SHOBI_CATCHER_OUT\run.log"
+          exit $LASTEXITCODE
+
+      - name: Persist diagnostics to repository
+        if: ${{ always() }}
+        shell: powershell
+        run: |
+          $dest = "Personal Database\diagnostics\fragrantica-41-100"
+          New-Item -ItemType Directory -Force -Path $dest | Out-Null
+          if (Test-Path "$env:SHOBI_CATCHER_OUT\run.log") { Copy-Item "$env:SHOBI_CATCHER_OUT\run.log" "$dest\latest-run.log" -Force }
+          if (Test-Path "$env:SHOBI_CATCHER_OUT\missing-fragrantica-urls.json") { Copy-Item "$env:SHOBI_CATCHER_OUT\missing-fragrantica-urls.json" "$dest\missing-fragrantica-urls.json" -Force }
+          if (Test-Path "$env:SHOBI_CATCHER_OUT\batch-41-100.json") { Copy-Item "$env:SHOBI_CATCHER_OUT\batch-41-100.json" "$dest\batch-41-100.json" -Force }
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "$dest"
+          if (-not (git diff --cached --quiet)) {
+            git commit -m "Persist Fragrantica 41-100 diagnostics"
+            git push
+          }
 
       - name: Upload batch results and diagnostics
         if: ${{ always() }}
         uses: actions/upload-artifact@v4
         with:
           name: fragrantica-playwright-41-100
-          path: tools/fragrantica-main-notes/results/playwright-41-100/*.json
+          path: tools/fragrantica-main-notes/results/playwright-41-100/*
           if-no-files-found: warn
