@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 import csv
 import json
-from collections import Counter, defaultdict
+import re
+from collections import defaultdict
 from datetime import datetime, timezone
 from pathlib import Path
 from urllib.parse import urlparse, urlunparse
@@ -34,6 +35,13 @@ def norm_url(value):
 
 def norm_code(value):
     return clean(value).upper()
+
+
+def base_code(value):
+    """Return stable Shobi code token, e.g. '2348-AMG N' -> '2348-AMG'."""
+    value = norm_code(value)
+    m = re.match(r'^(\d{2,5}-[A-Z0-9]+)', value)
+    return m.group(1) if m else ''
 
 
 def default_gender(master_row):
@@ -105,18 +113,23 @@ def main():
 
     by_url = defaultdict(list)
     by_code = defaultdict(list)
+    by_base_code = defaultdict(list)
     for idx, row in enumerate(enrichment_rows):
         u = norm_url(row.get('shobi_url'))
         c = norm_code(row.get('shobi_code'))
+        b = base_code(row.get('shobi_code'))
         if u:
             by_url[u].append(idx)
         if c:
             by_code[c].append(idx)
+        if b:
+            by_base_code[b].append(idx)
 
     used = set()
     output = []
     matched_by_url = 0
     matched_by_code = 0
+    matched_by_base_code = 0
     unmatched = []
     ambiguous = []
 
@@ -124,19 +137,43 @@ def main():
         pid = clean(master.get('prestashop_product_id'))
         master_url = norm_url(master.get('url'))
         master_full_code = norm_code(master.get('shobi_name'))
+        master_base_code = base_code(master.get('shobi_code')) or base_code(master.get('shobi_name'))
+
+        # Build independent deterministic signals. A duplicated URL must never
+        # block a unique code match. Stable Shobi base code is preferred because
+        # suffixes (N/W/MP/EL) and URL slugs can change while the code token stays.
+        signals = []
+        if master_base_code and len(by_base_code.get(master_base_code, [])) == 1:
+            signals.append(('base_code', by_base_code[master_base_code][0]))
+        if master_full_code and len(by_code.get(master_full_code, [])) == 1:
+            signals.append(('code', by_code[master_full_code][0]))
+        if master_url and len(by_url.get(master_url, [])) == 1:
+            signals.append(('url', by_url[master_url][0]))
+
+        signal_indexes = {idx for _, idx in signals}
         candidates = []
         match_type = ''
-
-        if master_url and len(by_url.get(master_url, [])) == 1:
-            candidates = by_url[master_url]
-            match_type = 'url'
-        elif master_full_code and len(by_code.get(master_full_code, [])) == 1:
-            candidates = by_code[master_full_code]
-            match_type = 'code'
-        elif master_url and len(by_url.get(master_url, [])) > 1:
-            ambiguous.append({'prestashop_product_id': pid, 'reason': 'duplicate-enrichment-url', 'value': master_url})
-        elif master_full_code and len(by_code.get(master_full_code, [])) > 1:
-            ambiguous.append({'prestashop_product_id': pid, 'reason': 'duplicate-enrichment-code', 'value': master_full_code})
+        if len(signal_indexes) == 1:
+            idx = next(iter(signal_indexes))
+            # Deterministic priority for reporting only.
+            kinds = [kind for kind, i in signals if i == idx]
+            match_type = 'base_code' if 'base_code' in kinds else ('code' if 'code' in kinds else 'url')
+            candidates = [idx]
+        elif len(signal_indexes) > 1:
+            ambiguous.append({
+                'prestashop_product_id': pid,
+                'reason': 'conflicting-unique-signals',
+                'signals': [{'type': k, 'index': i} for k, i in signals],
+            })
+        else:
+            # Only report duplicate evidence as ambiguity if no deterministic
+            # unique signal was available.
+            if master_base_code and len(by_base_code.get(master_base_code, [])) > 1:
+                ambiguous.append({'prestashop_product_id': pid, 'reason': 'duplicate-enrichment-base-code', 'value': master_base_code})
+            elif master_full_code and len(by_code.get(master_full_code, [])) > 1:
+                ambiguous.append({'prestashop_product_id': pid, 'reason': 'duplicate-enrichment-code', 'value': master_full_code})
+            elif master_url and len(by_url.get(master_url, [])) > 1:
+                ambiguous.append({'prestashop_product_id': pid, 'reason': 'duplicate-enrichment-url', 'value': master_url})
 
         if candidates:
             idx = candidates[0]
@@ -147,10 +184,12 @@ def main():
             else:
                 used.add(idx)
                 site = dict(enrichment_rows[idx])
-                if match_type == 'url':
-                    matched_by_url += 1
-                else:
+                if match_type == 'base_code':
+                    matched_by_base_code += 1
+                elif match_type == 'code':
                     matched_by_code += 1
+                else:
+                    matched_by_url += 1
                 # Master owns identity/existence and official Shobi URL/description.
                 site['shobi_url'] = clean(master.get('url')) or clean(site.get('shobi_url'))
                 if clean(master.get('official_description')):
@@ -179,15 +218,15 @@ def main():
     if set(out_ids) != set(master_ids):
         raise SystemExit('Safety stop: candidate identity set differs from official Master')
 
-    matched = matched_by_url + matched_by_code
+    matched = matched_by_url + matched_by_code + matched_by_base_code
     coverage = matched / len(master_rows)
-    # Current production enrichment should map almost entirely. Future NEW Master rows may be temporarily unenriched.
     if coverage < 0.90:
         raise SystemExit(f'Safety stop: enrichment coverage too low: {matched}/{len(master_rows)} ({coverage:.2%})')
 
     orphans = [idx for idx in range(len(enrichment_rows)) if idx not in used]
     duplicate_enrichment_urls = sum(1 for v in by_url.values() if len(v) > 1)
     duplicate_enrichment_codes = sum(1 for v in by_code.values() if len(v) > 1)
+    duplicate_enrichment_base_codes = sum(1 for v in by_base_code.values() if len(v) > 1)
 
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     with CANDIDATE.open('w', encoding='utf-8-sig', newline='') as f:
@@ -205,13 +244,15 @@ def main():
         'existing_site_rows': len(enrichment_rows),
         'candidate_rows': len(output),
         'matched_total': matched,
-        'matched_by_url': matched_by_url,
+        'matched_by_base_code': matched_by_base_code,
         'matched_by_code': matched_by_code,
+        'matched_by_url': matched_by_url,
         'unmatched_master_rows': len(unmatched),
         'unmatched_master_sample': unmatched[:50],
         'orphan_enrichment_rows': len(orphans),
         'duplicate_enrichment_urls': duplicate_enrichment_urls,
         'duplicate_enrichment_codes': duplicate_enrichment_codes,
+        'duplicate_enrichment_base_codes': duplicate_enrichment_base_codes,
         'ambiguous_matches': len(ambiguous),
         'ambiguous_sample': ambiguous[:50],
         'identity_set_exact_match': True,
