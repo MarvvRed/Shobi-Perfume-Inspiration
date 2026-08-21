@@ -64,8 +64,8 @@ def main():
         seen.add(code)
         filtered.append({"rank": len(filtered) + 1, "globalRank": global_rank, "code": code})
 
-    if len(filtered) < 20:
-        raise SystemExit(f"Safety stop: only {len(filtered)} perfume Best Sellers remain after filtering")
+    if len(filtered) < 100:
+        raise SystemExit(f"Safety stop: only {len(filtered)} perfume Best Sellers remain after filtering; at least 100 are required")
 
     payload = json.dumps(filtered, ensure_ascii=False, separators=(",", ":"))
     OUTPUT.write_text(
