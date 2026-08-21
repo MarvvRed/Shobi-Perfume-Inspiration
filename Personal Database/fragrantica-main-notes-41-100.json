@@ -1,0 +1,2593 @@
+{
+  "schema_version": 1,
+  "source": "playwright-cdp-real-edge-merged",
+  "range": [
+    41,
+    100
+  ],
+  "success_count": 60,
+  "failure_count": 0,
+  "results": [
+    {
+      "schema_version": 1,
+      "source": "playwright-cdp-real-edge",
+      "captured_at": "2026-08-21T21:36:49.658Z",
+      "rank": 41,
+      "shobi_code": "1937-BIL AR",
+      "fragrantica_id": 70052,
+      "url": "https://www.fragrantica.com/perfume/Billie-Eilish/Eilish-70052.html",
+      "url_source": "Shobi Master Database/bestseller-top100-source-lock.csv",
+      "total_voted_notes": 10,
+      "saved_note_count": 5,
+      "notes": [
+        {
+          "rank": 1,
+          "note": "Vanilla",
+          "sastojak_id": 74,
+          "votes": 3596
+        },
+        {
+          "rank": 2,
+          "note": "Sugar",
+          "sastojak_id": 200,
+          "votes": 2377
+        },
+        {
+          "rank": 3,
+          "note": "Cacao",
+          "sastojak_id": 135,
+          "votes": 2040
+        },
+        {
+          "rank": 4,
+          "note": "Spicy Notes",
+          "sastojak_id": 321,
+          "votes": 1600
+        },
+        {
+          "rank": 5,
+          "note": "Tonka Bean",
+          "sastojak_id": 73,
+          "votes": 1408
+        }
+      ]
+    },
+    {
+      "schema_version": 1,
+      "source": "playwright-cdp-real-edge",
+      "captured_at": "2026-08-21T21:37:04.051Z",
+      "rank": 42,
+      "shobi_code": "425-BRB WP",
+      "fragrantica_id": 51694,
+      "url": "https://www.fragrantica.com/perfume/Burberry/Burberry-Her-51694.html",
+      "url_source": "Shobi Master Database/bestseller-top100-source-lock.csv",
+      "total_voted_notes": 16,
+      "saved_note_count": 5,
+      "notes": [
+        {
+          "rank": 1,
+          "note": "Strawberry",
+          "sastojak_id": 261,
+          "votes": 3535
+        },
+        {
+          "rank": 2,
+          "note": "Raspberry",
+          "sastojak_id": 174,
+          "votes": 2025
+        },
+        {
+          "rank": 3,
+          "note": "Musk",
+          "sastojak_id": 4,
+          "votes": 1570
+        },
+        {
+          "rank": 4,
+          "note": "Blackberry",
+          "sastojak_id": 169,
+          "votes": 1310
+        },
+        {
+          "rank": 5,
+          "note": "Vanilla",
+          "sastojak_id": 74,
+          "votes": 1309
+        }
+      ]
+    },
+    {
+      "schema_version": 1,
+      "source": "playwright-cdp-real-edge",
+      "captured_at": "2026-08-21T21:37:18.065Z",
+      "rank": 43,
+      "shobi_code": "1883-NISH N",
+      "fragrantica_id": 30567,
+      "url": "https://www.fragrantica.com/perfume/Nishane/Wulong-Cha-30567.html",
+      "url_source": "Shobi Master Database/bestseller-top100-source-lock.csv",
+      "total_voted_notes": 8,
+      "saved_note_count": 5,
+      "notes": [
+        {
+          "rank": 1,
+          "note": "Bergamot",
+          "sastojak_id": 75,
+          "votes": 1236
+        },
+        {
+          "rank": 2,
+          "note": "Oolong tea",
+          "sastojak_id": 713,
+          "votes": 933
+        },
+        {
+          "rank": 3,
+          "note": "Orange",
+          "sastojak_id": 80,
+          "votes": 708
+        },
+        {
+          "rank": 4,
+          "note": "Mandarin Orange",
+          "sastojak_id": 82,
+          "votes": 595
+        },
+        {
+          "rank": 5,
+          "note": "Fig",
+          "sastojak_id": 247,
+          "votes": 560
+        }
+      ]
+    },
+    {
+      "schema_version": 1,
+      "source": "playwright-cdp-real-edge",
+      "captured_at": "2026-08-21T22:07:42.301Z",
+      "rank": 44,
+      "shobi_code": "760-KIL WP",
+      "fragrantica_id": 43632,
+      "url": "https://www.fragrantica.com/perfume/By-Kilian/Black-Phantom-43632.html",
+      "url_source": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+      "total_voted_notes": 11,
+      "saved_note_count": 5,
+      "notes": [
+        {
+          "rank": 1,
+          "note": "Dark Chocolate",
+          "sastojak_id": 136,
+          "votes": 2713
+        },
+        {
+          "rank": 2,
+          "note": "Rum",
+          "sastojak_id": 201,
+          "votes": 2475
+        },
+        {
+          "rank": 3,
+          "note": "Caramel",
+          "sastojak_id": 183,
+          "votes": 2207
+        },
+        {
+          "rank": 4,
+          "note": "Coffee",
+          "sastojak_id": 139,
+          "votes": 2148
+        },
+        {
+          "rank": 5,
+          "note": "Sugar Cane",
+          "sastojak_id": 200,
+          "votes": 1430
+        }
+      ]
+    },
+    {
+      "schema_version": 1,
+      "source": "playwright-cdp-real-edge",
+      "captured_at": "2026-08-21T21:39:31.518Z",
+      "rank": 45,
+      "shobi_code": "2235-PRA WP",
+      "fragrantica_id": 82504,
+      "url": "https://www.fragrantica.com/perfume/Prada/Paradoxe-Intense-82504.html",
+      "url_source": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+      "total_voted_notes": 12,
+      "saved_note_count": 5,
+      "notes": [
+        {
+          "rank": 1,
+          "note": "White Tobacco",
+          "sastojak_id": 345,
+          "votes": 7
+        },
+        {
+          "rank": 2,
+          "note": "Tobacco",
+          "sastojak_id": 96,
+          "votes": 6
+        },
+        {
+          "rank": 3,
+          "note": "Leather",
+          "sastojak_id": 156,
+          "votes": 5
+        },
+        {
+          "rank": 4,
+          "note": "Osmanthus",
+          "sastojak_id": 10,
+          "votes": 5
+        },
+        {
+          "rank": 5,
+          "note": "Rose",
+          "sastojak_id": 105,
+          "votes": 5
+        }
+      ]
+    },
+    {
+      "schema_version": 1,
+      "source": "playwright-cdp-real-edge",
+      "captured_at": "2026-08-21T21:39:45.972Z",
+      "rank": 46,
+      "shobi_code": "361-TMFO EL",
+      "fragrantica_id": 50239,
+      "url": "https://www.fragrantica.com/perfume/Tom-Ford/Ombre-Leather-2018-50239.html",
+      "url_source": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+      "total_voted_notes": 6,
+      "saved_note_count": 5,
+      "notes": [
+        {
+          "rank": 1,
+          "note": "Leather",
+          "sastojak_id": 156,
+          "votes": 4570
+        },
+        {
+          "rank": 2,
+          "note": "Jasmine Sambac",
+          "sastojak_id": 14,
+          "votes": 1757
+        },
+        {
+          "rank": 3,
+          "note": "Amber",
+          "sastojak_id": 54,
+          "votes": 1547
+        },
+        {
+          "rank": 4,
+          "note": "Cardamom",
+          "sastojak_id": 63,
+          "votes": 1379
+        },
+        {
+          "rank": 5,
+          "note": "Moss",
+          "sastojak_id": 39,
+          "votes": 1070
+        }
+      ]
+    },
+    {
+      "schema_version": 1,
+      "source": "playwright-cdp-real-edge",
+      "captured_at": "2026-08-21T21:40:01.082Z",
+      "rank": 47,
+      "shobi_code": "2346-TMFO EL",
+      "fragrantica_id": 88588,
+      "url": "https://www.fragrantica.com/perfume/Tom-Ford/Vanilla-Sex-88588.html",
+      "url_source": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+      "total_voted_notes": 5,
+      "saved_note_count": 5,
+      "notes": [
+        {
+          "rank": 1,
+          "note": "Vanilla Absolute",
+          "sastojak_id": 74,
+          "votes": 976
+        },
+        {
+          "rank": 2,
+          "note": "Sandalwood",
+          "sastojak_id": 33,
+          "votes": 347
+        },
+        {
+          "rank": 3,
+          "note": "Animal notes",
+          "sastojak_id": 794,
+          "votes": 133
+        },
+        {
+          "rank": 4,
+          "note": "Orris Root",
+          "sastojak_id": 101,
+          "votes": 66
+        },
+        {
+          "rank": 5,
+          "note": "Jasmine",
+          "sastojak_id": 14,
+          "votes": 29
+        }
+      ]
+    },
+    {
+      "schema_version": 1,
+      "source": "playwright-cdp-real-edge",
+      "captured_at": "2026-08-21T21:40:16.754Z",
+      "rank": 48,
+      "shobi_code": "981-YZLO W",
+      "fragrantica_id": 56077,
+      "url": "https://www.fragrantica.com/perfume/Yves-Saint-Laurent/Libre-56077.html",
+      "url_source": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+      "total_voted_notes": 10,
+      "saved_note_count": 5,
+      "notes": [
+        {
+          "rank": 1,
+          "note": "Lavender",
+          "sastojak_id": 1,
+          "votes": 3553
+        },
+        {
+          "rank": 2,
+          "note": "Orange Blossom",
+          "sastojak_id": 16,
+          "votes": 3107
+        },
+        {
+          "rank": 3,
+          "note": "Madagascar Vanilla",
+          "sastojak_id": 74,
+          "votes": 2697
+        },
+        {
+          "rank": 4,
+          "note": "Jasmine",
+          "sastojak_id": 14,
+          "votes": 2173
+        },
+        {
+          "rank": 5,
+          "note": "Mandarin Orange",
+          "sastojak_id": 82,
+          "votes": 1958
+        }
+      ]
+    },
+    {
+      "schema_version": 1,
+      "source": "playwright-cdp-real-edge",
+      "captured_at": "2026-08-21T21:40:33.211Z",
+      "rank": 49,
+      "shobi_code": "977-YZLO W",
+      "fragrantica_id": 25324,
+      "url": "https://www.fragrantica.com/perfume/Yves-Saint-Laurent/Black-Opium-25324.html",
+      "url_source": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+      "total_voted_notes": 11,
+      "saved_note_count": 5,
+      "notes": [
+        {
+          "rank": 1,
+          "note": "Vanilla",
+          "sastojak_id": 74,
+          "votes": 7604
+        },
+        {
+          "rank": 2,
+          "note": "Coffee",
+          "sastojak_id": 139,
+          "votes": 6198
+        },
+        {
+          "rank": 3,
+          "note": "Pear",
+          "sastojak_id": 182,
+          "votes": 3257
+        },
+        {
+          "rank": 4,
+          "note": "Jasmine",
+          "sastojak_id": 14,
+          "votes": 2899
+        },
+        {
+          "rank": 5,
+          "note": "Patchouli",
+          "sastojak_id": 34,
+          "votes": 2320
+        }
+      ]
+    },
+    {
+      "schema_version": 1,
+      "source": "playwright-cdp-real-edge",
+      "captured_at": "2026-08-21T21:40:49.497Z",
+      "rank": 50,
+      "shobi_code": "364-TMFO EL",
+      "fragrantica_id": 1826,
+      "url": "https://www.fragrantica.com/perfume/Tom-Ford/Oud-Wood-1826.html",
+      "url_source": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+      "total_voted_notes": 9,
+      "saved_note_count": 5,
+      "notes": [
+        {
+          "rank": 1,
+          "note": "Agarwood (Oud)",
+          "sastojak_id": 114,
+          "votes": 2771
+        },
+        {
+          "rank": 2,
+          "note": "Brazilian Rosewood",
+          "sastojak_id": 110,
+          "votes": 2090
+        },
+        {
+          "rank": 3,
+          "note": "Cardamom",
+          "sastojak_id": 63,
+          "votes": 1705
+        },
+        {
+          "rank": 4,
+          "note": "Sandalwood",
+          "sastojak_id": 33,
+          "votes": 1648
+        },
+        {
+          "rank": 5,
+          "note": "Sichuan Pepper",
+          "sastojak_id": 213,
+          "votes": 1125
+        }
+      ]
+    },
+    {
+      "schema_version": 1,
+      "source": "playwright-cdp-real-edge",
+      "captured_at": "2026-08-21T21:41:03.936Z",
+      "rank": 51,
+      "shobi_code": "847-NRO WP",
+      "fragrantica_id": 36679,
+      "url": "https://www.fragrantica.com/perfume/Narciso-Rodriguez/Narciso-Poudree-36679.html",
+      "url_source": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+      "total_voted_notes": 8,
+      "saved_note_count": 5,
+      "notes": [
+        {
+          "rank": 1,
+          "note": "Musk",
+          "sastojak_id": 4,
+          "votes": 2364
+        },
+        {
+          "rank": 2,
+          "note": "Jasmine",
+          "sastojak_id": 14,
+          "votes": 1507
+        },
+        {
+          "rank": 3,
+          "note": "Coumarin",
+          "sastojak_id": 259,
+          "votes": 1333
+        },
+        {
+          "rank": 4,
+          "note": "Bulgarian Rose",
+          "sastojak_id": 105,
+          "votes": 1068
+        },
+        {
+          "rank": 5,
+          "note": "Orange Blossom",
+          "sastojak_id": 16,
+          "votes": 858
+        }
+      ]
+    },
+    {
+      "schema_version": 1,
+      "source": "playwright-cdp-real-edge",
+      "captured_at": "2026-08-21T22:07:58.128Z",
+      "rank": 52,
+      "shobi_code": "1909-XER N",
+      "fragrantica_id": 70424,
+      "url": "https://www.fragrantica.com/perfume/Xerjoff/Torino21-70424.html",
+      "url_source": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+      "total_voted_notes": 10,
+      "saved_note_count": 5,
+      "notes": [
+        {
+          "rank": 1,
+          "note": "Mint",
+          "sastojak_id": 160,
+          "votes": 1726
+        },
+        {
+          "rank": 2,
+          "note": "Lemon",
+          "sastojak_id": 77,
+          "votes": 1403
+        },
+        {
+          "rank": 3,
+          "note": "Basil",
+          "sastojak_id": 119,
+          "votes": 870
+        },
+        {
+          "rank": 4,
+          "note": "Musk",
+          "sastojak_id": 4,
+          "votes": 579
+        },
+        {
+          "rank": 5,
+          "note": "Black Currant",
+          "sastojak_id": 132,
+          "votes": 540
+        }
+      ]
+    },
+    {
+      "schema_version": 1,
+      "source": "playwright-cdp-real-edge",
+      "captured_at": "2026-08-21T21:43:15.844Z",
+      "rank": 53,
+      "shobi_code": "2150-LEL EL",
+      "fragrantica_id": 69731,
+      "url": "https://www.fragrantica.com/perfume/Le-Labo/The-Matcha-26-69731.html",
+      "url_source": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+      "total_voted_notes": 5,
+      "saved_note_count": 5,
+      "notes": [
+        {
+          "rank": 1,
+          "note": "Fig",
+          "sastojak_id": 247,
+          "votes": 670
+        },
+        {
+          "rank": 2,
+          "note": "Cedar",
+          "sastojak_id": 41,
+          "votes": 588
+        },
+        {
+          "rank": 3,
+          "note": "Matcha Tea",
+          "sastojak_id": 1001,
+          "votes": 486
+        },
+        {
+          "rank": 4,
+          "note": "Bitter Orange",
+          "sastojak_id": 79,
+          "votes": 457
+        },
+        {
+          "rank": 5,
+          "note": "Vetiver",
+          "sastojak_id": 2,
+          "votes": 445
+        }
+      ]
+    },
+    {
+      "schema_version": 1,
+      "source": "playwright-cdp-real-edge",
+      "captured_at": "2026-08-21T21:43:29.588Z",
+      "rank": 54,
+      "shobi_code": "430-BRB WP",
+      "fragrantica_id": 4701,
+      "url": "https://www.fragrantica.com/perfume/Burberry/The-Beat-EDT-4701.html",
+      "url_source": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+      "total_voted_notes": 4,
+      "saved_note_count": 4,
+      "notes": [
+        {
+          "rank": 1,
+          "note": "Rose",
+          "sastojak_id": 105,
+          "votes": 16
+        },
+        {
+          "rank": 2,
+          "note": "Dark Chocolate",
+          "sastojak_id": 136,
+          "votes": 14
+        },
+        {
+          "rank": 3,
+          "note": "Osmanthus",
+          "sastojak_id": 10,
+          "votes": 13
+        },
+        {
+          "rank": 4,
+          "note": "Vetiver",
+          "sastojak_id": 2,
+          "votes": 11
+        }
+      ]
+    },
+    {
+      "schema_version": 1,
+      "source": "playwright-cdp-real-edge",
+      "captured_at": "2026-08-21T21:43:44.192Z",
+      "rank": 55,
+      "shobi_code": "1635-XER N",
+      "fragrantica_id": 11801,
+      "url": "https://www.fragrantica.com/perfume/Xerjoff/Lira-11801.html",
+      "url_source": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+      "total_voted_notes": 9,
+      "saved_note_count": 5,
+      "notes": [
+        {
+          "rank": 1,
+          "note": "Vanille",
+          "sastojak_id": 74,
+          "votes": 3089
+        },
+        {
+          "rank": 2,
+          "note": "Caramel",
+          "sastojak_id": 183,
+          "votes": 3007
+        },
+        {
+          "rank": 3,
+          "note": "Cinnamon",
+          "sastojak_id": 65,
+          "votes": 1399
+        },
+        {
+          "rank": 4,
+          "note": "Musk",
+          "sastojak_id": 4,
+          "votes": 667
+        },
+        {
+          "rank": 5,
+          "note": "Jasmine",
+          "sastojak_id": 14,
+          "votes": 303
+        }
+      ]
+    },
+    {
+      "schema_version": 1,
+      "source": "playwright-cdp-real-edge",
+      "captured_at": "2026-08-21T21:43:58.957Z",
+      "rank": 56,
+      "shobi_code": "2365-DIP N",
+      "fragrantica_id": 78658,
+      "url": "https://www.fragrantica.com/perfume/Diptyque/L-Eau-Papier-78658.html",
+      "url_source": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+      "total_voted_notes": 4,
+      "saved_note_count": 4,
+      "notes": [
+        {
+          "rank": 1,
+          "note": "White Musk",
+          "sastojak_id": 4,
+          "votes": 1223
+        },
+        {
+          "rank": 2,
+          "note": "Sesame",
+          "sastojak_id": 290,
+          "votes": 842
+        },
+        {
+          "rank": 3,
+          "note": "Mimosa",
+          "sastojak_id": 167,
+          "votes": 709
+        },
+        {
+          "rank": 4,
+          "note": "Woody Notes",
+          "sastojak_id": 315,
+          "votes": 529
+        }
+      ]
+    },
+    {
+      "schema_version": 1,
+      "source": "playwright-cdp-real-edge",
+      "captured_at": "2026-08-21T21:44:14.219Z",
+      "rank": 57,
+      "shobi_code": "2320-LTN N",
+      "fragrantica_id": 67370,
+      "url": "https://www.fragrantica.com/perfume/Louis-Vuitton/Imagination-67370.html",
+      "url_source": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+      "total_voted_notes": 9,
+      "saved_note_count": 5,
+      "notes": [
+        {
+          "rank": 1,
+          "note": "Chinese Black Tea",
+          "sastojak_id": 106,
+          "votes": 2541
+        },
+        {
+          "rank": 2,
+          "note": "Citron",
+          "sastojak_id": 373,
+          "votes": 2394
+        },
+        {
+          "rank": 3,
+          "note": "Calabrian bergamot",
+          "sastojak_id": 75,
+          "votes": 2181
+        },
+        {
+          "rank": 4,
+          "note": "Sicilian Orange",
+          "sastojak_id": 80,
+          "votes": 1780
+        },
+        {
+          "rank": 5,
+          "note": "Tunisian Neroli",
+          "sastojak_id": 17,
+          "votes": 1100
+        }
+      ]
+    },
+    {
+      "schema_version": 1,
+      "source": "playwright-cdp-real-edge",
+      "captured_at": "2026-08-21T21:44:30.724Z",
+      "rank": 58,
+      "shobi_code": "528-DRC W",
+      "fragrantica_id": 219,
+      "url": "https://www.fragrantica.com/perfume/Christian-Dior/Hypnotic-Poison-219.html",
+      "url_source": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+      "total_voted_notes": 13,
+      "saved_note_count": 5,
+      "notes": [
+        {
+          "rank": 1,
+          "note": "Vanilla",
+          "sastojak_id": 74,
+          "votes": 9068
+        },
+        {
+          "rank": 2,
+          "note": "Almond",
+          "sastojak_id": 130,
+          "votes": 8200
+        },
+        {
+          "rank": 3,
+          "note": "Coconut",
+          "sastojak_id": 138,
+          "votes": 4456
+        },
+        {
+          "rank": 4,
+          "note": "Sandalwood",
+          "sastojak_id": 33,
+          "votes": 3339
+        },
+        {
+          "rank": 5,
+          "note": "Musk",
+          "sastojak_id": 4,
+          "votes": 1934
+        }
+      ]
+    },
+    {
+      "schema_version": 1,
+      "source": "playwright-cdp-real-edge",
+      "captured_at": "2026-08-21T21:44:45.637Z",
+      "rank": 59,
+      "shobi_code": "1974-MARG EL",
+      "fragrantica_id": 60105,
+      "url": "https://www.fragrantica.com/perfume/Maison-Martin-Margiela/Bubble-Bath-60105.html",
+      "url_source": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+      "total_voted_notes": 8,
+      "saved_note_count": 5,
+      "notes": [
+        {
+          "rank": 1,
+          "note": "Soap",
+          "sastojak_id": 1057,
+          "votes": 1773
+        },
+        {
+          "rank": 2,
+          "note": "White Musk",
+          "sastojak_id": 4,
+          "votes": 965
+        },
+        {
+          "rank": 3,
+          "note": "Coconut",
+          "sastojak_id": 138,
+          "votes": 917
+        },
+        {
+          "rank": 4,
+          "note": "Lavender",
+          "sastojak_id": 1,
+          "votes": 564
+        },
+        {
+          "rank": 5,
+          "note": "Jasmine",
+          "sastojak_id": 14,
+          "votes": 414
+        }
+      ]
+    },
+    {
+      "schema_version": 1,
+      "source": "playwright-cdp-real-edge",
+      "captured_at": "2026-08-21T21:44:59.726Z",
+      "rank": 60,
+      "shobi_code": "1801-JUL EL",
+      "fragrantica_id": 10296,
+      "url": "https://www.fragrantica.com/perfume/Juliette-Has-A-Gun/Not-A-Perfume-10296.html",
+      "url_source": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+      "total_voted_notes": 1,
+      "saved_note_count": 1,
+      "notes": [
+        {
+          "rank": 1,
+          "note": "Cetalox",
+          "sastojak_id": 564,
+          "votes": 721
+        }
+      ]
+    },
+    {
+      "schema_version": 1,
+      "source": "playwright-cdp-real-edge",
+      "captured_at": "2026-08-21T21:45:13.659Z",
+      "rank": 61,
+      "shobi_code": "694-GUR W",
+      "fragrantica_id": 24785,
+      "url": "https://www.fragrantica.com/perfume/Guerlain/Terracotta-Le-Parfum-24785.html",
+      "url_source": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+      "total_voted_notes": 8,
+      "saved_note_count": 5,
+      "notes": [
+        {
+          "rank": 1,
+          "note": "Tiare Flower",
+          "sastojak_id": 148,
+          "votes": 2263
+        },
+        {
+          "rank": 2,
+          "note": "Jasmine",
+          "sastojak_id": 14,
+          "votes": 1796
+        },
+        {
+          "rank": 3,
+          "note": "Ylang-Ylang",
+          "sastojak_id": 24,
+          "votes": 1542
+        },
+        {
+          "rank": 4,
+          "note": "Coconut",
+          "sastojak_id": 138,
+          "votes": 1449
+        },
+        {
+          "rank": 5,
+          "note": "Vanilla",
+          "sastojak_id": 74,
+          "votes": 1185
+        }
+      ]
+    },
+    {
+      "schema_version": 1,
+      "source": "playwright-cdp-real-edge",
+      "captured_at": "2026-08-21T21:45:28.264Z",
+      "rank": 62,
+      "shobi_code": "2136-PARF",
+      "fragrantica_id": 78574,
+      "url": "https://www.fragrantica.com/perfume/Parfums-de-Marly/Valaya-78574.html",
+      "url_source": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+      "total_voted_notes": 14,
+      "saved_note_count": 5,
+      "notes": [
+        {
+          "rank": 1,
+          "note": "Musk",
+          "sastojak_id": 4,
+          "votes": 855
+        },
+        {
+          "rank": 2,
+          "note": "Aldehydes",
+          "sastojak_id": 165,
+          "votes": 682
+        },
+        {
+          "rank": 3,
+          "note": "White Peach",
+          "sastojak_id": 117,
+          "votes": 505
+        },
+        {
+          "rank": 4,
+          "note": "Ambroxan",
+          "sastojak_id": 563,
+          "votes": 502
+        },
+        {
+          "rank": 5,
+          "note": "Orange Blossom",
+          "sastojak_id": 16,
+          "votes": 491
+        }
+      ]
+    },
+    {
+      "schema_version": 1,
+      "source": "playwright-cdp-real-edge",
+      "captured_at": "2026-08-21T21:45:43.865Z",
+      "rank": 63,
+      "shobi_code": "2161-GUR W",
+      "fragrantica_id": 2060,
+      "url": "https://www.fragrantica.com/perfume/Guerlain/Aqua-Allegoria-Mandarine-Basilic-2060.html",
+      "url_source": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+      "total_voted_notes": 11,
+      "saved_note_count": 5,
+      "notes": [
+        {
+          "rank": 1,
+          "note": "Clementine",
+          "sastojak_id": 84,
+          "votes": 2118
+        },
+        {
+          "rank": 2,
+          "note": "Mandarin Orange",
+          "sastojak_id": 82,
+          "votes": 2048
+        },
+        {
+          "rank": 3,
+          "note": "Basil",
+          "sastojak_id": 119,
+          "votes": 1812
+        },
+        {
+          "rank": 4,
+          "note": "Bitter Orange",
+          "sastojak_id": 79,
+          "votes": 1409
+        },
+        {
+          "rank": 5,
+          "note": "Orange Blossom",
+          "sastojak_id": 16,
+          "votes": 824
+        }
+      ]
+    },
+    {
+      "schema_version": 1,
+      "source": "playwright-cdp-real-edge",
+      "captured_at": "2026-08-21T21:45:59.248Z",
+      "rank": 64,
+      "shobi_code": "1946-MARC N",
+      "fragrantica_id": 54720,
+      "url": "https://www.fragrantica.com/perfume/Marc-Antoine-Barrois/Ganymede-54720.html",
+      "url_source": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+      "total_voted_notes": 11,
+      "saved_note_count": 5,
+      "notes": [
+        {
+          "rank": 1,
+          "note": "Mineral notes",
+          "sastojak_id": 820,
+          "votes": 2776
+        },
+        {
+          "rank": 2,
+          "note": "Suede",
+          "sastojak_id": 196,
+          "votes": 1830
+        },
+        {
+          "rank": 3,
+          "note": "Saffron",
+          "sastojak_id": 55,
+          "votes": 1660
+        },
+        {
+          "rank": 4,
+          "note": "Akigalawood",
+          "sastojak_id": 697,
+          "votes": 1473
+        },
+        {
+          "rank": 5,
+          "note": "Chinese Osmanthus",
+          "sastojak_id": 10,
+          "votes": 801
+        }
+      ]
+    },
+    {
+      "schema_version": 1,
+      "source": "playwright-cdp-real-edge",
+      "captured_at": "2026-08-21T22:08:11.806Z",
+      "rank": 65,
+      "shobi_code": "1850-LEL N",
+      "fragrantica_id": 10131,
+      "url": "https://www.fragrantica.com/perfume/Le-Labo/Another-13-10131.html",
+      "url_source": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+      "total_voted_notes": 13,
+      "saved_note_count": 5,
+      "notes": [
+        {
+          "rank": 1,
+          "note": "Iso E Super",
+          "sastojak_id": 422,
+          "votes": 1111
+        },
+        {
+          "rank": 2,
+          "note": "Musk",
+          "sastojak_id": 4,
+          "votes": 958
+        },
+        {
+          "rank": 3,
+          "note": "Ambergris",
+          "sastojak_id": 524,
+          "votes": 744
+        },
+        {
+          "rank": 4,
+          "note": "Ambrette (Musk Mallow)",
+          "sastojak_id": 107,
+          "votes": 642
+        },
+        {
+          "rank": 5,
+          "note": "Pear",
+          "sastojak_id": 182,
+          "votes": 465
+        }
+      ]
+    },
+    {
+      "schema_version": 1,
+      "source": "playwright-cdp-real-edge",
+      "captured_at": "2026-08-21T22:08:27.074Z",
+      "rank": 66,
+      "shobi_code": "151-PARF N",
+      "fragrantica_id": 43871,
+      "url": "https://www.fragrantica.com/perfume/Parfums-de-Marly/Delina-43871.html",
+      "url_source": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+      "total_voted_notes": 15,
+      "saved_note_count": 5,
+      "notes": [
+        {
+          "rank": 1,
+          "note": "Turkish Rose",
+          "sastojak_id": 105,
+          "votes": 3060
+        },
+        {
+          "rank": 2,
+          "note": "Litchi",
+          "sastojak_id": 194,
+          "votes": 2314
+        },
+        {
+          "rank": 3,
+          "note": "Rhubarb",
+          "sastojak_id": 188,
+          "votes": 1876
+        },
+        {
+          "rank": 4,
+          "note": "Peony",
+          "sastojak_id": 155,
+          "votes": 1720
+        },
+        {
+          "rank": 5,
+          "note": "Musk",
+          "sastojak_id": 4,
+          "votes": 1234
+        }
+      ]
+    },
+    {
+      "schema_version": 1,
+      "source": "playwright-cdp-real-edge",
+      "captured_at": "2026-08-21T21:50:12.822Z",
+      "rank": 67,
+      "shobi_code": "761-KIL WP",
+      "fragrantica_id": 15924,
+      "url": "https://www.fragrantica.com/perfume/By-Kilian/Good-Girl-Gone-Bad-15924.html",
+      "url_source": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+      "total_voted_notes": 15,
+      "saved_note_count": 5,
+      "notes": [
+        {
+          "rank": 1,
+          "note": "Osmanthus",
+          "sastojak_id": 10,
+          "votes": 1633
+        },
+        {
+          "rank": 2,
+          "note": "Indian Tuberose",
+          "sastojak_id": 25,
+          "votes": 1216
+        },
+        {
+          "rank": 3,
+          "note": "Jasmine",
+          "sastojak_id": 14,
+          "votes": 791
+        },
+        {
+          "rank": 4,
+          "note": "Narcissus",
+          "sastojak_id": 18,
+          "votes": 679
+        },
+        {
+          "rank": 5,
+          "note": "May Rose",
+          "sastojak_id": 105,
+          "votes": 589
+        }
+      ]
+    },
+    {
+      "schema_version": 1,
+      "source": "playwright-cdp-real-edge",
+      "captured_at": "2026-08-21T21:50:29.274Z",
+      "rank": 68,
+      "shobi_code": "641-FRE WP",
+      "fragrantica_id": 10464,
+      "url": "https://www.fragrantica.com/perfume/Frederic-Malle-Editions-de-Parfums/Portrait-of-a-Lady-10464.html",
+      "url_source": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+      "total_voted_notes": 16,
+      "saved_note_count": 5,
+      "notes": [
+        {
+          "rank": 1,
+          "note": "Turkish Rose",
+          "sastojak_id": 105,
+          "votes": 3515
+        },
+        {
+          "rank": 2,
+          "note": "Patchouli",
+          "sastojak_id": 34,
+          "votes": 2536
+        },
+        {
+          "rank": 3,
+          "note": "Incense",
+          "sastojak_id": 68,
+          "votes": 2454
+        },
+        {
+          "rank": 4,
+          "note": "Clove",
+          "sastojak_id": 61,
+          "votes": 1525
+        },
+        {
+          "rank": 5,
+          "note": "Raspberry",
+          "sastojak_id": 174,
+          "votes": 1242
+        }
+      ]
+    },
+    {
+      "schema_version": 1,
+      "source": "playwright-cdp-real-edge",
+      "captured_at": "2026-08-21T21:50:43.674Z",
+      "rank": 69,
+      "shobi_code": "154-PARF N",
+      "fragrantica_id": 39314,
+      "url": "https://www.fragrantica.com/perfume/Parfums-de-Marly/Layton-39314.html",
+      "url_source": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+      "total_voted_notes": 15,
+      "saved_note_count": 5,
+      "notes": [
+        {
+          "rank": 1,
+          "note": "Vanilla",
+          "sastojak_id": 74,
+          "votes": 3207
+        },
+        {
+          "rank": 2,
+          "note": "Apple",
+          "sastojak_id": 146,
+          "votes": 2949
+        },
+        {
+          "rank": 3,
+          "note": "Cardamom",
+          "sastojak_id": 63,
+          "votes": 2230
+        },
+        {
+          "rank": 4,
+          "note": "Lavender",
+          "sastojak_id": 1,
+          "votes": 1932
+        },
+        {
+          "rank": 5,
+          "note": "Sandalwood",
+          "sastojak_id": 33,
+          "votes": 1485
+        }
+      ]
+    },
+    {
+      "schema_version": 1,
+      "source": "playwright-cdp-real-edge",
+      "captured_at": "2026-08-21T21:50:58.484Z",
+      "rank": 70,
+      "shobi_code": "1887-XER N",
+      "fragrantica_id": 55157,
+      "url": "https://www.fragrantica.com/perfume/Xerjoff/Erba-Pura-55157.html",
+      "url_source": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+      "total_voted_notes": 7,
+      "saved_note_count": 5,
+      "notes": [
+        {
+          "rank": 1,
+          "note": "Fruits",
+          "sastojak_id": 320,
+          "votes": 2340
+        },
+        {
+          "rank": 2,
+          "note": "White Musk",
+          "sastojak_id": 4,
+          "votes": 1497
+        },
+        {
+          "rank": 3,
+          "note": "Madagascar Vanilla",
+          "sastojak_id": 74,
+          "votes": 1033
+        },
+        {
+          "rank": 4,
+          "note": "Sicilian Orange",
+          "sastojak_id": 80,
+          "votes": 947
+        },
+        {
+          "rank": 5,
+          "note": "Amber",
+          "sastojak_id": 54,
+          "votes": 859
+        }
+      ]
+    },
+    {
+      "schema_version": 1,
+      "source": "playwright-cdp-real-edge",
+      "captured_at": "2026-08-21T22:08:43.221Z",
+      "rank": 71,
+      "shobi_code": "506-CHA W",
+      "fragrantica_id": 611,
+      "url": "https://www.fragrantica.com/perfume/Chanel/Coco-Mademoiselle-611.html",
+      "url_source": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+      "total_voted_notes": 14,
+      "saved_note_count": 5,
+      "notes": [
+        {
+          "rank": 1,
+          "note": "Patchouli",
+          "sastojak_id": 34,
+          "votes": 4853
+        },
+        {
+          "rank": 2,
+          "note": "Orange",
+          "sastojak_id": 80,
+          "votes": 3846
+        },
+        {
+          "rank": 3,
+          "note": "Turkish Rose",
+          "sastojak_id": 105,
+          "votes": 3438
+        },
+        {
+          "rank": 4,
+          "note": "Mandarin Orange",
+          "sastojak_id": 82,
+          "votes": 2685
+        },
+        {
+          "rank": 5,
+          "note": "Bergamot",
+          "sastojak_id": 75,
+          "votes": 2614
+        }
+      ]
+    },
+    {
+      "schema_version": 1,
+      "source": "playwright-cdp-real-edge",
+      "captured_at": "2026-08-21T21:53:17.728Z",
+      "rank": 72,
+      "shobi_code": "210-CRD EL",
+      "fragrantica_id": 474,
+      "url": "https://www.fragrantica.com/perfume/Creed/Green-Irish-Tweed-474.html",
+      "url_source": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+      "total_voted_notes": 5,
+      "saved_note_count": 5,
+      "notes": [
+        {
+          "rank": 1,
+          "note": "Violet Leaf",
+          "sastojak_id": 127,
+          "votes": 1537
+        },
+        {
+          "rank": 2,
+          "note": "Iris",
+          "sastojak_id": 11,
+          "votes": 1033
+        },
+        {
+          "rank": 3,
+          "note": "Ambergris",
+          "sastojak_id": 524,
+          "votes": 999
+        },
+        {
+          "rank": 4,
+          "note": "Sandalwood",
+          "sastojak_id": 33,
+          "votes": 824
+        },
+        {
+          "rank": 5,
+          "note": "Vervain",
+          "sastojak_id": 1680,
+          "votes": 174
+        }
+      ]
+    },
+    {
+      "schema_version": 1,
+      "source": "playwright-cdp-real-edge",
+      "captured_at": "2026-08-21T21:53:32.150Z",
+      "rank": 73,
+      "shobi_code": "268-JOM EL",
+      "fragrantica_id": 42027,
+      "url": "https://www.fragrantica.com/perfume/Jo-Malone-London/Myrrh-Tonka-42027.html",
+      "url_source": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+      "total_voted_notes": 5,
+      "saved_note_count": 5,
+      "notes": [
+        {
+          "rank": 1,
+          "note": "Myrrh",
+          "sastojak_id": 98,
+          "votes": 1432
+        },
+        {
+          "rank": 2,
+          "note": "Tonka Bean",
+          "sastojak_id": 73,
+          "votes": 1366
+        },
+        {
+          "rank": 3,
+          "note": "Vanilla",
+          "sastojak_id": 74,
+          "votes": 943
+        },
+        {
+          "rank": 4,
+          "note": "Lavender",
+          "sastojak_id": 1,
+          "votes": 718
+        },
+        {
+          "rank": 5,
+          "note": "Almond",
+          "sastojak_id": 130,
+          "votes": 593
+        }
+      ]
+    },
+    {
+      "schema_version": 1,
+      "source": "playwright-cdp-real-edge",
+      "captured_at": "2026-08-21T21:53:45.993Z",
+      "rank": 74,
+      "shobi_code": "1112-DSQ MP",
+      "fragrantica_id": 5862,
+      "url": "https://www.fragrantica.com/perfume/DSQUARED2/He-Wood-Rocky-Mountain-Wood-5862.html",
+      "url_source": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+      "total_voted_notes": 8,
+      "saved_note_count": 5,
+      "notes": [
+        {
+          "rank": 1,
+          "note": "Violet",
+          "sastojak_id": 116,
+          "votes": 795
+        },
+        {
+          "rank": 2,
+          "note": "Virginia Cedar",
+          "sastojak_id": 41,
+          "votes": 757
+        },
+        {
+          "rank": 3,
+          "note": "Vetiver",
+          "sastojak_id": 2,
+          "votes": 712
+        },
+        {
+          "rank": 4,
+          "note": "Pepper",
+          "sastojak_id": 158,
+          "votes": 515
+        },
+        {
+          "rank": 5,
+          "note": "Incense",
+          "sastojak_id": 68,
+          "votes": 353
+        }
+      ]
+    },
+    {
+      "schema_version": 1,
+      "source": "playwright-cdp-real-edge",
+      "captured_at": "2026-08-21T21:54:01.163Z",
+      "rank": 75,
+      "shobi_code": "879-PRA WP",
+      "fragrantica_id": 1795,
+      "url": "https://www.fragrantica.com/perfume/Prada/Infusion-d-Iris-1795.html",
+      "url_source": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+      "total_voted_notes": 11,
+      "saved_note_count": 5,
+      "notes": [
+        {
+          "rank": 1,
+          "note": "Iris",
+          "sastojak_id": 11,
+          "votes": 2960
+        },
+        {
+          "rank": 2,
+          "note": "Virginia Cedar",
+          "sastojak_id": 41,
+          "votes": 1251
+        },
+        {
+          "rank": 3,
+          "note": "Incense",
+          "sastojak_id": 68,
+          "votes": 1227
+        },
+        {
+          "rank": 4,
+          "note": "African Orange Flower",
+          "sastojak_id": 16,
+          "votes": 922
+        },
+        {
+          "rank": 5,
+          "note": "Benzoin",
+          "sastojak_id": 69,
+          "votes": 890
+        }
+      ]
+    },
+    {
+      "schema_version": 1,
+      "source": "playwright-cdp-real-edge",
+      "captured_at": "2026-08-21T22:08:58.840Z",
+      "rank": 76,
+      "shobi_code": "2167-GUL MP",
+      "fragrantica_id": 81642,
+      "url": "https://www.fragrantica.com/perfume/Jean-Paul-Gaultier/Le-Male-Elixir-81642.html",
+      "url_source": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+      "total_voted_notes": 7,
+      "saved_note_count": 5,
+      "notes": [
+        {
+          "rank": 1,
+          "note": "Vanilla",
+          "sastojak_id": 74,
+          "votes": 6390
+        },
+        {
+          "rank": 2,
+          "note": "Honey",
+          "sastojak_id": 181,
+          "votes": 5635
+        },
+        {
+          "rank": 3,
+          "note": "Tonka Bean",
+          "sastojak_id": 73,
+          "votes": 3579
+        },
+        {
+          "rank": 4,
+          "note": "Lavender",
+          "sastojak_id": 1,
+          "votes": 3366
+        },
+        {
+          "rank": 5,
+          "note": "Tobacco",
+          "sastojak_id": 96,
+          "votes": 2816
+        }
+      ]
+    },
+    {
+      "schema_version": 1,
+      "source": "playwright-cdp-real-edge",
+      "captured_at": "2026-08-21T21:55:33.604Z",
+      "rank": 77,
+      "shobi_code": "513-CHL WP",
+      "fragrantica_id": 9370,
+      "url": "https://www.fragrantica.com/perfume/Chloe/Love-9370.html",
+      "url_source": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+      "total_voted_notes": 10,
+      "saved_note_count": 5,
+      "notes": [
+        {
+          "rank": 1,
+          "note": "Powdery Notes",
+          "sastojak_id": 482,
+          "votes": 2170
+        },
+        {
+          "rank": 2,
+          "note": "Iris",
+          "sastojak_id": 11,
+          "votes": 1640
+        },
+        {
+          "rank": 3,
+          "note": "Rice",
+          "sastojak_id": 208,
+          "votes": 1103
+        },
+        {
+          "rank": 4,
+          "note": "Lilac",
+          "sastojak_id": 152,
+          "votes": 1096
+        },
+        {
+          "rank": 5,
+          "note": "Musk",
+          "sastojak_id": 4,
+          "votes": 1059
+        }
+      ]
+    },
+    {
+      "schema_version": 1,
+      "source": "playwright-cdp-real-edge",
+      "captured_at": "2026-08-21T21:55:48.003Z",
+      "rank": 78,
+      "shobi_code": "1737-GIV W",
+      "fragrantica_id": 68404,
+      "url": "https://www.fragrantica.com/perfume/Givenchy/L-Interdit-Eau-de-Parfum-Rouge-68404.html",
+      "url_source": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+      "total_voted_notes": 8,
+      "saved_note_count": 5,
+      "notes": [
+        {
+          "rank": 1,
+          "note": "Tuberose",
+          "sastojak_id": 25,
+          "votes": 1598
+        },
+        {
+          "rank": 2,
+          "note": "Ginger",
+          "sastojak_id": 62,
+          "votes": 1237
+        },
+        {
+          "rank": 3,
+          "note": "Blood Orange",
+          "sastojak_id": 286,
+          "votes": 1188
+        },
+        {
+          "rank": 4,
+          "note": "Sandalwood",
+          "sastojak_id": 33,
+          "votes": 1063
+        },
+        {
+          "rank": 5,
+          "note": "Jasmine",
+          "sastojak_id": 14,
+          "votes": 817
+        }
+      ]
+    },
+    {
+      "schema_version": 1,
+      "source": "playwright-cdp-real-edge",
+      "captured_at": "2026-08-21T21:56:01.824Z",
+      "rank": 79,
+      "shobi_code": "1513-KIL WP",
+      "fragrantica_id": 90174,
+      "url": "https://www.fragrantica.com/perfume/By-Kilian/Princess-90174.html",
+      "url_source": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+      "total_voted_notes": 3,
+      "saved_note_count": 3,
+      "notes": [
+        {
+          "rank": 1,
+          "note": "Marshmallow",
+          "sastojak_id": 236,
+          "votes": 725
+        },
+        {
+          "rank": 2,
+          "note": "Matcha Tea",
+          "sastojak_id": 1001,
+          "votes": 523
+        },
+        {
+          "rank": 3,
+          "note": "Ginger",
+          "sastojak_id": 62,
+          "votes": 274
+        }
+      ]
+    },
+    {
+      "schema_version": 1,
+      "source": "playwright-cdp-real-edge",
+      "captured_at": "2026-08-21T21:56:16.133Z",
+      "rank": 80,
+      "shobi_code": "1476-NRO WP",
+      "fragrantica_id": 64730,
+      "url": "https://www.fragrantica.com/perfume/Narciso%20Rodriguez/Narciso-Rodriguez-Musc-Noir-For-Her-64730.html",
+      "url_source": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+      "total_voted_notes": 4,
+      "saved_note_count": 4,
+      "notes": [
+        {
+          "rank": 1,
+          "note": "Musk",
+          "sastojak_id": 4,
+          "votes": 1035
+        },
+        {
+          "rank": 2,
+          "note": "Plum",
+          "sastojak_id": 171,
+          "votes": 896
+        },
+        {
+          "rank": 3,
+          "note": "Suede",
+          "sastojak_id": 196,
+          "votes": 717
+        },
+        {
+          "rank": 4,
+          "note": "Heliotrope",
+          "sastojak_id": 99,
+          "votes": 636
+        }
+      ]
+    },
+    {
+      "schema_version": 1,
+      "source": "playwright-cdp-real-edge",
+      "captured_at": "2026-08-21T21:56:30.031Z",
+      "rank": 81,
+      "shobi_code": "318-MNT EL",
+      "fragrantica_id": 2186,
+      "url": "https://www.fragrantica.com/perfume/Montale/Montale-Chocolate-Greedy-2186.html",
+      "url_source": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+      "total_voted_notes": 6,
+      "saved_note_count": 5,
+      "notes": [
+        {
+          "rank": 1,
+          "note": "Cacao",
+          "sastojak_id": 135,
+          "votes": 4261
+        },
+        {
+          "rank": 2,
+          "note": "Vanilla",
+          "sastojak_id": 74,
+          "votes": 3460
+        },
+        {
+          "rank": 3,
+          "note": "Tonka Bean",
+          "sastojak_id": 73,
+          "votes": 1772
+        },
+        {
+          "rank": 4,
+          "note": "Bitter Orange",
+          "sastojak_id": 79,
+          "votes": 1501
+        },
+        {
+          "rank": 5,
+          "note": "Dried Fruits",
+          "sastojak_id": 230,
+          "votes": 1265
+        }
+      ]
+    },
+    {
+      "schema_version": 1,
+      "source": "playwright-cdp-real-edge",
+      "captured_at": "2026-08-21T21:56:44.282Z",
+      "rank": 82,
+      "shobi_code": "1775-DIP N",
+      "fragrantica_id": 65738,
+      "url": "https://www.fragrantica.com/perfume/Diptyque/Orpheon-65738.html",
+      "url_source": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+      "total_voted_notes": 5,
+      "saved_note_count": 5,
+      "notes": [
+        {
+          "rank": 1,
+          "note": "Powdery Notes",
+          "sastojak_id": 482,
+          "votes": 980
+        },
+        {
+          "rank": 2,
+          "note": "Juniper Berries",
+          "sastojak_id": 143,
+          "votes": 837
+        },
+        {
+          "rank": 3,
+          "note": "Cedar",
+          "sastojak_id": 41,
+          "votes": 624
+        },
+        {
+          "rank": 4,
+          "note": "Jasmine",
+          "sastojak_id": 14,
+          "votes": 535
+        },
+        {
+          "rank": 5,
+          "note": "Tonka Bean",
+          "sastojak_id": 73,
+          "votes": 310
+        }
+      ]
+    },
+    {
+      "schema_version": 1,
+      "source": "playwright-cdp-real-edge",
+      "captured_at": "2026-08-21T21:56:59.012Z",
+      "rank": 83,
+      "shobi_code": "1651-TMU W",
+      "fragrantica_id": 68354,
+      "url": "https://www.fragrantica.com/perfume/Mugler/Alien-Goddess-68354.html",
+      "url_source": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+      "total_voted_notes": 6,
+      "saved_note_count": 5,
+      "notes": [
+        {
+          "rank": 1,
+          "note": "Coconut Water",
+          "sastojak_id": 1098,
+          "votes": 1931
+        },
+        {
+          "rank": 2,
+          "note": "Bourbon Vanilla",
+          "sastojak_id": 74,
+          "votes": 1812
+        },
+        {
+          "rank": 3,
+          "note": "Jasmine",
+          "sastojak_id": 14,
+          "votes": 1105
+        },
+        {
+          "rank": 4,
+          "note": "Cashmeran",
+          "sastojak_id": 348,
+          "votes": 903
+        },
+        {
+          "rank": 5,
+          "note": "Bergamot",
+          "sastojak_id": 75,
+          "votes": 661
+        }
+      ]
+    },
+    {
+      "schema_version": 1,
+      "source": "playwright-cdp-real-edge",
+      "captured_at": "2026-08-21T21:57:13.057Z",
+      "rank": 84,
+      "shobi_code": "1846-MAN EL",
+      "fragrantica_id": 42782,
+      "url": "https://www.fragrantica.com/perfume/Mancera/Coco-Vanille-42782.html",
+      "url_source": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+      "total_voted_notes": 8,
+      "saved_note_count": 5,
+      "notes": [
+        {
+          "rank": 1,
+          "note": "Madagascar Vanilla",
+          "sastojak_id": 74,
+          "votes": 960
+        },
+        {
+          "rank": 2,
+          "note": "Coconut",
+          "sastojak_id": 138,
+          "votes": 956
+        },
+        {
+          "rank": 3,
+          "note": "Tiare Flower",
+          "sastojak_id": 148,
+          "votes": 619
+        },
+        {
+          "rank": 4,
+          "note": "Ylang-Ylang",
+          "sastojak_id": 24,
+          "votes": 444
+        },
+        {
+          "rank": 5,
+          "note": "Jasmine",
+          "sastojak_id": 14,
+          "votes": 283
+        }
+      ]
+    },
+    {
+      "schema_version": 1,
+      "source": "playwright-cdp-real-edge",
+      "captured_at": "2026-08-21T21:57:27.543Z",
+      "rank": 85,
+      "shobi_code": "2053-BDIK",
+      "fragrantica_id": 73645,
+      "url": "https://www.fragrantica.com/perfume/BDK-Parfums/Gris-Charnel-Extrait-73645.html",
+      "url_source": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+      "total_voted_notes": 11,
+      "saved_note_count": 5,
+      "notes": [
+        {
+          "rank": 1,
+          "note": "Sandalwood",
+          "sastojak_id": 33,
+          "votes": 658
+        },
+        {
+          "rank": 2,
+          "note": "Cardamom",
+          "sastojak_id": 63,
+          "votes": 619
+        },
+        {
+          "rank": 3,
+          "note": "Fig",
+          "sastojak_id": 247,
+          "votes": 561
+        },
+        {
+          "rank": 4,
+          "note": "Madagascar Vanilla",
+          "sastojak_id": 74,
+          "votes": 542
+        },
+        {
+          "rank": 5,
+          "note": "Black Tea",
+          "sastojak_id": 106,
+          "votes": 482
+        }
+      ]
+    },
+    {
+      "schema_version": 1,
+      "source": "playwright-cdp-real-edge",
+      "captured_at": "2026-08-21T21:57:42.603Z",
+      "rank": 86,
+      "shobi_code": "355-TMFO EL",
+      "fragrantica_id": 12192,
+      "url": "https://www.fragrantica.com/perfume/Tom-Ford/Neroli-Portofino-12192.html",
+      "url_source": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+      "total_voted_notes": 14,
+      "saved_note_count": 5,
+      "notes": [
+        {
+          "rank": 1,
+          "note": "African Orange Flower",
+          "sastojak_id": 16,
+          "votes": 1469
+        },
+        {
+          "rank": 2,
+          "note": "Neroli",
+          "sastojak_id": 17,
+          "votes": 1223
+        },
+        {
+          "rank": 3,
+          "note": "Bergamot",
+          "sastojak_id": 75,
+          "votes": 1191
+        },
+        {
+          "rank": 4,
+          "note": "Mandarin Orange",
+          "sastojak_id": 82,
+          "votes": 751
+        },
+        {
+          "rank": 5,
+          "note": "Lemon",
+          "sastojak_id": 77,
+          "votes": 649
+        }
+      ]
+    },
+    {
+      "schema_version": 1,
+      "source": "playwright-cdp-real-edge",
+      "captured_at": "2026-08-21T21:57:56.930Z",
+      "rank": 87,
+      "shobi_code": "1528-KUR N",
+      "fragrantica_id": 46066,
+      "url": "https://www.fragrantica.com/perfume/Maison-Francis-Kurkdjian/Baccarat-Rouge-540-Extrait-de-Parfum-46066.html",
+      "url_source": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+      "total_voted_notes": 9,
+      "saved_note_count": 5,
+      "notes": [
+        {
+          "rank": 1,
+          "note": "Bitter Almond",
+          "sastojak_id": 130,
+          "votes": 1571
+        },
+        {
+          "rank": 2,
+          "note": "Saffron",
+          "sastojak_id": 55,
+          "votes": 1564
+        },
+        {
+          "rank": 3,
+          "note": "Ambergris",
+          "sastojak_id": 524,
+          "votes": 1393
+        },
+        {
+          "rank": 4,
+          "note": "Woody Notes",
+          "sastojak_id": 315,
+          "votes": 1044
+        },
+        {
+          "rank": 5,
+          "note": "Musk",
+          "sastojak_id": 4,
+          "votes": 917
+        }
+      ]
+    },
+    {
+      "schema_version": 1,
+      "source": "playwright-cdp-real-edge",
+      "captured_at": "2026-08-21T22:09:13.587Z",
+      "rank": 88,
+      "shobi_code": "359-TMFO EL",
+      "fragrantica_id": 29675,
+      "url": "https://www.fragrantica.com/perfume/Tom-Ford/Noir-Extreme-29675.html",
+      "url_source": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+      "total_voted_notes": 14,
+      "saved_note_count": 5,
+      "notes": [
+        {
+          "rank": 1,
+          "note": "Vanilla",
+          "sastojak_id": 74,
+          "votes": 2222
+        },
+        {
+          "rank": 2,
+          "note": "Kulfi",
+          "sastojak_id": 661,
+          "votes": 2084
+        },
+        {
+          "rank": 3,
+          "note": "Cardamom",
+          "sastojak_id": 63,
+          "votes": 1556
+        },
+        {
+          "rank": 4,
+          "note": "Amber",
+          "sastojak_id": 54,
+          "votes": 1345
+        },
+        {
+          "rank": 5,
+          "note": "Nutmeg",
+          "sastojak_id": 59,
+          "votes": 1178
+        }
+      ]
+    },
+    {
+      "schema_version": 1,
+      "source": "playwright-cdp-real-edge",
+      "captured_at": "2026-08-21T22:00:09.969Z",
+      "rank": 89,
+      "shobi_code": "2369-MAN EL",
+      "fragrantica_id": 87409,
+      "url": "https://www.fragrantica.com/perfume/Mancera/Amore-Caffe-87409.html",
+      "url_source": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+      "total_voted_notes": 7,
+      "saved_note_count": 5,
+      "notes": [
+        {
+          "rank": 1,
+          "note": "Coffee",
+          "sastojak_id": 139,
+          "votes": 1382
+        },
+        {
+          "rank": 2,
+          "note": "Brown sugar",
+          "sastojak_id": 521,
+          "votes": 1305
+        },
+        {
+          "rank": 3,
+          "note": "Vanilla",
+          "sastojak_id": 74,
+          "votes": 1238
+        },
+        {
+          "rank": 4,
+          "note": "Amaretto",
+          "sastojak_id": 267,
+          "votes": 1138
+        },
+        {
+          "rank": 5,
+          "note": "Ice cream",
+          "sastojak_id": 599,
+          "votes": 1071
+        }
+      ]
+    },
+    {
+      "schema_version": 1,
+      "source": "playwright-cdp-real-edge",
+      "captured_at": "2026-08-21T22:00:24.481Z",
+      "rank": 90,
+      "shobi_code": "1618-NISH N",
+      "fragrantica_id": 54785,
+      "url": "https://www.fragrantica.com/perfume/Nishane/Ani-54785.html",
+      "url_source": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+      "total_voted_notes": 14,
+      "saved_note_count": 5,
+      "notes": [
+        {
+          "rank": 1,
+          "note": "Vanilla",
+          "sastojak_id": 74,
+          "votes": 2782
+        },
+        {
+          "rank": 2,
+          "note": "Ginger",
+          "sastojak_id": 62,
+          "votes": 2066
+        },
+        {
+          "rank": 3,
+          "note": "Bergamot",
+          "sastojak_id": 75,
+          "votes": 1621
+        },
+        {
+          "rank": 4,
+          "note": "Cardamom",
+          "sastojak_id": 63,
+          "votes": 1493
+        },
+        {
+          "rank": 5,
+          "note": "Benzoin",
+          "sastojak_id": 69,
+          "votes": 1165
+        }
+      ]
+    },
+    {
+      "schema_version": 1,
+      "source": "playwright-cdp-real-edge",
+      "captured_at": "2026-08-21T22:00:38.441Z",
+      "rank": 91,
+      "shobi_code": "2154-KAY EL",
+      "fragrantica_id": 68220,
+      "url": "https://www.fragrantica.com/perfume/Kayali/Utopia-Vanilla-Coco-21-68220.html",
+      "url_source": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+      "total_voted_notes": 12,
+      "saved_note_count": 5,
+      "notes": [
+        {
+          "rank": 1,
+          "note": "Coconut Milk",
+          "sastojak_id": 138,
+          "votes": 616
+        },
+        {
+          "rank": 2,
+          "note": "Bourbon Vanilla",
+          "sastojak_id": 74,
+          "votes": 545
+        },
+        {
+          "rank": 3,
+          "note": "Tuberose",
+          "sastojak_id": 25,
+          "votes": 377
+        },
+        {
+          "rank": 4,
+          "note": "Jasmine Sambac",
+          "sastojak_id": 14,
+          "votes": 373
+        },
+        {
+          "rank": 5,
+          "note": "Gardenia",
+          "sastojak_id": 19,
+          "votes": 343
+        }
+      ]
+    },
+    {
+      "schema_version": 1,
+      "source": "playwright-cdp-real-edge",
+      "captured_at": "2026-08-21T22:00:52.625Z",
+      "rank": 92,
+      "shobi_code": "225-DIP EL",
+      "fragrantica_id": 35678,
+      "url": "https://www.fragrantica.com/perfume/Diptyque/Eau-des-Sens-35678.html",
+      "url_source": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+      "total_voted_notes": 5,
+      "saved_note_count": 5,
+      "notes": [
+        {
+          "rank": 1,
+          "note": "Orange Blossom",
+          "sastojak_id": 16,
+          "votes": 762
+        },
+        {
+          "rank": 2,
+          "note": "Bitter Orange",
+          "sastojak_id": 79,
+          "votes": 567
+        },
+        {
+          "rank": 3,
+          "note": "Angelica",
+          "sastojak_id": 44,
+          "votes": 343
+        },
+        {
+          "rank": 4,
+          "note": "Juniper Berries",
+          "sastojak_id": 143,
+          "votes": 304
+        },
+        {
+          "rank": 5,
+          "note": "Patchouli",
+          "sastojak_id": 34,
+          "votes": 228
+        }
+      ]
+    },
+    {
+      "schema_version": 1,
+      "source": "playwright-cdp-real-edge",
+      "captured_at": "2026-08-21T22:01:07.446Z",
+      "rank": 93,
+      "shobi_code": "2261-PARF",
+      "fragrantica_id": 84109,
+      "url": "https://www.fragrantica.com/perfume/Parfums-de-Marly/Althair-84109.html",
+      "url_source": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+      "total_voted_notes": 12,
+      "saved_note_count": 5,
+      "notes": [
+        {
+          "rank": 1,
+          "note": "Bourbon Vanilla",
+          "sastojak_id": 74,
+          "votes": 2212
+        },
+        {
+          "rank": 2,
+          "note": "Praline",
+          "sastojak_id": 198,
+          "votes": 1524
+        },
+        {
+          "rank": 3,
+          "note": "Cinnamon",
+          "sastojak_id": 65,
+          "votes": 1359
+        },
+        {
+          "rank": 4,
+          "note": "Orange Blossom",
+          "sastojak_id": 16,
+          "votes": 999
+        },
+        {
+          "rank": 5,
+          "note": "Cardamom",
+          "sastojak_id": 63,
+          "votes": 964
+        }
+      ]
+    },
+    {
+      "schema_version": 1,
+      "source": "playwright-cdp-real-edge",
+      "captured_at": "2026-08-21T22:01:21.353Z",
+      "rank": 94,
+      "shobi_code": "124-INI N",
+      "fragrantica_id": 42260,
+      "url": "https://www.fragrantica.com/perfume/Initio-Parfums-Prives/Side-Effect-42260.html",
+      "url_source": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+      "total_voted_notes": 6,
+      "saved_note_count": 5,
+      "notes": [
+        {
+          "rank": 1,
+          "note": "Rum",
+          "sastojak_id": 201,
+          "votes": 2222
+        },
+        {
+          "rank": 2,
+          "note": "Tobacco",
+          "sastojak_id": 96,
+          "votes": 1719
+        },
+        {
+          "rank": 3,
+          "note": "Cinnamon",
+          "sastojak_id": 65,
+          "votes": 1477
+        },
+        {
+          "rank": 4,
+          "note": "Saffron",
+          "sastojak_id": 55,
+          "votes": 658
+        },
+        {
+          "rank": 5,
+          "note": "Sandalwood",
+          "sastojak_id": 33,
+          "votes": 611
+        }
+      ]
+    },
+    {
+      "schema_version": 1,
+      "source": "playwright-cdp-real-edge",
+      "captured_at": "2026-08-21T22:01:36.181Z",
+      "rank": 95,
+      "shobi_code": "181-XER N",
+      "fragrantica_id": 17786,
+      "url": "https://www.fragrantica.com/perfume/Xerjoff/Alexandria-II-17786.html",
+      "url_source": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+      "total_voted_notes": 11,
+      "saved_note_count": 5,
+      "notes": [
+        {
+          "rank": 1,
+          "note": "Palisander Rosewood",
+          "sastojak_id": 38,
+          "votes": 1811
+        },
+        {
+          "rank": 2,
+          "note": "Agarwood (Oud)",
+          "sastojak_id": 114,
+          "votes": 1667
+        },
+        {
+          "rank": 3,
+          "note": "Lavender",
+          "sastojak_id": 1,
+          "votes": 1665
+        },
+        {
+          "rank": 4,
+          "note": "Sandalwood",
+          "sastojak_id": 33,
+          "votes": 1482
+        },
+        {
+          "rank": 5,
+          "note": "Amber",
+          "sastojak_id": 54,
+          "votes": 1398
+        }
+      ]
+    },
+    {
+      "schema_version": 1,
+      "source": "playwright-cdp-real-edge",
+      "captured_at": "2026-08-21T22:01:49.914Z",
+      "rank": 96,
+      "shobi_code": "955-VICT WP",
+      "fragrantica_id": 7991,
+      "url": "https://www.fragrantica.com/perfume/Victoria-s-Secret/Coconut-Passion-7991.html",
+      "url_source": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+      "total_voted_notes": 4,
+      "saved_note_count": 4,
+      "notes": [
+        {
+          "rank": 1,
+          "note": "Honeysuckle",
+          "sastojak_id": 86,
+          "votes": 172
+        },
+        {
+          "rank": 2,
+          "note": "Jasmine",
+          "sastojak_id": 14,
+          "votes": 145
+        },
+        {
+          "rank": 3,
+          "note": "Chamomile",
+          "sastojak_id": 289,
+          "votes": 69
+        },
+        {
+          "rank": 4,
+          "note": "Aloe Vera",
+          "sastojak_id": 484,
+          "votes": 50
+        }
+      ]
+    },
+    {
+      "schema_version": 1,
+      "source": "playwright-cdp-real-edge",
+      "captured_at": "2026-08-21T22:02:06.140Z",
+      "rank": 97,
+      "shobi_code": "1156-HER M",
+      "fragrantica_id": 17,
+      "url": "https://www.fragrantica.com/perfume/Hermes/Terre-d-Hermes-17.html",
+      "url_source": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+      "total_voted_notes": 9,
+      "saved_note_count": 5,
+      "notes": [
+        {
+          "rank": 1,
+          "note": "Orange",
+          "sastojak_id": 80,
+          "votes": 5852
+        },
+        {
+          "rank": 2,
+          "note": "Vetiver",
+          "sastojak_id": 2,
+          "votes": 5533
+        },
+        {
+          "rank": 3,
+          "note": "Pepper",
+          "sastojak_id": 158,
+          "votes": 3854
+        },
+        {
+          "rank": 4,
+          "note": "Grapefruit",
+          "sastojak_id": 76,
+          "votes": 3544
+        },
+        {
+          "rank": 5,
+          "note": "Cedar",
+          "sastojak_id": 41,
+          "votes": 3292
+        }
+      ]
+    },
+    {
+      "schema_version": 1,
+      "source": "playwright-cdp-real-edge",
+      "captured_at": "2026-08-21T22:02:19.709Z",
+      "rank": 98,
+      "shobi_code": "919-TMU W",
+      "fragrantica_id": 15497,
+      "url": "https://www.fragrantica.com/perfume/Mugler/Alien-Essence-Absolue-15497.html",
+      "url_source": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+      "total_voted_notes": 6,
+      "saved_note_count": 5,
+      "notes": [
+        {
+          "rank": 1,
+          "note": "Haitian Vetiver",
+          "sastojak_id": 2,
+          "votes": 60
+        },
+        {
+          "rank": 2,
+          "note": "Canadian Fir",
+          "sastojak_id": 205,
+          "votes": 57
+        },
+        {
+          "rank": 3,
+          "note": "Bourbon Geranium",
+          "sastojak_id": 21,
+          "votes": 49
+        },
+        {
+          "rank": 4,
+          "note": "Tonka Bean",
+          "sastojak_id": 73,
+          "votes": 43
+        },
+        {
+          "rank": 5,
+          "note": "Serbian Oakmoss",
+          "sastojak_id": 39,
+          "votes": 42
+        }
+      ]
+    },
+    {
+      "schema_version": 1,
+      "source": "playwright-cdp-real-edge",
+      "captured_at": "2026-08-21T22:02:34.036Z",
+      "rank": 99,
+      "shobi_code": "944-VER W",
+      "fragrantica_id": 631,
+      "url": "https://www.fragrantica.com/perfume/Versace/Crystal-Noir-631.html",
+      "url_source": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+      "total_voted_notes": 10,
+      "saved_note_count": 5,
+      "notes": [
+        {
+          "rank": 1,
+          "note": "Coconut",
+          "sastojak_id": 138,
+          "votes": 5236
+        },
+        {
+          "rank": 2,
+          "note": "Gardenia",
+          "sastojak_id": 19,
+          "votes": 4378
+        },
+        {
+          "rank": 3,
+          "note": "Pepper",
+          "sastojak_id": 158,
+          "votes": 4218
+        },
+        {
+          "rank": 4,
+          "note": "Ginger",
+          "sastojak_id": 62,
+          "votes": 3328
+        },
+        {
+          "rank": 5,
+          "note": "Cardamom",
+          "sastojak_id": 63,
+          "votes": 3285
+        }
+      ]
+    },
+    {
+      "schema_version": 1,
+      "source": "playwright-cdp-real-edge",
+      "captured_at": "2026-08-21T22:02:47.230Z",
+      "rank": 100,
+      "shobi_code": "1185-JOO MP",
+      "fragrantica_id": 1904,
+      "url": "https://www.fragrantica.com/perfume/Joop/Nightflight-1904.html",
+      "url_source": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+      "total_voted_notes": 10,
+      "saved_note_count": 5,
+      "notes": [
+        {
+          "rank": 1,
+          "note": "Juniper Berries",
+          "sastojak_id": 143,
+          "votes": 205
+        },
+        {
+          "rank": 2,
+          "note": "Lavender",
+          "sastojak_id": 1,
+          "votes": 135
+        },
+        {
+          "rank": 3,
+          "note": "Lemon",
+          "sastojak_id": 77,
+          "votes": 114
+        },
+        {
+          "rank": 4,
+          "note": "Woody Notes",
+          "sastojak_id": 315,
+          "votes": 76
+        },
+        {
+          "rank": 5,
+          "note": "Sage",
+          "sastojak_id": 52,
+          "votes": 74
+        }
+      ]
+    }
+  ],
+  "failures": []
+}
