@@ -6,27 +6,89 @@ const { chromium } = require('playwright');
 const ROOT = process.cwd();
 const CDP_URL = process.env.SHOBI_CDP_URL || 'http://127.0.0.1:9222';
 const OUT_DIR = process.env.SHOBI_CATCHER_OUT || path.join(ROOT, 'tools', 'fragrantica-main-notes', 'results', 'playwright-21-40');
-const RANKING = JSON.parse(fs.readFileSync(path.join(ROOT, 'Personal Database', 'bestseller-top40-live.json'), 'utf8'));
-const ENRICHMENT = JSON.parse(fs.readFileSync(path.join(ROOT, 'Personal Database', 'site-enrichment-v2.json'), 'utf8'));
-const RUNTIME = JSON.parse(fs.readFileSync(path.join(ROOT, 'Personal Database', 'site-runtime-v2.json'), 'utf8'));
+const readJson = p => JSON.parse(fs.readFileSync(path.join(ROOT, p), 'utf8'));
+const RANKING = readJson('Personal Database/bestseller-top40-live.json');
+const ENRICHMENT = readJson('Personal Database/site-enrichment-v2.json');
+const RUNTIME = readJson('Personal Database/site-runtime-v2.json');
+
+const EXTRA_SOURCES = [
+  'Personal Database/site-details-v2.json',
+  'Personal Database/perfume-details.json',
+  'Personal Database/perfume-metadata.json',
+  'Personal Database/shobi-catalog.json'
+].map(rel => {
+  try { return { rel, data: readJson(rel) }; }
+  catch (e) { console.warn(`SOURCE_SKIP ${rel}: ${e.message}`); return null; }
+}).filter(Boolean);
 
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 const clean = s => String(s || '').replace(/\s+/g, ' ').trim();
-const keyOf = code => String(code || '').replace(/\s+/g, '');
+const keyOf = code => String(code || '').replace(/\s+/g, '').toUpperCase();
 const slug = code => String(code).replace(/[^a-z0-9]+/gi, '-').replace(/^-|-$/g, '').toLowerCase();
-
+const isFragUrl = s => /^https:\/\/(www\.)?fragrantica\.com\//i.test(String(s || ''));
 const runtimeByCode = new Map((RUNTIME.p || []).map(row => [keyOf(row[0]), row]));
+
+function findFragUrlDeep(node, targetKey, depth = 0) {
+  if (depth > 12 || node == null) return '';
+  if (typeof node === 'string') return isFragUrl(node) ? node : '';
+  if (Array.isArray(node)) {
+    const containsCode = node.some(v => typeof v === 'string' && keyOf(v) === targetKey);
+    if (containsCode) {
+      for (const v of node) {
+        const u = findFragUrlDeep(v, targetKey, depth + 1);
+        if (u) return u;
+      }
+    }
+    for (const v of node) {
+      if (v && typeof v === 'object') {
+        const u = findFragUrlDeep(v, targetKey, depth + 1);
+        if (u) return u;
+      }
+    }
+    return '';
+  }
+  if (typeof node === 'object') {
+    for (const [k, v] of Object.entries(node)) {
+      if (keyOf(k) === targetKey) {
+        const u = findFragUrlDeep(v, targetKey, depth + 1);
+        if (u) return u;
+      }
+    }
+    for (const v of Object.values(node)) {
+      if (Array.isArray(v) && v.some(x => typeof x === 'string' && keyOf(x) === targetKey)) {
+        const u = findFragUrlDeep(v, targetKey, depth + 1);
+        if (u) return u;
+      }
+    }
+  }
+  return '';
+}
+
+function resolveUrl(code) {
+  const key = keyOf(code);
+  const direct = ENRICHMENT.e?.[key];
+  if (Array.isArray(direct)) {
+    const u = direct.find(isFragUrl);
+    if (u) return { url: u, source: 'site-enrichment-v2.direct' };
+  }
+  const u0 = findFragUrlDeep(ENRICHMENT, key);
+  if (u0) return { url: u0, source: 'site-enrichment-v2.deep' };
+  for (const src of EXTRA_SOURCES) {
+    const u = findFragUrlDeep(src.data, key);
+    if (u) return { url: u, source: src.rel };
+  }
+  return { url: '', source: '' };
+}
 
 function getTarget(rank) {
   const code = RANKING.codes[rank - 1];
   if (!code) throw new Error(`RANK_${rank}_MISSING`);
   const key = keyOf(code);
-  const e = ENRICHMENT.e?.[key];
-  const url = Array.isArray(e) ? e[4] : '';
   const row = runtimeByCode.get(key);
   const name = row?.[1] || code;
   const brand = row?.[2] || '';
-  return { rank, code, key, name, brand, url };
+  const resolved = resolveUrl(code);
+  return { rank, code, key, name, brand, url: resolved.url, url_source: resolved.source };
 }
 
 async function findVoteControl(page) {
@@ -91,29 +153,16 @@ async function collect(page) {
 }
 
 async function capture(page, target) {
-  if (!/^https:\/\/(www\.)?fragrantica\.com\//i.test(target.url || '')) throw new Error('FRAGRANTICA_URL_MISSING');
+  if (!isFragUrl(target.url)) throw new Error('FRAGRANTICA_URL_MISSING');
   console.log(`\n=== #${target.rank} ${target.code} ${target.name} ===`);
-  console.log(target.url);
+  console.log(`URL ${target.url}`);
+  console.log(`URL_SOURCE ${target.url_source}`);
   await page.goto(target.url, { waitUntil: 'domcontentloaded', timeout: 60000 });
   await sleep(1800);
   const ranked = await collect(page);
   const top5 = ranked.slice(0, 5).map((n, i) => ({ rank: i + 1, ...n }));
   const idMatch = target.url.match(/-(\d+)\.html(?:[?#]|$)/i);
-  const payload = {
-    schema_version: 1,
-    source: 'playwright-cdp-real-edge',
-    capture_method: ranked.length <= 5 ? 'all-voted-notes-five-or-fewer' : 'show-votes-top5',
-    captured_at: new Date().toISOString(),
-    rank: target.rank,
-    shobi_code: target.code,
-    fragrantica_id: idMatch ? Number(idMatch[1]) : null,
-    name: target.name,
-    brand: target.brand,
-    url: target.url,
-    total_voted_notes: ranked.length,
-    saved_note_count: top5.length,
-    notes: top5
-  };
+  const payload = { schema_version: 1, source: 'playwright-cdp-real-edge', capture_method: ranked.length <= 5 ? 'all-voted-notes-five-or-fewer' : 'show-votes-top5', captured_at: new Date().toISOString(), rank: target.rank, shobi_code: target.code, fragrantica_id: idMatch ? Number(idMatch[1]) : null, name: target.name, brand: target.brand, url: target.url, url_source: target.url_source, total_voted_notes: ranked.length, saved_note_count: top5.length, notes: top5 };
   fs.writeFileSync(path.join(OUT_DIR, `${String(target.rank).padStart(3,'0')}-${slug(target.code)}.json`), JSON.stringify(payload, null, 2) + '\n');
   for (const n of top5) console.log(`#${n.rank} ${n.note} votes=${n.votes} sastojak_id=${n.sastojak_id ?? ''}`);
   return payload;
@@ -124,8 +173,9 @@ async function main() {
   fs.mkdirSync(OUT_DIR, { recursive: true });
   const targets = Array.from({ length: 20 }, (_, i) => getTarget(21 + i));
   console.log(`TARGETS ${targets.length}: ${targets.map(x => `#${x.rank} ${x.code}`).join(' | ')}`);
+  for (const t of targets) console.log(`RESOLVE #${t.rank} ${t.code}: ${t.url || 'MISSING'} ${t.url_source || ''}`);
 
-  const missing = targets.filter(t => !/^https:\/\/(www\.)?fragrantica\.com\//i.test(t.url || ''));
+  const missing = targets.filter(t => !isFragUrl(t.url));
   if (missing.length) {
     for (const t of missing) console.error(`MISSING_URL #${t.rank} ${t.code} ${t.name}`);
     throw new Error(`FRAGRANTICA_URLS_MISSING_${missing.length}`);
@@ -137,16 +187,12 @@ async function main() {
   const pages = context.pages();
   const page = pages.find(p => /fragrantica\.com/i.test(p.url())) || pages[0] || await context.newPage();
 
-  const results = [];
-  const failures = [];
+  const results = [], failures = [];
   for (const target of targets) {
     let ok = false;
     for (let attempt = 1; attempt <= 2 && !ok; attempt++) {
-      try {
-        const payload = await capture(page, target);
-        results.push(payload);
-        ok = true;
-      } catch (err) {
+      try { results.push(await capture(page, target)); ok = true; }
+      catch (err) {
         console.error(`ATTEMPT_FAIL #${target.rank} attempt=${attempt} ${err.message}`);
         if (attempt < 2) await sleep(5000);
         else failures.push({ rank: target.rank, code: target.code, name: target.name, url: target.url, error: err.message });
