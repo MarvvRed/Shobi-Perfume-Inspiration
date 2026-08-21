@@ -1,3 +1,23 @@
-// Generated-compatible source-locked Top 100 enrichment loader.
-// The deploy workflow overwrites this file in the Pages artifact from the authoritative CSV.
-window.SHOBI_TOP100_ENRICHMENT_BY_CODE=window.SHOBI_TOP100_ENRICHMENT_BY_CODE||{};
+// Source-locked bestseller enrichment fallback. Deploy Pages may regenerate this file from the authoritative CSV.
+window.SHOBI_TOP100_ENRICHMENT_BY_CODE=Object.assign(window.SHOBI_TOP100_ENRICHMENT_BY_CODE||{}, {
+"1644-DRCM":{"rank":21,"code":"1644-DRC M","perfume":"Sauvage Elixir","gender":"male","season":"fall","main_notes":["Lavender","Licorice","Nutmeg","Cinnamon","Sandalwood"],"note_count":5,"source_status":"source-locked"},
+"2398-FRELUX":{"rank":22,"code":"2398-FRE LUX","perfume":"Acne Studios","gender":"unisex","season":"spring","main_notes":["Aldehydes","Peach","Musk","Orange Blossom","Violet"],"note_count":5,"source_status":"source-locked"},
+"401-ARIAWP":{"rank":23,"code":"401-ARIA WP","perfume":"Cloud","gender":"female","season":"fall","main_notes":["Whipped Cream","Coconut","Praline","Musk","Lavender"],"note_count":5,"source_status":"source-locked"},
+"1660-ESCEEL":{"rank":24,"code":"1660-ESCE EL","perfume":"Molecule 01","gender":"unisex","season":"spring","main_notes":["Iso E Super"],"note_count":1,"source_status":"source-locked"},
+"1067-CHAM":{"rank":25,"code":"1067-CHA M","perfume":"Bleu de Chanel","gender":"male","season":"spring","main_notes":["Grapefruit","Incense","Lemon","Ginger","Mint"],"note_count":5,"source_status":"source-locked"},
+"485-CARWP":{"rank":26,"code":"485-CAR WP","perfume":"Good Girl","gender":"female","season":"winter","main_notes":["Tonka Bean","Cacao","Vanilla","Tuberose","Almond"],"note_count":5,"source_status":"source-locked"},
+"1499-BYREL":{"rank":27,"code":"1499-BYR EL","perfume":"Mojave Ghost","gender":"unisex","season":"spring","main_notes":["Sapodilla","Magnolia","Violet","Ambrette (Musk Mallow)","Sandalwood"],"note_count":5,"source_status":"source-locked"},
+"1735-XERN":{"rank":28,"code":"1735-XER N","perfume":"Italica","gender":"unisex","season":"winter","main_notes":["Almond","Toffee","Milk","Bourbon Vanilla","Saffron"],"note_count":5,"source_status":"source-locked"},
+"1520-YZLOW":{"rank":29,"code":"1520-YZLO W","perfume":"Libre Intense","gender":"female","season":"fall","main_notes":["Madagascar Vanilla","Lavender","Tonka Bean","Tunisian Orange Blossom","Jasmine Sambac"],"note_count":5,"source_status":"source-locked"},
+"152-PARFN":{"rank":30,"code":"152-PARF N","perfume":"Delina Exclusif","gender":"female","season":"winter","main_notes":["Turkish Rose","Litchi","Vanilla","Pear","Amber"],"note_count":5,"source_status":"source-locked"},
+"132-LTNN":{"rank":31,"code":"132-LTN N","perfume":"Ombre Nomade","gender":"unisex","season":"winter","main_notes":["Agarwood (Oud)","Rose","Incense","Raspberry","Saffron"],"note_count":5,"source_status":"source-locked"},
+"1498-BYREL":{"rank":32,"code":"1498-BYR EL","perfume":"Gypsy Water","gender":"unisex","season":"spring","main_notes":["Juniper","Vanilla","Sandalwood","Lemon","Pine needles"],"note_count":5,"source_status":"source-locked"},
+"1764-GURW":{"rank":33,"code":"1764-GUR W","perfume":"Aqua Allegoria Coconut Fizz","gender":"unisex","season":"summer","main_notes":["Coconut Nectar","Water Fruit","Freesia","Bergamot","Sandalwood"],"note_count":5,"source_status":"source-locked"},
+"1919-PRAWP":{"rank":34,"code":"1919-PRA WP","perfume":"Prada Paradoxe","gender":"female","season":"fall","main_notes":["Orange Blossom","Neroli","Jasmine Sambac","Bourbon Vanilla","Pear"],"note_count":5,"source_status":"source-locked"},
+"131-LELN":{"rank":35,"code":"131-LEL N","perfume":"Santal 33","gender":"unisex","season":"fall","main_notes":["Sandalwood","Leather","Papyrus","Virginia Cedar","Cardamom"],"note_count":5,"source_status":"source-locked"},
+"848-NROWP":{"rank":36,"code":"848-NRO WP","perfume":"Pure Musc For Her","gender":"female","season":"spring","main_notes":["Musk","Cashmeran","Jasmine","Ylang-Ylang","Orange Blossom"],"note_count":5,"source_status":"source-locked"},
+"2348-AMG":{"rank":37,"code":"2348-AMG","perfume":"Guidance","gender":"unisex","season":"fall","main_notes":["Sandalwood","Pear","Hazelnut","Vanilla","Akigalawood"],"note_count":5,"source_status":"source-locked"},
+"303-JOMEL":{"rank":38,"code":"303-JOM EL","perfume":"Wood Sage & Sea Salt","gender":"unisex","season":"summer","main_notes":["Sea Salt","Sage","Grapefruit","Ambrette (Musk Mallow)","Seaweed"],"note_count":5,"source_status":"source-locked"},
+"2155-KAYEL":{"rank":39,"code":"2155-KAY EL","perfume":"Yum Pistachio Gelato 33","gender":"unisex","season":"spring","main_notes":["Pistachio","Whipped Cream","Ice cream","Marshmallow","Cotton Candy"],"note_count":5,"source_status":"source-locked"},
+"1553-MNTN":{"rank":40,"code":"1553-MNT N","perfume":"Arabians Tonka","gender":"unisex","season":"winter","main_notes":["Tonka Bean","Sugar Cane","Agarwood (Oud)","Saffron","Bulgarian Rose"],"note_count":5,"source_status":"source-locked"}
+});
