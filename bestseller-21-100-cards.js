@@ -28,41 +28,37 @@
   const dataFor=p=>{const exact=locked[norm(p.code)];if(exact)return exact;const b=base(p.code);return !ambiguousLockedBases.has(b)?(lockedByBase.get(b)||null):null;};
   const notesFor=p=>{const d=dataFor(p);if(d&&Array.isArray(d.main_notes)&&d.main_notes.length)return d.main_notes.slice(0,5);return [...(p.notes?.top||[]),...(p.notes?.heart||[]),...(p.notes?.base||[])].filter((v,i,a)=>v&&a.indexOf(v)===i).slice(0,5);};
 
-  // Source-locked original brands for the catcher-verified #21-#40 batch.
-  const brandByRank={
-    21:'Dior',22:'Frederic Malle',23:'Ariana Grande',24:'Escentric Molecules',25:'Chanel',
-    26:'Carolina Herrera',27:'Byredo',28:'Xerjoff',29:'Yves Saint Laurent',30:'Parfums de Marly',
-    31:'Louis Vuitton',32:'Byredo',33:'Guerlain',34:'Prada',35:'Le Labo',36:'Narciso Rodriguez',
-    37:'Amouage',38:'Jo Malone London',39:'Kayali',40:'Montale'
-  };
-  const resolvedBrand=(p,rank)=>{
-    const raw=String(p.brand||'').trim();
-    const unknown=!raw||/^unknown(?: brand)?$/i.test(raw);
-    return unknown&&brandByRank[rank]?brandByRank[rank]:raw;
+  const brandByRank={21:'Dior',22:'Frederic Malle',23:'Ariana Grande',24:'Escentric Molecules',25:'Chanel',26:'Carolina Herrera',27:'Byredo',28:'Xerjoff',29:'Yves Saint Laurent',30:'Parfums de Marly',31:'Louis Vuitton',32:'Byredo',33:'Guerlain',34:'Prada',35:'Le Labo',36:'Narciso Rodriguez',37:'Amouage',38:'Jo Malone London',39:'Kayali',40:'Montale'};
+  const resolvedBrand=(p,rank)=>{const raw=String(p.brand||'').trim();const unknown=!raw||/^unknown(?: brand)?$/i.test(raw);return unknown&&brandByRank[rank]?brandByRank[rank]:raw;};
+
+  // Verified Fragrantica pages from the Playwright #21-#40 catcher batch.
+  const fragranticaByRank={
+    21:['68415','https://www.fragrantica.com/perfume/Dior/Sauvage-Elixir-68415.html'],
+    22:['91209','https://www.fragrantica.com/perfume/Frederic-Malle/Acne-Studios-91209.html'],
+    23:['50384','https://www.fragrantica.com/perfume/Ariana-Grande/Cloud-50384.html'],
+    24:['845','https://www.fragrantica.com/perfume/Escentric-Molecules/Molecule-01-845.html'],
+    25:['9099','https://www.fragrantica.com/perfume/Chanel/Bleu-de-Chanel-9099.html'],
+    26:['39681','https://www.fragrantica.com/perfume/Carolina-Herrera/Good-Girl-39681.html'],
+    27:['27040','https://www.fragrantica.com/perfume/Byredo/Mojave-Ghost-27040.html'],
+    28:['65383','https://www.fragrantica.com/perfume/Xerjoff/Italica-2021-65383.html'],
+    29:['62318','https://www.fragrantica.com/perfume/Yves-Saint-Laurent/Libre-Intense-62318.html'],
+    30:['50370','https://www.fragrantica.com/perfume/Parfums-de-Marly/Delina-Exclusif-50370.html'],
+    31:['49755','https://www.fragrantica.com/perfume/Louis-Vuitton/Ombre-Nomade-49755.html'],
+    32:['3575','https://www.fragrantica.com/perfume/Byredo/Gypsy-Water-3575.html'],
+    33:['53806','https://www.fragrantica.com/perfume/Guerlain/Aqua-Allegoria-Coconut-Fizz-53806.html'],
+    34:['75668','https://www.fragrantica.com/perfume/Prada/Prada-Paradoxe-75668.html'],
+    35:['12201','https://www.fragrantica.com/perfume/Le-Labo/Santal-33-12201.html'],
+    36:['53441','https://www.fragrantica.com/perfume/narciso-rodriguez/pure-musc-for-her-53441.html'],
+    37:['78656','https://www.fragrantica.com/perfume/Amouage/Guidance-78656.html'],
+    38:['25529','https://www.fragrantica.com/perfume/Jo-Malone-London/Wood-Sage-Sea-Salt-25529.html'],
+    39:['79846','https://www.fragrantica.com/perfume/Kayali-Fragrances/Yum-Pistachio-Gelato-33-79846.html'],
+    40:['57384','https://www.fragrantica.com/perfume/Montale/Arabians-Tonka-57384.html']
   };
 
-  // Fragrantica ingredient IDs captured by the Playwright catcher for #21-#40.
   const noteImageIds={
-    'Lavender':'1','Licorice':'195','Nutmeg':'59','Cinnamon':'65','Sandalwood':'33',
-    'Aldehydes':'165','Peach':'117','Musk':'4','Orange Blossom':'16','Violet':'116',
-    'Whipped Cream':'454','Coconut':'138','Praline':'198','Iso E Super':'422',
-    'Grapefruit':'76','Incense':'68','Lemon':'77','Ginger':'62','Mint':'160',
-    'Tonka Bean':'73','Cacao':'135','Vanilla':'74','Tuberose':'25','Almond':'130',
-    'Sapodilla':'645','Magnolia':'147','Ambrette (Musk Mallow)':'107','Toffee':'434','Milk':'199',
-    'Bourbon Vanilla':'74','Saffron':'55','Madagascar Vanilla':'74','Tunisian Orange Blossom':'16','Jasmine Sambac':'14',
-    'Turkish Rose':'105','Litchi':'194','Pear':'182','Amber':'54','Agarwood (Oud)':'114','Rose':'105','Raspberry':'174',
-    'Juniper':'142','Pine needles':'204','Coconut Nectar':'138','Water Fruit':'702','Freesia':'94','Bergamot':'75',
-    'Neroli':'17','Leather':'156','Papyrus':'206','Virginia Cedar':'41','Cardamom':'63','Cashmeran':'348','Jasmine':'14',
-    'Ylang-Ylang':'24','Hazelnut':'141','Akigalawood':'697','Sea Salt':'231','Sage':'52','Seaweed':'409',
-    'Pistachio':'221','Ice cream':'599','Marshmallow':'236','Cotton Candy':'237','Sugar Cane':'200','Bulgarian Rose':'105'
+    'Lavender':'1','Licorice':'195','Nutmeg':'59','Cinnamon':'65','Sandalwood':'33','Aldehydes':'165','Peach':'117','Musk':'4','Orange Blossom':'16','Violet':'116','Whipped Cream':'454','Coconut':'138','Praline':'198','Iso E Super':'422','Grapefruit':'76','Incense':'68','Lemon':'77','Ginger':'62','Mint':'160','Tonka Bean':'73','Cacao':'135','Vanilla':'74','Tuberose':'25','Almond':'130','Sapodilla':'645','Magnolia':'147','Ambrette (Musk Mallow)':'107','Toffee':'434','Milk':'199','Bourbon Vanilla':'74','Saffron':'55','Madagascar Vanilla':'74','Tunisian Orange Blossom':'16','Jasmine Sambac':'14','Turkish Rose':'105','Litchi':'194','Pear':'182','Amber':'54','Agarwood (Oud)':'114','Rose':'105','Raspberry':'174','Juniper':'142','Pine needles':'204','Coconut Nectar':'138','Water Fruit':'702','Freesia':'94','Bergamot':'75','Neroli':'17','Leather':'156','Papyrus':'206','Virginia Cedar':'41','Cardamom':'63','Cashmeran':'348','Jasmine':'14','Ylang-Ylang':'24','Hazelnut':'141','Akigalawood':'697','Sea Salt':'231','Sage':'52','Seaweed':'409','Pistachio':'221','Ice cream':'599','Marshmallow':'236','Cotton Candy':'237','Sugar Cane':'200','Bulgarian Rose':'105'
   };
-  const noteBadge=name=>{
-    const id=noteImageIds[name]||'';
-    const visual=id
-      ? `<img src="https://fimgs.net/mdimg/sastojci/t.${esc(id)}.jpg" alt="" width="22" height="22" loading="lazy" decoding="async" style="width:22px;height:22px;object-fit:cover;border-radius:50%;flex:0 0 22px">`
-      : `<span aria-hidden="true" style="width:22px;height:22px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;flex:0 0 22px;background:var(--color-bg-surface);border:1px solid var(--color-border-light);font-size:10px"><i class="fa-solid fa-droplet"></i></span>`;
-    return `<button type="button" class="prototype-meta-badge prototype-filter-badge${state.selectedNote===name?' is-active':''}" data-card-filter="note" data-filter-value="${esc(name)}" title="Filter by ${esc(name)}">${visual}<span>${esc(name)}</span></button>`;
-  };
+  const noteBadge=name=>{const id=noteImageIds[name]||'';const visual=id?`<img src="https://fimgs.net/mdimg/sastojci/t.${esc(id)}.jpg" alt="" width="22" height="22" loading="lazy" decoding="async" style="width:22px;height:22px;object-fit:cover;border-radius:50%;flex:0 0 22px">`:`<span aria-hidden="true" style="width:22px;height:22px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;flex:0 0 22px;background:var(--color-bg-surface);border:1px solid var(--color-border-light);font-size:10px"><i class="fa-solid fa-droplet"></i></span>`;return `<button type="button" class="prototype-meta-badge prototype-filter-badge${state.selectedNote===name?' is-active':''}" data-card-filter="note" data-filter-value="${esc(name)}" title="Filter by ${esc(name)}">${visual}<span>${esc(name)}</span></button>`;};
 
   isVanilla28=function(p){return baseMatch(p)||Number.isFinite(rankFor(p));};
   renderVanillaPrototype=function(p){
@@ -73,7 +69,11 @@
     const s=String(d?.season||(p.seasons||[])[0]||'').toLowerCase(), sm=seasonMeta(s);
     const notes=notesFor(p), noteBadges=notes.map(noteBadge).join('');
     const shopUrl=d?.shobi_url||p.shobiUrl||`https://leparfum.com.gr/en/module/iqitsearch/searchiqit?s=${encodeURIComponent(p.code)}`;
-    const image=d?.image||p.image||'', imageHtml=image?`<img src="${esc(image)}" alt="${esc(p.inspiredBy)} - ${esc(brand)}" loading="lazy" decoding="async">`:`<div class="text-tertiary text-sm">Image not verified</div>`;
+    const verified=fragranticaByRank[rank]||null;
+    const fragranticaUrl=verified?.[1]||d?.fragrantica_url||p.fragranticaUrl||'';
+    const image=verified?`https://fimgs.net/mdimg/perfume-thumbs/dark-375x500.${verified[0]}.2x.avif`:(d?.image||p.image||'');
+    let imageHtml=image?`<img src="${esc(image)}" alt="${esc(p.inspiredBy)} - ${esc(brand)}" loading="lazy" decoding="async">`:`<div class="text-tertiary text-sm">Image not verified</div>`;
+    if(image&&fragranticaUrl) imageHtml=`<a class="prototype-fragrantica-link" href="${esc(fragranticaUrl)}" target="_blank" rel="noopener noreferrer" title="View on Fragrantica" aria-label="View ${esc(p.inspiredBy)} on Fragrantica">${imageHtml}<span class="prototype-fragrantica-hint" aria-hidden="true"><i class="fa-solid fa-arrow-up-right-from-square"></i><span>Fragrantica</span></span></a>`;
     const genderHtml=gl?`<button type="button" class="prototype-meta-badge prototype-filter-badge${state.activeFilters.gender.includes(g)?' is-active':''}" data-card-filter="gender" data-filter-value="${g}" title="Filter ${gl}" aria-label="Filter ${gl}"><span style="width:22px;height:22px;display:inline-flex;align-items:center;justify-content:center;flex:0 0 22px">${getAudienceIcons(g)}</span><span style="font-size:16px">${gl}</span></button>`:'';
     const seasonHtml=sm?`${genderHtml?'<span class="text-tertiary">|</span>':''}<button type="button" class="prototype-meta-badge prototype-filter-badge${state.activeFilters.season.includes(s)?' is-active':''}" data-card-filter="season" data-filter-value="${s}" title="Filter ${sm[1]}" aria-label="Filter ${sm[1]}"><span style="width:22px;height:22px;display:inline-flex;align-items:center;justify-content:center;flex:0 0 22px;font-size:1rem">${sm[0]}</span></button>`:'';
     article.className='perfume-card-prototype bg-surface rounded-xl shadow-lg overflow-hidden flex flex-col';
