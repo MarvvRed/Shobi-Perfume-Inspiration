@@ -5,9 +5,10 @@ import re
 from collections import defaultdict
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[1]
-MASTER = ROOT / 'shobi-master.csv'
-RUNTIME = ROOT / 'site-runtime-v2.json'
+SCRIPT_DIR = Path(__file__).resolve().parent
+REPO_ROOT = SCRIPT_DIR.parents[1]
+MASTER = REPO_ROOT / 'shobi-master.csv'
+RUNTIME = SCRIPT_DIR.parent / 'site-runtime-v2.json'
 
 
 def key(value):
@@ -37,7 +38,7 @@ def main():
             grouped[base].append(rank)
 
     if len(ranks) < 500:
-        raise SystemExit(f'Canonical master has too few bestseller ranks: {len(ranks)}')
+        raise SystemExit(f'Canonical root master has too few bestseller ranks: {len(ranks)}')
 
     base_ranks = {base: values[0] for base, values in grouped.items() if len(values) == 1}
 
@@ -68,14 +69,14 @@ def main():
                 runtime_top40.add(rank)
 
     if matched < 500:
-        raise SystemExit(f'Runtime matched too few master bestseller ranks: {matched}')
+        raise SystemExit(f'Runtime matched too few root-master bestseller ranks: {matched}')
 
     missing_top40 = sorted(set(range(1, 41)) - runtime_top40)
     if missing_top40:
         raise SystemExit(f'Top 40 bestseller ranks missing from runtime: {missing_top40}')
 
     RUNTIME.write_text(json.dumps(data, ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
-    print('RUNTIME_BESTSELLER_RANKED', matched, 'EXACT', exact_matched, 'FALLBACK', fallback_matched, 'TOP40_OK')
+    print('RUNTIME_BESTSELLER_RANKED_FROM_ROOT_MASTER', matched, 'EXACT', exact_matched, 'FALLBACK', fallback_matched, 'TOP40_OK')
 
 
 if __name__ == '__main__':
