@@ -1,0 +1,60 @@
+{
+  "mode": "STAGING_REGRESSION_AUDIT_DO_NOT_PUBLISH_YET",
+  "master_rows": 2343,
+  "current_site_rows": 2468,
+  "candidate_rows": 2343,
+  "renderable_rows_current_frontend_semantics": 2343,
+  "removed_legacy_rows_vs_current": 125,
+  "matched_enrichment_rows": 2317,
+  "minimal_official_master_rows": 26,
+  "ambiguous_matches": 0,
+  "enrichment_coverage": 0.988903,
+  "missing_required_columns": [],
+  "missing_required_values": {
+    "prestashop_product_id": 0,
+    "shobi_code": 0,
+    "inspired_by": 0,
+    "shobi_url": 0,
+    "gender": 0
+  },
+  "duplicate_display_codes_count": 1,
+  "duplicate_display_codes_sample": [
+    [
+      "777-LAL WP",
+      2
+    ]
+  ],
+  "rich_field_nonempty_counts_current_site": {
+    "brand": 2273,
+    "fragrantica_url": 1103,
+    "top_notes": 696,
+    "heart_notes": 696,
+    "base_notes": 696,
+    "notes": 697,
+    "season": 263,
+    "image": 614
+  },
+  "rich_field_nonempty_counts_candidate": {
+    "brand": 2126,
+    "fragrantica_url": 968,
+    "top_notes": 575,
+    "heart_notes": 575,
+    "base_notes": 575,
+    "notes": 576,
+    "season": 137,
+    "image": 567
+  },
+  "safety_checks": {
+    "candidate_rows_equal_master": true,
+    "candidate_identity_exact_master": true,
+    "candidate_ids_unique": true,
+    "required_columns_present": true,
+    "all_rows_renderable_by_current_frontend": true,
+    "all_rows_have_official_url": true,
+    "all_rows_have_gender": true,
+    "build_safety_pass": true,
+    "build_ambiguous_zero": true
+  },
+  "safety": "PASS",
+  "note": "prestashop_product_id is the official identity. Duplicate display codes are reported because the current frontend still keys favorites/modals by shobi_code and must be audited before production switch."
+}
