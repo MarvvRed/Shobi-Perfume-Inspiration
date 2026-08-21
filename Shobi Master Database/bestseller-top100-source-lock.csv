@@ -1,0 +1,18 @@
+rank,shobi_code,status,primary_source,secondary_source,verified_fields,notes
+21,2398-FRE LUX,source-locked,https://www.fragrantica.com/perfume/Frederic-Malle/Acne-Studios-91209.html,,identity|gender|notes,Fragrantica confirms unisex and staged first five ordered pyramid notes
+22,401-ARIA WP,source-locked,https://www.fragrantica.com/perfume/Ariana-Grande/Cloud-50384.html,,identity|gender|notes,Fragrantica confirms female and staged first five ordered pyramid notes
+23,1660-ESCE EL,source-locked,https://www.fragrantica.com/perfume/Escentric-Molecules/Molecule-01-845.html,https://www.parfumo.com/Perfumes/Escentric_Molecules/Molecule_01,identity|gender|notes,Single-note composition Iso E Super confirmed by two sources
+24,1499-BYR EL,source-locked,https://www.fragrantica.com/perfume/Byredo/Mojave-Ghost-27040.html,,identity|gender|notes,Fragrantica confirms unisex and staged first five ordered pyramid notes
+26,1520-YZLO W,source-locked,https://www.fragrantica.com/perfume/Yves-Saint-Laurent/Libre-Intense-62318.html,,identity|gender|notes,Libre Intense identity and note structure confirmed
+29,1498-BYR EL,source-locked,https://www.fragrantica.com/perfume/Byredo/Gypsy-Water-3575.html,,identity|gender|notes,Gypsy Water identity and note structure confirmed
+31,1919-PRA WP,source-locked,https://www.fragrantica.com/perfume/Prada/Paradoxe-75668.html,,identity|gender|notes,Paradoxe identity and note structure confirmed
+32,1764-GUR W,source-locked,https://www.fragrantica.com/perfume/Guerlain/Aqua-Allegoria-Coconut-Fizz-53858.html,,identity|gender|notes,Coconut Fizz identity and note structure confirmed
+33,131-LEL N,source-locked,https://www.fragrantica.com/perfume/Le-Labo/Santal-33-12201.html,,identity|gender|notes,Santal 33 identity and note structure confirmed
+41,1937-BIL AR,source-locked,https://www.fragrantica.com/perfume/Billie-Eilish/Eilish-70052.html,,identity|gender|notes,Eilish identity and note structure confirmed
+42,425-BRB WP,source-locked,https://www.fragrantica.com/perfume/Burberry/Burberry-Her-51694.html,,identity|gender|notes,Burberry Her identity and note structure confirmed
+43,1883-NISH N,source-locked,https://www.fragrantica.com/perfume/Nishane/Wulong-Cha-30567.html,,identity|gender|notes,Wulong Cha identity and note structure confirmed
+96,955-VICT WP,source-locked,https://www.fragrantica.com/perfume/Victoria-s-Secret/Coconut-Passion-7991.html,,identity|gender|notes,Coconut Passion identity and note structure confirmed
+97,1156-HER M,source-locked,https://www.fragrantica.com/perfume/Hermes/Terre-d-Hermes-17.html,https://leparfum.com.gr/en/men-s-perfumes/1156-her-m,identity|gender|notes|shobi-code,Shobi code and original identity cross-checked
+98,919-TMU W,source-locked,https://www.fragrantica.com/perfume/Mugler/Alien-Essence-Absolue-15497.html,https://leparfum.com.gr/en/women-perfumes/919-tmu-w,identity|gender|notes|shobi-code,Shobi code and original identity cross-checked
+99,944-VER W,source-locked,https://www.fragrantica.com/perfume/Versace/Crystal-Noir-631.html,https://leparfum.com.gr/en/women-perfumes/944-ver-w,identity|gender|notes|shobi-code,Shobi code and original identity cross-checked
+100,1185-JOO MP,source-locked,https://www.fragrantica.com/perfume/Joop/Nightflight-1904.html,https://leparfum.com.gr/en/men-s-perfumes/1185-joo-mp,identity|gender|notes|shobi-code,Shobi code and original identity cross-checked
