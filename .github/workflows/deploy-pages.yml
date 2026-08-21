@@ -30,7 +30,7 @@ jobs:
         with:
           ref: main
 
-      - name: Build verified catcher map and ranking 1-100
+      - name: Validate legacy catcher datasets and build ranking 41-100
         shell: bash
         run: |
           node <<'NODE'
@@ -90,8 +90,9 @@ jobs:
           addBatch(batch41100,41,100,60,'Playwright 41-100');
           if(Object.keys(byCode).length!==100)throw new Error(`Expected 100 catcher codes, got ${Object.keys(byCode).length}`);
 
-          fs.writeFileSync('bestseller-catcher-notes.js',
-            `// Generated at deploy from verified Best Seller #1-100 datasets.\nwindow.SHOBI_CATCHER_NOTES_BY_CODE=${JSON.stringify(byCode)};\n`);
+          // IMPORTANT: bestseller-catcher-notes.js is versioned in the repository and now
+          // contains the authoritative Fragrantica social-card Top100 map (up to 6 notes).
+          // Do not regenerate/overwrite it here from the legacy Show Votes datasets.
 
           const extension=batch41100.results
             .map(src=>({
@@ -120,7 +121,7 @@ jobs:
             `rows.forEach(x=>{enrich[norm(x.code)]={...(enrich[norm(x.code)]||{}),rank:x.rank,code:x.code,main_notes:x.notes,source_status:'verified-catcher'};});\n`+
             `})();\n`;
           fs.writeFileSync('bestseller-41-100-runtime.js',runtime);
-          console.log('CATCHER_MAP_OK',Object.keys(byCode).length,'RANKING_EXTENSION_OK',extension.length);
+          console.log('LEGACY_CATCHER_VALIDATION_OK',Object.keys(byCode).length,'RANKING_EXTENSION_OK',extension.length,'SOCIAL_CARD_NOTES_PRESERVED');
           NODE
 
       - name: Configure Pages
