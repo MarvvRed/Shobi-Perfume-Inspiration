@@ -37,11 +37,18 @@ jobs:
         shell: cmd
         run: curl.exe --fail --silent --show-error http://127.0.0.1:9222/json/version
 
+      - name: Apply canonical Master bestseller ranks to runtime
+        shell: cmd
+        run: python "Personal Database\scripts\apply_master_rank_to_runtime.py"
+
       - name: Capture canonical Best Seller ranks and Fragrantica 41-100
+        id: capture
+        continue-on-error: true
         shell: powershell
         run: |
           New-Item -ItemType Directory -Force -Path "$env:SHOBI_CATCHER_OUT" | Out-Null
           & node tools\fragrantica-main-notes\playwright-batch-41-100.cjs 2>&1 | Tee-Object -FilePath "$env:SHOBI_CATCHER_OUT\run.log"
+          if ($LASTEXITCODE -ne 0) { "CAPTURE_EXIT=$LASTEXITCODE" | Out-File "$env:SHOBI_CATCHER_OUT\capture-exit.txt" -Encoding utf8 }
           exit $LASTEXITCODE
 
       - name: Persist diagnostics to repository
@@ -50,15 +57,14 @@ jobs:
         run: |
           $dest = "Personal Database\diagnostics\fragrantica-41-100"
           New-Item -ItemType Directory -Force -Path $dest | Out-Null
-          if (Test-Path "$env:SHOBI_CATCHER_OUT\run.log") { Copy-Item "$env:SHOBI_CATCHER_OUT\run.log" "$dest\latest-run.log" -Force }
-          if (Test-Path "$env:SHOBI_CATCHER_OUT\missing-fragrantica-urls.json") { Copy-Item "$env:SHOBI_CATCHER_OUT\missing-fragrantica-urls.json" "$dest\missing-fragrantica-urls.json" -Force }
-          if (Test-Path "$env:SHOBI_CATCHER_OUT\batch-41-100.json") { Copy-Item "$env:SHOBI_CATCHER_OUT\batch-41-100.json" "$dest\batch-41-100.json" -Force }
+          Get-ChildItem "$env:SHOBI_CATCHER_OUT" -ErrorAction SilentlyContinue | ForEach-Object { Copy-Item $_.FullName $dest -Force }
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add "$dest"
-          if (-not (git diff --cached --quiet)) {
+          git add -- "$dest"
+          git diff --cached --quiet
+          if ($LASTEXITCODE -ne 0) {
             git commit -m "Persist Fragrantica 41-100 diagnostics"
-            git push
+            git push origin HEAD:main
           }
 
       - name: Upload batch results and diagnostics
@@ -68,3 +74,8 @@ jobs:
           name: fragrantica-playwright-41-100
           path: tools/fragrantica-main-notes/results/playwright-41-100/*
           if-no-files-found: warn
+
+      - name: Fail workflow if capture failed
+        if: ${{ steps.capture.outcome == 'failure' }}
+        shell: cmd
+        run: exit /b 1
