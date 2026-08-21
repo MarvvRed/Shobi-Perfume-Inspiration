@@ -9,6 +9,7 @@ SCRIPT_DIR = Path(__file__).resolve().parent
 REPO_ROOT = SCRIPT_DIR.parents[1]
 MASTER = REPO_ROOT / 'shobi-master.csv'
 BEST = SCRIPT_DIR.parent / 'shobi-bestsellers.json'
+LIVE40 = SCRIPT_DIR.parent / 'bestseller-top40-live.json'
 
 
 def key(value):
@@ -30,15 +31,35 @@ def unique_base_index(items):
     return {base: values[0] for base, values in grouped.items() if len(values) == 1}
 
 
-def main():
+def load_effective_codes():
     data = json.loads(BEST.read_text(encoding='utf-8'))
     codes = data.get('codes', []) if isinstance(data, dict) else []
     if len(codes) < 500:
         raise SystemExit('Invalid shobi-bestsellers.json')
 
+    live = json.loads(LIVE40.read_text(encoding='utf-8'))
+    live40 = live.get('codes', []) if isinstance(live, dict) else []
+    if len(live40) != 40:
+        raise SystemExit(f'Invalid bestseller-top40-live.json count: {len(live40)}')
+    live_bases = [base_key(code) for code in live40]
+    if not all(live_bases) or len(set(live_bases)) != 40:
+        raise SystemExit('Invalid or duplicate base codes in bestseller-top40-live.json')
+
+    # The verified live Top 40 is authoritative for ranks 1-40.
+    # Remove the same products from the older full ranking before appending the tail,
+    # preventing duplicates while preserving the old order beyond the tested window.
+    live_base_set = set(live_bases)
+    tail = [code for code in codes if base_key(code) not in live_base_set]
+    effective = live40 + tail
+    return effective
+
+
+def main():
+    codes = load_effective_codes()
+
     ranks = {key(code): i + 1 for i, code in enumerate(codes)}
     if len(ranks) != len(codes):
-        raise SystemExit('Duplicate bestseller codes')
+        raise SystemExit('Duplicate bestseller codes after Top 40 overlay')
     base_ranks = unique_base_index((code, i + 1) for i, code in enumerate(codes))
 
     with MASTER.open(encoding='utf-8-sig', newline='') as fh:
