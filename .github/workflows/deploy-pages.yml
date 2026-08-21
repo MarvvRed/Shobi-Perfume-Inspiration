@@ -24,6 +24,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Build source-locked Best Seller Top 100 enrichment overlay
+        run: python scripts/apply_bestseller_top100_enrichment.py
+
       - name: Apply Official Catcher notes to deployed enrichment
         shell: bash
         run: |
@@ -38,83 +41,12 @@ jobs:
           const codeKey=v=>String(v||'').toUpperCase().replace(/\s+/g,'');
           const fragIdFromUrl=url=>{const m=String(url||'').match(/-(\d+)\.html(?:[?#]|$)/i);return m?m[1]:'';};
           const perfumeByCode=new Map((runtime.p||[]).map(x=>[codeKey(x[0]),{code:x[0],name:x[1],brand:x[2]}]));
-
           const catcherByName=new Map();
-          for(const [id,src] of Object.entries(catcherById)){
-            const k=clean(src&&src.name);
-            if(k&&!catcherByName.has(k)) catcherByName.set(k,{id:String(id),src});
-          }
-
-          function explicitAlias(p){
-            if(!p)return null;
-            const name=clean(p.name),brand=clean(p.brand);
-            const aliases=[
-              {id:'52616',names:['vanilla 28'],brands:['kayali']},{id:'34893',names:['soleil blanc'],brands:['tom ford']},{id:'6458',names:['bal d afrique','bal dafrique'],brands:['byredo']},
-              {id:'9828',names:['aventus','avent'],brands:['creed']},{id:'4322',names:['love don t be shy','love dont be shy'],brands:['kilian','by kilian']},{id:'39358',names:['this is her'],brands:['zadig voltaire','zadig volatire']},
-              {id:'84933',names:['vanilla powder'],brands:['matiere premiere']},{id:'64757',names:['bianco latte'],brands:['giardini di toscana']},{id:'30529',names:['xj 1861 naxos','naxos'],brands:['xerjoff']},
-              {id:'3865',names:['philosykos eau de parfum','philosykos'],brands:['diptyque']},{id:'83483',names:['goddess','burberry goddess'],brands:['burberry']}
-            ];
-            for(const a of aliases){
-              const src=catcherById[a.id];
-              if(!src)continue;
-              const nm=a.names.some(n=>name===n||name.includes(n));
-              const bm=!brand||a.brands.some(b=>brand.includes(b));
-              if(nm&&bm)return {id:String(a.id),src};
-            }
-            return null;
-          }
-
+          for(const [id,src] of Object.entries(catcherById)){const k=clean(src&&src.name);if(k&&!catcherByName.has(k))catcherByName.set(k,{id:String(id),src});}
+          function explicitAlias(p){if(!p)return null;const name=clean(p.name),brand=clean(p.brand);const aliases=[{id:'52616',names:['vanilla 28'],brands:['kayali']},{id:'34893',names:['soleil blanc'],brands:['tom ford']},{id:'6458',names:['bal d afrique','bal dafrique'],brands:['byredo']},{id:'9828',names:['aventus','avent'],brands:['creed']},{id:'4322',names:['love don t be shy','love dont be shy'],brands:['kilian','by kilian']},{id:'39358',names:['this is her'],brands:['zadig voltaire','zadig volatire']},{id:'84933',names:['vanilla powder'],brands:['matiere premiere']},{id:'64757',names:['bianco latte'],brands:['giardini di toscana']},{id:'30529',names:['xj 1861 naxos','naxos'],brands:['xerjoff']},{id:'3865',names:['philosykos eau de parfum','philosykos'],brands:['diptyque']},{id:'83483',names:['goddess','burberry goddess'],brands:['burberry']}];for(const a of aliases){const src=catcherById[a.id];if(!src)continue;const nm=a.names.some(n=>name===n||name.includes(n));const bm=!brand||a.brands.some(b=>brand.includes(b));if(nm&&bm)return{id:String(a.id),src};}return null;}
           const appliedRows=[],matchedIds=new Set();
-          for(const [code,row] of Object.entries(enrichment)){
-            if(!Array.isArray(row))continue;
-            const fragId=fragIdFromUrl(row[4]);
-            let match=fragId&&catcherById[fragId]?{id:String(fragId),src:catcherById[fragId]}:null;
-            let matchedBy=match?'fragrantica-id':'';
-            const p=perfumeByCode.get(codeKey(code));
-
-            if(!match&&p){
-              match=catcherByName.get(clean(p.name))||null;
-              if(match)matchedBy='exact-name';
-            }
-            if(!match){
-              match=explicitAlias(p);
-              if(match)matchedBy='explicit-alias';
-            }
-            if(!match||!Array.isArray(match.src.notes)||!match.src.notes.length)continue;
-
-            const src=match.src;
-            const sortedNotes=src.notes.slice().sort((a,b)=>(Number(a.rank)||999)-(Number(b.rank)||999)).slice(0,5);
-            row[2]=sortedNotes.map(n=>String(n.note||'').trim()).filter(Boolean);
-            const notePairs=sortedNotes.map(n=>[String(n.note||'').trim(),String(n.sastojak_id||'')]).filter(n=>n[0]);
-            matchedIds.add(String(match.id));
-            appliedRows.push({code,perfume:src.name,fragrantica_id:String(src.fragrantica_id||match.id),catcher_key:String(match.id),matched_by:matchedBy,notes:row[2],note_pairs:notePairs});
-          }
-
-          const expected=Object.keys(catcherById).length;
-          const applied=matchedIds.size;
-          const missing=Object.entries(catcherById).filter(([id])=>!matchedIds.has(String(id))).map(([id,src])=>`${id}:${src.name}`);
-          console.log(`Matched catcher keys: ${Array.from(matchedIds).sort((a,b)=>Number(a)-Number(b)).join(', ')}`);
-          console.log(`Aventus catcher key 9828 matched: ${matchedIds.has('9828')}`);
-          console.log(`Official Catcher unique records applied: ${applied}/${expected} (${appliedRows.length} site rows updated)`);
-          appliedRows.forEach(x=>console.log(`${x.code} -> ${x.perfume} [${x.matched_by}] [catcher:${x.catcher_key}] -> ${x.notes.join(' | ')}`));
-          if(missing.length)console.log('Missing catcher matches:',missing.join(' | '));
-          if(applied!==expected)throw new Error(`Expected ${expected} unique catcher records, matched ${applied}. Deployment stopped to avoid partial data.`);
-
-          fs.writeFileSync(`${baseDir}/site-enrichment-v2.json`,JSON.stringify(enrichmentDoc));
-
-          // Public runtime source used by Best Seller #1-#20 cards.
-          // This is generated on every deploy from the same validated Catcher records,
-          // so card order and note icons cannot drift from the Catcher database.
-          const catcherNotesByCode={};
-          appliedRows.forEach(x=>{catcherNotesByCode[String(x.code)]=x.note_pairs;});
-          fs.writeFileSync('bestseller-catcher-notes.js',`// Generated by Deploy Pages from Official Catcher 0.3.8.\nwindow.SHOBI_CATCHER_NOTES_BY_CODE=${JSON.stringify(catcherNotesByCode)};\n`);
-          console.log(`Best Seller Catcher runtime map written: ${Object.keys(catcherNotesByCode).length} site codes.`);
-
-          const deployStatus={schema_version:1,success:true,workflow:'Deploy Pages',commit_sha:process.env.GITHUB_SHA||'',generated_at:new Date().toISOString(),catcher:'official-catcher-0.3.8',applied,expected,site_rows_updated:appliedRows.length,catcher_card_codes:Object.keys(catcherNotesByCode).length,missing:[],matches:appliedRows};
-          const statusJson=JSON.stringify(deployStatus,null,2)+'\n';
-          fs.writeFileSync(`${baseDir}/deploy-status.json`,statusJson);
-          fs.writeFileSync('deploy-status.json',statusJson);
-          console.log(`Deploy status written: success=true, catcher=${applied}/${expected}, site_rows=${appliedRows.length}, card_codes=${Object.keys(catcherNotesByCode).length}, sha=${deployStatus.commit_sha}`);
+          for(const [code,row] of Object.entries(enrichment)){if(!Array.isArray(row))continue;const fragId=fragIdFromUrl(row[4]);let match=fragId&&catcherById[fragId]?{id:String(fragId),src:catcherById[fragId]}:null;let matchedBy=match?'fragrantica-id':'';const p=perfumeByCode.get(codeKey(code));if(!match&&p){match=catcherByName.get(clean(p.name))||null;if(match)matchedBy='exact-name';}if(!match){match=explicitAlias(p);if(match)matchedBy='explicit-alias';}if(!match||!Array.isArray(match.src.notes)||!match.src.notes.length)continue;const src=match.src;const sortedNotes=src.notes.slice().sort((a,b)=>(Number(a.rank)||999)-(Number(b.rank)||999)).slice(0,5);row[2]=sortedNotes.map(n=>String(n.note||'').trim()).filter(Boolean);const notePairs=sortedNotes.map(n=>[String(n.note||'').trim(),String(n.sastojak_id||'')]).filter(n=>n[0]);matchedIds.add(String(match.id));appliedRows.push({code,perfume:src.name,fragrantica_id:String(src.fragrantica_id||match.id),catcher_key:String(match.id),matched_by:matchedBy,notes:row[2],note_pairs:notePairs});}
+          const expected=Object.keys(catcherById).length,applied=matchedIds.size;const missing=Object.entries(catcherById).filter(([id])=>!matchedIds.has(String(id))).map(([id,src])=>`${id}:${src.name}`);console.log(`Official Catcher unique records applied: ${applied}/${expected} (${appliedRows.length} site rows updated)`);if(missing.length)console.log('Missing catcher matches:',missing.join(' | '));if(applied!==expected)throw new Error(`Expected ${expected} unique catcher records, matched ${applied}. Deployment stopped to avoid partial data.`);fs.writeFileSync(`${baseDir}/site-enrichment-v2.json`,JSON.stringify(enrichmentDoc));const catcherNotesByCode={};appliedRows.forEach(x=>{catcherNotesByCode[String(x.code)]=x.note_pairs;});fs.writeFileSync('bestseller-catcher-notes.js',`// Generated by Deploy Pages from Official Catcher 0.3.8.\nwindow.SHOBI_CATCHER_NOTES_BY_CODE=${JSON.stringify(catcherNotesByCode)};\n`);const deployStatus={schema_version:1,success:true,workflow:'Deploy Pages',commit_sha:process.env.GITHUB_SHA||'',generated_at:new Date().toISOString(),catcher:'official-catcher-0.3.8',applied,expected,site_rows_updated:appliedRows.length,catcher_card_codes:Object.keys(catcherNotesByCode).length,top100_overlay:'site-build/bestseller-top100-enrichment-overlay.json',top100_overlay_count:100,missing:[],matches:appliedRows};const statusJson=JSON.stringify(deployStatus,null,2)+'\n';fs.writeFileSync(`${baseDir}/deploy-status.json`,statusJson);fs.writeFileSync('deploy-status.json',statusJson);
           NODE
 
       - name: Configure Pages
