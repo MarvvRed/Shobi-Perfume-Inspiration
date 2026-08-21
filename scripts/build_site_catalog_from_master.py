@@ -14,6 +14,7 @@ ENRICHMENT = ROOT / 'shobi-master.csv'
 OUT_DIR = ROOT / 'Shobi Master Database' / 'site-build'
 CANDIDATE = OUT_DIR / 'shobi-master-site-candidate.csv'
 REPORT = OUT_DIR / 'site-build-report.json'
+UNRESOLVED = OUT_DIR / 'site-build-unresolved.json'
 
 
 def read_csv(path):
@@ -72,18 +73,6 @@ def norm_gender(value):
     return value
 
 
-def master_names(master):
-    names = {
-        norm_text(master.get('inspired_by')),
-        norm_text(master.get('shobi_name')),
-        norm_text(master.get('official_description')),
-    }
-    # Description is useful only as a fallback token source; exact long description
-    # must not itself create a match.
-    names.discard('')
-    return names
-
-
 def enrichment_names(row):
     names = {
         norm_text(row.get('inspired_by')),
@@ -128,6 +117,37 @@ def minimal_site_row(master_row, headers):
     return row
 
 
+def diagnostic_master(master):
+    return {
+        'prestashop_product_id': clean(master.get('prestashop_product_id')),
+        'shobi_code': clean(master.get('shobi_code')),
+        'shobi_name': clean(master.get('shobi_name')),
+        'reference': clean(master.get('reference')),
+        'reference_prefix': clean(master.get('reference_prefix')),
+        'inspired_by': clean(master.get('inspired_by')),
+        'category': clean(master.get('category')),
+        'url': clean(master.get('url')),
+        'gender_from_master': default_gender(master),
+    }
+
+
+def diagnostic_enrichment(idx, row, signals, used):
+    return {
+        'index': idx,
+        'already_used': idx in used,
+        'signals': sorted(signals),
+        'shobi_code': clean(row.get('shobi_code')),
+        'base_code': base_code(row.get('shobi_code')),
+        'shobi_name': clean(row.get('shobi_name')),
+        'inspired_by': clean(row.get('inspired_by')),
+        'brand': clean(row.get('brand')),
+        'gender': norm_gender(row.get('gender')),
+        'shobi_url': clean(row.get('shobi_url')),
+        'identity_source_type': clean(row.get('identity_source_type')),
+        'identity_source_url': clean(row.get('identity_source_url')),
+    }
+
+
 def main():
     if not MASTER.exists():
         raise SystemExit('Safety stop: official shobi-master-current.csv missing')
@@ -150,13 +170,11 @@ def main():
     by_code = defaultdict(list)
     by_base_code = defaultdict(list)
     by_name = defaultdict(list)
-    row_names = []
     for idx, row in enumerate(enrichment_rows):
         u = norm_url(row.get('shobi_url'))
         c = norm_code(row.get('shobi_code'))
         b = base_code(row.get('shobi_code'))
         names = enrichment_names(row)
-        row_names.append(names)
         if u: by_url[u].append(idx)
         if c: by_code[c].append(idx)
         if b: by_base_code[b].append(idx)
@@ -167,7 +185,7 @@ def main():
     counters = defaultdict(int)
     unmatched = []
     ambiguous = []
-    resolution_details = []
+    unresolved_details = []
 
     for master in master_rows:
         pid = clean(master.get('prestashop_product_id'))
@@ -202,9 +220,6 @@ def main():
             if 'name' in kinds: score += 70
             if gender_ok: score += 5
             anchors = kinds & {'code', 'url', 'base_code'}
-            # Strict acceptance: identity anchor plus corroboration, or a unique
-            # full-code match. Name-only matches are allowed only when globally
-            # unique and gender-compatible.
             safe = False
             rule = ''
             if 'code' in kinds and len(by_code.get(m_full, [])) == 1:
@@ -224,19 +239,22 @@ def main():
         safe_scored = [x for x in scored if x[3]]
         safe_scored.sort(key=lambda x: (-x[0], x[1]))
         chosen = None
+        ambiguity_for_pid = None
         if safe_scored:
             top = safe_scored[0]
             same_top = [x for x in safe_scored if x[0] == top[0]]
             if len(same_top) == 1:
                 chosen = top
             else:
-                ambiguous.append({'prestashop_product_id': pid, 'reason': 'equal-safe-score', 'candidates': [x[1] for x in same_top]})
+                ambiguity_for_pid = {'prestashop_product_id': pid, 'reason': 'equal-safe-score', 'candidates': [x[1] for x in same_top]}
+                ambiguous.append(ambiguity_for_pid)
         elif evidence:
-            ambiguous.append({
+            ambiguity_for_pid = {
                 'prestashop_product_id': pid,
                 'reason': 'evidence-without-safe-convergence',
                 'candidates': [{'index': i, 'signals': sorted(k)} for i, k in evidence.items() if i not in used][:10],
-            })
+            }
+            ambiguous.append(ambiguity_for_pid)
 
         if chosen:
             score, idx, kinds, _, rule = chosen
@@ -251,10 +269,19 @@ def main():
             if not clean(site.get('inspired_by')):
                 site['inspired_by'] = clean(master.get('inspired_by')) or clean(master.get('shobi_name'))
             site['last_built_utc'] = datetime.now(timezone.utc).isoformat()
-            resolution_details.append({'prestashop_product_id': pid, 'enrichment_index': idx, 'rule': rule, 'signals': sorted(kinds), 'score': score})
         else:
             site = minimal_site_row(master, enrichment_headers)
             unmatched.append(pid)
+            candidates = [
+                diagnostic_enrichment(i, enrichment_rows[i], kinds, used)
+                for i, kinds in evidence.items()
+            ]
+            unresolved_details.append({
+                'master': diagnostic_master(master),
+                'reason': ambiguity_for_pid['reason'] if ambiguity_for_pid else 'no-enrichment-evidence',
+                'candidate_count': len(candidates),
+                'candidates': candidates,
+            })
 
         out = {'prestashop_product_id': pid}
         for h in enrichment_headers:
@@ -278,12 +305,21 @@ def main():
         w = csv.DictWriter(f, fieldnames=output_headers)
         w.writeheader(); w.writerows(output)
 
+    unresolved_report = {
+        'built_at_utc': datetime.now(timezone.utc).isoformat(),
+        'purpose': 'AUDIT_ONLY_UNRESOLVED_MASTER_TO_SITE_ENRICHMENT',
+        'unresolved_count': len(unresolved_details),
+        'items': unresolved_details,
+    }
+    UNRESOLVED.write_text(json.dumps(unresolved_report, ensure_ascii=False, indent=2), encoding='utf-8')
+
     report = {
         'built_at_utc': datetime.now(timezone.utc).isoformat(),
         'mode': 'STAGING_ONLY_DO_NOT_PUBLISH_YET',
         'official_master': str(MASTER.relative_to(ROOT)),
         'enrichment_source': str(ENRICHMENT.relative_to(ROOT)),
         'candidate': str(CANDIDATE.relative_to(ROOT)),
+        'unresolved_diagnostics': str(UNRESOLVED.relative_to(ROOT)),
         'master_rows': len(master_rows),
         'existing_site_rows': len(enrichment_rows),
         'candidate_rows': len(output),
