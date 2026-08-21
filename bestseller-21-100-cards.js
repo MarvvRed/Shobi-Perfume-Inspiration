@@ -1,14 +1,17 @@
 // Generic Best Seller cards for ranks #21-#100, driven by source-locked enrichment.
 (function(){
   const norm=v=>String(v||'').toUpperCase().replace(/\s+/g,'');
+  const base=v=>{const m=String(v||'').trim().toUpperCase().match(/^(\d+)-([A-Z0-9]+)/);return m?`${m[1]}-${m[2]}`:norm(v);};
   const entries=(window.SHOBI_BESTSELLER_RANKING||[]).filter(x=>Number(x.rank)>20&&Number(x.rank)<=100);
   if(!entries.length || typeof isVanilla28!=='function' || typeof renderVanillaPrototype!=='function') return;
   const rankByCode=new Map(entries.map(x=>[norm(x.code),Number(x.rank)])), rankedSet=new Set(rankByCode.keys());
   const locked=window.SHOBI_TOP100_ENRICHMENT_BY_CODE||{}, baseMatch=isVanilla28, baseRender=renderVanillaPrototype;
+  const lockedByBase=new Map(), ambiguousLockedBases=new Set();
+  Object.entries(locked).forEach(([code,row])=>{const b=base(code);if(!lockedByBase.has(b))lockedByBase.set(b,row);else if(lockedByBase.get(b)!==row){ambiguousLockedBases.add(b);lockedByBase.delete(b);}});
   const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const genderLabel=g=>g==='female'?'Female':g==='male'?'Male':g==='unisex'?'Unisex':'';
   const seasonMeta=s=>({spring:['🌸','Spring'],summer:['☀️','Summer'],fall:['🍂','Fall'],autumn:['🍂','Autumn'],winter:['❄️','Winter']}[s]||null);
-  const dataFor=p=>locked[norm(p.code)]||null;
+  const dataFor=p=>{const exact=locked[norm(p.code)];if(exact)return exact;const b=base(p.code);return !ambiguousLockedBases.has(b)?(lockedByBase.get(b)||null):null;};
   const notesFor=p=>{const d=dataFor(p);if(d&&Array.isArray(d.main_notes)&&d.main_notes.length)return d.main_notes.slice(0,5);return [...(p.notes?.top||[]),...(p.notes?.heart||[]),...(p.notes?.base||[])].filter((v,i,a)=>v&&a.indexOf(v)===i).slice(0,5);};
   const noteBadge=name=>`<button type="button" class="prototype-meta-badge prototype-filter-badge${state.selectedNote===name?' is-active':''}" data-card-filter="note" data-filter-value="${esc(name)}" title="Filter by ${esc(name)}"><span aria-hidden="true" style="width:22px;height:22px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;flex:0 0 22px;background:var(--color-bg-surface);border:1px solid var(--color-border-light);font-size:10px"><i class="fa-solid fa-droplet"></i></span><span>${esc(name)}</span></button>`;
   isVanilla28=function(p){return baseMatch(p)||rankedSet.has(norm(p.code));};
