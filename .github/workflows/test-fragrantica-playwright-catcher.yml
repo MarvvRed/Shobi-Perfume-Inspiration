@@ -33,21 +33,21 @@ jobs:
           node-version: '22'
 
       - name: Install Playwright
-        shell: powershell
+        shell: cmd
         run: |
-          npm init -y | Out-Null
-          npm install --no-save playwright@1.55.0
-          npx playwright install chromium
+          call npm init -y
+          call npm install --no-save playwright@1.55.0
+          call npx playwright install chromium
 
       - name: One-time Fragrantica login
         if: ${{ inputs.login_mode }}
-        shell: powershell
-        run: node tools/fragrantica-main-notes/playwright-catcher.cjs --login
+        shell: cmd
+        run: node tools\fragrantica-main-notes\playwright-catcher.cjs --login
 
       - name: Capture Sauvage Elixir Top 5 voted notes
         if: ${{ !inputs.login_mode }}
-        shell: powershell
-        run: node tools/fragrantica-main-notes/playwright-catcher.cjs
+        shell: cmd
+        run: node tools\fragrantica-main-notes\playwright-catcher.cjs
 
       - name: Upload catcher result
         if: ${{ !inputs.login_mode && always() }}
