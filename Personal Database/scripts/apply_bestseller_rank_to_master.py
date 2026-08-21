@@ -5,9 +5,10 @@ import re
 from collections import defaultdict
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[1]
-MASTER = ROOT / 'shobi-master.csv'
-BEST = ROOT / 'shobi-bestsellers.json'
+SCRIPT_DIR = Path(__file__).resolve().parent
+REPO_ROOT = SCRIPT_DIR.parents[1]
+MASTER = REPO_ROOT / 'shobi-master.csv'
+BEST = SCRIPT_DIR.parent / 'shobi-bestsellers.json'
 
 
 def key(value):
@@ -44,7 +45,7 @@ def main():
         rows = list(csv.DictReader(fh))
         fields = list(rows[0].keys()) if rows else []
     if len(rows) < 500:
-        raise SystemExit('Invalid shobi-master.csv')
+        raise SystemExit('Invalid root shobi-master.csv')
     if 'best_seller_rank' not in fields:
         insert_at = fields.index('shobi_url') if 'shobi_url' in fields else len(fields)
         fields.insert(insert_at, 'best_seller_rank')
@@ -66,19 +67,19 @@ def main():
             matched += 1
 
     if matched < 500:
-        raise SystemExit(f'Too few bestseller ranks matched master: {matched}')
+        raise SystemExit(f'Too few bestseller ranks matched root master: {matched}')
 
-    top40 = {i for i in range(1, 41)}
+    top40 = set(range(1, 41))
     found_top40 = {int(row['best_seller_rank']) for row in rows if str(row.get('best_seller_rank') or '').isdigit() and int(row['best_seller_rank']) <= 40}
     missing_top40 = sorted(top40 - found_top40)
     if missing_top40:
-        raise SystemExit(f'Top 40 bestseller ranks missing from master: {missing_top40}')
+        raise SystemExit(f'Top 40 bestseller ranks missing from root master: {missing_top40}')
 
     with MASTER.open('w', encoding='utf-8-sig', newline='') as fh:
         writer = csv.DictWriter(fh, fieldnames=fields)
         writer.writeheader()
         writer.writerows(rows)
-    print('MASTER_BESTSELLER_RANKED', matched, 'EXACT', exact_matched, 'FALLBACK', fallback_matched, 'TOP40_OK')
+    print('ROOT_MASTER_BESTSELLER_RANKED', matched, 'EXACT', exact_matched, 'FALLBACK', fallback_matched, 'TOP40_OK')
 
 
 if __name__ == '__main__':
