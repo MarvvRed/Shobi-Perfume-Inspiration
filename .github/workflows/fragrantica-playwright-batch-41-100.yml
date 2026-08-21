@@ -37,13 +37,13 @@ jobs:
         shell: cmd
         run: curl.exe --fail --silent --show-error http://127.0.0.1:9222/json/version
 
-      - name: Capture live Best Seller ranks and Fragrantica 41-100
+      - name: Capture source-locked Fragrantica ranks 41-100
         id: capture
         continue-on-error: true
         shell: powershell
         run: |
           New-Item -ItemType Directory -Force -Path "$env:SHOBI_CATCHER_OUT" | Out-Null
-          & node tools\fragrantica-main-notes\playwright-batch-41-100.cjs 2>&1 | Tee-Object -FilePath "$env:SHOBI_CATCHER_OUT\run.log"
+          & node tools\fragrantica-main-notes\playwright-batch-41-100-v2.cjs 2>&1 | Tee-Object -FilePath "$env:SHOBI_CATCHER_OUT\run.log"
           if ($LASTEXITCODE -ne 0) { "CAPTURE_EXIT=$LASTEXITCODE" | Out-File "$env:SHOBI_CATCHER_OUT\capture-exit.txt" -Encoding utf8 }
           exit $LASTEXITCODE
 
