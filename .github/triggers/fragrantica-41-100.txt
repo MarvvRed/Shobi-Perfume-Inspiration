@@ -1,1 +1,1 @@
-trigger 2026-08-21T23:04:30+02:00 canonical-ranks-fix
+trigger 2026-08-21T23:08:00+02:00 robust-live-links-v1
