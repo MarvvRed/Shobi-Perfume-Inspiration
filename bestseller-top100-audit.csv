@@ -1,101 +1,101 @@
-rank,shobi_code,inspired_by,brand,gender,season,note_count,main_5_notes,fragrantica_url,name_ok,brand_ok,gender_ok,season_ok,notes5_ok,fragrantica_ok,complete_core,status
-1,305-KAY EL,VANILLA 28 - KAYALI,Kayali,unisex,,0,,,1,1,1,0,0,0,0,"MISSING:season,notes5,fragrantica"
-2,1508-KIL WP,ANGELS SHARE - KILIAN,Kilian Paris,women,,0,,https://www.fragrantica.com/perfume/By-Kilian/Angels-Share-62615.html,1,1,1,0,0,1,0,"MISSING:season,notes5"
-3,451-BYR WP,Blanche,Byredo,women,,0,,https://www.fragrantica.com/perfume/Byredo/Blanche-6686.html,1,1,1,0,0,1,0,"MISSING:season,notes5"
-4,374-TMFO EL,TOBACCO VANILLE,Tom Ford,unisex,,8,Spicy Notes|Tobacco Leaf|Cacao|Tobacco Blossom|Tonka Bean,https://thescentbase.com/it/perfumes/tom-ford/tobacco-vanille,1,1,1,0,1,1,0,MISSING:season
-5,1899-ZARK EL,THE MUSE - ZARKOPERFUME,Zarkoperfume,unisex,,0,,https://www.fragrantica.com/perfume/ZARKOPERFUME/The-Muse-60665.html,1,1,1,0,0,1,0,"MISSING:season,notes5"
-6,111-BAC N,ROUGE 540 - BACCARAT,Maison Francis Kurkdjian,unisex,,0,,https://www.fragrantica.com/perfume/Maison-Francis-Kurkdjian/Baccarat-Rouge-540-Eau-de-Parfum-33519.html,1,1,1,0,0,1,0,"MISSING:season,notes5"
-7,220-CRD EL,Virgin Island Water,Creed,unisex,,9,Lime|Bergamot|Tropical Fruits|Coconut Milk|Jasmine,https://creedboutique.com/products/virgin-island-water,1,1,1,0,1,1,0,MISSING:season
-8,350-TMFO EL,LOST CHERRY,Tom Ford,unisex,,17,Bitter Almond|Black Cherry|Cherry Liqueur|Jasmine Sambac|Plum,https://thescentbase.com/it/perfumes/tom-ford/lost-cherry,1,1,1,0,1,1,0,MISSING:season
-9,2216-DOL WP,DEVOTION,Dolce & Gabbana,women,,0,,https://www.fragrantica.com/perfume/Dolce-Gabbana/Devotion-84951.html,1,1,1,0,0,1,0,"MISSING:season,notes5"
-10,2129-SOL EL,BRAZILIAN CRUSH CHEIROSA 62 - SOL DE JANEIRO,Sol De Janeiro,unisex,,0,,https://www.fragrantica.com/perfume/sol-de-janeiro/brazilian-crush-cheirosa-62-56062.html,1,1,1,0,0,1,0,"MISSING:season,notes5"
-11,371-TMFO EL,SOLEIL BLANC,Tom Ford,unisex,,11,Bergamot|Cardamom|Pink Pepper|Pistachio|Jasmine,https://thescentbase.com/it/perfumes/tom-ford/soleil-blanc,1,1,1,0,1,1,0,MISSING:season
-12,449-BYR WP,BAL D'AFRIQUE,Byredo,women,,0,,,1,1,1,0,0,0,0,"MISSING:season,notes5,fragrantica"
-13,204-CRD EL,Avent,Creed,unisex,,0,,,1,1,1,0,0,0,0,"MISSING:season,notes5,fragrantica"
-14,765-KIL WP,LOVE DONT BE SHY - KILIAN,Kilian Paris,women,,0,,,1,1,1,0,0,0,0,"MISSING:season,notes5,fragrantica"
-15,994-ZAD WP,THIS IS HER - ZADIG & VOLTAIRE,Zadig & Voltaire,women,,0,,https://www.fragrantica.com/perfume/zadig-voltaire/this-is-her-39358.html,1,1,1,0,0,1,0,"MISSING:season,notes5"
-16,2371-MATIE EL,VANILLA POWDER,Matiere Premiere,unisex,,9,Coconut Powder|Heliotrope|Madagascar Vanilla|Coconut|Lactones,https://thescentbase.com/it/perfumes/matiere-premiere/vanilla-powder,1,1,1,0,1,1,0,MISSING:season
-17,2206-GIA LUX,BIANCO LATTE,Giardini Di Toscana,unisex,,5,Caramel|Coumarin|Honey|Vanilla|White Musk,https://www.parfumo.com/Perfumes/Giardini_di_Toscana/Bianco_Latte,1,1,1,0,1,1,0,MISSING:season
-18,179-XER N,1861 NAXOS,Xerjoff,unisex,,11,Lemon|Bergamot|Lavender|Incense from Oman|Jasmine Sambac,https://www.xerjoff.com/en-eu/products/naxos-eau-de-parfum,1,1,1,0,1,1,0,MISSING:season
-19,229-DIP EL,Philosykos Eau de Parfum,Diptyque,unisex,,0,,,1,1,1,0,0,0,0,"MISSING:season,notes5,fragrantica"
-20,2162-BRB WP,Goddess,Burberry,women,,0,,,1,1,1,0,0,0,0,"MISSING:season,notes5,fragrantica"
-21,1644-DRC M,SAUVAGE ELIXIR,,men,,0,,,1,0,1,0,0,0,0,"MISSING:brand,season,notes5,fragrantica"
-22,2398-FRE LUX,Acne Studios,Frederic Malle,unisex,,0,,,1,1,1,0,0,0,0,"MISSING:season,notes5,fragrantica"
-23,401-ARIA WP,CLOUD - ARIANA GRANDE,Ariana Grande,women,,0,,,1,1,1,0,0,0,0,"MISSING:season,notes5,fragrantica"
-24,1660-ESCE EL,MOLECULE 01,Escentric Molecules,unisex,,0,,,1,1,1,0,0,0,0,"MISSING:season,notes5,fragrantica"
-25,1067-CHA,,,,,0,,,0,0,0,0,0,0,0,MISSING_FROM_MASTER
-26,1499-BYR EL,MOJAVE GHOST,Byredo,unisex,,0,,,1,1,1,0,0,0,0,"MISSING:season,notes5,fragrantica"
-27,485-CAR WP,GOOD GIRL,Carolina Herrera,women,,20,Almond|Bergamot|Coffee|Lemon|Bulgarian Rose,https://thescentbase.com/it/perfumes/carolina-herrera/good-girl,1,1,1,0,1,1,0,MISSING:season
-28,1520-YZLO W,LIBRE INTENSE,Ysl,women,,0,,,1,1,1,0,0,0,0,"MISSING:season,notes5,fragrantica"
-29,152-PARF N,DELINA EXCLUSIF - PARFUMS DE MARLY,Parfums de Marly,unisex,,0,,,1,1,1,0,0,0,0,"MISSING:season,notes5,fragrantica"
-30,1735-XER N,ITALICA,Xerjoff,unisex,,0,,,1,1,1,0,0,0,0,"MISSING:season,notes5,fragrantica"
-31,1498-BYR EL,GYPSY WATER,Byredo,unisex,,0,,,1,1,1,0,0,0,0,"MISSING:season,notes5,fragrantica"
-32,132-LTN N,OMBRE NOMADE,Louis Vuitton,unisex,,0,,,1,1,1,0,0,0,0,"MISSING:season,notes5,fragrantica"
-33,1919-PRA WP,PARADOXE - PRADA,Prada,women,,0,,,1,1,1,0,0,0,0,"MISSING:season,notes5,fragrantica"
-34,1764-GUR W,AQUA ALLEGORIA COCONUT FIZZ - GUERLAIN,Guerlain,women,,6,Bergamot|Coconut Nectar|Freesia|Water Fruit|Sandalwood,https://thescentbase.com/it/perfumes/guerlain/aqua-allegoria-coconut-fizz,1,1,1,0,1,1,0,MISSING:season
-35,131-LEL N,Le Labo Santal 33,Le Labo,unisex,,0,,,1,1,1,0,0,0,0,"MISSING:season,notes5,fragrantica"
-36,848-NRO WP,PURE MUSK FOR HER,Narciso Rodriguez,women,,0,,https://www.fragrantica.com/perfume/narciso-rodriguez/pure-musc-for-her-53441.html,1,1,1,0,0,1,0,"MISSING:season,notes5"
-37,2348-AMG,Guidance,Amouage,unisex,spring|summer|autumn|winter,12,Hazelnut|Pear|Frankincense|Osmanthus|Rose,https://www.parfumo.com/Perfumes/Amouage/guidance-eau-de-parfum,1,1,1,1,1,1,1,OK
-38,303-JOM EL,Wood Sage & Sea Salt Jo Malone,Jo Malone London,unisex,,0,,,1,1,1,0,0,0,0,"MISSING:season,notes5,fragrantica"
-39,2155-KAY EL,YUM PISTACHIO GELATO - KAYALI,Kayali,unisex,,0,,https://www.fragrantica.com/perfume/Kayali-Fragrances/Yum-Pistachio-Gelato-33-79846.html,1,1,1,0,0,1,0,"MISSING:season,notes5"
-40,750-KEN W,FLOWER L ELIXIR - KENZO,Kenzo,women,,0,,https://www.fragrantica.com/perfume/Kenzo/Flower-by-Kenzo-L-Elixir-31539.html,1,1,1,0,0,1,0,"MISSING:season,notes5"
-41,1553-MNT N,ARABIANS TONKA - MONTALE,Montale,unisex,,0,,https://www.fragrantica.com/perfume/Montale/Arabians-Tonka-57384.html,1,1,1,0,0,1,0,"MISSING:season,notes5"
-42,937-VAL WP,DONNA BORN IN ROMA - VALENTINO,Valentino,women,,0,,https://www.fragrantica.com/perfume/valentino/valentino-donna-born-in-roma-55805.html,1,1,1,0,0,1,0,"MISSING:season,notes5"
-43,1937-BIL AR,Eilish Billie Eilish,Billie Eilish,women,,0,,,1,1,1,0,0,0,0,"MISSING:season,notes5,fragrantica"
-44,425-BRB WP,Burberry Her,Burberry,women,,0,,,1,1,1,0,0,0,0,"MISSING:season,notes5,fragrantica"
-45,1883-NISH N,Fragrance WULONG CHA - NISHANE,Nishane,unisex,,0,,,1,1,1,0,0,0,0,"MISSING:season,notes5,fragrantica"
-46,760-KIL WP,BLACK PHANTOM - KILIAN,Kilian Paris,women,,0,,,1,1,1,0,0,0,0,"MISSING:season,notes5,fragrantica"
-47,1493-ACQ WP,,,,,0,,,0,0,0,0,0,0,0,MISSING_FROM_MASTER
-48,2235-PRA WP,PARADOXE INTENSE - PRADA,Prada,women,,0,,,1,1,1,0,0,0,0,"MISSING:season,notes5,fragrantica"
-49,361-TMFO EL,OMBRE LEATHER,Tom Ford,unisex,,0,,,1,1,1,0,0,0,0,"MISSING:season,notes5,fragrantica"
-50,2346-TMFO EL,VANILLA SEX,Tom Ford,unisex,,0,,,1,1,1,0,0,0,0,"MISSING:season,notes5,fragrantica"
-51,981-YZLO W,LIBRE,Ysl,women,,0,,,1,1,1,0,0,0,0,"MISSING:season,notes5,fragrantica"
-52,977-YZLO W,of BLACK OPIUM,Ysl,women,,0,,,1,1,1,0,0,0,0,"MISSING:season,notes5,fragrantica"
-53,364-TMFO EL,OUD WOOD,Tom Ford,unisex,,0,,,1,1,1,0,0,0,0,"MISSING:season,notes5,fragrantica"
-54,847-NRO WP,POUDREE NARCISO - NARCISO RODRIGUEZ,Narciso Rodriguez,women,,0,,https://www.fragrantica.com/perfume/narciso-rodriguez/narciso-poudree-36679.html,1,1,1,0,0,1,0,"MISSING:season,notes5"
-55,1909-XER N,TORINO 21,Xerjoff,unisex,,0,,,1,1,1,0,0,0,0,"MISSING:season,notes5,fragrantica"
-56,2150-LEL EL,THE MATCHA 26 - LE LABO,Le Labo,unisex,,0,,,1,1,1,0,0,0,0,"MISSING:season,notes5,fragrantica"
-57,430-BRB WP,The Beat EDT,Burberry,women,,0,,https://www.fragrantica.com/perfume/Burberry/The-Beat-2092.html,1,1,1,0,0,1,0,"MISSING:season,notes5"
-58,1635-XER N,LIRA,Xerjoff,unisex,,9,Bergamot|Blood Orange|Lavender|Cinnamon|Jasmine,https://thescentbase.com/it/perfumes/xerjoff/lira,1,1,1,0,1,1,0,MISSING:season
-59,2365-DIP N,L'EAU PAPIER,Diptyque,unisex,,0,,,1,1,1,0,0,0,0,"MISSING:season,notes5,fragrantica"
-60,2320-LTN N,IMAGINATION,Louis Vuitton,unisex,,10,Calabrian bergamot|Citron|Sicilian Orange|Ceylon Cinnamon|Nigerian Ginger,https://thescentbase.com/it/perfumes/louis-vuitton/imagination,1,1,1,0,1,1,0,MISSING:season
-61,528-DRC W,HYPNOTIC POISON,Christian Dior,women,,0,,,1,1,1,0,0,0,0,"MISSING:season,notes5,fragrantica"
-62,1974-MARG EL,BUBBLE BATH,Maison Margiela Replica,unisex,,0,,,1,1,1,0,0,0,0,"MISSING:season,notes5,fragrantica"
-63,1801-JUL EL,NOT A PERFUME - JULIETTE HAS A GUN,Juliette Has A Gun,unisex,,0,,,1,1,1,0,0,0,0,"MISSING:season,notes5,fragrantica"
-64,694-GUR W,TERRACOTTA LE PARFUM - GUERLAIN,Guerlain,women,,0,,,1,1,1,0,0,0,0,"MISSING:season,notes5,fragrantica"
-65,2136-PARF,VALAYA,Parfums de Marly,unisex,spring|summer,9,Bergamot|Mandarin|White Peach|Orange Blossom|White Flowers,https://parfums-de-marly.com/products/valaya/1000,1,1,1,1,1,1,1,OK
-66,2161-GUR W,AQUA ALLEGORIA MANDARINE BASILIC - Guerlain,Guerlain,women,,0,,https://www.fragrantica.com/perfume/Guerlain/Aqua-Allegoria-Mandarine-Basilic-2060.html,1,1,1,0,0,1,0,"MISSING:season,notes5"
-67,1946-MARC N,GANYMEDE - MARC ANTOINE BARROIS,Marc-Antoine Barrois,unisex,,0,,,1,1,1,0,0,0,0,"MISSING:season,notes5,fragrantica"
-68,1850-LEL N,ANOTHER 13 - LE LABO,Le Labo,unisex,,0,,,1,1,1,0,0,0,0,"MISSING:season,notes5,fragrantica"
-69,151-PARF N,DELINA - PARFUMS DE MARLY,Parfums de Marly,unisex,,0,,,1,1,1,0,0,0,0,"MISSING:season,notes5,fragrantica"
-70,761-KIL WP,GOOD GIRL GONE BAD - KILIAN,Kilian Paris,women,,0,,,1,1,1,0,0,0,0,"MISSING:season,notes5,fragrantica"
-71,641-FRE WP,PORTRAIT OF A LADY,Frederic Malle,women,,17,Black Currant|Cinnamon|Clove|Raspberry|Red Berries,https://thescentbase.com/it/perfumes/frederic-malle/portrait-of-a-lady,1,1,1,0,1,1,0,MISSING:season
-72,154-PARF N,LAYTON - PARFUMS DE MARLY,Parfums de Marly,unisex,,0,,,1,1,1,0,0,0,0,"MISSING:season,notes5,fragrantica"
-73,1887-XER N,ERBA PURA,Xerjoff,unisex,,7,Lemon|Calabrian Bergamot|Sicilian Orange|Mediterranean Fruit|Amber,https://www.xerjoff.com/en-exteu/products/erba-pura-eau-de-parfum,1,1,1,0,1,1,0,MISSING:season
-74,506-CHA W,of COCON MADEM,Chanel,women,,0,,,1,1,1,0,0,0,0,"MISSING:season,notes5,fragrantica"
-75,210-CRD EL,GREEN IRISH TWEED,Creed,unisex,,12,Peppermint|Verbena|Lemon|Bergamot|Galbanum,https://creedboutique.com/products/green-irish-tweed,1,1,1,0,1,1,0,MISSING:season
-76,268-JOM EL,MYRRH & TONKA - JO MALONE,Jo Malone London,unisex,,0,,https://www.fragrantica.com/perfume/jo-malone-london/myrrh-tonka-42027.html,1,1,1,0,0,1,0,"MISSING:season,notes5"
-77,1112-DSQ MP,HE WOOD ROCKY MOUNTAIN,Dsquared²,men,,0,,,1,1,1,0,0,0,0,"MISSING:season,notes5,fragrantica"
-78,879-PRA WP,INFUSION D'IRIS - PRADA,Prada,women,,0,,,1,1,1,0,0,0,0,"MISSING:season,notes5,fragrantica"
-79,2167-GUL MP,LE MALE ELIXIR,Jean Paul Gaultier,men,,7,Lavender|Mint|Benzoin|Vanilla|Honey,https://thescentbase.com/it/perfumes/jean-paul-gaultier/le-male-elixir,1,1,1,0,1,1,0,MISSING:season
-80,513-CHL WP,LOVE - CHLOE,Chloé,women,,0,,https://www.fragrantica.com/perfume/chloe/love-9370.html,1,1,1,0,0,1,0,"MISSING:season,notes5"
-81,1737-GIV W,L INTERDIT ROUGE EDP,Givenchy,women,,0,,,1,1,1,0,0,0,0,"MISSING:season,notes5,fragrantica"
-82,1513-KIL WP,PRINCESS - KILIAN PERFUME,Kilian Paris,women,,0,,https://www.fragrantica.com/perfume/vera-wang/princess-1596.html,1,1,1,0,0,1,0,"MISSING:season,notes5"
-83,1978-ARM,,,,,0,,,0,0,0,0,0,0,0,MISSING_FROM_MASTER
-84,1476-NRO WP,MUSC NOIR FOR HER - NARCISO RODRIGUEZ,Narciso Rodriguez,women,,0,,,1,1,1,0,0,0,0,"MISSING:season,notes5,fragrantica"
-85,318-MNT EL,CHOCOLATE GREEDY,Montale,unisex,,0,,,1,1,1,0,0,0,0,"MISSING:season,notes5,fragrantica"
-86,1775-DIP N,ORPHEON EAU DE PARFUM,Diptyque,unisex,,0,,https://www.fragrantica.com/perfume/Diptyque/Orpheon-125429.html,1,1,1,0,0,1,0,"MISSING:season,notes5"
-87,1651-TMU W,ALIEN GODDESS,Mugler,women,,6,Coconut Water|Bergamot|Jasmine|Heliotrope|Bourbon Vanilla,https://www.fragrantica.com/perfume/Mugler/Alien-Goddess-68354.html,1,1,1,0,1,1,0,MISSING:season
-88,1846-MAN EL,COCO VANILLE - MANCERA,Mancera,unisex,,0,,,1,1,1,0,0,0,0,"MISSING:season,notes5,fragrantica"
-89,2053-BDIK,GRIS CHARNEL EXTRAIT - BDK,Bdk Parfums,unisex,winter|autumn,0,,https://www.fragrantica.com/perfume/BDK-Parfums/Gris-Charnel-Extrait-73645.html,1,1,1,1,0,1,0,MISSING:notes5
-90,355-TMFO EL,NEROLI PORTOFINO,Tom Ford,unisex,,14,Bergamot|Bitter Orange|Lavender|Lemon|Mandarin Orange,https://thescentbase.com/it/perfumes/tom-ford/neroli-portofino,1,1,1,0,1,1,0,MISSING:season
-91,1528-KUR N,BACCARAT ROUGE 540 EXTRAIT,Maison Francis Kurkdjian,unisex,,9,Bitter Almond|Saffron|Egyptian Jasmine|Virginia Cedar|Ambergris,https://www.fragrantica.com/perfume/Maison-Francis-Kurkdjian/Baccarat-Rouge-540-Extrait-de-Parfum-46066.html,1,1,1,0,1,1,0,MISSING:season
-92,359-TMFO EL,NOIR EXTREME,Tom Ford,unisex,,14,Cardamom|Mandarin Orange|Neroli|Nutmeg|Saffron,https://thescentbase.com/it/perfumes/tom-ford/noir-extreme,1,1,1,0,1,1,0,MISSING:season
-93,2369-MAN EL,AMORE CAFFE - MANCERA,Mancera,unisex,,0,,,1,1,1,0,0,0,0,"MISSING:season,notes5,fragrantica"
-94,1618-NISH N,ANI - NISHANE,Nishane,unisex,,0,,,1,1,1,0,0,0,0,"MISSING:season,notes5,fragrantica"
-95,2154-KAY EL,UTOPIA VANILLA COCO 21 - KAYALI,Kayali,unisex,,0,,,1,1,1,0,0,0,0,"MISSING:season,notes5,fragrantica"
-96,225-DIP EL,EL EAU DES SENS,Diptyque,unisex,,0,,,1,1,1,0,0,0,0,"MISSING:season,notes5,fragrantica"
-97,2261-PARF,ALTHAIR - PARFUMS DE MARLY,Parfums de Marly,unisex,winter,0,,https://www.fragrantica.com/perfume/parfums-de-marly/althair-84109.html,1,1,1,1,0,1,0,MISSING:notes5
-98,1085-DRC,,,,,0,,,0,0,0,0,0,0,0,MISSING_FROM_MASTER
-99,124-INI N,Side Effect - Initio Parfums Prives,Initio Parfums Privés,unisex,,0,,,1,1,1,0,0,0,0,"MISSING:season,notes5,fragrantica"
-100,181-XER N,ALEXANDRIA II,Xerjoff,unisex,,12,Apple|Cinnamon|Lavender|Palisander Rosewood|Cedar,https://thescentbase.com/it/perfumes/xerjoff/alexandria-ii,1,1,1,0,1,1,0,MISSING:season
+rank,shobi_code,inspired_by,brand,gender,season,note_count,main_5_notes,fragrantica_url,legacy_season,legacy_note_count,legacy_main_5_notes,legacy_fragrantica_url,name_ok,brand_ok,gender_ok,season_ok,notes5_ok,fragrantica_ok,legacy_season_ok,legacy_notes5_ok,legacy_fragrantica_ok,complete_core,status
+1,305-KAY EL,VANILLA 28 - KAYALI,Kayali,unisex,,0,,,,0,,,1,1,1,0,0,0,0,0,0,0,"MISSING:season,notes5,fragrantica"
+2,1508-KIL WP,ANGELS SHARE - KILIAN,Kilian Paris,women,,0,,https://www.fragrantica.com/perfume/By-Kilian/Angels-Share-62615.html,,0,,https://www.fragrantica.com/perfume/By-Kilian/Angels-Share-62615.html,1,1,1,0,0,1,0,0,1,0,"MISSING:season,notes5"
+3,451-BYR WP,Blanche,Byredo,women,,0,,https://www.fragrantica.com/perfume/Byredo/Blanche-6686.html,,0,,https://www.fragrantica.com/perfume/Byredo/Blanche-6686.html,1,1,1,0,0,1,0,0,1,0,"MISSING:season,notes5"
+4,374-TMFO EL,TOBACCO VANILLE,Tom Ford,unisex,,8,Spicy Notes|Tobacco Leaf|Cacao|Tobacco Blossom|Tonka Bean,https://thescentbase.com/it/perfumes/tom-ford/tobacco-vanille,,6,Spicy Notes|Tobacco Leaf|Cacao|Tobacco Blossom|Tonka Bean,https://thescentbase.com/it/perfumes/tom-ford/tobacco-vanille,1,1,1,0,1,1,0,1,1,0,MISSING:season
+5,1899-ZARK EL,THE MUSE - ZARKOPERFUME,Zarkoperfume,unisex,,0,,https://www.fragrantica.com/perfume/ZARKOPERFUME/The-Muse-60665.html,,0,,https://www.fragrantica.com/perfume/ZARKOPERFUME/The-Muse-60665.html,1,1,1,0,0,1,0,0,1,0,"MISSING:season,notes5"
+6,111-BAC N,ROUGE 540 - BACCARAT,Maison Francis Kurkdjian,unisex,,0,,https://www.fragrantica.com/perfume/Maison-Francis-Kurkdjian/Baccarat-Rouge-540-Eau-de-Parfum-33519.html,,0,,https://www.fragrantica.com/perfume/Maison-Francis-Kurkdjian/Baccarat-Rouge-540-Eau-de-Parfum-33519.html,1,1,1,0,0,1,0,0,1,0,"MISSING:season,notes5"
+7,220-CRD EL,Virgin Island Water,Creed,unisex,,9,Lime|Bergamot|Tropical Fruits|Coconut Milk|Jasmine,https://creedboutique.com/products/virgin-island-water,,6,Lime|Bergamot|Tropical Fruits|Coconut Milk|Jasmine,https://creedboutique.com/products/virgin-island-water,1,1,1,0,1,1,0,1,1,0,MISSING:season
+8,350-TMFO EL,LOST CHERRY,Tom Ford,unisex,,17,Bitter Almond|Black Cherry|Cherry Liqueur|Jasmine Sambac|Plum,https://thescentbase.com/it/perfumes/tom-ford/lost-cherry,,6,Bitter Almond|Black Cherry|Cherry Liqueur|Jasmine Sambac|Plum,https://thescentbase.com/it/perfumes/tom-ford/lost-cherry,1,1,1,0,1,1,0,1,1,0,MISSING:season
+9,2216-DOL WP,DEVOTION,Dolce & Gabbana,women,,0,,https://www.fragrantica.com/perfume/Dolce-Gabbana/Devotion-84951.html,,0,,https://www.fragrantica.com/perfume/Dolce-Gabbana/Devotion-84951.html,1,1,1,0,0,1,0,0,1,0,"MISSING:season,notes5"
+10,2129-SOL EL,BRAZILIAN CRUSH CHEIROSA 62 - SOL DE JANEIRO,Sol De Janeiro,unisex,,0,,https://www.fragrantica.com/perfume/sol-de-janeiro/brazilian-crush-cheirosa-62-56062.html,,0,,https://www.fragrantica.com/perfume/sol-de-janeiro/brazilian-crush-cheirosa-62-56062.html,1,1,1,0,0,1,0,0,1,0,"MISSING:season,notes5"
+11,371-TMFO EL,SOLEIL BLANC,Tom Ford,unisex,,11,Bergamot|Cardamom|Pink Pepper|Pistachio|Jasmine,https://thescentbase.com/it/perfumes/tom-ford/soleil-blanc,,6,Bergamot|Cardamom|Pink Pepper|Pistachio|Jasmine,https://thescentbase.com/it/perfumes/tom-ford/soleil-blanc,1,1,1,0,1,1,0,1,1,0,MISSING:season
+12,449-BYR WP,BAL D'AFRIQUE,Byredo,women,,0,,,,0,,,1,1,1,0,0,0,0,0,0,0,"MISSING:season,notes5,fragrantica"
+13,204-CRD EL,Avent,Creed,unisex,,0,,,,0,,,1,1,1,0,0,0,0,0,0,0,"MISSING:season,notes5,fragrantica"
+14,765-KIL WP,LOVE DONT BE SHY - KILIAN,Kilian Paris,women,,0,,,,0,,,1,1,1,0,0,0,0,0,0,0,"MISSING:season,notes5,fragrantica"
+15,994-ZAD WP,THIS IS HER - ZADIG & VOLTAIRE,Zadig & Voltaire,women,,0,,https://www.fragrantica.com/perfume/zadig-voltaire/this-is-her-39358.html,,0,,https://www.fragrantica.com/perfume/zadig-voltaire/this-is-her-39358.html,1,1,1,0,0,1,0,0,1,0,"MISSING:season,notes5"
+16,2371-MATIE EL,VANILLA POWDER,Matiere Premiere,unisex,,9,Coconut Powder|Heliotrope|Madagascar Vanilla|Coconut|Lactones,https://thescentbase.com/it/perfumes/matiere-premiere/vanilla-powder,,6,Coconut Powder|Heliotrope|Madagascar Vanilla|Coconut|Lactones,https://thescentbase.com/it/perfumes/matiere-premiere/vanilla-powder,1,1,1,0,1,1,0,1,1,0,MISSING:season
+17,2206-GIA LUX,BIANCO LATTE,Giardini Di Toscana,unisex,,5,Caramel|Coumarin|Honey|Vanilla|White Musk,https://www.parfumo.com/Perfumes/Giardini_di_Toscana/Bianco_Latte,,5,Caramel|Coumarin|Honey|Vanilla|White Musk,https://www.parfumo.com/Perfumes/Giardini_di_Toscana/Bianco_Latte,1,1,1,0,1,1,0,1,1,0,MISSING:season
+18,179-XER N,1861 NAXOS,Xerjoff,unisex,,11,Lemon|Bergamot|Lavender|Incense from Oman|Jasmine Sambac,https://www.xerjoff.com/en-eu/products/naxos-eau-de-parfum,,6,Lemon|Bergamot|Lavender|Incense from Oman|Jasmine Sambac,https://www.xerjoff.com/en-eu/products/naxos-eau-de-parfum,1,1,1,0,1,1,0,1,1,0,MISSING:season
+19,229-DIP EL,Philosykos Eau de Parfum,Diptyque,unisex,,0,,,,0,,,1,1,1,0,0,0,0,0,0,0,"MISSING:season,notes5,fragrantica"
+20,2162-BRB WP,Goddess,Burberry,women,,0,,,,0,,,1,1,1,0,0,0,0,0,0,0,"MISSING:season,notes5,fragrantica"
+21,1644-DRC M,SAUVAGE ELIXIR,,men,,0,,,,0,,,1,0,1,0,0,0,0,0,0,0,"MISSING:brand,season,notes5,fragrantica"
+22,2398-FRE LUX,Acne Studios,Frederic Malle,unisex,,0,,,,0,,,1,1,1,0,0,0,0,0,0,0,"MISSING:season,notes5,fragrantica"
+23,401-ARIA WP,CLOUD - ARIANA GRANDE,Ariana Grande,women,,0,,,,0,,,1,1,1,0,0,0,0,0,0,0,"MISSING:season,notes5,fragrantica"
+24,1660-ESCE EL,MOLECULE 01,Escentric Molecules,unisex,,0,,,,0,,,1,1,1,0,0,0,0,0,0,0,"MISSING:season,notes5,fragrantica"
+25,1067-CHA,,,,,0,,,spring|summer|autumn|winter,6,Grapefruit|Lemon|Mint|Pink Pepper|Ginger,https://raw.githubusercontent.com/smellyCat-deep/shobi_inspiration/main/database_complete.json,0,0,0,0,0,0,1,1,1,0,MISSING_FROM_MASTER
+26,1499-BYR EL,MOJAVE GHOST,Byredo,unisex,,0,,,,0,,,1,1,1,0,0,0,0,0,0,0,"MISSING:season,notes5,fragrantica"
+27,485-CAR WP,GOOD GIRL,Carolina Herrera,women,,20,Almond|Bergamot|Coffee|Lemon|Bulgarian Rose,https://thescentbase.com/it/perfumes/carolina-herrera/good-girl,,6,Almond|Bergamot|Coffee|Lemon|Bulgarian Rose,https://thescentbase.com/it/perfumes/carolina-herrera/good-girl,1,1,1,0,1,1,0,1,1,0,MISSING:season
+28,1520-YZLO W,LIBRE INTENSE,Ysl,women,,0,,,,0,,,1,1,1,0,0,0,0,0,0,0,"MISSING:season,notes5,fragrantica"
+29,152-PARF N,DELINA EXCLUSIF - PARFUMS DE MARLY,Parfums de Marly,unisex,,0,,,,0,,,1,1,1,0,0,0,0,0,0,0,"MISSING:season,notes5,fragrantica"
+30,1735-XER N,ITALICA,Xerjoff,unisex,,0,,,,0,,,1,1,1,0,0,0,0,0,0,0,"MISSING:season,notes5,fragrantica"
+31,1498-BYR EL,GYPSY WATER,Byredo,unisex,,0,,,,0,,,1,1,1,0,0,0,0,0,0,0,"MISSING:season,notes5,fragrantica"
+32,132-LTN N,OMBRE NOMADE,Louis Vuitton,unisex,,0,,,,0,,,1,1,1,0,0,0,0,0,0,0,"MISSING:season,notes5,fragrantica"
+33,1919-PRA WP,PARADOXE - PRADA,Prada,women,,0,,,,0,,,1,1,1,0,0,0,0,0,0,0,"MISSING:season,notes5,fragrantica"
+34,1764-GUR W,AQUA ALLEGORIA COCONUT FIZZ - GUERLAIN,Guerlain,women,,6,Bergamot|Coconut Nectar|Freesia|Water Fruit|Sandalwood,https://thescentbase.com/it/perfumes/guerlain/aqua-allegoria-coconut-fizz,,6,Bergamot|Coconut Nectar|Freesia|Water Fruit|Sandalwood,https://thescentbase.com/it/perfumes/guerlain/aqua-allegoria-coconut-fizz,1,1,1,0,1,1,0,1,1,0,MISSING:season
+35,131-LEL N,Le Labo Santal 33,Le Labo,unisex,,0,,,,0,,,1,1,1,0,0,0,0,0,0,0,"MISSING:season,notes5,fragrantica"
+36,848-NRO WP,PURE MUSK FOR HER,Narciso Rodriguez,women,,0,,https://www.fragrantica.com/perfume/narciso-rodriguez/pure-musc-for-her-53441.html,,0,,https://www.fragrantica.com/perfume/narciso-rodriguez/pure-musc-for-her-53441.html,1,1,1,0,0,1,0,0,1,0,"MISSING:season,notes5"
+37,2348-AMG,Guidance,Amouage,unisex,spring|summer|autumn|winter,12,Hazelnut|Pear|Frankincense|Osmanthus|Rose,https://www.parfumo.com/Perfumes/Amouage/guidance-eau-de-parfum,spring|summer|autumn|winter,6,Hazelnut|Pear|Frankincense|Osmanthus|Rose,https://www.parfumo.com/Perfumes/Amouage/guidance-eau-de-parfum,1,1,1,1,1,1,1,1,1,1,OK
+38,303-JOM EL,Wood Sage & Sea Salt Jo Malone,Jo Malone London,unisex,,0,,,,0,,,1,1,1,0,0,0,0,0,0,0,"MISSING:season,notes5,fragrantica"
+39,2155-KAY EL,YUM PISTACHIO GELATO - KAYALI,Kayali,unisex,,0,,https://www.fragrantica.com/perfume/Kayali-Fragrances/Yum-Pistachio-Gelato-33-79846.html,,0,,https://www.fragrantica.com/perfume/Kayali-Fragrances/Yum-Pistachio-Gelato-33-79846.html,1,1,1,0,0,1,0,0,1,0,"MISSING:season,notes5"
+40,750-KEN W,FLOWER L ELIXIR - KENZO,Kenzo,women,,0,,https://www.fragrantica.com/perfume/Kenzo/Flower-by-Kenzo-L-Elixir-31539.html,,0,,https://www.fragrantica.com/perfume/Kenzo/Flower-by-Kenzo-L-Elixir-31539.html,1,1,1,0,0,1,0,0,1,0,"MISSING:season,notes5"
+41,1553-MNT N,ARABIANS TONKA - MONTALE,Montale,unisex,,0,,https://www.fragrantica.com/perfume/Montale/Arabians-Tonka-57384.html,,0,,https://www.fragrantica.com/perfume/Montale/Arabians-Tonka-57384.html,1,1,1,0,0,1,0,0,1,0,"MISSING:season,notes5"
+42,937-VAL WP,DONNA BORN IN ROMA - VALENTINO,Valentino,women,,0,,https://www.fragrantica.com/perfume/valentino/valentino-donna-born-in-roma-55805.html,,0,,https://www.fragrantica.com/perfume/valentino/valentino-donna-born-in-roma-55805.html,1,1,1,0,0,1,0,0,1,0,"MISSING:season,notes5"
+43,1937-BIL AR,Eilish Billie Eilish,Billie Eilish,women,,0,,,,0,,,1,1,1,0,0,0,0,0,0,0,"MISSING:season,notes5,fragrantica"
+44,425-BRB WP,Burberry Her,Burberry,women,,0,,,,0,,,1,1,1,0,0,0,0,0,0,0,"MISSING:season,notes5,fragrantica"
+45,1883-NISH N,Fragrance WULONG CHA - NISHANE,Nishane,unisex,,0,,,,0,,,1,1,1,0,0,0,0,0,0,0,"MISSING:season,notes5,fragrantica"
+46,760-KIL WP,BLACK PHANTOM - KILIAN,Kilian Paris,women,,0,,,,0,,,1,1,1,0,0,0,0,0,0,0,"MISSING:season,notes5,fragrantica"
+47,1493-ACQ WP,,,,,0,,,,0,,,0,0,0,0,0,0,0,0,0,0,MISSING_FROM_MASTER
+48,2235-PRA WP,PARADOXE INTENSE - PRADA,Prada,women,,0,,,,0,,,1,1,1,0,0,0,0,0,0,0,"MISSING:season,notes5,fragrantica"
+49,361-TMFO EL,OMBRE LEATHER,Tom Ford,unisex,,0,,,,0,,,1,1,1,0,0,0,0,0,0,0,"MISSING:season,notes5,fragrantica"
+50,2346-TMFO EL,VANILLA SEX,Tom Ford,unisex,,0,,,,0,,,1,1,1,0,0,0,0,0,0,0,"MISSING:season,notes5,fragrantica"
+51,981-YZLO W,LIBRE,Ysl,women,,0,,,,0,,,1,1,1,0,0,0,0,0,0,0,"MISSING:season,notes5,fragrantica"
+52,977-YZLO W,of BLACK OPIUM,Ysl,women,,0,,,,0,,,1,1,1,0,0,0,0,0,0,0,"MISSING:season,notes5,fragrantica"
+53,364-TMFO EL,OUD WOOD,Tom Ford,unisex,,0,,,,0,,,1,1,1,0,0,0,0,0,0,0,"MISSING:season,notes5,fragrantica"
+54,847-NRO WP,POUDREE NARCISO - NARCISO RODRIGUEZ,Narciso Rodriguez,women,,0,,https://www.fragrantica.com/perfume/narciso-rodriguez/narciso-poudree-36679.html,,0,,https://www.fragrantica.com/perfume/narciso-rodriguez/narciso-poudree-36679.html,1,1,1,0,0,1,0,0,1,0,"MISSING:season,notes5"
+55,1909-XER N,TORINO 21,Xerjoff,unisex,,0,,,,0,,,1,1,1,0,0,0,0,0,0,0,"MISSING:season,notes5,fragrantica"
+56,2150-LEL EL,THE MATCHA 26 - LE LABO,Le Labo,unisex,,0,,,,0,,,1,1,1,0,0,0,0,0,0,0,"MISSING:season,notes5,fragrantica"
+57,430-BRB WP,The Beat EDT,Burberry,women,,0,,https://www.fragrantica.com/perfume/Burberry/The-Beat-2092.html,,0,,https://www.fragrantica.com/perfume/Burberry/The-Beat-2092.html,1,1,1,0,0,1,0,0,1,0,"MISSING:season,notes5"
+58,1635-XER N,LIRA,Xerjoff,unisex,,9,Bergamot|Blood Orange|Lavender|Cinnamon|Jasmine,https://thescentbase.com/it/perfumes/xerjoff/lira,,6,Bergamot|Blood Orange|Lavender|Cinnamon|Jasmine,https://thescentbase.com/it/perfumes/xerjoff/lira,1,1,1,0,1,1,0,1,1,0,MISSING:season
+59,2365-DIP N,L'EAU PAPIER,Diptyque,unisex,,0,,,,0,,,1,1,1,0,0,0,0,0,0,0,"MISSING:season,notes5,fragrantica"
+60,2320-LTN N,IMAGINATION,Louis Vuitton,unisex,,10,Calabrian bergamot|Citron|Sicilian Orange|Ceylon Cinnamon|Nigerian Ginger,https://thescentbase.com/it/perfumes/louis-vuitton/imagination,,6,Calabrian bergamot|Citron|Sicilian Orange|Ceylon Cinnamon|Nigerian Ginger,https://thescentbase.com/it/perfumes/louis-vuitton/imagination,1,1,1,0,1,1,0,1,1,0,MISSING:season
+61,528-DRC W,HYPNOTIC POISON,Christian Dior,women,,0,,,,0,,,1,1,1,0,0,0,0,0,0,0,"MISSING:season,notes5,fragrantica"
+62,1974-MARG EL,BUBBLE BATH,Maison Margiela Replica,unisex,,0,,,,0,,,1,1,1,0,0,0,0,0,0,0,"MISSING:season,notes5,fragrantica"
+63,1801-JUL EL,NOT A PERFUME - JULIETTE HAS A GUN,Juliette Has A Gun,unisex,,0,,,,0,,,1,1,1,0,0,0,0,0,0,0,"MISSING:season,notes5,fragrantica"
+64,694-GUR W,TERRACOTTA LE PARFUM - GUERLAIN,Guerlain,women,,0,,,,0,,,1,1,1,0,0,0,0,0,0,0,"MISSING:season,notes5,fragrantica"
+65,2136-PARF,VALAYA,Parfums de Marly,unisex,spring|summer,9,Bergamot|Mandarin|White Peach|Orange Blossom|White Flowers,https://parfums-de-marly.com/products/valaya/1000,spring|summer,6,Bergamot|Mandarin|White Peach|Orange Blossom|White Flowers,https://parfums-de-marly.com/products/valaya/1000,1,1,1,1,1,1,1,1,1,1,OK
+66,2161-GUR W,AQUA ALLEGORIA MANDARINE BASILIC - Guerlain,Guerlain,women,,0,,https://www.fragrantica.com/perfume/Guerlain/Aqua-Allegoria-Mandarine-Basilic-2060.html,,0,,https://www.fragrantica.com/perfume/Guerlain/Aqua-Allegoria-Mandarine-Basilic-2060.html,1,1,1,0,0,1,0,0,1,0,"MISSING:season,notes5"
+67,1946-MARC N,GANYMEDE - MARC ANTOINE BARROIS,Marc-Antoine Barrois,unisex,,0,,,,0,,,1,1,1,0,0,0,0,0,0,0,"MISSING:season,notes5,fragrantica"
+68,1850-LEL N,ANOTHER 13 - LE LABO,Le Labo,unisex,,0,,,,0,,,1,1,1,0,0,0,0,0,0,0,"MISSING:season,notes5,fragrantica"
+69,151-PARF N,DELINA - PARFUMS DE MARLY,Parfums de Marly,unisex,,0,,,,0,,,1,1,1,0,0,0,0,0,0,0,"MISSING:season,notes5,fragrantica"
+70,761-KIL WP,GOOD GIRL GONE BAD - KILIAN,Kilian Paris,women,,0,,,,0,,,1,1,1,0,0,0,0,0,0,0,"MISSING:season,notes5,fragrantica"
+71,641-FRE WP,PORTRAIT OF A LADY,Frederic Malle,women,,17,Black Currant|Cinnamon|Clove|Raspberry|Red Berries,https://thescentbase.com/it/perfumes/frederic-malle/portrait-of-a-lady,,6,Black Currant|Cinnamon|Clove|Raspberry|Red Berries,https://thescentbase.com/it/perfumes/frederic-malle/portrait-of-a-lady,1,1,1,0,1,1,0,1,1,0,MISSING:season
+72,154-PARF N,LAYTON - PARFUMS DE MARLY,Parfums de Marly,unisex,,0,,,,0,,,1,1,1,0,0,0,0,0,0,0,"MISSING:season,notes5,fragrantica"
+73,1887-XER N,ERBA PURA,Xerjoff,unisex,,7,Lemon|Calabrian Bergamot|Sicilian Orange|Mediterranean Fruit|Amber,https://www.xerjoff.com/en-exteu/products/erba-pura-eau-de-parfum,,6,Lemon|Calabrian Bergamot|Sicilian Orange|Mediterranean Fruit|Amber,https://www.xerjoff.com/en-exteu/products/erba-pura-eau-de-parfum,1,1,1,0,1,1,0,1,1,0,MISSING:season
+74,506-CHA W,of COCON MADEM,Chanel,women,,0,,,,0,,,1,1,1,0,0,0,0,0,0,0,"MISSING:season,notes5,fragrantica"
+75,210-CRD EL,GREEN IRISH TWEED,Creed,unisex,,12,Peppermint|Verbena|Lemon|Bergamot|Galbanum,https://creedboutique.com/products/green-irish-tweed,,6,Peppermint|Verbena|Lemon|Bergamot|Galbanum,https://creedboutique.com/products/green-irish-tweed,1,1,1,0,1,1,0,1,1,0,MISSING:season
+76,268-JOM EL,MYRRH & TONKA - JO MALONE,Jo Malone London,unisex,,0,,https://www.fragrantica.com/perfume/jo-malone-london/myrrh-tonka-42027.html,,0,,https://www.fragrantica.com/perfume/jo-malone-london/myrrh-tonka-42027.html,1,1,1,0,0,1,0,0,1,0,"MISSING:season,notes5"
+77,1112-DSQ MP,HE WOOD ROCKY MOUNTAIN,Dsquared²,men,,0,,,,0,,,1,1,1,0,0,0,0,0,0,0,"MISSING:season,notes5,fragrantica"
+78,879-PRA WP,INFUSION D'IRIS - PRADA,Prada,women,,0,,,,0,,,1,1,1,0,0,0,0,0,0,0,"MISSING:season,notes5,fragrantica"
+79,2167-GUL MP,LE MALE ELIXIR,Jean Paul Gaultier,men,,7,Lavender|Mint|Benzoin|Vanilla|Honey,https://thescentbase.com/it/perfumes/jean-paul-gaultier/le-male-elixir,,6,Lavender|Mint|Benzoin|Vanilla|Honey,https://thescentbase.com/it/perfumes/jean-paul-gaultier/le-male-elixir,1,1,1,0,1,1,0,1,1,0,MISSING:season
+80,513-CHL WP,LOVE - CHLOE,Chloé,women,,0,,https://www.fragrantica.com/perfume/chloe/love-9370.html,,0,,https://www.fragrantica.com/perfume/chloe/love-9370.html,1,1,1,0,0,1,0,0,1,0,"MISSING:season,notes5"
+81,1737-GIV W,L INTERDIT ROUGE EDP,Givenchy,women,,0,,,,0,,,1,1,1,0,0,0,0,0,0,0,"MISSING:season,notes5,fragrantica"
+82,1513-KIL WP,PRINCESS - KILIAN PERFUME,Kilian Paris,women,,0,,https://www.fragrantica.com/perfume/vera-wang/princess-1596.html,,0,,https://www.fragrantica.com/perfume/vera-wang/princess-1596.html,1,1,1,0,0,1,0,0,1,0,"MISSING:season,notes5"
+83,1978-ARM,,,,,0,,,winter,6,Pink Pepper|Juniper|Violet|Toffee|Cinnamon,https://raw.githubusercontent.com/smellyCat-deep/shobi_inspiration/main/database_complete.json,0,0,0,0,0,0,1,1,1,0,MISSING_FROM_MASTER
+84,1476-NRO WP,MUSC NOIR FOR HER - NARCISO RODRIGUEZ,Narciso Rodriguez,women,,0,,,,0,,,1,1,1,0,0,0,0,0,0,0,"MISSING:season,notes5,fragrantica"
+85,318-MNT EL,CHOCOLATE GREEDY,Montale,unisex,,0,,,,0,,,1,1,1,0,0,0,0,0,0,0,"MISSING:season,notes5,fragrantica"
+86,1775-DIP N,ORPHEON EAU DE PARFUM,Diptyque,unisex,,0,,https://www.fragrantica.com/perfume/Diptyque/Orpheon-125429.html,,0,,https://www.fragrantica.com/perfume/Diptyque/Orpheon-125429.html,1,1,1,0,0,1,0,0,1,0,"MISSING:season,notes5"
+87,1651-TMU W,ALIEN GODDESS,Mugler,women,,6,Coconut Water|Bergamot|Jasmine|Heliotrope|Bourbon Vanilla,https://www.fragrantica.com/perfume/Mugler/Alien-Goddess-68354.html,,6,Coconut Water|Bergamot|Jasmine|Heliotrope|Bourbon Vanilla,https://www.fragrantica.com/perfume/Mugler/Alien-Goddess-68354.html,1,1,1,0,1,1,0,1,1,0,MISSING:season
+88,1846-MAN EL,COCO VANILLE - MANCERA,Mancera,unisex,,0,,,,0,,,1,1,1,0,0,0,0,0,0,0,"MISSING:season,notes5,fragrantica"
+89,2053-BDIK,GRIS CHARNEL EXTRAIT - BDK,Bdk Parfums,unisex,winter|autumn,0,,https://www.fragrantica.com/perfume/BDK-Parfums/Gris-Charnel-Extrait-73645.html,winter|autumn,0,,https://www.fragrantica.com/perfume/BDK-Parfums/Gris-Charnel-Extrait-73645.html,1,1,1,1,0,1,1,0,1,0,MISSING:notes5
+90,355-TMFO EL,NEROLI PORTOFINO,Tom Ford,unisex,,14,Bergamot|Bitter Orange|Lavender|Lemon|Mandarin Orange,https://thescentbase.com/it/perfumes/tom-ford/neroli-portofino,,6,Bergamot|Bitter Orange|Lavender|Lemon|Mandarin Orange,https://thescentbase.com/it/perfumes/tom-ford/neroli-portofino,1,1,1,0,1,1,0,1,1,0,MISSING:season
+91,1528-KUR N,BACCARAT ROUGE 540 EXTRAIT,Maison Francis Kurkdjian,unisex,,9,Bitter Almond|Saffron|Egyptian Jasmine|Virginia Cedar|Ambergris,https://www.fragrantica.com/perfume/Maison-Francis-Kurkdjian/Baccarat-Rouge-540-Extrait-de-Parfum-46066.html,,6,Bitter Almond|Saffron|Egyptian Jasmine|Virginia Cedar|Ambergris,https://www.fragrantica.com/perfume/Maison-Francis-Kurkdjian/Baccarat-Rouge-540-Extrait-de-Parfum-46066.html,1,1,1,0,1,1,0,1,1,0,MISSING:season
+92,359-TMFO EL,NOIR EXTREME,Tom Ford,unisex,,14,Cardamom|Mandarin Orange|Neroli|Nutmeg|Saffron,https://thescentbase.com/it/perfumes/tom-ford/noir-extreme,,6,Cardamom|Mandarin Orange|Neroli|Nutmeg|Saffron,https://thescentbase.com/it/perfumes/tom-ford/noir-extreme,1,1,1,0,1,1,0,1,1,0,MISSING:season
+93,2369-MAN EL,AMORE CAFFE - MANCERA,Mancera,unisex,,0,,,,0,,,1,1,1,0,0,0,0,0,0,0,"MISSING:season,notes5,fragrantica"
+94,1618-NISH N,ANI - NISHANE,Nishane,unisex,,0,,,,0,,,1,1,1,0,0,0,0,0,0,0,"MISSING:season,notes5,fragrantica"
+95,2154-KAY EL,UTOPIA VANILLA COCO 21 - KAYALI,Kayali,unisex,,0,,,,0,,,1,1,1,0,0,0,0,0,0,0,"MISSING:season,notes5,fragrantica"
+96,225-DIP EL,EL EAU DES SENS,Diptyque,unisex,,0,,,,0,,,1,1,1,0,0,0,0,0,0,0,"MISSING:season,notes5,fragrantica"
+97,2261-PARF,ALTHAIR - PARFUMS DE MARLY,Parfums de Marly,unisex,winter,0,,https://www.fragrantica.com/perfume/parfums-de-marly/althair-84109.html,winter,0,,https://www.fragrantica.com/perfume/parfums-de-marly/althair-84109.html,1,1,1,1,0,1,1,0,1,0,MISSING:notes5
+98,1085-DRC,,,,,0,,,spring|summer|autumn|winter,6,Calabrian Bergamot|Pepper|Sichuan Pepper|Lavender|Pink Pepper,https://raw.githubusercontent.com/smellyCat-deep/shobi_inspiration/main/database_complete.json,0,0,0,0,0,0,1,1,1,0,MISSING_FROM_MASTER
+99,124-INI N,Side Effect - Initio Parfums Prives,Initio Parfums Privés,unisex,,0,,,,0,,,1,1,1,0,0,0,0,0,0,0,"MISSING:season,notes5,fragrantica"
+100,181-XER N,ALEXANDRIA II,Xerjoff,unisex,,12,Apple|Cinnamon|Lavender|Palisander Rosewood|Cedar,https://thescentbase.com/it/perfumes/xerjoff/alexandria-ii,,6,Apple|Cinnamon|Lavender|Palisander Rosewood|Cedar,https://thescentbase.com/it/perfumes/xerjoff/alexandria-ii,1,1,1,0,1,1,0,1,1,0,MISSING:season
