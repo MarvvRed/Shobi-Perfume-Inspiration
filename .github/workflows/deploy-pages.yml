@@ -30,7 +30,7 @@ jobs:
         with:
           ref: main
 
-      - name: Build verified catcher map 1-100
+      - name: Build verified catcher map and ranking 1-100
         shell: bash
         run: |
           node <<'NODE'
@@ -92,7 +92,35 @@ jobs:
 
           fs.writeFileSync('bestseller-catcher-notes.js',
             `// Generated at deploy from verified Best Seller #1-100 datasets.\nwindow.SHOBI_CATCHER_NOTES_BY_CODE=${JSON.stringify(byCode)};\n`);
-          console.log('CATCHER_MAP_OK',Object.keys(byCode).length);
+
+          const extension=batch41100.results
+            .map(src=>({
+              rank:Number(src.rank),
+              code:String(src.shobi_code||'').trim(),
+              notes:src.notes.slice().sort((a,b)=>(Number(a.rank)||999)-(Number(b.rank)||999)).slice(0,5)
+                .map(n=>String(n.note||'').trim()).filter(Boolean)
+            }))
+            .sort((a,b)=>a.rank-b.rank);
+          if(extension.length!==60||extension[0].rank!==41||extension[59].rank!==100)
+            throw new Error('Ranking extension 41-100 incomplete');
+
+          const runtime=`// Generated at deploy from verified Best Seller #41-100 catcher dataset.\n(function(){\n`+
+            `const rows=${JSON.stringify(extension)};\n`+
+            `const norm=v=>String(v||'').toUpperCase().replace(/\\s+/g,'');\n`+
+            `const ranking=Array.isArray(window.SHOBI_BESTSELLER_RANKING)?window.SHOBI_BESTSELLER_RANKING.slice():[];\n`+
+            `const ranks=new Set(ranking.map(x=>Number(x.rank)));\n`+
+            `rows.forEach(x=>{if(!ranks.has(x.rank))ranking.push({rank:x.rank,code:x.code});});\n`+
+            `ranking.sort((a,b)=>Number(a.rank)-Number(b.rank));\n`+
+            `if(ranking.length!==100)throw new Error('Expected runtime Best Seller ranking length 100, got '+ranking.length);\n`+
+            `window.SHOBI_BESTSELLER_RANKING=ranking;\n`+
+            `window.SHOBI_BESTSELLER_CODES=ranking.map(x=>x.code);\n`+
+            `window.SHOBI_BESTSELLER_RANK_BY_CODE=Object.fromEntries(ranking.map(x=>[x.code,x.rank]));\n`+
+            `window.SHOBI_BESTSELLER_GLOBAL_RANK_BY_CODE=Object.fromEntries(ranking.filter(x=>x.globalRank!=null).map(x=>[x.code,x.globalRank]));\n`+
+            `const enrich=window.SHOBI_TOP100_ENRICHMENT_BY_CODE||(window.SHOBI_TOP100_ENRICHMENT_BY_CODE={});\n`+
+            `rows.forEach(x=>{enrich[norm(x.code)]={...(enrich[norm(x.code)]||{}),rank:x.rank,code:x.code,main_notes:x.notes,source_status:'verified-catcher'};});\n`+
+            `})();\n`;
+          fs.writeFileSync('bestseller-41-100-runtime.js',runtime);
+          console.log('CATCHER_MAP_OK',Object.keys(byCode).length,'RANKING_EXTENSION_OK',extension.length);
           NODE
 
       - name: Configure Pages
