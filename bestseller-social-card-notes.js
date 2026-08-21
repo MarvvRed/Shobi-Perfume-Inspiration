@@ -29,3 +29,9 @@ window.SHOBI_SOCIAL_CARD_NOTES_BY_CODE = {
   '937-VAL WP': ['Vanilla','Black Currant','Jasmine','Cashmeran','Jasmine Tea'],
   '2235-PRA WP': ['White Tobacco','Tobacco','Rose','Osmanthus','Vanilla']
 };
+
+// Overlay the verified catcher map before the shared visual checker runs.
+window.SHOBI_CATCHER_NOTES_BY_CODE = window.SHOBI_CATCHER_NOTES_BY_CODE || {};
+Object.entries(window.SHOBI_SOCIAL_CARD_NOTES_BY_CODE).forEach(([code, notes]) => {
+  window.SHOBI_CATCHER_NOTES_BY_CODE[code] = notes.slice();
+});
