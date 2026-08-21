@@ -1,12 +1,6 @@
 name: Capture Fragrantica Bestsellers 1-10
 
 on:
-  push:
-    branches: [main]
-    paths:
-      - '.github/workflows/capture-fragrantica-bestsellers-1-10.yml'
-      - 'tools/fragrantica-main-notes/local-github-bridge.cjs'
-      - 'tools/fragrantica-main-notes/firefox-extension/**'
   workflow_dispatch:
 
 permissions:
