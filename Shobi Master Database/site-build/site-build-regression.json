@@ -1,14 +1,15 @@
 {
-  "mode": "STAGING_REGRESSION_AUDIT_DO_NOT_PUBLISH_YET",
+  "mode": "PRODUCTION_PREPROMOTION_REGRESSION_AUDIT",
   "master_rows": 2343,
   "current_site_rows": 2343,
   "candidate_rows": 2343,
-  "renderable_rows_current_frontend_semantics": 2343,
-  "removed_legacy_rows_vs_current": 0,
-  "matched_enrichment_rows": null,
-  "minimal_official_master_rows": null,
+  "renderable_rows": 2343,
+  "row_delta_vs_current_site": 0,
+  "existing_pid_matches": 2343,
+  "minimal_official_master_rows": 26,
+  "new_unresolved_master_rows": 0,
   "ambiguous_matches": 0,
-  "enrichment_coverage": null,
+  "rich_enrichment_coverage": 0.988903,
   "missing_required_columns": [],
   "missing_required_values": {
     "prestashop_product_id": 0,
@@ -49,12 +50,12 @@
     "candidate_identity_exact_master": true,
     "candidate_ids_unique": true,
     "required_columns_present": true,
-    "all_rows_renderable_by_current_frontend": true,
+    "all_rows_renderable_by_frontend": true,
     "all_rows_have_official_url": true,
     "all_rows_have_gender": true,
     "build_safety_pass": true,
     "build_ambiguous_zero": true
   },
   "safety": "PASS",
-  "note": "prestashop_product_id is the official identity. Duplicate display codes are reported because the current frontend still keys favorites/modals by shobi_code and must be audited before production switch."
+  "note": "prestashop_product_id is the frontend identity authority. Duplicate display codes are allowed because favorites/modals now key by prestashop_product_id with legacy-code fallback."
 }
