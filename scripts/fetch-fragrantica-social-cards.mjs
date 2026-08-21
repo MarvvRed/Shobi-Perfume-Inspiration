@@ -23,18 +23,29 @@ function parseCsv(text) {
   return rows;
 }
 
+function extractFragranticaId(src) {
+  const s=String(src||'').trim();
+  if (!/fragrantica\./i.test(s)) return null;
+  const m=s.match(/-(\d+)\.html(?:$|[?#])/i) || s.match(/\/p\/(\d+)(?:$|[?#])/i);
+  return m ? Number(m[1]) : null;
+}
+
 const records = new Map();
 for (const file of sources) {
   const rows=parseCsv(fs.readFileSync(file,'utf8').replace(/^\uFEFF/,''));
   const header=rows.shift();
-  const ir=header.indexOf('rank'), ic=header.indexOf('shobi_code'), ip=header.indexOf('primary_source');
+  const ir=header.indexOf('rank'), ic=header.indexOf('shobi_code'), ip=header.indexOf('primary_source'), is=header.indexOf('secondary_source');
   for (const row of rows) {
     const rank=Number(row[ir]);
     if (!Number.isInteger(rank) || rank<1 || rank>100) continue;
-    const src=String(row[ip]||'').trim();
-    const m=src.match(/-(\d+)\.html(?:$|[?#])/i) || src.match(/\/p\/(\d+)(?:$|[?#])/i);
-    if (!m) continue;
-    records.set(rank,{rank,code:String(row[ic]||'').trim(),fragrantica_id:Number(m[1]),primary_source:src});
+    const primary=String(row[ip]||'').trim();
+    const secondary=is>=0 ? String(row[is]||'').trim() : '';
+    const primaryId=extractFragranticaId(primary);
+    const secondaryId=extractFragranticaId(secondary);
+    const fragranticaId=primaryId ?? secondaryId;
+    if (!fragranticaId) continue;
+    const fragranticaSource=primaryId ? primary : secondary;
+    records.set(rank,{rank,code:String(row[ic]||'').trim(),fragrantica_id:fragranticaId,fragrantica_source:fragranticaSource});
   }
 }
 
