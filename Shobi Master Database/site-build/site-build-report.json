@@ -1,5 +1,5 @@
 {
-  "built_at_utc": "2026-08-21T00:47:21.985232+00:00",
+  "built_at_utc": "2026-08-21T00:49:06.671432+00:00",
   "mode": "STAGING_ONLY_DO_NOT_PUBLISH_YET",
   "official_master": "Shobi Master Database/shobi-master-current.csv",
   "enrichment_source": "shobi-master.csv",
@@ -9,16 +9,17 @@
   "master_rows": 2343,
   "existing_site_rows": 2468,
   "candidate_rows": 2343,
-  "matched_total": 2316,
+  "matched_total": 2317,
   "match_rules": {
     "duplicate-identity-richest-enrichment": 3,
     "identity-anchor+exact-name": 101,
+    "reused-exact-full-code-enrichment": 1,
     "unique-base-code": 31,
     "unique-full-code": 2156,
     "unique-url+code-anchor": 24,
     "unique-url+numeric-code+official-source": 1
   },
-  "unmatched_master_rows": 27,
+  "unmatched_master_rows": 26,
   "unmatched_master_sample": [
     "3567",
     "2622",
@@ -41,7 +42,6 @@
     "3641",
     "2334",
     "2687",
-    "831",
     "3360",
     "3199",
     "2689",
@@ -49,15 +49,9 @@
     "1419"
   ],
   "orphan_enrichment_rows": 152,
-  "ambiguous_matches": 1,
-  "ambiguous_sample": [
-    {
-      "prestashop_product_id": "831",
-      "reason": "evidence-without-safe-convergence",
-      "candidates": []
-    }
-  ],
+  "ambiguous_matches": 0,
+  "ambiguous_sample": [],
   "identity_set_exact_match": true,
-  "enrichment_coverage": 0.988476,
+  "enrichment_coverage": 0.988903,
   "safety": "PASS"
 }
