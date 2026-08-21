@@ -48,10 +48,24 @@ jobs:
           fs.writeFileSync(csvPath,[header,...rows].map(r=>r.map(esc).join(',')).join('\n')+'\n');
           console.log('INTEGRATION_OK ranks=60 dataset_rows=41-100');
           NODE
-      - name: Commit verified dataset
+      - name: Build committed Top100 browser enrichment
+        run: |
+          python scripts/apply_bestseller_top100_enrichment.py
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('index.html')
+          s=p.read_text(encoding='utf-8')
+          s=s.replace('bestseller-top100-enrichment.js?v=3','bestseller-top100-enrichment.js?v=4')
+          p.write_text(s,encoding='utf-8')
+          PY
+      - name: Commit verified dataset and browser payload
         run: |
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
-          git add 'Personal Database/fragrantica-main-notes-41-100.json' 'Shobi Master Database/bestseller-top100-enrichment.csv'
-          git commit -m 'Integrate verified Fragrantica notes for bestseller 41-100'
-          git push
+          git add 'Personal Database/fragrantica-main-notes-41-100.json' 'Shobi Master Database/bestseller-top100-enrichment.csv' 'bestseller-top100-enrichment.js' 'site-build/bestseller-top100-enrichment-overlay.json' 'index.html'
+          if git diff --cached --quiet; then
+            echo 'Nothing to commit'
+          else
+            git commit -m 'Publish verified Fragrantica notes for bestseller 41-100'
+            git push
+          fi
