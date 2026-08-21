@@ -41,13 +41,14 @@ def norm_code(value):
 
 
 def base_code(value):
+    """Canonical numeric-brand token, tolerant of legacy spaces: '2133 - FRE N' -> '2133-FRE'."""
     value = norm_code(value)
-    m = re.match(r'^(\d{2,5}-[A-Z0-9]+)', value)
-    return m.group(1) if m else ''
+    m = re.search(r'\b(\d{2,5})\s*-\s*([A-Z0-9]+)', value)
+    return f'{m.group(1)}-{m.group(2)}' if m else ''
 
 
 def numeric_code(value):
-    m = re.search(r'\b(\d{2,5})(?:-[A-Z0-9]+)?\b', norm_code(value))
+    m = re.search(r'\b(\d{2,5})\b', norm_code(value))
     return m.group(1) if m else ''
 
 
@@ -86,20 +87,10 @@ def enrichment_names(row):
 
 
 def enrichment_quality(row):
-    """Tie-break only between rows already proven to represent the same identity."""
     weighted = {
-        'brand': 4,
-        'gender': 3,
-        'identity_source_type': 4,
-        'identity_source_url': 2,
-        'identity_verified': 2,
-        'fragrantica_url': 3,
-        'top_notes': 2,
-        'heart_notes': 2,
-        'base_notes': 2,
-        'notes': 2,
-        'season': 1,
-        'image': 2,
+        'brand': 4, 'gender': 3, 'identity_source_type': 4, 'identity_source_url': 2,
+        'identity_verified': 2, 'fragrantica_url': 3, 'top_notes': 2, 'heart_notes': 2,
+        'base_notes': 2, 'notes': 2, 'season': 1, 'image': 2,
     }
     return sum(weight for field, weight in weighted.items() if clean(row.get(field)))
 
@@ -133,12 +124,7 @@ def minimal_site_row(master_row, headers):
         'identity_match_rule': 'prestashop_product_id-master-authority',
         'secondary_identity_source': '',
         'fragrantica_url': '',
-        'top_notes': '',
-        'heart_notes': '',
-        'base_notes': '',
-        'notes': '',
-        'season': '',
-        'image': '',
+        'top_notes': '', 'heart_notes': '', 'base_notes': '', 'notes': '', 'season': '', 'image': '',
         'description': clean(master_row.get('official_description')),
         'last_built_utc': datetime.now(timezone.utc).isoformat(),
     }
@@ -164,32 +150,22 @@ def diagnostic_master(master):
 
 def diagnostic_enrichment(idx, row, signals, used):
     return {
-        'index': idx,
-        'already_used': idx in used,
-        'signals': sorted(signals),
-        'quality': enrichment_quality(row),
-        'shobi_code': clean(row.get('shobi_code')),
-        'base_code': base_code(row.get('shobi_code')),
-        'shobi_name': clean(row.get('shobi_name')),
-        'inspired_by': clean(row.get('inspired_by')),
-        'brand': clean(row.get('brand')),
-        'gender': norm_gender(row.get('gender')),
-        'shobi_url': clean(row.get('shobi_url')),
+        'index': idx, 'already_used': idx in used, 'signals': sorted(signals),
+        'quality': enrichment_quality(row), 'shobi_code': clean(row.get('shobi_code')),
+        'base_code': base_code(row.get('shobi_code')), 'shobi_name': clean(row.get('shobi_name')),
+        'inspired_by': clean(row.get('inspired_by')), 'brand': clean(row.get('brand')),
+        'gender': norm_gender(row.get('gender')), 'shobi_url': clean(row.get('shobi_url')),
         'identity_source_type': clean(row.get('identity_source_type')),
         'identity_source_url': clean(row.get('identity_source_url')),
     }
 
 
 def main():
-    if not MASTER.exists():
-        raise SystemExit('Safety stop: official shobi-master-current.csv missing')
-    if not ENRICHMENT.exists():
-        raise SystemExit('Safety stop: current site shobi-master.csv missing')
-
+    if not MASTER.exists(): raise SystemExit('Safety stop: official shobi-master-current.csv missing')
+    if not ENRICHMENT.exists(): raise SystemExit('Safety stop: current site shobi-master.csv missing')
     master_rows = read_csv(MASTER)
     enrichment_rows = read_csv(ENRICHMENT)
-    if not master_rows or not enrichment_rows:
-        raise SystemExit('Safety stop: required CSV is empty')
+    if not master_rows or not enrichment_rows: raise SystemExit('Safety stop: required CSV is empty')
 
     master_ids = [clean(r.get('prestashop_product_id')) for r in master_rows]
     if any(not x for x in master_ids) or len(master_ids) != len(set(master_ids)):
@@ -197,27 +173,17 @@ def main():
 
     enrichment_headers = list(enrichment_rows[0].keys())
     output_headers = ['prestashop_product_id'] + [h for h in enrichment_headers if h != 'prestashop_product_id']
-
-    by_url = defaultdict(list)
-    by_code = defaultdict(list)
-    by_base_code = defaultdict(list)
-    by_name = defaultdict(list)
+    by_url, by_code, by_base_code, by_name = defaultdict(list), defaultdict(list), defaultdict(list), defaultdict(list)
     for idx, row in enumerate(enrichment_rows):
-        u = norm_url(row.get('shobi_url'))
-        c = norm_code(row.get('shobi_code'))
-        b = base_code(row.get('shobi_code'))
+        u, c, b = norm_url(row.get('shobi_url')), norm_code(row.get('shobi_code')), base_code(row.get('shobi_code'))
         if u: by_url[u].append(idx)
         if c: by_code[c].append(idx)
         if b: by_base_code[b].append(idx)
         for n in enrichment_names(row): by_name[n].append(idx)
 
     used = set()
-    output = []
+    output, unmatched, ambiguous, unresolved_details, ambiguous_details = [], [], [], [], []
     counters = defaultdict(int)
-    unmatched = []
-    ambiguous = []
-    unresolved_details = []
-    ambiguous_details = []
 
     for master in master_rows:
         pid = clean(master.get('prestashop_product_id'))
@@ -226,8 +192,7 @@ def main():
         m_base = base_code(master.get('shobi_code')) or base_code(master.get('shobi_name'))
         m_num = numeric_code(master.get('shobi_code')) or numeric_code(master.get('shobi_name'))
         m_gender = default_gender(master)
-        m_names = {norm_text(master.get('inspired_by'))}
-        m_names.discard('')
+        m_names = {norm_text(master.get('inspired_by'))}; m_names.discard('')
 
         evidence = defaultdict(set)
         if m_url:
@@ -241,23 +206,21 @@ def main():
 
         scored = []
         for idx, kinds in evidence.items():
-            if idx in used:
-                continue
             row = enrichment_rows[idx]
             eg = norm_gender(row.get('gender'))
             gender_ok = (not eg or eg == m_gender or eg == 'unisex' or m_gender == 'unisex')
-            score = 0
-            if 'code' in kinds: score += 120
-            if 'url' in kinds: score += 100
-            if 'base_code' in kinds: score += 80
-            if 'name' in kinds: score += 70
-            if gender_ok: score += 5
+            reused = idx in used
+            score = (120 if 'code' in kinds else 0) + (100 if 'url' in kinds else 0) + (80 if 'base_code' in kinds else 0) + (70 if 'name' in kinds else 0) + (5 if gender_ok else 0)
             anchors = kinds & {'code', 'url', 'base_code'}
-            safe = False
-            rule = ''
-            if 'code' in kinds and len(by_code.get(m_full, [])) == 1:
+            safe, rule = False, ''
+            # Reuse descriptive enrichment only on an exact full-code identity.
+            # Master still owns URL, description, gender and prestashop_product_id.
+            if reused:
+                if 'code' in kinds:
+                    safe = True; rule = 'reused-exact-full-code-enrichment'
+            elif 'code' in kinds and len(by_code.get(m_full, [])) == 1:
                 safe = True; rule = 'unique-full-code'
-            elif anchors and ('name' in kinds) and gender_ok:
+            elif anchors and 'name' in kinds and gender_ok:
                 safe = True; rule = 'identity-anchor+exact-name'
             elif 'url' in kinds and len(by_url.get(m_url, [])) == 1 and ('base_code' in kinds or 'code' in kinds):
                 safe = True; rule = 'unique-url+code-anchor'
@@ -273,10 +236,8 @@ def main():
                     safe = True; rule = 'unique-exact-name+gender'
             scored.append((score, idx, kinds, safe, rule))
 
-        safe_scored = [x for x in scored if x[3]]
-        safe_scored.sort(key=lambda x: (-x[0], x[1]))
-        chosen = None
-        ambiguity_for_pid = None
+        safe_scored = sorted([x for x in scored if x[3]], key=lambda x: (-x[0], x[1]))
+        chosen, ambiguity_for_pid = None, None
         if safe_scored:
             top_score = safe_scored[0][0]
             same_top = [x for x in safe_scored if x[0] == top_score]
@@ -287,16 +248,13 @@ def main():
                 if same_enrichment_identity(rows):
                     ranked = sorted(((enrichment_quality(enrichment_rows[x[1]]), x) for x in same_top), key=lambda t: (-t[0], t[1][1]))
                     if len(ranked) == 1 or ranked[0][0] > ranked[1][0]:
-                        chosen = (ranked[0][1][0], ranked[0][1][1], ranked[0][1][2], True, 'duplicate-identity-richest-enrichment')
+                        x = ranked[0][1]
+                        chosen = (x[0], x[1], x[2], True, 'duplicate-identity-richest-enrichment')
                 if chosen is None:
                     ambiguity_for_pid = {'prestashop_product_id': pid, 'reason': 'equal-safe-score', 'candidates': [x[1] for x in same_top]}
                     ambiguous.append(ambiguity_for_pid)
         elif evidence:
-            ambiguity_for_pid = {
-                'prestashop_product_id': pid,
-                'reason': 'evidence-without-safe-convergence',
-                'candidates': [{'index': i, 'signals': sorted(k)} for i, k in evidence.items() if i not in used][:10],
-            }
+            ambiguity_for_pid = {'prestashop_product_id': pid, 'reason': 'evidence-without-safe-convergence', 'candidates': [{'index': i, 'signals': sorted(k)} for i, k in evidence.items()][:10]}
             ambiguous.append(ambiguity_for_pid)
 
         if chosen:
@@ -305,84 +263,50 @@ def main():
             counters[rule] += 1
             site = dict(enrichment_rows[idx])
             site['shobi_url'] = clean(master.get('url')) or clean(site.get('shobi_url'))
-            if clean(master.get('official_description')):
-                site['description'] = clean(master.get('official_description'))
-            if not clean(site.get('shobi_code')):
-                site['shobi_code'] = clean(master.get('shobi_name'))
-            if not clean(site.get('inspired_by')):
-                site['inspired_by'] = clean(master.get('inspired_by')) or clean(master.get('shobi_name'))
+            site['gender'] = default_gender(master)
+            if clean(master.get('official_description')): site['description'] = clean(master.get('official_description'))
+            if not clean(site.get('shobi_code')): site['shobi_code'] = clean(master.get('shobi_name'))
+            if not clean(site.get('inspired_by')): site['inspired_by'] = clean(master.get('inspired_by')) or clean(master.get('shobi_name'))
             site['last_built_utc'] = datetime.now(timezone.utc).isoformat()
         else:
             site = minimal_site_row(master, enrichment_headers)
             unmatched.append(pid)
             candidates = [diagnostic_enrichment(i, enrichment_rows[i], kinds, used) for i, kinds in evidence.items()]
-            detail = {
-                'master': diagnostic_master(master),
-                'reason': ambiguity_for_pid['reason'] if ambiguity_for_pid else 'no-enrichment-evidence',
-                'candidate_count': len(candidates),
-                'candidates': candidates,
-            }
+            detail = {'master': diagnostic_master(master), 'reason': ambiguity_for_pid['reason'] if ambiguity_for_pid else 'no-enrichment-evidence', 'candidate_count': len(candidates), 'candidates': candidates}
             unresolved_details.append(detail)
-            if ambiguity_for_pid:
-                ambiguous_details.append(detail)
+            if ambiguity_for_pid: ambiguous_details.append(detail)
 
         out = {'prestashop_product_id': pid}
         for h in enrichment_headers:
-            if h == 'prestashop_product_id':
-                continue
-            out[h] = clean(site.get(h)) if h != 'description' else str(site.get(h) or '').strip()
+            if h != 'prestashop_product_id': out[h] = clean(site.get(h)) if h != 'description' else str(site.get(h) or '').strip()
         output.append(out)
 
     out_ids = [r['prestashop_product_id'] for r in output]
     if len(output) != len(master_rows) or len(out_ids) != len(set(out_ids)) or set(out_ids) != set(master_ids):
         raise SystemExit('Safety stop: candidate identity set differs from official Master')
-
     matched = len(master_rows) - len(unmatched)
     coverage = matched / len(master_rows)
-    if coverage < 0.90:
-        raise SystemExit(f'Safety stop: enrichment coverage too low: {matched}/{len(master_rows)} ({coverage:.2%})')
+    if coverage < 0.90: raise SystemExit(f'Safety stop: enrichment coverage too low: {matched}/{len(master_rows)} ({coverage:.2%})')
 
     orphans = [idx for idx in range(len(enrichment_rows)) if idx not in used]
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     with CANDIDATE.open('w', encoding='utf-8-sig', newline='') as f:
-        w = csv.DictWriter(f, fieldnames=output_headers)
-        w.writeheader(); w.writerows(output)
+        w = csv.DictWriter(f, fieldnames=output_headers); w.writeheader(); w.writerows(output)
 
     stamp = datetime.now(timezone.utc).isoformat()
-    UNRESOLVED.write_text(json.dumps({
-        'built_at_utc': stamp,
-        'purpose': 'AUDIT_ONLY_UNRESOLVED_MASTER_TO_SITE_ENRICHMENT',
-        'unresolved_count': len(unresolved_details),
-        'items': unresolved_details,
-    }, ensure_ascii=False, indent=2), encoding='utf-8')
-    AMBIGUOUS.write_text(json.dumps({
-        'built_at_utc': stamp,
-        'purpose': 'AUDIT_ONLY_AMBIGUOUS_MASTER_TO_SITE_ENRICHMENT',
-        'ambiguous_count': len(ambiguous_details),
-        'items': ambiguous_details,
-    }, ensure_ascii=False, indent=2), encoding='utf-8')
+    UNRESOLVED.write_text(json.dumps({'built_at_utc': stamp, 'purpose': 'AUDIT_ONLY_UNRESOLVED_MASTER_TO_SITE_ENRICHMENT', 'unresolved_count': len(unresolved_details), 'items': unresolved_details}, ensure_ascii=False, indent=2), encoding='utf-8')
+    AMBIGUOUS.write_text(json.dumps({'built_at_utc': stamp, 'purpose': 'AUDIT_ONLY_AMBIGUOUS_MASTER_TO_SITE_ENRICHMENT', 'ambiguous_count': len(ambiguous_details), 'items': ambiguous_details}, ensure_ascii=False, indent=2), encoding='utf-8')
 
     report = {
-        'built_at_utc': stamp,
-        'mode': 'STAGING_ONLY_DO_NOT_PUBLISH_YET',
-        'official_master': str(MASTER.relative_to(ROOT)),
-        'enrichment_source': str(ENRICHMENT.relative_to(ROOT)),
-        'candidate': str(CANDIDATE.relative_to(ROOT)),
-        'unresolved_diagnostics': str(UNRESOLVED.relative_to(ROOT)),
-        'ambiguous_diagnostics': str(AMBIGUOUS.relative_to(ROOT)),
-        'master_rows': len(master_rows),
-        'existing_site_rows': len(enrichment_rows),
-        'candidate_rows': len(output),
-        'matched_total': matched,
-        'match_rules': dict(sorted(counters.items())),
-        'unmatched_master_rows': len(unmatched),
-        'unmatched_master_sample': unmatched[:50],
-        'orphan_enrichment_rows': len(orphans),
-        'ambiguous_matches': len(ambiguous),
-        'ambiguous_sample': ambiguous[:50],
-        'identity_set_exact_match': True,
-        'enrichment_coverage': round(coverage, 6),
-        'safety': 'PASS',
+        'built_at_utc': stamp, 'mode': 'STAGING_ONLY_DO_NOT_PUBLISH_YET',
+        'official_master': str(MASTER.relative_to(ROOT)), 'enrichment_source': str(ENRICHMENT.relative_to(ROOT)),
+        'candidate': str(CANDIDATE.relative_to(ROOT)), 'unresolved_diagnostics': str(UNRESOLVED.relative_to(ROOT)),
+        'ambiguous_diagnostics': str(AMBIGUOUS.relative_to(ROOT)), 'master_rows': len(master_rows),
+        'existing_site_rows': len(enrichment_rows), 'candidate_rows': len(output), 'matched_total': matched,
+        'match_rules': dict(sorted(counters.items())), 'unmatched_master_rows': len(unmatched),
+        'unmatched_master_sample': unmatched[:50], 'orphan_enrichment_rows': len(orphans),
+        'ambiguous_matches': len(ambiguous), 'ambiguous_sample': ambiguous[:50],
+        'identity_set_exact_match': True, 'enrichment_coverage': round(coverage, 6), 'safety': 'PASS',
     }
     REPORT.write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding='utf-8')
     print(json.dumps(report, ensure_ascii=False, indent=2))
