@@ -1,0 +1,647 @@
+{
+  "built_at_utc": "2026-08-21T00:45:44.124558+00:00",
+  "purpose": "AUDIT_ONLY_UNRESOLVED_MASTER_TO_SITE_ENRICHMENT",
+  "unresolved_count": 31,
+  "items": [
+    {
+      "master": {
+        "prestashop_product_id": "169",
+        "shobi_code": "1073-DRC",
+        "shobi_name": "1073-DRC M Perfume",
+        "reference": "MP069",
+        "reference_prefix": "MP",
+        "inspired_by": "HOMME PARFUM",
+        "category": "Fragrances For Men",
+        "url": "https://leparfum.com.gr/en/fragrances-for-men/1073-drc-m-perfume",
+        "gender_from_master": "men"
+      },
+      "reason": "equal-safe-score",
+      "candidate_count": 2,
+      "candidates": [
+        {
+          "index": 1340,
+          "already_used": false,
+          "signals": [
+            "base_code",
+            "name",
+            "url"
+          ],
+          "shobi_code": "1073-DRC",
+          "base_code": "1073-DRC",
+          "shobi_name": "HOMME PARFUM",
+          "inspired_by": "HOMME PARFUM",
+          "brand": "Christian Dior",
+          "gender": "men",
+          "shobi_url": "https://leparfum.com.gr/en/fragrances-for-men/1073-drc-m-perfume#/1-choose-eau_de_parfum/2-bottle-30ml/3-extra_essence-0ml",
+          "identity_source_type": "SHOBI_OFFICIAL_EXPLICIT",
+          "identity_source_url": "https://raw.githubusercontent.com/smellyCat-deep/shobi_inspiration/main/database_complete.json"
+        },
+        {
+          "index": 2450,
+          "already_used": false,
+          "signals": [
+            "base_code",
+            "name",
+            "url"
+          ],
+          "shobi_code": "1073-DRC M",
+          "base_code": "1073-DRC",
+          "shobi_name": "HOMME PARFUM",
+          "inspired_by": "HOMME PARFUM",
+          "brand": "",
+          "gender": "",
+          "shobi_url": "https://leparfum.com.gr/en/fragrances-for-men/1073-drc-m-perfume#/1-choose-eau_de_parfum/2-bottle-30ml/3-extra_essence-0ml",
+          "identity_source_type": "",
+          "identity_source_url": ""
+        }
+      ]
+    },
+    {
+      "master": {
+        "prestashop_product_id": "3958",
+        "shobi_code": "",
+        "shobi_name": "2313 - DRC M",
+        "reference": "MP358",
+        "reference_prefix": "MP",
+        "inspired_by": "Sauvage Parfum",
+        "category": "Fragrances For Men",
+        "url": "https://leparfum.com.gr/en/fragrances-for-men/2313-drc-m",
+        "gender_from_master": "men"
+      },
+      "reason": "equal-safe-score",
+      "candidate_count": 2,
+      "candidates": [
+        {
+          "index": 486,
+          "already_used": false,
+          "signals": [
+            "name",
+            "url"
+          ],
+          "shobi_code": "2313-DRC",
+          "base_code": "2313-DRC",
+          "shobi_name": "Sauvage Parfum",
+          "inspired_by": "Sauvage Parfum",
+          "brand": "Christian Dior",
+          "gender": "men",
+          "shobi_url": "https://leparfum.com.gr/en/fragrances-for-men/2313-drc-m#/1-choose-eau_de_parfum/2-bottle-30ml/3-extra_essence-0ml",
+          "identity_source_type": "SHOBI_OFFICIAL_EXPLICIT",
+          "identity_source_url": "https://raw.githubusercontent.com/smellyCat-deep/shobi_inspiration/main/database_complete.json"
+        },
+        {
+          "index": 2309,
+          "already_used": false,
+          "signals": [
+            "name",
+            "url"
+          ],
+          "shobi_code": "2313-DRC M",
+          "base_code": "2313-DRC",
+          "shobi_name": "Sauvage Parfum",
+          "inspired_by": "Sauvage Parfum",
+          "brand": "",
+          "gender": "",
+          "shobi_url": "https://leparfum.com.gr/en/fragrances-for-men/2313-drc-m#/1-choose-eau_de_parfum/2-bottle-30ml/3-extra_essence-0ml",
+          "identity_source_type": "",
+          "identity_source_url": ""
+        }
+      ]
+    },
+    {
+      "master": {
+        "prestashop_product_id": "3891",
+        "shobi_code": "2259-GIV",
+        "shobi_name": "2259-GIV M Perfume",
+        "reference": "MP353",
+        "reference_prefix": "MP",
+        "inspired_by": "GENTLEMAN RESERVE EAU DE PARFUM PRIVE",
+        "category": "Fragrances For Men",
+        "url": "https://leparfum.com.gr/en/fragrances-for-men/2259-giv-m-perfume",
+        "gender_from_master": "men"
+      },
+      "reason": "equal-safe-score",
+      "candidate_count": 2,
+      "candidates": [
+        {
+          "index": 535,
+          "already_used": false,
+          "signals": [
+            "base_code",
+            "name",
+            "url"
+          ],
+          "shobi_code": "2259-GIV",
+          "base_code": "2259-GIV",
+          "shobi_name": "GENTLEMAN RESERVE EAU DE PARFUM PRIVE",
+          "inspired_by": "GENTLEMAN RESERVE EAU DE PARFUM PRIVE",
+          "brand": "Givenchy",
+          "gender": "men",
+          "shobi_url": "https://leparfum.com.gr/en/fragrances-for-men/2259-giv-m-perfume#/1-choose-eau_de_parfum/2-bottle-30ml/3-extra_essence-0ml",
+          "identity_source_type": "SHOBI_OFFICIAL_EXPLICIT",
+          "identity_source_url": "https://raw.githubusercontent.com/smellyCat-deep/shobi_inspiration/main/database_complete.json"
+        },
+        {
+          "index": 2312,
+          "already_used": false,
+          "signals": [
+            "base_code",
+            "name",
+            "url"
+          ],
+          "shobi_code": "2259-GIV M",
+          "base_code": "2259-GIV",
+          "shobi_name": "GENTLEMAN RESERVE EAU DE PARFUM PRIVE",
+          "inspired_by": "GENTLEMAN RESERVE EAU DE PARFUM PRIVE",
+          "brand": "",
+          "gender": "",
+          "shobi_url": "https://leparfum.com.gr/en/fragrances-for-men/2259-giv-m-perfume#/1-choose-eau_de_parfum/2-bottle-30ml/3-extra_essence-0ml",
+          "identity_source_type": "",
+          "identity_source_url": ""
+        }
+      ]
+    },
+    {
+      "master": {
+        "prestashop_product_id": "3567",
+        "shobi_code": "",
+        "shobi_name": "2133 - FRE N",
+        "reference": "AR307",
+        "reference_prefix": "AR",
+        "inspired_by": "",
+        "category": "Niche Perfumes",
+        "url": "https://leparfum.com.gr/en/niche-perfumes/2133-fre-n",
+        "gender_from_master": "unisex"
+      },
+      "reason": "no-enrichment-evidence",
+      "candidate_count": 0,
+      "candidates": []
+    },
+    {
+      "master": {
+        "prestashop_product_id": "2622",
+        "shobi_code": "",
+        "shobi_name": "1767 - LTN N",
+        "reference": "AR144",
+        "reference_prefix": "AR",
+        "inspired_by": "",
+        "category": "Niche Perfumes",
+        "url": "https://leparfum.com.gr/en/niche-perfumes/1767-ltn-n",
+        "gender_from_master": "unisex"
+      },
+      "reason": "no-enrichment-evidence",
+      "candidate_count": 0,
+      "candidates": []
+    },
+    {
+      "master": {
+        "prestashop_product_id": "999",
+        "shobi_code": "",
+        "shobi_name": "WHITE MUSK Perfume",
+        "reference": "WP499",
+        "reference_prefix": "WP",
+        "inspired_by": "",
+        "category": "Fragrances For Women",
+        "url": "https://leparfum.com.gr/en/fragrances-for-women/white-musk-perfume",
+        "gender_from_master": "women"
+      },
+      "reason": "no-enrichment-evidence",
+      "candidate_count": 0,
+      "candidates": []
+    },
+    {
+      "master": {
+        "prestashop_product_id": "2111",
+        "shobi_code": "",
+        "shobi_name": "RED AFRICAN - AL HARAMAIN PERFUMES (U) Original",
+        "reference": "AR049",
+        "reference_prefix": "AR",
+        "inspired_by": "",
+        "category": "Niche Perfumes",
+        "url": "https://leparfum.com.gr/en/niche-perfumes/red-african-al-haramain-perfumes-original",
+        "gender_from_master": "unisex"
+      },
+      "reason": "no-enrichment-evidence",
+      "candidate_count": 0,
+      "candidates": []
+    },
+    {
+      "master": {
+        "prestashop_product_id": "2416",
+        "shobi_code": "1685-FRE",
+        "shobi_name": "1685-FRE N",
+        "reference": "AR117",
+        "reference_prefix": "AR",
+        "inspired_by": "the notes of EN PASSANT Woman's perfume",
+        "category": "Niche Perfumes",
+        "url": "https://leparfum.com.gr/en/niche-perfumes/1685-fre-n",
+        "gender_from_master": "unisex"
+      },
+      "reason": "evidence-without-safe-convergence",
+      "candidate_count": 1,
+      "candidates": [
+        {
+          "index": 1005,
+          "already_used": false,
+          "signals": [
+            "url"
+          ],
+          "shobi_code": "1685-FRED N",
+          "base_code": "1685-FRED",
+          "shobi_name": "EN PASSANT Woman's perfume",
+          "inspired_by": "EN PASSANT Woman's perfume",
+          "brand": "Frederic Malle",
+          "gender": "women",
+          "shobi_url": "https://leparfum.com.gr/en/niche-perfumes/1685-fre-n#/1-choose-eau_de_parfum/2-bottle-30ml/3-extra_essence-0ml",
+          "identity_source_type": "SHOBI_OFFICIAL_EXPLICIT",
+          "identity_source_url": "https://leparfum.com.gr/el/niche-αρώματα/1685-fred-n#/1-επιλέξτε-άρωμα/2-μπουκάλι-30ml/3-ενίσχυση-0ml"
+        }
+      ]
+    },
+    {
+      "master": {
+        "prestashop_product_id": "2376",
+        "shobi_code": "1641-KHAL",
+        "shobi_name": "1641-KHAL AR",
+        "reference": "AR053",
+        "reference_prefix": "AR",
+        "inspired_by": "",
+        "category": "Arabian Perfumes",
+        "url": "https://leparfum.com.gr/en/arabian-perfumes/aloha-khaltat-similar-type",
+        "gender_from_master": "unisex"
+      },
+      "reason": "no-enrichment-evidence",
+      "candidate_count": 0,
+      "candidates": []
+    },
+    {
+      "master": {
+        "prestashop_product_id": "2271",
+        "shobi_code": "",
+        "shobi_name": "MUKHALLAT AL EMIRATES - AL HARAMAIN ORIGINAL PERFUME",
+        "reference": "AR095",
+        "reference_prefix": "AR",
+        "inspired_by": "",
+        "category": "Niche Perfumes",
+        "url": "https://leparfum.com.gr/en/niche-perfumes/mukhallat-al-emirates-al-haramain-original-perfume",
+        "gender_from_master": "unisex"
+      },
+      "reason": "no-enrichment-evidence",
+      "candidate_count": 0,
+      "candidates": []
+    },
+    {
+      "master": {
+        "prestashop_product_id": "3485",
+        "shobi_code": "",
+        "shobi_name": "2106 - MARC Ν",
+        "reference": "AR295",
+        "reference_prefix": "AR",
+        "inspired_by": "",
+        "category": "Niche Perfumes",
+        "url": "https://leparfum.com.gr/en/niche-perfumes/2106-marc-%CE%BD",
+        "gender_from_master": "unisex"
+      },
+      "reason": "no-enrichment-evidence",
+      "candidate_count": 0,
+      "candidates": []
+    },
+    {
+      "master": {
+        "prestashop_product_id": "3717",
+        "shobi_code": "2199-LAT",
+        "shobi_name": "2199-LAT Ν",
+        "reference": "AR330",
+        "reference_prefix": "AR",
+        "inspired_by": "KHALIS MUSK (PURE MUSK) - LATTAFA",
+        "category": "Niche Perfumes",
+        "url": "https://leparfum.com.gr/en/niche-perfumes/2199-lat-%CE%BD",
+        "gender_from_master": "unisex"
+      },
+      "reason": "no-enrichment-evidence",
+      "candidate_count": 0,
+      "candidates": []
+    },
+    {
+      "master": {
+        "prestashop_product_id": "2686",
+        "shobi_code": "1811-ALJA",
+        "shobi_name": "1811-ALJA AR",
+        "reference": "AR168",
+        "reference_prefix": "AR",
+        "inspired_by": "",
+        "category": "Arabian Perfumes",
+        "url": "https://leparfum.com.gr/en/arabian-perfumes/magic-al-jazeera-perfumes-type",
+        "gender_from_master": "unisex"
+      },
+      "reason": "no-enrichment-evidence",
+      "candidate_count": 0,
+      "candidates": []
+    },
+    {
+      "master": {
+        "prestashop_product_id": "3804",
+        "shobi_code": "",
+        "shobi_name": "HAYATI - AL HARAMAIN Arabic Perfume",
+        "reference": "AR340",
+        "reference_prefix": "AR",
+        "inspired_by": "",
+        "category": "Niche Perfumes",
+        "url": "https://leparfum.com.gr/en/niche-perfumes/hayati-al-haramain-arabic-perfume",
+        "gender_from_master": "unisex"
+      },
+      "reason": "no-enrichment-evidence",
+      "candidate_count": 0,
+      "candidates": []
+    },
+    {
+      "master": {
+        "prestashop_product_id": "1416",
+        "shobi_code": "175-SHA",
+        "shobi_name": "175-SHA AR",
+        "reference": "AR016",
+        "reference_prefix": "AR",
+        "inspired_by": "",
+        "category": "Arabian Perfumes",
+        "url": "https://leparfum.com.gr/en/arabian-perfumes/opulent-shaik-classic-no-33-shaik-type",
+        "gender_from_master": "unisex"
+      },
+      "reason": "no-enrichment-evidence",
+      "candidate_count": 0,
+      "candidates": []
+    },
+    {
+      "master": {
+        "prestashop_product_id": "2911",
+        "shobi_code": "",
+        "shobi_name": "SULTAN - AL HARAMAIN",
+        "reference": "AR227",
+        "reference_prefix": "AR",
+        "inspired_by": "",
+        "category": "Niche Perfumes",
+        "url": "https://leparfum.com.gr/en/niche-perfumes/sultan-al-haramain",
+        "gender_from_master": "unisex"
+      },
+      "reason": "no-enrichment-evidence",
+      "candidate_count": 0,
+      "candidates": []
+    },
+    {
+      "master": {
+        "prestashop_product_id": "1415",
+        "shobi_code": "168-RAS",
+        "shobi_name": "168-RAS AR",
+        "reference": "AR015",
+        "reference_prefix": "AR",
+        "inspired_by": "",
+        "category": "Arabian Perfumes",
+        "url": "https://leparfum.com.gr/en/arabian-perfumes/daarej-for-women-rasasi-perfume-type",
+        "gender_from_master": "unisex"
+      },
+      "reason": "no-enrichment-evidence",
+      "candidate_count": 0,
+      "candidates": []
+    },
+    {
+      "master": {
+        "prestashop_product_id": "3645",
+        "shobi_code": "",
+        "shobi_name": "SUKAR - ANFASIC DOKHOON Arabic Perfrume",
+        "reference": "UAE001",
+        "reference_prefix": "UAE",
+        "inspired_by": "",
+        "category": "Arabian Perfumes",
+        "url": "https://leparfum.com.gr/en/arabian-perfumes/sukar-anfasic-dokhoon-arabic-perfrume",
+        "gender_from_master": "unisex"
+      },
+      "reason": "no-enrichment-evidence",
+      "candidate_count": 0,
+      "candidates": []
+    },
+    {
+      "master": {
+        "prestashop_product_id": "2685",
+        "shobi_code": "1810-RAS",
+        "shobi_name": "1810-RAS AR",
+        "reference": "AR167",
+        "reference_prefix": "AR",
+        "inspired_by": "",
+        "category": "Arabian Perfumes",
+        "url": "https://leparfum.com.gr/en/arabian-perfumes/la-yuqawam-tobacco-blaze-rasasi-perfume-type",
+        "gender_from_master": "unisex"
+      },
+      "reason": "no-enrichment-evidence",
+      "candidate_count": 0,
+      "candidates": []
+    },
+    {
+      "master": {
+        "prestashop_product_id": "3362",
+        "shobi_code": "1981-KHAL",
+        "shobi_name": "1981-KHAL AR",
+        "reference": "AR269",
+        "reference_prefix": "AR",
+        "inspired_by": "",
+        "category": "Arabian Perfumes",
+        "url": "https://leparfum.com.gr/en/arabian-perfumes/gra-khaltat-similar-fragrance",
+        "gender_from_master": "unisex"
+      },
+      "reason": "no-enrichment-evidence",
+      "candidate_count": 0,
+      "candidates": []
+    },
+    {
+      "master": {
+        "prestashop_product_id": "2942",
+        "shobi_code": "",
+        "shobi_name": "Dopamine Arabic Perfume العطور",
+        "reference": "AR236",
+        "reference_prefix": "AR",
+        "inspired_by": "",
+        "category": "Niche Perfumes",
+        "url": "https://leparfum.com.gr/en/niche-perfumes/dopamine-arabic-perfume-%D8%A7%D9%84%D8%B9%D8%B7%D9%88%D8%B1",
+        "gender_from_master": "unisex"
+      },
+      "reason": "no-enrichment-evidence",
+      "candidate_count": 0,
+      "candidates": []
+    },
+    {
+      "master": {
+        "prestashop_product_id": "2943",
+        "shobi_code": "1870-ARDAL",
+        "shobi_name": "1870-ARDAL AR",
+        "reference": "AR237",
+        "reference_prefix": "AR",
+        "inspired_by": "",
+        "category": "Arabian Perfumes",
+        "url": "https://leparfum.com.gr/en/arabian-perfumes/ameerat-al-ehsaas-ard-al-zaafaran-dupe",
+        "gender_from_master": "unisex"
+      },
+      "reason": "no-enrichment-evidence",
+      "candidate_count": 0,
+      "candidates": []
+    },
+    {
+      "master": {
+        "prestashop_product_id": "3641",
+        "shobi_code": "",
+        "shobi_name": "KASHKHA - SWISS ARABIAN Inspired Perfrume",
+        "reference": "UAE002",
+        "reference_prefix": "UAE",
+        "inspired_by": "",
+        "category": "Arabian Perfumes",
+        "url": "https://leparfum.com.gr/en/arabian-perfumes/kashkha-swiss-arabian-inspired-perfrume",
+        "gender_from_master": "unisex"
+      },
+      "reason": "no-enrichment-evidence",
+      "candidate_count": 0,
+      "candidates": []
+    },
+    {
+      "master": {
+        "prestashop_product_id": "2334",
+        "shobi_code": "",
+        "shobi_name": "WARDIA - AL HARAMAIN Fragrance",
+        "reference": "AR037",
+        "reference_prefix": "AR",
+        "inspired_by": "",
+        "category": "Niche Perfumes",
+        "url": "https://leparfum.com.gr/en/niche-perfumes/wardia-al-haramain-fragrance",
+        "gender_from_master": "unisex"
+      },
+      "reason": "no-enrichment-evidence",
+      "candidate_count": 0,
+      "candidates": []
+    },
+    {
+      "master": {
+        "prestashop_product_id": "2687",
+        "shobi_code": "1812-ALJA",
+        "shobi_name": "1812-ALJA AR",
+        "reference": "AR169",
+        "reference_prefix": "AR",
+        "inspired_by": "",
+        "category": "Arabian Perfumes",
+        "url": "https://leparfum.com.gr/en/arabian-perfumes/palace-al-jazeera-perfumes-type",
+        "gender_from_master": "unisex"
+      },
+      "reason": "no-enrichment-evidence",
+      "candidate_count": 0,
+      "candidates": []
+    },
+    {
+      "master": {
+        "prestashop_product_id": "831",
+        "shobi_code": "777-LAL",
+        "shobi_name": "777-LAL WP",
+        "reference": "WP331",
+        "reference_prefix": "WP",
+        "inspired_by": "SCULPTEUR D' EPICES - LALIQUE",
+        "category": "Fragrances For Women",
+        "url": "https://leparfum.com.gr/en/fragrances-for-women/sculpteur-epices-lalique-woman",
+        "gender_from_master": "women"
+      },
+      "reason": "evidence-without-safe-convergence",
+      "candidate_count": 1,
+      "candidates": [
+        {
+          "index": 1623,
+          "already_used": true,
+          "signals": [
+            "base_code",
+            "code"
+          ],
+          "shobi_code": "777-LAL WP",
+          "base_code": "777-LAL",
+          "shobi_name": "SCULPTEUR D' EPICES",
+          "inspired_by": "SCULPTEUR D' EPICES",
+          "brand": "Lalique",
+          "gender": "unisex",
+          "shobi_url": "https://leparfum.com.gr/en/fragrances-for-men/sculpteur-d-epices-lalique-type#/1-choose-eau_de_parfum/2-bottle-30ml/3-extra_essence-0ml",
+          "identity_source_type": "SECONDARY_EXACT_CODE",
+          "identity_source_url": "https://raw.githubusercontent.com/smellyCat-deep/shobi_inspiration/main/database_complete.json"
+        }
+      ]
+    },
+    {
+      "master": {
+        "prestashop_product_id": "3360",
+        "shobi_code": "1979-RAS",
+        "shobi_name": "1979-RAS AR",
+        "reference": "AR267",
+        "reference_prefix": "AR",
+        "inspired_by": "",
+        "category": "Arabian Perfumes",
+        "url": "https://leparfum.com.gr/en/arabian-perfumes/arba-wardat-rasasi-arabic-clone",
+        "gender_from_master": "unisex"
+      },
+      "reason": "no-enrichment-evidence",
+      "candidate_count": 0,
+      "candidates": []
+    },
+    {
+      "master": {
+        "prestashop_product_id": "3199",
+        "shobi_code": "2007-SWISA",
+        "shobi_name": "2007-SWISA AR",
+        "reference": "AR264",
+        "reference_prefix": "AR",
+        "inspired_by": "",
+        "category": "Arabian Perfumes",
+        "url": "https://leparfum.com.gr/en/arabian-perfumes/habeitak-swiss-arabian-clone",
+        "gender_from_master": "unisex"
+      },
+      "reason": "no-enrichment-evidence",
+      "candidate_count": 0,
+      "candidates": []
+    },
+    {
+      "master": {
+        "prestashop_product_id": "2689",
+        "shobi_code": "1814-AJMA",
+        "shobi_name": "1814-AJMA",
+        "reference": "AR171",
+        "reference_prefix": "AR",
+        "inspired_by": "",
+        "category": "Arabian Perfumes",
+        "url": "https://leparfum.com.gr/en/arabian-perfumes/mizyaan-ajmal-arabic-perfume-type",
+        "gender_from_master": "unisex"
+      },
+      "reason": "no-enrichment-evidence",
+      "candidate_count": 0,
+      "candidates": []
+    },
+    {
+      "master": {
+        "prestashop_product_id": "2688",
+        "shobi_code": "",
+        "shobi_name": "DANAT AL DUNIYA - AJMAL Perfume Type",
+        "reference": "AR170",
+        "reference_prefix": "AR",
+        "inspired_by": "",
+        "category": "Arabian Perfumes",
+        "url": "https://leparfum.com.gr/en/arabian-perfumes/danat-al-duniya-ajmal-perfume-type",
+        "gender_from_master": "unisex"
+      },
+      "reason": "no-enrichment-evidence",
+      "candidate_count": 0,
+      "candidates": []
+    },
+    {
+      "master": {
+        "prestashop_product_id": "1419",
+        "shobi_code": "",
+        "shobi_name": "Huboob - YAS Arabic Perfume",
+        "reference": "AR019",
+        "reference_prefix": "AR",
+        "inspired_by": "",
+        "category": "Arabian Perfumes",
+        "url": "https://leparfum.com.gr/en/arabian-perfumes/huboob-yas-arabic-perfume",
+        "gender_from_master": "unisex"
+      },
+      "reason": "no-enrichment-evidence",
+      "candidate_count": 0,
+      "candidates": []
+    }
+  ]
+}

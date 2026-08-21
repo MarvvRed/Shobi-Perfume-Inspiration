@@ -1,9 +1,10 @@
 {
-  "built_at_utc": "2026-08-21T00:39:16.225625+00:00",
+  "built_at_utc": "2026-08-21T00:45:44.125082+00:00",
   "mode": "STAGING_ONLY_DO_NOT_PUBLISH_YET",
   "official_master": "Shobi Master Database/shobi-master-current.csv",
   "enrichment_source": "shobi-master.csv",
   "candidate": "Shobi Master Database/site-build/shobi-master-site-candidate.csv",
+  "unresolved_diagnostics": "Shobi Master Database/site-build/site-build-unresolved.json",
   "master_rows": 2343,
   "existing_site_rows": 2468,
   "candidate_rows": 2343,
