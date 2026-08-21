@@ -37,11 +37,7 @@ jobs:
         shell: cmd
         run: curl.exe --fail --silent --show-error http://127.0.0.1:9222/json/version
 
-      - name: Apply canonical Master bestseller ranks to runtime
-        shell: cmd
-        run: python "Personal Database\scripts\apply_master_rank_to_runtime.py"
-
-      - name: Capture canonical Best Seller ranks and Fragrantica 41-100
+      - name: Capture live Best Seller ranks and Fragrantica 41-100
         id: capture
         continue-on-error: true
         shell: powershell
@@ -64,6 +60,7 @@ jobs:
           git diff --cached --quiet
           if ($LASTEXITCODE -ne 0) {
             git commit -m "Persist Fragrantica 41-100 diagnostics"
+            git pull --rebase origin main
             git push origin HEAD:main
           }
 
