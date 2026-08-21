@@ -38,7 +38,8 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add "Shobi Master Database/site-build/shobi-master-site-candidate.csv" \
-                  "Shobi Master Database/site-build/site-build-report.json"
+                  "Shobi Master Database/site-build/site-build-report.json" \
+                  "Shobi Master Database/site-build/site-build-unresolved.json"
           if git diff --cached --quiet; then
             echo "No staging build changes to commit."
           else
