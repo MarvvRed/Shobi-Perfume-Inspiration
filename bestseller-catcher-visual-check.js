@@ -2,8 +2,24 @@
 (function () {
   function escText(v) { return String(v || '').trim(); }
 
+  function ensureSeasonLabel(card) {
+    const labels = { spring: 'Spring', summer: 'Summer', fall: 'Fall', autumn: 'Autumn', winter: 'Winter' };
+    card.querySelectorAll('[data-card-filter="season"]').forEach(btn => {
+      const key = escText(btn.dataset.filterValue).toLowerCase();
+      const label = labels[key];
+      if (!label || escText(btn.textContent).toLowerCase().includes(label.toLowerCase())) return;
+      const span = document.createElement('span');
+      span.className = 'catcher-season-label';
+      span.textContent = label;
+      span.style.fontSize = '16px';
+      btn.appendChild(span);
+    });
+  }
+
   function prepareCard(card) {
     if (!card) return '';
+
+    ensureSeasonLabel(card);
 
     // Preserve the product code before removing the now-unused details button.
     const details = card.querySelector('[data-action="show-details"][data-code]');
