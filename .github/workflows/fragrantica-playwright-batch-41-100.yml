@@ -2,6 +2,10 @@ name: Fragrantica Playwright Batch 41-100
 
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/triggers/fragrantica-41-100.txt'
 
 permissions:
   contents: read
