@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import csv
 import json
+from collections import Counter
 from pathlib import Path
 
 SCRIPT_DIR = Path(__file__).resolve().parent
@@ -21,15 +22,13 @@ def main():
         raise SystemExit(f'Invalid master row count: {len(rows)}')
 
     products = []
-    seen = set()
+    code_counts = Counter()
     for row in rows:
         code = str(row.get('shobi_code') or '').strip()
         key = ''.join(code.upper().split())
         if not code or not key:
             raise SystemExit('Master contains blank shobi_code')
-        if key in seen:
-            raise SystemExit(f'Duplicate shobi_code in master: {code}')
-        seen.add(key)
+        code_counts[key] += 1
 
         name = str(row.get('inspired_by') or row.get('shobi_name') or code).strip()
         brand = str(row.get('brand') or '').strip()
@@ -48,13 +47,20 @@ def main():
             rank,
         ])
 
+    duplicates = sorted((code, count) for code, count in code_counts.items() if count > 1)
+    if duplicates:
+        print('RUNTIME_DUPLICATE_SHOBI_CODES', duplicates)
+
     payload = {'v': 2, 'count': len(products), 'p': products}
     RUNTIME.write_text(
         json.dumps(payload, ensure_ascii=False, separators=(',', ':')),
         encoding='utf-8',
     )
 
-    print(f'RUNTIME_REBUILT source={MASTER} rows={len(products)} unique_codes={len(seen)}')
+    print(
+        f'RUNTIME_REBUILT source={MASTER} rows={len(products)} '
+        f'unique_codes={len(code_counts)} duplicate_code_groups={len(duplicates)}'
+    )
 
 
 if __name__ == '__main__':
