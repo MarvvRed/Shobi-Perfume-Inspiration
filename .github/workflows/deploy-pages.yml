@@ -24,6 +24,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Apply canonical bestseller ranks to Personal Database master
+        run: python "Personal Database/scripts/apply_bestseller_rank_to_master.py"
+
+      - name: Propagate canonical bestseller ranks to site runtime
+        run: python "Personal Database/scripts/apply_master_rank_to_runtime.py"
+
       - name: Build source-locked Best Seller Top 100 enrichment overlay
         run: python scripts/apply_bestseller_top100_enrichment.py
 
