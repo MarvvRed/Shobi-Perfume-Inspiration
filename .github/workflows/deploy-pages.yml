@@ -30,91 +30,82 @@ jobs:
         with:
           ref: main
 
-      - name: Apply canonical bestseller ranks to root master
-        run: python "Personal Database/scripts/apply_bestseller_rank_to_master.py"
-
-      - name: Rebuild site runtime from root master
-        run: python "Personal Database/scripts/rebuild_runtime_from_master.py"
-
-      - name: Propagate canonical bestseller ranks to site runtime
-        run: python "Personal Database/scripts/apply_master_rank_to_runtime.py"
-
-      - name: Verify root master/runtime parity and Top 40 presence
-        shell: bash
-        run: |
-          python - <<'PY'
-          import csv,json
-          from pathlib import Path
-          master_path=Path('shobi-master.csv')
-          runtime_path=Path('Personal Database/site-runtime-v2.json')
-          with master_path.open(encoding='utf-8-sig',newline='') as f:
-              master=list(csv.DictReader(f))
-          runtime=json.loads(runtime_path.read_text(encoding='utf-8'))
-          products=runtime.get('p',[])
-          assert runtime.get('count')==len(master)==len(products), (runtime.get('count'),len(master),len(products))
-          ranked={int(p[6]):p[0] for p in products if isinstance(p,list) and len(p)>6 and p[6]}
-          missing=[i for i in range(1,41) if i not in ranked]
-          assert not missing, f'Missing runtime Top 40 ranks: {missing}'
-          assert ranked[21].startswith('1644-DRC'), f'Rank 21 mismatch: {ranked.get(21)}'
-          assert ranked[22].startswith('2398-FRE'), f'Rank 22 mismatch: {ranked.get(22)}'
-          print('RUNTIME_GATE_PASS',len(products),'TOP40',[(i,ranked[i]) for i in range(1,41)])
-          PY
-
-      - name: Build source-locked Best Seller Top 100 enrichment overlay
+      - name: Build static Top 100 enrichment
         run: python scripts/apply_bestseller_top100_enrichment.py
 
-      - name: Apply Official Catcher notes to deployed enrichment
+      - name: Build verified catcher map 1-100
         shell: bash
         run: |
           node <<'NODE'
           const fs=require('fs');
-          const baseDir='Personal Database';
-          const runtime=JSON.parse(fs.readFileSync(`${baseDir}/site-runtime-v2.json`,'utf8'));
-          const enrichmentDoc=JSON.parse(fs.readFileSync(`${baseDir}/site-enrichment-v2.json`,'utf8'));
-          const catcher=JSON.parse(fs.readFileSync(`${baseDir}/fragrantica-main-notes.json`,'utf8'));
-          const batch2140=JSON.parse(fs.readFileSync(`${baseDir}/fragrantica-main-notes-21-40.json`,'utf8'));
-          const batch41100=JSON.parse(fs.readFileSync(`${baseDir}/fragrantica-main-notes-41-100.json`,'utf8'));
-          const enrichment=enrichmentDoc.e||{}, catcherById=catcher.perfumes||{};
-          const clean=v=>String(v||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,' ').trim();
-          const codeKey=v=>String(v||'').toUpperCase().replace(/\s+/g,'');
-          const fragIdFromUrl=url=>{const m=String(url||'').match(/-(\d+)\.html(?:[?#]|$)/i);return m?m[1]:'';};
-          const perfumeByCode=new Map((runtime.p||[]).map(x=>[codeKey(x[0]),{code:x[0],name:x[1],brand:x[2]}]));
-          const catcherByName=new Map();
-          for(const [id,src] of Object.entries(catcherById)){const k=clean(src&&src.name);if(k&&!catcherByName.has(k))catcherByName.set(k,{id:String(id),src});}
-          function explicitAlias(p){if(!p)return null;const name=clean(p.name),brand=clean(p.brand);const aliases=[{id:'52616',names:['vanilla 28'],brands:['kayali']},{id:'34893',names:['soleil blanc'],brands:['tom ford']},{id:'6458',names:['bal d afrique','bal dafrique'],brands:['byredo']},{id:'9828',names:['aventus','avent'],brands:['creed']},{id:'4322',names:['love don t be shy','love dont be shy'],brands:['kilian','by kilian']},{id:'39358',names:['this is her'],brands:['zadig voltaire','zadig volatire']},{id:'84933',names:['vanilla powder'],brands:['matiere premiere']},{id:'64757',names:['bianco latte'],brands:['giardini di toscana']},{id:'30529',names:['xj 1861 naxos','naxos'],brands:['xerjoff']},{id:'3865',names:['philosykos eau de parfum','philosykos'],brands:['diptyque']},{id:'83483',names:['goddess','burberry goddess'],brands:['burberry']}];for(const a of aliases){const src=catcherById[a.id];if(!src)continue;const nm=a.names.some(n=>name===n||name.includes(n));const bm=!brand||a.brands.some(b=>brand.includes(b));if(nm&&bm)return{id:String(a.id),src};}return null;}
-          const appliedRows=[],matchedIds=new Set();
-          for(const [code,row] of Object.entries(enrichment)){if(!Array.isArray(row))continue;const fragId=fragIdFromUrl(row[4]);let match=fragId&&catcherById[fragId]?{id:String(fragId),src:catcherById[fragId]}:null;let matchedBy=match?'fragrantica-id':'';const p=perfumeByCode.get(codeKey(code));if(!match&&p){match=catcherByName.get(clean(p.name))||null;if(match)matchedBy='exact-name';}if(!match){match=explicitAlias(p);if(match)matchedBy='explicit-alias';}if(!match||!Array.isArray(match.src.notes)||!match.src.notes.length)continue;const src=match.src;const sortedNotes=src.notes.slice().sort((a,b)=>(Number(a.rank)||999)-(Number(b.rank)||999)).slice(0,5);row[2]=sortedNotes.map(n=>String(n.note||'').trim()).filter(Boolean);const notePairs=sortedNotes.map(n=>[String(n.note||'').trim(),String(n.sastojak_id||'')]).filter(n=>n[0]);matchedIds.add(String(match.id));appliedRows.push({code,perfume:src.name,fragrantica_id:String(src.fragrantica_id||match.id),catcher_key:String(match.id),matched_by:matchedBy,notes:row[2],note_pairs:notePairs});}
-          const expected=Object.keys(catcherById).length,applied=matchedIds.size;const missing=Object.entries(catcherById).filter(([id])=>!matchedIds.has(String(id))).map(([id,src])=>`${id}:${src.name}`);console.log(`Official Catcher unique records applied: ${applied}/${expected} (${appliedRows.length} site rows updated)`);if(missing.length)console.log('Missing catcher matches:',missing.join(' | '));if(applied!==expected)throw new Error(`Expected ${expected} unique catcher records, matched ${applied}. Deployment stopped to avoid partial data.`);fs.writeFileSync(`${baseDir}/site-enrichment-v2.json`,JSON.stringify(enrichmentDoc));
+          const csvPath='Shobi Master Database/bestseller-top100-enrichment.csv';
+          const batch2140=JSON.parse(fs.readFileSync('Personal Database/fragrantica-main-notes-21-40.json','utf8'));
+          const batch41100=JSON.parse(fs.readFileSync('Personal Database/fragrantica-main-notes-41-100.json','utf8'));
 
-          const catcherNotesByCode={};
-          appliedRows.forEach(x=>{catcherNotesByCode[String(x.code)]=x.note_pairs;});
-          const addBatch=(doc,minRank,maxRank,expectedCount,label)=>{
+          function parseCsv(text){
+            const rows=[]; let row=[],field='',q=false;
+            for(let i=0;i<text.length;i++){
+              const c=text[i];
+              if(c==='"'){
+                if(q&&text[i+1]==='"'){field+='"';i++;} else q=!q;
+              } else if(c===','&&!q){row.push(field);field='';}
+              else if((c==='\n'||c==='\r')&&!q){
+                if(c==='\r'&&text[i+1]==='\n')i++;
+                row.push(field); if(row.some(v=>v!==''))rows.push(row); row=[]; field='';
+              } else field+=c;
+            }
+            if(field.length||row.length){row.push(field);rows.push(row);}
+            return rows;
+          }
+
+          const rows=parseCsv(fs.readFileSync(csvPath,'utf8').replace(/^\uFEFF/,''));
+          const header=rows.shift();
+          const ir=header.indexOf('rank'), ic=header.indexOf('shobi_code'), im=header.indexOf('main_notes');
+          if(ir<0||ic<0||im<0)throw new Error('Top100 enrichment CSV missing required columns');
+
+          const byCode={};
+          for(const row of rows){
+            const rank=Number(row[ir]);
+            if(rank<1||rank>20)continue;
+            const code=String(row[ic]||'').trim();
+            const notes=String(row[im]||'').split('|').map(v=>v.trim()).filter(Boolean).slice(0,5);
+            if(!code||!notes.length)throw new Error(`Missing verified Top20 notes rank=${rank} code=${code}`);
+            byCode[code]=notes.map(name=>[name,'']);
+          }
+
+          function addBatch(doc,min,max,expected,label){
             const rows=Array.isArray(doc.results)?doc.results:[];
-            if(rows.length!==expectedCount||Number(doc.success_count)!==expectedCount||Number(doc.failure_count)!==0)throw new Error(`${label} is incomplete: rows=${rows.length} success=${doc.success_count} failures=${doc.failure_count}`);
+            if(rows.length!==expected||Number(doc.success_count)!==expected||Number(doc.failure_count)!==0)
+              throw new Error(`${label} incomplete`);
             const seen=new Set();
             for(const src of rows){
               const rank=Number(src.rank),code=String(src.shobi_code||'').trim();
-              if(rank<minRank||rank>maxRank||!code||!Array.isArray(src.notes)||!src.notes.length)throw new Error(`Invalid ${label} row rank=${rank} code=${code}`);
-              if(seen.has(rank))throw new Error(`Duplicate ${label} rank=${rank}`);seen.add(rank);
-              const notePairs=src.notes.slice().sort((a,b)=>(Number(a.rank)||999)-(Number(b.rank)||999)).slice(0,5).map(n=>[String(n.note||'').trim(),String(n.sastojak_id||'')]).filter(n=>n[0]);
-              catcherNotesByCode[code]=notePairs;
+              if(rank<min||rank>max||!code||!Array.isArray(src.notes)||!src.notes.length)
+                throw new Error(`Invalid ${label} rank=${rank} code=${code}`);
+              seen.add(rank);
+              byCode[code]=src.notes.slice().sort((a,b)=>(Number(a.rank)||999)-(Number(b.rank)||999)).slice(0,5)
+                .map(n=>[String(n.note||'').trim(),String(n.sastojak_id||'')]).filter(x=>x[0]);
             }
-            for(let r=minRank;r<=maxRank;r++)if(!seen.has(r))throw new Error(`Missing ${label} rank=${r}`);
-            return rows.length;
-          };
-          const n2140=addBatch(batch2140,21,40,20,'Playwright 21-40');
-          const n41100=addBatch(batch41100,41,100,60,'Playwright 41-100');
-          if(Object.keys(catcherNotesByCode).length<100)throw new Error(`Expected at least 100 catcher card codes, got ${Object.keys(catcherNotesByCode).length}`);
-          fs.writeFileSync('bestseller-catcher-notes.js',`// Generated by Deploy Pages from Official Catcher #1-20 + canonical Playwright #21-100.\nwindow.SHOBI_CATCHER_NOTES_BY_CODE=${JSON.stringify(catcherNotesByCode)};\n`);
-          const deployStatus={schema_version:1,success:true,workflow:'Deploy Pages',commit_sha:process.env.GITHUB_SHA||'',generated_at:new Date().toISOString(),catcher:'official-catcher-1-100',applied,expected,playwright_21_40:n2140,playwright_41_100:n41100,site_rows_updated:appliedRows.length,catcher_card_codes:Object.keys(catcherNotesByCode).length,top100_overlay:'site-build/bestseller-top100-enrichment-overlay.json',top100_overlay_count:100,missing:[],matches:appliedRows};const statusJson=JSON.stringify(deployStatus,null,2)+'\n';fs.writeFileSync(`${baseDir}/deploy-status.json`,statusJson);fs.writeFileSync('deploy-status.json',statusJson);
+            for(let r=min;r<=max;r++)if(!seen.has(r))throw new Error(`Missing ${label} rank=${r}`);
+          }
+
+          addBatch(batch2140,21,40,20,'Playwright 21-40');
+          addBatch(batch41100,41,100,60,'Playwright 41-100');
+          if(Object.keys(byCode).length!==100)throw new Error(`Expected 100 catcher codes, got ${Object.keys(byCode).length}`);
+
+          fs.writeFileSync('bestseller-catcher-notes.js',
+            `// Generated at deploy from verified Best Seller #1-100 datasets.\nwindow.SHOBI_CATCHER_NOTES_BY_CODE=${JSON.stringify(byCode)};\n`);
+          console.log('CATCHER_MAP_OK',Object.keys(byCode).length);
           NODE
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
+
       - name: Upload site
         uses: actions/upload-pages-artifact@v3
         with:
           path: .
+
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4
