@@ -31,7 +31,7 @@ def nonempty(row, key):
 
 def main():
     master, _ = read_csv(MASTER)
-    current, current_headers = read_csv(CURRENT)
+    current, _ = read_csv(CURRENT)
     candidate, candidate_headers = read_csv(CANDIDATE)
     build = json.loads(BUILD_REPORT.read_text(encoding='utf-8'))
 
@@ -47,11 +47,9 @@ def main():
         'gender': sum(not nonempty(r, 'gender') for r in candidate),
     }
 
-    # Mirrors the current frontend's basic rendering gate: code + inspiredBy.
     renderable = sum(nonempty(r, 'shobi_code') and nonempty(r, 'inspired_by') for r in candidate)
     code_counts = Counter(str(r.get('shobi_code') or '').strip() for r in candidate if nonempty(r, 'shobi_code'))
     duplicate_codes = sorted((code, n) for code, n in code_counts.items() if n > 1)
-
     current_rich = {field: sum(nonempty(r, field) for r in current) for field in RICH_FIELDS}
     candidate_rich = {field: sum(nonempty(r, field) for r in candidate) for field in RICH_FIELDS}
 
@@ -60,7 +58,7 @@ def main():
         'candidate_identity_exact_master': set(candidate_ids) == set(master_ids),
         'candidate_ids_unique': len(candidate_ids) == len(set(candidate_ids)),
         'required_columns_present': not missing_columns,
-        'all_rows_renderable_by_current_frontend': renderable == len(candidate),
+        'all_rows_renderable_by_frontend': renderable == len(candidate),
         'all_rows_have_official_url': missing_required_values['shobi_url'] == 0,
         'all_rows_have_gender': missing_required_values['gender'] == 0,
         'build_safety_pass': build.get('safety') == 'PASS',
@@ -69,16 +67,17 @@ def main():
     safety = 'PASS' if all(safety_checks.values()) else 'FAIL'
 
     report = {
-        'mode': 'STAGING_REGRESSION_AUDIT_DO_NOT_PUBLISH_YET',
+        'mode': 'PRODUCTION_PREPROMOTION_REGRESSION_AUDIT',
         'master_rows': len(master),
         'current_site_rows': len(current),
         'candidate_rows': len(candidate),
-        'renderable_rows_current_frontend_semantics': renderable,
-        'removed_legacy_rows_vs_current': len(current) - len(candidate),
-        'matched_enrichment_rows': build.get('matched_total'),
-        'minimal_official_master_rows': build.get('unmatched_master_rows'),
-        'ambiguous_matches': build.get('ambiguous_matches'),
-        'enrichment_coverage': build.get('enrichment_coverage'),
+        'renderable_rows': renderable,
+        'row_delta_vs_current_site': len(candidate) - len(current),
+        'existing_pid_matches': build.get('existing_pid_matches', 0),
+        'minimal_official_master_rows': build.get('minimal_official_master_rows', 0),
+        'new_unresolved_master_rows': build.get('new_unresolved_master_rows', 0),
+        'ambiguous_matches': build.get('ambiguous_matches', 0),
+        'rich_enrichment_coverage': build.get('rich_enrichment_coverage'),
         'missing_required_columns': missing_columns,
         'missing_required_values': missing_required_values,
         'duplicate_display_codes_count': len(duplicate_codes),
@@ -87,7 +86,7 @@ def main():
         'rich_field_nonempty_counts_candidate': candidate_rich,
         'safety_checks': safety_checks,
         'safety': safety,
-        'note': 'prestashop_product_id is the official identity. Duplicate display codes are reported because the current frontend still keys favorites/modals by shobi_code and must be audited before production switch.'
+        'note': 'prestashop_product_id is the frontend identity authority. Duplicate display codes are allowed because favorites/modals now key by prestashop_product_id with legacy-code fallback.'
     }
     OUT.write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding='utf-8')
     print(json.dumps(report, ensure_ascii=False, indent=2))
