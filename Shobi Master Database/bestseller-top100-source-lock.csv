@@ -1,4 +1,24 @@
 rank,shobi_code,status,primary_source,secondary_source,verified_fields,notes
+1,305-KAY EL,source-locked,https://www.fragrantica.com/perfume/Kayali-Fragrances/Vanilla-28-52616.html,,identity|gender|notes,Approved existing card metadata
+2,1508-KIL WP,source-locked,https://www.fragrantica.com/perfume/By-Kilian/Angels-Share-62615.html,,identity|gender|notes,Approved existing card metadata
+3,451-BYR WP,source-locked,https://www.fragrantica.com/perfume/Byredo/Blanche-6686.html,,identity|gender|notes,Approved existing card metadata
+4,374-TMFO EL,source-locked,https://www.fragrantica.com/perfume/Tom-Ford/Tobacco-Vanille-1825.html,,identity|gender|notes,Approved existing card metadata
+5,1899-ZARK EL,source-locked,https://www.fragrantica.com/perfume/ZARKOPERFUME/The-Muse-60665.html,https://zarkoperfume.com/products/the-muse,identity|gender|notes,Three-note published composition preserved without padding
+6,111-BAC N,source-locked,https://www.fragrantica.com/perfume/Maison-Francis-Kurkdjian/Baccarat-Rouge-540-33519.html,,identity|gender|notes,Approved existing card metadata
+7,220-CRD EL,source-locked,https://www.fragrantica.com/perfume/Creed/Virgin-Island-Water-899.html,,identity|gender|notes,Approved existing card metadata
+8,350-TMFO EL,source-locked,https://www.fragrantica.com/perfume/Tom-Ford/Lost-Cherry-51411.html,,identity|gender|notes,Approved existing card metadata
+9,2216-DOL WP,source-locked,https://www.fragrantica.com/perfume/Dolce-Gabbana/Devotion-84951.html,,identity|gender|notes,Approved existing card metadata
+10,2129-SOL EL,source-locked,https://www.fragrantica.com/perfume/Sol-de-Janeiro/Cheirosa-62-56062.html,,identity|gender|notes,Approved existing card metadata
+11,371-TMFO EL,source-locked,https://www.fragrantica.com/perfume/Tom-Ford/Soleil-Blanc-34893.html,,identity|gender|notes,Approved existing card metadata
+12,449-BYR WP,source-locked,https://www.fragrantica.com/perfume/Byredo/Bal-d-Afrique-6458.html,,identity|gender|notes,Approved existing card metadata
+13,204-CRD EL,source-locked,https://www.fragrantica.com/perfume/Creed/Aventus-9828.html,,identity|gender|notes,Approved existing card metadata
+14,765-KIL WP,source-locked,https://www.fragrantica.com/perfume/By-Kilian/Love-4322.html,,identity|gender|notes,Approved existing card metadata
+15,994-ZAD WP,source-locked,https://www.fragrantica.com/perfume/Zadig-Voltaire/This-is-Her-39358.html,,identity|gender|notes,Approved existing card metadata
+16,2371-MATIE EL,source-locked,https://www.fragrantica.com/perfume/Matiere-Premiere/Vanilla-Powder-84933.html,,identity|gender|notes,Approved existing card metadata
+17,2206-GIA LUX,source-locked,https://www.fragrantica.com/perfume/Giardini-Di-Toscana/Bianco-Latte-64757.html,,identity|gender|notes,Approved existing card metadata
+18,179-XER N,source-locked,https://www.fragrantica.com/perfume/Xerjoff/XJ-1861-Naxos-30529.html,,identity|gender|notes,Approved existing card metadata
+19,229-DIP EL,source-locked,https://www.fragrantica.com/perfume/Diptyque/Philosykos-Eau-de-Parfum-3865.html,,identity|gender|notes,Approved existing card metadata
+20,2162-BRB WP,source-locked,https://www.fragrantica.com/perfume/Burberry/Goddess-83483.html,,identity|gender|notes,Approved existing card metadata
 21,2398-FRE LUX,source-locked,https://www.fragrantica.com/perfume/Frederic-Malle/Acne-Studios-91209.html,,identity|gender|notes,Fragrantica confirms unisex and staged first five ordered pyramid notes
 22,401-ARIA WP,source-locked,https://www.fragrantica.com/perfume/Ariana-Grande/Cloud-50384.html,,identity|gender|notes,Fragrantica confirms female and staged first five ordered pyramid notes
 23,1660-ESCE EL,source-locked,https://www.fragrantica.com/perfume/Escentric-Molecules/Molecule-01-845.html,https://www.parfumo.com/Perfumes/Escentric_Molecules/Molecule_01,identity|gender|notes,Single-note composition Iso E Super confirmed by two sources
