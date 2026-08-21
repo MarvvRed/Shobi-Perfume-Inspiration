@@ -3,6 +3,7 @@ name: Fetch Fragrantica Social Cards Top100
 on:
   push:
     branches:
+      - main
       - feat/social-card-top100-fetch
     paths:
       - 'scripts/fetch-fragrantica-social-cards.mjs'
