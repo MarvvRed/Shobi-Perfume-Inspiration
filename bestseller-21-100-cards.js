@@ -64,7 +64,7 @@
   renderVanillaPrototype=function(p){
     const rank=rankFor(p); if(!Number.isFinite(rank)) return baseRender(p);
     const d=dataFor(p), favorite=state.favorites.includes(p.code), article=document.createElement('article');
-    const displayName=String(d?.perfume||p.inspiredBy||p.shobiName||'').trim();
+    const displayName=String(d?.perfume||p.inspiredBy||p.shobiName||'').trim().toUpperCase();
     const brand=resolvedBrand(p,rank)||'Unknown Brand';
     const g=String(d?.gender||p.genderAffinity||'').toLowerCase(), gl=genderLabel(g);
     const s=String(d?.season||(p.seasons||[])[0]||'').toLowerCase(), sm=seasonMeta(s);
