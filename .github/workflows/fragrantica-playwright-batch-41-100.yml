@@ -17,6 +17,7 @@ jobs:
     env:
       SHOBI_CDP_URL: http://127.0.0.1:9222
       SHOBI_CATCHER_OUT: ${{ github.workspace }}\tools\fragrantica-main-notes\results\playwright-41-100
+      SHOBI_TARGET_RANKS: 44,52,65,66,71,76,88
 
     steps:
       - name: Checkout
@@ -37,7 +38,7 @@ jobs:
         shell: cmd
         run: curl.exe --fail --silent --show-error http://127.0.0.1:9222/json/version
 
-      - name: Capture Fragrantica ranks 41-100
+      - name: Capture failed Fragrantica ranks
         shell: cmd
         run: node tools\fragrantica-main-notes\playwright-batch-41-100-v2.cjs
 
