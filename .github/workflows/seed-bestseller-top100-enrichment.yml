@@ -1,0 +1,37 @@
+name: Seed Bestseller Top 100 Enrichment
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'scripts/seed_bestseller_top100_enrichment.py'
+      - 'bestseller-ranking.js'
+      - '.github/workflows/seed-bestseller-top100-enrichment.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  seed:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Build structured Top 100 enrichment table
+        run: python scripts/seed_bestseller_top100_enrichment.py
+      - name: Commit table if changed
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "Shobi Master Database/bestseller-top100-enrichment.csv"
+          if git diff --cached --quiet; then
+            echo "Enrichment seed unchanged."
+            exit 0
+          fi
+          git commit -m "Seed structured Best Seller Top 100 enrichment"
+          git push
