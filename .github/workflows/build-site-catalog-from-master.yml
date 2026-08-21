@@ -6,6 +6,7 @@ on:
     paths:
       - 'Shobi Master Database/shobi-master-current.csv'
       - 'scripts/build_site_catalog_from_master.py'
+      - 'scripts/audit_site_catalog_candidate.py'
       - '.github/workflows/build-site-catalog-from-master.yml'
 
 permissions:
@@ -32,7 +33,10 @@ jobs:
       - name: Build staging site catalog
         run: python scripts/build_site_catalog_from_master.py
 
-      - name: Persist staging candidate and audit report
+      - name: Regression audit staging candidate
+        run: python scripts/audit_site_catalog_candidate.py
+
+      - name: Persist staging candidate and audit reports
         shell: bash
         run: |
           git config user.name "github-actions[bot]"
@@ -40,7 +44,8 @@ jobs:
           git add "Shobi Master Database/site-build/shobi-master-site-candidate.csv" \
                   "Shobi Master Database/site-build/site-build-report.json" \
                   "Shobi Master Database/site-build/site-build-unresolved.json" \
-                  "Shobi Master Database/site-build/site-build-ambiguous.json"
+                  "Shobi Master Database/site-build/site-build-ambiguous.json" \
+                  "Shobi Master Database/site-build/site-build-regression.json"
           if git diff --cached --quiet; then
             echo "No staging build changes to commit."
           else
@@ -51,4 +56,4 @@ jobs:
       - name: Confirm production site source unchanged
         run: |
           echo "STAGING ONLY: root shobi-master.csv was not replaced."
-          echo "Review Shobi Master Database/site-build/site-build-report.json before promotion."
+          echo "Regression audit passed; production source remains unchanged until explicit promotion."
