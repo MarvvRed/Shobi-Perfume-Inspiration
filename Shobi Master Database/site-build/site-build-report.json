@@ -1,5 +1,5 @@
 {
-  "built_at_utc": "2026-08-21T00:34:44.814091+00:00",
+  "built_at_utc": "2026-08-21T00:39:16.225625+00:00",
   "mode": "STAGING_ONLY_DO_NOT_PUBLISH_YET",
   "official_master": "Shobi Master Database/shobi-master-current.csv",
   "enrichment_source": "shobi-master.csv",
@@ -7,20 +7,23 @@
   "master_rows": 2343,
   "existing_site_rows": 2468,
   "candidate_rows": 2343,
-  "matched_total": 2311,
-  "matched_by_base_code": 2137,
-  "matched_by_code": 156,
-  "matched_by_url": 18,
-  "unmatched_master_rows": 32,
+  "matched_total": 2312,
+  "match_rules": {
+    "identity-anchor+exact-name": 101,
+    "unique-base-code": 31,
+    "unique-full-code": 2156,
+    "unique-url+code-anchor": 24
+  },
+  "unmatched_master_rows": 31,
   "unmatched_master_sample": [
     "169",
     "3958",
     "3891",
     "3567",
-    "502",
     "2622",
     "999",
     "2111",
+    "2416",
     "2376",
     "2271",
     "3485",
@@ -34,7 +37,6 @@
     "2685",
     "3362",
     "2942",
-    "175",
     "2943",
     "3641",
     "2334",
@@ -46,53 +48,52 @@
     "2688",
     "1419"
   ],
-  "orphan_enrichment_rows": 157,
-  "duplicate_enrichment_urls": 152,
-  "duplicate_enrichment_codes": 0,
-  "duplicate_enrichment_base_codes": 162,
-  "ambiguous_matches": 6,
+  "orphan_enrichment_rows": 156,
+  "ambiguous_matches": 5,
   "ambiguous_sample": [
     {
       "prestashop_product_id": "169",
-      "reason": "duplicate-enrichment-base-code",
-      "value": "1073-DRC"
+      "reason": "equal-safe-score",
+      "candidates": [
+        1340,
+        2450
+      ]
     },
     {
       "prestashop_product_id": "3958",
-      "reason": "duplicate-enrichment-url",
-      "value": "https://leparfum.com.gr/en/fragrances-for-men/2313-drc-m"
+      "reason": "equal-safe-score",
+      "candidates": [
+        486,
+        2309
+      ]
     },
     {
       "prestashop_product_id": "3891",
-      "reason": "duplicate-enrichment-base-code",
-      "value": "2259-GIV"
+      "reason": "equal-safe-score",
+      "candidates": [
+        535,
+        2312
+      ]
     },
     {
-      "prestashop_product_id": "502",
-      "reason": "conflicting-unique-signals",
-      "signals": [
+      "prestashop_product_id": "2416",
+      "reason": "evidence-without-safe-convergence",
+      "candidates": [
         {
-          "type": "code",
-          "index": 2381
-        },
-        {
-          "type": "url",
-          "index": 1999
+          "index": 1005,
+          "signals": [
+            "url"
+          ]
         }
       ]
     },
     {
-      "prestashop_product_id": "175",
-      "reason": "duplicate-enrichment-base-code",
-      "value": "1079-DRC"
-    },
-    {
       "prestashop_product_id": "831",
-      "reason": "enrichment-row-reused",
-      "index": 1623
+      "reason": "evidence-without-safe-convergence",
+      "candidates": []
     }
   ],
   "identity_set_exact_match": true,
-  "enrichment_coverage": 0.986342,
+  "enrichment_coverage": 0.986769,
   "safety": "PASS"
 }
