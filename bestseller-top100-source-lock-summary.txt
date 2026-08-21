@@ -1,0 +1,90 @@
+BESTSELLER TOP 100 SOURCE LOCK AUDIT
+TOTAL=100
+SOURCE_LOCKED=17/100
+PENDING_SOURCE_LOCK=83/100
+PRODUCTION_READY=0
+
+PENDING:
+#1 305-KAY EL | Vanilla 28
+#2 1508-KIL WP | Angels' Share
+#3 451-BYR WP | Blanche
+#4 374-TMFO EL | Tobacco Vanille
+#5 1899-ZARK EL | The Muse
+#6 111-BAC N | Baccarat Rouge 540
+#7 220-CRD EL | Virgin Island Water
+#8 350-TMFO EL | Lost Cherry
+#9 2216-DOL WP | Devotion
+#10 2129-SOL EL | Cheirosa '62
+#11 371-TMFO EL | Soleil Blanc
+#12 449-BYR WP | Bal d'Afrique
+#13 204-CRD EL | Aventus
+#14 765-KIL WP | Love Don't Be Shy
+#15 994-ZAD WP | This Is Her
+#16 2371-MATIE EL | Vanilla Powder
+#17 2206-GIA LUX | Bianco Latte
+#18 179-XER N | XJ 1861 Naxos
+#19 229-DIP EL | Philosykos Eau de Parfum
+#20 2162-BRB WP | Goddess
+#25 485-CAR WP | Good Girl
+#27 152-PARF N | Delina Exclusif
+#28 1735-XER N | Italica
+#30 132-LTN N | Ombre Nomade
+#34 848-NRO WP | Pure Musc For Her
+#35 2348-AMG | Guidance
+#36 303-JOM EL | Wood Sage & Sea Salt
+#37 2155-KAY EL | Yum Pistachio Gelato 33
+#38 750-KEN W | Flower by Kenzo L'Elixir
+#39 1553-MNT N | Arabians Tonka
+#40 937-VAL WP | Donna Born In Roma
+#44 760-KIL WP | Black Phantom
+#45 2235-PRA WP | Prada Paradoxe Intense
+#46 361-TMFO EL | Ombre Leather
+#47 2346-TMFO EL | Vanilla Sex
+#48 981-YZLO W | Libre
+#49 977-YZLO W | Black Opium
+#50 364-TMFO EL | Oud Wood
+#51 847-NRO WP | Narciso Poudree
+#52 1909-XER N | Torino21
+#53 2150-LEL EL | The Matcha 26
+#54 430-BRB WP | The Beat Eau de Toilette
+#55 1635-XER N | Lira
+#56 2365-DIP N | L'Eau Papier
+#57 2320-LTN N | Imagination
+#58 528-DRC W | Hypnotic Poison
+#59 1974-MARG EL | Bubble Bath
+#60 1801-JUL EL | Not a Perfume
+#61 694-GUR W | Terracotta Le Parfum
+#62 2136-PARF | Valaya
+#63 2161-GUR W | Aqua Allegoria Mandarine Basilic
+#64 1946-MARC N | Ganymede
+#65 1850-LEL N | Another 13
+#66 151-PARF N | Delina
+#67 761-KIL WP | Good Girl Gone Bad
+#68 641-FRE WP | Portrait of a Lady
+#69 154-PARF N | Layton
+#70 1887-XER N | Erba Pura
+#71 506-CHA W | Coco Mademoiselle
+#72 210-CRD EL | Green Irish Tweed
+#73 268-JOM EL | Myrrh & Tonka
+#74 1112-DSQ MP | He Wood Rocky Mountain Wood
+#75 879-PRA WP | Infusion d'Iris
+#76 2167-GUL MP | Le Male Elixir
+#77 513-CHL WP | Love, Chloé
+#78 1737-GIV W | L'Interdit Rouge
+#79 1513-KIL WP | Princess
+#80 1476-NRO WP | Musc Noir For Her
+#81 318-MNT EL | Chocolate Greedy
+#82 1775-DIP N | Orphéon
+#83 1651-TMU W | Alien Goddess
+#84 1846-MAN EL | Coco Vanille
+#85 2053-BDIK | Gris Charnel Extrait
+#86 355-TMFO EL | Neroli Portofino
+#87 1528-KUR N | Baccarat Rouge 540 Extrait
+#88 359-TMFO EL | Noir Extreme
+#89 2369-MAN EL | Amore Caffè
+#90 1618-NISH N | Ani
+#91 2154-KAY EL | Utopia Vanilla Coco 21
+#92 225-DIP EL | Eau des Sens
+#93 2261-PARF | Althaïr
+#94 124-INI N | Side Effect
+#95 181-XER N | Alexandria II
