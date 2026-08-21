@@ -27,8 +27,29 @@ jobs:
       - name: Apply canonical bestseller ranks to Personal Database master
         run: python "Personal Database/scripts/apply_bestseller_rank_to_master.py"
 
+      - name: Rebuild site runtime from current Personal Database master
+        run: python "Personal Database/scripts/rebuild_runtime_from_master.py"
+
       - name: Propagate canonical bestseller ranks to site runtime
         run: python "Personal Database/scripts/apply_master_rank_to_runtime.py"
+
+      - name: Verify runtime/catalog parity and Top 40 presence
+        shell: bash
+        run: |
+          python - <<'PY'
+          import csv,json,re
+          from pathlib import Path
+          base=Path('Personal Database')
+          with (base/'shobi-master.csv').open(encoding='utf-8-sig',newline='') as f:
+              master=list(csv.DictReader(f))
+          runtime=json.loads((base/'site-runtime-v2.json').read_text(encoding='utf-8'))
+          products=runtime.get('p',[])
+          assert runtime.get('count')==len(master)==len(products), (runtime.get('count'),len(master),len(products))
+          ranked={int(p[6]):p[0] for p in products if isinstance(p,list) and len(p)>6 and p[6]}
+          missing=[i for i in range(1,41) if i not in ranked]
+          assert not missing, f'Missing runtime Top 40 ranks: {missing}'
+          print('RUNTIME_GATE_PASS',len(products),'TOP40',[(i,ranked[i]) for i in range(1,41)])
+          PY
 
       - name: Build source-locked Best Seller Top 100 enrichment overlay
         run: python scripts/apply_bestseller_top100_enrichment.py
