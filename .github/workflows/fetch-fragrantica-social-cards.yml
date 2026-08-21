@@ -12,8 +12,6 @@ on:
 permissions:
   contents: read
 
-tasks:
-
 jobs:
   fetch:
     runs-on: ubuntu-latest
