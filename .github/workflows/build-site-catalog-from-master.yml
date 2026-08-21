@@ -30,30 +30,65 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Build staging site catalog
+      - name: Build site catalog candidate from official Master
         run: python scripts/build_site_catalog_from_master.py
 
-      - name: Regression audit staging candidate
+      - name: Regression audit candidate
         run: python scripts/audit_site_catalog_candidate.py
 
-      - name: Persist staging candidate and audit reports
+      - name: Promote validated candidate to production site source
         shell: bash
         run: |
+          set -euo pipefail
+          SEED="Shobi Master Database/site-enrichment-seed-v1.csv"
+          CANDIDATE="Shobi Master Database/site-build/shobi-master-site-candidate.csv"
+          LIVE="shobi-master.csv"
+
+          # One-time forensic backup of the rich pre-Master site catalog.
+          # It is never overwritten and is not used as identity authority.
+          if [ ! -f "$SEED" ]; then
+            cp "$LIVE" "$SEED"
+            echo "Created immutable legacy enrichment seed: $SEED"
+          fi
+
+          cp "$CANDIDATE" "$LIVE"
+
+          python - <<'PY'
+          import csv
+          from pathlib import Path
+          master=Path('Shobi Master Database/shobi-master-current.csv')
+          live=Path('shobi-master.csv')
+          def rows(path):
+              with path.open('r',encoding='utf-8-sig',newline='') as f:
+                  return list(csv.DictReader(f))
+          m=rows(master); s=rows(live)
+          mids={str(r.get('prestashop_product_id','')).strip() for r in m}
+          sids={str(r.get('prestashop_product_id','')).strip() for r in s}
+          assert len(s)==len(m), f'production rows {len(s)} != Master {len(m)}'
+          assert mids==sids, 'production identity set differs from official Master'
+          assert len(sids)==len(s), 'duplicate prestashop_product_id in production site source'
+          assert all(str(r.get('shobi_code','')).strip() and str(r.get('inspired_by','')).strip() and str(r.get('shobi_url','')).strip() for r in s), 'non-renderable production row detected'
+          print(f'PRODUCTION_GATE_PASS rows={len(s)} ids={len(sids)}')
+          PY
+
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add "Shobi Master Database/site-build/shobi-master-site-candidate.csv" \
+          git add "$LIVE" "$SEED" \
+                  "Shobi Master Database/site-build/shobi-master-site-candidate.csv" \
                   "Shobi Master Database/site-build/site-build-report.json" \
                   "Shobi Master Database/site-build/site-build-unresolved.json" \
                   "Shobi Master Database/site-build/site-build-ambiguous.json" \
                   "Shobi Master Database/site-build/site-build-regression.json"
+
           if git diff --cached --quiet; then
-            echo "No staging build changes to commit."
+            echo "No production catalog changes to commit."
           else
-            git commit -m "Build site catalog candidate from official Shobi Master"
+            git commit -m "Promote official Shobi Master catalog to site"
             git push
           fi
 
-      - name: Confirm production site source unchanged
+      - name: Confirm official production authority
         run: |
-          echo "STAGING ONLY: root shobi-master.csv was not replaced."
-          echo "Regression audit passed; production source remains unchanged until explicit promotion."
+          echo "PRODUCTION: root shobi-master.csv is generated from Shobi Master Database/shobi-master-current.csv."
+          echo "Identity authority: prestashop_product_id."
+          echo "Any future Master change must pass builder + regression audit + production gate before publication."
