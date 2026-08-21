@@ -1,0 +1,6 @@
+{
+  "schema_version": 1,
+  "batch": "bestsellers-current",
+  "auto_start": true,
+  "targets": []
+}
