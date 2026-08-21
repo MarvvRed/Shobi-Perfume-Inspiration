@@ -1,6 +1,30 @@
-// Visual verification + real three-row note layout for Official Catcher Best Seller cards.
+// Visual verification + shared card cleanup for Official Catcher Best Seller cards.
 (function () {
   function escText(v) { return String(v || '').trim(); }
+
+  function prepareCard(card) {
+    if (!card) return '';
+
+    // Preserve the product code before removing the now-unused details button.
+    const details = card.querySelector('[data-action="show-details"][data-code]');
+    if (details && !card.dataset.catcherCode) {
+      card.dataset.catcherCode = escText(details.dataset.code);
+    }
+    card.querySelectorAll('[data-action="show-details"][data-code]').forEach(el => el.remove());
+
+    // Add a single Main Notes heading immediately above the note badges.
+    const firstNote = card.querySelector('[data-card-filter="note"]');
+    const noteHost = firstNote && firstNote.parentElement;
+    if (noteHost && !card.querySelector('.catcher-main-notes-label')) {
+      const label = document.createElement('div');
+      label.className = 'catcher-main-notes-label font-semibold text-primary text-left';
+      label.textContent = 'Main Notes';
+      label.style.cssText = 'font-size:14px;line-height:1.2;margin-bottom:-4px;';
+      noteHost.parentElement.insertBefore(label, noteHost);
+    }
+
+    return card.dataset.catcherCode || '';
+  }
 
   function layoutNotes(card) {
     if (!card || card.dataset.noteRowsReady === '1') return;
@@ -57,11 +81,9 @@
 
   function verifyCard(card) {
     if (!card) return;
+    const code = prepareCard(card);
     layoutNotes(card);
     if (card.dataset.catcherVisualChecked === '1') return;
-
-    const details = card.querySelector('[data-action="show-details"][data-code]');
-    const code = details && escText(details.dataset.code);
     if (!code) return;
 
     const expectedPairs = (window.SHOBI_CATCHER_NOTES_BY_CODE || {})[code];
