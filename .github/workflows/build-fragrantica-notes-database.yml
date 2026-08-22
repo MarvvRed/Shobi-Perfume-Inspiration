@@ -1,0 +1,56 @@
+name: Build Fragrantica Notes Database
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/build_fragrantica_notes_database.py'
+      - '.github/workflows/build-fragrantica-notes-database.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+
+      - name: Build full canonical notes registry and audit Top100
+        run: python scripts/build_fragrantica_notes_database.py
+
+      - name: Show generated database summary
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=json.loads(Path('Fragrantica Notes Database/fragrantica-notes.json').read_text(encoding='utf-8'))
+          print('NOTE_COUNT=',p['note_count'])
+          print('CATEGORY_COUNT=',p['category_count'])
+          print('TOP100_NOTE_ICON_COVERAGE=',p['top100_note_icon_coverage'])
+          print('TOP100_MISSING=',p['top100_missing_note_icons'])
+          PY
+
+      - name: Commit canonical Fragrantica Notes Database
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add 'Fragrantica Notes Database/fragrantica-notes.json' fragrantica-notes-database.js
+          if git diff --cached --quiet; then
+            echo 'No Fragrantica Notes Database changes to commit.'
+            exit 0
+          fi
+          git commit -m 'Build canonical Fragrantica Notes Database'
+          git pull --rebase origin main
+          git push origin HEAD:main
