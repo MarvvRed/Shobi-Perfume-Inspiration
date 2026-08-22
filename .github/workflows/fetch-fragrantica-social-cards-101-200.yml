@@ -8,6 +8,8 @@ on:
       - '.github/workflows/fetch-fragrantica-social-cards-101-200.yml'
       - 'scripts/fetch-fragrantica-social-cards-101-200.mjs'
       - 'Personal Database/bestseller-101-200-fragrantica-resolved.json'
+      - 'Personal Database/bestseller-101-200-fragrantica-manual.json'
+      - 'Personal Database/bestseller-101-200-fragrantica-pass2.json'
 
 jobs:
   fetch:
