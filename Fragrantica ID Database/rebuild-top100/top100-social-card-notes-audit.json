@@ -1,0 +1,2247 @@
+{
+  "schema_version": 1,
+  "audited_at": "2026-08-22T15:13:57.825356+00:00",
+  "rule": "All Main Notes visible on the Fragrantica public social card, exact displayed order/count; no fixed Top-N truncation.",
+  "target_count": 100,
+  "exact_match_count": 100,
+  "missing_authority_count": 0,
+  "missing_mapped_count": 0,
+  "truncated_count": 0,
+  "extra_count": 0,
+  "order_or_value_mismatch_count": 0,
+  "missing_authority": [],
+  "missing_mapped": [],
+  "truncated": [],
+  "extra": [],
+  "order_or_value_mismatch": [],
+  "records": [
+    {
+      "rank": 1,
+      "shobi_code": "305-KAY EL",
+      "card_note_count": 6,
+      "saved_note_count": 6,
+      "status": "exact",
+      "card_notes": [
+        "Brown Sugar",
+        "Tonka Bean",
+        "Amber",
+        "Amberwood",
+        "Orchid",
+        "Musk"
+      ],
+      "saved_notes": [
+        "Brown Sugar",
+        "Tonka Bean",
+        "Amber",
+        "Amberwood",
+        "Orchid",
+        "Musk"
+      ]
+    },
+    {
+      "rank": 2,
+      "shobi_code": "1508-KIL WP",
+      "card_note_count": 6,
+      "saved_note_count": 6,
+      "status": "exact",
+      "card_notes": [
+        "Cognac",
+        "Cinnamon",
+        "Vanilla",
+        "Praline",
+        "Tonka Bean",
+        "Oak"
+      ],
+      "saved_notes": [
+        "Cognac",
+        "Cinnamon",
+        "Vanilla",
+        "Praline",
+        "Tonka Bean",
+        "Oak"
+      ]
+    },
+    {
+      "rank": 3,
+      "shobi_code": "451-BYR WP",
+      "card_note_count": 6,
+      "saved_note_count": 6,
+      "status": "exact",
+      "card_notes": [
+        "Aldehydes",
+        "Musk",
+        "Peony",
+        "Violet",
+        "Orange Blossom",
+        "Rose"
+      ],
+      "saved_notes": [
+        "Aldehydes",
+        "Musk",
+        "Peony",
+        "Violet",
+        "Orange Blossom",
+        "Rose"
+      ]
+    },
+    {
+      "rank": 4,
+      "shobi_code": "374-TMFO EL",
+      "card_note_count": 6,
+      "saved_note_count": 6,
+      "status": "exact",
+      "card_notes": [
+        "Tobacco",
+        "Vanilla",
+        "Spicy Notes",
+        "Dried Fruits",
+        "Cacao Pod",
+        "Tonka Bean"
+      ],
+      "saved_notes": [
+        "Tobacco",
+        "Vanilla",
+        "Spicy Notes",
+        "Dried Fruits",
+        "Cacao Pod",
+        "Tonka Bean"
+      ]
+    },
+    {
+      "rank": 5,
+      "shobi_code": "1899-ZARK EL",
+      "card_note_count": 3,
+      "saved_note_count": 3,
+      "status": "exact",
+      "card_notes": [
+        "Cotton Flower",
+        "Musk",
+        "White Oud"
+      ],
+      "saved_notes": [
+        "Cotton Flower",
+        "Musk",
+        "White Oud"
+      ]
+    },
+    {
+      "rank": 6,
+      "shobi_code": "111-BAC N",
+      "card_note_count": 6,
+      "saved_note_count": 6,
+      "status": "exact",
+      "card_notes": [
+        "Amberwood",
+        "Saffron",
+        "Ambergris",
+        "Fir",
+        "Cedar",
+        "Jasmine"
+      ],
+      "saved_notes": [
+        "Amberwood",
+        "Saffron",
+        "Ambergris",
+        "Fir",
+        "Cedar",
+        "Jasmine"
+      ]
+    },
+    {
+      "rank": 7,
+      "shobi_code": "220-CRD EL",
+      "card_note_count": 6,
+      "saved_note_count": 6,
+      "status": "exact",
+      "card_notes": [
+        "Coconut",
+        "Lime",
+        "Rum",
+        "Sugar",
+        "Bergamot",
+        "Mandarin Orange"
+      ],
+      "saved_notes": [
+        "Coconut",
+        "Lime",
+        "Rum",
+        "Sugar",
+        "Bergamot",
+        "Mandarin Orange"
+      ]
+    },
+    {
+      "rank": 8,
+      "shobi_code": "350-TMFO EL",
+      "card_note_count": 6,
+      "saved_note_count": 6,
+      "status": "exact",
+      "card_notes": [
+        "Sour Cherry",
+        "Almond",
+        "Black Cherry",
+        "Vanilla",
+        "Tonka Bean",
+        "Cherry Liqueur"
+      ],
+      "saved_notes": [
+        "Sour Cherry",
+        "Almond",
+        "Black Cherry",
+        "Vanilla",
+        "Tonka Bean",
+        "Cherry Liqueur"
+      ]
+    },
+    {
+      "rank": 9,
+      "shobi_code": "2216-DOL WP",
+      "card_note_count": 5,
+      "saved_note_count": 5,
+      "status": "exact",
+      "card_notes": [
+        "Candied Lemon",
+        "Vanilla",
+        "Panna Cotta",
+        "Orange Blossom",
+        "Rum"
+      ],
+      "saved_notes": [
+        "Candied Lemon",
+        "Vanilla",
+        "Panna Cotta",
+        "Orange Blossom",
+        "Rum"
+      ]
+    },
+    {
+      "rank": 10,
+      "shobi_code": "2129-SOL EL",
+      "card_note_count": 6,
+      "saved_note_count": 6,
+      "status": "exact",
+      "card_notes": [
+        "Caramel",
+        "Vanilla",
+        "Pistachio",
+        "Almond",
+        "Salt",
+        "Sandalwood"
+      ],
+      "saved_notes": [
+        "Caramel",
+        "Vanilla",
+        "Pistachio",
+        "Almond",
+        "Salt",
+        "Sandalwood"
+      ]
+    },
+    {
+      "rank": 11,
+      "shobi_code": "371-TMFO EL",
+      "card_note_count": 6,
+      "saved_note_count": 6,
+      "status": "exact",
+      "card_notes": [
+        "Coconut",
+        "Tuberose",
+        "Ylang-Ylang",
+        "Jasmine",
+        "Pistachio",
+        "Bergamot"
+      ],
+      "saved_notes": [
+        "Coconut",
+        "Tuberose",
+        "Ylang-Ylang",
+        "Jasmine",
+        "Pistachio",
+        "Bergamot"
+      ]
+    },
+    {
+      "rank": 12,
+      "shobi_code": "449-BYR WP",
+      "card_note_count": 6,
+      "saved_note_count": 6,
+      "status": "exact",
+      "card_notes": [
+        "Vetiver",
+        "Violet",
+        "Cyclamen",
+        "Bergamot",
+        "African Marigold",
+        "Cedar"
+      ],
+      "saved_notes": [
+        "Vetiver",
+        "Violet",
+        "Cyclamen",
+        "Bergamot",
+        "African Marigold",
+        "Cedar"
+      ]
+    },
+    {
+      "rank": 13,
+      "shobi_code": "204-CRD EL",
+      "card_note_count": 6,
+      "saved_note_count": 6,
+      "status": "exact",
+      "card_notes": [
+        "Pineapple",
+        "Birch",
+        "Bergamot",
+        "Musk",
+        "Black Currant",
+        "Oakmoss"
+      ],
+      "saved_notes": [
+        "Pineapple",
+        "Birch",
+        "Bergamot",
+        "Musk",
+        "Black Currant",
+        "Oakmoss"
+      ]
+    },
+    {
+      "rank": 14,
+      "shobi_code": "765-KIL WP",
+      "card_note_count": 6,
+      "saved_note_count": 6,
+      "status": "exact",
+      "card_notes": [
+        "Sugar",
+        "Vanilla",
+        "Caramel",
+        "Orange Blossom",
+        "Neroli",
+        "Honeysuckle"
+      ],
+      "saved_notes": [
+        "Sugar",
+        "Vanilla",
+        "Caramel",
+        "Orange Blossom",
+        "Neroli",
+        "Honeysuckle"
+      ]
+    },
+    {
+      "rank": 15,
+      "shobi_code": "994-ZAD WP",
+      "card_note_count": 6,
+      "saved_note_count": 6,
+      "status": "exact",
+      "card_notes": [
+        "Cream",
+        "Vanilla",
+        "Chestnut",
+        "Sandalwood",
+        "Cashmir Wood",
+        "Pink Pepper"
+      ],
+      "saved_notes": [
+        "Cream",
+        "Vanilla",
+        "Chestnut",
+        "Sandalwood",
+        "Cashmir Wood",
+        "Pink Pepper"
+      ]
+    },
+    {
+      "rank": 16,
+      "shobi_code": "2371-MATIE EL",
+      "card_note_count": 6,
+      "saved_note_count": 6,
+      "status": "exact",
+      "card_notes": [
+        "Vanilla",
+        "Coconut Powder",
+        "Musk",
+        "Palo Santo",
+        "Coconut",
+        "Lactones"
+      ],
+      "saved_notes": [
+        "Vanilla",
+        "Coconut Powder",
+        "Musk",
+        "Palo Santo",
+        "Coconut",
+        "Lactones"
+      ]
+    },
+    {
+      "rank": 17,
+      "shobi_code": "179-XER N",
+      "card_note_count": 6,
+      "saved_note_count": 6,
+      "status": "exact",
+      "card_notes": [
+        "Honey",
+        "Tobacco",
+        "Lavender",
+        "Vanilla",
+        "Tonka Bean",
+        "Cinnamon"
+      ],
+      "saved_notes": [
+        "Honey",
+        "Tobacco",
+        "Lavender",
+        "Vanilla",
+        "Tonka Bean",
+        "Cinnamon"
+      ]
+    },
+    {
+      "rank": 18,
+      "shobi_code": "2206-GIA LUX",
+      "card_note_count": 5,
+      "saved_note_count": 5,
+      "status": "exact",
+      "card_notes": [
+        "Vanilla",
+        "Caramel",
+        "Coumarin",
+        "Honey",
+        "Musk"
+      ],
+      "saved_notes": [
+        "Vanilla",
+        "Caramel",
+        "Coumarin",
+        "Honey",
+        "Musk"
+      ]
+    },
+    {
+      "rank": 19,
+      "shobi_code": "229-DIP EL",
+      "card_note_count": 6,
+      "saved_note_count": 6,
+      "status": "exact",
+      "card_notes": [
+        "Fig Leaf",
+        "Fig",
+        "Green Notes",
+        "Coconut",
+        "Fig Tree",
+        "Woody Notes"
+      ],
+      "saved_notes": [
+        "Fig Leaf",
+        "Fig",
+        "Green Notes",
+        "Coconut",
+        "Fig Tree",
+        "Woody Notes"
+      ]
+    },
+    {
+      "rank": 20,
+      "shobi_code": "2162-BRB WP",
+      "card_note_count": 5,
+      "saved_note_count": 5,
+      "status": "exact",
+      "card_notes": [
+        "Vanilla",
+        "Lavender",
+        "Vanilla Caviar",
+        "Cacao Pod",
+        "Ginger"
+      ],
+      "saved_notes": [
+        "Vanilla",
+        "Lavender",
+        "Vanilla Caviar",
+        "Cacao Pod",
+        "Ginger"
+      ]
+    },
+    {
+      "rank": 21,
+      "shobi_code": "1644-DRC M",
+      "card_note_count": 6,
+      "saved_note_count": 6,
+      "status": "exact",
+      "card_notes": [
+        "Lavender",
+        "Licorice",
+        "Nutmeg",
+        "Cinnamon",
+        "Sandalwood",
+        "Cardamom"
+      ],
+      "saved_notes": [
+        "Lavender",
+        "Licorice",
+        "Nutmeg",
+        "Cinnamon",
+        "Sandalwood",
+        "Cardamom"
+      ]
+    },
+    {
+      "rank": 22,
+      "shobi_code": "2398-FRE LUX",
+      "card_note_count": 6,
+      "saved_note_count": 6,
+      "status": "exact",
+      "card_notes": [
+        "Aldehydes",
+        "Peach",
+        "Orange Blossom",
+        "Musk",
+        "Violet",
+        "Iso E Super"
+      ],
+      "saved_notes": [
+        "Aldehydes",
+        "Peach",
+        "Orange Blossom",
+        "Musk",
+        "Violet",
+        "Iso E Super"
+      ]
+    },
+    {
+      "rank": 23,
+      "shobi_code": "401-ARIA WP",
+      "card_note_count": 6,
+      "saved_note_count": 6,
+      "status": "exact",
+      "card_notes": [
+        "Cream",
+        "Coconut",
+        "Praline",
+        "Musk",
+        "Lavender",
+        "Pear"
+      ],
+      "saved_notes": [
+        "Cream",
+        "Coconut",
+        "Praline",
+        "Musk",
+        "Lavender",
+        "Pear"
+      ]
+    },
+    {
+      "rank": 24,
+      "shobi_code": "1660-ESCE EL",
+      "card_note_count": 1,
+      "saved_note_count": 1,
+      "status": "exact",
+      "card_notes": [
+        "Iso E Super"
+      ],
+      "saved_notes": [
+        "Iso E Super"
+      ]
+    },
+    {
+      "rank": 25,
+      "shobi_code": "1067-CHA M",
+      "card_note_count": 6,
+      "saved_note_count": 6,
+      "status": "exact",
+      "card_notes": [
+        "Grapefruit",
+        "Incense",
+        "Lemon",
+        "Ginger",
+        "Mint",
+        "Cedar"
+      ],
+      "saved_notes": [
+        "Grapefruit",
+        "Incense",
+        "Lemon",
+        "Ginger",
+        "Mint",
+        "Cedar"
+      ]
+    },
+    {
+      "rank": 26,
+      "shobi_code": "1499-BYR EL",
+      "card_note_count": 6,
+      "saved_note_count": 6,
+      "status": "exact",
+      "card_notes": [
+        "Sapodilla",
+        "Magnolia",
+        "Violet",
+        "Ambrette (Musk Mallow)",
+        "Sandalwood",
+        "Ambergris"
+      ],
+      "saved_notes": [
+        "Sapodilla",
+        "Magnolia",
+        "Violet",
+        "Ambrette (Musk Mallow)",
+        "Sandalwood",
+        "Ambergris"
+      ]
+    },
+    {
+      "rank": 27,
+      "shobi_code": "485-CAR WP",
+      "card_note_count": 6,
+      "saved_note_count": 6,
+      "status": "exact",
+      "card_notes": [
+        "Tonka Bean",
+        "Cacao Pod",
+        "Vanilla",
+        "Tuberose",
+        "Almond",
+        "Jasmine"
+      ],
+      "saved_notes": [
+        "Tonka Bean",
+        "Cacao Pod",
+        "Vanilla",
+        "Tuberose",
+        "Almond",
+        "Jasmine"
+      ]
+    },
+    {
+      "rank": 28,
+      "shobi_code": "1520-YZLO W",
+      "card_note_count": 6,
+      "saved_note_count": 6,
+      "status": "exact",
+      "card_notes": [
+        "Vanilla",
+        "Lavender",
+        "Tonka Bean",
+        "Orange Blossom",
+        "Jasmine",
+        "Mandarin Orange"
+      ],
+      "saved_notes": [
+        "Vanilla",
+        "Lavender",
+        "Tonka Bean",
+        "Orange Blossom",
+        "Jasmine",
+        "Mandarin Orange"
+      ]
+    },
+    {
+      "rank": 29,
+      "shobi_code": "152-PARF N",
+      "card_note_count": 6,
+      "saved_note_count": 6,
+      "status": "exact",
+      "card_notes": [
+        "Rose",
+        "Litchi",
+        "Vanilla",
+        "Pear",
+        "Amber",
+        "Agarwood (Oud)"
+      ],
+      "saved_notes": [
+        "Rose",
+        "Litchi",
+        "Vanilla",
+        "Pear",
+        "Amber",
+        "Agarwood (Oud)"
+      ]
+    },
+    {
+      "rank": 30,
+      "shobi_code": "1735-XER N",
+      "card_note_count": 6,
+      "saved_note_count": 6,
+      "status": "exact",
+      "card_notes": [
+        "Almond",
+        "Toffee",
+        "Milk",
+        "Vanilla",
+        "Saffron",
+        "Sandalwood"
+      ],
+      "saved_notes": [
+        "Almond",
+        "Toffee",
+        "Milk",
+        "Vanilla",
+        "Saffron",
+        "Sandalwood"
+      ]
+    },
+    {
+      "rank": 31,
+      "shobi_code": "1498-BYR EL",
+      "card_note_count": 6,
+      "saved_note_count": 6,
+      "status": "exact",
+      "card_notes": [
+        "Juniper",
+        "Vanilla",
+        "Sandalwood",
+        "Lemon",
+        "Pine Tree",
+        "Bergamot"
+      ],
+      "saved_notes": [
+        "Juniper",
+        "Vanilla",
+        "Sandalwood",
+        "Lemon",
+        "Pine Tree",
+        "Bergamot"
+      ]
+    },
+    {
+      "rank": 32,
+      "shobi_code": "132-LTN N",
+      "card_note_count": 6,
+      "saved_note_count": 6,
+      "status": "exact",
+      "card_notes": [
+        "Agarwood (Oud)",
+        "Rose",
+        "Incense",
+        "Raspberry",
+        "Saffron",
+        "Amberwood"
+      ],
+      "saved_notes": [
+        "Agarwood (Oud)",
+        "Rose",
+        "Incense",
+        "Raspberry",
+        "Saffron",
+        "Amberwood"
+      ]
+    },
+    {
+      "rank": 33,
+      "shobi_code": "1919-PRA WP",
+      "card_note_count": 6,
+      "saved_note_count": 6,
+      "status": "exact",
+      "card_notes": [
+        "Orange Blossom",
+        "Neroli",
+        "Jasmine",
+        "Vanilla",
+        "Pear",
+        "Amber"
+      ],
+      "saved_notes": [
+        "Orange Blossom",
+        "Neroli",
+        "Jasmine",
+        "Vanilla",
+        "Pear",
+        "Amber"
+      ]
+    },
+    {
+      "rank": 34,
+      "shobi_code": "1764-GUR W",
+      "card_note_count": 6,
+      "saved_note_count": 6,
+      "status": "exact",
+      "card_notes": [
+        "Hazelnut",
+        "Amberwood",
+        "Rum",
+        "Yuzu",
+        "Leather",
+        "Tobacco"
+      ],
+      "saved_notes": [
+        "Hazelnut",
+        "Amberwood",
+        "Rum",
+        "Yuzu",
+        "Leather",
+        "Tobacco"
+      ]
+    },
+    {
+      "rank": 35,
+      "shobi_code": "848-NRO WP",
+      "card_note_count": 5,
+      "saved_note_count": 5,
+      "status": "exact",
+      "card_notes": [
+        "Musk",
+        "Cashmeran",
+        "Jasmine",
+        "Ylang-Ylang",
+        "Orange Blossom"
+      ],
+      "saved_notes": [
+        "Musk",
+        "Cashmeran",
+        "Jasmine",
+        "Ylang-Ylang",
+        "Orange Blossom"
+      ]
+    },
+    {
+      "rank": 36,
+      "shobi_code": "131-LEL N",
+      "card_note_count": 6,
+      "saved_note_count": 6,
+      "status": "exact",
+      "card_notes": [
+        "Sandalwood",
+        "Leather",
+        "Papyrus",
+        "Cedar",
+        "Cardamom",
+        "Violet"
+      ],
+      "saved_notes": [
+        "Sandalwood",
+        "Leather",
+        "Papyrus",
+        "Cedar",
+        "Cardamom",
+        "Violet"
+      ]
+    },
+    {
+      "rank": 37,
+      "shobi_code": "2348-AMG N",
+      "card_note_count": 6,
+      "saved_note_count": 6,
+      "status": "exact",
+      "card_notes": [
+        "Sandalwood",
+        "Hazelnut",
+        "Pear",
+        "Vanilla",
+        "Akigalawood",
+        "Olibanum (Frankincense)"
+      ],
+      "saved_notes": [
+        "Sandalwood",
+        "Hazelnut",
+        "Pear",
+        "Vanilla",
+        "Akigalawood",
+        "Olibanum (Frankincense)"
+      ]
+    },
+    {
+      "rank": 38,
+      "shobi_code": "303-JOM EL",
+      "card_note_count": 5,
+      "saved_note_count": 5,
+      "status": "exact",
+      "card_notes": [
+        "Salt",
+        "Sage",
+        "Grapefruit",
+        "Ambrette (Musk Mallow)",
+        "Seaweed"
+      ],
+      "saved_notes": [
+        "Salt",
+        "Sage",
+        "Grapefruit",
+        "Ambrette (Musk Mallow)",
+        "Seaweed"
+      ]
+    },
+    {
+      "rank": 39,
+      "shobi_code": "2155-KAY EL",
+      "card_note_count": 6,
+      "saved_note_count": 6,
+      "status": "exact",
+      "card_notes": [
+        "Pistachio",
+        "Cream",
+        "Ice Cream",
+        "Marshmallow",
+        "Cotton Candy",
+        "Bergamot"
+      ],
+      "saved_notes": [
+        "Pistachio",
+        "Cream",
+        "Ice Cream",
+        "Marshmallow",
+        "Cotton Candy",
+        "Bergamot"
+      ]
+    },
+    {
+      "rank": 40,
+      "shobi_code": "750-KEN W",
+      "card_note_count": 6,
+      "saved_note_count": 6,
+      "status": "exact",
+      "card_notes": [
+        "Raspberry",
+        "Praline",
+        "Powdery Notes",
+        "Vanilla",
+        "Rose",
+        "Mandarin Orange"
+      ],
+      "saved_notes": [
+        "Raspberry",
+        "Praline",
+        "Powdery Notes",
+        "Vanilla",
+        "Rose",
+        "Mandarin Orange"
+      ]
+    },
+    {
+      "rank": 41,
+      "shobi_code": "937-VAL WP",
+      "card_note_count": 6,
+      "saved_note_count": 6,
+      "status": "exact",
+      "card_notes": [
+        "Vanilla",
+        "Black Currant",
+        "Jasmine",
+        "Cashmeran",
+        "Jasmine Tea",
+        "Pink Pepper"
+      ],
+      "saved_notes": [
+        "Vanilla",
+        "Black Currant",
+        "Jasmine",
+        "Cashmeran",
+        "Jasmine Tea",
+        "Pink Pepper"
+      ]
+    },
+    {
+      "rank": 42,
+      "shobi_code": "1553-MNT N",
+      "card_note_count": 6,
+      "saved_note_count": 6,
+      "status": "exact",
+      "card_notes": [
+        "Tonka Bean",
+        "Sugar",
+        "Agarwood (Oud)",
+        "Saffron",
+        "Rose",
+        "Amber"
+      ],
+      "saved_notes": [
+        "Tonka Bean",
+        "Sugar",
+        "Agarwood (Oud)",
+        "Saffron",
+        "Rose",
+        "Amber"
+      ]
+    },
+    {
+      "rank": 43,
+      "shobi_code": "1937-BIL AR",
+      "card_note_count": 6,
+      "saved_note_count": 6,
+      "status": "exact",
+      "card_notes": [
+        "Vanilla",
+        "Sugar",
+        "Cacao Pod",
+        "Spicy Notes",
+        "Tonka Bean",
+        "Amber"
+      ],
+      "saved_notes": [
+        "Vanilla",
+        "Sugar",
+        "Cacao Pod",
+        "Spicy Notes",
+        "Tonka Bean",
+        "Amber"
+      ]
+    },
+    {
+      "rank": 44,
+      "shobi_code": "425-BRB WP",
+      "card_note_count": 6,
+      "saved_note_count": 6,
+      "status": "exact",
+      "card_notes": [
+        "Strawberry",
+        "Raspberry",
+        "Musk",
+        "Blackberry",
+        "Vanilla",
+        "Sour Cherry"
+      ],
+      "saved_notes": [
+        "Strawberry",
+        "Raspberry",
+        "Musk",
+        "Blackberry",
+        "Vanilla",
+        "Sour Cherry"
+      ]
+    },
+    {
+      "rank": 45,
+      "shobi_code": "1883-NISH N",
+      "card_note_count": 6,
+      "saved_note_count": 6,
+      "status": "exact",
+      "card_notes": [
+        "Bergamot",
+        "Oolong Tea",
+        "Orange",
+        "Mandarin Orange",
+        "Fig",
+        "Musk"
+      ],
+      "saved_notes": [
+        "Bergamot",
+        "Oolong Tea",
+        "Orange",
+        "Mandarin Orange",
+        "Fig",
+        "Musk"
+      ]
+    },
+    {
+      "rank": 46,
+      "shobi_code": "760-KIL WP",
+      "card_note_count": 6,
+      "saved_note_count": 6,
+      "status": "exact",
+      "card_notes": [
+        "Dark Chocolate",
+        "Rum",
+        "Caramel",
+        "Coffee",
+        "Sugar",
+        "Almond"
+      ],
+      "saved_notes": [
+        "Dark Chocolate",
+        "Rum",
+        "Caramel",
+        "Coffee",
+        "Sugar",
+        "Almond"
+      ]
+    },
+    {
+      "rank": 47,
+      "shobi_code": "1493-ACQ",
+      "card_note_count": 6,
+      "saved_note_count": 6,
+      "status": "exact",
+      "card_notes": [
+        "Fig",
+        "Fig Tree",
+        "Grapefruit",
+        "Bergamot",
+        "Citron",
+        "Lemon"
+      ],
+      "saved_notes": [
+        "Fig",
+        "Fig Tree",
+        "Grapefruit",
+        "Bergamot",
+        "Citron",
+        "Lemon"
+      ]
+    },
+    {
+      "rank": 48,
+      "shobi_code": "361-TMFO EL",
+      "card_note_count": 6,
+      "saved_note_count": 6,
+      "status": "exact",
+      "card_notes": [
+        "Leather",
+        "Jasmine",
+        "Amber",
+        "Cardamom",
+        "Oakmoss",
+        "Patchouli"
+      ],
+      "saved_notes": [
+        "Leather",
+        "Jasmine",
+        "Amber",
+        "Cardamom",
+        "Oakmoss",
+        "Patchouli"
+      ]
+    },
+    {
+      "rank": 49,
+      "shobi_code": "2235-PRA WP",
+      "card_note_count": 6,
+      "saved_note_count": 6,
+      "status": "exact",
+      "card_notes": [
+        "White Tobacco",
+        "Tobacco",
+        "Rose",
+        "Osmanthus",
+        "Vanilla",
+        "Leather"
+      ],
+      "saved_notes": [
+        "White Tobacco",
+        "Tobacco",
+        "Rose",
+        "Osmanthus",
+        "Vanilla",
+        "Leather"
+      ]
+    },
+    {
+      "rank": 50,
+      "shobi_code": "2346-TMFO EL",
+      "card_note_count": 5,
+      "saved_note_count": 5,
+      "status": "exact",
+      "card_notes": [
+        "Vanilla",
+        "Sandalwood",
+        "Animal Notes",
+        "Orris Root",
+        "Jasmine"
+      ],
+      "saved_notes": [
+        "Vanilla",
+        "Sandalwood",
+        "Animal Notes",
+        "Orris Root",
+        "Jasmine"
+      ]
+    },
+    {
+      "rank": 51,
+      "shobi_code": "981-YZLO W",
+      "card_note_count": 6,
+      "saved_note_count": 6,
+      "status": "exact",
+      "card_notes": [
+        "Lavender",
+        "Orange Blossom",
+        "Vanilla",
+        "Jasmine",
+        "Mandarin Orange",
+        "Musk"
+      ],
+      "saved_notes": [
+        "Lavender",
+        "Orange Blossom",
+        "Vanilla",
+        "Jasmine",
+        "Mandarin Orange",
+        "Musk"
+      ]
+    },
+    {
+      "rank": 52,
+      "shobi_code": "847-NRO WP",
+      "card_note_count": 6,
+      "saved_note_count": 6,
+      "status": "exact",
+      "card_notes": [
+        "Musk",
+        "Jasmine",
+        "Coumarin",
+        "Rose",
+        "Orange Blossom",
+        "Cedar"
+      ],
+      "saved_notes": [
+        "Musk",
+        "Jasmine",
+        "Coumarin",
+        "Rose",
+        "Orange Blossom",
+        "Cedar"
+      ]
+    },
+    {
+      "rank": 53,
+      "shobi_code": "977-YZLO W",
+      "card_note_count": 6,
+      "saved_note_count": 6,
+      "status": "exact",
+      "card_notes": [
+        "Vanilla",
+        "Coffee",
+        "Pear",
+        "Jasmine",
+        "Patchouli",
+        "Pink Pepper"
+      ],
+      "saved_notes": [
+        "Vanilla",
+        "Coffee",
+        "Pear",
+        "Jasmine",
+        "Patchouli",
+        "Pink Pepper"
+      ]
+    },
+    {
+      "rank": 54,
+      "shobi_code": "1909-XER N",
+      "card_note_count": 6,
+      "saved_note_count": 6,
+      "status": "exact",
+      "card_notes": [
+        "Mint",
+        "Lemon",
+        "Basil",
+        "Musk",
+        "Black Currant",
+        "Lavender"
+      ],
+      "saved_notes": [
+        "Mint",
+        "Lemon",
+        "Basil",
+        "Musk",
+        "Black Currant",
+        "Lavender"
+      ]
+    },
+    {
+      "rank": 55,
+      "shobi_code": "364-TMFO EL",
+      "card_note_count": 6,
+      "saved_note_count": 6,
+      "status": "exact",
+      "card_notes": [
+        "Agarwood (Oud)",
+        "Brazilian Rosewood",
+        "Cardamom",
+        "Sandalwood",
+        "Sichuan Pepper",
+        "Vanilla"
+      ],
+      "saved_notes": [
+        "Agarwood (Oud)",
+        "Brazilian Rosewood",
+        "Cardamom",
+        "Sandalwood",
+        "Sichuan Pepper",
+        "Vanilla"
+      ]
+    },
+    {
+      "rank": 56,
+      "shobi_code": "2150-LEL EL",
+      "card_note_count": 5,
+      "saved_note_count": 5,
+      "status": "exact",
+      "card_notes": [
+        "Fig",
+        "Cedar",
+        "Matcha Tea",
+        "Bitter Orange",
+        "Vetiver"
+      ],
+      "saved_notes": [
+        "Fig",
+        "Cedar",
+        "Matcha Tea",
+        "Bitter Orange",
+        "Vetiver"
+      ]
+    },
+    {
+      "rank": 57,
+      "shobi_code": "430-BRB WP",
+      "card_note_count": 4,
+      "saved_note_count": 4,
+      "status": "exact",
+      "card_notes": [
+        "Rose",
+        "Dark Chocolate",
+        "Osmanthus",
+        "Vetiver"
+      ],
+      "saved_notes": [
+        "Rose",
+        "Dark Chocolate",
+        "Osmanthus",
+        "Vetiver"
+      ]
+    },
+    {
+      "rank": 58,
+      "shobi_code": "2365-DIP N",
+      "card_note_count": 4,
+      "saved_note_count": 4,
+      "status": "exact",
+      "card_notes": [
+        "Musk",
+        "Sesame",
+        "Mimosa",
+        "Woody Notes"
+      ],
+      "saved_notes": [
+        "Musk",
+        "Sesame",
+        "Mimosa",
+        "Woody Notes"
+      ]
+    },
+    {
+      "rank": 59,
+      "shobi_code": "2320-LTN N",
+      "card_note_count": 6,
+      "saved_note_count": 6,
+      "status": "exact",
+      "card_notes": [
+        "Tea",
+        "Citron",
+        "Bergamot",
+        "Orange",
+        "Neroli",
+        "Ambroxan"
+      ],
+      "saved_notes": [
+        "Tea",
+        "Citron",
+        "Bergamot",
+        "Orange",
+        "Neroli",
+        "Ambroxan"
+      ]
+    },
+    {
+      "rank": 60,
+      "shobi_code": "1635-XER N",
+      "card_note_count": 6,
+      "saved_note_count": 6,
+      "status": "exact",
+      "card_notes": [
+        "Vanilla",
+        "Caramel",
+        "Cinnamon",
+        "Musk",
+        "Jasmine",
+        "Blood Orange"
+      ],
+      "saved_notes": [
+        "Vanilla",
+        "Caramel",
+        "Cinnamon",
+        "Musk",
+        "Jasmine",
+        "Blood Orange"
+      ]
+    },
+    {
+      "rank": 61,
+      "shobi_code": "1974-MARG EL",
+      "card_note_count": 6,
+      "saved_note_count": 6,
+      "status": "exact",
+      "card_notes": [
+        "Soap",
+        "Musk",
+        "Coconut",
+        "Lavender",
+        "Jasmine",
+        "Rose"
+      ],
+      "saved_notes": [
+        "Soap",
+        "Musk",
+        "Coconut",
+        "Lavender",
+        "Jasmine",
+        "Rose"
+      ]
+    },
+    {
+      "rank": 62,
+      "shobi_code": "528-DRC W",
+      "card_note_count": 6,
+      "saved_note_count": 6,
+      "status": "exact",
+      "card_notes": [
+        "Vanilla",
+        "Almond",
+        "Coconut",
+        "Sandalwood",
+        "Musk",
+        "Plum"
+      ],
+      "saved_notes": [
+        "Vanilla",
+        "Almond",
+        "Coconut",
+        "Sandalwood",
+        "Musk",
+        "Plum"
+      ]
+    },
+    {
+      "rank": 63,
+      "shobi_code": "1801-JUL EL",
+      "card_note_count": 1,
+      "saved_note_count": 1,
+      "status": "exact",
+      "card_notes": [
+        "Cetalox"
+      ],
+      "saved_notes": [
+        "Cetalox"
+      ]
+    },
+    {
+      "rank": 64,
+      "shobi_code": "694-GUR W",
+      "card_note_count": 6,
+      "saved_note_count": 6,
+      "status": "exact",
+      "card_notes": [
+        "Tiare Flower",
+        "Jasmine",
+        "Ylang-Ylang",
+        "Coconut",
+        "Vanilla",
+        "Orange Blossom"
+      ],
+      "saved_notes": [
+        "Tiare Flower",
+        "Jasmine",
+        "Ylang-Ylang",
+        "Coconut",
+        "Vanilla",
+        "Orange Blossom"
+      ]
+    },
+    {
+      "rank": 65,
+      "shobi_code": "2136-PARF N",
+      "card_note_count": 6,
+      "saved_note_count": 6,
+      "status": "exact",
+      "card_notes": [
+        "Musk",
+        "Aldehydes",
+        "Peach",
+        "Ambroxan",
+        "Orange Blossom",
+        "Bergamot"
+      ],
+      "saved_notes": [
+        "Musk",
+        "Aldehydes",
+        "Peach",
+        "Ambroxan",
+        "Orange Blossom",
+        "Bergamot"
+      ]
+    },
+    {
+      "rank": 66,
+      "shobi_code": "2161-GUR W",
+      "card_note_count": 6,
+      "saved_note_count": 6,
+      "status": "exact",
+      "card_notes": [
+        "Clementine",
+        "Mandarin Orange",
+        "Basil",
+        "Bitter Orange",
+        "Tea",
+        "Orange Blossom"
+      ],
+      "saved_notes": [
+        "Clementine",
+        "Mandarin Orange",
+        "Basil",
+        "Bitter Orange",
+        "Tea",
+        "Orange Blossom"
+      ]
+    },
+    {
+      "rank": 67,
+      "shobi_code": "1946-MARC N",
+      "card_note_count": 6,
+      "saved_note_count": 6,
+      "status": "exact",
+      "card_notes": [
+        "Mineral Notes",
+        "Suede",
+        "Saffron",
+        "Akigalawood",
+        "Osmanthus",
+        "Mandarin Orange"
+      ],
+      "saved_notes": [
+        "Mineral Notes",
+        "Suede",
+        "Saffron",
+        "Akigalawood",
+        "Osmanthus",
+        "Mandarin Orange"
+      ]
+    },
+    {
+      "rank": 68,
+      "shobi_code": "151-PARF N",
+      "card_note_count": 6,
+      "saved_note_count": 6,
+      "status": "exact",
+      "card_notes": [
+        "Rose",
+        "Litchi",
+        "Rhubarb",
+        "Peony",
+        "Musk",
+        "Petalia"
+      ],
+      "saved_notes": [
+        "Rose",
+        "Litchi",
+        "Rhubarb",
+        "Peony",
+        "Musk",
+        "Petalia"
+      ]
+    },
+    {
+      "rank": 69,
+      "shobi_code": "1850-LEL N",
+      "card_note_count": 6,
+      "saved_note_count": 6,
+      "status": "exact",
+      "card_notes": [
+        "Iso E Super",
+        "Musk",
+        "Ambergris",
+        "Ambrette (Musk Mallow)",
+        "Pear",
+        "Cetalox"
+      ],
+      "saved_notes": [
+        "Iso E Super",
+        "Musk",
+        "Ambergris",
+        "Ambrette (Musk Mallow)",
+        "Pear",
+        "Cetalox"
+      ]
+    },
+    {
+      "rank": 70,
+      "shobi_code": "761-KIL WP",
+      "card_note_count": 6,
+      "saved_note_count": 6,
+      "status": "exact",
+      "card_notes": [
+        "Osmanthus",
+        "Tuberose",
+        "Jasmine",
+        "Narcissus",
+        "Rose",
+        "Amber"
+      ],
+      "saved_notes": [
+        "Osmanthus",
+        "Tuberose",
+        "Jasmine",
+        "Narcissus",
+        "Rose",
+        "Amber"
+      ]
+    },
+    {
+      "rank": 71,
+      "shobi_code": "641-FRE WP",
+      "card_note_count": 6,
+      "saved_note_count": 6,
+      "status": "exact",
+      "card_notes": [
+        "Rose",
+        "Patchouli",
+        "Incense",
+        "Cloves",
+        "Raspberry",
+        "Sandalwood"
+      ],
+      "saved_notes": [
+        "Rose",
+        "Patchouli",
+        "Incense",
+        "Cloves",
+        "Raspberry",
+        "Sandalwood"
+      ]
+    },
+    {
+      "rank": 72,
+      "shobi_code": "1887-XER N",
+      "card_note_count": 6,
+      "saved_note_count": 6,
+      "status": "exact",
+      "card_notes": [
+        "Fruity Notes",
+        "Musk",
+        "Vanilla",
+        "Orange",
+        "Amber",
+        "Bergamot"
+      ],
+      "saved_notes": [
+        "Fruity Notes",
+        "Musk",
+        "Vanilla",
+        "Orange",
+        "Amber",
+        "Bergamot"
+      ]
+    },
+    {
+      "rank": 73,
+      "shobi_code": "154-PARF N",
+      "card_note_count": 6,
+      "saved_note_count": 6,
+      "status": "exact",
+      "card_notes": [
+        "Vanilla",
+        "Apple",
+        "Cardamom",
+        "Lavender",
+        "Sandalwood",
+        "Pepper"
+      ],
+      "saved_notes": [
+        "Vanilla",
+        "Apple",
+        "Cardamom",
+        "Lavender",
+        "Sandalwood",
+        "Pepper"
+      ]
+    },
+    {
+      "rank": 74,
+      "shobi_code": "506-CHA W",
+      "card_note_count": 6,
+      "saved_note_count": 6,
+      "status": "exact",
+      "card_notes": [
+        "Patchouli",
+        "Orange",
+        "Rose",
+        "Mandarin Orange",
+        "Bergamot",
+        "Orange Blossom"
+      ],
+      "saved_notes": [
+        "Patchouli",
+        "Orange",
+        "Rose",
+        "Mandarin Orange",
+        "Bergamot",
+        "Orange Blossom"
+      ]
+    },
+    {
+      "rank": 75,
+      "shobi_code": "210-CRD EL",
+      "card_note_count": 5,
+      "saved_note_count": 5,
+      "status": "exact",
+      "card_notes": [
+        "Violet Leaf",
+        "Iris",
+        "Ambergris",
+        "Sandalwood",
+        "Vervain"
+      ],
+      "saved_notes": [
+        "Violet Leaf",
+        "Iris",
+        "Ambergris",
+        "Sandalwood",
+        "Vervain"
+      ]
+    },
+    {
+      "rank": 76,
+      "shobi_code": "268-JOM EL",
+      "card_note_count": 5,
+      "saved_note_count": 5,
+      "status": "exact",
+      "card_notes": [
+        "Myrrh",
+        "Tonka Bean",
+        "Vanilla",
+        "Lavender",
+        "Almond"
+      ],
+      "saved_notes": [
+        "Myrrh",
+        "Tonka Bean",
+        "Vanilla",
+        "Lavender",
+        "Almond"
+      ]
+    },
+    {
+      "rank": 77,
+      "shobi_code": "879-PRA WP",
+      "card_note_count": 6,
+      "saved_note_count": 6,
+      "status": "exact",
+      "card_notes": [
+        "Iris",
+        "Cedar",
+        "Incense",
+        "Orange Blossom",
+        "Benzoin",
+        "Neroli"
+      ],
+      "saved_notes": [
+        "Iris",
+        "Cedar",
+        "Incense",
+        "Orange Blossom",
+        "Benzoin",
+        "Neroli"
+      ]
+    },
+    {
+      "rank": 78,
+      "shobi_code": "1112-DSQ MP",
+      "card_note_count": 6,
+      "saved_note_count": 6,
+      "status": "exact",
+      "card_notes": [
+        "Violet",
+        "Cedar",
+        "Vetiver",
+        "Pepper",
+        "Incense",
+        "Musk"
+      ],
+      "saved_notes": [
+        "Violet",
+        "Cedar",
+        "Vetiver",
+        "Pepper",
+        "Incense",
+        "Musk"
+      ]
+    },
+    {
+      "rank": 79,
+      "shobi_code": "2167-GUL MP",
+      "card_note_count": 6,
+      "saved_note_count": 6,
+      "status": "exact",
+      "card_notes": [
+        "Vanilla",
+        "Honey",
+        "Tonka Bean",
+        "Lavender",
+        "Tobacco",
+        "Mint"
+      ],
+      "saved_notes": [
+        "Vanilla",
+        "Honey",
+        "Tonka Bean",
+        "Lavender",
+        "Tobacco",
+        "Mint"
+      ]
+    },
+    {
+      "rank": 80,
+      "shobi_code": "513-CHL WP",
+      "card_note_count": 6,
+      "saved_note_count": 6,
+      "status": "exact",
+      "card_notes": [
+        "Powdery Notes",
+        "Iris",
+        "Rice",
+        "Lilac",
+        "Musk",
+        "Hyacinth"
+      ],
+      "saved_notes": [
+        "Powdery Notes",
+        "Iris",
+        "Rice",
+        "Lilac",
+        "Musk",
+        "Hyacinth"
+      ]
+    },
+    {
+      "rank": 81,
+      "shobi_code": "2282-DRC EL",
+      "card_note_count": 3,
+      "saved_note_count": 3,
+      "status": "exact",
+      "card_notes": [
+        "Fig",
+        "Green Notes",
+        "Rose"
+      ],
+      "saved_notes": [
+        "Fig",
+        "Green Notes",
+        "Rose"
+      ]
+    },
+    {
+      "rank": 82,
+      "shobi_code": "1978-ARM M",
+      "card_note_count": 6,
+      "saved_note_count": 6,
+      "status": "exact",
+      "card_notes": [
+        "Vanilla",
+        "Toffee",
+        "Cinnamon",
+        "Amber",
+        "Tonka Bean",
+        "Pink Pepper"
+      ],
+      "saved_notes": [
+        "Vanilla",
+        "Toffee",
+        "Cinnamon",
+        "Amber",
+        "Tonka Bean",
+        "Pink Pepper"
+      ]
+    },
+    {
+      "rank": 83,
+      "shobi_code": "1737-GIV W",
+      "card_note_count": 6,
+      "saved_note_count": 6,
+      "status": "exact",
+      "card_notes": [
+        "Tuberose",
+        "Ginger",
+        "Blood Orange",
+        "Sandalwood",
+        "Jasmine",
+        "Patchouli"
+      ],
+      "saved_notes": [
+        "Tuberose",
+        "Ginger",
+        "Blood Orange",
+        "Sandalwood",
+        "Jasmine",
+        "Patchouli"
+      ]
+    },
+    {
+      "rank": 84,
+      "shobi_code": "1513-KIL WP",
+      "card_note_count": 3,
+      "saved_note_count": 3,
+      "status": "exact",
+      "card_notes": [
+        "Marshmallow",
+        "Matcha Tea",
+        "Ginger"
+      ],
+      "saved_notes": [
+        "Marshmallow",
+        "Matcha Tea",
+        "Ginger"
+      ]
+    },
+    {
+      "rank": 85,
+      "shobi_code": "1775-DIP N",
+      "card_note_count": 5,
+      "saved_note_count": 5,
+      "status": "exact",
+      "card_notes": [
+        "Powdery Notes",
+        "Juniper Berries",
+        "Cedar",
+        "Jasmine",
+        "Tonka Bean"
+      ],
+      "saved_notes": [
+        "Powdery Notes",
+        "Juniper Berries",
+        "Cedar",
+        "Jasmine",
+        "Tonka Bean"
+      ]
+    },
+    {
+      "rank": 86,
+      "shobi_code": "1476-NRO WP",
+      "card_note_count": 4,
+      "saved_note_count": 4,
+      "status": "exact",
+      "card_notes": [
+        "Musk",
+        "Plum",
+        "Suede",
+        "Heliotrope"
+      ],
+      "saved_notes": [
+        "Musk",
+        "Plum",
+        "Suede",
+        "Heliotrope"
+      ]
+    },
+    {
+      "rank": 87,
+      "shobi_code": "318-MNT EL",
+      "card_note_count": 6,
+      "saved_note_count": 6,
+      "status": "exact",
+      "card_notes": [
+        "Cacao Pod",
+        "Vanilla",
+        "Tonka Bean",
+        "Bitter Orange",
+        "Dried Fruits",
+        "Coffee"
+      ],
+      "saved_notes": [
+        "Cacao Pod",
+        "Vanilla",
+        "Tonka Bean",
+        "Bitter Orange",
+        "Dried Fruits",
+        "Coffee"
+      ]
+    },
+    {
+      "rank": 88,
+      "shobi_code": "1651-TMU W",
+      "card_note_count": 6,
+      "saved_note_count": 6,
+      "status": "exact",
+      "card_notes": [
+        "Coconut Water",
+        "Vanilla",
+        "Jasmine",
+        "Cashmeran",
+        "Bergamot",
+        "Heliotrope"
+      ],
+      "saved_notes": [
+        "Coconut Water",
+        "Vanilla",
+        "Jasmine",
+        "Cashmeran",
+        "Bergamot",
+        "Heliotrope"
+      ]
+    },
+    {
+      "rank": 89,
+      "shobi_code": "2053-BDIK N",
+      "card_note_count": 6,
+      "saved_note_count": 6,
+      "status": "exact",
+      "card_notes": [
+        "Sandalwood",
+        "Cardamom",
+        "Fig",
+        "Vanilla",
+        "Tea",
+        "Tonka Bean"
+      ],
+      "saved_notes": [
+        "Sandalwood",
+        "Cardamom",
+        "Fig",
+        "Vanilla",
+        "Tea",
+        "Tonka Bean"
+      ]
+    },
+    {
+      "rank": 90,
+      "shobi_code": "1846-MAN EL",
+      "card_note_count": 6,
+      "saved_note_count": 6,
+      "status": "exact",
+      "card_notes": [
+        "Vanilla",
+        "Coconut",
+        "Tiare Flower",
+        "Ylang-Ylang",
+        "Jasmine",
+        "Peach"
+      ],
+      "saved_notes": [
+        "Vanilla",
+        "Coconut",
+        "Tiare Flower",
+        "Ylang-Ylang",
+        "Jasmine",
+        "Peach"
+      ]
+    },
+    {
+      "rank": 91,
+      "shobi_code": "355-TMFO EL",
+      "card_note_count": 6,
+      "saved_note_count": 6,
+      "status": "exact",
+      "card_notes": [
+        "Orange Blossom",
+        "Neroli",
+        "Bergamot",
+        "Mandarin Orange",
+        "Lemon",
+        "Bitter Orange"
+      ],
+      "saved_notes": [
+        "Orange Blossom",
+        "Neroli",
+        "Bergamot",
+        "Mandarin Orange",
+        "Lemon",
+        "Bitter Orange"
+      ]
+    },
+    {
+      "rank": 92,
+      "shobi_code": "1528-KUR N",
+      "card_note_count": 6,
+      "saved_note_count": 6,
+      "status": "exact",
+      "card_notes": [
+        "Almond",
+        "Saffron",
+        "Ambergris",
+        "Woody Notes",
+        "Musk",
+        "Jasmine"
+      ],
+      "saved_notes": [
+        "Almond",
+        "Saffron",
+        "Ambergris",
+        "Woody Notes",
+        "Musk",
+        "Jasmine"
+      ]
+    },
+    {
+      "rank": 93,
+      "shobi_code": "359-TMFO EL",
+      "card_note_count": 6,
+      "saved_note_count": 6,
+      "status": "exact",
+      "card_notes": [
+        "Vanilla",
+        "Kulfi",
+        "Cardamom",
+        "Amber",
+        "Nutmeg",
+        "Woody Notes"
+      ],
+      "saved_notes": [
+        "Vanilla",
+        "Kulfi",
+        "Cardamom",
+        "Amber",
+        "Nutmeg",
+        "Woody Notes"
+      ]
+    },
+    {
+      "rank": 94,
+      "shobi_code": "2369-MAN EL",
+      "card_note_count": 6,
+      "saved_note_count": 6,
+      "status": "exact",
+      "card_notes": [
+        "Coffee",
+        "Brown Sugar",
+        "Vanilla",
+        "Amaretto",
+        "Ice Cream",
+        "Ambergris"
+      ],
+      "saved_notes": [
+        "Coffee",
+        "Brown Sugar",
+        "Vanilla",
+        "Amaretto",
+        "Ice Cream",
+        "Ambergris"
+      ]
+    },
+    {
+      "rank": 95,
+      "shobi_code": "1618-NISH N",
+      "card_note_count": 6,
+      "saved_note_count": 6,
+      "status": "exact",
+      "card_notes": [
+        "Vanilla",
+        "Ginger",
+        "Bergamot",
+        "Cardamom",
+        "Benzoin",
+        "Sandalwood"
+      ],
+      "saved_notes": [
+        "Vanilla",
+        "Ginger",
+        "Bergamot",
+        "Cardamom",
+        "Benzoin",
+        "Sandalwood"
+      ]
+    },
+    {
+      "rank": 96,
+      "shobi_code": "2154-KAY EL",
+      "card_note_count": 6,
+      "saved_note_count": 6,
+      "status": "exact",
+      "card_notes": [
+        "Coconut",
+        "Vanilla",
+        "Tuberose",
+        "Jasmine",
+        "Gardenia",
+        "Sandalwood"
+      ],
+      "saved_notes": [
+        "Coconut",
+        "Vanilla",
+        "Tuberose",
+        "Jasmine",
+        "Gardenia",
+        "Sandalwood"
+      ]
+    },
+    {
+      "rank": 97,
+      "shobi_code": "225-DIP EL",
+      "card_note_count": 5,
+      "saved_note_count": 5,
+      "status": "exact",
+      "card_notes": [
+        "Orange Blossom",
+        "Bitter Orange",
+        "Angelica",
+        "Juniper Berries",
+        "Patchouli"
+      ],
+      "saved_notes": [
+        "Orange Blossom",
+        "Bitter Orange",
+        "Angelica",
+        "Juniper Berries",
+        "Patchouli"
+      ]
+    },
+    {
+      "rank": 98,
+      "shobi_code": "2261-PARF N",
+      "card_note_count": 6,
+      "saved_note_count": 6,
+      "status": "exact",
+      "card_notes": [
+        "Vanilla",
+        "Praline",
+        "Cinnamon",
+        "Orange Blossom",
+        "Cardamom",
+        "Musk"
+      ],
+      "saved_notes": [
+        "Vanilla",
+        "Praline",
+        "Cinnamon",
+        "Orange Blossom",
+        "Cardamom",
+        "Musk"
+      ]
+    },
+    {
+      "rank": 99,
+      "shobi_code": "1085-DRC M",
+      "card_note_count": 6,
+      "saved_note_count": 6,
+      "status": "exact",
+      "card_notes": [
+        "Ambroxan",
+        "Bergamot",
+        "Pepper",
+        "Sichuan Pepper",
+        "Lavender",
+        "Pink Pepper"
+      ],
+      "saved_notes": [
+        "Ambroxan",
+        "Bergamot",
+        "Pepper",
+        "Sichuan Pepper",
+        "Lavender",
+        "Pink Pepper"
+      ]
+    },
+    {
+      "rank": 100,
+      "shobi_code": "124-INI N",
+      "card_note_count": 6,
+      "saved_note_count": 6,
+      "status": "exact",
+      "card_notes": [
+        "Rum",
+        "Tobacco",
+        "Cinnamon",
+        "Saffron",
+        "Sandalwood",
+        "Hedione"
+      ],
+      "saved_notes": [
+        "Rum",
+        "Tobacco",
+        "Cinnamon",
+        "Saffron",
+        "Sandalwood",
+        "Hedione"
+      ]
+    }
+  ]
+}
