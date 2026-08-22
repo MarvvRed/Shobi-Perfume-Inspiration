@@ -1,0 +1,6 @@
+{
+  "schema_version": 1,
+  "method": "Fragrantica ID Mapping Rule",
+  "purpose": "Canonical register for fields that are not yet verified. Never fill these by guessing.",
+  "items": []
+}
