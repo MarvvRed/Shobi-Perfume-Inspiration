@@ -1,9 +1,8 @@
 {
   "count": 100,
-  "resolved_count": 0,
-  "unresolved_count": 97,
-  "resolved": [],
-  "unresolved": [
+  "resolved_count": 90,
+  "unresolved_count": 7,
+  "resolved": [
     {
       "rank": 101,
       "code": "181-XER N",
@@ -11,7 +10,10 @@
       "brand": "Xerjoff",
       "primary_source": "",
       "secondary_source": "",
-      "error": "page.$$eval: Execution context was destroyed, most likely because of a navigation"
+      "fragrantica_id": 17786,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Xerjoff/Alexandria-II-17786.html",
+      "match_score": 1,
+      "resolver": "bing-self-hosted-isolated-page"
     },
     {
       "rank": 103,
@@ -20,7 +22,10 @@
       "brand": "Victoria's Secret",
       "primary_source": "",
       "secondary_source": "",
-      "error": "page.goto: Navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20COCONUT%20PASSION%20-%20VICTORIA%27S%20SECRET%20Victoria%27s%20Secret\" is interrupted by another navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20ALEXANDRIA%20II%20Xerjoff&rdr=1&rdrig=78191D2763814ACF8B17BCFD0678D268\"\nCall log:\n\u001b[2m  - navigating to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20COCONUT%20PASSION%20-%20VICTORIA%27S%20SECRET%20Victoria%27s%20Secret\", waiting until \"domcontentloaded\"\u001b[22m\n"
+      "fragrantica_id": 114727,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Victoria-s-Secret/Coconut-Passion-114727.html",
+      "match_score": 1,
+      "resolver": "bing-self-hosted-isolated-page"
     },
     {
       "rank": 104,
@@ -29,7 +34,10 @@
       "brand": "Mugler",
       "primary_source": "",
       "secondary_source": "",
-      "error": "page.goto: Navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20ALIEN%20ESSENCE%20ABSOLUE%20Mugler\" is interrupted by another navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20COCONUT%20PASSION%20-%20VICTORIA%27S%20SECRET%20Victoria%27s%20Secret\"\nCall log:\n\u001b[2m  - navigating to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20ALIEN%20ESSENCE%20ABSOLUE%20Mugler\", waiting until \"domcontentloaded\"\u001b[22m\n"
+      "fragrantica_id": 15452,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Mugler/Alien-Essence-Absolue-15452.html",
+      "match_score": 1,
+      "resolver": "bing-self-hosted-isolated-page"
     },
     {
       "rank": 105,
@@ -38,7 +46,10 @@
       "brand": "Versace",
       "primary_source": "",
       "secondary_source": "",
-      "error": "page.goto: Navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20CRYSTAL%20NOIR%20Add%20to%20cart%20Versace\" is interrupted by another navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20ALIEN%20ESSENCE%20ABSOLUE%20Mugler\"\nCall log:\n\u001b[2m  - navigating to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20CRYSTAL%20NOIR%20Add%20to%20cart%20Versace\", waiting until \"domcontentloaded\"\u001b[22m\n"
+      "fragrantica_id": 631,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Versace/Crystal-Noir-631.html",
+      "match_score": 1,
+      "resolver": "bing-self-hosted-isolated-page"
     },
     {
       "rank": 106,
@@ -47,7 +58,10 @@
       "brand": "Joop",
       "primary_source": "",
       "secondary_source": "",
-      "error": "page.goto: Navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20NIGHTFLIGHT%20Joop\" is interrupted by another navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20CRYSTAL%20NOIR%20Add%20to%20cart%20Versace\"\nCall log:\n\u001b[2m  - navigating to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20NIGHTFLIGHT%20Joop\", waiting until \"domcontentloaded\"\u001b[22m\n"
+      "fragrantica_id": 1721,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Joop/Nightflight-1721.html",
+      "match_score": 1,
+      "resolver": "bing-self-hosted-isolated-page"
     },
     {
       "rank": 107,
@@ -56,7 +70,10 @@
       "brand": "",
       "primary_source": "",
       "secondary_source": "",
-      "error": "page.goto: Navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20MYSLF\" is interrupted by another navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20NIGHTFLIGHT%20Joop\"\nCall log:\n\u001b[2m  - navigating to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20MYSLF\", waiting until \"domcontentloaded\"\u001b[22m\n"
+      "fragrantica_id": 84094,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Yves-Saint-Laurent/MYSLF-Eau-de-Parfum-84094.html",
+      "match_score": 1,
+      "resolver": "bing-self-hosted-isolated-page"
     },
     {
       "rank": 108,
@@ -65,7 +82,10 @@
       "brand": "Tom Ford",
       "primary_source": "",
       "secondary_source": "",
-      "error": "page.goto: Navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20BITTER%20PEACH%20Tom%20Ford\" is interrupted by another navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20MYSLF\"\nCall log:\n\u001b[2m  - navigating to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20BITTER%20PEACH%20Tom%20Ford\", waiting until \"domcontentloaded\"\u001b[22m\n"
+      "fragrantica_id": 62707,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Tom-Ford/Bitter-Peach-62707.html",
+      "match_score": 1,
+      "resolver": "bing-self-hosted-isolated-page"
     },
     {
       "rank": 109,
@@ -74,7 +94,10 @@
       "brand": "Kayali",
       "primary_source": "",
       "secondary_source": "",
-      "error": "page.goto: Navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20Yum%20Boujee%20Marshmallow%20%7C%2081%20Kayali%20Fragrances%20Kayali\" is interrupted by another navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20BITTER%20PEACH%20Tom%20Ford\"\nCall log:\n\u001b[2m  - navigating to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20Yum%20Boujee%20Marshmallow%20%7C%2081%20Kayali%20Fragrances%20Kayali\", waiting until \"domcontentloaded\"\u001b[22m\n"
+      "fragrantica_id": 99254,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Kayali-Fragrances/Yum-Boujee-Marshmallow-81-99254.html",
+      "match_score": 1,
+      "resolver": "bing-self-hosted-isolated-page"
     },
     {
       "rank": 110,
@@ -83,7 +106,10 @@
       "brand": "Lancôme",
       "primary_source": "",
       "secondary_source": "",
-      "error": "page.goto: Navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20LA%20VIE%20EST%20BELLE%20Lanc%C3%B4me\" is interrupted by another navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20Yum%20Boujee%20Marshmallow%20%7C%2081%20Kayali%20Fragrances%20Kayali\"\nCall log:\n\u001b[2m  - navigating to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20LA%20VIE%20EST%20BELLE%20Lanc%C3%B4me\", waiting until \"domcontentloaded\"\u001b[22m\n"
+      "fragrantica_id": 14982,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Lancome/La-Vie-Est-Belle-14982.html",
+      "match_score": 1,
+      "resolver": "bing-self-hosted-isolated-page"
     },
     {
       "rank": 111,
@@ -92,7 +118,10 @@
       "brand": "",
       "primary_source": "",
       "secondary_source": "",
-      "error": "page.goto: Navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20of%20TUXEDO\" is interrupted by another navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20LA%20VIE%20EST%20BELLE%20Lanc%C3%B4me\"\nCall log:\n\u001b[2m  - navigating to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20of%20TUXEDO\", waiting until \"domcontentloaded\"\u001b[22m\n"
+      "fragrantica_id": 32269,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Yves-Saint-Laurent/Tuxedo-32269.html",
+      "match_score": 1,
+      "resolver": "bing-self-hosted-isolated-page"
     },
     {
       "rank": 112,
@@ -101,7 +130,10 @@
       "brand": "Maison Francis Kurkdjian",
       "primary_source": "",
       "secondary_source": "",
-      "error": "page.goto: Navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20OUD%20SATIN%20MOOD%20Maison%20Francis%20Kurkdjian\" is interrupted by another navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20of%20TUXEDO\"\nCall log:\n\u001b[2m  - navigating to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20OUD%20SATIN%20MOOD%20Maison%20Francis%20Kurkdjian\", waiting until \"domcontentloaded\"\u001b[22m\n"
+      "fragrantica_id": 30352,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Maison-Francis-Kurkdjian/Oud-Satin-Mood-30352.html",
+      "match_score": 1,
+      "resolver": "bing-self-hosted-isolated-page"
     },
     {
       "rank": 113,
@@ -110,7 +142,10 @@
       "brand": "Essential Parfums",
       "primary_source": "",
       "secondary_source": "",
-      "error": "page.goto: Navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20BOIS%20IMPERIAL%20-%20ESSENTIAL%20PARFUMS%20Essential%20Parfums\" is interrupted by another navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20OUD%20SATIN%20MOOD%20Maison%20Francis%20Kurkdjian\"\nCall log:\n\u001b[2m  - navigating to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20BOIS%20IMPERIAL%20-%20ESSENTIAL%20PARFUMS%20Essential%20Parfums\", waiting until \"domcontentloaded\"\u001b[22m\n"
+      "fragrantica_id": 64338,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Essential-Parfums/Bois-Imperial-64338.html",
+      "match_score": 1,
+      "resolver": "bing-self-hosted-isolated-page"
     },
     {
       "rank": 114,
@@ -119,7 +154,10 @@
       "brand": "Tom Ford",
       "primary_source": "",
       "secondary_source": "",
-      "error": "page.goto: Navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20VANILLE%20FATALE%20Tom%20Ford\" is interrupted by another navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20BOIS%20IMPERIAL%20-%20ESSENTIAL%20PARFUMS%20Essential%20Parfums\"\nCall log:\n\u001b[2m  - navigating to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20VANILLE%20FATALE%20Tom%20Ford\", waiting until \"domcontentloaded\"\u001b[22m\n"
+      "fragrantica_id": 48029,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Tom-Ford/Vanille-Fatale-48029.html",
+      "match_score": 1,
+      "resolver": "bing-self-hosted-isolated-page"
     },
     {
       "rank": 116,
@@ -128,7 +166,10 @@
       "brand": "Miu Miu",
       "primary_source": "",
       "secondary_source": "",
-      "error": "page.goto: Navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20Miu%20Miu%20Fleur%20de%20Lait%20Miu%20Miu\" is interrupted by another navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20VANILLE%20FATALE%20Tom%20Ford\"\nCall log:\n\u001b[2m  - navigating to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20Miu%20Miu%20Fleur%20de%20Lait%20Miu%20Miu\", waiting until \"domcontentloaded\"\u001b[22m\n"
+      "fragrantica_id": 78755,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Miu-Miu/Miu-Miu-Fleur-de-Lait-78755.html",
+      "match_score": 1,
+      "resolver": "bing-self-hosted-isolated-page"
     },
     {
       "rank": 117,
@@ -137,7 +178,10 @@
       "brand": "Le Labo",
       "primary_source": "",
       "secondary_source": "",
-      "error": "page.goto: Navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20THE%20NOIR%2029%20-%20LE%20LABO%20Le%20Labo\" is interrupted by another navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20Miu%20Miu%20Fleur%20de%20Lait%20Miu%20Miu\"\nCall log:\n\u001b[2m  - navigating to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20THE%20NOIR%2029%20-%20LE%20LABO%20Le%20Labo\", waiting until \"domcontentloaded\"\u001b[22m\n"
+      "fragrantica_id": 31872,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Le-Labo/The-Noir-29-31872.html",
+      "match_score": 1,
+      "resolver": "bing-self-hosted-isolated-page"
     },
     {
       "rank": 118,
@@ -146,7 +190,10 @@
       "brand": "Narciso Rodriguez",
       "primary_source": "",
       "secondary_source": "",
-      "error": "page.goto: Navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20NARCISO%20(WHITE)%20-%20NARCISO%20RODRIGUEZ%20Narciso%20Rodriguez\" is interrupted by another navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20THE%20NOIR%2029%20-%20LE%20LABO%20Le%20Labo\"\nCall log:\n\u001b[2m  - navigating to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20NARCISO%20(WHITE)%20-%20NARCISO%20RODRIGUEZ%20Narciso%20Rodriguez\", waiting until \"domcontentloaded\"\u001b[22m\n"
+      "fragrantica_id": 26127,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Narciso-Rodriguez/Narciso-26127.html",
+      "match_score": 0.667,
+      "resolver": "bing-self-hosted-isolated-page"
     },
     {
       "rank": 119,
@@ -155,7 +202,10 @@
       "brand": "Dolce & Gabbana",
       "primary_source": "",
       "secondary_source": "",
-      "error": "page.goto: Navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20SICILY%20Dolce%20%26%20Gabbana\" is interrupted by another navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20NARCISO%20(WHITE)%20-%20NARCISO%20RODRIGUEZ%20Narciso%20Rodriguez\"\nCall log:\n\u001b[2m  - navigating to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20SICILY%20Dolce%20%26%20Gabbana\", waiting until \"domcontentloaded\"\u001b[22m\n"
+      "fragrantica_id": 486,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Dolce-Gabbana/Sicily-486.html",
+      "match_score": 1,
+      "resolver": "bing-self-hosted-isolated-page"
     },
     {
       "rank": 120,
@@ -164,7 +214,10 @@
       "brand": "",
       "primary_source": "",
       "secondary_source": "",
-      "error": "page.goto: Navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20of%20LA%20NUIT%20DEL%27HOMME\" is interrupted by another navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20SICILY%20Dolce%20%26%20Gabbana\"\nCall log:\n\u001b[2m  - navigating to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20of%20LA%20NUIT%20DEL%27HOMME\", waiting until \"domcontentloaded\"\u001b[22m\n"
+      "fragrantica_id": 5521,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Yves-Saint-Laurent/La-Nuit-de-l-Homme-5521.html",
+      "match_score": 0.667,
+      "resolver": "bing-self-hosted-isolated-page"
     },
     {
       "rank": 121,
@@ -173,7 +226,10 @@
       "brand": "Lorenzo Villoresi",
       "primary_source": "",
       "secondary_source": "",
-      "error": "page.goto: Navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20TEINT%20DE%20NEIGE%20Lorenzo%20Villoresi\" is interrupted by another navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20of%20LA%20NUIT%20DEL%27HOMME\"\nCall log:\n\u001b[2m  - navigating to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20TEINT%20DE%20NEIGE%20Lorenzo%20Villoresi\", waiting until \"domcontentloaded\"\u001b[22m\n"
+      "fragrantica_id": 5079,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Lorenzo-Villoresi/Teint-de-Neige-5079.html",
+      "match_score": 1,
+      "resolver": "bing-self-hosted-isolated-page"
     },
     {
       "rank": 122,
@@ -182,7 +238,10 @@
       "brand": "Orto Parisi",
       "primary_source": "",
       "secondary_source": "",
-      "error": "page.goto: Navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20MEGAMARE%20Orto%20Parisi\" is interrupted by another navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20TEINT%20DE%20NEIGE%20Lorenzo%20Villoresi\"\nCall log:\n\u001b[2m  - navigating to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20MEGAMARE%20Orto%20Parisi\", waiting until \"domcontentloaded\"\u001b[22m\n"
+      "fragrantica_id": 53471,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Orto-Parisi/Megamare-53471.html",
+      "match_score": 1,
+      "resolver": "bing-self-hosted-isolated-page"
     },
     {
       "rank": 123,
@@ -191,7 +250,10 @@
       "brand": "Etat Libre D'Orange",
       "primary_source": "",
       "secondary_source": "",
-      "error": "page.goto: Navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20PUTAIN%20DES%20PALACES%20-%20ETAT%20LIBRE%20D%27ORANGE%20Etat%20Libre%20D%27Orange\" is interrupted by another navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20MEGAMARE%20Orto%20Parisi\"\nCall log:\n\u001b[2m  - navigating to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20PUTAIN%20DES%20PALACES%20-%20ETAT%20LIBRE%20D%27ORANGE%20Etat%20Libre%20D%27Orange\", waiting until \"domcontentloaded\"\u001b[22m\n"
+      "fragrantica_id": 4521,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Etat-Libre-d-Orange/Putain-des-Palaces-4521.html",
+      "match_score": 1,
+      "resolver": "bing-self-hosted-isolated-page"
     },
     {
       "rank": 124,
@@ -200,7 +262,10 @@
       "brand": "Kilian Paris",
       "primary_source": "",
       "secondary_source": "",
-      "error": "page.goto: Navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20MOONLIGHT%20IN%20HEAVEN%20-%20KILIAN%20Kilian%20Paris\" is interrupted by another navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20PUTAIN%20DES%20PALACES%20-%20ETAT%20LIBRE%20D%27ORANGE%20Etat%20Libre%20D%27Orange\"\nCall log:\n\u001b[2m  - navigating to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20MOONLIGHT%20IN%20HEAVEN%20-%20KILIAN%20Kilian%20Paris\", waiting until \"domcontentloaded\"\u001b[22m\n"
+      "fragrantica_id": 35973,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/By-Kilian/Moonlight-in-Heaven-35973.html",
+      "match_score": 1,
+      "resolver": "bing-self-hosted-isolated-page"
     },
     {
       "rank": 125,
@@ -209,7 +274,10 @@
       "brand": "Valentino",
       "primary_source": "",
       "secondary_source": "",
-      "error": "page.goto: Navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20DONNA%20BORN%20IN%20ROMA%20INTENSE%20-%20VALENTINO%20Valentino\" is interrupted by another navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20MOONLIGHT%20IN%20HEAVEN%20-%20KILIAN%20Kilian%20Paris\"\nCall log:\n\u001b[2m  - navigating to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20DONNA%20BORN%20IN%20ROMA%20INTENSE%20-%20VALENTINO%20Valentino\", waiting until \"domcontentloaded\"\u001b[22m\n"
+      "fragrantica_id": 78739,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Valentino/Valentino-Donna-Born-In-Roma-Intense-78739.html",
+      "match_score": 1,
+      "resolver": "bing-self-hosted-isolated-page"
     },
     {
       "rank": 126,
@@ -218,7 +286,10 @@
       "brand": "Jo Malone London",
       "primary_source": "",
       "secondary_source": "",
-      "error": "page.goto: Navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20Scarlet%20Poppy%20Intense%20Jo%20Malone%20Jo%20Malone%20London\" is interrupted by another navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20DONNA%20BORN%20IN%20ROMA%20INTENSE%20-%20VALENTINO%20Valentino\"\nCall log:\n\u001b[2m  - navigating to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20Scarlet%20Poppy%20Intense%20Jo%20Malone%20Jo%20Malone%20London\", waiting until \"domcontentloaded\"\u001b[22m\n"
+      "fragrantica_id": 64551,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Jo-Malone-London/Scarlet-Poppy-Intense-64551.html",
+      "match_score": 1,
+      "resolver": "bing-self-hosted-isolated-page"
     },
     {
       "rank": 127,
@@ -227,7 +298,10 @@
       "brand": "Victoria's Secret",
       "primary_source": "",
       "secondary_source": "",
-      "error": "page.goto: Navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20WARM%20COCONUT%20SUGAR%20-%20VICTORIA%27S%20SECRET%20Victoria%27s%20Secret\" is interrupted by another navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20Scarlet%20Poppy%20Intense%20Jo%20Malone%20Jo%20Malone%20London\"\nCall log:\n\u001b[2m  - navigating to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20WARM%20COCONUT%20SUGAR%20-%20VICTORIA%27S%20SECRET%20Victoria%27s%20Secret\", waiting until \"domcontentloaded\"\u001b[22m\n"
+      "fragrantica_id": 38834,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Victoria-s-Secret/Warm-Coconut-Sugar-38834.html",
+      "match_score": 1,
+      "resolver": "bing-self-hosted-isolated-page"
     },
     {
       "rank": 128,
@@ -236,7 +310,10 @@
       "brand": "Kayali",
       "primary_source": "",
       "secondary_source": "",
-      "error": "page.goto: Navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20MUSK%2012%20-%20KAYALI%20Kayali\" is interrupted by another navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20WARM%20COCONUT%20SUGAR%20-%20VICTORIA%27S%20SECRET%20Victoria%27s%20Secret\"\nCall log:\n\u001b[2m  - navigating to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20MUSK%2012%20-%20KAYALI%20Kayali\", waiting until \"domcontentloaded\"\u001b[22m\n"
+      "fragrantica_id": 52615,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Kayali-Fragrances/Musk-12-52615.html",
+      "match_score": 1,
+      "resolver": "bing-self-hosted-isolated-page"
     },
     {
       "rank": 129,
@@ -245,7 +322,10 @@
       "brand": "Diptyque",
       "primary_source": "",
       "secondary_source": "",
-      "error": "page.goto: Navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20FLEUR%20DE%20PEAU%20Diptyque\" is interrupted by another navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20MUSK%2012%20-%20KAYALI%20Kayali\"\nCall log:\n\u001b[2m  - navigating to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20FLEUR%20DE%20PEAU%20Diptyque\", waiting until \"domcontentloaded\"\u001b[22m\n"
+      "fragrantica_id": 48681,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Diptyque/Fleur-de-Peau-Eau-de-Parfum-48681.html",
+      "match_score": 1,
+      "resolver": "bing-self-hosted-isolated-page"
     },
     {
       "rank": 130,
@@ -254,7 +334,10 @@
       "brand": "Mugler",
       "primary_source": "",
       "secondary_source": "",
-      "error": "page.goto: Navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20of%20ALIEN%20Eau%20de%20Toilette%20Mugler\" is interrupted by another navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20FLEUR%20DE%20PEAU%20Diptyque\"\nCall log:\n\u001b[2m  - navigating to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20of%20ALIEN%20Eau%20de%20Toilette%20Mugler\", waiting until \"domcontentloaded\"\u001b[22m\n"
+      "fragrantica_id": 6616,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Mugler/Alien-Eau-de-Toilette-6616.html",
+      "match_score": 1,
+      "resolver": "bing-self-hosted-isolated-page"
     },
     {
       "rank": 131,
@@ -263,7 +346,10 @@
       "brand": "",
       "primary_source": "",
       "secondary_source": "",
-      "error": "page.goto: Navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20of%20CHANCE%20EAU%20TENDRE%20Add%20to%20cart\" is interrupted by another navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20of%20ALIEN%20Eau%20de%20Toilette%20Mugler\"\nCall log:\n\u001b[2m  - navigating to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20of%20CHANCE%20EAU%20TENDRE%20Add%20to%20cart\", waiting until \"domcontentloaded\"\u001b[22m\n"
+      "fragrantica_id": 8069,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Chanel/Chance-Eau-Tendre-8069.html",
+      "match_score": 1,
+      "resolver": "bing-self-hosted-isolated-page"
     },
     {
       "rank": 132,
@@ -272,7 +358,10 @@
       "brand": "Van Cleef & Arpels",
       "primary_source": "",
       "secondary_source": "",
-      "error": "page.goto: Navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20TSAR%20Van%20Cleef%20%26%20Arpels\" is interrupted by another navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20of%20CHANCE%20EAU%20TENDRE%20Add%20to%20cart\"\nCall log:\n\u001b[2m  - navigating to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20TSAR%20Van%20Cleef%20%26%20Arpels\", waiting until \"domcontentloaded\"\u001b[22m\n"
+      "fragrantica_id": 1098,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Van-Cleef-Arpels/Tsar-1098.html",
+      "match_score": 1,
+      "resolver": "bing-self-hosted-isolated-page"
     },
     {
       "rank": 133,
@@ -281,16 +370,10 @@
       "brand": "Paco Rabanne",
       "primary_source": "",
       "secondary_source": "",
-      "error": "page.goto: Navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20ONE%20MILLION%20Paco%20Rabanne\" is interrupted by another navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20TSAR%20Van%20Cleef%20%26%20Arpels\"\nCall log:\n\u001b[2m  - navigating to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20ONE%20MILLION%20Paco%20Rabanne\", waiting until \"domcontentloaded\"\u001b[22m\n"
-    },
-    {
-      "rank": 134,
-      "code": "1726-MNTB WP",
-      "inspired_by": "SIGNATURE - MONT BLANC",
-      "brand": "Montblanc",
-      "primary_source": "",
-      "secondary_source": "",
-      "error": "page.goto: Navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20SIGNATURE%20-%20MONT%20BLANC%20Montblanc\" is interrupted by another navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20ONE%20MILLION%20Paco%20Rabanne\"\nCall log:\n\u001b[2m  - navigating to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20SIGNATURE%20-%20MONT%20BLANC%20Montblanc\", waiting until \"domcontentloaded\"\u001b[22m\n"
+      "fragrantica_id": 3747,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Rabanne/1-Million-3747.html",
+      "match_score": 0.5,
+      "resolver": "bing-self-hosted-isolated-page"
     },
     {
       "rank": 135,
@@ -299,7 +382,10 @@
       "brand": "Byredo",
       "primary_source": "",
       "secondary_source": "",
-      "error": "page.goto: Navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20BIBLIOTHEQUE%20Byredo\" is interrupted by another navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20SIGNATURE%20-%20MONT%20BLANC%20Montblanc\"\nCall log:\n\u001b[2m  - navigating to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20BIBLIOTHEQUE%20Byredo\", waiting until \"domcontentloaded\"\u001b[22m\n"
+      "fragrantica_id": 43324,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Byredo/Bibliotheque-43324.html",
+      "match_score": 1,
+      "resolver": "bing-self-hosted-isolated-page"
     },
     {
       "rank": 136,
@@ -308,7 +394,10 @@
       "brand": "Kilian Paris",
       "primary_source": "",
       "secondary_source": "",
-      "error": "page.goto: Navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20SUNKISSED%20GODDESS%20-%20KILIAN%20Kilian%20Paris\" is interrupted by another navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20BIBLIOTHEQUE%20Byredo\"\nCall log:\n\u001b[2m  - navigating to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20SUNKISSED%20GODDESS%20-%20KILIAN%20Kilian%20Paris\", waiting until \"domcontentloaded\"\u001b[22m\n"
+      "fragrantica_id": 90336,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/By-Kilian/Sunkissed-Goddess-90336.html",
+      "match_score": 1,
+      "resolver": "bing-self-hosted-isolated-page"
     },
     {
       "rank": 137,
@@ -317,7 +406,10 @@
       "brand": "",
       "primary_source": "",
       "secondary_source": "",
-      "error": "page.goto: Navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20ACQUA%20DI%20GIO%20PROFONDO\" is interrupted by another navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20SUNKISSED%20GODDESS%20-%20KILIAN%20Kilian%20Paris\"\nCall log:\n\u001b[2m  - navigating to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20ACQUA%20DI%20GIO%20PROFONDO\", waiting until \"domcontentloaded\"\u001b[22m\n"
+      "fragrantica_id": 59532,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Giorgio-Armani/Acqua-di-Gio-Profondo-59532.html",
+      "match_score": 1,
+      "resolver": "bing-self-hosted-isolated-page"
     },
     {
       "rank": 138,
@@ -326,7 +418,10 @@
       "brand": "Diptyque",
       "primary_source": "",
       "secondary_source": "",
-      "error": "page.goto: Navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20Do%20Son%20Eau%20de%20Toilette%20Diptyque\" is interrupted by another navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20ACQUA%20DI%20GIO%20PROFONDO\"\nCall log:\n\u001b[2m  - navigating to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20Do%20Son%20Eau%20de%20Toilette%20Diptyque\", waiting until \"domcontentloaded\"\u001b[22m\n"
+      "fragrantica_id": 6501,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Diptyque/Do-Son-Eau-de-Toilette-6501.html",
+      "match_score": 1,
+      "resolver": "bing-self-hosted-isolated-page"
     },
     {
       "rank": 139,
@@ -335,7 +430,10 @@
       "brand": "Initio Parfums Privés",
       "primary_source": "",
       "secondary_source": "",
-      "error": "page.goto: Navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20MUSK%20THERAPY%20-%20INITIO%20PARFUMS%20Initio%20Parfums%20Priv%C3%A9s\" is interrupted by another navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20Do%20Son%20Eau%20de%20Toilette%20Diptyque\"\nCall log:\n\u001b[2m  - navigating to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20MUSK%20THERAPY%20-%20INITIO%20PARFUMS%20Initio%20Parfums%20Priv%C3%A9s\", waiting until \"domcontentloaded\"\u001b[22m\n"
+      "fragrantica_id": 66097,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Initio-Parfums-Prives/Musk-Therapy-66097.html",
+      "match_score": 1,
+      "resolver": "bing-self-hosted-isolated-page"
     },
     {
       "rank": 140,
@@ -344,7 +442,10 @@
       "brand": "Creed",
       "primary_source": "",
       "secondary_source": "",
-      "error": "page.goto: Navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20Absolu%20Aven%20Creed\" is interrupted by another navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20MUSK%20THERAPY%20-%20INITIO%20PARFUMS%20Initio%20Parfums%20Priv%C3%A9s\"\nCall log:\n\u001b[2m  - navigating to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20Absolu%20Aven%20Creed\", waiting until \"domcontentloaded\"\u001b[22m\n"
+      "fragrantica_id": 106624,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Creed/Absolu-Aventus-106624.html",
+      "match_score": 0.5,
+      "resolver": "bing-self-hosted-isolated-page"
     },
     {
       "rank": 141,
@@ -353,16 +454,10 @@
       "brand": "Narcotica",
       "primary_source": "",
       "secondary_source": "",
-      "error": "page.goto: Navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20DULCE%20DIABLO%20Narcotica\" is interrupted by another navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20Absolu%20Aven%20Creed\"\nCall log:\n\u001b[2m  - navigating to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20DULCE%20DIABLO%20Narcotica\", waiting until \"domcontentloaded\"\u001b[22m\n"
-    },
-    {
-      "rank": 142,
-      "code": "1938-YZLO N",
-      "inspired_by": "BABY CAT",
-      "brand": "Ysl",
-      "primary_source": "",
-      "secondary_source": "",
-      "error": "page.goto: Navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20BABY%20CAT%20Ysl\" is interrupted by another navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20DULCE%20DIABLO%20Narcotica\"\nCall log:\n\u001b[2m  - navigating to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20BABY%20CAT%20Ysl\", waiting until \"domcontentloaded\"\u001b[22m\n"
+      "fragrantica_id": 73265,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Narcotica/Dulce-Diablo-73265.html",
+      "match_score": 1,
+      "resolver": "bing-self-hosted-isolated-page"
     },
     {
       "rank": 143,
@@ -371,7 +466,10 @@
       "brand": "Tom Ford",
       "primary_source": "",
       "secondary_source": "",
-      "error": "page.goto: Navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20BLACK%20ORCHID%20Tom%20Ford\" is interrupted by another navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20BABY%20CAT%20Ysl\"\nCall log:\n\u001b[2m  - navigating to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20BLACK%20ORCHID%20Tom%20Ford\", waiting until \"domcontentloaded\"\u001b[22m\n"
+      "fragrantica_id": 1018,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Tom-Ford/Black-Orchid-1018.html",
+      "match_score": 1,
+      "resolver": "bing-self-hosted-isolated-page"
     },
     {
       "rank": 144,
@@ -380,7 +478,10 @@
       "brand": "Amouage",
       "primary_source": "",
       "secondary_source": "",
-      "error": "page.goto: Navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20Dia%20Woman%20Amouage\" is interrupted by another navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20BLACK%20ORCHID%20Tom%20Ford\"\nCall log:\n\u001b[2m  - navigating to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20Dia%20Woman%20Amouage\", waiting until \"domcontentloaded\"\u001b[22m\n"
+      "fragrantica_id": 1109,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Amouage/Dia-Woman-1109.html",
+      "match_score": 1,
+      "resolver": "bing-self-hosted-isolated-page"
     },
     {
       "rank": 145,
@@ -389,7 +490,10 @@
       "brand": "Prada",
       "primary_source": "",
       "secondary_source": "",
-      "error": "page.goto: Navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20LUNA%20ROSSA%20BLACK%20-%20PRADA%20Prada\" is interrupted by another navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20Dia%20Woman%20Amouage\"\nCall log:\n\u001b[2m  - navigating to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20LUNA%20ROSSA%20BLACK%20-%20PRADA%20Prada\", waiting until \"domcontentloaded\"\u001b[22m\n"
+      "fragrantica_id": 48682,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Prada/Luna-Rossa-Black-48682.html",
+      "match_score": 1,
+      "resolver": "bing-self-hosted-isolated-page"
     },
     {
       "rank": 146,
@@ -398,16 +502,10 @@
       "brand": "Carolina Herrera",
       "primary_source": "",
       "secondary_source": "",
-      "error": "page.goto: Navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20GOOD%20GIRL%20BLUSH%20Carolina%20Herrera\" is interrupted by another navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20LUNA%20ROSSA%20BLACK%20-%20PRADA%20Prada\"\nCall log:\n\u001b[2m  - navigating to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20GOOD%20GIRL%20BLUSH%20Carolina%20Herrera\", waiting until \"domcontentloaded\"\u001b[22m\n"
-    },
-    {
-      "rank": 147,
-      "code": "1620-GUR N",
-      "inspired_by": "SPIRITUESE DOUBLE VANILLA",
-      "brand": "Guerlain",
-      "primary_source": "",
-      "secondary_source": "",
-      "error": "page.goto: Navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20SPIRITUESE%20DOUBLE%20VANILLA%20Guerlain\" is interrupted by another navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20GOOD%20GIRL%20BLUSH%20Carolina%20Herrera\"\nCall log:\n\u001b[2m  - navigating to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20SPIRITUESE%20DOUBLE%20VANILLA%20Guerlain\", waiting until \"domcontentloaded\"\u001b[22m\n"
+      "fragrantica_id": 78576,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Carolina-Herrera/Good-Girl-Blush-78576.html",
+      "match_score": 1,
+      "resolver": "bing-self-hosted-isolated-page"
     },
     {
       "rank": 148,
@@ -416,16 +514,10 @@
       "brand": "Tom Ford",
       "primary_source": "",
       "secondary_source": "",
-      "error": "page.goto: Navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20MANDARINO%20DI%20AMALFI%20Tom%20Ford\" is interrupted by another navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20SPIRITUESE%20DOUBLE%20VANILLA%20Guerlain\"\nCall log:\n\u001b[2m  - navigating to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20MANDARINO%20DI%20AMALFI%20Tom%20Ford\", waiting until \"domcontentloaded\"\u001b[22m\n"
-    },
-    {
-      "rank": 149,
-      "code": "1289-YZLO M",
-      "inspired_by": "of Y",
-      "brand": "",
-      "primary_source": "",
-      "secondary_source": "",
-      "error": "page.goto: Navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20of%20Y\" is interrupted by another navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20MANDARINO%20DI%20AMALFI%20Tom%20Ford\"\nCall log:\n\u001b[2m  - navigating to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20of%20Y\", waiting until \"domcontentloaded\"\u001b[22m\n"
+      "fragrantica_id": 25481,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Tom-Ford/Mandarino-di-Amalfi-25481.html",
+      "match_score": 1,
+      "resolver": "bing-self-hosted-isolated-page"
     },
     {
       "rank": 150,
@@ -434,7 +526,10 @@
       "brand": "",
       "primary_source": "",
       "secondary_source": "",
-      "error": "page.goto: Navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20of%20TERRE%20D%27HERMES%20EAU%20GIVREE\" is interrupted by another navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20of%20Y\"\nCall log:\n\u001b[2m  - navigating to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20of%20TERRE%20D%27HERMES%20EAU%20GIVREE\", waiting until \"domcontentloaded\"\u001b[22m\n"
+      "fragrantica_id": 72439,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Hermes/Terre-d-Hermes-Eau-Givree-72439.html",
+      "match_score": 1,
+      "resolver": "bing-self-hosted-isolated-page"
     },
     {
       "rank": 151,
@@ -443,7 +538,10 @@
       "brand": "Diptyque",
       "primary_source": "",
       "secondary_source": "",
-      "error": "page.goto: Navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20EAU%20DUELLE%20EAU%20DE%20PARFUM%20Diptyque\" is interrupted by another navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20of%20TERRE%20D%27HERMES%20EAU%20GIVREE\"\nCall log:\n\u001b[2m  - navigating to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20EAU%20DUELLE%20EAU%20DE%20PARFUM%20Diptyque\", waiting until \"domcontentloaded\"\u001b[22m\n"
+      "fragrantica_id": 49100,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Diptyque/Eau-Duelle-Eau-de-Parfum-49100.html",
+      "match_score": 1,
+      "resolver": "bing-self-hosted-isolated-page"
     },
     {
       "rank": 152,
@@ -452,7 +550,10 @@
       "brand": "Nishane",
       "primary_source": "",
       "secondary_source": "",
-      "error": "page.goto: Navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20HUNDRED%20SILENT%20WAYS%20-%20NISHANE%20Nishane\" is interrupted by another navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20EAU%20DUELLE%20EAU%20DE%20PARFUM%20Diptyque\"\nCall log:\n\u001b[2m  - navigating to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20HUNDRED%20SILENT%20WAYS%20-%20NISHANE%20Nishane\", waiting until \"domcontentloaded\"\u001b[22m\n"
+      "fragrantica_id": 37602,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Nishane/Hundred-Silent-Ways-37602.html",
+      "match_score": 1,
+      "resolver": "bing-self-hosted-isolated-page"
     },
     {
       "rank": 153,
@@ -461,7 +562,10 @@
       "brand": "",
       "primary_source": "",
       "secondary_source": "",
-      "error": "page.goto: Navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20ACQUA%20DI%20GIO%20PROFUMO\" is interrupted by another navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20HUNDRED%20SILENT%20WAYS%20-%20NISHANE%20Nishane\"\nCall log:\n\u001b[2m  - navigating to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20ACQUA%20DI%20GIO%20PROFUMO\", waiting until \"domcontentloaded\"\u001b[22m\n"
+      "fragrantica_id": 29727,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Giorgio-Armani/Acqua-di-Gio-Profumo-29727.html",
+      "match_score": 1,
+      "resolver": "bing-self-hosted-isolated-page"
     },
     {
       "rank": 154,
@@ -470,7 +574,10 @@
       "brand": "Dolce & Gabbana",
       "primary_source": "",
       "secondary_source": "",
-      "error": "page.goto: Navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20LIGHT%20BLUE%20Dolce%20%26%20Gabbana\" is interrupted by another navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20ACQUA%20DI%20GIO%20PROFUMO\"\nCall log:\n\u001b[2m  - navigating to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20LIGHT%20BLUE%20Dolce%20%26%20Gabbana\", waiting until \"domcontentloaded\"\u001b[22m\n"
+      "fragrantica_id": 485,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Dolce-Gabbana/Light-Blue-485.html",
+      "match_score": 1,
+      "resolver": "bing-self-hosted-isolated-page"
     },
     {
       "rank": 155,
@@ -479,7 +586,10 @@
       "brand": "Juliette Has A Gun",
       "primary_source": "",
       "secondary_source": "",
-      "error": "page.goto: Navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20SUNNY%20SIDE%20UP%20-%20JULIETTE%20HAS%20A%20GUN%20Juliette%20Has%20A%20Gun\" is interrupted by another navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20LIGHT%20BLUE%20Dolce%20%26%20Gabbana\"\nCall log:\n\u001b[2m  - navigating to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20SUNNY%20SIDE%20UP%20-%20JULIETTE%20HAS%20A%20GUN%20Juliette%20Has%20A%20Gun\", waiting until \"domcontentloaded\"\u001b[22m\n"
+      "fragrantica_id": 46128,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Juliette-Has-A-Gun/Sunny-Side-Up-46128.html",
+      "match_score": 1,
+      "resolver": "bing-self-hosted-isolated-page"
     },
     {
       "rank": 156,
@@ -488,7 +598,10 @@
       "brand": "Armani",
       "primary_source": "",
       "secondary_source": "",
-      "error": "page.goto: Navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20MY%20WAY%20Add%20to%20cart%20Armani\" is interrupted by another navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20SUNNY%20SIDE%20UP%20-%20JULIETTE%20HAS%20A%20GUN%20Juliette%20Has%20A%20Gun\"\nCall log:\n\u001b[2m  - navigating to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20MY%20WAY%20Add%20to%20cart%20Armani\", waiting until \"domcontentloaded\"\u001b[22m\n"
+      "fragrantica_id": 62036,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Giorgio-Armani/My-Way-62036.html",
+      "match_score": 1,
+      "resolver": "bing-self-hosted-isolated-page"
     },
     {
       "rank": 157,
@@ -497,7 +610,10 @@
       "brand": "Escentric Molecules",
       "primary_source": "",
       "secondary_source": "",
-      "error": "page.goto: Navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20ESCENTRIC%2001%20-%20ESCENTRIC%20MOLECULES%20Escentric%20Molecules\" is interrupted by another navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20MY%20WAY%20Add%20to%20cart%20Armani\"\nCall log:\n\u001b[2m  - navigating to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20ESCENTRIC%2001%20-%20ESCENTRIC%20MOLECULES%20Escentric%20Molecules\", waiting until \"domcontentloaded\"\u001b[22m\n"
+      "fragrantica_id": 846,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Escentric-Molecules/Escentric-01-846.html",
+      "match_score": 1,
+      "resolver": "bing-self-hosted-isolated-page"
     },
     {
       "rank": 158,
@@ -506,7 +622,10 @@
       "brand": "Narciso Rodriguez",
       "primary_source": "",
       "secondary_source": "",
-      "error": "page.goto: Navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20FOR%20HER%20BLACK%20EDP%20-%20NARCISO%20RODRIGUEZ%20Narciso%20Rodriguez\" is interrupted by another navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20ESCENTRIC%2001%20-%20ESCENTRIC%20MOLECULES%20Escentric%20Molecules\"\nCall log:\n\u001b[2m  - navigating to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20FOR%20HER%20BLACK%20EDP%20-%20NARCISO%20RODRIGUEZ%20Narciso%20Rodriguez\", waiting until \"domcontentloaded\"\u001b[22m\n"
+      "fragrantica_id": 14319,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Narciso-Rodriguez/Narciso-Rodriguez-for-Her-Eau-de-Parfum-14319.html",
+      "match_score": 0.6,
+      "resolver": "bing-self-hosted-isolated-page"
     },
     {
       "rank": 159,
@@ -515,7 +634,10 @@
       "brand": "Jo Malone London",
       "primary_source": "",
       "secondary_source": "",
-      "error": "page.goto: Navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20ENGLISH%20PEAR%20%26%20FREESIA%20-%20JO%20MALONE%20Jo%20Malone%20London\" is interrupted by another navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20FOR%20HER%20BLACK%20EDP%20-%20NARCISO%20RODRIGUEZ%20Narciso%20Rodriguez\"\nCall log:\n\u001b[2m  - navigating to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20ENGLISH%20PEAR%20%26%20FREESIA%20-%20JO%20MALONE%20Jo%20Malone%20London\", waiting until \"domcontentloaded\"\u001b[22m\n"
+      "fragrantica_id": 10314,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Jo-Malone-London/English-Pear-Freesia-10314.html",
+      "match_score": 1,
+      "resolver": "bing-self-hosted-isolated-page"
     },
     {
       "rank": 160,
@@ -524,7 +646,10 @@
       "brand": "Kenzo",
       "primary_source": "",
       "secondary_source": "",
-      "error": "page.goto: Navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20SUMMER%20-%20KENZO%20Kenzo\" is interrupted by another navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20ENGLISH%20PEAR%20%26%20FREESIA%20-%20JO%20MALONE%20Jo%20Malone%20London\"\nCall log:\n\u001b[2m  - navigating to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20SUMMER%20-%20KENZO%20Kenzo\", waiting until \"domcontentloaded\"\u001b[22m\n"
+      "fragrantica_id": 76,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Kenzo/Summer-by-Kenzo-76.html",
+      "match_score": 1,
+      "resolver": "bing-self-hosted-isolated-page"
     },
     {
       "rank": 161,
@@ -533,7 +658,10 @@
       "brand": "Lancôme",
       "primary_source": "",
       "secondary_source": "",
-      "error": "page.goto: Navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20OUD%20BOUQUET%20Lanc%C3%B4me\" is interrupted by another navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20SUMMER%20-%20KENZO%20Kenzo\"\nCall log:\n\u001b[2m  - navigating to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20OUD%20BOUQUET%20Lanc%C3%B4me\", waiting until \"domcontentloaded\"\u001b[22m\n"
+      "fragrantica_id": 39739,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Lancome/Oud-Bouquet-39739.html",
+      "match_score": 1,
+      "resolver": "bing-self-hosted-isolated-page"
     },
     {
       "rank": 162,
@@ -542,7 +670,10 @@
       "brand": "Nasomatto",
       "primary_source": "",
       "secondary_source": "",
-      "error": "page.goto: Navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20BLACK%20AFGANO%20Nasomatto\" is interrupted by another navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20OUD%20BOUQUET%20Lanc%C3%B4me\"\nCall log:\n\u001b[2m  - navigating to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20BLACK%20AFGANO%20Nasomatto\", waiting until \"domcontentloaded\"\u001b[22m\n"
+      "fragrantica_id": 6472,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Nasomatto/Black-Afgano-6472.html",
+      "match_score": 1,
+      "resolver": "bing-self-hosted-isolated-page"
     },
     {
       "rank": 163,
@@ -551,7 +682,10 @@
       "brand": "Initio Parfums Privés",
       "primary_source": "",
       "secondary_source": "",
-      "error": "page.goto: Navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20ABSOLUTE%20APHRODISIAC%20-%20INITIO%20PARFUMS%20Add%20to%20cart%20Initio%20Parfums%20Priv%C3%A9s\" is interrupted by another navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20BLACK%20AFGANO%20Nasomatto\"\nCall log:\n\u001b[2m  - navigating to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20ABSOLUTE%20APHRODISIAC%20-%20INITIO%20PARFUMS%20Add%20to%20cart%20Initio%20Parfums%20Priv%C3%A9s\", waiting until \"domcontentloaded\"\u001b[22m\n"
+      "fragrantica_id": 30989,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Initio-Parfums-Prives/Absolute-Aphrodisiac-30989.html",
+      "match_score": 1,
+      "resolver": "bing-self-hosted-isolated-page"
     },
     {
       "rank": 164,
@@ -560,7 +694,10 @@
       "brand": "Tiziana Terenzi",
       "primary_source": "",
       "secondary_source": "",
-      "error": "page.goto: Navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20KIRKE%20-%20TIZIANA%20TERENZI%20Add%20to%20cart%20Tiziana%20Terenzi\" is interrupted by another navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20ABSOLUTE%20APHRODISIAC%20-%20INITIO%20PARFUMS%20Add%20to%20cart%20Initio%20Parfums%20Priv%C3%A9s\"\nCall log:\n\u001b[2m  - navigating to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20KIRKE%20-%20TIZIANA%20TERENZI%20Add%20to%20cart%20Tiziana%20Terenzi\", waiting until \"domcontentloaded\"\u001b[22m\n"
+      "fragrantica_id": 32172,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Tiziana-Terenzi/Kirke-32172.html",
+      "match_score": 1,
+      "resolver": "bing-self-hosted-isolated-page"
     },
     {
       "rank": 165,
@@ -569,7 +706,10 @@
       "brand": "Givenchy",
       "primary_source": "",
       "secondary_source": "",
-      "error": "page.goto: Navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20L%27INTERDIT%20Givenchy\" is interrupted by another navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20KIRKE%20-%20TIZIANA%20TERENZI%20Add%20to%20cart%20Tiziana%20Terenzi\"\nCall log:\n\u001b[2m  - navigating to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20L%27INTERDIT%20Givenchy\", waiting until \"domcontentloaded\"\u001b[22m\n"
+      "fragrantica_id": 51488,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Givenchy/L-Interdit-Eau-de-Parfum-51488.html",
+      "match_score": 1,
+      "resolver": "bing-self-hosted-isolated-page"
     },
     {
       "rank": 166,
@@ -578,7 +718,10 @@
       "brand": "Profumum Roma",
       "primary_source": "",
       "secondary_source": "",
-      "error": "page.goto: Navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20ACQUA%20DI%20SALE%20-%20PROFUMUM%20ROMA%20Profumum%20Roma\" is interrupted by another navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20L%27INTERDIT%20Givenchy\"\nCall log:\n\u001b[2m  - navigating to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20ACQUA%20DI%20SALE%20-%20PROFUMUM%20ROMA%20Profumum%20Roma\", waiting until \"domcontentloaded\"\u001b[22m\n"
+      "fragrantica_id": 3886,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Profumum-Roma/Acqua-di-Sale-3886.html",
+      "match_score": 1,
+      "resolver": "bing-self-hosted-isolated-page"
     },
     {
       "rank": 167,
@@ -587,7 +730,10 @@
       "brand": "Kilian Paris",
       "primary_source": "",
       "secondary_source": "",
-      "error": "page.goto: Navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20ROLLING%20IN%20LOVE%20-%20KILIAN%20Kilian%20Paris\" is interrupted by another navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20ACQUA%20DI%20SALE%20-%20PROFUMUM%20ROMA%20Profumum%20Roma\"\nCall log:\n\u001b[2m  - navigating to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20ROLLING%20IN%20LOVE%20-%20KILIAN%20Kilian%20Paris\", waiting until \"domcontentloaded\"\u001b[22m\n"
+      "fragrantica_id": 56402,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/By-Kilian/Rolling-in-Love-56402.html",
+      "match_score": 1,
+      "resolver": "bing-self-hosted-isolated-page"
     },
     {
       "rank": 168,
@@ -596,7 +742,10 @@
       "brand": "Valentino",
       "primary_source": "",
       "secondary_source": "",
-      "error": "page.goto: Navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20UOMO%20BORN%20IN%20ROMA%20-%20VALENTINO%20Valentino\" is interrupted by another navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20ROLLING%20IN%20LOVE%20-%20KILIAN%20Kilian%20Paris\"\nCall log:\n\u001b[2m  - navigating to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20UOMO%20BORN%20IN%20ROMA%20-%20VALENTINO%20Valentino\", waiting until \"domcontentloaded\"\u001b[22m\n"
+      "fragrantica_id": 55963,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Valentino/Valentino-Uomo-Born-in-Roma-55963.html",
+      "match_score": 1,
+      "resolver": "bing-self-hosted-isolated-page"
     },
     {
       "rank": 169,
@@ -605,7 +754,10 @@
       "brand": "Guerlain",
       "primary_source": "",
       "secondary_source": "",
-      "error": "page.goto: Navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20Vanille%20Planifolia%20Extrait%2021%20Guerlain\" is interrupted by another navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20UOMO%20BORN%20IN%20ROMA%20-%20VALENTINO%20Valentino\"\nCall log:\n\u001b[2m  - navigating to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20Vanille%20Planifolia%20Extrait%2021%20Guerlain\", waiting until \"domcontentloaded\"\u001b[22m\n"
+      "fragrantica_id": 87539,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Guerlain/Vanille-Planifolia-Extrait-21-87539.html",
+      "match_score": 1,
+      "resolver": "bing-self-hosted-isolated-page"
     },
     {
       "rank": 170,
@@ -614,7 +766,10 @@
       "brand": "Frederic Malle",
       "primary_source": "",
       "secondary_source": "",
-      "error": "page.goto: Navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20CARNAL%20FLOWER%20Frederic%20Malle\" is interrupted by another navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20Vanille%20Planifolia%20Extrait%2021%20Guerlain\"\nCall log:\n\u001b[2m  - navigating to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20CARNAL%20FLOWER%20Frederic%20Malle\", waiting until \"domcontentloaded\"\u001b[22m\n"
+      "fragrantica_id": 1024,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Frederic-Malle-Editions-de-parfums/Carnal-Flower-1024.html",
+      "match_score": 1,
+      "resolver": "bing-self-hosted-isolated-page"
     },
     {
       "rank": 171,
@@ -623,7 +778,10 @@
       "brand": "Laura Mercier",
       "primary_source": "",
       "secondary_source": "",
-      "error": "page.goto: Navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20EAU%20GOURMANDE%20AMBRE%20VANILLE%20Laura%20Mercier\" is interrupted by another navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20CARNAL%20FLOWER%20Frederic%20Malle\"\nCall log:\n\u001b[2m  - navigating to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20EAU%20GOURMANDE%20AMBRE%20VANILLE%20Laura%20Mercier\", waiting until \"domcontentloaded\"\u001b[22m\n"
+      "fragrantica_id": 18364,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Laura-Mercier/Eau-Gourmande-Ambre-Vanille-18364.html",
+      "match_score": 1,
+      "resolver": "bing-self-hosted-isolated-page"
     },
     {
       "rank": 172,
@@ -632,7 +790,10 @@
       "brand": "Estee Lauder",
       "primary_source": "",
       "secondary_source": "",
-      "error": "page.goto: Navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20BRONZE%20GODDESS%20SOLEIL%20-%20ESTEE%20LAUDER%20Estee%20Lauder\" is interrupted by another navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20EAU%20GOURMANDE%20AMBRE%20VANILLE%20Laura%20Mercier\"\nCall log:\n\u001b[2m  - navigating to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20BRONZE%20GODDESS%20SOLEIL%20-%20ESTEE%20LAUDER%20Estee%20Lauder\", waiting until \"domcontentloaded\"\u001b[22m\n"
+      "fragrantica_id": 11537,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Estee-Lauder/Bronze-Goddess-Soleil-11537.html",
+      "match_score": 1,
+      "resolver": "bing-self-hosted-isolated-page"
     },
     {
       "rank": 174,
@@ -641,7 +802,10 @@
       "brand": "Jo Malone London",
       "primary_source": "",
       "secondary_source": "",
-      "error": "page.goto: Navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20Ginger%20Biscuit%20Jo%20Malone%20Jo%20Malone%20London\" is interrupted by another navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20BRONZE%20GODDESS%20SOLEIL%20-%20ESTEE%20LAUDER%20Estee%20Lauder\"\nCall log:\n\u001b[2m  - navigating to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20Ginger%20Biscuit%20Jo%20Malone%20Jo%20Malone%20London\", waiting until \"domcontentloaded\"\u001b[22m\n"
+      "fragrantica_id": 17685,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Jo-Malone-London/Ginger-Biscuit-17685.html",
+      "match_score": 1,
+      "resolver": "bing-self-hosted-isolated-page"
     },
     {
       "rank": 175,
@@ -650,7 +814,10 @@
       "brand": "Bobbi Brown",
       "primary_source": "",
       "secondary_source": "",
-      "error": "page.goto: Navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20BEACH%20-%20BOBBI%20BROWN%20Bobbi%20Brown\" is interrupted by another navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20Ginger%20Biscuit%20Jo%20Malone%20Jo%20Malone%20London\"\nCall log:\n\u001b[2m  - navigating to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20BEACH%20-%20BOBBI%20BROWN%20Bobbi%20Brown\", waiting until \"domcontentloaded\"\u001b[22m\n"
+      "fragrantica_id": 10456,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Bobbi-Brown/Beach-10456.html",
+      "match_score": 1,
+      "resolver": "bing-self-hosted-isolated-page"
     },
     {
       "rank": 176,
@@ -659,7 +826,10 @@
       "brand": "Maison Margiela Replica",
       "primary_source": "",
       "secondary_source": "",
-      "error": "page.goto: Navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20BEACH%20WALK%20Maison%20Margiela%20Replica\" is interrupted by another navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20BEACH%20-%20BOBBI%20BROWN%20Bobbi%20Brown\"\nCall log:\n\u001b[2m  - navigating to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20BEACH%20WALK%20Maison%20Margiela%20Replica\", waiting until \"domcontentloaded\"\u001b[22m\n"
+      "fragrantica_id": 15261,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Maison-Martin-Margiela/Beach-Walk-15261.html",
+      "match_score": 1,
+      "resolver": "bing-self-hosted-isolated-page"
     },
     {
       "rank": 177,
@@ -668,7 +838,10 @@
       "brand": "Melanie Martinez",
       "primary_source": "",
       "secondary_source": "",
-      "error": "page.goto: Navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20CRY%20BABY%20PERFUME%20MILK%20Melanie%20Martinez\" is interrupted by another navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20BEACH%20WALK%20Maison%20Margiela%20Replica\"\nCall log:\n\u001b[2m  - navigating to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20CRY%20BABY%20PERFUME%20MILK%20Melanie%20Martinez\", waiting until \"domcontentloaded\"\u001b[22m\n"
+      "fragrantica_id": 41799,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Melanie-Martinez/Cry-Baby-Perfume-Milk-41799.html",
+      "match_score": 1,
+      "resolver": "bing-self-hosted-isolated-page"
     },
     {
       "rank": 178,
@@ -677,7 +850,10 @@
       "brand": "Marc-Antoine Barrois",
       "primary_source": "",
       "secondary_source": "",
-      "error": "page.goto: Navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20Tilia%20Marc-Antoine%20Barrois%20Marc-Antoine%20Barrois\" is interrupted by another navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20CRY%20BABY%20PERFUME%20MILK%20Melanie%20Martinez\"\nCall log:\n\u001b[2m  - navigating to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20Tilia%20Marc-Antoine%20Barrois%20Marc-Antoine%20Barrois\", waiting until \"domcontentloaded\"\u001b[22m\n"
+      "fragrantica_id": 91688,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Marc-Antoine-Barrois/Tilia-91688.html",
+      "match_score": 1,
+      "resolver": "bing-self-hosted-isolated-page"
     },
     {
       "rank": 179,
@@ -686,7 +862,10 @@
       "brand": "Kayali",
       "primary_source": "",
       "secondary_source": "",
-      "error": "page.goto: Navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20VANILLA%20CANDY%20ROCK%20SUGAR%20%7C%2044%20-%20KAYALI%20Kayali\" is interrupted by another navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20Tilia%20Marc-Antoine%20Barrois%20Marc-Antoine%20Barrois\"\nCall log:\n\u001b[2m  - navigating to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20VANILLA%20CANDY%20ROCK%20SUGAR%20%7C%2044%20-%20KAYALI%20Kayali\", waiting until \"domcontentloaded\"\u001b[22m\n"
+      "fragrantica_id": 92258,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Kayali-Fragrances/Vanilla-Candy-Rock-Sugar-42-92258.html",
+      "match_score": 1,
+      "resolver": "bing-self-hosted-isolated-page"
     },
     {
       "rank": 180,
@@ -695,7 +874,10 @@
       "brand": "Victoria's Secret",
       "primary_source": "",
       "secondary_source": "",
-      "error": "page.goto: Navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20BARE%20VANILLA%20-%20VICTORIA%20SECRET%20Victoria%27s%20Secret\" is interrupted by another navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20VANILLA%20CANDY%20ROCK%20SUGAR%20%7C%2044%20-%20KAYALI%20Kayali\"\nCall log:\n\u001b[2m  - navigating to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20BARE%20VANILLA%20-%20VICTORIA%20SECRET%20Victoria%27s%20Secret\", waiting until \"domcontentloaded\"\u001b[22m\n"
+      "fragrantica_id": 56836,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Victoria-s-Secret/Bare-Vanilla-56836.html",
+      "match_score": 1,
+      "resolver": "bing-self-hosted-isolated-page"
     },
     {
       "rank": 181,
@@ -704,7 +886,10 @@
       "brand": "Xerjoff",
       "primary_source": "",
       "secondary_source": "",
-      "error": "page.goto: Navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%2040%20KNOTS%20Xerjoff\" is interrupted by another navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20BARE%20VANILLA%20-%20VICTORIA%20SECRET%20Victoria%27s%20Secret\"\nCall log:\n\u001b[2m  - navigating to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%2040%20KNOTS%20Xerjoff\", waiting until \"domcontentloaded\"\u001b[22m\n"
+      "fragrantica_id": 16445,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Xerjoff/40-Knots-16445.html",
+      "match_score": 1,
+      "resolver": "bing-self-hosted-isolated-page"
     },
     {
       "rank": 182,
@@ -713,16 +898,10 @@
       "brand": "Maison Francis Kurkdjian",
       "primary_source": "",
       "secondary_source": "",
-      "error": "page.goto: Navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20GRAND%20SOIR%20Maison%20Francis%20Kurkdjian\" is interrupted by another navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%2040%20KNOTS%20Xerjoff\"\nCall log:\n\u001b[2m  - navigating to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20GRAND%20SOIR%20Maison%20Francis%20Kurkdjian\", waiting until \"domcontentloaded\"\u001b[22m\n"
-    },
-    {
-      "rank": 183,
-      "code": "1882-MARG N",
-      "inspired_by": "BY THE FIRE PLACE",
-      "brand": "Maison Margiela Replica",
-      "primary_source": "",
-      "secondary_source": "",
-      "error": "page.goto: Navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20BY%20THE%20FIRE%20PLACE%20Maison%20Margiela%20Replica\" is interrupted by another navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20GRAND%20SOIR%20Maison%20Francis%20Kurkdjian\"\nCall log:\n\u001b[2m  - navigating to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20BY%20THE%20FIRE%20PLACE%20Maison%20Margiela%20Replica\", waiting until \"domcontentloaded\"\u001b[22m\n"
+      "fragrantica_id": 40816,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Maison-Francis-Kurkdjian/Grand-Soir-40816.html",
+      "match_score": 1,
+      "resolver": "bing-self-hosted-isolated-page"
     },
     {
       "rank": 184,
@@ -731,7 +910,10 @@
       "brand": "Frederic Malle",
       "primary_source": "",
       "secondary_source": "",
-      "error": "page.goto: Navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20IRIS%20POUDRE%20Frederic%20Malle\" is interrupted by another navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20BY%20THE%20FIRE%20PLACE%20Maison%20Margiela%20Replica\"\nCall log:\n\u001b[2m  - navigating to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20IRIS%20POUDRE%20Frederic%20Malle\", waiting until \"domcontentloaded\"\u001b[22m\n"
+      "fragrantica_id": 4771,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Frederic-Malle-Editions-de-parfums/Iris-Poudre-4771.html",
+      "match_score": 1,
+      "resolver": "bing-self-hosted-isolated-page"
     },
     {
       "rank": 185,
@@ -740,7 +922,10 @@
       "brand": "",
       "primary_source": "",
       "secondary_source": "",
-      "error": "page.goto: Navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20STRONGER%20WITH%20YOU%20ABSOLUTELY\" is interrupted by another navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20IRIS%20POUDRE%20Frederic%20Malle\"\nCall log:\n\u001b[2m  - navigating to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20STRONGER%20WITH%20YOU%20ABSOLUTELY\", waiting until \"domcontentloaded\"\u001b[22m\n"
+      "fragrantica_id": 64501,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Giorgio-Armani/Emporio-Armani-Stronger-With-You-Absolutely-64501.html",
+      "match_score": 1,
+      "resolver": "bing-self-hosted-isolated-page"
     },
     {
       "rank": 186,
@@ -749,7 +934,10 @@
       "brand": "Chloé",
       "primary_source": "",
       "secondary_source": "",
-      "error": "page.goto: Navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20Chlo%C3%A9%20Chlo%C3%A9\" is interrupted by another navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20STRONGER%20WITH%20YOU%20ABSOLUTELY\"\nCall log:\n\u001b[2m  - navigating to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20Chlo%C3%A9%20Chlo%C3%A9\", waiting until \"domcontentloaded\"\u001b[22m\n"
+      "fragrantica_id": 1733,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Chloe/Chloe-Eau-de-Parfum-1733.html",
+      "match_score": 1,
+      "resolver": "bing-self-hosted-isolated-page"
     },
     {
       "rank": 187,
@@ -758,7 +946,10 @@
       "brand": "",
       "primary_source": "",
       "secondary_source": "",
-      "error": "page.goto: Navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20Eros\" is interrupted by another navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20Chlo%C3%A9%20Chlo%C3%A9\"\nCall log:\n\u001b[2m  - navigating to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20Eros\", waiting until \"domcontentloaded\"\u001b[22m\n"
+      "fragrantica_id": 16657,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Versace/Eros-16657.html",
+      "match_score": 1,
+      "resolver": "bing-self-hosted-isolated-page"
     },
     {
       "rank": 188,
@@ -767,7 +958,10 @@
       "brand": "",
       "primary_source": "",
       "secondary_source": "",
-      "error": "page.goto: Navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20STRONGER%20WITH%20YOU\" is interrupted by another navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20Eros\"\nCall log:\n\u001b[2m  - navigating to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20STRONGER%20WITH%20YOU\", waiting until \"domcontentloaded\"\u001b[22m\n"
+      "fragrantica_id": 45258,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Giorgio-Armani/Emporio-Armani-Stronger-With-You-45258.html",
+      "match_score": 1,
+      "resolver": "bing-self-hosted-isolated-page"
     },
     {
       "rank": 189,
@@ -776,7 +970,10 @@
       "brand": "",
       "primary_source": "",
       "secondary_source": "",
-      "error": "page.goto: Navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20ACQUA%20DI%20GIO\" is interrupted by another navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20STRONGER%20WITH%20YOU\"\nCall log:\n\u001b[2m  - navigating to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20ACQUA%20DI%20GIO\", waiting until \"domcontentloaded\"\u001b[22m\n"
+      "fragrantica_id": 410,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Giorgio-Armani/Acqua-di-Gio-410.html",
+      "match_score": 1,
+      "resolver": "bing-self-hosted-isolated-page"
     },
     {
       "rank": 190,
@@ -785,7 +982,10 @@
       "brand": "Juliette Has A Gun",
       "primary_source": "",
       "secondary_source": "",
-      "error": "page.goto: Navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20VANILLA%20VIBES%20-%20JULIETTE%20HAS%20A%20GUN%20Juliette%20Has%20A%20Gun\" is interrupted by another navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20ACQUA%20DI%20GIO\"\nCall log:\n\u001b[2m  - navigating to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20VANILLA%20VIBES%20-%20JULIETTE%20HAS%20A%20GUN%20Juliette%20Has%20A%20Gun\", waiting until \"domcontentloaded\"\u001b[22m\n"
+      "fragrantica_id": 54878,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Juliette-Has-A-Gun/Vanilla-Vibes-54878.html",
+      "match_score": 1,
+      "resolver": "bing-self-hosted-isolated-page"
     },
     {
       "rank": 191,
@@ -794,7 +994,10 @@
       "brand": "Maison Francis Kurkdjian",
       "primary_source": "",
       "secondary_source": "",
-      "error": "page.goto: Navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20724%20Maison%20Francis%20Kurkdjian\" is interrupted by another navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20VANILLA%20VIBES%20-%20JULIETTE%20HAS%20A%20GUN%20Juliette%20Has%20A%20Gun\"\nCall log:\n\u001b[2m  - navigating to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20724%20Maison%20Francis%20Kurkdjian\", waiting until \"domcontentloaded\"\u001b[22m\n"
+      "fragrantica_id": 75754,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Maison-Francis-Kurkdjian/724-75754.html",
+      "match_score": 1,
+      "resolver": "bing-self-hosted-isolated-page"
     },
     {
       "rank": 192,
@@ -803,16 +1006,10 @@
       "brand": "Kilian Paris",
       "primary_source": "",
       "secondary_source": "",
-      "error": "page.goto: Navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20INTOXICATED%20-%20KILIAN%20Kilian%20Paris\" is interrupted by another navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20724%20Maison%20Francis%20Kurkdjian\"\nCall log:\n\u001b[2m  - navigating to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20INTOXICATED%20-%20KILIAN%20Kilian%20Paris\", waiting until \"domcontentloaded\"\u001b[22m\n"
-    },
-    {
-      "rank": 193,
-      "code": "2117-YZLO W",
-      "inspired_by": "LIBRE LE PARFUM",
-      "brand": "Ysl",
-      "primary_source": "",
-      "secondary_source": "",
-      "error": "page.goto: Navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20LIBRE%20LE%20PARFUM%20Ysl\" is interrupted by another navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20INTOXICATED%20-%20KILIAN%20Kilian%20Paris\"\nCall log:\n\u001b[2m  - navigating to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20LIBRE%20LE%20PARFUM%20Ysl\", waiting until \"domcontentloaded\"\u001b[22m\n"
+      "fragrantica_id": 25991,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/By-Kilian/Intoxicated-25991.html",
+      "match_score": 1,
+      "resolver": "bing-self-hosted-isolated-page"
     },
     {
       "rank": 194,
@@ -821,7 +1018,10 @@
       "brand": "Tom Ford",
       "primary_source": "",
       "secondary_source": "",
-      "error": "page.goto: Navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20FUCKING%20FABULOUS%20Tom%20Ford\" is interrupted by another navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20LIBRE%20LE%20PARFUM%20Ysl\"\nCall log:\n\u001b[2m  - navigating to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20FUCKING%20FABULOUS%20Tom%20Ford\", waiting until \"domcontentloaded\"\u001b[22m\n"
+      "fragrantica_id": 46513,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Tom-Ford/Fabulous-46513.html",
+      "match_score": 0.5,
+      "resolver": "bing-self-hosted-isolated-page"
     },
     {
       "rank": 195,
@@ -830,16 +1030,10 @@
       "brand": "Jean Paul Gaultier",
       "primary_source": "",
       "secondary_source": "",
-      "error": "page.goto: Navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20La%20Belle%20Jean%20Paul%20Gaultier\" is interrupted by another navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20FUCKING%20FABULOUS%20Tom%20Ford\"\nCall log:\n\u001b[2m  - navigating to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20La%20Belle%20Jean%20Paul%20Gaultier\", waiting until \"domcontentloaded\"\u001b[22m\n"
-    },
-    {
-      "rank": 196,
-      "code": "2164-LAT EL",
-      "inspired_by": "KHAMRAH - LATTAFA Inspired Perfume Fragrance sweet, warm spicy, amber, vanilla, cinnamon, woody, fresh spicy",
-      "brand": "",
-      "primary_source": "",
-      "secondary_source": "",
-      "error": "page.goto: Navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20KHAMRAH%20-%20LATTAFA%20Inspired%20Perfume%20Fragrance%20sweet%2C%20warm%20spicy%2C%20amber%2C%20vanilla%2C%20cinnamon%2C%20woody%2C%20fresh%20spicy\" is interrupted by another navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20La%20Belle%20Jean%20Paul%20Gaultier\"\nCall log:\n\u001b[2m  - navigating to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20KHAMRAH%20-%20LATTAFA%20Inspired%20Perfume%20Fragrance%20sweet%2C%20warm%20spicy%2C%20amber%2C%20vanilla%2C%20cinnamon%2C%20woody%2C%20fresh%20spicy\", waiting until \"domcontentloaded\"\u001b[22m\n"
+      "fragrantica_id": 55786,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Jean-Paul-Gaultier/La-Belle-55786.html",
+      "match_score": 1,
+      "resolver": "bing-self-hosted-isolated-page"
     },
     {
       "rank": 197,
@@ -848,7 +1042,10 @@
       "brand": "Paco Rabanne",
       "primary_source": "",
       "secondary_source": "",
-      "error": "page.goto: Navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20OLYMPEA%20Paco%20Rabanne\" is interrupted by another navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20KHAMRAH%20-%20LATTAFA%20Inspired%20Perfume%20Fragrance%20sweet%2C%20warm%20spicy%2C%20amber%2C%20vanilla%2C%20cinnamon%2C%20woody%2C%20fresh%20spicy\"\nCall log:\n\u001b[2m  - navigating to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20OLYMPEA%20Paco%20Rabanne\", waiting until \"domcontentloaded\"\u001b[22m\n"
+      "fragrantica_id": 31666,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Rabanne/Olympea-31666.html",
+      "match_score": 1,
+      "resolver": "bing-self-hosted-isolated-page"
     },
     {
       "rank": 198,
@@ -857,7 +1054,10 @@
       "brand": "Maison Margiela Replica",
       "primary_source": "",
       "secondary_source": "",
-      "error": "page.goto: Navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20Jazz%20Club%20edt%20Maison%20Margiela%20Replica\" is interrupted by another navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20OLYMPEA%20Paco%20Rabanne\"\nCall log:\n\u001b[2m  - navigating to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20Jazz%20Club%20edt%20Maison%20Margiela%20Replica\", waiting until \"domcontentloaded\"\u001b[22m\n"
+      "fragrantica_id": 20541,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Maison-Martin-Margiela/Jazz-Club-20541.html",
+      "match_score": 0.667,
+      "resolver": "bing-self-hosted-isolated-page"
     },
     {
       "rank": 199,
@@ -866,7 +1066,10 @@
       "brand": "Maison Francis Kurkdjian",
       "primary_source": "",
       "secondary_source": "",
-      "error": "page.goto: Navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20GENTLE%20FLUIDITY%20GOLD%20Maison%20Francis%20Kurkdjian\" is interrupted by another navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20Jazz%20Club%20edt%20Maison%20Margiela%20Replica\"\nCall log:\n\u001b[2m  - navigating to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20GENTLE%20FLUIDITY%20GOLD%20Maison%20Francis%20Kurkdjian\", waiting until \"domcontentloaded\"\u001b[22m\n"
+      "fragrantica_id": 53401,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Maison-Francis-Kurkdjian/Gentle-Fluidity-Gold-53401.html",
+      "match_score": 1,
+      "resolver": "bing-self-hosted-isolated-page"
     },
     {
       "rank": 200,
@@ -875,7 +1078,117 @@
       "brand": "Byredo",
       "primary_source": "",
       "secondary_source": "",
-      "error": "page.goto: Navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20Vanille%20Antique%20Byredo\" is interrupted by another navigation to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20GENTLE%20FLUIDITY%20GOLD%20Maison%20Francis%20Kurkdjian\"\nCall log:\n\u001b[2m  - navigating to \"https://www.bing.com/search?q=site%3Afragrantica.com%2Fperfume%20Vanille%20Antique%20Byredo\", waiting until \"domcontentloaded\"\u001b[22m\n"
+      "fragrantica_id": 73438,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Byredo/Vanille-Antique-73438.html",
+      "match_score": 1,
+      "resolver": "bing-self-hosted-isolated-page"
+    }
+  ],
+  "unresolved": [
+    {
+      "rank": 134,
+      "code": "1726-MNTB WP",
+      "inspired_by": "SIGNATURE - MONT BLANC",
+      "brand": "Montblanc",
+      "primary_source": "",
+      "secondary_source": "",
+      "candidate": {
+        "href": "https://www.fragrantica.com/perfume/Montblanc/Signature-60962.html",
+        "text": "Fragrantica\nhttps://www.fragrantica.com › perfu…\nTraduci questo risultato",
+        "id": 60962,
+        "ratio": 0.3333333333333333,
+        "brandHit": true
+      }
+    },
+    {
+      "rank": 142,
+      "code": "1938-YZLO N",
+      "inspired_by": "BABY CAT",
+      "brand": "Ysl",
+      "primary_source": "",
+      "secondary_source": "",
+      "candidate": {
+        "href": "https://www.fragrantica.com/perfume/Yves-Saint-Laurent/Black-Opium-Baby-Cat-Collector-63448.html",
+        "text": "Fragrantica\nhttps://www.fragrantica.com › ...\nTraduci questo risultato",
+        "id": 63448,
+        "ratio": 1,
+        "brandHit": false
+      }
+    },
+    {
+      "rank": 147,
+      "code": "1620-GUR N",
+      "inspired_by": "SPIRITUESE DOUBLE VANILLA",
+      "brand": "Guerlain",
+      "primary_source": "",
+      "secondary_source": "",
+      "candidate": {
+        "href": "https://www.fragrantica.com/perfume/Guerlain/Spiritueuse-Double-Vanille-3345.html",
+        "text": "Fragrantica\nhttps://www.fragrantica.com › perfu…\nTraduci questo risultato",
+        "id": 3345,
+        "ratio": 0.3333333333333333,
+        "brandHit": true
+      }
+    },
+    {
+      "rank": 149,
+      "code": "1289-YZLO M",
+      "inspired_by": "of Y",
+      "brand": "",
+      "primary_source": "",
+      "secondary_source": "",
+      "candidate": {
+        "href": "https://www.fragrantica.com/perfume/Yves-Saint-Laurent/Y-Eau-de-Parfum-50757.html",
+        "text": "Fragrantica\nhttps://www.fragrantica.com › perfu…\nTraduci questo risultato",
+        "id": 50757,
+        "ratio": 0,
+        "brandHit": true
+      }
+    },
+    {
+      "rank": 183,
+      "code": "1882-MARG N",
+      "inspired_by": "BY THE FIRE PLACE",
+      "brand": "Maison Margiela Replica",
+      "primary_source": "",
+      "secondary_source": "",
+      "candidate": {
+        "href": "https://www.fragrantica.com/perfume/Maison-Martin-Margiela/By-the-Fireplace-31623.html",
+        "text": "Fragrantica\nhttps://www.fragrantica.com › perfu…\nTraduci questo risultato",
+        "id": 31623,
+        "ratio": 0,
+        "brandHit": true
+      }
+    },
+    {
+      "rank": 193,
+      "code": "2117-YZLO W",
+      "inspired_by": "LIBRE LE PARFUM",
+      "brand": "Ysl",
+      "primary_source": "",
+      "secondary_source": "",
+      "candidate": {
+        "href": "https://www.fragrantica.com/perfume/Yves-Saint-Laurent/Libre-Le-Parfum-75676.html",
+        "text": "Fragrantica\nhttps://www.fragrantica.com › perfu…\nTraduci questo risultato",
+        "id": 75676,
+        "ratio": 1,
+        "brandHit": false
+      }
+    },
+    {
+      "rank": 196,
+      "code": "2164-LAT EL",
+      "inspired_by": "KHAMRAH - LATTAFA Inspired Perfume Fragrance sweet, warm spicy, amber, vanilla, cinnamon, woody, fresh spicy",
+      "brand": "",
+      "primary_source": "",
+      "secondary_source": "",
+      "candidate": {
+        "href": "https://www.fragrantica.com/perfume/Lattafa-Perfumes/Khamrah-Dukhan-104529.html",
+        "text": "Khamrah Dukhan Lattafa Perfumes cologne - a new fragrance for men 2025",
+        "id": 104529,
+        "ratio": 0.25,
+        "brandHit": true
+      }
     }
   ],
   "missing_master": [
