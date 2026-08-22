@@ -1,0 +1,578 @@
+{
+  "schema_version": 1,
+  "method": "Fragrantica ID Mapping Rule / social-card Main Notes",
+  "count": 10,
+  "verified_count": 0,
+  "review_count": 10,
+  "records": [
+    {
+      "rank": 37,
+      "shobi_code": "2348-AMG N",
+      "perfume": "Guidance",
+      "fragrantica_id": 78656,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Amouage/Guidance-78656.html",
+      "gender": "unisex",
+      "identity_verified": true,
+      "social_card_url": "https://fimgs.net/mdimg/perfume-social-cards/en-p_c_78656.jpeg",
+      "social_card_bytes": 103593,
+      "note_count": 6,
+      "main_notes": [
+        "Sandalwoc 3",
+        "dd Hazelnut",
+        "3 Pear ae",
+        "Vanilla",
+        "Akigalaw",
+        "ood Olibant (Frankir"
+      ],
+      "evidence": [
+        {
+          "position": 1,
+          "note": "Sandalwoc 3",
+          "raw_ocr": "Sandalwoc 3",
+          "vocab_match": 0.0
+        },
+        {
+          "position": 2,
+          "note": "dd Hazelnut",
+          "raw_ocr": "dd Hazelnut",
+          "vocab_match": 0.0
+        },
+        {
+          "position": 3,
+          "note": "3 Pear ae",
+          "raw_ocr": "3 Pear ae",
+          "vocab_match": 0.0
+        },
+        {
+          "position": 4,
+          "note": "Vanilla",
+          "raw_ocr": "Vanilla",
+          "vocab_match": 0.0
+        },
+        {
+          "position": 5,
+          "note": "Akigalaw",
+          "raw_ocr": "Akigalaw",
+          "vocab_match": 0.0
+        },
+        {
+          "position": 6,
+          "note": "ood Olibant (Frankir",
+          "raw_ocr": "ood Olibant (Frankir",
+          "vocab_match": 0.0
+        }
+      ],
+      "status": "review"
+    },
+    {
+      "rank": 40,
+      "shobi_code": "750-KEN W",
+      "perfume": "Flower by Kenzo L'Elixir",
+      "fragrantica_id": 31539,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Kenzo/Flower-by-Kenzo-L-Elixir-31539.html",
+      "gender": "female",
+      "identity_verified": true,
+      "social_card_url": "https://fimgs.net/mdimg/perfume-social-cards/en-p_c_31539.jpeg",
+      "social_card_bytes": 105892,
+      "note_count": 6,
+      "main_notes": [
+        "KaSpbdelry",
+        "Fraline",
+        "FOWderTY Notes",
+        "Vanilla",
+        "a Rose",
+        "Mandarin Orange"
+      ],
+      "evidence": [
+        {
+          "position": 1,
+          "note": "KaSpbdelry",
+          "raw_ocr": "KaSpbdelry",
+          "vocab_match": 0.0
+        },
+        {
+          "position": 2,
+          "note": "Fraline",
+          "raw_ocr": "Fraline",
+          "vocab_match": 0.0
+        },
+        {
+          "position": 3,
+          "note": "FOWderTY Notes",
+          "raw_ocr": "FOWderTY Notes",
+          "vocab_match": 0.0
+        },
+        {
+          "position": 4,
+          "note": "Vanilla",
+          "raw_ocr": "Vanilla",
+          "vocab_match": 0.0
+        },
+        {
+          "position": 5,
+          "note": "a Rose",
+          "raw_ocr": "a Rose",
+          "vocab_match": 0.0
+        },
+        {
+          "position": 6,
+          "note": "Mandarin Orange",
+          "raw_ocr": "Mandarin Orange",
+          "vocab_match": 0.0
+        }
+      ],
+      "status": "review"
+    },
+    {
+      "rank": 41,
+      "shobi_code": "937-VAL WP",
+      "perfume": "Valentino Donna Born In Roma",
+      "fragrantica_id": 55805,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Valentino/Valentino-Donna-Born-In-Roma-55805.html",
+      "gender": "female",
+      "identity_verified": true,
+      "social_card_url": "https://fimgs.net/mdimg/perfume-social-cards/en-p_c_55805.jpeg",
+      "social_card_bytes": 133984,
+      "note_count": 6,
+      "main_notes": [
+        "Vanilla EN",
+        "bIaCK Currant",
+        "Jasmine",
+        "ee Cashmeral",
+        "7 Jasmine Tea",
+        "Pink Pepper"
+      ],
+      "evidence": [
+        {
+          "position": 1,
+          "note": "Vanilla EN",
+          "raw_ocr": "Vanilla EN",
+          "vocab_match": 0.0
+        },
+        {
+          "position": 2,
+          "note": "bIaCK Currant",
+          "raw_ocr": "bIaCK Currant",
+          "vocab_match": 0.0
+        },
+        {
+          "position": 3,
+          "note": "Jasmine",
+          "raw_ocr": "Jasmine",
+          "vocab_match": 0.0
+        },
+        {
+          "position": 4,
+          "note": "ee Cashmeral",
+          "raw_ocr": "ee Cashmeral",
+          "vocab_match": 0.0
+        },
+        {
+          "position": 5,
+          "note": "7 Jasmine Tea",
+          "raw_ocr": "7 Jasmine Tea",
+          "vocab_match": 0.0
+        },
+        {
+          "position": 6,
+          "note": "Pink Pepper",
+          "raw_ocr": "Pink Pepper",
+          "vocab_match": 0.0
+        }
+      ],
+      "status": "review"
+    },
+    {
+      "rank": 47,
+      "shobi_code": "1493-ACQ",
+      "perfume": "Acqua di Parma Blu Mediterraneo - Fico di Amalfi",
+      "fragrantica_id": 1687,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Acqua-di-Parma/Acqua-di-Parma-Blu-Mediterraneo-Fico-di-Amalfi-1687.html",
+      "gender": "unisex",
+      "identity_verified": true,
+      "social_card_url": "https://fimgs.net/mdimg/perfume-social-cards/en-p_c_1687.jpeg",
+      "social_card_bytes": 114109,
+      "note_count": 6,
+      "main_notes": [
+        "Fig",
+        "ar UN Fig tree 4",
+        "Grapefruit",
+        "Bergamot",
+        "Citron",
+        "Lemon"
+      ],
+      "evidence": [
+        {
+          "position": 1,
+          "note": "Fig",
+          "raw_ocr": "Fig",
+          "vocab_match": 0.0
+        },
+        {
+          "position": 2,
+          "note": "ar UN Fig tree 4",
+          "raw_ocr": "ar UN Fig tree 4",
+          "vocab_match": 0.0
+        },
+        {
+          "position": 3,
+          "note": "Grapefruit",
+          "raw_ocr": "Grapefruit",
+          "vocab_match": 0.0
+        },
+        {
+          "position": 4,
+          "note": "Bergamot",
+          "raw_ocr": "Bergamot",
+          "vocab_match": 0.0
+        },
+        {
+          "position": 5,
+          "note": "Citron",
+          "raw_ocr": "Citron",
+          "vocab_match": 0.0
+        },
+        {
+          "position": 6,
+          "note": "Lemon",
+          "raw_ocr": "Lemon",
+          "vocab_match": 0.0
+        }
+      ],
+      "status": "review"
+    },
+    {
+      "rank": 65,
+      "shobi_code": "2136-PARF N",
+      "perfume": "Valaya",
+      "fragrantica_id": 78574,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Parfums-de-Marly/Valaya-78574.html",
+      "gender": "female",
+      "identity_verified": true,
+      "social_card_url": "https://fimgs.net/mdimg/perfume-social-cards/en-p_c_78574.jpeg",
+      "social_card_bytes": 90973,
+      "note_count": 6,
+      "main_notes": [
+        "Musk a on",
+        "Aldehydes VY)",
+        "Peach",
+        "Ambroxan",
+        "Orange Blossom",
+        "Bergamot"
+      ],
+      "evidence": [
+        {
+          "position": 1,
+          "note": "Musk a on",
+          "raw_ocr": "Musk a on",
+          "vocab_match": 0.0
+        },
+        {
+          "position": 2,
+          "note": "Aldehydes VY)",
+          "raw_ocr": "Aldehydes VY)",
+          "vocab_match": 0.0
+        },
+        {
+          "position": 3,
+          "note": "Peach",
+          "raw_ocr": "Peach",
+          "vocab_match": 0.0
+        },
+        {
+          "position": 4,
+          "note": "Ambroxan",
+          "raw_ocr": "Ambroxan",
+          "vocab_match": 0.0
+        },
+        {
+          "position": 5,
+          "note": "Orange Blossom",
+          "raw_ocr": "Orange Blossom",
+          "vocab_match": 0.0
+        },
+        {
+          "position": 6,
+          "note": "Bergamot",
+          "raw_ocr": "Bergamot",
+          "vocab_match": 0.0
+        }
+      ],
+      "status": "review"
+    },
+    {
+      "rank": 81,
+      "shobi_code": "2282-DRC EL",
+      "perfume": "Dioriviera",
+      "fragrantica_id": 81847,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Dior/Dioriviera-81847.html",
+      "gender": "unisex",
+      "identity_verified": true,
+      "social_card_url": "https://fimgs.net/mdimg/perfume-social-cards/en-p_c_81847.jpeg",
+      "social_card_bytes": 89557,
+      "note_count": 3,
+      "main_notes": [
+        "oe é&",
+        "oo &)",
+        "rte ha eet ot"
+      ],
+      "evidence": [
+        {
+          "position": 2,
+          "note": "oe é&",
+          "raw_ocr": "oe é&",
+          "vocab_match": 0.0
+        },
+        {
+          "position": 3,
+          "note": "oo &)",
+          "raw_ocr": "oo &)",
+          "vocab_match": 0.0
+        },
+        {
+          "position": 5,
+          "note": "rte ha eet ot",
+          "raw_ocr": "rte ha eet ot",
+          "vocab_match": 0.0
+        }
+      ],
+      "status": "review"
+    },
+    {
+      "rank": 82,
+      "shobi_code": "1978-ARM M",
+      "perfume": "Emporio Armani Stronger With You Intensely",
+      "fragrantica_id": 52802,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Giorgio-Armani/Emporio-Armani-Stronger-With-You-Intensely-52802.html",
+      "gender": "male",
+      "identity_verified": true,
+      "social_card_url": "https://fimgs.net/mdimg/perfume-social-cards/en-p_c_52802.jpeg",
+      "social_card_bytes": 119721,
+      "note_count": 6,
+      "main_notes": [
+        "Ne Vanilla",
+        "Toffee",
+        "Cinnamon",
+        "4 Amber",
+        "Troe Tonka",
+        "aes Pink"
+      ],
+      "evidence": [
+        {
+          "position": 1,
+          "note": "Ne Vanilla",
+          "raw_ocr": "Ne Vanilla",
+          "vocab_match": 0.0
+        },
+        {
+          "position": 2,
+          "note": "Toffee",
+          "raw_ocr": "Toffee",
+          "vocab_match": 0.0
+        },
+        {
+          "position": 3,
+          "note": "Cinnamon",
+          "raw_ocr": "Cinnamon",
+          "vocab_match": 0.0
+        },
+        {
+          "position": 4,
+          "note": "4 Amber",
+          "raw_ocr": "4 Amber",
+          "vocab_match": 0.0
+        },
+        {
+          "position": 5,
+          "note": "Troe Tonka",
+          "raw_ocr": "Troe Tonka",
+          "vocab_match": 0.0
+        },
+        {
+          "position": 6,
+          "note": "aes Pink",
+          "raw_ocr": "aes Pink",
+          "vocab_match": 0.0
+        }
+      ],
+      "status": "review"
+    },
+    {
+      "rank": 89,
+      "shobi_code": "2053-BDIK N",
+      "perfume": "Gris Charnel Extrait",
+      "fragrantica_id": 73645,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/BDK-Parfums/Gris-Charnel-Extrait-73645.html",
+      "gender": "unisex",
+      "identity_verified": true,
+      "social_card_url": "https://fimgs.net/mdimg/perfume-social-cards/en-p_c_73645.jpeg",
+      "social_card_bytes": 103361,
+      "note_count": 6,
+      "main_notes": [
+        "Sandalwoc 3",
+        "1d Cardamc y. hw",
+        "m Fig",
+        "Vanilla",
+        "Tea",
+        "Tonka Bean"
+      ],
+      "evidence": [
+        {
+          "position": 1,
+          "note": "Sandalwoc 3",
+          "raw_ocr": "Sandalwoc 3",
+          "vocab_match": 0.0
+        },
+        {
+          "position": 2,
+          "note": "1d Cardamc y. hw",
+          "raw_ocr": "1d Cardamc y. hw",
+          "vocab_match": 0.0
+        },
+        {
+          "position": 3,
+          "note": "m Fig",
+          "raw_ocr": "m Fig",
+          "vocab_match": 0.0
+        },
+        {
+          "position": 4,
+          "note": "Vanilla",
+          "raw_ocr": "Vanilla",
+          "vocab_match": 0.0
+        },
+        {
+          "position": 5,
+          "note": "Tea",
+          "raw_ocr": "Tea",
+          "vocab_match": 0.0
+        },
+        {
+          "position": 6,
+          "note": "Tonka Bean",
+          "raw_ocr": "Tonka Bean",
+          "vocab_match": 0.0
+        }
+      ],
+      "status": "review"
+    },
+    {
+      "rank": 98,
+      "shobi_code": "2261-PARF N",
+      "perfume": "Althaïr",
+      "fragrantica_id": 84109,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Parfums-de-Marly/Althair-84109.html",
+      "gender": "male",
+      "identity_verified": true,
+      "social_card_url": "https://fimgs.net/mdimg/perfume-social-cards/en-p_c_84109.jpeg",
+      "social_card_bytes": 100310,
+      "note_count": 6,
+      "main_notes": [
+        "Vanilla",
+        "Praline",
+        "Cinnamon (-)",
+        "Orange Blossom",
+        "Cardamom",
+        "Musk"
+      ],
+      "evidence": [
+        {
+          "position": 1,
+          "note": "Vanilla",
+          "raw_ocr": "Vanilla",
+          "vocab_match": 0.0
+        },
+        {
+          "position": 2,
+          "note": "Praline",
+          "raw_ocr": "Praline",
+          "vocab_match": 0.0
+        },
+        {
+          "position": 3,
+          "note": "Cinnamon (-)",
+          "raw_ocr": "Cinnamon (-)",
+          "vocab_match": 0.0
+        },
+        {
+          "position": 4,
+          "note": "Orange Blossom",
+          "raw_ocr": "Orange Blossom",
+          "vocab_match": 0.0
+        },
+        {
+          "position": 5,
+          "note": "Cardamom",
+          "raw_ocr": "Cardamom",
+          "vocab_match": 0.0
+        },
+        {
+          "position": 6,
+          "note": "Musk",
+          "raw_ocr": "Musk",
+          "vocab_match": 0.0
+        }
+      ],
+      "status": "review"
+    },
+    {
+      "rank": 99,
+      "shobi_code": "1085-DRC M",
+      "perfume": "Sauvage",
+      "fragrantica_id": 31861,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Dior/Sauvage-31861.html",
+      "gender": "male",
+      "identity_verified": true,
+      "social_card_url": "https://fimgs.net/mdimg/perfume-social-cards/en-p_c_31861.jpeg",
+      "social_card_bytes": 102077,
+      "note_count": 6,
+      "main_notes": [
+        "Ambroxan res",
+        "Bergamot sx a",
+        "Pepper frie",
+        "Sichuan Pepper",
+        "Lavender",
+        "Pink Pepper"
+      ],
+      "evidence": [
+        {
+          "position": 1,
+          "note": "Ambroxan res",
+          "raw_ocr": "Ambroxan res",
+          "vocab_match": 0.0
+        },
+        {
+          "position": 2,
+          "note": "Bergamot sx a",
+          "raw_ocr": "Bergamot sx a",
+          "vocab_match": 0.0
+        },
+        {
+          "position": 3,
+          "note": "Pepper frie",
+          "raw_ocr": "Pepper frie",
+          "vocab_match": 0.0
+        },
+        {
+          "position": 4,
+          "note": "Sichuan Pepper",
+          "raw_ocr": "Sichuan Pepper",
+          "vocab_match": 0.0
+        },
+        {
+          "position": 5,
+          "note": "Lavender",
+          "raw_ocr": "Lavender",
+          "vocab_match": 0.0
+        },
+        {
+          "position": 6,
+          "note": "Pink Pepper",
+          "raw_ocr": "Pink Pepper",
+          "vocab_match": 0.0
+        }
+      ],
+      "status": "review"
+    }
+  ]
+}

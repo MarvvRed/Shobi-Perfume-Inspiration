@@ -1,0 +1,1009 @@
+{
+  "schema_version": 1,
+  "method": "Fragrantica ID Mapping Rule / When To Wear seasonal vote bars",
+  "count": 100,
+  "verified_count": 0,
+  "unresolved_count": 100,
+  "records": [
+    {
+      "rank": 1,
+      "shobi_code": "305-KAY EL",
+      "fragrantica_id": 52616,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Kayali-Fragrances/Vanilla-28-52616.html",
+      "season_votes_percent": {},
+      "season": null,
+      "status": "unresolved",
+      "error": "only-0-season-values"
+    },
+    {
+      "rank": 2,
+      "shobi_code": "1508-KIL WP",
+      "fragrantica_id": 62615,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/By-Kilian/Angels-Share-62615.html",
+      "season_votes_percent": {},
+      "season": null,
+      "status": "unresolved",
+      "error": "only-0-season-values"
+    },
+    {
+      "rank": 3,
+      "shobi_code": "451-BYR WP",
+      "fragrantica_id": 6686,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Byredo/Blanche-6686.html",
+      "season_votes_percent": {},
+      "season": null,
+      "status": "unresolved",
+      "error": "only-0-season-values"
+    },
+    {
+      "rank": 4,
+      "shobi_code": "374-TMFO EL",
+      "fragrantica_id": 1825,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Tom-Ford/Tobacco-Vanille-1825.html",
+      "season_votes_percent": {},
+      "season": null,
+      "status": "unresolved",
+      "error": "only-0-season-values"
+    },
+    {
+      "rank": 5,
+      "shobi_code": "1899-ZARK EL",
+      "fragrantica_id": 60665,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/ZARKOPERFUME/The-Muse-60665.html",
+      "season_votes_percent": {},
+      "season": null,
+      "status": "unresolved",
+      "error": "only-0-season-values"
+    },
+    {
+      "rank": 6,
+      "shobi_code": "111-BAC N",
+      "fragrantica_id": 33519,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Maison-Francis-Kurkdjian/Baccarat-Rouge-540-33519.html",
+      "season_votes_percent": {},
+      "season": null,
+      "status": "unresolved",
+      "error": "only-0-season-values"
+    },
+    {
+      "rank": 7,
+      "shobi_code": "220-CRD EL",
+      "fragrantica_id": 899,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Creed/Virgin-Island-Water-899.html",
+      "season_votes_percent": {},
+      "season": null,
+      "status": "unresolved",
+      "error": "only-0-season-values"
+    },
+    {
+      "rank": 8,
+      "shobi_code": "350-TMFO EL",
+      "fragrantica_id": 51411,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Tom-Ford/Lost-Cherry-51411.html",
+      "season_votes_percent": {},
+      "season": null,
+      "status": "unresolved",
+      "error": "only-0-season-values"
+    },
+    {
+      "rank": 9,
+      "shobi_code": "2216-DOL WP",
+      "fragrantica_id": 84951,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Dolce-Gabbana/Devotion-84951.html",
+      "season_votes_percent": {},
+      "season": null,
+      "status": "unresolved",
+      "error": "only-0-season-values"
+    },
+    {
+      "rank": 10,
+      "shobi_code": "2129-SOL EL",
+      "fragrantica_id": 56062,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Sol-de-Janeiro/Cheirosa-62-56062.html",
+      "season_votes_percent": {},
+      "season": null,
+      "status": "unresolved",
+      "error": "only-0-season-values"
+    },
+    {
+      "rank": 11,
+      "shobi_code": "371-TMFO EL",
+      "fragrantica_id": 34893,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Tom-Ford/Soleil-Blanc-34893.html",
+      "season_votes_percent": {},
+      "season": null,
+      "status": "unresolved",
+      "error": "only-0-season-values"
+    },
+    {
+      "rank": 12,
+      "shobi_code": "449-BYR WP",
+      "fragrantica_id": 6458,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Byredo/Bal-d-Afrique-6458.html",
+      "season_votes_percent": {},
+      "season": null,
+      "status": "unresolved",
+      "error": "only-0-season-values"
+    },
+    {
+      "rank": 13,
+      "shobi_code": "204-CRD EL",
+      "fragrantica_id": 9828,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Creed/Aventus-9828.html",
+      "season_votes_percent": {},
+      "season": null,
+      "status": "unresolved",
+      "error": "only-0-season-values"
+    },
+    {
+      "rank": 14,
+      "shobi_code": "765-KIL WP",
+      "fragrantica_id": 4322,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/By-Kilian/Love-4322.html",
+      "season_votes_percent": {},
+      "season": null,
+      "status": "unresolved",
+      "error": "only-0-season-values"
+    },
+    {
+      "rank": 15,
+      "shobi_code": "994-ZAD WP",
+      "fragrantica_id": 39358,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Zadig-Voltaire/This-is-Her-39358.html",
+      "season_votes_percent": {},
+      "season": null,
+      "status": "unresolved",
+      "error": "only-0-season-values"
+    },
+    {
+      "rank": 16,
+      "shobi_code": "2371-MATIE EL",
+      "fragrantica_id": 84933,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Matiere-Premiere/Vanilla-Powder-84933.html",
+      "season_votes_percent": {},
+      "season": null,
+      "status": "unresolved",
+      "error": "only-0-season-values"
+    },
+    {
+      "rank": 17,
+      "shobi_code": "179-XER N",
+      "fragrantica_id": 30529,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Xerjoff/XJ-1861-Naxos-30529.html",
+      "season_votes_percent": {},
+      "season": null,
+      "status": "unresolved",
+      "error": "only-0-season-values"
+    },
+    {
+      "rank": 18,
+      "shobi_code": "2206-GIA LUX",
+      "fragrantica_id": 64757,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Giardini-Di-Toscana/Bianco-Latte-64757.html",
+      "season_votes_percent": {},
+      "season": null,
+      "status": "unresolved",
+      "error": "only-0-season-values"
+    },
+    {
+      "rank": 19,
+      "shobi_code": "229-DIP EL",
+      "fragrantica_id": 3865,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Diptyque/Philosykos-Eau-de-Parfum-3865.html",
+      "season_votes_percent": {},
+      "season": null,
+      "status": "unresolved",
+      "error": "only-0-season-values"
+    },
+    {
+      "rank": 20,
+      "shobi_code": "2162-BRB WP",
+      "fragrantica_id": 83483,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Burberry/Goddess-83483.html",
+      "season_votes_percent": {},
+      "season": null,
+      "status": "unresolved",
+      "error": "only-0-season-values"
+    },
+    {
+      "rank": 21,
+      "shobi_code": "1644-DRC M",
+      "fragrantica_id": 68415,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Dior/Sauvage-Elixir-68415.html",
+      "season_votes_percent": {},
+      "season": null,
+      "status": "unresolved",
+      "error": "only-0-season-values"
+    },
+    {
+      "rank": 22,
+      "shobi_code": "2398-FRE LUX",
+      "fragrantica_id": 91209,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Frederic-Malle/Acne-Studios-91209.html",
+      "season_votes_percent": {},
+      "season": null,
+      "status": "unresolved",
+      "error": "only-0-season-values"
+    },
+    {
+      "rank": 23,
+      "shobi_code": "401-ARIA WP",
+      "fragrantica_id": 50384,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Ariana-Grande/Cloud-50384.html",
+      "season_votes_percent": {},
+      "season": null,
+      "status": "unresolved",
+      "error": "only-0-season-values"
+    },
+    {
+      "rank": 24,
+      "shobi_code": "1660-ESCE EL",
+      "fragrantica_id": 845,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Escentric-Molecules/Molecule-01-845.html",
+      "season_votes_percent": {},
+      "season": null,
+      "status": "unresolved",
+      "error": "only-0-season-values"
+    },
+    {
+      "rank": 25,
+      "shobi_code": "1067-CHA M",
+      "fragrantica_id": 9099,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Chanel/Bleu-de-Chanel-9099.html",
+      "season_votes_percent": {},
+      "season": null,
+      "status": "unresolved",
+      "error": "only-0-season-values"
+    },
+    {
+      "rank": 26,
+      "shobi_code": "1499-BYR EL",
+      "fragrantica_id": 27040,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Byredo/Mojave-Ghost-27040.html",
+      "season_votes_percent": {},
+      "season": null,
+      "status": "unresolved",
+      "error": "only-0-season-values"
+    },
+    {
+      "rank": 27,
+      "shobi_code": "485-CAR WP",
+      "fragrantica_id": 39681,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Carolina-Herrera/Good-Girl-39681.html",
+      "season_votes_percent": {},
+      "season": null,
+      "status": "unresolved",
+      "error": "only-0-season-values"
+    },
+    {
+      "rank": 28,
+      "shobi_code": "1520-YZLO W",
+      "fragrantica_id": 62318,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Yves-Saint-Laurent/Libre-Intense-62318.html",
+      "season_votes_percent": {},
+      "season": null,
+      "status": "unresolved",
+      "error": "only-0-season-values"
+    },
+    {
+      "rank": 29,
+      "shobi_code": "152-PARF N",
+      "fragrantica_id": 50370,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Parfums-de-Marly/Delina-Exclusif-50370.html",
+      "season_votes_percent": {},
+      "season": null,
+      "status": "unresolved",
+      "error": "only-0-season-values"
+    },
+    {
+      "rank": 30,
+      "shobi_code": "1735-XER N",
+      "fragrantica_id": 65383,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Xerjoff/Italica-2021-65383.html",
+      "season_votes_percent": {},
+      "season": null,
+      "status": "unresolved",
+      "error": "only-0-season-values"
+    },
+    {
+      "rank": 31,
+      "shobi_code": "1498-BYR EL",
+      "fragrantica_id": 3575,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Byredo/Gypsy-Water-3575.html",
+      "season_votes_percent": {},
+      "season": null,
+      "status": "unresolved",
+      "error": "only-0-season-values"
+    },
+    {
+      "rank": 32,
+      "shobi_code": "132-LTN N",
+      "fragrantica_id": 49755,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Louis-Vuitton/Ombre-Nomade-49755.html",
+      "season_votes_percent": {},
+      "season": null,
+      "status": "unresolved",
+      "error": "only-0-season-values"
+    },
+    {
+      "rank": 33,
+      "shobi_code": "1919-PRA WP",
+      "fragrantica_id": 75668,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Prada/Prada-Paradoxe-75668.html",
+      "season_votes_percent": {},
+      "season": null,
+      "status": "unresolved",
+      "error": "only-0-season-values"
+    },
+    {
+      "rank": 34,
+      "shobi_code": "1764-GUR W",
+      "fragrantica_id": 53806,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Guerlain/Aqua-Allegoria-Coconut-Fizz-53806.html",
+      "season_votes_percent": {},
+      "season": null,
+      "status": "unresolved",
+      "error": "only-0-season-values"
+    },
+    {
+      "rank": 35,
+      "shobi_code": "848-NRO WP",
+      "fragrantica_id": 53441,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/narciso-rodriguez/pure-musc-for-her-53441.html",
+      "season_votes_percent": {},
+      "season": null,
+      "status": "unresolved",
+      "error": "only-0-season-values"
+    },
+    {
+      "rank": 36,
+      "shobi_code": "131-LEL N",
+      "fragrantica_id": 12201,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Le-Labo/Santal-33-12201.html",
+      "season_votes_percent": {},
+      "season": null,
+      "status": "unresolved",
+      "error": "only-0-season-values"
+    },
+    {
+      "rank": 37,
+      "shobi_code": "2348-AMG N",
+      "fragrantica_id": 78656,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Amouage/Guidance-78656.html",
+      "season_votes_percent": {},
+      "season": null,
+      "status": "unresolved",
+      "error": "only-0-season-values"
+    },
+    {
+      "rank": 38,
+      "shobi_code": "303-JOM EL",
+      "fragrantica_id": 25529,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Jo-Malone-London/Wood-Sage-Sea-Salt-25529.html",
+      "season_votes_percent": {},
+      "season": null,
+      "status": "unresolved",
+      "error": "only-0-season-values"
+    },
+    {
+      "rank": 39,
+      "shobi_code": "2155-KAY EL",
+      "fragrantica_id": 79846,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Kayali-Fragrances/Yum-Pistachio-Gelato-33-79846.html",
+      "season_votes_percent": {},
+      "season": null,
+      "status": "unresolved",
+      "error": "only-0-season-values"
+    },
+    {
+      "rank": 40,
+      "shobi_code": "750-KEN W",
+      "fragrantica_id": 31539,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Kenzo/Flower-by-Kenzo-L-Elixir-31539.html",
+      "season_votes_percent": {},
+      "season": null,
+      "status": "unresolved",
+      "error": "only-0-season-values"
+    },
+    {
+      "rank": 41,
+      "shobi_code": "937-VAL WP",
+      "fragrantica_id": 55805,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Valentino/Valentino-Donna-Born-In-Roma-55805.html",
+      "season_votes_percent": {},
+      "season": null,
+      "status": "unresolved",
+      "error": "only-0-season-values"
+    },
+    {
+      "rank": 42,
+      "shobi_code": "1553-MNT N",
+      "fragrantica_id": 57384,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Montale/Arabians-Tonka-57384.html",
+      "season_votes_percent": {},
+      "season": null,
+      "status": "unresolved",
+      "error": "only-0-season-values"
+    },
+    {
+      "rank": 43,
+      "shobi_code": "1937-BIL AR",
+      "fragrantica_id": 70052,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Billie-Eilish/Eilish-70052.html",
+      "season_votes_percent": {},
+      "season": null,
+      "status": "unresolved",
+      "error": "only-0-season-values"
+    },
+    {
+      "rank": 44,
+      "shobi_code": "425-BRB WP",
+      "fragrantica_id": 51694,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Burberry/Burberry-Her-51694.html",
+      "season_votes_percent": {},
+      "season": null,
+      "status": "unresolved",
+      "error": "only-0-season-values"
+    },
+    {
+      "rank": 45,
+      "shobi_code": "1883-NISH N",
+      "fragrantica_id": 30567,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Nishane/Wulong-Cha-30567.html",
+      "season_votes_percent": {},
+      "season": null,
+      "status": "unresolved",
+      "error": "only-0-season-values"
+    },
+    {
+      "rank": 46,
+      "shobi_code": "760-KIL WP",
+      "fragrantica_id": 43632,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/By-Kilian/Black-Phantom-43632.html",
+      "season_votes_percent": {},
+      "season": null,
+      "status": "unresolved",
+      "error": "only-0-season-values"
+    },
+    {
+      "rank": 47,
+      "shobi_code": "1493-ACQ",
+      "fragrantica_id": 1687,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Acqua-di-Parma/Acqua-di-Parma-Blu-Mediterraneo-Fico-di-Amalfi-1687.html",
+      "season_votes_percent": {},
+      "season": null,
+      "status": "unresolved",
+      "error": "only-0-season-values"
+    },
+    {
+      "rank": 48,
+      "shobi_code": "361-TMFO EL",
+      "fragrantica_id": 50239,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Tom-Ford/Ombre-Leather-2018-50239.html",
+      "season_votes_percent": {},
+      "season": null,
+      "status": "unresolved",
+      "error": "only-0-season-values"
+    },
+    {
+      "rank": 49,
+      "shobi_code": "2235-PRA WP",
+      "fragrantica_id": 82504,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Prada/Paradoxe-Intense-82504.html",
+      "season_votes_percent": {},
+      "season": null,
+      "status": "unresolved",
+      "error": "only-0-season-values"
+    },
+    {
+      "rank": 50,
+      "shobi_code": "2346-TMFO EL",
+      "fragrantica_id": 88588,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Tom-Ford/Vanilla-Sex-88588.html",
+      "season_votes_percent": {},
+      "season": null,
+      "status": "unresolved",
+      "error": "only-0-season-values"
+    },
+    {
+      "rank": 51,
+      "shobi_code": "981-YZLO W",
+      "fragrantica_id": 56077,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Yves-Saint-Laurent/Libre-56077.html",
+      "season_votes_percent": {},
+      "season": null,
+      "status": "unresolved",
+      "error": "only-0-season-values"
+    },
+    {
+      "rank": 52,
+      "shobi_code": "847-NRO WP",
+      "fragrantica_id": 36679,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Narciso-Rodriguez/Narciso-Poudree-36679.html",
+      "season_votes_percent": {},
+      "season": null,
+      "status": "unresolved",
+      "error": "only-0-season-values"
+    },
+    {
+      "rank": 53,
+      "shobi_code": "977-YZLO W",
+      "fragrantica_id": 25324,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Yves-Saint-Laurent/Black-Opium-25324.html",
+      "season_votes_percent": {},
+      "season": null,
+      "status": "unresolved",
+      "error": "only-0-season-values"
+    },
+    {
+      "rank": 54,
+      "shobi_code": "1909-XER N",
+      "fragrantica_id": 70424,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Xerjoff/Torino21-70424.html",
+      "season_votes_percent": {},
+      "season": null,
+      "status": "unresolved",
+      "error": "only-0-season-values"
+    },
+    {
+      "rank": 55,
+      "shobi_code": "364-TMFO EL",
+      "fragrantica_id": 1826,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Tom-Ford/Oud-Wood-1826.html",
+      "season_votes_percent": {},
+      "season": null,
+      "status": "unresolved",
+      "error": "only-0-season-values"
+    },
+    {
+      "rank": 56,
+      "shobi_code": "2150-LEL EL",
+      "fragrantica_id": 69731,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Le-Labo/The-Matcha-26-69731.html",
+      "season_votes_percent": {},
+      "season": null,
+      "status": "unresolved",
+      "error": "only-0-season-values"
+    },
+    {
+      "rank": 57,
+      "shobi_code": "430-BRB WP",
+      "fragrantica_id": 4701,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Burberry/The-Beat-EDT-4701.html",
+      "season_votes_percent": {},
+      "season": null,
+      "status": "unresolved",
+      "error": "only-0-season-values"
+    },
+    {
+      "rank": 58,
+      "shobi_code": "2365-DIP N",
+      "fragrantica_id": 78658,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Diptyque/L-Eau-Papier-78658.html",
+      "season_votes_percent": {},
+      "season": null,
+      "status": "unresolved",
+      "error": "only-0-season-values"
+    },
+    {
+      "rank": 59,
+      "shobi_code": "2320-LTN N",
+      "fragrantica_id": 67370,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Louis-Vuitton/Imagination-67370.html",
+      "season_votes_percent": {},
+      "season": null,
+      "status": "unresolved",
+      "error": "only-0-season-values"
+    },
+    {
+      "rank": 60,
+      "shobi_code": "1635-XER N",
+      "fragrantica_id": 11801,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Xerjoff/Lira-11801.html",
+      "season_votes_percent": {},
+      "season": null,
+      "status": "unresolved",
+      "error": "only-0-season-values"
+    },
+    {
+      "rank": 61,
+      "shobi_code": "1974-MARG EL",
+      "fragrantica_id": 60105,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Maison-Martin-Margiela/Bubble-Bath-60105.html",
+      "season_votes_percent": {},
+      "season": null,
+      "status": "unresolved",
+      "error": "only-0-season-values"
+    },
+    {
+      "rank": 62,
+      "shobi_code": "528-DRC W",
+      "fragrantica_id": 219,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Christian-Dior/Hypnotic-Poison-219.html",
+      "season_votes_percent": {},
+      "season": null,
+      "status": "unresolved",
+      "error": "only-0-season-values"
+    },
+    {
+      "rank": 63,
+      "shobi_code": "1801-JUL EL",
+      "fragrantica_id": 10296,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Juliette-Has-A-Gun/Not-A-Perfume-10296.html",
+      "season_votes_percent": {},
+      "season": null,
+      "status": "unresolved",
+      "error": "only-0-season-values"
+    },
+    {
+      "rank": 64,
+      "shobi_code": "694-GUR W",
+      "fragrantica_id": 24785,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Guerlain/Terracotta-Le-Parfum-24785.html",
+      "season_votes_percent": {},
+      "season": null,
+      "status": "unresolved",
+      "error": "only-0-season-values"
+    },
+    {
+      "rank": 65,
+      "shobi_code": "2136-PARF N",
+      "fragrantica_id": 78574,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Parfums-de-Marly/Valaya-78574.html",
+      "season_votes_percent": {},
+      "season": null,
+      "status": "unresolved",
+      "error": "only-0-season-values"
+    },
+    {
+      "rank": 66,
+      "shobi_code": "2161-GUR W",
+      "fragrantica_id": 2060,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Guerlain/Aqua-Allegoria-Mandarine-Basilic-2060.html",
+      "season_votes_percent": {},
+      "season": null,
+      "status": "unresolved",
+      "error": "only-0-season-values"
+    },
+    {
+      "rank": 67,
+      "shobi_code": "1946-MARC N",
+      "fragrantica_id": 54720,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Marc-Antoine-Barrois/Ganymede-54720.html",
+      "season_votes_percent": {},
+      "season": null,
+      "status": "unresolved",
+      "error": "only-0-season-values"
+    },
+    {
+      "rank": 68,
+      "shobi_code": "151-PARF N",
+      "fragrantica_id": 43871,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Parfums-de-Marly/Delina-43871.html",
+      "season_votes_percent": {},
+      "season": null,
+      "status": "unresolved",
+      "error": "only-0-season-values"
+    },
+    {
+      "rank": 69,
+      "shobi_code": "1850-LEL N",
+      "fragrantica_id": 10131,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Le-Labo/Another-13-10131.html",
+      "season_votes_percent": {},
+      "season": null,
+      "status": "unresolved",
+      "error": "only-0-season-values"
+    },
+    {
+      "rank": 70,
+      "shobi_code": "761-KIL WP",
+      "fragrantica_id": 15924,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/By-Kilian/Good-Girl-Gone-Bad-15924.html",
+      "season_votes_percent": {},
+      "season": null,
+      "status": "unresolved",
+      "error": "only-0-season-values"
+    },
+    {
+      "rank": 71,
+      "shobi_code": "641-FRE WP",
+      "fragrantica_id": 10464,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Frederic-Malle-Editions-de-Parfums/Portrait-of-a-Lady-10464.html",
+      "season_votes_percent": {},
+      "season": null,
+      "status": "unresolved",
+      "error": "only-0-season-values"
+    },
+    {
+      "rank": 72,
+      "shobi_code": "1887-XER N",
+      "fragrantica_id": 55157,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Xerjoff/Erba-Pura-55157.html",
+      "season_votes_percent": {},
+      "season": null,
+      "status": "unresolved",
+      "error": "only-0-season-values"
+    },
+    {
+      "rank": 73,
+      "shobi_code": "154-PARF N",
+      "fragrantica_id": 39314,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Parfums-de-Marly/Layton-39314.html",
+      "season_votes_percent": {},
+      "season": null,
+      "status": "unresolved",
+      "error": "only-0-season-values"
+    },
+    {
+      "rank": 74,
+      "shobi_code": "506-CHA W",
+      "fragrantica_id": 611,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Chanel/Coco-Mademoiselle-611.html",
+      "season_votes_percent": {},
+      "season": null,
+      "status": "unresolved",
+      "error": "only-0-season-values"
+    },
+    {
+      "rank": 75,
+      "shobi_code": "210-CRD EL",
+      "fragrantica_id": 474,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Creed/Green-Irish-Tweed-474.html",
+      "season_votes_percent": {},
+      "season": null,
+      "status": "unresolved",
+      "error": "only-0-season-values"
+    },
+    {
+      "rank": 76,
+      "shobi_code": "268-JOM EL",
+      "fragrantica_id": 42027,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Jo-Malone-London/Myrrh-Tonka-42027.html",
+      "season_votes_percent": {},
+      "season": null,
+      "status": "unresolved",
+      "error": "only-0-season-values"
+    },
+    {
+      "rank": 77,
+      "shobi_code": "879-PRA WP",
+      "fragrantica_id": 1795,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Prada/Infusion-d-Iris-1795.html",
+      "season_votes_percent": {},
+      "season": null,
+      "status": "unresolved",
+      "error": "only-0-season-values"
+    },
+    {
+      "rank": 78,
+      "shobi_code": "1112-DSQ MP",
+      "fragrantica_id": 5862,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/DSQUARED2/He-Wood-Rocky-Mountain-Wood-5862.html",
+      "season_votes_percent": {},
+      "season": null,
+      "status": "unresolved",
+      "error": "only-0-season-values"
+    },
+    {
+      "rank": 79,
+      "shobi_code": "2167-GUL MP",
+      "fragrantica_id": 81642,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Jean-Paul-Gaultier/Le-Male-Elixir-81642.html",
+      "season_votes_percent": {},
+      "season": null,
+      "status": "unresolved",
+      "error": "only-0-season-values"
+    },
+    {
+      "rank": 80,
+      "shobi_code": "513-CHL WP",
+      "fragrantica_id": 9370,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Chloe/Love-9370.html",
+      "season_votes_percent": {},
+      "season": null,
+      "status": "unresolved",
+      "error": "only-0-season-values"
+    },
+    {
+      "rank": 81,
+      "shobi_code": "2282-DRC EL",
+      "fragrantica_id": 81847,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Dior/Dioriviera-81847.html",
+      "season_votes_percent": {},
+      "season": null,
+      "status": "unresolved",
+      "error": "only-0-season-values"
+    },
+    {
+      "rank": 82,
+      "shobi_code": "1978-ARM M",
+      "fragrantica_id": 52802,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Giorgio-Armani/Emporio-Armani-Stronger-With-You-Intensely-52802.html",
+      "season_votes_percent": {},
+      "season": null,
+      "status": "unresolved",
+      "error": "only-0-season-values"
+    },
+    {
+      "rank": 83,
+      "shobi_code": "1737-GIV W",
+      "fragrantica_id": 68404,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Givenchy/L-Interdit-Eau-de-Parfum-Rouge-68404.html",
+      "season_votes_percent": {},
+      "season": null,
+      "status": "unresolved",
+      "error": "only-0-season-values"
+    },
+    {
+      "rank": 84,
+      "shobi_code": "1513-KIL WP",
+      "fragrantica_id": 90174,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/By-Kilian/Princess-90174.html",
+      "season_votes_percent": {},
+      "season": null,
+      "status": "unresolved",
+      "error": "only-0-season-values"
+    },
+    {
+      "rank": 85,
+      "shobi_code": "1775-DIP N",
+      "fragrantica_id": 65738,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Diptyque/Orpheon-65738.html",
+      "season_votes_percent": {},
+      "season": null,
+      "status": "unresolved",
+      "error": "only-0-season-values"
+    },
+    {
+      "rank": 86,
+      "shobi_code": "1476-NRO WP",
+      "fragrantica_id": 64730,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Narciso%20Rodriguez/Narciso-Rodriguez-Musc-Noir-For-Her-64730.html",
+      "season_votes_percent": {},
+      "season": null,
+      "status": "unresolved",
+      "error": "only-0-season-values"
+    },
+    {
+      "rank": 87,
+      "shobi_code": "318-MNT EL",
+      "fragrantica_id": 2186,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Montale/Montale-Chocolate-Greedy-2186.html",
+      "season_votes_percent": {},
+      "season": null,
+      "status": "unresolved",
+      "error": "only-0-season-values"
+    },
+    {
+      "rank": 88,
+      "shobi_code": "1651-TMU W",
+      "fragrantica_id": 68354,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Mugler/Alien-Goddess-68354.html",
+      "season_votes_percent": {},
+      "season": null,
+      "status": "unresolved",
+      "error": "only-0-season-values"
+    },
+    {
+      "rank": 89,
+      "shobi_code": "2053-BDIK N",
+      "fragrantica_id": 73645,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/BDK-Parfums/Gris-Charnel-Extrait-73645.html",
+      "season_votes_percent": {},
+      "season": null,
+      "status": "unresolved",
+      "error": "only-0-season-values"
+    },
+    {
+      "rank": 90,
+      "shobi_code": "1846-MAN EL",
+      "fragrantica_id": 42782,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Mancera/Coco-Vanille-42782.html",
+      "season_votes_percent": {},
+      "season": null,
+      "status": "unresolved",
+      "error": "only-0-season-values"
+    },
+    {
+      "rank": 91,
+      "shobi_code": "355-TMFO EL",
+      "fragrantica_id": 12192,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Tom-Ford/Neroli-Portofino-12192.html",
+      "season_votes_percent": {},
+      "season": null,
+      "status": "unresolved",
+      "error": "only-0-season-values"
+    },
+    {
+      "rank": 92,
+      "shobi_code": "1528-KUR N",
+      "fragrantica_id": 46066,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Maison-Francis-Kurkdjian/Baccarat-Rouge-540-Extrait-de-Parfum-46066.html",
+      "season_votes_percent": {},
+      "season": null,
+      "status": "unresolved",
+      "error": "only-0-season-values"
+    },
+    {
+      "rank": 93,
+      "shobi_code": "359-TMFO EL",
+      "fragrantica_id": 29675,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Tom-Ford/Noir-Extreme-29675.html",
+      "season_votes_percent": {},
+      "season": null,
+      "status": "unresolved",
+      "error": "only-0-season-values"
+    },
+    {
+      "rank": 94,
+      "shobi_code": "2369-MAN EL",
+      "fragrantica_id": 87409,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Mancera/Amore-Caffe-87409.html",
+      "season_votes_percent": {},
+      "season": null,
+      "status": "unresolved",
+      "error": "only-0-season-values"
+    },
+    {
+      "rank": 95,
+      "shobi_code": "1618-NISH N",
+      "fragrantica_id": 54785,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Nishane/Ani-54785.html",
+      "season_votes_percent": {},
+      "season": null,
+      "status": "unresolved",
+      "error": "only-0-season-values"
+    },
+    {
+      "rank": 96,
+      "shobi_code": "2154-KAY EL",
+      "fragrantica_id": 68220,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Kayali/Utopia-Vanilla-Coco-21-68220.html",
+      "season_votes_percent": {},
+      "season": null,
+      "status": "unresolved",
+      "error": "only-0-season-values"
+    },
+    {
+      "rank": 97,
+      "shobi_code": "225-DIP EL",
+      "fragrantica_id": 35678,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Diptyque/Eau-des-Sens-35678.html",
+      "season_votes_percent": {},
+      "season": null,
+      "status": "unresolved",
+      "error": "only-0-season-values"
+    },
+    {
+      "rank": 98,
+      "shobi_code": "2261-PARF N",
+      "fragrantica_id": 84109,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Parfums-de-Marly/Althair-84109.html",
+      "season_votes_percent": {},
+      "season": null,
+      "status": "unresolved",
+      "error": "only-0-season-values"
+    },
+    {
+      "rank": 99,
+      "shobi_code": "1085-DRC M",
+      "fragrantica_id": 31861,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Dior/Sauvage-31861.html",
+      "season_votes_percent": {},
+      "season": null,
+      "status": "unresolved",
+      "error": "only-0-season-values"
+    },
+    {
+      "rank": 100,
+      "shobi_code": "124-INI N",
+      "fragrantica_id": 42260,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Initio-Parfums-Prives/Side-Effect-42260.html",
+      "season_votes_percent": {},
+      "season": null,
+      "status": "unresolved",
+      "error": "only-0-season-values"
+    }
+  ]
+}
