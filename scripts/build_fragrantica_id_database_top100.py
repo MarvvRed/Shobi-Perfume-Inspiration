@@ -8,6 +8,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 DB = ROOT / 'Fragrantica ID Database'
 OUT = DB / 'mappings' / 'bestseller-001-100.json'
+JS_OUT = ROOT / 'bestseller-001-100-canonical-data.js'
 UNRESOLVED = DB / 'validation' / 'unresolved.json'
 
 LOCK1 = ROOT / 'Shobi Master Database' / 'bestseller-top100-source-lock.csv'
@@ -64,7 +65,7 @@ def load_locks():
             url = fragrantica_url(r)
             if not url:
                 continue
-            rec = {
+            by_rank[rank] = {
                 'rank': rank,
                 'shobi_code': clean(r.get('shobi_code')),
                 'fragrantica_url': url,
@@ -73,7 +74,6 @@ def load_locks():
                 'source_status': clean(r.get('status')),
                 'source_lock_file': str(path.relative_to(ROOT)),
             }
-            by_rank[rank] = rec
     return by_rank
 
 
@@ -87,7 +87,12 @@ def note_payload(item):
     for n in item.get('notes') or []:
         note = clean(n.get('note'))
         if note:
-            notes.append({'rank': int(n.get('rank') or len(notes)+1), 'note': note, 'sastojak_id': n.get('sastojak_id'), 'votes': n.get('votes')})
+            notes.append({
+                'rank': int(n.get('rank') or len(notes) + 1),
+                'note': note,
+                'sastojak_id': n.get('sastojak_id'),
+                'votes': n.get('votes'),
+            })
     return notes
 
 
@@ -136,34 +141,79 @@ def main():
 
         urls = derived(fid)
         records.append({
-            'rank': rank, 'shobi_code': code, 'perfume': clean(e.get('perfume')),
-            'fragrantica_id': fid, 'fragrantica_url': lock['fragrantica_url'],
-            'social_card_url': urls['social_card_url'], 'image_url': urls['image_url'],
-            'gender': gender or None, 'season': None,
-            'main_notes': [n['note'] for n in notes], 'main_note_evidence': notes,
+            'rank': rank,
+            'shobi_code': code,
+            'perfume': clean(e.get('perfume')),
+            'fragrantica_id': fid,
+            'fragrantica_url': lock['fragrantica_url'],
+            'social_card_url': urls['social_card_url'],
+            'image_url': urls['image_url'],
+            'gender': gender or None,
+            'season': None,
+            'main_notes': [n['note'] for n in notes],
+            'main_note_evidence': notes,
             'verification': {
-                'identity': True, 'gender': bool(gender), 'main_notes': bool(notes), 'season': False,
-                'source_status': lock['source_status'], 'source_lock': lock['source_lock_file'],
+                'identity': True,
+                'gender': bool(gender),
+                'main_notes': bool(notes),
+                'season': False,
+                'source_status': lock['source_status'],
+                'source_lock': lock['source_lock_file'],
                 'note_capture': note_cap['capture_source'] if note_cap else None,
             },
         })
 
     payload = {
-        'schema_version': 1, 'method': 'Fragrantica ID Mapping Rule', 'scope': 'Shobi Best Seller 1-100',
-        'count': len(records), 'canonical_key': 'fragrantica_id',
+        'schema_version': 1,
+        'method': 'Fragrantica ID Mapping Rule',
+        'scope': 'Shobi Best Seller 1-100',
+        'count': len(records),
+        'canonical_key': 'fragrantica_id',
         'resource_rule': 'One verified identity -> one Fragrantica ID -> page + social card/main notes + image + gender + season',
         'records': records,
     }
     DB.joinpath('mappings').mkdir(parents=True, exist_ok=True)
     DB.joinpath('validation').mkdir(parents=True, exist_ok=True)
-    OUT.write_text(json.dumps(payload, ensure_ascii=False, indent=2)+'\n', encoding='utf-8')
-    UNRESOLVED.write_text(json.dumps({'schema_version':1,'method':'Fragrantica ID Mapping Rule','scope':'Shobi Best Seller 1-100','count':len(unresolved),'items':unresolved}, ensure_ascii=False, indent=2)+'\n', encoding='utf-8')
+    OUT.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+    UNRESOLVED.write_text(json.dumps({
+        'schema_version': 1,
+        'method': 'Fragrantica ID Mapping Rule',
+        'scope': 'Shobi Best Seller 1-100',
+        'count': len(unresolved),
+        'items': unresolved,
+    }, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+
+    runtime = {
+        ''.join(code.upper().split()): {
+            'rank': r['rank'],
+            'shobi_code': r['shobi_code'],
+            'perfume': r['perfume'],
+            'fragrantica_id': r['fragrantica_id'],
+            'fragrantica_url': r['fragrantica_url'],
+            'social_card_url': r['social_card_url'],
+            'image_url': r['image_url'],
+            'gender': r['gender'],
+            'season': r['season'],
+            'main_notes': r['main_notes'],
+            'main_note_evidence': r['main_note_evidence'],
+            'verification': r['verification'],
+        }
+        for r in records
+        for code in [r['shobi_code']]
+    }
+    JS_OUT.write_text(
+        '// Generated from Fragrantica ID Database by the official Fragrantica ID Mapping Rule; do not hand edit.\n'
+        'window.SHOBI_FRAGRANTICA_CANONICAL_TOP100=' + json.dumps(runtime, ensure_ascii=False, separators=(',', ':')) + ';\n',
+        encoding='utf-8'
+    )
+
     print(f'CANONICAL_RECORDS={len(records)}')
     print(f'IDENTITY_VERIFIED={sum(1 for x in records if x["verification"]["identity"])}')
     print(f'GENDER_VERIFIED={sum(1 for x in records if x["verification"]["gender"])}')
     print(f'MAIN_NOTES_VERIFIED={sum(1 for x in records if x["verification"]["main_notes"])}')
     print(f'SEASON_VERIFIED={sum(1 for x in records if x["verification"]["season"])}')
     print(f'UNRESOLVED_FIELDS={len(unresolved)}')
+    print(f'RUNTIME_JS={JS_OUT.name}')
 
 
 if __name__ == '__main__':
