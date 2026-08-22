@@ -1,10 +1,9 @@
-name: Complete Clean Top100 Notes and Seasons
+name: Complete Clean Top100 Seasons
 
 on:
   workflow_dispatch:
   push:
     paths:
-      - 'scripts/complete_clean_top100_notes.py'
       - 'scripts/capture_clean_top100_seasons.py'
       - '.github/workflows/complete-clean-top100-notes-seasons.yml'
 
@@ -23,32 +22,26 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Install dependencies
+      - name: Install Playwright
         run: |
-          sudo apt-get update
-          sudo apt-get install -y tesseract-ocr
           python -m pip install --upgrade pip
-          pip install pillow playwright
+          pip install playwright
           playwright install chromium
 
-      - name: Complete 10 missing Main Notes from Fragrantica social cards
-        run: python scripts/complete_clean_top100_notes.py
-
-      - name: Capture Fragrantica When To Wear seasons for clean Top100
+      - name: Capture public Fragrantica WHEN TO WEAR seasons for clean Top100
         run: python scripts/capture_clean_top100_seasons.py
 
-      - name: Commit evidence outputs
+      - name: Commit season evidence output
         if: always()
         run: |
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add 'Fragrantica ID Database/rebuild-top100/new-identities-main-notes.json' || true
           git add 'Fragrantica ID Database/rebuild-top100/top100-seasons.json' || true
           if git diff --cached --quiet; then
-            echo 'No completion outputs to commit.'
+            echo 'No season output changes to commit.'
           else
-            git commit -m 'Capture canonical Top100 notes and seasons'
+            git commit -m 'Capture canonical Top100 public When To Wear seasons'
             git pull --rebase origin main
             git push origin HEAD:main
           fi
