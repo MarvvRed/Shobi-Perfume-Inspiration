@@ -8,11 +8,12 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 DB = ROOT / 'Fragrantica ID Database'
 OUT = DB / 'mappings' / 'bestseller-001-100.json'
-JS_OUT = ROOT / 'bestseller-001-100-canonical-data.js'
+JSOUT = ROOT / 'bestseller-001-100-canonical-data.js'
 UNRESOLVED = DB / 'validation' / 'unresolved.json'
 
 LOCK1 = ROOT / 'Shobi Master Database' / 'bestseller-top100-source-lock.csv'
 LOCK2 = ROOT / 'Shobi Master Database' / 'bestseller-top100-source-lock-pass2.csv'
+TOP40 = ROOT / 'Shobi Master Database' / 'bestseller-top40-enrichment.csv'
 ENRICH = ROOT / 'Shobi Master Database' / 'bestseller-top100-enrichment.csv'
 NOTES_1_20 = ROOT / 'Personal Database' / 'fragrantica-main-notes.json'
 NOTES_21_40 = ROOT / 'Personal Database' / 'fragrantica-main-notes-21-40.json'
@@ -26,6 +27,10 @@ ID_PATTERNS = (
 
 def clean(v):
     return ' '.join(str(v or '').split()).strip()
+
+
+def norm_code(v):
+    return re.sub(r'\s+', '', clean(v).upper())
 
 
 def read_csv(path):
@@ -57,29 +62,38 @@ def derived(fid):
     }
 
 
-def load_locks():
-    by_rank = {}
+def authoritative_rows():
+    top40 = read_csv(TOP40)
+    legacy = read_csv(ENRICH)
+    if [int(r['rank']) for r in top40] != list(range(1, 41)):
+        raise SystemExit('Safety stop: authoritative Top40 ranks must be exactly 1..40')
+    late = [r for r in legacy if 41 <= int(r['rank']) <= 100]
+    if [int(r['rank']) for r in late] != list(range(41, 101)):
+        raise SystemExit('Safety stop: legacy Top100 late ranks must be exactly 41..100')
+    rows = top40 + late
+    if len(rows) != 100:
+        raise SystemExit(f'Safety stop: expected 100 authoritative ranking rows, got {len(rows)}')
+    return rows
+
+
+def load_locks_by_code():
+    out = {}
     for path in (LOCK1, LOCK2):
         for r in read_csv(path):
-            rank = int(r['rank'])
+            code = clean(r.get('shobi_code'))
             url = fragrantica_url(r)
-            if not url:
+            fid = fragrantica_id(url)
+            if not code or not url or not fid:
                 continue
-            by_rank[rank] = {
-                'rank': rank,
-                'shobi_code': clean(r.get('shobi_code')),
+            out[norm_code(code)] = {
+                'shobi_code': code,
                 'fragrantica_url': url,
-                'fragrantica_id': fragrantica_id(url),
+                'fragrantica_id': fid,
                 'verified_fields': [x for x in clean(r.get('verified_fields')).split('|') if x],
                 'source_status': clean(r.get('status')),
-                'source_lock_file': str(path.relative_to(ROOT)),
+                'identity_source': str(path.relative_to(ROOT)),
             }
-    return by_rank
-
-
-def load_enrichment():
-    rows = read_csv(ENRICH)
-    return {int(r['rank']): r for r in rows}
+    return out
 
 
 def note_payload(item):
@@ -96,56 +110,89 @@ def note_payload(item):
     return notes
 
 
-def load_notes_by_id():
-    out = {}
+def load_captures():
+    notes_by_id = {}
+    identity_by_code = {}
+
     p1 = json.loads(NOTES_1_20.read_text(encoding='utf-8'))
     for key, item in (p1.get('perfumes') or {}).items():
         fid = int(item.get('fragrantica_id') or key)
-        out[fid] = {'notes': note_payload(item), 'capture_source': str(NOTES_1_20.relative_to(ROOT))}
+        notes_by_id[fid] = {
+            'notes': note_payload(item),
+            'capture_source': str(NOTES_1_20.relative_to(ROOT)),
+        }
+
     for path in (NOTES_21_40, NOTES_41_100):
         payload = json.loads(path.read_text(encoding='utf-8'))
         for item in payload.get('results') or []:
             fid = int(item['fragrantica_id'])
-            out[fid] = {'notes': note_payload(item), 'capture_source': str(path.relative_to(ROOT))}
-    return out
+            code = clean(item.get('shobi_code'))
+            url = clean(item.get('url'))
+            notes_by_id[fid] = {
+                'notes': note_payload(item),
+                'capture_source': str(path.relative_to(ROOT)),
+            }
+            if code and url and fid:
+                identity_by_code[norm_code(code)] = {
+                    'shobi_code': code,
+                    'fragrantica_url': url,
+                    'fragrantica_id': fid,
+                    'verified_fields': ['identity', 'gender', 'notes'],
+                    'source_status': 'source-locked',
+                    'identity_source': str(path.relative_to(ROOT)),
+                }
+    return notes_by_id, identity_by_code
 
 
 def main():
-    locks = load_locks()
-    enrich = load_enrichment()
-    notes_by_id = load_notes_by_id()
-    expected = set(range(1, 101))
-    if set(locks) != expected:
-        raise SystemExit(f'Safety stop: source-lock coverage mismatch; missing={sorted(expected-set(locks))} extra={sorted(set(locks)-expected)}')
-    if set(enrich) != expected:
-        raise SystemExit('Safety stop: enrichment ranks must be exactly 1..100')
+    ranked = authoritative_rows()
+    locks_by_code = load_locks_by_code()
+    notes_by_id, captures_by_code = load_captures()
 
     records, unresolved, seen_codes = [], [], set()
-    for rank in range(1, 101):
-        lock, e = locks[rank], enrich[rank]
-        fid, code = lock['fragrantica_id'], lock['shobi_code']
-        if not fid or not code:
-            raise SystemExit(f'Safety stop: missing canonical identity at rank {rank}')
-        if code.upper() in seen_codes:
-            raise SystemExit(f'Safety stop: duplicate Shobi code {code}')
-        seen_codes.add(code.upper())
 
+    for ranked_row in ranked:
+        rank = int(ranked_row['rank'])
+        code = clean(ranked_row.get('shobi_code'))
+        k = norm_code(code)
+        if not code or k in seen_codes:
+            raise SystemExit(f'Safety stop: invalid or duplicate Shobi code at rank {rank}: {code}')
+        seen_codes.add(k)
+
+        # Exact-code identity is authoritative. Verified catcher identity wins when present;
+        # otherwise use the source-lock for the same Shobi code. Legacy rank is never a join key.
+        identity = captures_by_code.get(k) or locks_by_code.get(k)
+        if not identity:
+            raise SystemExit(f'Safety stop: no verified Fragrantica identity for rank {rank} code {code}')
+
+        fid = identity['fragrantica_id']
         note_cap = notes_by_id.get(fid)
         notes = note_cap['notes'] if note_cap else []
         if not notes:
-            unresolved.append({'rank': rank, 'shobi_code': code, 'fragrantica_id': fid, 'field': 'main_notes', 'reason': 'No verified Fragrantica note capture for mapped ID'})
-        gender = clean(e.get('gender')) if 'gender' in lock['verified_fields'] else ''
+            unresolved.append({
+                'rank': rank, 'shobi_code': code, 'fragrantica_id': fid,
+                'field': 'main_notes', 'reason': 'No verified Fragrantica note capture for mapped ID'
+            })
+
+        gender = clean(ranked_row.get('gender')) if 'gender' in identity['verified_fields'] else ''
         if not gender:
-            unresolved.append({'rank': rank, 'shobi_code': code, 'fragrantica_id': fid, 'field': 'gender', 'reason': 'Gender not verified in source-lock'})
-        unresolved.append({'rank': rank, 'shobi_code': code, 'fragrantica_id': fid, 'field': 'season', 'reason': 'Awaiting Fragrantica seasonal-vote capture for canonical ID'})
+            unresolved.append({
+                'rank': rank, 'shobi_code': code, 'fragrantica_id': fid,
+                'field': 'gender', 'reason': 'Gender not verified for canonical identity'
+            })
+
+        unresolved.append({
+            'rank': rank, 'shobi_code': code, 'fragrantica_id': fid,
+            'field': 'season', 'reason': 'Awaiting Fragrantica seasonal-vote capture for canonical ID'
+        })
 
         urls = derived(fid)
         records.append({
             'rank': rank,
             'shobi_code': code,
-            'perfume': clean(e.get('perfume')),
+            'perfume': clean(ranked_row.get('perfume')),
             'fragrantica_id': fid,
-            'fragrantica_url': lock['fragrantica_url'],
+            'fragrantica_url': identity['fragrantica_url'],
             'social_card_url': urls['social_card_url'],
             'image_url': urls['image_url'],
             'gender': gender or None,
@@ -157,11 +204,14 @@ def main():
                 'gender': bool(gender),
                 'main_notes': bool(notes),
                 'season': False,
-                'source_status': lock['source_status'],
-                'source_lock': lock['source_lock_file'],
+                'source_status': identity['source_status'],
+                'identity_source': identity['identity_source'],
                 'note_capture': note_cap['capture_source'] if note_cap else None,
             },
         })
+
+    if [r['rank'] for r in records] != list(range(1, 101)):
+        raise SystemExit('Safety stop: canonical records are not exactly ranks 1..100')
 
     payload = {
         'schema_version': 1,
@@ -169,9 +219,11 @@ def main():
         'scope': 'Shobi Best Seller 1-100',
         'count': len(records),
         'canonical_key': 'fragrantica_id',
+        'ranking_key': 'shobi_code',
         'resource_rule': 'One verified identity -> one Fragrantica ID -> page + social card/main notes + image + gender + season',
         'records': records,
     }
+
     DB.joinpath('mappings').mkdir(parents=True, exist_ok=True)
     DB.joinpath('validation').mkdir(parents=True, exist_ok=True)
     OUT.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
@@ -183,28 +235,13 @@ def main():
         'items': unresolved,
     }, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
 
-    runtime = {
-        ''.join(code.upper().split()): {
-            'rank': r['rank'],
-            'shobi_code': r['shobi_code'],
-            'perfume': r['perfume'],
-            'fragrantica_id': r['fragrantica_id'],
-            'fragrantica_url': r['fragrantica_url'],
-            'social_card_url': r['social_card_url'],
-            'image_url': r['image_url'],
-            'gender': r['gender'],
-            'season': r['season'],
-            'main_notes': r['main_notes'],
-            'main_note_evidence': r['main_note_evidence'],
-            'verification': r['verification'],
-        }
-        for r in records
-        for code in [r['shobi_code']]
-    }
-    JS_OUT.write_text(
+    by_code = {norm_code(r['shobi_code']): r for r in records}
+    JSOUT.write_text(
         '// Generated from Fragrantica ID Database by the official Fragrantica ID Mapping Rule; do not hand edit.\n'
-        'window.SHOBI_FRAGRANTICA_CANONICAL_TOP100=' + json.dumps(runtime, ensure_ascii=False, separators=(',', ':')) + ';\n',
-        encoding='utf-8'
+        + 'window.SHOBI_FRAGRANTICA_CANONICAL_TOP100='
+        + json.dumps(by_code, ensure_ascii=False, separators=(',', ':'))
+        + ';\n',
+        encoding='utf-8',
     )
 
     print(f'CANONICAL_RECORDS={len(records)}')
@@ -213,7 +250,6 @@ def main():
     print(f'MAIN_NOTES_VERIFIED={sum(1 for x in records if x["verification"]["main_notes"])}')
     print(f'SEASON_VERIFIED={sum(1 for x in records if x["verification"]["season"])}')
     print(f'UNRESOLVED_FIELDS={len(unresolved)}')
-    print(f'RUNTIME_JS={JS_OUT.name}')
 
 
 if __name__ == '__main__':
