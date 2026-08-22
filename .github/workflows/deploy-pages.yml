@@ -123,14 +123,6 @@ jobs:
           console.log('LEGACY_CATCHER_VALIDATION_OK',Object.keys(byCode).length,'RANKING_EXTENSION_OK',extension.length,'SOCIAL_CARD_NOTES_PRESERVED');
           NODE
 
-      - name: Bust social-card runtime caches
-        shell: bash
-        run: |
-          sed -i 's/bestseller-catcher-visual-check.js?v=8/bestseller-catcher-visual-check.js?v=9/g' index.html
-          sed -i 's/fragrantica-note-icons.js?v=1/fragrantica-note-icons.js?v=2/g' index.html
-          grep -q 'bestseller-catcher-visual-check.js?v=9' index.html
-          grep -q 'fragrantica-note-icons.js?v=2' index.html
-
       - name: Configure Pages
         uses: actions/configure-pages@v5
 
