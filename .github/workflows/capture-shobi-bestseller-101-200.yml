@@ -6,42 +6,40 @@ on:
     branches: [main]
     paths:
       - '.github/workflows/capture-shobi-bestseller-101-200.yml'
+      - 'scripts/capture-shobi-bestseller-101-200.cjs'
 
 permissions:
   contents: read
 
 jobs:
   capture:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, Windows, X64]
     timeout-minutes: 30
+    env:
+      SHOBI_CDP_URL: http://127.0.0.1:9222
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
-          python-version: '3.12'
-      - name: Install dependencies
+          node-version: '22'
+
+      - name: Install Playwright client
+        shell: cmd
         run: |
-          python -m pip install --upgrade pip
-          pip install beautifulsoup4 playwright
-          python -m playwright install --with-deps chromium
-      - name: Build full Shobi Best Seller ranking
-        run: python scripts/build_shobi_bestseller_ranking.py
-      - name: Extract ranks 101-200
-        run: |
-          python - <<'PY'
-          import json,re
-          from pathlib import Path
-          text=Path('bestseller-ranking.js').read_text(encoding='utf-8')
-          m=re.search(r'window\.SHOBI_BESTSELLER_RANKING=(\[.*?\]);',text,re.S)
-          if not m: raise SystemExit('Ranking payload not found')
-          rows=json.loads(m.group(1))
-          batch=[r for r in rows if 101 <= int(r['rank']) <= 200]
-          if len(batch)!=100: raise SystemExit(f'Expected 100 rows, got {len(batch)}')
-          Path('bestseller-101-200.json').write_text(json.dumps({'count':len(batch),'rows':batch},ensure_ascii=False,indent=2),encoding='utf-8')
-          print('BESTSELLER_101_200_COUNT',len(batch))
-          print('RANK_101',batch[0])
-          print('RANK_200',batch[-1])
-          PY
+          call npm init -y
+          call npm install --no-save playwright@1.55.0
+
+      - name: Verify Edge debugging endpoint
+        shell: cmd
+        run: curl.exe --fail --silent --show-error http://127.0.0.1:9222/json/version
+
+      - name: Capture ranks 101-200 from live Shobi Best Sales
+        shell: cmd
+        run: node scripts\capture-shobi-bestseller-101-200.cjs
+
       - name: Upload ranking batch
         uses: actions/upload-artifact@v4
         with:
