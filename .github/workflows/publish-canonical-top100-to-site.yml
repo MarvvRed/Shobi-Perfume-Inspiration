@@ -1,0 +1,60 @@
+name: Publish Canonical Top100 To Site
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'Fragrantica ID Database/rebuild-top100/top100-fragrantica-mapped.json'
+      - 'scripts/publish_canonical_top100_to_site.py'
+      - '.github/workflows/publish-canonical-top100-to-site.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Build site data from CANONICAL-TOP100-v1
+        run: python scripts/publish_canonical_top100_to_site.py
+
+      - name: Verify site payload invariants
+        run: |
+          python - <<'PY'
+          import json,re
+          from pathlib import Path
+          p=Path('bestseller-001-100-canonical-data.js').read_text(encoding='utf-8')
+          m=re.search(r'window\.SHOBI_FRAGRANTICA_CANONICAL_TOP100=(\{.*\});\s*$',p,re.S)
+          assert m, 'canonical site payload not parseable'
+          rows=json.loads(m.group(1))
+          assert len(rows)==100
+          vals=list(rows.values())
+          assert sorted(x['rank'] for x in vals)==list(range(1,101))
+          assert all(x.get('main_notes') for x in vals)
+          assert all(x.get('gender') in {'male','female','unisex'} for x in vals)
+          assert all(x.get('season') in {'winter','spring','summer','autumn'} for x in vals)
+          assert next(x for x in vals if x['rank']==82)['season']=='winter'
+          print('SITE_PAYLOAD_VERIFIED=100/100')
+          PY
+
+      - name: Commit canonical site payload
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add bestseller-001-100-canonical-data.js
+          if git diff --cached --quiet; then
+            echo 'Canonical site payload already current.'
+          else
+            git commit -m 'Publish CANONICAL-TOP100-v1 to site payload'
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
