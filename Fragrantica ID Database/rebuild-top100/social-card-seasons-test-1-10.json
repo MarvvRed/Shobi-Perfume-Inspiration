@@ -1,0 +1,369 @@
+{
+  "schema_version": 1,
+  "method": "Fragrantica public social-card season bar pixel measurement; longest of winter/spring/summer/autumn wins",
+  "count": 10,
+  "clear_count": 8,
+  "near_tie_count": 2,
+  "records": [
+    {
+      "rank": 1,
+      "shobi_code": "305-KAY EL",
+      "perfume": "Vanilla 28",
+      "fragrantica_id": 52616,
+      "social_card_url": "https://fimgs.net/mdimg/perfume-social-cards/en-p_c_52616.jpeg",
+      "image_size": [
+        1200,
+        1200
+      ],
+      "measurements": {
+        "winter": {
+          "fill_px": 115,
+          "bar_width_px": 306,
+          "fill_ratio": 0.3758
+        },
+        "spring": {
+          "fill_px": 39,
+          "bar_width_px": 306,
+          "fill_ratio": 0.1275
+        },
+        "summer": {
+          "fill_px": 28,
+          "bar_width_px": 306,
+          "fill_ratio": 0.0915
+        },
+        "autumn": {
+          "fill_px": 116,
+          "bar_width_px": 306,
+          "fill_ratio": 0.3791
+        }
+      },
+      "season_from_card": "autumn",
+      "winner_margin_px": 1,
+      "status": "near-tie"
+    },
+    {
+      "rank": 2,
+      "shobi_code": "1508-KIL WP",
+      "perfume": "Angels' Share",
+      "fragrantica_id": 62615,
+      "social_card_url": "https://fimgs.net/mdimg/perfume-social-cards/en-p_c_62615.jpeg",
+      "image_size": [
+        1200,
+        1200
+      ],
+      "measurements": {
+        "winter": {
+          "fill_px": 135,
+          "bar_width_px": 306,
+          "fill_ratio": 0.4412
+        },
+        "spring": {
+          "fill_px": 30,
+          "bar_width_px": 306,
+          "fill_ratio": 0.098
+        },
+        "summer": {
+          "fill_px": 28,
+          "bar_width_px": 306,
+          "fill_ratio": 0.0915
+        },
+        "autumn": {
+          "fill_px": 118,
+          "bar_width_px": 306,
+          "fill_ratio": 0.3856
+        }
+      },
+      "season_from_card": "winter",
+      "winner_margin_px": 17,
+      "status": "clear"
+    },
+    {
+      "rank": 3,
+      "shobi_code": "451-BYR WP",
+      "perfume": "Blanche",
+      "fragrantica_id": 6686,
+      "social_card_url": "https://fimgs.net/mdimg/perfume-social-cards/en-p_c_6686.jpeg",
+      "image_size": [
+        1200,
+        1200
+      ],
+      "measurements": {
+        "winter": {
+          "fill_px": 39,
+          "bar_width_px": 306,
+          "fill_ratio": 0.1275
+        },
+        "spring": {
+          "fill_px": 108,
+          "bar_width_px": 306,
+          "fill_ratio": 0.3529
+        },
+        "summer": {
+          "fill_px": 99,
+          "bar_width_px": 306,
+          "fill_ratio": 0.3235
+        },
+        "autumn": {
+          "fill_px": 42,
+          "bar_width_px": 306,
+          "fill_ratio": 0.1373
+        }
+      },
+      "season_from_card": "spring",
+      "winner_margin_px": 9,
+      "status": "clear"
+    },
+    {
+      "rank": 4,
+      "shobi_code": "374-TMFO EL",
+      "perfume": "Tobacco Vanille",
+      "fragrantica_id": 1825,
+      "social_card_url": "https://fimgs.net/mdimg/perfume-social-cards/en-p_c_1825.jpeg",
+      "image_size": [
+        1200,
+        1200
+      ],
+      "measurements": {
+        "winter": {
+          "fill_px": 142,
+          "bar_width_px": 306,
+          "fill_ratio": 0.4641
+        },
+        "spring": {
+          "fill_px": 28,
+          "bar_width_px": 306,
+          "fill_ratio": 0.0915
+        },
+        "summer": {
+          "fill_px": 27,
+          "bar_width_px": 306,
+          "fill_ratio": 0.0882
+        },
+        "autumn": {
+          "fill_px": 116,
+          "bar_width_px": 306,
+          "fill_ratio": 0.3791
+        }
+      },
+      "season_from_card": "winter",
+      "winner_margin_px": 26,
+      "status": "clear"
+    },
+    {
+      "rank": 5,
+      "shobi_code": "1899-ZARK EL",
+      "perfume": "The Muse",
+      "fragrantica_id": 60665,
+      "social_card_url": "https://fimgs.net/mdimg/perfume-social-cards/en-p_c_60665.jpeg",
+      "image_size": [
+        1200,
+        1200
+      ],
+      "measurements": {
+        "winter": {
+          "fill_px": 60,
+          "bar_width_px": 306,
+          "fill_ratio": 0.1961
+        },
+        "spring": {
+          "fill_px": 93,
+          "bar_width_px": 306,
+          "fill_ratio": 0.3039
+        },
+        "summer": {
+          "fill_px": 84,
+          "bar_width_px": 306,
+          "fill_ratio": 0.2745
+        },
+        "autumn": {
+          "fill_px": 52,
+          "bar_width_px": 306,
+          "fill_ratio": 0.1699
+        }
+      },
+      "season_from_card": "spring",
+      "winner_margin_px": 9,
+      "status": "clear"
+    },
+    {
+      "rank": 6,
+      "shobi_code": "111-BAC N",
+      "perfume": "Baccarat Rouge 540",
+      "fragrantica_id": 33519,
+      "social_card_url": "https://fimgs.net/mdimg/perfume-social-cards/en-p_c_33519.jpeg",
+      "image_size": [
+        1200,
+        1200
+      ],
+      "measurements": {
+        "winter": {
+          "fill_px": 96,
+          "bar_width_px": 306,
+          "fill_ratio": 0.3137
+        },
+        "spring": {
+          "fill_px": 60,
+          "bar_width_px": 306,
+          "fill_ratio": 0.1961
+        },
+        "summer": {
+          "fill_px": 36,
+          "bar_width_px": 306,
+          "fill_ratio": 0.1176
+        },
+        "autumn": {
+          "fill_px": 96,
+          "bar_width_px": 306,
+          "fill_ratio": 0.3137
+        }
+      },
+      "season_from_card": "winter",
+      "winner_margin_px": 0,
+      "status": "near-tie"
+    },
+    {
+      "rank": 7,
+      "shobi_code": "220-CRD EL",
+      "perfume": "Virgin Island Water",
+      "fragrantica_id": 899,
+      "social_card_url": "https://fimgs.net/mdimg/perfume-social-cards/en-p_c_899.jpeg",
+      "image_size": [
+        1200,
+        1200
+      ],
+      "measurements": {
+        "winter": {
+          "fill_px": 28,
+          "bar_width_px": 306,
+          "fill_ratio": 0.0915
+        },
+        "spring": {
+          "fill_px": 84,
+          "bar_width_px": 306,
+          "fill_ratio": 0.2745
+        },
+        "summer": {
+          "fill_px": 183,
+          "bar_width_px": 306,
+          "fill_ratio": 0.598
+        },
+        "autumn": {
+          "fill_px": 34,
+          "bar_width_px": 306,
+          "fill_ratio": 0.1111
+        }
+      },
+      "season_from_card": "summer",
+      "winner_margin_px": 99,
+      "status": "clear"
+    },
+    {
+      "rank": 8,
+      "shobi_code": "350-TMFO EL",
+      "perfume": "Lost Cherry",
+      "fragrantica_id": 51411,
+      "social_card_url": "https://fimgs.net/mdimg/perfume-social-cards/en-p_c_51411.jpeg",
+      "image_size": [
+        1200,
+        1200
+      ],
+      "measurements": {
+        "winter": {
+          "fill_px": 99,
+          "bar_width_px": 306,
+          "fill_ratio": 0.3235
+        },
+        "spring": {
+          "fill_px": 54,
+          "bar_width_px": 306,
+          "fill_ratio": 0.1765
+        },
+        "summer": {
+          "fill_px": 31,
+          "bar_width_px": 306,
+          "fill_ratio": 0.1013
+        },
+        "autumn": {
+          "fill_px": 102,
+          "bar_width_px": 306,
+          "fill_ratio": 0.3333
+        }
+      },
+      "season_from_card": "autumn",
+      "winner_margin_px": 3,
+      "status": "clear"
+    },
+    {
+      "rank": 9,
+      "shobi_code": "2216-DOL WP",
+      "perfume": "Devotion",
+      "fragrantica_id": 84951,
+      "social_card_url": "https://fimgs.net/mdimg/perfume-social-cards/en-p_c_84951.jpeg",
+      "image_size": [
+        1200,
+        1200
+      ],
+      "measurements": {
+        "winter": {
+          "fill_px": 87,
+          "bar_width_px": 306,
+          "fill_ratio": 0.2843
+        },
+        "spring": {
+          "fill_px": 63,
+          "bar_width_px": 306,
+          "fill_ratio": 0.2059
+        },
+        "summer": {
+          "fill_px": 45,
+          "bar_width_px": 306,
+          "fill_ratio": 0.1471
+        },
+        "autumn": {
+          "fill_px": 94,
+          "bar_width_px": 306,
+          "fill_ratio": 0.3072
+        }
+      },
+      "season_from_card": "autumn",
+      "winner_margin_px": 7,
+      "status": "clear"
+    },
+    {
+      "rank": 10,
+      "shobi_code": "2129-SOL EL",
+      "perfume": "Cheirosa '62",
+      "fragrantica_id": 56062,
+      "social_card_url": "https://fimgs.net/mdimg/perfume-social-cards/en-p_c_56062.jpeg",
+      "image_size": [
+        1200,
+        1200
+      ],
+      "measurements": {
+        "winter": {
+          "fill_px": 35,
+          "bar_width_px": 306,
+          "fill_ratio": 0.1144
+        },
+        "spring": {
+          "fill_px": 54,
+          "bar_width_px": 306,
+          "fill_ratio": 0.1765
+        },
+        "summer": {
+          "fill_px": 139,
+          "bar_width_px": 306,
+          "fill_ratio": 0.4542
+        },
+        "autumn": {
+          "fill_px": 60,
+          "bar_width_px": 306,
+          "fill_ratio": 0.1961
+        }
+      },
+      "season_from_card": "summer",
+      "winner_margin_px": 79,
+      "status": "clear"
+    }
+  ]
+}
