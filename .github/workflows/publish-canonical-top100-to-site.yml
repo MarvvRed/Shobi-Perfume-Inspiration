@@ -6,6 +6,7 @@ on:
     paths:
       - 'Fragrantica ID Database/rebuild-top100/top100-fragrantica-mapped.json'
       - 'scripts/publish_canonical_top100_to_site.py'
+      - 'bestseller-001-100-canonical-cards.js'
       - '.github/workflows/publish-canonical-top100-to-site.yml'
 
 permissions:
@@ -45,12 +46,23 @@ jobs:
           print('SITE_PAYLOAD_VERIFIED=100/100')
           PY
 
+      - name: Cache-bust canonical Top100 assets
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('index.html')
+          s=p.read_text(encoding='utf-8')
+          s=s.replace('bestseller-001-100-canonical-data.js?v=1','bestseller-001-100-canonical-data.js?v=2')
+          s=s.replace('bestseller-001-100-canonical-cards.js?v=1','bestseller-001-100-canonical-cards.js?v=2')
+          p.write_text(s,encoding='utf-8')
+          PY
+
       - name: Commit canonical site payload
         run: |
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add bestseller-001-100-canonical-data.js
+          git add bestseller-001-100-canonical-data.js index.html
           if git diff --cached --quiet; then
             echo 'Canonical site payload already current.'
           else
