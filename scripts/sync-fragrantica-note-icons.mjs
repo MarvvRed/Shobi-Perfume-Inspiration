@@ -51,12 +51,32 @@ const payload = {
   by_id: byId
 };
 
+const runtime = `// Generated from ${SOURCE}. Do not edit manually.\n` +
+`window.FRAGRANTICA_NOTE_ICON_IDS=${JSON.stringify(sortedNames)};\n` +
+`window.FRAGRANTICA_NOTE_ICON_REGISTRY_META=${JSON.stringify({source:SOURCE,count,generated_at:payload.generated_at})};\n` +
+`(function(){\n` +
+`  const ids=window.FRAGRANTICA_NOTE_ICON_IDS||{};\n` +
+`  const norm=v=>String(v||'').trim().toLowerCase().replace(/[^a-z0-9]+/g,'');\n` +
+`  const normalized=Object.fromEntries(Object.entries(ids).map(([name,id])=>[norm(name),id]));\n` +
+`  function fix(root=document){\n` +
+`    root.querySelectorAll('[data-card-filter="note"]').forEach(btn=>{\n` +
+`      const name=String(btn.dataset.filterValue||'').trim();\n` +
+`      const id=ids[name]||normalized[norm(name)];\n` +
+`      if(!id)return;\n` +
+`      const current=btn.querySelector('img');\n` +
+`      if(current){current.src='https://fimgs.net/mdimg/sastojci/t.'+id+'.jpg';return;}\n` +
+`      const placeholder=btn.querySelector('span[aria-hidden="true"]');\n` +
+`      const img=document.createElement('img');\n` +
+`      img.src='https://fimgs.net/mdimg/sastojci/t.'+id+'.jpg';img.alt='';img.width=22;img.height=22;img.loading='lazy';img.decoding='async';\n` +
+`      img.style.cssText='width:22px;height:22px;object-fit:cover;border-radius:50%;flex:0 0 22px';\n` +
+`      if(placeholder)placeholder.replaceWith(img);else btn.insertBefore(img,btn.firstChild);\n` +
+`    });\n` +
+`  }\n` +
+`  document.addEventListener('DOMContentLoaded',()=>{fix();const c=document.getElementById('resultsContainer');if(c)new MutationObserver(()=>fix(c)).observe(c,{childList:true,subtree:true});});\n` +
+`})();\n`;
+
 await fs.mkdir(OUT_DIR, { recursive: true });
 await fs.writeFile(OUT_JSON, JSON.stringify(payload, null, 2) + '\n');
-await fs.writeFile(OUT_JS,
-  `// Generated from ${SOURCE}. Do not edit manually.\n` +
-  `window.FRAGRANTICA_NOTE_ICON_IDS=${JSON.stringify(sortedNames)};\n` +
-  `window.FRAGRANTICA_NOTE_ICON_REGISTRY_META=${JSON.stringify({source:SOURCE,count,generated_at:payload.generated_at})};\n`
-);
+await fs.writeFile(OUT_JS, runtime);
 
 console.log(`FRAGRANTICA_NOTE_ICONS_OK ${count}`);
