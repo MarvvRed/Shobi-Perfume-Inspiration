@@ -1,7 +1,7 @@
 {
   "schema_version": 4,
   "method": "Fragrantica ID Mapping Rule",
-  "built_at": "2026-08-22T15:13:57.762202+00:00",
+  "built_at": "2026-08-22T18:25:54.330061+00:00",
   "ranking_authority": "Shobi Master Database/shobi-master-current.csv",
   "identity_join_key": "shobi_code",
   "main_notes_rule": "all notes visible on Fragrantica public social card, exact displayed order/count; no fixed Top-N truncation",
@@ -10,7 +10,7 @@
   "identity_verified_count": 100,
   "main_notes_verified_count": 100,
   "gender_verified_count": 100,
-  "season_verified_count": 0,
+  "season_verified_count": 100,
   "season_merge_guard": "requires top100-seasons.json verified_count=100",
   "records": [
     {
@@ -42,7 +42,7 @@
         }
       ],
       "gender": "unisex",
-      "season": null,
+      "season": "winter",
       "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
@@ -50,7 +50,7 @@
         "main_notes": true,
         "main_notes_exact_social_card": true,
         "gender": true,
-        "season": false,
+        "season": true,
         "mapping_join_key": "shobi_code",
         "identity_registry": "Fragrantica ID Database/mappings/bestseller-001-100.json"
       }
@@ -84,7 +84,7 @@
         }
       ],
       "gender": "unisex",
-      "season": null,
+      "season": "winter",
       "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
@@ -92,7 +92,7 @@
         "main_notes": true,
         "main_notes_exact_social_card": true,
         "gender": true,
-        "season": false,
+        "season": true,
         "mapping_join_key": "shobi_code",
         "identity_registry": "Fragrantica ID Database/mappings/bestseller-001-100.json"
       }
@@ -126,7 +126,7 @@
         }
       ],
       "gender": "female",
-      "season": null,
+      "season": "spring",
       "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
@@ -134,7 +134,7 @@
         "main_notes": true,
         "main_notes_exact_social_card": true,
         "gender": true,
-        "season": false,
+        "season": true,
         "mapping_join_key": "shobi_code",
         "identity_registry": "Fragrantica ID Database/mappings/bestseller-001-100.json"
       }
@@ -168,7 +168,7 @@
         }
       ],
       "gender": "unisex",
-      "season": null,
+      "season": "winter",
       "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
@@ -176,7 +176,7 @@
         "main_notes": true,
         "main_notes_exact_social_card": true,
         "gender": true,
-        "season": false,
+        "season": true,
         "mapping_join_key": "shobi_code",
         "identity_registry": "Fragrantica ID Database/mappings/bestseller-001-100.json"
       }
@@ -207,7 +207,7 @@
         }
       ],
       "gender": "female",
-      "season": null,
+      "season": "spring",
       "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
@@ -215,7 +215,7 @@
         "main_notes": true,
         "main_notes_exact_social_card": true,
         "gender": true,
-        "season": false,
+        "season": true,
         "mapping_join_key": "shobi_code",
         "identity_registry": "Fragrantica ID Database/mappings/bestseller-001-100.json"
       }
@@ -249,7 +249,7 @@
         }
       ],
       "gender": "unisex",
-      "season": null,
+      "season": "winter",
       "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
@@ -257,7 +257,7 @@
         "main_notes": true,
         "main_notes_exact_social_card": true,
         "gender": true,
-        "season": false,
+        "season": true,
         "mapping_join_key": "shobi_code",
         "identity_registry": "Fragrantica ID Database/mappings/bestseller-001-100.json"
       }
@@ -291,7 +291,7 @@
         }
       ],
       "gender": "unisex",
-      "season": null,
+      "season": "summer",
       "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
@@ -299,7 +299,7 @@
         "main_notes": true,
         "main_notes_exact_social_card": true,
         "gender": true,
-        "season": false,
+        "season": true,
         "mapping_join_key": "shobi_code",
         "identity_registry": "Fragrantica ID Database/mappings/bestseller-001-100.json"
       }
@@ -333,7 +333,7 @@
         }
       ],
       "gender": "unisex",
-      "season": null,
+      "season": "autumn",
       "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
@@ -341,7 +341,7 @@
         "main_notes": true,
         "main_notes_exact_social_card": true,
         "gender": true,
-        "season": false,
+        "season": true,
         "mapping_join_key": "shobi_code",
         "identity_registry": "Fragrantica ID Database/mappings/bestseller-001-100.json"
       }
@@ -374,7 +374,7 @@
         }
       ],
       "gender": "female",
-      "season": null,
+      "season": "autumn",
       "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
@@ -382,7 +382,7 @@
         "main_notes": true,
         "main_notes_exact_social_card": true,
         "gender": true,
-        "season": false,
+        "season": true,
         "mapping_join_key": "shobi_code",
         "identity_registry": "Fragrantica ID Database/mappings/bestseller-001-100.json"
       }
@@ -416,7 +416,7 @@
         }
       ],
       "gender": "female",
-      "season": null,
+      "season": "summer",
       "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
@@ -424,7 +424,7 @@
         "main_notes": true,
         "main_notes_exact_social_card": true,
         "gender": true,
-        "season": false,
+        "season": true,
         "mapping_join_key": "shobi_code",
         "identity_registry": "Fragrantica ID Database/mappings/bestseller-001-100.json"
       }
@@ -458,7 +458,7 @@
         }
       ],
       "gender": "unisex",
-      "season": null,
+      "season": "summer",
       "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
@@ -466,7 +466,7 @@
         "main_notes": true,
         "main_notes_exact_social_card": true,
         "gender": true,
-        "season": false,
+        "season": true,
         "mapping_join_key": "shobi_code",
         "identity_registry": "Fragrantica ID Database/mappings/bestseller-001-100.json"
       }
@@ -500,7 +500,7 @@
         }
       ],
       "gender": "unisex",
-      "season": null,
+      "season": "spring",
       "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
@@ -508,7 +508,7 @@
         "main_notes": true,
         "main_notes_exact_social_card": true,
         "gender": true,
-        "season": false,
+        "season": true,
         "mapping_join_key": "shobi_code",
         "identity_registry": "Fragrantica ID Database/mappings/bestseller-001-100.json"
       }
@@ -542,7 +542,7 @@
         }
       ],
       "gender": "male",
-      "season": null,
+      "season": "summer",
       "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
@@ -550,7 +550,7 @@
         "main_notes": true,
         "main_notes_exact_social_card": true,
         "gender": true,
-        "season": false,
+        "season": true,
         "mapping_join_key": "shobi_code",
         "identity_registry": "Fragrantica ID Database/mappings/bestseller-001-100.json"
       }
@@ -584,7 +584,7 @@
         }
       ],
       "gender": "female",
-      "season": null,
+      "season": "winter",
       "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
@@ -592,7 +592,7 @@
         "main_notes": true,
         "main_notes_exact_social_card": true,
         "gender": true,
-        "season": false,
+        "season": true,
         "mapping_join_key": "shobi_code",
         "identity_registry": "Fragrantica ID Database/mappings/bestseller-001-100.json"
       }
@@ -626,7 +626,7 @@
         }
       ],
       "gender": "female",
-      "season": null,
+      "season": "winter",
       "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
@@ -634,7 +634,7 @@
         "main_notes": true,
         "main_notes_exact_social_card": true,
         "gender": true,
-        "season": false,
+        "season": true,
         "mapping_join_key": "shobi_code",
         "identity_registry": "Fragrantica ID Database/mappings/bestseller-001-100.json"
       }
@@ -668,7 +668,7 @@
         }
       ],
       "gender": "unisex",
-      "season": null,
+      "season": "winter",
       "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
@@ -676,7 +676,7 @@
         "main_notes": true,
         "main_notes_exact_social_card": true,
         "gender": true,
-        "season": false,
+        "season": true,
         "mapping_join_key": "shobi_code",
         "identity_registry": "Fragrantica ID Database/mappings/bestseller-001-100.json"
       }
@@ -710,7 +710,7 @@
         }
       ],
       "gender": "unisex",
-      "season": null,
+      "season": "winter",
       "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
@@ -718,7 +718,7 @@
         "main_notes": true,
         "main_notes_exact_social_card": true,
         "gender": true,
-        "season": false,
+        "season": true,
         "mapping_join_key": "shobi_code",
         "identity_registry": "Fragrantica ID Database/mappings/bestseller-001-100.json"
       }
@@ -751,7 +751,7 @@
         }
       ],
       "gender": "unisex",
-      "season": null,
+      "season": "winter",
       "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
@@ -759,7 +759,7 @@
         "main_notes": true,
         "main_notes_exact_social_card": true,
         "gender": true,
-        "season": false,
+        "season": true,
         "mapping_join_key": "shobi_code",
         "identity_registry": "Fragrantica ID Database/mappings/bestseller-001-100.json"
       }
@@ -793,7 +793,7 @@
         }
       ],
       "gender": "unisex",
-      "season": null,
+      "season": "summer",
       "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
@@ -801,7 +801,7 @@
         "main_notes": true,
         "main_notes_exact_social_card": true,
         "gender": true,
-        "season": false,
+        "season": true,
         "mapping_join_key": "shobi_code",
         "identity_registry": "Fragrantica ID Database/mappings/bestseller-001-100.json"
       }
@@ -834,7 +834,7 @@
         }
       ],
       "gender": "female",
-      "season": null,
+      "season": "autumn",
       "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
@@ -842,7 +842,7 @@
         "main_notes": true,
         "main_notes_exact_social_card": true,
         "gender": true,
-        "season": false,
+        "season": true,
         "mapping_join_key": "shobi_code",
         "identity_registry": "Fragrantica ID Database/mappings/bestseller-001-100.json"
       }
@@ -876,7 +876,7 @@
         }
       ],
       "gender": "male",
-      "season": null,
+      "season": "winter",
       "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
@@ -884,7 +884,7 @@
         "main_notes": true,
         "main_notes_exact_social_card": true,
         "gender": true,
-        "season": false,
+        "season": true,
         "mapping_join_key": "shobi_code",
         "identity_registry": "Fragrantica ID Database/mappings/bestseller-001-100.json"
       }
@@ -918,7 +918,7 @@
         }
       ],
       "gender": "unisex",
-      "season": null,
+      "season": "spring",
       "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
@@ -926,7 +926,7 @@
         "main_notes": true,
         "main_notes_exact_social_card": true,
         "gender": true,
-        "season": false,
+        "season": true,
         "mapping_join_key": "shobi_code",
         "identity_registry": "Fragrantica ID Database/mappings/bestseller-001-100.json"
       }
@@ -960,7 +960,7 @@
         }
       ],
       "gender": "female",
-      "season": null,
+      "season": "winter",
       "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
@@ -968,7 +968,7 @@
         "main_notes": true,
         "main_notes_exact_social_card": true,
         "gender": true,
-        "season": false,
+        "season": true,
         "mapping_join_key": "shobi_code",
         "identity_registry": "Fragrantica ID Database/mappings/bestseller-001-100.json"
       }
@@ -997,7 +997,7 @@
         }
       ],
       "gender": "unisex",
-      "season": null,
+      "season": "spring",
       "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
@@ -1005,7 +1005,7 @@
         "main_notes": true,
         "main_notes_exact_social_card": true,
         "gender": true,
-        "season": false,
+        "season": true,
         "mapping_join_key": "shobi_code",
         "identity_registry": "Fragrantica ID Database/mappings/bestseller-001-100.json"
       }
@@ -1039,7 +1039,7 @@
         }
       ],
       "gender": "male",
-      "season": null,
+      "season": "spring",
       "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
@@ -1047,7 +1047,7 @@
         "main_notes": true,
         "main_notes_exact_social_card": true,
         "gender": true,
-        "season": false,
+        "season": true,
         "mapping_join_key": "shobi_code",
         "identity_registry": "Fragrantica ID Database/mappings/bestseller-001-100.json"
       }
@@ -1081,7 +1081,7 @@
         }
       ],
       "gender": "unisex",
-      "season": null,
+      "season": "spring",
       "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
@@ -1089,7 +1089,7 @@
         "main_notes": true,
         "main_notes_exact_social_card": true,
         "gender": true,
-        "season": false,
+        "season": true,
         "mapping_join_key": "shobi_code",
         "identity_registry": "Fragrantica ID Database/mappings/bestseller-001-100.json"
       }
@@ -1123,7 +1123,7 @@
         }
       ],
       "gender": "female",
-      "season": null,
+      "season": "winter",
       "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
@@ -1131,7 +1131,7 @@
         "main_notes": true,
         "main_notes_exact_social_card": true,
         "gender": true,
-        "season": false,
+        "season": true,
         "mapping_join_key": "shobi_code",
         "identity_registry": "Fragrantica ID Database/mappings/bestseller-001-100.json"
       }
@@ -1165,7 +1165,7 @@
         }
       ],
       "gender": "female",
-      "season": null,
+      "season": "winter",
       "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
@@ -1173,7 +1173,7 @@
         "main_notes": true,
         "main_notes_exact_social_card": true,
         "gender": true,
-        "season": false,
+        "season": true,
         "mapping_join_key": "shobi_code",
         "identity_registry": "Fragrantica ID Database/mappings/bestseller-001-100.json"
       }
@@ -1207,7 +1207,7 @@
         }
       ],
       "gender": "female",
-      "season": null,
+      "season": "spring",
       "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
@@ -1215,7 +1215,7 @@
         "main_notes": true,
         "main_notes_exact_social_card": true,
         "gender": true,
-        "season": false,
+        "season": true,
         "mapping_join_key": "shobi_code",
         "identity_registry": "Fragrantica ID Database/mappings/bestseller-001-100.json"
       }
@@ -1249,7 +1249,7 @@
         }
       ],
       "gender": "unisex",
-      "season": null,
+      "season": "winter",
       "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
@@ -1257,7 +1257,7 @@
         "main_notes": true,
         "main_notes_exact_social_card": true,
         "gender": true,
-        "season": false,
+        "season": true,
         "mapping_join_key": "shobi_code",
         "identity_registry": "Fragrantica ID Database/mappings/bestseller-001-100.json"
       }
@@ -1291,7 +1291,7 @@
         }
       ],
       "gender": "unisex",
-      "season": null,
+      "season": "spring",
       "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
@@ -1299,7 +1299,7 @@
         "main_notes": true,
         "main_notes_exact_social_card": true,
         "gender": true,
-        "season": false,
+        "season": true,
         "mapping_join_key": "shobi_code",
         "identity_registry": "Fragrantica ID Database/mappings/bestseller-001-100.json"
       }
@@ -1333,7 +1333,7 @@
         }
       ],
       "gender": "unisex",
-      "season": null,
+      "season": "winter",
       "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
@@ -1341,7 +1341,7 @@
         "main_notes": true,
         "main_notes_exact_social_card": true,
         "gender": true,
-        "season": false,
+        "season": true,
         "mapping_join_key": "shobi_code",
         "identity_registry": "Fragrantica ID Database/mappings/bestseller-001-100.json"
       }
@@ -1375,7 +1375,7 @@
         }
       ],
       "gender": "female",
-      "season": null,
+      "season": "spring",
       "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
@@ -1383,7 +1383,7 @@
         "main_notes": true,
         "main_notes_exact_social_card": true,
         "gender": true,
-        "season": false,
+        "season": true,
         "mapping_join_key": "shobi_code",
         "identity_registry": "Fragrantica ID Database/mappings/bestseller-001-100.json"
       }
@@ -1417,7 +1417,7 @@
         }
       ],
       "gender": "unisex",
-      "season": null,
+      "season": "summer",
       "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
@@ -1425,7 +1425,7 @@
         "main_notes": true,
         "main_notes_exact_social_card": true,
         "gender": true,
-        "season": false,
+        "season": true,
         "mapping_join_key": "shobi_code",
         "identity_registry": "Fragrantica ID Database/mappings/bestseller-001-100.json"
       }
@@ -1458,7 +1458,7 @@
         }
       ],
       "gender": "female",
-      "season": null,
+      "season": "spring",
       "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
@@ -1466,7 +1466,7 @@
         "main_notes": true,
         "main_notes_exact_social_card": true,
         "gender": true,
-        "season": false,
+        "season": true,
         "mapping_join_key": "shobi_code",
         "identity_registry": "Fragrantica ID Database/mappings/bestseller-001-100.json"
       }
@@ -1500,7 +1500,7 @@
         }
       ],
       "gender": "unisex",
-      "season": null,
+      "season": "autumn",
       "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
@@ -1508,7 +1508,7 @@
         "main_notes": true,
         "main_notes_exact_social_card": true,
         "gender": true,
-        "season": false,
+        "season": true,
         "mapping_join_key": "shobi_code",
         "identity_registry": "Fragrantica ID Database/mappings/bestseller-001-100.json"
       }
@@ -1542,7 +1542,7 @@
         }
       ],
       "gender": "unisex",
-      "season": null,
+      "season": "autumn",
       "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
@@ -1550,7 +1550,7 @@
         "main_notes": true,
         "main_notes_exact_social_card": true,
         "gender": true,
-        "season": false,
+        "season": true,
         "mapping_join_key": "shobi_code",
         "identity_registry": "Fragrantica ID Database/rebuild-top100/new-identities-verified.json"
       }
@@ -1583,7 +1583,7 @@
         }
       ],
       "gender": "unisex",
-      "season": null,
+      "season": "summer",
       "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
@@ -1591,7 +1591,7 @@
         "main_notes": true,
         "main_notes_exact_social_card": true,
         "gender": true,
-        "season": false,
+        "season": true,
         "mapping_join_key": "shobi_code",
         "identity_registry": "Fragrantica ID Database/mappings/bestseller-001-100.json"
       }
@@ -1625,7 +1625,7 @@
         }
       ],
       "gender": "unisex",
-      "season": null,
+      "season": "spring",
       "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
@@ -1633,7 +1633,7 @@
         "main_notes": true,
         "main_notes_exact_social_card": true,
         "gender": true,
-        "season": false,
+        "season": true,
         "mapping_join_key": "shobi_code",
         "identity_registry": "Fragrantica ID Database/mappings/bestseller-001-100.json"
       }
@@ -1667,7 +1667,7 @@
         }
       ],
       "gender": "female",
-      "season": null,
+      "season": "winter",
       "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
@@ -1675,7 +1675,7 @@
         "main_notes": true,
         "main_notes_exact_social_card": true,
         "gender": true,
-        "season": false,
+        "season": true,
         "mapping_join_key": "shobi_code",
         "identity_registry": "Fragrantica ID Database/rebuild-top100/new-identities-verified.json"
       }
@@ -1709,7 +1709,7 @@
         }
       ],
       "gender": "female",
-      "season": null,
+      "season": "spring",
       "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
@@ -1717,7 +1717,7 @@
         "main_notes": true,
         "main_notes_exact_social_card": true,
         "gender": true,
-        "season": false,
+        "season": true,
         "mapping_join_key": "shobi_code",
         "identity_registry": "Fragrantica ID Database/rebuild-top100/new-identities-verified.json"
       }
@@ -1751,7 +1751,7 @@
         }
       ],
       "gender": "unisex",
-      "season": null,
+      "season": "winter",
       "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
@@ -1759,7 +1759,7 @@
         "main_notes": true,
         "main_notes_exact_social_card": true,
         "gender": true,
-        "season": false,
+        "season": true,
         "mapping_join_key": "shobi_code",
         "identity_registry": "Fragrantica ID Database/mappings/bestseller-001-100.json"
       }
@@ -1793,7 +1793,7 @@
         }
       ],
       "gender": "female",
-      "season": null,
+      "season": "autumn",
       "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
@@ -1801,7 +1801,7 @@
         "main_notes": true,
         "main_notes_exact_social_card": true,
         "gender": true,
-        "season": false,
+        "season": true,
         "mapping_join_key": "shobi_code",
         "identity_registry": "Fragrantica ID Database/mappings/bestseller-001-100.json"
       }
@@ -1835,7 +1835,7 @@
         }
       ],
       "gender": "female",
-      "season": null,
+      "season": "spring",
       "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
@@ -1843,7 +1843,7 @@
         "main_notes": true,
         "main_notes_exact_social_card": true,
         "gender": true,
-        "season": false,
+        "season": true,
         "mapping_join_key": "shobi_code",
         "identity_registry": "Fragrantica ID Database/mappings/bestseller-001-100.json"
       }
@@ -1877,7 +1877,7 @@
         }
       ],
       "gender": "unisex",
-      "season": null,
+      "season": "summer",
       "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
@@ -1885,7 +1885,7 @@
         "main_notes": true,
         "main_notes_exact_social_card": true,
         "gender": true,
-        "season": false,
+        "season": true,
         "mapping_join_key": "shobi_code",
         "identity_registry": "Fragrantica ID Database/mappings/bestseller-001-100.json"
       }
@@ -1919,7 +1919,7 @@
         }
       ],
       "gender": "unisex",
-      "season": null,
+      "season": "winter",
       "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
@@ -1927,7 +1927,7 @@
         "main_notes": true,
         "main_notes_exact_social_card": true,
         "gender": true,
-        "season": false,
+        "season": true,
         "mapping_join_key": "shobi_code",
         "identity_registry": "Fragrantica ID Database/mappings/bestseller-001-100.json"
       }
@@ -1961,7 +1961,7 @@
         }
       ],
       "gender": "unisex",
-      "season": null,
+      "season": "summer",
       "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
@@ -1969,7 +1969,7 @@
         "main_notes": true,
         "main_notes_exact_social_card": true,
         "gender": true,
-        "season": false,
+        "season": true,
         "mapping_join_key": "shobi_code",
         "identity_registry": "Fragrantica ID Database/rebuild-top100/new-identities-verified.json"
       }
@@ -2003,7 +2003,7 @@
         }
       ],
       "gender": "unisex",
-      "season": null,
+      "season": "winter",
       "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
@@ -2011,7 +2011,7 @@
         "main_notes": true,
         "main_notes_exact_social_card": true,
         "gender": true,
-        "season": false,
+        "season": true,
         "mapping_join_key": "shobi_code",
         "identity_registry": "Fragrantica ID Database/mappings/bestseller-001-100.json"
       }
@@ -2045,7 +2045,7 @@
         }
       ],
       "gender": "female",
-      "season": null,
+      "season": "autumn",
       "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
@@ -2053,7 +2053,7 @@
         "main_notes": true,
         "main_notes_exact_social_card": true,
         "gender": true,
-        "season": false,
+        "season": true,
         "mapping_join_key": "shobi_code",
         "identity_registry": "Fragrantica ID Database/mappings/bestseller-001-100.json"
       }
@@ -2086,7 +2086,7 @@
         }
       ],
       "gender": "unisex",
-      "season": null,
+      "season": "winter",
       "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
@@ -2094,7 +2094,7 @@
         "main_notes": true,
         "main_notes_exact_social_card": true,
         "gender": true,
-        "season": false,
+        "season": true,
         "mapping_join_key": "shobi_code",
         "identity_registry": "Fragrantica ID Database/mappings/bestseller-001-100.json"
       }
@@ -2128,7 +2128,7 @@
         }
       ],
       "gender": "female",
-      "season": null,
+      "season": "autumn",
       "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
@@ -2136,7 +2136,7 @@
         "main_notes": true,
         "main_notes_exact_social_card": true,
         "gender": true,
-        "season": false,
+        "season": true,
         "mapping_join_key": "shobi_code",
         "identity_registry": "Fragrantica ID Database/mappings/bestseller-001-100.json"
       }
@@ -2170,7 +2170,7 @@
         }
       ],
       "gender": "female",
-      "season": null,
+      "season": "autumn",
       "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
@@ -2178,7 +2178,7 @@
         "main_notes": true,
         "main_notes_exact_social_card": true,
         "gender": true,
-        "season": false,
+        "season": true,
         "mapping_join_key": "shobi_code",
         "identity_registry": "Fragrantica ID Database/mappings/bestseller-001-100.json"
       }
@@ -2212,7 +2212,7 @@
         }
       ],
       "gender": "female",
-      "season": null,
+      "season": "winter",
       "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
@@ -2220,7 +2220,7 @@
         "main_notes": true,
         "main_notes_exact_social_card": true,
         "gender": true,
-        "season": false,
+        "season": true,
         "mapping_join_key": "shobi_code",
         "identity_registry": "Fragrantica ID Database/mappings/bestseller-001-100.json"
       }
@@ -2254,7 +2254,7 @@
         }
       ],
       "gender": "unisex",
-      "season": null,
+      "season": "summer",
       "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
@@ -2262,7 +2262,7 @@
         "main_notes": true,
         "main_notes_exact_social_card": true,
         "gender": true,
-        "season": false,
+        "season": true,
         "mapping_join_key": "shobi_code",
         "identity_registry": "Fragrantica ID Database/mappings/bestseller-001-100.json"
       }
@@ -2296,7 +2296,7 @@
         }
       ],
       "gender": "unisex",
-      "season": null,
+      "season": "autumn",
       "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
@@ -2304,7 +2304,7 @@
         "main_notes": true,
         "main_notes_exact_social_card": true,
         "gender": true,
-        "season": false,
+        "season": true,
         "mapping_join_key": "shobi_code",
         "identity_registry": "Fragrantica ID Database/mappings/bestseller-001-100.json"
       }
@@ -2337,7 +2337,7 @@
         }
       ],
       "gender": "unisex",
-      "season": null,
+      "season": "spring",
       "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
@@ -2345,7 +2345,7 @@
         "main_notes": true,
         "main_notes_exact_social_card": true,
         "gender": true,
-        "season": false,
+        "season": true,
         "mapping_join_key": "shobi_code",
         "identity_registry": "Fragrantica ID Database/mappings/bestseller-001-100.json"
       }
@@ -2377,7 +2377,7 @@
         }
       ],
       "gender": "female",
-      "season": null,
+      "season": "autumn",
       "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
@@ -2385,7 +2385,7 @@
         "main_notes": true,
         "main_notes_exact_social_card": true,
         "gender": true,
-        "season": false,
+        "season": true,
         "mapping_join_key": "shobi_code",
         "identity_registry": "Fragrantica ID Database/mappings/bestseller-001-100.json"
       }
@@ -2417,7 +2417,7 @@
         }
       ],
       "gender": "unisex",
-      "season": null,
+      "season": "spring",
       "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
@@ -2425,7 +2425,7 @@
         "main_notes": true,
         "main_notes_exact_social_card": true,
         "gender": true,
-        "season": false,
+        "season": true,
         "mapping_join_key": "shobi_code",
         "identity_registry": "Fragrantica ID Database/mappings/bestseller-001-100.json"
       }
@@ -2459,7 +2459,7 @@
         }
       ],
       "gender": "male",
-      "season": null,
+      "season": "summer",
       "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
@@ -2467,7 +2467,7 @@
         "main_notes": true,
         "main_notes_exact_social_card": true,
         "gender": true,
-        "season": false,
+        "season": true,
         "mapping_join_key": "shobi_code",
         "identity_registry": "Fragrantica ID Database/mappings/bestseller-001-100.json"
       }
@@ -2501,7 +2501,7 @@
         }
       ],
       "gender": "female",
-      "season": null,
+      "season": "autumn",
       "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
@@ -2509,7 +2509,7 @@
         "main_notes": true,
         "main_notes_exact_social_card": true,
         "gender": true,
-        "season": false,
+        "season": true,
         "mapping_join_key": "shobi_code",
         "identity_registry": "Fragrantica ID Database/mappings/bestseller-001-100.json"
       }
@@ -2543,7 +2543,7 @@
         }
       ],
       "gender": "unisex",
-      "season": null,
+      "season": "spring",
       "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
@@ -2551,7 +2551,7 @@
         "main_notes": true,
         "main_notes_exact_social_card": true,
         "gender": true,
-        "season": false,
+        "season": true,
         "mapping_join_key": "shobi_code",
         "identity_registry": "Fragrantica ID Database/mappings/bestseller-001-100.json"
       }
@@ -2585,7 +2585,7 @@
         }
       ],
       "gender": "female",
-      "season": null,
+      "season": "winter",
       "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
@@ -2593,7 +2593,7 @@
         "main_notes": true,
         "main_notes_exact_social_card": true,
         "gender": true,
-        "season": false,
+        "season": true,
         "mapping_join_key": "shobi_code",
         "identity_registry": "Fragrantica ID Database/mappings/bestseller-001-100.json"
       }
@@ -2622,7 +2622,7 @@
         }
       ],
       "gender": "unisex",
-      "season": null,
+      "season": "spring",
       "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
@@ -2630,7 +2630,7 @@
         "main_notes": true,
         "main_notes_exact_social_card": true,
         "gender": true,
-        "season": false,
+        "season": true,
         "mapping_join_key": "shobi_code",
         "identity_registry": "Fragrantica ID Database/mappings/bestseller-001-100.json"
       }
@@ -2664,7 +2664,7 @@
         }
       ],
       "gender": "female",
-      "season": null,
+      "season": "summer",
       "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
@@ -2672,7 +2672,7 @@
         "main_notes": true,
         "main_notes_exact_social_card": true,
         "gender": true,
-        "season": false,
+        "season": true,
         "mapping_join_key": "shobi_code",
         "identity_registry": "Fragrantica ID Database/mappings/bestseller-001-100.json"
       }
@@ -2706,7 +2706,7 @@
         }
       ],
       "gender": "female",
-      "season": null,
+      "season": "spring",
       "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
@@ -2714,7 +2714,7 @@
         "main_notes": true,
         "main_notes_exact_social_card": true,
         "gender": true,
-        "season": false,
+        "season": true,
         "mapping_join_key": "shobi_code",
         "identity_registry": "Fragrantica ID Database/rebuild-top100/new-identities-verified.json"
       }
@@ -2748,7 +2748,7 @@
         }
       ],
       "gender": "female",
-      "season": null,
+      "season": "summer",
       "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
@@ -2756,7 +2756,7 @@
         "main_notes": true,
         "main_notes_exact_social_card": true,
         "gender": true,
-        "season": false,
+        "season": true,
         "mapping_join_key": "shobi_code",
         "identity_registry": "Fragrantica ID Database/mappings/bestseller-001-100.json"
       }
@@ -2790,7 +2790,7 @@
         }
       ],
       "gender": "unisex",
-      "season": null,
+      "season": "autumn",
       "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
@@ -2798,7 +2798,7 @@
         "main_notes": true,
         "main_notes_exact_social_card": true,
         "gender": true,
-        "season": false,
+        "season": true,
         "mapping_join_key": "shobi_code",
         "identity_registry": "Fragrantica ID Database/mappings/bestseller-001-100.json"
       }
@@ -2832,7 +2832,7 @@
         }
       ],
       "gender": "female",
-      "season": null,
+      "season": "spring",
       "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
@@ -2840,7 +2840,7 @@
         "main_notes": true,
         "main_notes_exact_social_card": true,
         "gender": true,
-        "season": false,
+        "season": true,
         "mapping_join_key": "shobi_code",
         "identity_registry": "Fragrantica ID Database/mappings/bestseller-001-100.json"
       }
@@ -2874,7 +2874,7 @@
         }
       ],
       "gender": "unisex",
-      "season": null,
+      "season": "spring",
       "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
@@ -2882,7 +2882,7 @@
         "main_notes": true,
         "main_notes_exact_social_card": true,
         "gender": true,
-        "season": false,
+        "season": true,
         "mapping_join_key": "shobi_code",
         "identity_registry": "Fragrantica ID Database/mappings/bestseller-001-100.json"
       }
@@ -2916,7 +2916,7 @@
         }
       ],
       "gender": "female",
-      "season": null,
+      "season": "spring",
       "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
@@ -2924,7 +2924,7 @@
         "main_notes": true,
         "main_notes_exact_social_card": true,
         "gender": true,
-        "season": false,
+        "season": true,
         "mapping_join_key": "shobi_code",
         "identity_registry": "Fragrantica ID Database/mappings/bestseller-001-100.json"
       }
@@ -2958,7 +2958,7 @@
         }
       ],
       "gender": "female",
-      "season": null,
+      "season": "winter",
       "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
@@ -2966,7 +2966,7 @@
         "main_notes": true,
         "main_notes_exact_social_card": true,
         "gender": true,
-        "season": false,
+        "season": true,
         "mapping_join_key": "shobi_code",
         "identity_registry": "Fragrantica ID Database/mappings/bestseller-001-100.json"
       }
@@ -3000,7 +3000,7 @@
         }
       ],
       "gender": "unisex",
-      "season": null,
+      "season": "summer",
       "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
@@ -3008,7 +3008,7 @@
         "main_notes": true,
         "main_notes_exact_social_card": true,
         "gender": true,
-        "season": false,
+        "season": true,
         "mapping_join_key": "shobi_code",
         "identity_registry": "Fragrantica ID Database/mappings/bestseller-001-100.json"
       }
@@ -3042,7 +3042,7 @@
         }
       ],
       "gender": "unisex",
-      "season": null,
+      "season": "winter",
       "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
@@ -3050,7 +3050,7 @@
         "main_notes": true,
         "main_notes_exact_social_card": true,
         "gender": true,
-        "season": false,
+        "season": true,
         "mapping_join_key": "shobi_code",
         "identity_registry": "Fragrantica ID Database/mappings/bestseller-001-100.json"
       }
@@ -3084,7 +3084,7 @@
         }
       ],
       "gender": "female",
-      "season": null,
+      "season": "spring",
       "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
@@ -3092,7 +3092,7 @@
         "main_notes": true,
         "main_notes_exact_social_card": true,
         "gender": true,
-        "season": false,
+        "season": true,
         "mapping_join_key": "shobi_code",
         "identity_registry": "Fragrantica ID Database/mappings/bestseller-001-100.json"
       }
@@ -3125,7 +3125,7 @@
         }
       ],
       "gender": "male",
-      "season": null,
+      "season": "spring",
       "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
@@ -3133,7 +3133,7 @@
         "main_notes": true,
         "main_notes_exact_social_card": true,
         "gender": true,
-        "season": false,
+        "season": true,
         "mapping_join_key": "shobi_code",
         "identity_registry": "Fragrantica ID Database/mappings/bestseller-001-100.json"
       }
@@ -3166,7 +3166,7 @@
         }
       ],
       "gender": "unisex",
-      "season": null,
+      "season": "winter",
       "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
@@ -3174,7 +3174,7 @@
         "main_notes": true,
         "main_notes_exact_social_card": true,
         "gender": true,
-        "season": false,
+        "season": true,
         "mapping_join_key": "shobi_code",
         "identity_registry": "Fragrantica ID Database/mappings/bestseller-001-100.json"
       }
@@ -3208,7 +3208,7 @@
         }
       ],
       "gender": "female",
-      "season": null,
+      "season": "spring",
       "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
@@ -3216,7 +3216,7 @@
         "main_notes": true,
         "main_notes_exact_social_card": true,
         "gender": true,
-        "season": false,
+        "season": true,
         "mapping_join_key": "shobi_code",
         "identity_registry": "Fragrantica ID Database/mappings/bestseller-001-100.json"
       }
@@ -3250,7 +3250,7 @@
         }
       ],
       "gender": "male",
-      "season": null,
+      "season": "autumn",
       "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
@@ -3258,7 +3258,7 @@
         "main_notes": true,
         "main_notes_exact_social_card": true,
         "gender": true,
-        "season": false,
+        "season": true,
         "mapping_join_key": "shobi_code",
         "identity_registry": "Fragrantica ID Database/mappings/bestseller-001-100.json"
       }
@@ -3292,7 +3292,7 @@
         }
       ],
       "gender": "male",
-      "season": null,
+      "season": "winter",
       "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
@@ -3300,7 +3300,7 @@
         "main_notes": true,
         "main_notes_exact_social_card": true,
         "gender": true,
-        "season": false,
+        "season": true,
         "mapping_join_key": "shobi_code",
         "identity_registry": "Fragrantica ID Database/mappings/bestseller-001-100.json"
       }
@@ -3334,7 +3334,7 @@
         }
       ],
       "gender": "female",
-      "season": null,
+      "season": "autumn",
       "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
@@ -3342,7 +3342,7 @@
         "main_notes": true,
         "main_notes_exact_social_card": true,
         "gender": true,
-        "season": false,
+        "season": true,
         "mapping_join_key": "shobi_code",
         "identity_registry": "Fragrantica ID Database/mappings/bestseller-001-100.json"
       }
@@ -3373,7 +3373,7 @@
         }
       ],
       "gender": "unisex",
-      "season": null,
+      "season": "summer",
       "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
@@ -3381,7 +3381,7 @@
         "main_notes": true,
         "main_notes_exact_social_card": true,
         "gender": true,
-        "season": false,
+        "season": true,
         "mapping_join_key": "shobi_code",
         "identity_registry": "Fragrantica ID Database/rebuild-top100/new-identities-verified.json"
       }
@@ -3415,7 +3415,7 @@
         }
       ],
       "gender": "male",
-      "season": null,
+      "season": "winter",
       "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
@@ -3423,7 +3423,7 @@
         "main_notes": true,
         "main_notes_exact_social_card": true,
         "gender": true,
-        "season": false,
+        "season": true,
         "mapping_join_key": "shobi_code",
         "identity_registry": "Fragrantica ID Database/rebuild-top100/new-identities-verified.json"
       }
@@ -3457,7 +3457,7 @@
         }
       ],
       "gender": "female",
-      "season": null,
+      "season": "winter",
       "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
@@ -3465,7 +3465,7 @@
         "main_notes": true,
         "main_notes_exact_social_card": true,
         "gender": true,
-        "season": false,
+        "season": true,
         "mapping_join_key": "shobi_code",
         "identity_registry": "Fragrantica ID Database/mappings/bestseller-001-100.json"
       }
@@ -3496,7 +3496,7 @@
         }
       ],
       "gender": "unisex",
-      "season": null,
+      "season": "autumn",
       "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
@@ -3504,7 +3504,7 @@
         "main_notes": true,
         "main_notes_exact_social_card": true,
         "gender": true,
-        "season": false,
+        "season": true,
         "mapping_join_key": "shobi_code",
         "identity_registry": "Fragrantica ID Database/mappings/bestseller-001-100.json"
       }
@@ -3537,7 +3537,7 @@
         }
       ],
       "gender": "unisex",
-      "season": null,
+      "season": "autumn",
       "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
@@ -3545,7 +3545,7 @@
         "main_notes": true,
         "main_notes_exact_social_card": true,
         "gender": true,
-        "season": false,
+        "season": true,
         "mapping_join_key": "shobi_code",
         "identity_registry": "Fragrantica ID Database/mappings/bestseller-001-100.json"
       }
@@ -3577,7 +3577,7 @@
         }
       ],
       "gender": "female",
-      "season": null,
+      "season": "autumn",
       "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
@@ -3585,7 +3585,7 @@
         "main_notes": true,
         "main_notes_exact_social_card": true,
         "gender": true,
-        "season": false,
+        "season": true,
         "mapping_join_key": "shobi_code",
         "identity_registry": "Fragrantica ID Database/mappings/bestseller-001-100.json"
       }
@@ -3619,7 +3619,7 @@
         }
       ],
       "gender": "unisex",
-      "season": null,
+      "season": "winter",
       "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
@@ -3627,7 +3627,7 @@
         "main_notes": true,
         "main_notes_exact_social_card": true,
         "gender": true,
-        "season": false,
+        "season": true,
         "mapping_join_key": "shobi_code",
         "identity_registry": "Fragrantica ID Database/mappings/bestseller-001-100.json"
       }
@@ -3661,7 +3661,7 @@
         }
       ],
       "gender": "female",
-      "season": null,
+      "season": "summer",
       "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
@@ -3669,7 +3669,7 @@
         "main_notes": true,
         "main_notes_exact_social_card": true,
         "gender": true,
-        "season": false,
+        "season": true,
         "mapping_join_key": "shobi_code",
         "identity_registry": "Fragrantica ID Database/mappings/bestseller-001-100.json"
       }
@@ -3703,7 +3703,7 @@
         }
       ],
       "gender": "unisex",
-      "season": null,
+      "season": "winter",
       "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
@@ -3711,7 +3711,7 @@
         "main_notes": true,
         "main_notes_exact_social_card": true,
         "gender": true,
-        "season": false,
+        "season": true,
         "mapping_join_key": "shobi_code",
         "identity_registry": "Fragrantica ID Database/rebuild-top100/new-identities-verified.json"
       }
@@ -3745,7 +3745,7 @@
         }
       ],
       "gender": "female",
-      "season": null,
+      "season": "summer",
       "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
@@ -3753,7 +3753,7 @@
         "main_notes": true,
         "main_notes_exact_social_card": true,
         "gender": true,
-        "season": false,
+        "season": true,
         "mapping_join_key": "shobi_code",
         "identity_registry": "Fragrantica ID Database/mappings/bestseller-001-100.json"
       }
@@ -3787,7 +3787,7 @@
         }
       ],
       "gender": "unisex",
-      "season": null,
+      "season": "summer",
       "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
@@ -3795,7 +3795,7 @@
         "main_notes": true,
         "main_notes_exact_social_card": true,
         "gender": true,
-        "season": false,
+        "season": true,
         "mapping_join_key": "shobi_code",
         "identity_registry": "Fragrantica ID Database/mappings/bestseller-001-100.json"
       }
@@ -3829,7 +3829,7 @@
         }
       ],
       "gender": "unisex",
-      "season": null,
+      "season": "winter",
       "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
@@ -3837,7 +3837,7 @@
         "main_notes": true,
         "main_notes_exact_social_card": true,
         "gender": true,
-        "season": false,
+        "season": true,
         "mapping_join_key": "shobi_code",
         "identity_registry": "Fragrantica ID Database/mappings/bestseller-001-100.json"
       }
@@ -3871,7 +3871,7 @@
         }
       ],
       "gender": "male",
-      "season": null,
+      "season": "winter",
       "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
@@ -3879,7 +3879,7 @@
         "main_notes": true,
         "main_notes_exact_social_card": true,
         "gender": true,
-        "season": false,
+        "season": true,
         "mapping_join_key": "shobi_code",
         "identity_registry": "Fragrantica ID Database/mappings/bestseller-001-100.json"
       }
@@ -3913,7 +3913,7 @@
         }
       ],
       "gender": "unisex",
-      "season": null,
+      "season": "winter",
       "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
@@ -3921,7 +3921,7 @@
         "main_notes": true,
         "main_notes_exact_social_card": true,
         "gender": true,
-        "season": false,
+        "season": true,
         "mapping_join_key": "shobi_code",
         "identity_registry": "Fragrantica ID Database/mappings/bestseller-001-100.json"
       }
@@ -3955,7 +3955,7 @@
         }
       ],
       "gender": "unisex",
-      "season": null,
+      "season": "winter",
       "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
@@ -3963,7 +3963,7 @@
         "main_notes": true,
         "main_notes_exact_social_card": true,
         "gender": true,
-        "season": false,
+        "season": true,
         "mapping_join_key": "shobi_code",
         "identity_registry": "Fragrantica ID Database/mappings/bestseller-001-100.json"
       }
@@ -3997,7 +3997,7 @@
         }
       ],
       "gender": "unisex",
-      "season": null,
+      "season": "summer",
       "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
@@ -4005,7 +4005,7 @@
         "main_notes": true,
         "main_notes_exact_social_card": true,
         "gender": true,
-        "season": false,
+        "season": true,
         "mapping_join_key": "shobi_code",
         "identity_registry": "Fragrantica ID Database/mappings/bestseller-001-100.json"
       }
@@ -4038,7 +4038,7 @@
         }
       ],
       "gender": "unisex",
-      "season": null,
+      "season": "summer",
       "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
@@ -4046,7 +4046,7 @@
         "main_notes": true,
         "main_notes_exact_social_card": true,
         "gender": true,
-        "season": false,
+        "season": true,
         "mapping_join_key": "shobi_code",
         "identity_registry": "Fragrantica ID Database/mappings/bestseller-001-100.json"
       }
@@ -4080,7 +4080,7 @@
         }
       ],
       "gender": "male",
-      "season": null,
+      "season": "winter",
       "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
@@ -4088,7 +4088,7 @@
         "main_notes": true,
         "main_notes_exact_social_card": true,
         "gender": true,
-        "season": false,
+        "season": true,
         "mapping_join_key": "shobi_code",
         "identity_registry": "Fragrantica ID Database/rebuild-top100/new-identities-verified.json"
       }
@@ -4122,7 +4122,7 @@
         }
       ],
       "gender": "male",
-      "season": null,
+      "season": "spring",
       "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
@@ -4130,7 +4130,7 @@
         "main_notes": true,
         "main_notes_exact_social_card": true,
         "gender": true,
-        "season": false,
+        "season": true,
         "mapping_join_key": "shobi_code",
         "identity_registry": "Fragrantica ID Database/rebuild-top100/new-identities-verified.json"
       }
@@ -4164,7 +4164,7 @@
         }
       ],
       "gender": "unisex",
-      "season": null,
+      "season": "winter",
       "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
@@ -4172,7 +4172,7 @@
         "main_notes": true,
         "main_notes_exact_social_card": true,
         "gender": true,
-        "season": false,
+        "season": true,
         "mapping_join_key": "shobi_code",
         "identity_registry": "Fragrantica ID Database/mappings/bestseller-001-100.json"
       }
