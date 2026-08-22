@@ -1,0 +1,97 @@
+{
+  "schema_version": 1,
+  "method": "Fragrantica ID Mapping Rule",
+  "scope": "New identities introduced by clean Shobi Top100 rebuild",
+  "records": [
+    {
+      "rank": 37,
+      "shobi_code": "2348-AMG N",
+      "perfume": "Guidance",
+      "fragrantica_id": 78656,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Amouage/Guidance-78656.html",
+      "gender": "unisex",
+      "identity_verified": true
+    },
+    {
+      "rank": 40,
+      "shobi_code": "750-KEN W",
+      "perfume": "Flower by Kenzo L'Elixir",
+      "fragrantica_id": 31539,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Kenzo/Flower-by-Kenzo-L-Elixir-31539.html",
+      "gender": "female",
+      "identity_verified": true
+    },
+    {
+      "rank": 41,
+      "shobi_code": "937-VAL WP",
+      "perfume": "Valentino Donna Born In Roma",
+      "fragrantica_id": 55805,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Valentino/Valentino-Donna-Born-In-Roma-55805.html",
+      "gender": "female",
+      "identity_verified": true
+    },
+    {
+      "rank": 47,
+      "shobi_code": "1493-ACQ",
+      "perfume": "Acqua di Parma Blu Mediterraneo - Fico di Amalfi",
+      "fragrantica_id": 1687,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Acqua-di-Parma/Acqua-di-Parma-Blu-Mediterraneo-Fico-di-Amalfi-1687.html",
+      "gender": "unisex",
+      "identity_verified": true
+    },
+    {
+      "rank": 65,
+      "shobi_code": "2136-PARF N",
+      "perfume": "Valaya",
+      "fragrantica_id": 78574,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Parfums-de-Marly/Valaya-78574.html",
+      "gender": "female",
+      "identity_verified": true
+    },
+    {
+      "rank": 81,
+      "shobi_code": "2282-DRC EL",
+      "perfume": "Dioriviera",
+      "fragrantica_id": 81847,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Dior/Dioriviera-81847.html",
+      "gender": "unisex",
+      "identity_verified": true
+    },
+    {
+      "rank": 82,
+      "shobi_code": "1978-ARM M",
+      "perfume": "Emporio Armani Stronger With You Intensely",
+      "fragrantica_id": 52802,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Giorgio-Armani/Emporio-Armani-Stronger-With-You-Intensely-52802.html",
+      "gender": "male",
+      "identity_verified": true
+    },
+    {
+      "rank": 89,
+      "shobi_code": "2053-BDIK N",
+      "perfume": "Gris Charnel Extrait",
+      "fragrantica_id": 73645,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/BDK-Parfums/Gris-Charnel-Extrait-73645.html",
+      "gender": "unisex",
+      "identity_verified": true
+    },
+    {
+      "rank": 98,
+      "shobi_code": "2261-PARF N",
+      "perfume": "Althaïr",
+      "fragrantica_id": 84109,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Parfums-de-Marly/Althair-84109.html",
+      "gender": "male",
+      "identity_verified": true
+    },
+    {
+      "rank": 99,
+      "shobi_code": "1085-DRC M",
+      "perfume": "Sauvage",
+      "fragrantica_id": 31861,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Dior/Sauvage-31861.html",
+      "gender": "male",
+      "identity_verified": true
+    }
+  ]
+}
