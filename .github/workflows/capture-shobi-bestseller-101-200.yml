@@ -9,7 +9,7 @@ on:
       - 'scripts/capture-shobi-bestseller-101-200.cjs'
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   capture:
@@ -20,6 +20,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          ref: main
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -39,6 +41,16 @@ jobs:
       - name: Capture ranks 101-200 from live Shobi Best Sales
         shell: cmd
         run: node scripts\capture-shobi-bestseller-101-200.cjs
+
+      - name: Persist verified batch in repository
+        shell: cmd
+        run: |
+          if not exist "Personal Database" mkdir "Personal Database"
+          copy /Y bestseller-101-200.json "Personal Database\bestseller-101-200.json"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "Personal Database/bestseller-101-200.json"
+          git diff --cached --quiet && echo No ranking changes to commit || (git commit -m "Persist verified Best Seller 101-200 ranking" && git push origin HEAD:main)
 
       - name: Upload ranking batch
         uses: actions/upload-artifact@v4
