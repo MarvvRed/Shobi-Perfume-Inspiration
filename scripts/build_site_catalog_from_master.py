@@ -38,6 +38,19 @@ def norm_url(value):
     return urlunparse(((p.scheme or 'https').lower(), (p.netloc or '').lower(), path, '', '', ''))
 
 
+def fragrantica_id(value):
+    value = clean(value)
+    if not value:
+        return ''
+    m = re.search(r'-(\d+)\.html(?:[?#].*)?$', value, re.I)
+    return m.group(1) if m else ''
+
+
+def fragrantica_image_url(value):
+    fid = fragrantica_id(value)
+    return f'https://fimgs.net/mdimg/perfume-thumbs/dark-375x500.{fid}.avif' if fid else ''
+
+
 def norm_code(value):
     return clean(value).upper()
 
@@ -305,10 +318,10 @@ def main():
             if h == 'prestashop_product_id': continue
             out[h] = clean(site.get(h)) if h != 'description' else str(site.get(h) or '').strip()
 
-        # Best Seller #97 / Terre d'Hermes: never inherit the retired GitHub image-cache URL.
-        # Fragrantica ID 17 has been explicitly verified and is the canonical image source.
-        if norm_code(out.get('shobi_code')) == '1156-HER M' and 'image' in out:
-            out['image'] = 'https://fimgs.net/mdimg/perfume-thumbs/dark-375x500.17.avif'
+        # One rule for every mapped Fragrantica perfume: derive the direct image from its page ID.
+        direct_image = fragrantica_image_url(out.get('fragrantica_url'))
+        if direct_image and 'image' in out:
+            out['image'] = direct_image
 
         output.append(out)
 
