@@ -1,0 +1,45 @@
+name: Resolve Best Seller 101-200 Fragrantica IDs Pass 2
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/resolve-bestseller-101-200-fragrantica-pass2.yml'
+      - 'scripts/resolve-bestseller-101-200-fragrantica-pass2.cjs'
+      - 'Personal Database/bestseller-101-200-fragrantica-resolved.json'
+
+permissions:
+  contents: write
+
+jobs:
+  resolve:
+    runs-on: [self-hosted, Windows, X64]
+    timeout-minutes: 30
+    env:
+      SHOBI_CDP_URL: http://127.0.0.1:9222
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install Playwright client
+        shell: cmd
+        run: |
+          call npm init -y
+          call npm install --no-save playwright@1.55.0
+      - name: Verify Edge debugging endpoint
+        shell: cmd
+        run: curl.exe --fail --silent --show-error http://127.0.0.1:9222/json/version
+      - name: Resolve remaining Fragrantica IDs
+        shell: cmd
+        run: node scripts\resolve-bestseller-101-200-fragrantica-pass2.cjs
+      - name: Persist pass2 results
+        shell: cmd
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "Personal Database/bestseller-101-200-fragrantica-pass2.json"
+          git diff --cached --quiet && echo No pass2 changes to commit || (git commit -m "Persist Best Seller 101-200 Fragrantica pass2" && git push origin HEAD:main)
