@@ -1,0 +1,70 @@
+name: Build Fragrantica ID Database Top100
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'scripts/build_fragrantica_id_database_top100.py'
+      - 'Shobi Master Database/bestseller-top100-source-lock.csv'
+      - 'Shobi Master Database/bestseller-top100-source-lock-pass2.csv'
+      - 'Shobi Master Database/bestseller-top100-enrichment.csv'
+      - 'Personal Database/fragrantica-main-notes.json'
+      - 'Personal Database/fragrantica-main-notes-21-40.json'
+      - 'Personal Database/fragrantica-main-notes-41-100.json'
+      - '.github/workflows/build-fragrantica-id-database-top100.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-fragrantica-id-database-top100
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Build canonical Top100 database
+        run: python scripts/build_fragrantica_id_database_top100.py
+
+      - name: Validate canonical output
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path('Fragrantica ID Database/mappings/bestseller-001-100.json')
+          d=json.loads(p.read_text(encoding='utf-8'))
+          rows=d['records']
+          assert len(rows)==100
+          assert [r['rank'] for r in rows]==list(range(1,101))
+          assert len({r['shobi_code'].upper() for r in rows})==100
+          assert all(r['fragrantica_id'] and r['fragrantica_url'] and r['image_url'] and r['social_card_url'] for r in rows)
+          assert all(str(r['fragrantica_id']) in r['fragrantica_url'] for r in rows)
+          assert all(r['image_url'].endswith(f".{r['fragrantica_id']}.avif") for r in rows)
+          assert all(r['social_card_url'].endswith(f"_{r['fragrantica_id']}.jpeg") for r in rows)
+          print('CANONICAL_TOP100_VALIDATION_PASS')
+          PY
+
+      - name: Commit canonical database
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add 'Fragrantica ID Database/mappings/bestseller-001-100.json' 'Fragrantica ID Database/validation/unresolved.json'
+          if git diff --cached --quiet; then
+            echo 'No canonical database changes.'
+          else
+            git commit -m 'Build canonical Fragrantica ID database Top100'
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
