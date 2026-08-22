@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "method": "Fragrantica ID Mapping Rule",
+  "scope": "Rebuilt clean Shobi Top100",
+  "count": 10,
+  "items": [
+    {
+      "rank": 37,
+      "shobi_code": "2348-AMG N",
+      "field": "fragrantica_identity",
+      "reason": "No verified Fragrantica ID mapping exists for this Shobi code in the canonical registry"
+    },
+    {
+      "rank": 40,
+      "shobi_code": "750-KEN W",
+      "field": "fragrantica_identity",
+      "reason": "No verified Fragrantica ID mapping exists for this Shobi code in the canonical registry"
+    },
+    {
+      "rank": 41,
+      "shobi_code": "937-VAL WP",
+      "field": "fragrantica_identity",
+      "reason": "No verified Fragrantica ID mapping exists for this Shobi code in the canonical registry"
+    },
+    {
+      "rank": 47,
+      "shobi_code": "1493-ACQ",
+      "field": "fragrantica_identity",
+      "reason": "No verified Fragrantica ID mapping exists for this Shobi code in the canonical registry"
+    },
+    {
+      "rank": 65,
+      "shobi_code": "2136-PARF N",
+      "field": "fragrantica_identity",
+      "reason": "No verified Fragrantica ID mapping exists for this Shobi code in the canonical registry"
+    },
+    {
+      "rank": 81,
+      "shobi_code": "2282-DRC EL",
+      "field": "fragrantica_identity",
+      "reason": "No verified Fragrantica ID mapping exists for this Shobi code in the canonical registry"
+    },
+    {
+      "rank": 82,
+      "shobi_code": "1978-ARM M",
+      "field": "fragrantica_identity",
+      "reason": "No verified Fragrantica ID mapping exists for this Shobi code in the canonical registry"
+    },
+    {
+      "rank": 89,
+      "shobi_code": "2053-BDIK N",
+      "field": "fragrantica_identity",
+      "reason": "No verified Fragrantica ID mapping exists for this Shobi code in the canonical registry"
+    },
+    {
+      "rank": 98,
+      "shobi_code": "2261-PARF N",
+      "field": "fragrantica_identity",
+      "reason": "No verified Fragrantica ID mapping exists for this Shobi code in the canonical registry"
+    },
+    {
+      "rank": 99,
+      "shobi_code": "1085-DRC M",
+      "field": "fragrantica_identity",
+      "reason": "No verified Fragrantica ID mapping exists for this Shobi code in the canonical registry"
+    }
+  ]
+}
