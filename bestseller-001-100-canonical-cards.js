@@ -3,6 +3,7 @@
 // Protected Top100 fields (rank, Fragrantica identity/resources, Main Notes, Gender, Season)
 // come ONLY from window.SHOBI_FRAGRANTICA_CANONICAL_TOP100, generated from
 // Fragrantica ID Database/rebuild-top100/top100-fragrantica-mapped.json.
+// Legacy catcher/enrichment scripts must not mutate these cards.
 (function(){
   const canonical=window.SHOBI_FRAGRANTICA_CANONICAL_TOP100||{};
   if(!Object.keys(canonical).length || typeof isVanilla28!=='function' || typeof renderVanillaPrototype!=='function') return;
@@ -29,14 +30,14 @@
   const noteBadge=name=>{
     name=String(name||'').trim();
     if(!name) return '';
-    // Icon registry is resolved elsewhere by note name. Do not couple canonical data
-    // completeness to old vote/sastojak evidence objects.
     const icon=(window.SHOBI_FRAGRANTICA_NOTE_ICON_URL_BY_NAME||{})[name.toLowerCase()]||'';
     const visual=icon
       ? `<img src="${esc(icon)}" alt="" width="22" height="22" loading="lazy" decoding="async" style="width:22px;height:22px;object-fit:cover;border-radius:50%;flex:0 0 22px">`
       : `<span aria-hidden="true" style="width:22px;height:22px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;flex:0 0 22px;background:var(--color-bg-surface);border:1px solid var(--color-border-light);font-size:10px"><i class="fa-solid fa-droplet"></i></span>`;
     return `<button type="button" class="prototype-meta-badge prototype-filter-badge${state.selectedNote===name?' is-active':''}" data-card-filter="note" data-filter-value="${esc(name)}" title="Filter by ${esc(name)}">${visual}<span>${esc(name)}</span></button>`;
   };
+
+  const canonicalVerifiedBadge=`<span class="canonical-top100-verified-badge" title="CANONICAL-TOP100-v1 verified" aria-label="CANONICAL-TOP100-v1 verified" style="position:absolute;right:10px;bottom:10px;width:28px;height:28px;border-radius:9999px;display:flex;align-items:center;justify-content:center;background:#16a34a;color:white;border:2px solid white;box-shadow:0 2px 8px rgba(0,0,0,.28);font-size:14px;z-index:2"><i class="fa-solid fa-check"></i></span>`;
 
   const baseMatch=isVanilla28, baseRender=renderVanillaPrototype;
   isVanilla28=function(p){return baseMatch(p)||!!rowFor(p);};
@@ -70,7 +71,7 @@
     article.dataset.canonicalFragranticaId=String(row.fragrantica_id||'');
     article.dataset.canonicalRank=String(row.rank||'');
     article.dataset.canonicalTop100='v1';
-    article.innerHTML=`<div class="p-4 pb-3 text-left"><h3 class="text-lg font-bold text-primary leading-tight">${esc(displayName)}</h3><div class="mt-1 flex flex-wrap items-center gap-2"><button type="button" data-action="filter-brand" data-brand="${esc(brand)}" class="font-medium text-secondary text-left" style="font-size:17px">${esc(brand)}</button><span class="text-xs text-secondary">Best Seller #${row.rank}</span></div></div><div class="prototype-image-wrap">${imageHtml}</div><div class="px-4 pt-3 pb-4 flex flex-col gap-3"><div class="text-sm text-secondary text-left flex items-center gap-3">${genderHtml}${seasonHtml}</div><div class="flex flex-wrap gap-2">${noteBadges}</div><button type="button" data-action="show-details" data-code="${esc(p.code)}" class="prototype-details-btn">More details</button><div class="prototype-actions"><button type="button" class="favorite-btn${favorite?' is-favorite':''}" data-code="${esc(p.code)}">${favorite?'<i class="fa-solid fa-heart"></i>':'<i class="fa-regular fa-heart"></i>'}<span> Favorite</span></button><span class="prototype-divider">|</span><button type="button" class="collection-prototype-btn" title="Collection prototype"><i class="fa-solid fa-plus"></i><span> Collection</span></button></div><a href="${esc(shopUrl)}" target="_blank" rel="noopener noreferrer" class="prototype-shop-btn">Shop on Shobi</a></div>`;
+    article.innerHTML=`<div class="p-4 pb-3 text-left"><h3 class="text-lg font-bold text-primary leading-tight">${esc(displayName)}</h3><div class="mt-1 flex flex-wrap items-center gap-2"><button type="button" data-action="filter-brand" data-brand="${esc(brand)}" class="font-medium text-secondary text-left" style="font-size:17px">${esc(brand)}</button><span class="text-xs text-secondary">Best Seller #${row.rank}</span></div></div><div class="prototype-image-wrap" style="position:relative">${imageHtml}${canonicalVerifiedBadge}</div><div class="px-4 pt-3 pb-4 flex flex-col gap-3"><div class="text-sm text-secondary text-left flex items-center gap-3">${genderHtml}${seasonHtml}</div><div class="flex flex-wrap gap-2">${noteBadges}</div><div class="prototype-actions"><button type="button" class="favorite-btn${favorite?' is-favorite':''}" data-code="${esc(p.code)}">${favorite?'<i class="fa-solid fa-heart"></i>':'<i class="fa-regular fa-heart"></i>'}<span> Favorite</span></button><span class="prototype-divider">|</span><button type="button" class="collection-prototype-btn" title="Collection prototype"><i class="fa-solid fa-plus"></i><span> Collection</span></button></div><a href="${esc(shopUrl)}" target="_blank" rel="noopener noreferrer" class="prototype-shop-btn">Shop on Shobi</a></div>`;
     return article;
   };
 })();
