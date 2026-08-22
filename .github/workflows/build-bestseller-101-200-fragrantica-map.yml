@@ -5,6 +5,7 @@ on:
   push:
     branches: [main]
     paths:
+      - '.github/workflows/build-bestseller-101-200-fragrantica-map.yml'
       - 'scripts/build-bestseller-101-200-fragrantica-map.py'
       - 'Personal Database/bestseller-101-200.json'
 
