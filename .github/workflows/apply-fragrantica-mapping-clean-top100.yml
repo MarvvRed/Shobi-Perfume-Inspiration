@@ -33,7 +33,21 @@ jobs:
       - name: Apply Fragrantica ID Mapping Rule
         run: python scripts/apply_fragrantica_mapping_to_clean_top100.py
 
-      - name: Validate mapped Top100
+      - name: Commit mapping audit
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add 'Fragrantica ID Database/rebuild-top100/top100-fragrantica-mapped.json' 'Fragrantica ID Database/rebuild-top100/top100-fragrantica-unresolved.json'
+          if git diff --cached --quiet; then
+            echo 'No mapped Top100 changes.'
+          else
+            git commit -m 'Audit Fragrantica mapping for clean Top100'
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
+
+      - name: Validate 100 percent Fragrantica identity coverage
         run: |
           python - <<'PY'
           import json
@@ -41,8 +55,8 @@ jobs:
           p=Path('Fragrantica ID Database/rebuild-top100/top100-fragrantica-mapped.json')
           d=json.loads(p.read_text(encoding='utf-8'))
           rows=d['records']
-          assert d['count']==100
-          assert d['identity_verified_count']==100
+          assert d['target_count']==100
+          assert d['identity_verified_count']==100, f"identity coverage {d['identity_verified_count']}/100"
           assert len(rows)==100
           assert [r['rank'] for r in rows]==list(range(1,101))
           assert len({r['shobi_code'] for r in rows})==100
@@ -53,17 +67,3 @@ jobs:
           assert all(r['verification']['mapping_join_key']=='shobi_code' for r in rows)
           print('FRAGRANTICA_MAPPING_CLEAN_TOP100_VALIDATION_PASS')
           PY
-
-      - name: Commit mapped Top100
-        run: |
-          set -euo pipefail
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add 'Fragrantica ID Database/rebuild-top100/top100-fragrantica-mapped.json' 'Fragrantica ID Database/rebuild-top100/top100-fragrantica-unresolved.json'
-          if git diff --cached --quiet; then
-            echo 'No mapped Top100 changes.'
-          else
-            git commit -m 'Apply Fragrantica ID Mapping Rule to clean Top100'
-            git pull --rebase origin main
-            git push origin HEAD:main
-          fi
