@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# Rebuilt clean Top100 -> official Fragrantica ID Mapping Rule.
 import json
 import re
 from datetime import datetime, timezone
@@ -43,10 +44,8 @@ def derived(fid):
 def main():
     clean_payload = json.loads(CLEAN.read_text(encoding='utf-8'))
     registry_payload = json.loads(REGISTRY.read_text(encoding='utf-8'))
-
     clean_rows = clean_payload.get('records') or []
     registry_rows = registry_payload.get('records') or []
-
     if len(clean_rows) != 100:
         raise SystemExit(f'Safety stop: clean Top100 must contain exactly 100 records, got {len(clean_rows)}')
 
@@ -59,51 +58,32 @@ def main():
             raise SystemExit(f'Safety stop: duplicate verified Fragrantica registry code {code}')
         by_code[code] = row
 
-    mapped = []
-    unresolved = []
-    seen_ids = {}
-
+    mapped, unresolved, seen_ids = [], [], {}
     for expected_rank, source in enumerate(clean_rows, start=1):
         rank = int(source.get('rank') or 0)
         if rank != expected_rank:
             raise SystemExit(f'Safety stop: clean ranking is not contiguous at {expected_rank}')
-
         code = norm_code(source.get('shobi_code') or source.get('shobi_name'))
         if not code:
             raise SystemExit(f'Safety stop: missing Shobi code at rank {rank}')
-
         verified = by_code.get(code)
         if not verified:
-            unresolved.append({
-                'rank': rank,
-                'shobi_code': code,
-                'field': 'fragrantica_identity',
-                'reason': 'No verified Fragrantica ID mapping exists for this Shobi code in the canonical registry',
-            })
+            unresolved.append({'rank': rank, 'shobi_code': code, 'field': 'fragrantica_identity', 'reason': 'No verified Fragrantica ID mapping exists for this Shobi code in the canonical registry'})
             continue
-
         fid = verified.get('fragrantica_id')
         furl = clean(verified.get('fragrantica_url'))
         if not fid or not furl:
-            unresolved.append({
-                'rank': rank,
-                'shobi_code': code,
-                'field': 'fragrantica_identity',
-                'reason': 'Canonical registry entry exists but Fragrantica ID or URL is missing',
-            })
+            unresolved.append({'rank': rank, 'shobi_code': code, 'field': 'fragrantica_identity', 'reason': 'Canonical registry entry exists but Fragrantica ID or URL is missing'})
             continue
-
         fid = int(fid)
         urls = derived(fid)
         if fid in seen_ids and seen_ids[fid] != code:
             raise SystemExit(f'Safety stop: Fragrantica ID {fid} is mapped to both {seen_ids[fid]} and {code}')
         seen_ids[fid] = code
-
         main_notes = list(verified.get('main_notes') or [])
         evidence = list(verified.get('main_note_evidence') or [])
         gender = verified.get('gender') or None
         season = verified.get('season') or None
-
         mapped.append({
             'rank': rank,
             'shobi_code': code,
@@ -131,17 +111,9 @@ def main():
         })
 
     UNRESOLVED.parent.mkdir(parents=True, exist_ok=True)
-    UNRESOLVED.write_text(json.dumps({
-        'schema_version': 1,
-        'method': 'Fragrantica ID Mapping Rule',
-        'scope': 'Rebuilt clean Shobi Top100',
-        'count': len(unresolved),
-        'items': unresolved,
-    }, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
-
+    UNRESOLVED.write_text(json.dumps({'schema_version': 1, 'method': 'Fragrantica ID Mapping Rule', 'scope': 'Rebuilt clean Shobi Top100', 'count': len(unresolved), 'items': unresolved}, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
     if unresolved:
         raise SystemExit(f'Safety stop: Fragrantica identity coverage is {len(mapped)}/100; unresolved={len(unresolved)}. See {UNRESOLVED.relative_to(ROOT)}')
-
     if len(mapped) != 100:
         raise SystemExit(f'Safety stop: expected 100 mapped records, got {len(mapped)}')
     if [x['rank'] for x in mapped] != list(range(1, 101)):
@@ -164,7 +136,6 @@ def main():
         'records': mapped,
     }
     OUT.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
-
     print('CLEAN_TOP100_FRAGRANTICA_IDENTITY=100/100')
     print(f'MAIN_NOTES_VERIFIED={payload["main_notes_verified_count"]}/100')
     print(f'GENDER_VERIFIED={payload["gender_verified_count"]}/100')
