@@ -1,0 +1,65 @@
+name: Promote Social Card Seasons Top100
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'Fragrantica ID Database/rebuild-top100/social-card-seasons-audit-top100.json'
+      - 'scripts/promote_social_card_seasons_top100.py'
+      - '.github/workflows/promote-social-card-seasons-top100.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  promote:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Promote validated social-card seasons to canonical Top100
+        run: python scripts/promote_social_card_seasons_top100.py
+
+      - name: Rebuild canonical clean Top100 mapping with seasons
+        run: python scripts/apply_fragrantica_mapping_to_clean_top100.py
+
+      - name: Verify canonical Top100 completion
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path('Fragrantica ID Database/rebuild-top100/top100-fragrantica-mapped.json')
+          d=json.loads(p.read_text(encoding='utf-8'))
+          assert d.get('mapped_count')==100, d.get('mapped_count')
+          assert d.get('main_notes_verified_count')==100, d.get('main_notes_verified_count')
+          assert d.get('gender_verified_count')==100, d.get('gender_verified_count')
+          assert d.get('season_verified_count')==100, d.get('season_verified_count')
+          rows=d.get('records') or []
+          assert len(rows)==100
+          assert all(r.get('season') in {'winter','spring','summer','autumn'} for r in rows)
+          print('CANONICAL_TOP100_SEASONS=100/100')
+          print('CANONICAL_TOP100_MAIN_NOTES=100/100')
+          PY
+
+      - name: Commit canonical Season 100/100
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add \
+            'Fragrantica ID Database/rebuild-top100/top100-seasons.json' \
+            'Fragrantica ID Database/rebuild-top100/top100-fragrantica-mapped.json' \
+            'Fragrantica ID Database/rebuild-top100/top100-fragrantica-unresolved.json'
+          if git diff --cached --quiet; then
+            echo 'No canonical season changes to commit.'
+          else
+            git commit -m 'Promote verified social-card seasons into canonical Top100'
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
