@@ -1,8 +1,10 @@
 {
-  "schema_version": 1,
-  "method": "Fragrantica ID Mapping Rule / verified social-card Main Notes",
-  "scope": "10 identities introduced by clean Top100 rebuild",
+  "schema_version": 2,
+  "method": "Fragrantica ID Mapping Rule / verified public social-card Main Notes",
+  "scope": "Clean Top100 records missing or overriding legacy social-card authority",
   "records": [
+    {"rank":21,"shobi_code":"1644-DRC M","fragrantica_id":68415,"main_notes":["Lavender","Licorice","Nutmeg","Cinnamon","Sandalwood","Cardamom"],"verification":"public Fragrantica social card visually verified, exact displayed order/count"},
+    {"rank":25,"shobi_code":"1067-CHA M","fragrantica_id":9099,"main_notes":["Grapefruit","Incense","Lemon","Ginger","Mint","Cedar"],"verification":"public Fragrantica social card visually verified, exact displayed order/count"},
     {"rank":37,"shobi_code":"2348-AMG N","fragrantica_id":78656,"main_notes":["Sandalwood","Hazelnut","Pear","Vanilla","Akigalawood","Olibanum (Frankincense)"],"verification":"social-card OCR normalized and manually verified"},
     {"rank":40,"shobi_code":"750-KEN W","fragrantica_id":31539,"main_notes":["Raspberry","Praline","Powdery Notes","Vanilla","Rose","Mandarin Orange"],"verification":"social-card OCR normalized and manually verified"},
     {"rank":41,"shobi_code":"937-VAL WP","fragrantica_id":55805,"main_notes":["Vanilla","Black Currant","Jasmine","Cashmeran","Jasmine Tea","Pink Pepper"],"verification":"social-card OCR normalized and manually verified"},
