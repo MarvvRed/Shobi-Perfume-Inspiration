@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "method": "Fragrantica ID Mapping Rule",
+  "scope": "Best Seller 1-100",
+  "status": "canonical-source-index",
+  "ranges": [
+    {
+      "range": [1, 20],
+      "identity_and_main_notes_source": "Personal Database/fragrantica-main-notes.json",
+      "notes": "Verified Fragrantica IDs and captured Main Notes for the first 20 Best Sellers."
+    },
+    {
+      "range": [21, 40],
+      "identity_and_main_notes_source": "Personal Database/fragrantica-main-notes-21-40.json",
+      "notes": "Verified Fragrantica IDs and captured Main Notes for Best Sellers 21-40."
+    },
+    {
+      "range": [41, 100],
+      "identity_and_main_notes_source": "Personal Database/fragrantica-main-notes-41-100.json",
+      "identity_lock_sources": [
+        "Shobi Master Database/bestseller-top100-source-lock.csv",
+        "Shobi Master Database/bestseller-top100-source-lock-pass2.csv"
+      ],
+      "notes": "Verified Fragrantica IDs and captured Main Notes for Best Sellers 41-100."
+    }
+  ],
+  "resource_rules": {
+    "social_card_url": "https://fimgs.net/mdimg/perfume-social-cards/en-p_c_{fragrantica_id}.jpeg",
+    "image_url": "https://fimgs.net/mdimg/perfume-thumbs/dark-375x500.{fragrantica_id}.avif"
+  },
+  "canonical_integrity_rule": "Every image, social card, Main Notes, gender and season record must resolve to the same verified Fragrantica ID."
+}
