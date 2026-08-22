@@ -1,7 +1,12 @@
-// Direct Top100 social-card authority: one source, one repair path.
+// Legacy social-card repair/checker.
+// CANONICAL-TOP100-v1 cards are explicitly out of scope and must never be mutated here.
 (function () {
   const text = v => String(v || '').trim();
   const key = v => text(v).toLowerCase().replace(/[^a-z0-9]+/g, '');
+
+  function isCanonicalTop100(card) {
+    return !!(card && (card.dataset.canonicalTop100 === 'v1' || card.dataset.canonicalFragranticaId));
+  }
 
   function rankOf(card) {
     const m = text(card.textContent).match(/Best Seller\s*#\s*(\d+)/i);
@@ -82,6 +87,14 @@
   }
 
   function repair(card) {
+    // Hard isolation boundary: frozen canonical Top100 cards are owned entirely by
+    // bestseller-001-100-canonical-cards.js and CANONICAL-TOP100-v1.
+    if (isCanonicalTop100(card)) {
+      card.querySelector('.catcher-status-badge')?.remove();
+      card.dataset.legacyCatcherExcluded = 'true';
+      return;
+    }
+
     if (!card || card.dataset.socialCardApplied === '1') return;
     const expected = expectedNotes(card);
     const current = Array.from(card.querySelectorAll('[data-card-filter="note"]'));
