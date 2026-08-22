@@ -1,0 +1,31 @@
+{
+  "verified": [
+    {
+      "rank": 102,
+      "code": "1156-HER M",
+      "inspired_by": "TERRE D'HERMES",
+      "brand": "Hermes",
+      "fragrantica_id": 17,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Hermes/Terre-d-Hermes-17.html",
+      "resolver": "manual-web-verified"
+    },
+    {
+      "rank": 115,
+      "code": "1930-VIC M",
+      "inspired_by": "SPICEBOMB EXTREME",
+      "brand": "Viktor&Rolf",
+      "fragrantica_id": 30499,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Viktor-Rolf/Spicebomb-Extreme-30499.html",
+      "resolver": "manual-web-verified"
+    },
+    {
+      "rank": 173,
+      "code": "1065-CHA M",
+      "inspired_by": "ALLURE HOMME SPORT",
+      "brand": "Chanel",
+      "fragrantica_id": 607,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Chanel/Allure-Homme-Sport-607.html",
+      "resolver": "manual-web-verified"
+    }
+  ]
+}
