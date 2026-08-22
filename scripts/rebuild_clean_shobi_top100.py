@@ -6,8 +6,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-MASTER = ROOT / 'shobi-master-en.csv'
-RAW = ROOT / 'shobi-best-sales-raw.csv'
+MASTER = ROOT / 'Shobi Master Database' / 'shobi-master-current.csv'
 OUT_DIR = ROOT / 'Fragrantica ID Database' / 'rebuild-top100'
 OUT = OUT_DIR / 'shobi-top100-clean.json'
 
@@ -28,93 +27,77 @@ def norm_code(v):
     v = clean(v).upper().replace('Ν', 'N')
     m = re.match(r'^(\d{1,5})\s*-\s*([A-Z0-9]+)(?:\s+([A-Z0-9]+))?', v)
     if not m:
-        return v
+        return ''
     code = f'{m.group(1)}-{m.group(2)}' + (f' {m.group(3)}' if m.group(3) else '')
     return ALIASES.get(code, code)
 
 
-def load_master():
-    with MASTER.open('r', encoding='utf-8-sig', newline='') as fh:
-        rows = list(csv.DictReader(fh))
-    by_code = {}
-    for row in rows:
-        code = norm_code(row.get('shobi_code'))
-        if code:
-            by_code[code] = row
-    if len(by_code) < 2200:
-        raise SystemExit(f'Safety stop: filtered Shobi master unexpectedly small ({len(by_code)} codes)')
-    return by_code
+def code_from_row(row):
+    # Prefer the explicit canonical Shobi code. Some official rows have an empty
+    # shobi_code field but retain the full code in shobi_name; use that as a
+    # generic fallback without introducing perfume-specific exceptions.
+    return norm_code(row.get('shobi_code')) or norm_code(row.get('shobi_name'))
 
 
 def main():
-    if not RAW.exists():
-        raise SystemExit('Safety stop: shobi-best-sales-raw.csv is missing. Capture/update it from the real browser before rebuilding.')
+    with MASTER.open('r', encoding='utf-8-sig', newline='') as fh:
+        rows = list(csv.DictReader(fh))
 
-    master = load_master()
-    with RAW.open('r', encoding='utf-8-sig', newline='') as fh:
-        raw_rows = list(csv.DictReader(fh))
-    if not raw_rows:
-        raise SystemExit('Safety stop: raw Shobi Best Sales snapshot is empty')
+    if len(rows) < 2200:
+        raise SystemExit(f'Safety stop: official current Shobi master unexpectedly small ({len(rows)} rows)')
 
     selected = []
     seen = set()
-    skipped_not_in_master = 0
-    last_global_rank = 0
+    source_row = 0
 
-    for raw in raw_rows:
-        try:
-            global_rank = int(clean(raw.get('global_rank')))
-        except ValueError:
-            raise SystemExit(f"Safety stop: invalid global_rank {raw.get('global_rank')!r}")
-        if global_rank <= last_global_rank:
-            raise SystemExit('Safety stop: raw Best Sales global ranks are not strictly increasing')
-        last_global_rank = global_rank
-
-        code = norm_code(raw.get('shobi_code'))
-        if not code or code not in master:
-            skipped_not_in_master += 1
+    for row in rows:
+        source_row += 1
+        code = code_from_row(row)
+        if not code:
             continue
         if code in seen:
-            continue
-
+            raise SystemExit(f'Safety stop: duplicate Shobi code {code} before Top100 completion')
         seen.add(code)
-        mrow = master[code]
+
         selected.append({
             'rank': len(selected) + 1,
-            'global_rank': global_rank,
+            'source_row': source_row,
+            'prestashop_product_id': clean(row.get('prestashop_product_id')),
             'shobi_code': code,
-            'master_name': clean(mrow.get('inspired_by') or mrow.get('inspiredBy') or mrow.get('name') or mrow.get('perfume')),
-            'master_brand': clean(mrow.get('brand')),
+            'shobi_name': clean(row.get('shobi_name')),
+            'inspired_by': clean(row.get('inspired_by')),
+            'category': clean(row.get('category')),
+            'url': clean(row.get('url')),
+            'status': clean(row.get('status')),
+            'classification_rule': clean(row.get('classification_rule')),
+            'source': clean(row.get('source')),
         })
         if len(selected) == 100:
             break
 
     if len(selected) != 100:
-        raise SystemExit(f'Safety stop: expected 100 filtered Shobi perfumes, got {len(selected)}')
+        raise SystemExit(f'Safety stop: expected 100 valid rows from official current Shobi master, got {len(selected)}')
     if [x['rank'] for x in selected] != list(range(1, 101)):
-        raise SystemExit('Safety stop: non-contiguous perfume-only ranking')
+        raise SystemExit('Safety stop: non-contiguous Top100 ranking')
     if len({x['shobi_code'] for x in selected}) != 100:
         raise SystemExit('Safety stop: duplicate Shobi codes in clean Top100')
+    if any(x['status'] and x['status'] != 'ACTIVE' for x in selected):
+        raise SystemExit('Safety stop: inactive product found inside first 100 official master rows')
 
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     payload = {
-        'schema_version': 2,
-        'method': 'Real-browser Shobi Best Sales snapshot -> official Shobi Master filter -> clean Top100',
+        'schema_version': 3,
+        'method': 'First 100 valid rows of official current Shobi Master, preserving source order exactly',
         'built_at': datetime.now(timezone.utc).isoformat(),
-        'source_snapshot': 'shobi-best-sales-raw.csv',
-        'master_source': 'shobi-master-en.csv',
+        'ranking_authority': 'Shobi Master Database/shobi-master-current.csv',
+        'master_count': len(rows),
         'count': 100,
-        'raw_rows_available': len(raw_rows),
-        'global_products_scanned_until_rank100': selected[-1]['global_rank'],
-        'non_master_products_skipped_before_rank100': skipped_not_in_master,
         'records': selected,
     }
     OUT.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
 
+    print(f'OFFICIAL_MASTER_ROWS={len(rows)}')
     print('CLEAN_SHOBI_TOP100=100')
-    print(f'RAW_ROWS_AVAILABLE={len(raw_rows)}')
-    print(f'GLOBAL_RANK_AT_FILTERED_100={selected[-1]["global_rank"]}')
-    print(f'NON_MASTER_SKIPPED={skipped_not_in_master}')
     print('FIRST_20=' + ','.join(x['shobi_code'] for x in selected[:20]))
     print('LAST_10=' + ','.join(x['shobi_code'] for x in selected[-10:]))
     print(f'OUTPUT={OUT.relative_to(ROOT)}')
