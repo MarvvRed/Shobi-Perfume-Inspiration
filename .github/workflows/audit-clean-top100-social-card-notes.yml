@@ -1,0 +1,56 @@
+name: Audit Clean Top100 Social Card Notes
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'scripts/audit_clean_top100_social_card_notes.py'
+      - 'scripts/apply_fragrantica_mapping_to_clean_top100.py'
+      - 'bestseller-catcher-notes.js'
+      - 'Fragrantica ID Database/rebuild-top100/new-identities-main-notes-verified.json'
+      - 'Fragrantica ID Database/rebuild-top100/shobi-top100-clean.json'
+      - '.github/workflows/audit-clean-top100-social-card-notes.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: audit-clean-top100-social-card-notes
+  cancel-in-progress: false
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Rebuild clean Top100 mapping using full social-card notes
+        run: python scripts/apply_fragrantica_mapping_to_clean_top100.py
+
+      - name: Audit exact social-card note order and count
+        run: python scripts/audit_clean_top100_social_card_notes.py
+
+      - name: Commit corrected mapping and audit report
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add \
+            'Fragrantica ID Database/rebuild-top100/top100-fragrantica-mapped.json' \
+            'Fragrantica ID Database/rebuild-top100/top100-fragrantica-unresolved.json' \
+            'Fragrantica ID Database/rebuild-top100/top100-social-card-notes-audit.json'
+          if git diff --cached --quiet; then
+            echo 'No social-card note changes.'
+          else
+            git commit -m 'Audit exact social-card notes for clean Top100'
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
