@@ -1,10 +1,10 @@
 {
-  "schema_version": 1,
-  "method": "Fragrantica public social-card season bar pixel measurement; longest bar wins only when margin >=3px",
+  "schema_version": 2,
+  "method": "Dynamic Fragrantica social-card season color-run detection; no fixed bar coordinates; longest bar wins; exact tie uses Winter->Spring->Summer->Autumn",
   "count": 100,
-  "clear_count": 89,
-  "ambiguous_count": 11,
+  "verified_count": 100,
   "download_failure_count": 0,
+  "canary_82_winter": true,
   "records": [
     {
       "rank": 1,
@@ -18,31 +18,39 @@
       ],
       "measurements": {
         "winter": {
-          "fill_px": 115,
-          "bar_width_px": 306,
-          "fill_ratio": 0.3758
+          "fill_px": 121,
+          "row_y": 1060,
+          "x_start": 500,
+          "x_end": 620,
+          "fill_ratio_image": 0.1008
         },
         "spring": {
-          "fill_px": 39,
-          "bar_width_px": 306,
-          "fill_ratio": 0.1275
+          "fill_px": 43,
+          "row_y": 1051,
+          "x_start": 816,
+          "x_end": 858,
+          "fill_ratio_image": 0.0358
         },
         "summer": {
-          "fill_px": 28,
-          "bar_width_px": 306,
-          "fill_ratio": 0.0915
+          "fill_px": 32,
+          "row_y": 1087,
+          "x_start": 500,
+          "x_end": 531,
+          "fill_ratio_image": 0.0267
         },
         "autumn": {
-          "fill_px": 116,
-          "bar_width_px": 306,
-          "fill_ratio": 0.3791
+          "fill_px": 119,
+          "row_y": 1086,
+          "x_start": 816,
+          "x_end": 934,
+          "fill_ratio_image": 0.0992
         }
       },
-      "pixel_winner": "autumn",
-      "runner_up": "winter",
-      "winner_margin_px": 1,
-      "season": null,
-      "status": "ambiguous"
+      "season": "winter",
+      "runner_up": "autumn",
+      "winner_margin_px": 2,
+      "tie_break_used": false,
+      "status": "verified"
     },
     {
       "rank": 2,
@@ -56,31 +64,39 @@
       ],
       "measurements": {
         "winter": {
-          "fill_px": 135,
-          "bar_width_px": 306,
-          "fill_ratio": 0.4412
+          "fill_px": 140,
+          "row_y": 1032,
+          "x_start": 500,
+          "x_end": 639,
+          "fill_ratio_image": 0.1167
         },
         "spring": {
-          "fill_px": 30,
-          "bar_width_px": 306,
-          "fill_ratio": 0.098
+          "fill_px": 32,
+          "row_y": 1051,
+          "x_start": 816,
+          "x_end": 847,
+          "fill_ratio_image": 0.0267
         },
         "summer": {
-          "fill_px": 28,
-          "bar_width_px": 306,
-          "fill_ratio": 0.0915
+          "fill_px": 32,
+          "row_y": 1087,
+          "x_start": 500,
+          "x_end": 531,
+          "fill_ratio_image": 0.0267
         },
         "autumn": {
-          "fill_px": 118,
-          "bar_width_px": 306,
-          "fill_ratio": 0.3856
+          "fill_px": 123,
+          "row_y": 1112,
+          "x_start": 816,
+          "x_end": 938,
+          "fill_ratio_image": 0.1025
         }
       },
-      "pixel_winner": "winter",
+      "season": "winter",
       "runner_up": "autumn",
       "winner_margin_px": 17,
-      "season": "winter",
-      "status": "clear"
+      "tie_break_used": false,
+      "status": "verified"
     },
     {
       "rank": 3,
@@ -94,31 +110,39 @@
       ],
       "measurements": {
         "winter": {
-          "fill_px": 39,
-          "bar_width_px": 306,
-          "fill_ratio": 0.1275
+          "fill_px": 44,
+          "row_y": 1032,
+          "x_start": 500,
+          "x_end": 543,
+          "fill_ratio_image": 0.0367
         },
         "spring": {
-          "fill_px": 108,
-          "bar_width_px": 306,
-          "fill_ratio": 0.3529
+          "fill_px": 112,
+          "row_y": 1051,
+          "x_start": 816,
+          "x_end": 927,
+          "fill_ratio_image": 0.0933
         },
         "summer": {
-          "fill_px": 99,
-          "bar_width_px": 306,
-          "fill_ratio": 0.3235
+          "fill_px": 103,
+          "row_y": 1087,
+          "x_start": 500,
+          "x_end": 602,
+          "fill_ratio_image": 0.0858
         },
         "autumn": {
-          "fill_px": 42,
-          "bar_width_px": 306,
-          "fill_ratio": 0.1373
+          "fill_px": 46,
+          "row_y": 1087,
+          "x_start": 816,
+          "x_end": 861,
+          "fill_ratio_image": 0.0383
         }
       },
-      "pixel_winner": "spring",
+      "season": "spring",
       "runner_up": "summer",
       "winner_margin_px": 9,
-      "season": "spring",
-      "status": "clear"
+      "tie_break_used": false,
+      "status": "verified"
     },
     {
       "rank": 4,
@@ -132,31 +156,39 @@
       ],
       "measurements": {
         "winter": {
-          "fill_px": 142,
-          "bar_width_px": 306,
-          "fill_ratio": 0.4641
+          "fill_px": 147,
+          "row_y": 1074,
+          "x_start": 500,
+          "x_end": 646,
+          "fill_ratio_image": 0.1225
         },
         "spring": {
-          "fill_px": 28,
-          "bar_width_px": 306,
-          "fill_ratio": 0.0915
+          "fill_px": 32,
+          "row_y": 1032,
+          "x_start": 816,
+          "x_end": 847,
+          "fill_ratio_image": 0.0267
         },
         "summer": {
-          "fill_px": 27,
-          "bar_width_px": 306,
-          "fill_ratio": 0.0882
+          "fill_px": 32,
+          "row_y": 1100,
+          "x_start": 500,
+          "x_end": 531,
+          "fill_ratio_image": 0.0267
         },
         "autumn": {
-          "fill_px": 116,
-          "bar_width_px": 306,
-          "fill_ratio": 0.3791
+          "fill_px": 119,
+          "row_y": 1100,
+          "x_start": 816,
+          "x_end": 934,
+          "fill_ratio_image": 0.0992
         }
       },
-      "pixel_winner": "winter",
-      "runner_up": "autumn",
-      "winner_margin_px": 26,
       "season": "winter",
-      "status": "clear"
+      "runner_up": "autumn",
+      "winner_margin_px": 28,
+      "tie_break_used": false,
+      "status": "verified"
     },
     {
       "rank": 5,
@@ -170,31 +202,39 @@
       ],
       "measurements": {
         "winter": {
-          "fill_px": 60,
-          "bar_width_px": 306,
-          "fill_ratio": 0.1961
+          "fill_px": 65,
+          "row_y": 1040,
+          "x_start": 500,
+          "x_end": 564,
+          "fill_ratio_image": 0.0542
         },
         "spring": {
-          "fill_px": 93,
-          "bar_width_px": 306,
-          "fill_ratio": 0.3039
+          "fill_px": 97,
+          "row_y": 1051,
+          "x_start": 816,
+          "x_end": 912,
+          "fill_ratio_image": 0.0808
         },
         "summer": {
-          "fill_px": 84,
-          "bar_width_px": 306,
-          "fill_ratio": 0.2745
+          "fill_px": 88,
+          "row_y": 1087,
+          "x_start": 500,
+          "x_end": 587,
+          "fill_ratio_image": 0.0733
         },
         "autumn": {
-          "fill_px": 52,
-          "bar_width_px": 306,
-          "fill_ratio": 0.1699
+          "fill_px": 55,
+          "row_y": 1087,
+          "x_start": 816,
+          "x_end": 870,
+          "fill_ratio_image": 0.0458
         }
       },
-      "pixel_winner": "spring",
+      "season": "spring",
       "runner_up": "summer",
       "winner_margin_px": 9,
-      "season": "spring",
-      "status": "clear"
+      "tie_break_used": false,
+      "status": "verified"
     },
     {
       "rank": 6,
@@ -208,31 +248,39 @@
       ],
       "measurements": {
         "winter": {
-          "fill_px": 96,
-          "bar_width_px": 306,
-          "fill_ratio": 0.3137
+          "fill_px": 101,
+          "row_y": 1040,
+          "x_start": 500,
+          "x_end": 600,
+          "fill_ratio_image": 0.0842
         },
         "spring": {
-          "fill_px": 60,
-          "bar_width_px": 306,
-          "fill_ratio": 0.1961
+          "fill_px": 64,
+          "row_y": 1051,
+          "x_start": 816,
+          "x_end": 879,
+          "fill_ratio_image": 0.0533
         },
         "summer": {
-          "fill_px": 36,
-          "bar_width_px": 306,
-          "fill_ratio": 0.1176
+          "fill_px": 40,
+          "row_y": 1087,
+          "x_start": 500,
+          "x_end": 539,
+          "fill_ratio_image": 0.0333
         },
         "autumn": {
-          "fill_px": 96,
-          "bar_width_px": 306,
-          "fill_ratio": 0.3137
+          "fill_px": 100,
+          "row_y": 1086,
+          "x_start": 816,
+          "x_end": 915,
+          "fill_ratio_image": 0.0833
         }
       },
-      "pixel_winner": "winter",
+      "season": "winter",
       "runner_up": "autumn",
-      "winner_margin_px": 0,
-      "season": null,
-      "status": "ambiguous"
+      "winner_margin_px": 1,
+      "tie_break_used": false,
+      "status": "verified"
     },
     {
       "rank": 7,
@@ -246,31 +294,39 @@
       ],
       "measurements": {
         "winter": {
-          "fill_px": 28,
-          "bar_width_px": 306,
-          "fill_ratio": 0.0915
+          "fill_px": 38,
+          "row_y": 1038,
+          "x_start": 500,
+          "x_end": 537,
+          "fill_ratio_image": 0.0317
         },
         "spring": {
-          "fill_px": 84,
-          "bar_width_px": 306,
-          "fill_ratio": 0.2745
+          "fill_px": 88,
+          "row_y": 1051,
+          "x_start": 816,
+          "x_end": 903,
+          "fill_ratio_image": 0.0733
         },
         "summer": {
-          "fill_px": 183,
-          "bar_width_px": 306,
-          "fill_ratio": 0.598
+          "fill_px": 188,
+          "row_y": 1087,
+          "x_start": 500,
+          "x_end": 687,
+          "fill_ratio_image": 0.1567
         },
         "autumn": {
-          "fill_px": 34,
-          "bar_width_px": 306,
-          "fill_ratio": 0.1111
+          "fill_px": 39,
+          "row_y": 1106,
+          "x_start": 816,
+          "x_end": 854,
+          "fill_ratio_image": 0.0325
         }
       },
-      "pixel_winner": "summer",
-      "runner_up": "spring",
-      "winner_margin_px": 99,
       "season": "summer",
-      "status": "clear"
+      "runner_up": "spring",
+      "winner_margin_px": 100,
+      "tie_break_used": false,
+      "status": "verified"
     },
     {
       "rank": 8,
@@ -284,31 +340,39 @@
       ],
       "measurements": {
         "winter": {
-          "fill_px": 99,
-          "bar_width_px": 306,
-          "fill_ratio": 0.3235
+          "fill_px": 104,
+          "row_y": 1049,
+          "x_start": 500,
+          "x_end": 603,
+          "fill_ratio_image": 0.0867
         },
         "spring": {
-          "fill_px": 54,
-          "bar_width_px": 306,
-          "fill_ratio": 0.1765
+          "fill_px": 58,
+          "row_y": 1032,
+          "x_start": 816,
+          "x_end": 873,
+          "fill_ratio_image": 0.0483
         },
         "summer": {
-          "fill_px": 31,
-          "bar_width_px": 306,
-          "fill_ratio": 0.1013
+          "fill_px": 36,
+          "row_y": 1100,
+          "x_start": 500,
+          "x_end": 535,
+          "fill_ratio_image": 0.03
         },
         "autumn": {
-          "fill_px": 102,
-          "bar_width_px": 306,
-          "fill_ratio": 0.3333
+          "fill_px": 106,
+          "row_y": 1100,
+          "x_start": 816,
+          "x_end": 921,
+          "fill_ratio_image": 0.0883
         }
       },
-      "pixel_winner": "autumn",
-      "runner_up": "winter",
-      "winner_margin_px": 3,
       "season": "autumn",
-      "status": "clear"
+      "runner_up": "winter",
+      "winner_margin_px": 2,
+      "tie_break_used": false,
+      "status": "verified"
     },
     {
       "rank": 9,
@@ -322,31 +386,39 @@
       ],
       "measurements": {
         "winter": {
-          "fill_px": 87,
-          "bar_width_px": 306,
-          "fill_ratio": 0.2843
+          "fill_px": 92,
+          "row_y": 1032,
+          "x_start": 500,
+          "x_end": 591,
+          "fill_ratio_image": 0.0767
         },
         "spring": {
-          "fill_px": 63,
-          "bar_width_px": 306,
-          "fill_ratio": 0.2059
+          "fill_px": 67,
+          "row_y": 1032,
+          "x_start": 816,
+          "x_end": 882,
+          "fill_ratio_image": 0.0558
         },
         "summer": {
-          "fill_px": 45,
-          "bar_width_px": 306,
-          "fill_ratio": 0.1471
+          "fill_px": 50,
+          "row_y": 1119,
+          "x_start": 500,
+          "x_end": 549,
+          "fill_ratio_image": 0.0417
         },
         "autumn": {
-          "fill_px": 94,
-          "bar_width_px": 306,
-          "fill_ratio": 0.3072
+          "fill_px": 98,
+          "row_y": 1122,
+          "x_start": 816,
+          "x_end": 913,
+          "fill_ratio_image": 0.0817
         }
       },
-      "pixel_winner": "autumn",
-      "runner_up": "winter",
-      "winner_margin_px": 7,
       "season": "autumn",
-      "status": "clear"
+      "runner_up": "winter",
+      "winner_margin_px": 6,
+      "tie_break_used": false,
+      "status": "verified"
     },
     {
       "rank": 10,
@@ -360,31 +432,39 @@
       ],
       "measurements": {
         "winter": {
-          "fill_px": 35,
-          "bar_width_px": 306,
-          "fill_ratio": 0.1144
+          "fill_px": 41,
+          "row_y": 1060,
+          "x_start": 500,
+          "x_end": 540,
+          "fill_ratio_image": 0.0342
         },
         "spring": {
-          "fill_px": 54,
-          "bar_width_px": 306,
-          "fill_ratio": 0.1765
+          "fill_px": 58,
+          "row_y": 1051,
+          "x_start": 816,
+          "x_end": 873,
+          "fill_ratio_image": 0.0483
         },
         "summer": {
-          "fill_px": 139,
-          "bar_width_px": 306,
-          "fill_ratio": 0.4542
+          "fill_px": 144,
+          "row_y": 1087,
+          "x_start": 500,
+          "x_end": 643,
+          "fill_ratio_image": 0.12
         },
         "autumn": {
-          "fill_px": 60,
-          "bar_width_px": 306,
-          "fill_ratio": 0.1961
+          "fill_px": 64,
+          "row_y": 1086,
+          "x_start": 816,
+          "x_end": 879,
+          "fill_ratio_image": 0.0533
         }
       },
-      "pixel_winner": "summer",
-      "runner_up": "autumn",
-      "winner_margin_px": 79,
       "season": "summer",
-      "status": "clear"
+      "runner_up": "autumn",
+      "winner_margin_px": 80,
+      "tie_break_used": false,
+      "status": "verified"
     },
     {
       "rank": 11,
@@ -398,31 +478,39 @@
       ],
       "measurements": {
         "winter": {
-          "fill_px": 28,
-          "bar_width_px": 306,
-          "fill_ratio": 0.0915
+          "fill_px": 38,
+          "row_y": 1038,
+          "x_start": 500,
+          "x_end": 537,
+          "fill_ratio_image": 0.0317
         },
         "spring": {
-          "fill_px": 75,
-          "bar_width_px": 306,
-          "fill_ratio": 0.2451
+          "fill_px": 79,
+          "row_y": 1051,
+          "x_start": 816,
+          "x_end": 894,
+          "fill_ratio_image": 0.0658
         },
         "summer": {
-          "fill_px": 169,
-          "bar_width_px": 306,
-          "fill_ratio": 0.5523
+          "fill_px": 173,
+          "row_y": 1087,
+          "x_start": 500,
+          "x_end": 672,
+          "fill_ratio_image": 0.1442
         },
         "autumn": {
-          "fill_px": 34,
-          "bar_width_px": 306,
-          "fill_ratio": 0.1111
+          "fill_px": 39,
+          "row_y": 1106,
+          "x_start": 816,
+          "x_end": 854,
+          "fill_ratio_image": 0.0325
         }
       },
-      "pixel_winner": "summer",
+      "season": "summer",
       "runner_up": "spring",
       "winner_margin_px": 94,
-      "season": "summer",
-      "status": "clear"
+      "tie_break_used": false,
+      "status": "verified"
     },
     {
       "rank": 12,
@@ -436,31 +524,39 @@
       ],
       "measurements": {
         "winter": {
-          "fill_px": 28,
-          "bar_width_px": 306,
-          "fill_ratio": 0.0915
+          "fill_px": 38,
+          "row_y": 1038,
+          "x_start": 500,
+          "x_end": 537,
+          "fill_ratio_image": 0.0317
         },
         "spring": {
-          "fill_px": 102,
-          "bar_width_px": 306,
-          "fill_ratio": 0.3333
+          "fill_px": 106,
+          "row_y": 1051,
+          "x_start": 816,
+          "x_end": 921,
+          "fill_ratio_image": 0.0883
         },
         "summer": {
-          "fill_px": 99,
-          "bar_width_px": 306,
-          "fill_ratio": 0.3235
+          "fill_px": 103,
+          "row_y": 1087,
+          "x_start": 500,
+          "x_end": 602,
+          "fill_ratio_image": 0.0858
         },
         "autumn": {
-          "fill_px": 60,
-          "bar_width_px": 306,
-          "fill_ratio": 0.1961
+          "fill_px": 64,
+          "row_y": 1087,
+          "x_start": 816,
+          "x_end": 879,
+          "fill_ratio_image": 0.0533
         }
       },
-      "pixel_winner": "spring",
+      "season": "spring",
       "runner_up": "summer",
       "winner_margin_px": 3,
-      "season": "spring",
-      "status": "clear"
+      "tie_break_used": false,
+      "status": "verified"
     },
     {
       "rank": 13,
@@ -474,31 +570,39 @@
       ],
       "measurements": {
         "winter": {
-          "fill_px": 39,
-          "bar_width_px": 306,
-          "fill_ratio": 0.1275
+          "fill_px": 44,
+          "row_y": 1032,
+          "x_start": 500,
+          "x_end": 543,
+          "fill_ratio_image": 0.0367
         },
         "spring": {
-          "fill_px": 90,
-          "bar_width_px": 306,
-          "fill_ratio": 0.2941
+          "fill_px": 94,
+          "row_y": 1051,
+          "x_start": 816,
+          "x_end": 909,
+          "fill_ratio_image": 0.0783
         },
         "summer": {
-          "fill_px": 93,
-          "bar_width_px": 306,
-          "fill_ratio": 0.3039
+          "fill_px": 98,
+          "row_y": 1116,
+          "x_start": 500,
+          "x_end": 597,
+          "fill_ratio_image": 0.0817
         },
         "autumn": {
-          "fill_px": 66,
-          "bar_width_px": 306,
-          "fill_ratio": 0.2157
+          "fill_px": 70,
+          "row_y": 1086,
+          "x_start": 816,
+          "x_end": 885,
+          "fill_ratio_image": 0.0583
         }
       },
-      "pixel_winner": "summer",
-      "runner_up": "spring",
-      "winner_margin_px": 3,
       "season": "summer",
-      "status": "clear"
+      "runner_up": "spring",
+      "winner_margin_px": 4,
+      "tie_break_used": false,
+      "status": "verified"
     },
     {
       "rank": 14,
@@ -512,31 +616,39 @@
       ],
       "measurements": {
         "winter": {
-          "fill_px": 87,
-          "bar_width_px": 306,
-          "fill_ratio": 0.2843
+          "fill_px": 93,
+          "row_y": 1037,
+          "x_start": 500,
+          "x_end": 592,
+          "fill_ratio_image": 0.0775
         },
         "spring": {
-          "fill_px": 75,
-          "bar_width_px": 306,
-          "fill_ratio": 0.2451
+          "fill_px": 79,
+          "row_y": 1051,
+          "x_start": 816,
+          "x_end": 894,
+          "fill_ratio_image": 0.0658
         },
         "summer": {
-          "fill_px": 45,
-          "bar_width_px": 306,
-          "fill_ratio": 0.1471
+          "fill_px": 50,
+          "row_y": 1107,
+          "x_start": 500,
+          "x_end": 549,
+          "fill_ratio_image": 0.0417
         },
         "autumn": {
-          "fill_px": 82,
-          "bar_width_px": 306,
-          "fill_ratio": 0.268
+          "fill_px": 85,
+          "row_y": 1087,
+          "x_start": 816,
+          "x_end": 900,
+          "fill_ratio_image": 0.0708
         }
       },
-      "pixel_winner": "winter",
-      "runner_up": "autumn",
-      "winner_margin_px": 5,
       "season": "winter",
-      "status": "clear"
+      "runner_up": "autumn",
+      "winner_margin_px": 8,
+      "tie_break_used": false,
+      "status": "verified"
     },
     {
       "rank": 15,
@@ -550,31 +662,39 @@
       ],
       "measurements": {
         "winter": {
-          "fill_px": 99,
-          "bar_width_px": 306,
-          "fill_ratio": 0.3235
+          "fill_px": 105,
+          "row_y": 1060,
+          "x_start": 500,
+          "x_end": 604,
+          "fill_ratio_image": 0.0875
         },
         "spring": {
-          "fill_px": 60,
-          "bar_width_px": 306,
-          "fill_ratio": 0.1961
+          "fill_px": 64,
+          "row_y": 1051,
+          "x_start": 816,
+          "x_end": 879,
+          "fill_ratio_image": 0.0533
         },
         "summer": {
-          "fill_px": 29,
-          "bar_width_px": 306,
-          "fill_ratio": 0.0948
+          "fill_px": 33,
+          "row_y": 1087,
+          "x_start": 500,
+          "x_end": 532,
+          "fill_ratio_image": 0.0275
         },
         "autumn": {
-          "fill_px": 100,
-          "bar_width_px": 306,
-          "fill_ratio": 0.3268
+          "fill_px": 103,
+          "row_y": 1086,
+          "x_start": 816,
+          "x_end": 918,
+          "fill_ratio_image": 0.0858
         }
       },
-      "pixel_winner": "autumn",
-      "runner_up": "winter",
-      "winner_margin_px": 1,
-      "season": null,
-      "status": "ambiguous"
+      "season": "winter",
+      "runner_up": "autumn",
+      "winner_margin_px": 2,
+      "tie_break_used": false,
+      "status": "verified"
     },
     {
       "rank": 16,
@@ -588,31 +708,39 @@
       ],
       "measurements": {
         "winter": {
-          "fill_px": 102,
-          "bar_width_px": 306,
-          "fill_ratio": 0.3333
+          "fill_px": 107,
+          "row_y": 1037,
+          "x_start": 500,
+          "x_end": 606,
+          "fill_ratio_image": 0.0892
         },
         "spring": {
-          "fill_px": 60,
-          "bar_width_px": 306,
-          "fill_ratio": 0.1961
+          "fill_px": 64,
+          "row_y": 1051,
+          "x_start": 816,
+          "x_end": 879,
+          "fill_ratio_image": 0.0533
         },
         "summer": {
-          "fill_px": 31,
-          "bar_width_px": 306,
-          "fill_ratio": 0.1013
+          "fill_px": 36,
+          "row_y": 1087,
+          "x_start": 500,
+          "x_end": 535,
+          "fill_ratio_image": 0.03
         },
         "autumn": {
-          "fill_px": 94,
-          "bar_width_px": 306,
-          "fill_ratio": 0.3072
+          "fill_px": 98,
+          "row_y": 1109,
+          "x_start": 816,
+          "x_end": 913,
+          "fill_ratio_image": 0.0817
         }
       },
-      "pixel_winner": "winter",
-      "runner_up": "autumn",
-      "winner_margin_px": 8,
       "season": "winter",
-      "status": "clear"
+      "runner_up": "autumn",
+      "winner_margin_px": 9,
+      "tie_break_used": false,
+      "status": "verified"
     },
     {
       "rank": 17,
@@ -626,31 +754,39 @@
       ],
       "measurements": {
         "winter": {
-          "fill_px": 96,
-          "bar_width_px": 306,
-          "fill_ratio": 0.3137
+          "fill_px": 101,
+          "row_y": 1040,
+          "x_start": 500,
+          "x_end": 600,
+          "fill_ratio_image": 0.0842
         },
         "spring": {
-          "fill_px": 69,
-          "bar_width_px": 306,
-          "fill_ratio": 0.2255
+          "fill_px": 73,
+          "row_y": 1051,
+          "x_start": 816,
+          "x_end": 888,
+          "fill_ratio_image": 0.0608
         },
         "summer": {
-          "fill_px": 31,
-          "bar_width_px": 306,
-          "fill_ratio": 0.1013
+          "fill_px": 36,
+          "row_y": 1087,
+          "x_start": 500,
+          "x_end": 535,
+          "fill_ratio_image": 0.03
         },
         "autumn": {
-          "fill_px": 94,
-          "bar_width_px": 306,
-          "fill_ratio": 0.3072
+          "fill_px": 98,
+          "row_y": 1109,
+          "x_start": 816,
+          "x_end": 913,
+          "fill_ratio_image": 0.0817
         }
       },
-      "pixel_winner": "winter",
+      "season": "winter",
       "runner_up": "autumn",
-      "winner_margin_px": 2,
-      "season": null,
-      "status": "ambiguous"
+      "winner_margin_px": 3,
+      "tie_break_used": false,
+      "status": "verified"
     },
     {
       "rank": 18,
@@ -664,31 +800,39 @@
       ],
       "measurements": {
         "winter": {
-          "fill_px": 121,
-          "bar_width_px": 306,
-          "fill_ratio": 0.3954
+          "fill_px": 126,
+          "row_y": 1032,
+          "x_start": 500,
+          "x_end": 625,
+          "fill_ratio_image": 0.105
         },
         "spring": {
-          "fill_px": 42,
-          "bar_width_px": 306,
-          "fill_ratio": 0.1373
+          "fill_px": 46,
+          "row_y": 1051,
+          "x_start": 816,
+          "x_end": 861,
+          "fill_ratio_image": 0.0383
         },
         "summer": {
-          "fill_px": 28,
-          "bar_width_px": 306,
-          "fill_ratio": 0.0915
+          "fill_px": 32,
+          "row_y": 1087,
+          "x_start": 500,
+          "x_end": 531,
+          "fill_ratio_image": 0.0267
         },
         "autumn": {
-          "fill_px": 106,
-          "bar_width_px": 306,
-          "fill_ratio": 0.3464
+          "fill_px": 110,
+          "row_y": 1112,
+          "x_start": 816,
+          "x_end": 925,
+          "fill_ratio_image": 0.0917
         }
       },
-      "pixel_winner": "winter",
-      "runner_up": "autumn",
-      "winner_margin_px": 15,
       "season": "winter",
-      "status": "clear"
+      "runner_up": "autumn",
+      "winner_margin_px": 16,
+      "tie_break_used": false,
+      "status": "verified"
     },
     {
       "rank": 19,
@@ -702,31 +846,39 @@
       ],
       "measurements": {
         "winter": {
-          "fill_px": 27,
-          "bar_width_px": 306,
-          "fill_ratio": 0.0882
+          "fill_px": 38,
+          "row_y": 1049,
+          "x_start": 500,
+          "x_end": 537,
+          "fill_ratio_image": 0.0317
         },
         "spring": {
-          "fill_px": 115,
-          "bar_width_px": 306,
-          "fill_ratio": 0.3758
+          "fill_px": 119,
+          "row_y": 1032,
+          "x_start": 816,
+          "x_end": 934,
+          "fill_ratio_image": 0.0992
         },
         "summer": {
-          "fill_px": 121,
-          "bar_width_px": 306,
-          "fill_ratio": 0.3954
+          "fill_px": 125,
+          "row_y": 1100,
+          "x_start": 500,
+          "x_end": 624,
+          "fill_ratio_image": 0.1042
         },
         "autumn": {
-          "fill_px": 40,
-          "bar_width_px": 306,
-          "fill_ratio": 0.1307
+          "fill_px": 43,
+          "row_y": 1100,
+          "x_start": 816,
+          "x_end": 858,
+          "fill_ratio_image": 0.0358
         }
       },
-      "pixel_winner": "summer",
+      "season": "summer",
       "runner_up": "spring",
       "winner_margin_px": 6,
-      "season": "summer",
-      "status": "clear"
+      "tie_break_used": false,
+      "status": "verified"
     },
     {
       "rank": 20,
@@ -740,31 +892,39 @@
       ],
       "measurements": {
         "winter": {
-          "fill_px": 90,
-          "bar_width_px": 306,
-          "fill_ratio": 0.2941
+          "fill_px": 95,
+          "row_y": 1041,
+          "x_start": 500,
+          "x_end": 594,
+          "fill_ratio_image": 0.0792
         },
         "spring": {
-          "fill_px": 60,
-          "bar_width_px": 306,
-          "fill_ratio": 0.1961
+          "fill_px": 64,
+          "row_y": 1032,
+          "x_start": 816,
+          "x_end": 879,
+          "fill_ratio_image": 0.0533
         },
         "summer": {
-          "fill_px": 39,
-          "bar_width_px": 306,
-          "fill_ratio": 0.1275
+          "fill_px": 43,
+          "row_y": 1098,
+          "x_start": 501,
+          "x_end": 543,
+          "fill_ratio_image": 0.0358
         },
         "autumn": {
-          "fill_px": 100,
-          "bar_width_px": 306,
-          "fill_ratio": 0.3268
+          "fill_px": 103,
+          "row_y": 1100,
+          "x_start": 816,
+          "x_end": 918,
+          "fill_ratio_image": 0.0858
         }
       },
-      "pixel_winner": "autumn",
-      "runner_up": "winter",
-      "winner_margin_px": 10,
       "season": "autumn",
-      "status": "clear"
+      "runner_up": "winter",
+      "winner_margin_px": 8,
+      "tie_break_used": false,
+      "status": "verified"
     },
     {
       "rank": 21,
@@ -778,31 +938,39 @@
       ],
       "measurements": {
         "winter": {
-          "fill_px": 115,
-          "bar_width_px": 306,
-          "fill_ratio": 0.3758
+          "fill_px": 121,
+          "row_y": 1060,
+          "x_start": 500,
+          "x_end": 620,
+          "fill_ratio_image": 0.1008
         },
         "spring": {
-          "fill_px": 54,
-          "bar_width_px": 306,
-          "fill_ratio": 0.1765
+          "fill_px": 58,
+          "row_y": 1051,
+          "x_start": 816,
+          "x_end": 873,
+          "fill_ratio_image": 0.0483
         },
         "summer": {
-          "fill_px": 28,
-          "bar_width_px": 306,
-          "fill_ratio": 0.0915
+          "fill_px": 32,
+          "row_y": 1087,
+          "x_start": 500,
+          "x_end": 531,
+          "fill_ratio_image": 0.0267
         },
         "autumn": {
-          "fill_px": 100,
-          "bar_width_px": 306,
-          "fill_ratio": 0.3268
+          "fill_px": 103,
+          "row_y": 1087,
+          "x_start": 816,
+          "x_end": 918,
+          "fill_ratio_image": 0.0858
         }
       },
-      "pixel_winner": "winter",
-      "runner_up": "autumn",
-      "winner_margin_px": 15,
       "season": "winter",
-      "status": "clear"
+      "runner_up": "autumn",
+      "winner_margin_px": 18,
+      "tie_break_used": false,
+      "status": "verified"
     },
     {
       "rank": 22,
@@ -816,31 +984,39 @@
       ],
       "measurements": {
         "winter": {
-          "fill_px": 41,
-          "bar_width_px": 306,
-          "fill_ratio": 0.134
+          "fill_px": 47,
+          "row_y": 1072,
+          "x_start": 500,
+          "x_end": 546,
+          "fill_ratio_image": 0.0392
         },
         "spring": {
-          "fill_px": 108,
-          "bar_width_px": 306,
-          "fill_ratio": 0.3529
+          "fill_px": 112,
+          "row_y": 1032,
+          "x_start": 816,
+          "x_end": 927,
+          "fill_ratio_image": 0.0933
         },
         "summer": {
-          "fill_px": 93,
-          "bar_width_px": 306,
-          "fill_ratio": 0.3039
+          "fill_px": 98,
+          "row_y": 1100,
+          "x_start": 500,
+          "x_end": 597,
+          "fill_ratio_image": 0.0817
         },
         "autumn": {
-          "fill_px": 46,
-          "bar_width_px": 306,
-          "fill_ratio": 0.1503
+          "fill_px": 49,
+          "row_y": 1100,
+          "x_start": 816,
+          "x_end": 864,
+          "fill_ratio_image": 0.0408
         }
       },
-      "pixel_winner": "spring",
-      "runner_up": "summer",
-      "winner_margin_px": 15,
       "season": "spring",
-      "status": "clear"
+      "runner_up": "summer",
+      "winner_margin_px": 14,
+      "tie_break_used": false,
+      "status": "verified"
     },
     {
       "rank": 23,
@@ -854,31 +1030,39 @@
       ],
       "measurements": {
         "winter": {
-          "fill_px": 83,
-          "bar_width_px": 306,
-          "fill_ratio": 0.2712
+          "fill_px": 89,
+          "row_y": 1040,
+          "x_start": 500,
+          "x_end": 588,
+          "fill_ratio_image": 0.0742
         },
         "spring": {
-          "fill_px": 75,
-          "bar_width_px": 306,
-          "fill_ratio": 0.2451
+          "fill_px": 79,
+          "row_y": 1051,
+          "x_start": 816,
+          "x_end": 894,
+          "fill_ratio_image": 0.0658
         },
         "summer": {
-          "fill_px": 53,
-          "bar_width_px": 306,
-          "fill_ratio": 0.1732
+          "fill_px": 58,
+          "row_y": 1087,
+          "x_start": 500,
+          "x_end": 557,
+          "fill_ratio_image": 0.0483
         },
         "autumn": {
-          "fill_px": 76,
-          "bar_width_px": 306,
-          "fill_ratio": 0.2484
+          "fill_px": 79,
+          "row_y": 1087,
+          "x_start": 816,
+          "x_end": 894,
+          "fill_ratio_image": 0.0658
         }
       },
-      "pixel_winner": "winter",
-      "runner_up": "autumn",
-      "winner_margin_px": 7,
       "season": "winter",
-      "status": "clear"
+      "runner_up": "spring",
+      "winner_margin_px": 10,
+      "tie_break_used": false,
+      "status": "verified"
     },
     {
       "rank": 24,
@@ -892,31 +1076,39 @@
       ],
       "measurements": {
         "winter": {
-          "fill_px": 54,
-          "bar_width_px": 306,
-          "fill_ratio": 0.1765
+          "fill_px": 59,
+          "row_y": 1032,
+          "x_start": 500,
+          "x_end": 558,
+          "fill_ratio_image": 0.0492
         },
         "spring": {
-          "fill_px": 84,
-          "bar_width_px": 306,
-          "fill_ratio": 0.2745
+          "fill_px": 88,
+          "row_y": 1051,
+          "x_start": 816,
+          "x_end": 903,
+          "fill_ratio_image": 0.0733
         },
         "summer": {
-          "fill_px": 77,
-          "bar_width_px": 306,
-          "fill_ratio": 0.2516
+          "fill_px": 82,
+          "row_y": 1087,
+          "x_start": 500,
+          "x_end": 581,
+          "fill_ratio_image": 0.0683
         },
         "autumn": {
-          "fill_px": 72,
-          "bar_width_px": 306,
-          "fill_ratio": 0.2353
+          "fill_px": 76,
+          "row_y": 1087,
+          "x_start": 816,
+          "x_end": 891,
+          "fill_ratio_image": 0.0633
         }
       },
-      "pixel_winner": "spring",
-      "runner_up": "summer",
-      "winner_margin_px": 7,
       "season": "spring",
-      "status": "clear"
+      "runner_up": "summer",
+      "winner_margin_px": 6,
+      "tie_break_used": false,
+      "status": "verified"
     },
     {
       "rank": 25,
@@ -930,31 +1122,39 @@
       ],
       "measurements": {
         "winter": {
-          "fill_px": 47,
-          "bar_width_px": 306,
-          "fill_ratio": 0.1536
+          "fill_px": 53,
+          "row_y": 1033,
+          "x_start": 500,
+          "x_end": 552,
+          "fill_ratio_image": 0.0442
         },
         "spring": {
-          "fill_px": 87,
-          "bar_width_px": 306,
-          "fill_ratio": 0.2843
+          "fill_px": 91,
+          "row_y": 1051,
+          "x_start": 816,
+          "x_end": 906,
+          "fill_ratio_image": 0.0758
         },
         "summer": {
-          "fill_px": 77,
-          "bar_width_px": 306,
-          "fill_ratio": 0.2516
+          "fill_px": 82,
+          "row_y": 1087,
+          "x_start": 500,
+          "x_end": 581,
+          "fill_ratio_image": 0.0683
         },
         "autumn": {
-          "fill_px": 72,
-          "bar_width_px": 306,
-          "fill_ratio": 0.2353
+          "fill_px": 76,
+          "row_y": 1086,
+          "x_start": 816,
+          "x_end": 891,
+          "fill_ratio_image": 0.0633
         }
       },
-      "pixel_winner": "spring",
-      "runner_up": "summer",
-      "winner_margin_px": 10,
       "season": "spring",
-      "status": "clear"
+      "runner_up": "summer",
+      "winner_margin_px": 9,
+      "tie_break_used": false,
+      "status": "verified"
     },
     {
       "rank": 26,
@@ -968,31 +1168,39 @@
       ],
       "measurements": {
         "winter": {
-          "fill_px": 28,
-          "bar_width_px": 306,
-          "fill_ratio": 0.0915
+          "fill_px": 38,
+          "row_y": 1038,
+          "x_start": 500,
+          "x_end": 537,
+          "fill_ratio_image": 0.0317
         },
         "spring": {
-          "fill_px": 108,
-          "bar_width_px": 306,
-          "fill_ratio": 0.3529
+          "fill_px": 112,
+          "row_y": 1051,
+          "x_start": 816,
+          "x_end": 927,
+          "fill_ratio_image": 0.0933
         },
         "summer": {
-          "fill_px": 95,
-          "bar_width_px": 306,
-          "fill_ratio": 0.3105
+          "fill_px": 100,
+          "row_y": 1087,
+          "x_start": 500,
+          "x_end": 599,
+          "fill_ratio_image": 0.0833
         },
         "autumn": {
-          "fill_px": 54,
-          "bar_width_px": 306,
-          "fill_ratio": 0.1765
+          "fill_px": 58,
+          "row_y": 1087,
+          "x_start": 816,
+          "x_end": 873,
+          "fill_ratio_image": 0.0483
         }
       },
-      "pixel_winner": "spring",
-      "runner_up": "summer",
-      "winner_margin_px": 13,
       "season": "spring",
-      "status": "clear"
+      "runner_up": "summer",
+      "winner_margin_px": 12,
+      "tie_break_used": false,
+      "status": "verified"
     },
     {
       "rank": 27,
@@ -1006,31 +1214,39 @@
       ],
       "measurements": {
         "winter": {
-          "fill_px": 115,
-          "bar_width_px": 306,
-          "fill_ratio": 0.3758
+          "fill_px": 121,
+          "row_y": 1060,
+          "x_start": 500,
+          "x_end": 620,
+          "fill_ratio_image": 0.1008
         },
         "spring": {
-          "fill_px": 42,
-          "bar_width_px": 306,
-          "fill_ratio": 0.1373
+          "fill_px": 46,
+          "row_y": 1051,
+          "x_start": 816,
+          "x_end": 861,
+          "fill_ratio_image": 0.0383
         },
         "summer": {
-          "fill_px": 28,
-          "bar_width_px": 306,
-          "fill_ratio": 0.0915
+          "fill_px": 32,
+          "row_y": 1087,
+          "x_start": 500,
+          "x_end": 531,
+          "fill_ratio_image": 0.0267
         },
         "autumn": {
-          "fill_px": 106,
-          "bar_width_px": 306,
-          "fill_ratio": 0.3464
+          "fill_px": 110,
+          "row_y": 1112,
+          "x_start": 816,
+          "x_end": 925,
+          "fill_ratio_image": 0.0917
         }
       },
-      "pixel_winner": "winter",
-      "runner_up": "autumn",
-      "winner_margin_px": 9,
       "season": "winter",
-      "status": "clear"
+      "runner_up": "autumn",
+      "winner_margin_px": 11,
+      "tie_break_used": false,
+      "status": "verified"
     },
     {
       "rank": 28,
@@ -1044,31 +1260,39 @@
       ],
       "measurements": {
         "winter": {
-          "fill_px": 111,
-          "bar_width_px": 306,
-          "fill_ratio": 0.3627
+          "fill_px": 117,
+          "row_y": 1040,
+          "x_start": 500,
+          "x_end": 616,
+          "fill_ratio_image": 0.0975
         },
         "spring": {
-          "fill_px": 42,
-          "bar_width_px": 306,
-          "fill_ratio": 0.1373
+          "fill_px": 46,
+          "row_y": 1032,
+          "x_start": 816,
+          "x_end": 861,
+          "fill_ratio_image": 0.0383
         },
         "summer": {
-          "fill_px": 27,
-          "bar_width_px": 306,
-          "fill_ratio": 0.0882
+          "fill_px": 32,
+          "row_y": 1100,
+          "x_start": 500,
+          "x_end": 531,
+          "fill_ratio_image": 0.0267
         },
         "autumn": {
-          "fill_px": 112,
-          "bar_width_px": 306,
-          "fill_ratio": 0.366
+          "fill_px": 116,
+          "row_y": 1100,
+          "x_start": 816,
+          "x_end": 931,
+          "fill_ratio_image": 0.0967
         }
       },
-      "pixel_winner": "autumn",
-      "runner_up": "winter",
+      "season": "winter",
+      "runner_up": "autumn",
       "winner_margin_px": 1,
-      "season": null,
-      "status": "ambiguous"
+      "tie_break_used": false,
+      "status": "verified"
     },
     {
       "rank": 29,
@@ -1082,31 +1306,39 @@
       ],
       "measurements": {
         "winter": {
-          "fill_px": 77,
-          "bar_width_px": 306,
-          "fill_ratio": 0.2516
+          "fill_px": 83,
+          "row_y": 1037,
+          "x_start": 500,
+          "x_end": 582,
+          "fill_ratio_image": 0.0692
         },
         "spring": {
-          "fill_px": 87,
-          "bar_width_px": 306,
-          "fill_ratio": 0.2843
+          "fill_px": 91,
+          "row_y": 1051,
+          "x_start": 816,
+          "x_end": 906,
+          "fill_ratio_image": 0.0758
         },
         "summer": {
-          "fill_px": 45,
-          "bar_width_px": 306,
-          "fill_ratio": 0.1471
+          "fill_px": 50,
+          "row_y": 1107,
+          "x_start": 500,
+          "x_end": 549,
+          "fill_ratio_image": 0.0417
         },
         "autumn": {
-          "fill_px": 78,
-          "bar_width_px": 306,
-          "fill_ratio": 0.2549
+          "fill_px": 83,
+          "row_y": 1109,
+          "x_start": 816,
+          "x_end": 898,
+          "fill_ratio_image": 0.0692
         }
       },
-      "pixel_winner": "spring",
-      "runner_up": "autumn",
-      "winner_margin_px": 9,
       "season": "spring",
-      "status": "clear"
+      "runner_up": "winter",
+      "winner_margin_px": 8,
+      "tie_break_used": false,
+      "status": "verified"
     },
     {
       "rank": 30,
@@ -1120,31 +1352,39 @@
       ],
       "measurements": {
         "winter": {
-          "fill_px": 127,
-          "bar_width_px": 306,
-          "fill_ratio": 0.415
+          "fill_px": 133,
+          "row_y": 1060,
+          "x_start": 500,
+          "x_end": 632,
+          "fill_ratio_image": 0.1108
         },
         "spring": {
-          "fill_px": 36,
-          "bar_width_px": 306,
-          "fill_ratio": 0.1176
+          "fill_px": 40,
+          "row_y": 1051,
+          "x_start": 816,
+          "x_end": 855,
+          "fill_ratio_image": 0.0333
         },
         "summer": {
-          "fill_px": 28,
-          "bar_width_px": 306,
-          "fill_ratio": 0.0915
+          "fill_px": 32,
+          "row_y": 1087,
+          "x_start": 500,
+          "x_end": 531,
+          "fill_ratio_image": 0.0267
         },
         "autumn": {
-          "fill_px": 108,
-          "bar_width_px": 306,
-          "fill_ratio": 0.3529
+          "fill_px": 112,
+          "row_y": 1087,
+          "x_start": 816,
+          "x_end": 927,
+          "fill_ratio_image": 0.0933
         }
       },
-      "pixel_winner": "winter",
-      "runner_up": "autumn",
-      "winner_margin_px": 19,
       "season": "winter",
-      "status": "clear"
+      "runner_up": "autumn",
+      "winner_margin_px": 21,
+      "tie_break_used": false,
+      "status": "verified"
     },
     {
       "rank": 31,
@@ -1158,31 +1398,39 @@
       ],
       "measurements": {
         "winter": {
-          "fill_px": 35,
-          "bar_width_px": 306,
-          "fill_ratio": 0.1144
+          "fill_px": 40,
+          "row_y": 1032,
+          "x_start": 500,
+          "x_end": 539,
+          "fill_ratio_image": 0.0333
         },
         "spring": {
-          "fill_px": 93,
-          "bar_width_px": 306,
-          "fill_ratio": 0.3039
+          "fill_px": 97,
+          "row_y": 1051,
+          "x_start": 816,
+          "x_end": 912,
+          "fill_ratio_image": 0.0808
         },
         "summer": {
-          "fill_px": 84,
-          "bar_width_px": 306,
-          "fill_ratio": 0.2745
+          "fill_px": 88,
+          "row_y": 1087,
+          "x_start": 500,
+          "x_end": 587,
+          "fill_ratio_image": 0.0733
         },
         "autumn": {
-          "fill_px": 76,
-          "bar_width_px": 306,
-          "fill_ratio": 0.2484
+          "fill_px": 79,
+          "row_y": 1087,
+          "x_start": 816,
+          "x_end": 894,
+          "fill_ratio_image": 0.0658
         }
       },
-      "pixel_winner": "spring",
+      "season": "spring",
       "runner_up": "summer",
       "winner_margin_px": 9,
-      "season": "spring",
-      "status": "clear"
+      "tie_break_used": false,
+      "status": "verified"
     },
     {
       "rank": 32,
@@ -1196,31 +1444,39 @@
       ],
       "measurements": {
         "winter": {
-          "fill_px": 142,
-          "bar_width_px": 306,
-          "fill_ratio": 0.4641
+          "fill_px": 147,
+          "row_y": 1063,
+          "x_start": 500,
+          "x_end": 646,
+          "fill_ratio_image": 0.1225
         },
         "spring": {
-          "fill_px": 29,
-          "bar_width_px": 306,
-          "fill_ratio": 0.0948
+          "fill_px": 33,
+          "row_y": 1055,
+          "x_start": 816,
+          "x_end": 848,
+          "fill_ratio_image": 0.0275
         },
         "summer": {
-          "fill_px": 28,
-          "bar_width_px": 306,
-          "fill_ratio": 0.0915
+          "fill_px": 32,
+          "row_y": 1087,
+          "x_start": 500,
+          "x_end": 531,
+          "fill_ratio_image": 0.0267
         },
         "autumn": {
-          "fill_px": 106,
-          "bar_width_px": 306,
-          "fill_ratio": 0.3464
+          "fill_px": 110,
+          "row_y": 1112,
+          "x_start": 816,
+          "x_end": 925,
+          "fill_ratio_image": 0.0917
         }
       },
-      "pixel_winner": "winter",
-      "runner_up": "autumn",
-      "winner_margin_px": 36,
       "season": "winter",
-      "status": "clear"
+      "runner_up": "autumn",
+      "winner_margin_px": 37,
+      "tie_break_used": false,
+      "status": "verified"
     },
     {
       "rank": 33,
@@ -1234,31 +1490,39 @@
       ],
       "measurements": {
         "winter": {
-          "fill_px": 54,
-          "bar_width_px": 306,
-          "fill_ratio": 0.1765
+          "fill_px": 59,
+          "row_y": 1032,
+          "x_start": 500,
+          "x_end": 558,
+          "fill_ratio_image": 0.0492
         },
         "spring": {
-          "fill_px": 96,
-          "bar_width_px": 306,
-          "fill_ratio": 0.3137
+          "fill_px": 100,
+          "row_y": 1051,
+          "x_start": 816,
+          "x_end": 915,
+          "fill_ratio_image": 0.0833
         },
         "summer": {
-          "fill_px": 65,
-          "bar_width_px": 306,
-          "fill_ratio": 0.2124
+          "fill_px": 70,
+          "row_y": 1087,
+          "x_start": 500,
+          "x_end": 569,
+          "fill_ratio_image": 0.0583
         },
         "autumn": {
-          "fill_px": 72,
-          "bar_width_px": 306,
-          "fill_ratio": 0.2353
+          "fill_px": 76,
+          "row_y": 1086,
+          "x_start": 816,
+          "x_end": 891,
+          "fill_ratio_image": 0.0633
         }
       },
-      "pixel_winner": "spring",
+      "season": "spring",
       "runner_up": "autumn",
       "winner_margin_px": 24,
-      "season": "spring",
-      "status": "clear"
+      "tie_break_used": false,
+      "status": "verified"
     },
     {
       "rank": 34,
@@ -1272,31 +1536,39 @@
       ],
       "measurements": {
         "winter": {
-          "fill_px": 28,
-          "bar_width_px": 306,
-          "fill_ratio": 0.0915
+          "fill_px": 38,
+          "row_y": 1038,
+          "x_start": 500,
+          "x_end": 537,
+          "fill_ratio_image": 0.0317
         },
         "spring": {
-          "fill_px": 78,
-          "bar_width_px": 306,
-          "fill_ratio": 0.2549
+          "fill_px": 82,
+          "row_y": 1051,
+          "x_start": 816,
+          "x_end": 897,
+          "fill_ratio_image": 0.0683
         },
         "summer": {
-          "fill_px": 191,
-          "bar_width_px": 306,
-          "fill_ratio": 0.6242
+          "fill_px": 195,
+          "row_y": 1085,
+          "x_start": 501,
+          "x_end": 695,
+          "fill_ratio_image": 0.1625
         },
         "autumn": {
-          "fill_px": 34,
-          "bar_width_px": 306,
-          "fill_ratio": 0.1111
+          "fill_px": 39,
+          "row_y": 1106,
+          "x_start": 816,
+          "x_end": 854,
+          "fill_ratio_image": 0.0325
         }
       },
-      "pixel_winner": "summer",
+      "season": "summer",
       "runner_up": "spring",
       "winner_margin_px": 113,
-      "season": "summer",
-      "status": "clear"
+      "tie_break_used": false,
+      "status": "verified"
     },
     {
       "rank": 35,
@@ -1310,31 +1582,39 @@
       ],
       "measurements": {
         "winter": {
-          "fill_px": 54,
-          "bar_width_px": 306,
-          "fill_ratio": 0.1765
+          "fill_px": 59,
+          "row_y": 1032,
+          "x_start": 500,
+          "x_end": 558,
+          "fill_ratio_image": 0.0492
         },
         "spring": {
-          "fill_px": 96,
-          "bar_width_px": 306,
-          "fill_ratio": 0.3137
+          "fill_px": 100,
+          "row_y": 1051,
+          "x_start": 816,
+          "x_end": 915,
+          "fill_ratio_image": 0.0833
         },
         "summer": {
-          "fill_px": 65,
-          "bar_width_px": 306,
-          "fill_ratio": 0.2124
+          "fill_px": 70,
+          "row_y": 1087,
+          "x_start": 500,
+          "x_end": 569,
+          "fill_ratio_image": 0.0583
         },
         "autumn": {
-          "fill_px": 70,
-          "bar_width_px": 306,
-          "fill_ratio": 0.2288
+          "fill_px": 74,
+          "row_y": 1120,
+          "x_start": 816,
+          "x_end": 889,
+          "fill_ratio_image": 0.0617
         }
       },
-      "pixel_winner": "spring",
+      "season": "spring",
       "runner_up": "autumn",
       "winner_margin_px": 26,
-      "season": "spring",
-      "status": "clear"
+      "tie_break_used": false,
+      "status": "verified"
     },
     {
       "rank": 36,
@@ -1348,31 +1628,39 @@
       ],
       "measurements": {
         "winter": {
-          "fill_px": 71,
-          "bar_width_px": 306,
-          "fill_ratio": 0.232
+          "fill_px": 77,
+          "row_y": 1063,
+          "x_start": 500,
+          "x_end": 576,
+          "fill_ratio_image": 0.0642
         },
         "spring": {
-          "fill_px": 75,
-          "bar_width_px": 306,
-          "fill_ratio": 0.2451
+          "fill_px": 79,
+          "row_y": 1051,
+          "x_start": 816,
+          "x_end": 894,
+          "fill_ratio_image": 0.0658
         },
         "summer": {
-          "fill_px": 47,
-          "bar_width_px": 306,
-          "fill_ratio": 0.1536
+          "fill_px": 52,
+          "row_y": 1087,
+          "x_start": 500,
+          "x_end": 551,
+          "fill_ratio_image": 0.0433
         },
         "autumn": {
-          "fill_px": 94,
-          "bar_width_px": 306,
-          "fill_ratio": 0.3072
+          "fill_px": 98,
+          "row_y": 1109,
+          "x_start": 816,
+          "x_end": 913,
+          "fill_ratio_image": 0.0817
         }
       },
-      "pixel_winner": "autumn",
+      "season": "autumn",
       "runner_up": "spring",
       "winner_margin_px": 19,
-      "season": "autumn",
-      "status": "clear"
+      "tie_break_used": false,
+      "status": "verified"
     },
     {
       "rank": 37,
@@ -1386,31 +1674,39 @@
       ],
       "measurements": {
         "winter": {
-          "fill_px": 87,
-          "bar_width_px": 306,
-          "fill_ratio": 0.2843
+          "fill_px": 93,
+          "row_y": 1037,
+          "x_start": 500,
+          "x_end": 592,
+          "fill_ratio_image": 0.0775
         },
         "spring": {
-          "fill_px": 72,
-          "bar_width_px": 306,
-          "fill_ratio": 0.2353
+          "fill_px": 76,
+          "row_y": 1051,
+          "x_start": 816,
+          "x_end": 891,
+          "fill_ratio_image": 0.0633
         },
         "summer": {
-          "fill_px": 39,
-          "bar_width_px": 306,
-          "fill_ratio": 0.1275
+          "fill_px": 43,
+          "row_y": 1085,
+          "x_start": 501,
+          "x_end": 543,
+          "fill_ratio_image": 0.0358
         },
         "autumn": {
-          "fill_px": 90,
-          "bar_width_px": 306,
-          "fill_ratio": 0.2941
+          "fill_px": 94,
+          "row_y": 1086,
+          "x_start": 816,
+          "x_end": 909,
+          "fill_ratio_image": 0.0783
         }
       },
-      "pixel_winner": "autumn",
-      "runner_up": "winter",
-      "winner_margin_px": 3,
       "season": "autumn",
-      "status": "clear"
+      "runner_up": "winter",
+      "winner_margin_px": 1,
+      "tie_break_used": false,
+      "status": "verified"
     },
     {
       "rank": 38,
@@ -1424,31 +1720,39 @@
       ],
       "measurements": {
         "winter": {
-          "fill_px": 28,
-          "bar_width_px": 306,
-          "fill_ratio": 0.0915
+          "fill_px": 38,
+          "row_y": 1038,
+          "x_start": 500,
+          "x_end": 537,
+          "fill_ratio_image": 0.0317
         },
         "spring": {
-          "fill_px": 93,
-          "bar_width_px": 306,
-          "fill_ratio": 0.3039
+          "fill_px": 97,
+          "row_y": 1051,
+          "x_start": 816,
+          "x_end": 912,
+          "fill_ratio_image": 0.0808
         },
         "summer": {
-          "fill_px": 129,
-          "bar_width_px": 306,
-          "fill_ratio": 0.4216
+          "fill_px": 134,
+          "row_y": 1087,
+          "x_start": 500,
+          "x_end": 633,
+          "fill_ratio_image": 0.1117
         },
         "autumn": {
-          "fill_px": 46,
-          "bar_width_px": 306,
-          "fill_ratio": 0.1503
+          "fill_px": 49,
+          "row_y": 1087,
+          "x_start": 816,
+          "x_end": 864,
+          "fill_ratio_image": 0.0408
         }
       },
-      "pixel_winner": "summer",
-      "runner_up": "spring",
-      "winner_margin_px": 36,
       "season": "summer",
-      "status": "clear"
+      "runner_up": "spring",
+      "winner_margin_px": 37,
+      "tie_break_used": false,
+      "status": "verified"
     },
     {
       "rank": 39,
@@ -1462,31 +1766,39 @@
       ],
       "measurements": {
         "winter": {
-          "fill_px": 41,
-          "bar_width_px": 306,
-          "fill_ratio": 0.134
+          "fill_px": 47,
+          "row_y": 1072,
+          "x_start": 500,
+          "x_end": 546,
+          "fill_ratio_image": 0.0392
         },
         "spring": {
-          "fill_px": 99,
-          "bar_width_px": 306,
-          "fill_ratio": 0.3235
+          "fill_px": 103,
+          "row_y": 1032,
+          "x_start": 816,
+          "x_end": 918,
+          "fill_ratio_image": 0.0858
         },
         "summer": {
-          "fill_px": 89,
-          "bar_width_px": 306,
-          "fill_ratio": 0.2908
+          "fill_px": 94,
+          "row_y": 1100,
+          "x_start": 500,
+          "x_end": 593,
+          "fill_ratio_image": 0.0783
         },
         "autumn": {
-          "fill_px": 58,
-          "bar_width_px": 306,
-          "fill_ratio": 0.1895
+          "fill_px": 62,
+          "row_y": 1128,
+          "x_start": 816,
+          "x_end": 877,
+          "fill_ratio_image": 0.0517
         }
       },
-      "pixel_winner": "spring",
-      "runner_up": "summer",
-      "winner_margin_px": 10,
       "season": "spring",
-      "status": "clear"
+      "runner_up": "summer",
+      "winner_margin_px": 9,
+      "tie_break_used": false,
+      "status": "verified"
     },
     {
       "rank": 40,
@@ -1500,31 +1812,39 @@
       ],
       "measurements": {
         "winter": {
-          "fill_px": 107,
-          "bar_width_px": 306,
-          "fill_ratio": 0.3497
+          "fill_px": 113,
+          "row_y": 1077,
+          "x_start": 500,
+          "x_end": 612,
+          "fill_ratio_image": 0.0942
         },
         "spring": {
-          "fill_px": 51,
-          "bar_width_px": 306,
-          "fill_ratio": 0.1667
+          "fill_px": 55,
+          "row_y": 1032,
+          "x_start": 816,
+          "x_end": 870,
+          "fill_ratio_image": 0.0458
         },
         "summer": {
-          "fill_px": 27,
-          "bar_width_px": 306,
-          "fill_ratio": 0.0882
+          "fill_px": 32,
+          "row_y": 1100,
+          "x_start": 500,
+          "x_end": 531,
+          "fill_ratio_image": 0.0267
         },
         "autumn": {
-          "fill_px": 108,
-          "bar_width_px": 306,
-          "fill_ratio": 0.3529
+          "fill_px": 112,
+          "row_y": 1100,
+          "x_start": 816,
+          "x_end": 927,
+          "fill_ratio_image": 0.0933
         }
       },
-      "pixel_winner": "autumn",
-      "runner_up": "winter",
+      "season": "winter",
+      "runner_up": "autumn",
       "winner_margin_px": 1,
-      "season": null,
-      "status": "ambiguous"
+      "tie_break_used": false,
+      "status": "verified"
     },
     {
       "rank": 41,
@@ -1538,31 +1858,39 @@
       ],
       "measurements": {
         "winter": {
-          "fill_px": 69,
-          "bar_width_px": 306,
-          "fill_ratio": 0.2255
+          "fill_px": 76,
+          "row_y": 1054,
+          "x_start": 500,
+          "x_end": 575,
+          "fill_ratio_image": 0.0633
         },
         "spring": {
-          "fill_px": 84,
-          "bar_width_px": 306,
-          "fill_ratio": 0.2745
+          "fill_px": 88,
+          "row_y": 1032,
+          "x_start": 816,
+          "x_end": 903,
+          "fill_ratio_image": 0.0733
         },
         "summer": {
-          "fill_px": 57,
-          "bar_width_px": 306,
-          "fill_ratio": 0.1863
+          "fill_px": 61,
+          "row_y": 1100,
+          "x_start": 500,
+          "x_end": 560,
+          "fill_ratio_image": 0.0508
         },
         "autumn": {
-          "fill_px": 78,
-          "bar_width_px": 306,
-          "fill_ratio": 0.2549
+          "fill_px": 83,
+          "row_y": 1129,
+          "x_start": 816,
+          "x_end": 898,
+          "fill_ratio_image": 0.0692
         }
       },
-      "pixel_winner": "spring",
-      "runner_up": "autumn",
-      "winner_margin_px": 6,
       "season": "spring",
-      "status": "clear"
+      "runner_up": "autumn",
+      "winner_margin_px": 5,
+      "tie_break_used": false,
+      "status": "verified"
     },
     {
       "rank": 42,
@@ -1576,31 +1904,39 @@
       ],
       "measurements": {
         "winter": {
-          "fill_px": 133,
-          "bar_width_px": 306,
-          "fill_ratio": 0.4346
+          "fill_px": 138,
+          "row_y": 1032,
+          "x_start": 500,
+          "x_end": 637,
+          "fill_ratio_image": 0.115
         },
         "spring": {
-          "fill_px": 32,
-          "bar_width_px": 306,
-          "fill_ratio": 0.1046
+          "fill_px": 36,
+          "row_y": 1052,
+          "x_start": 816,
+          "x_end": 851,
+          "fill_ratio_image": 0.03
         },
         "summer": {
-          "fill_px": 28,
-          "bar_width_px": 306,
-          "fill_ratio": 0.0915
+          "fill_px": 32,
+          "row_y": 1087,
+          "x_start": 500,
+          "x_end": 531,
+          "fill_ratio_image": 0.0267
         },
         "autumn": {
-          "fill_px": 108,
-          "bar_width_px": 306,
-          "fill_ratio": 0.3529
+          "fill_px": 112,
+          "row_y": 1086,
+          "x_start": 816,
+          "x_end": 927,
+          "fill_ratio_image": 0.0933
         }
       },
-      "pixel_winner": "winter",
-      "runner_up": "autumn",
-      "winner_margin_px": 25,
       "season": "winter",
-      "status": "clear"
+      "runner_up": "autumn",
+      "winner_margin_px": 26,
+      "tie_break_used": false,
+      "status": "verified"
     },
     {
       "rank": 43,
@@ -1614,31 +1950,39 @@
       ],
       "measurements": {
         "winter": {
-          "fill_px": 117,
-          "bar_width_px": 306,
-          "fill_ratio": 0.3824
+          "fill_px": 123,
+          "row_y": 1056,
+          "x_start": 500,
+          "x_end": 622,
+          "fill_ratio_image": 0.1025
         },
         "spring": {
-          "fill_px": 30,
-          "bar_width_px": 306,
-          "fill_ratio": 0.098
+          "fill_px": 33,
+          "row_y": 1032,
+          "x_start": 816,
+          "x_end": 848,
+          "fill_ratio_image": 0.0275
         },
         "summer": {
-          "fill_px": 27,
-          "bar_width_px": 306,
-          "fill_ratio": 0.0882
+          "fill_px": 32,
+          "row_y": 1100,
+          "x_start": 500,
+          "x_end": 531,
+          "fill_ratio_image": 0.0267
         },
         "autumn": {
-          "fill_px": 122,
-          "bar_width_px": 306,
-          "fill_ratio": 0.3987
+          "fill_px": 125,
+          "row_y": 1100,
+          "x_start": 816,
+          "x_end": 940,
+          "fill_ratio_image": 0.1042
         }
       },
-      "pixel_winner": "autumn",
-      "runner_up": "winter",
-      "winner_margin_px": 5,
       "season": "autumn",
-      "status": "clear"
+      "runner_up": "winter",
+      "winner_margin_px": 2,
+      "tie_break_used": false,
+      "status": "verified"
     },
     {
       "rank": 44,
@@ -1652,31 +1996,39 @@
       ],
       "measurements": {
         "winter": {
-          "fill_px": 39,
-          "bar_width_px": 306,
-          "fill_ratio": 0.1275
+          "fill_px": 44,
+          "row_y": 1032,
+          "x_start": 500,
+          "x_end": 543,
+          "fill_ratio_image": 0.0367
         },
         "spring": {
-          "fill_px": 112,
-          "bar_width_px": 306,
-          "fill_ratio": 0.366
+          "fill_px": 116,
+          "row_y": 1051,
+          "x_start": 816,
+          "x_end": 931,
+          "fill_ratio_image": 0.0967
         },
         "summer": {
-          "fill_px": 84,
-          "bar_width_px": 306,
-          "fill_ratio": 0.2745
+          "fill_px": 88,
+          "row_y": 1087,
+          "x_start": 500,
+          "x_end": 587,
+          "fill_ratio_image": 0.0733
         },
         "autumn": {
-          "fill_px": 52,
-          "bar_width_px": 306,
-          "fill_ratio": 0.1699
+          "fill_px": 55,
+          "row_y": 1086,
+          "x_start": 816,
+          "x_end": 870,
+          "fill_ratio_image": 0.0458
         }
       },
-      "pixel_winner": "spring",
+      "season": "spring",
       "runner_up": "summer",
       "winner_margin_px": 28,
-      "season": "spring",
-      "status": "clear"
+      "tie_break_used": false,
+      "status": "verified"
     },
     {
       "rank": 45,
@@ -1690,31 +2042,39 @@
       ],
       "measurements": {
         "winter": {
-          "fill_px": 27,
-          "bar_width_px": 306,
-          "fill_ratio": 0.0882
+          "fill_px": 38,
+          "row_y": 1049,
+          "x_start": 500,
+          "x_end": 537,
+          "fill_ratio_image": 0.0317
         },
         "spring": {
-          "fill_px": 115,
-          "bar_width_px": 306,
-          "fill_ratio": 0.3758
+          "fill_px": 119,
+          "row_y": 1032,
+          "x_start": 816,
+          "x_end": 934,
+          "fill_ratio_image": 0.0992
         },
         "summer": {
-          "fill_px": 129,
-          "bar_width_px": 306,
-          "fill_ratio": 0.4216
+          "fill_px": 134,
+          "row_y": 1100,
+          "x_start": 500,
+          "x_end": 633,
+          "fill_ratio_image": 0.1117
         },
         "autumn": {
-          "fill_px": 36,
-          "bar_width_px": 306,
-          "fill_ratio": 0.1176
+          "fill_px": 40,
+          "row_y": 1100,
+          "x_start": 816,
+          "x_end": 855,
+          "fill_ratio_image": 0.0333
         }
       },
-      "pixel_winner": "summer",
-      "runner_up": "spring",
-      "winner_margin_px": 14,
       "season": "summer",
-      "status": "clear"
+      "runner_up": "spring",
+      "winner_margin_px": 15,
+      "tie_break_used": false,
+      "status": "verified"
     },
     {
       "rank": 46,
@@ -1728,31 +2088,39 @@
       ],
       "measurements": {
         "winter": {
-          "fill_px": 135,
-          "bar_width_px": 306,
-          "fill_ratio": 0.4412
+          "fill_px": 141,
+          "row_y": 1063,
+          "x_start": 500,
+          "x_end": 640,
+          "fill_ratio_image": 0.1175
         },
         "spring": {
-          "fill_px": 30,
-          "bar_width_px": 306,
-          "fill_ratio": 0.098
+          "fill_px": 32,
+          "row_y": 1051,
+          "x_start": 816,
+          "x_end": 847,
+          "fill_ratio_image": 0.0267
         },
         "summer": {
-          "fill_px": 28,
-          "bar_width_px": 306,
-          "fill_ratio": 0.0915
+          "fill_px": 32,
+          "row_y": 1087,
+          "x_start": 500,
+          "x_end": 531,
+          "fill_ratio_image": 0.0267
         },
         "autumn": {
-          "fill_px": 118,
-          "bar_width_px": 306,
-          "fill_ratio": 0.3856
+          "fill_px": 123,
+          "row_y": 1112,
+          "x_start": 816,
+          "x_end": 938,
+          "fill_ratio_image": 0.1025
         }
       },
-      "pixel_winner": "winter",
-      "runner_up": "autumn",
-      "winner_margin_px": 17,
       "season": "winter",
-      "status": "clear"
+      "runner_up": "autumn",
+      "winner_margin_px": 18,
+      "tie_break_used": false,
+      "status": "verified"
     },
     {
       "rank": 47,
@@ -1766,31 +2134,39 @@
       ],
       "measurements": {
         "winter": {
-          "fill_px": 28,
-          "bar_width_px": 306,
-          "fill_ratio": 0.0915
+          "fill_px": 38,
+          "row_y": 1038,
+          "x_start": 500,
+          "x_end": 537,
+          "fill_ratio_image": 0.0317
         },
         "spring": {
-          "fill_px": 102,
-          "bar_width_px": 306,
-          "fill_ratio": 0.3333
+          "fill_px": 106,
+          "row_y": 1051,
+          "x_start": 816,
+          "x_end": 921,
+          "fill_ratio_image": 0.0883
         },
         "summer": {
-          "fill_px": 163,
-          "bar_width_px": 306,
-          "fill_ratio": 0.5327
+          "fill_px": 167,
+          "row_y": 1087,
+          "x_start": 500,
+          "x_end": 666,
+          "fill_ratio_image": 0.1392
         },
         "autumn": {
-          "fill_px": 34,
-          "bar_width_px": 306,
-          "fill_ratio": 0.1111
+          "fill_px": 39,
+          "row_y": 1106,
+          "x_start": 816,
+          "x_end": 854,
+          "fill_ratio_image": 0.0325
         }
       },
-      "pixel_winner": "summer",
+      "season": "summer",
       "runner_up": "spring",
       "winner_margin_px": 61,
-      "season": "summer",
-      "status": "clear"
+      "tie_break_used": false,
+      "status": "verified"
     },
     {
       "rank": 48,
@@ -1804,31 +2180,39 @@
       ],
       "measurements": {
         "winter": {
-          "fill_px": 121,
-          "bar_width_px": 306,
-          "fill_ratio": 0.3954
+          "fill_px": 127,
+          "row_y": 1057,
+          "x_start": 500,
+          "x_end": 626,
+          "fill_ratio_image": 0.1058
         },
         "spring": {
-          "fill_px": 42,
-          "bar_width_px": 306,
-          "fill_ratio": 0.1373
+          "fill_px": 46,
+          "row_y": 1051,
+          "x_start": 816,
+          "x_end": 861,
+          "fill_ratio_image": 0.0383
         },
         "summer": {
-          "fill_px": 28,
-          "bar_width_px": 306,
-          "fill_ratio": 0.0915
+          "fill_px": 32,
+          "row_y": 1087,
+          "x_start": 500,
+          "x_end": 531,
+          "fill_ratio_image": 0.0267
         },
         "autumn": {
-          "fill_px": 112,
-          "bar_width_px": 306,
-          "fill_ratio": 0.366
+          "fill_px": 116,
+          "row_y": 1087,
+          "x_start": 816,
+          "x_end": 931,
+          "fill_ratio_image": 0.0967
         }
       },
-      "pixel_winner": "winter",
-      "runner_up": "autumn",
-      "winner_margin_px": 9,
       "season": "winter",
-      "status": "clear"
+      "runner_up": "autumn",
+      "winner_margin_px": 11,
+      "tie_break_used": false,
+      "status": "verified"
     },
     {
       "rank": 49,
@@ -1842,31 +2226,39 @@
       ],
       "measurements": {
         "winter": {
-          "fill_px": 129,
-          "bar_width_px": 306,
-          "fill_ratio": 0.4216
+          "fill_px": 135,
+          "row_y": 1060,
+          "x_start": 500,
+          "x_end": 634,
+          "fill_ratio_image": 0.1125
         },
         "spring": {
-          "fill_px": 30,
-          "bar_width_px": 306,
-          "fill_ratio": 0.098
+          "fill_px": 32,
+          "row_y": 1051,
+          "x_start": 816,
+          "x_end": 847,
+          "fill_ratio_image": 0.0267
         },
         "summer": {
-          "fill_px": 28,
-          "bar_width_px": 306,
-          "fill_ratio": 0.0915
+          "fill_px": 32,
+          "row_y": 1087,
+          "x_start": 500,
+          "x_end": 531,
+          "fill_ratio_image": 0.0267
         },
         "autumn": {
-          "fill_px": 166,
-          "bar_width_px": 306,
-          "fill_ratio": 0.5425
+          "fill_px": 170,
+          "row_y": 1087,
+          "x_start": 816,
+          "x_end": 985,
+          "fill_ratio_image": 0.1417
         }
       },
-      "pixel_winner": "autumn",
-      "runner_up": "winter",
-      "winner_margin_px": 37,
       "season": "autumn",
-      "status": "clear"
+      "runner_up": "winter",
+      "winner_margin_px": 35,
+      "tie_break_used": false,
+      "status": "verified"
     },
     {
       "rank": 50,
@@ -1880,31 +2272,39 @@
       ],
       "measurements": {
         "winter": {
-          "fill_px": 107,
-          "bar_width_px": 306,
-          "fill_ratio": 0.3497
+          "fill_px": 113,
+          "row_y": 1077,
+          "x_start": 500,
+          "x_end": 612,
+          "fill_ratio_image": 0.0942
         },
         "spring": {
-          "fill_px": 48,
-          "bar_width_px": 306,
-          "fill_ratio": 0.1569
+          "fill_px": 52,
+          "row_y": 1032,
+          "x_start": 816,
+          "x_end": 867,
+          "fill_ratio_image": 0.0433
         },
         "summer": {
-          "fill_px": 29,
-          "bar_width_px": 306,
-          "fill_ratio": 0.0948
+          "fill_px": 33,
+          "row_y": 1099,
+          "x_start": 501,
+          "x_end": 533,
+          "fill_ratio_image": 0.0275
         },
         "autumn": {
-          "fill_px": 102,
-          "bar_width_px": 306,
-          "fill_ratio": 0.3333
+          "fill_px": 106,
+          "row_y": 1100,
+          "x_start": 816,
+          "x_end": 921,
+          "fill_ratio_image": 0.0883
         }
       },
-      "pixel_winner": "winter",
-      "runner_up": "autumn",
-      "winner_margin_px": 5,
       "season": "winter",
-      "status": "clear"
+      "runner_up": "autumn",
+      "winner_margin_px": 7,
+      "tie_break_used": false,
+      "status": "verified"
     },
     {
       "rank": 51,
@@ -1918,31 +2318,39 @@
       ],
       "measurements": {
         "winter": {
-          "fill_px": 78,
-          "bar_width_px": 306,
-          "fill_ratio": 0.2549
+          "fill_px": 83,
+          "row_y": 1040,
+          "x_start": 500,
+          "x_end": 582,
+          "fill_ratio_image": 0.0692
         },
         "spring": {
-          "fill_px": 72,
-          "bar_width_px": 306,
-          "fill_ratio": 0.2353
+          "fill_px": 76,
+          "row_y": 1032,
+          "x_start": 816,
+          "x_end": 891,
+          "fill_ratio_image": 0.0633
         },
         "summer": {
-          "fill_px": 41,
-          "bar_width_px": 306,
-          "fill_ratio": 0.134
+          "fill_px": 46,
+          "row_y": 1100,
+          "x_start": 500,
+          "x_end": 545,
+          "fill_ratio_image": 0.0383
         },
         "autumn": {
-          "fill_px": 96,
-          "bar_width_px": 306,
-          "fill_ratio": 0.3137
+          "fill_px": 100,
+          "row_y": 1100,
+          "x_start": 816,
+          "x_end": 915,
+          "fill_ratio_image": 0.0833
         }
       },
-      "pixel_winner": "autumn",
-      "runner_up": "winter",
-      "winner_margin_px": 18,
       "season": "autumn",
-      "status": "clear"
+      "runner_up": "winter",
+      "winner_margin_px": 17,
+      "tie_break_used": false,
+      "status": "verified"
     },
     {
       "rank": 52,
@@ -1956,31 +2364,39 @@
       ],
       "measurements": {
         "winter": {
-          "fill_px": 87,
-          "bar_width_px": 306,
-          "fill_ratio": 0.2843
+          "fill_px": 93,
+          "row_y": 1037,
+          "x_start": 500,
+          "x_end": 592,
+          "fill_ratio_image": 0.0775
         },
         "spring": {
-          "fill_px": 75,
-          "bar_width_px": 306,
-          "fill_ratio": 0.2451
+          "fill_px": 79,
+          "row_y": 1051,
+          "x_start": 816,
+          "x_end": 894,
+          "fill_ratio_image": 0.0658
         },
         "summer": {
-          "fill_px": 29,
-          "bar_width_px": 306,
-          "fill_ratio": 0.0948
+          "fill_px": 33,
+          "row_y": 1087,
+          "x_start": 500,
+          "x_end": 532,
+          "fill_ratio_image": 0.0275
         },
         "autumn": {
-          "fill_px": 96,
-          "bar_width_px": 306,
-          "fill_ratio": 0.3137
+          "fill_px": 100,
+          "row_y": 1087,
+          "x_start": 816,
+          "x_end": 915,
+          "fill_ratio_image": 0.0833
         }
       },
-      "pixel_winner": "autumn",
-      "runner_up": "winter",
-      "winner_margin_px": 9,
       "season": "autumn",
-      "status": "clear"
+      "runner_up": "winter",
+      "winner_margin_px": 7,
+      "tie_break_used": false,
+      "status": "verified"
     },
     {
       "rank": 53,
@@ -1994,31 +2410,39 @@
       ],
       "measurements": {
         "winter": {
-          "fill_px": 129,
-          "bar_width_px": 306,
-          "fill_ratio": 0.4216
+          "fill_px": 135,
+          "row_y": 1060,
+          "x_start": 500,
+          "x_end": 634,
+          "fill_ratio_image": 0.1125
         },
         "spring": {
-          "fill_px": 29,
-          "bar_width_px": 306,
-          "fill_ratio": 0.0948
+          "fill_px": 33,
+          "row_y": 1055,
+          "x_start": 816,
+          "x_end": 848,
+          "fill_ratio_image": 0.0275
         },
         "summer": {
-          "fill_px": 28,
-          "bar_width_px": 306,
-          "fill_ratio": 0.0915
+          "fill_px": 32,
+          "row_y": 1087,
+          "x_start": 500,
+          "x_end": 531,
+          "fill_ratio_image": 0.0267
         },
         "autumn": {
-          "fill_px": 112,
-          "bar_width_px": 306,
-          "fill_ratio": 0.366
+          "fill_px": 116,
+          "row_y": 1087,
+          "x_start": 816,
+          "x_end": 931,
+          "fill_ratio_image": 0.0967
         }
       },
-      "pixel_winner": "winter",
-      "runner_up": "autumn",
-      "winner_margin_px": 17,
       "season": "winter",
-      "status": "clear"
+      "runner_up": "autumn",
+      "winner_margin_px": 19,
+      "tie_break_used": false,
+      "status": "verified"
     },
     {
       "rank": 54,
@@ -2032,31 +2456,39 @@
       ],
       "measurements": {
         "winter": {
-          "fill_px": 28,
-          "bar_width_px": 306,
-          "fill_ratio": 0.0915
+          "fill_px": 38,
+          "row_y": 1038,
+          "x_start": 500,
+          "x_end": 537,
+          "fill_ratio_image": 0.0317
         },
         "spring": {
-          "fill_px": 122,
-          "bar_width_px": 306,
-          "fill_ratio": 0.3987
+          "fill_px": 125,
+          "row_y": 1051,
+          "x_start": 816,
+          "x_end": 940,
+          "fill_ratio_image": 0.1042
         },
         "summer": {
-          "fill_px": 145,
-          "bar_width_px": 306,
-          "fill_ratio": 0.4739
+          "fill_px": 149,
+          "row_y": 1087,
+          "x_start": 500,
+          "x_end": 648,
+          "fill_ratio_image": 0.1242
         },
         "autumn": {
-          "fill_px": 34,
-          "bar_width_px": 306,
-          "fill_ratio": 0.1111
+          "fill_px": 39,
+          "row_y": 1106,
+          "x_start": 816,
+          "x_end": 854,
+          "fill_ratio_image": 0.0325
         }
       },
-      "pixel_winner": "summer",
-      "runner_up": "spring",
-      "winner_margin_px": 23,
       "season": "summer",
-      "status": "clear"
+      "runner_up": "spring",
+      "winner_margin_px": 24,
+      "tie_break_used": false,
+      "status": "verified"
     },
     {
       "rank": 55,
@@ -2070,31 +2502,39 @@
       ],
       "measurements": {
         "winter": {
-          "fill_px": 105,
-          "bar_width_px": 306,
-          "fill_ratio": 0.3431
+          "fill_px": 110,
+          "row_y": 1032,
+          "x_start": 500,
+          "x_end": 609,
+          "fill_ratio_image": 0.0917
         },
         "spring": {
-          "fill_px": 54,
-          "bar_width_px": 306,
-          "fill_ratio": 0.1765
+          "fill_px": 58,
+          "row_y": 1032,
+          "x_start": 816,
+          "x_end": 873,
+          "fill_ratio_image": 0.0483
         },
         "summer": {
-          "fill_px": 27,
-          "bar_width_px": 306,
-          "fill_ratio": 0.0882
+          "fill_px": 32,
+          "row_y": 1100,
+          "x_start": 500,
+          "x_end": 531,
+          "fill_ratio_image": 0.0267
         },
         "autumn": {
-          "fill_px": 108,
-          "bar_width_px": 306,
-          "fill_ratio": 0.3529
+          "fill_px": 112,
+          "row_y": 1100,
+          "x_start": 816,
+          "x_end": 927,
+          "fill_ratio_image": 0.0933
         }
       },
-      "pixel_winner": "autumn",
-      "runner_up": "winter",
-      "winner_margin_px": 3,
       "season": "autumn",
-      "status": "clear"
+      "runner_up": "winter",
+      "winner_margin_px": 2,
+      "tie_break_used": false,
+      "status": "verified"
     },
     {
       "rank": 56,
@@ -2108,31 +2548,39 @@
       ],
       "measurements": {
         "winter": {
-          "fill_px": 32,
-          "bar_width_px": 306,
-          "fill_ratio": 0.1046
+          "fill_px": 37,
+          "row_y": 1040,
+          "x_start": 500,
+          "x_end": 536,
+          "fill_ratio_image": 0.0308
         },
         "spring": {
-          "fill_px": 106,
-          "bar_width_px": 306,
-          "fill_ratio": 0.3464
+          "fill_px": 110,
+          "row_y": 1064,
+          "x_start": 816,
+          "x_end": 925,
+          "fill_ratio_image": 0.0917
         },
         "summer": {
-          "fill_px": 75,
-          "bar_width_px": 306,
-          "fill_ratio": 0.2451
+          "fill_px": 79,
+          "row_y": 1100,
+          "x_start": 500,
+          "x_end": 578,
+          "fill_ratio_image": 0.0658
         },
         "autumn": {
-          "fill_px": 76,
-          "bar_width_px": 306,
-          "fill_ratio": 0.2484
+          "fill_px": 79,
+          "row_y": 1100,
+          "x_start": 816,
+          "x_end": 894,
+          "fill_ratio_image": 0.0658
         }
       },
-      "pixel_winner": "spring",
-      "runner_up": "autumn",
-      "winner_margin_px": 30,
       "season": "spring",
-      "status": "clear"
+      "runner_up": "summer",
+      "winner_margin_px": 31,
+      "tie_break_used": false,
+      "status": "verified"
     },
     {
       "rank": 57,
@@ -2146,31 +2594,39 @@
       ],
       "measurements": {
         "winter": {
-          "fill_px": 54,
-          "bar_width_px": 306,
-          "fill_ratio": 0.1765
+          "fill_px": 59,
+          "row_y": 1032,
+          "x_start": 500,
+          "x_end": 558,
+          "fill_ratio_image": 0.0492
         },
         "spring": {
-          "fill_px": 69,
-          "bar_width_px": 306,
-          "fill_ratio": 0.2255
+          "fill_px": 73,
+          "row_y": 1051,
+          "x_start": 816,
+          "x_end": 888,
+          "fill_ratio_image": 0.0608
         },
         "summer": {
-          "fill_px": 69,
-          "bar_width_px": 306,
-          "fill_ratio": 0.2255
+          "fill_px": 73,
+          "row_y": 1087,
+          "x_start": 500,
+          "x_end": 572,
+          "fill_ratio_image": 0.0608
         },
         "autumn": {
-          "fill_px": 96,
-          "bar_width_px": 306,
-          "fill_ratio": 0.3137
+          "fill_px": 100,
+          "row_y": 1086,
+          "x_start": 816,
+          "x_end": 915,
+          "fill_ratio_image": 0.0833
         }
       },
-      "pixel_winner": "autumn",
+      "season": "autumn",
       "runner_up": "spring",
       "winner_margin_px": 27,
-      "season": "autumn",
-      "status": "clear"
+      "tie_break_used": false,
+      "status": "verified"
     },
     {
       "rank": 58,
@@ -2184,31 +2640,39 @@
       ],
       "measurements": {
         "winter": {
-          "fill_px": 60,
-          "bar_width_px": 306,
-          "fill_ratio": 0.1961
+          "fill_px": 65,
+          "row_y": 1040,
+          "x_start": 500,
+          "x_end": 564,
+          "fill_ratio_image": 0.0542
         },
         "spring": {
-          "fill_px": 87,
-          "bar_width_px": 306,
-          "fill_ratio": 0.2843
+          "fill_px": 91,
+          "row_y": 1051,
+          "x_start": 816,
+          "x_end": 906,
+          "fill_ratio_image": 0.0758
         },
         "summer": {
-          "fill_px": 60,
-          "bar_width_px": 306,
-          "fill_ratio": 0.1961
+          "fill_px": 65,
+          "row_y": 1116,
+          "x_start": 500,
+          "x_end": 564,
+          "fill_ratio_image": 0.0542
         },
         "autumn": {
-          "fill_px": 82,
-          "bar_width_px": 306,
-          "fill_ratio": 0.268
+          "fill_px": 85,
+          "row_y": 1087,
+          "x_start": 816,
+          "x_end": 900,
+          "fill_ratio_image": 0.0708
         }
       },
-      "pixel_winner": "spring",
-      "runner_up": "autumn",
-      "winner_margin_px": 5,
       "season": "spring",
-      "status": "clear"
+      "runner_up": "autumn",
+      "winner_margin_px": 6,
+      "tie_break_used": false,
+      "status": "verified"
     },
     {
       "rank": 59,
@@ -2222,31 +2686,39 @@
       ],
       "measurements": {
         "winter": {
-          "fill_px": 28,
-          "bar_width_px": 306,
-          "fill_ratio": 0.0915
+          "fill_px": 38,
+          "row_y": 1038,
+          "x_start": 500,
+          "x_end": 537,
+          "fill_ratio_image": 0.0317
         },
         "spring": {
-          "fill_px": 99,
-          "bar_width_px": 306,
-          "fill_ratio": 0.3235
+          "fill_px": 103,
+          "row_y": 1051,
+          "x_start": 816,
+          "x_end": 918,
+          "fill_ratio_image": 0.0858
         },
         "summer": {
-          "fill_px": 121,
-          "bar_width_px": 306,
-          "fill_ratio": 0.3954
+          "fill_px": 125,
+          "row_y": 1087,
+          "x_start": 500,
+          "x_end": 624,
+          "fill_ratio_image": 0.1042
         },
         "autumn": {
-          "fill_px": 46,
-          "bar_width_px": 306,
-          "fill_ratio": 0.1503
+          "fill_px": 49,
+          "row_y": 1087,
+          "x_start": 816,
+          "x_end": 864,
+          "fill_ratio_image": 0.0408
         }
       },
-      "pixel_winner": "summer",
+      "season": "summer",
       "runner_up": "spring",
       "winner_margin_px": 22,
-      "season": "summer",
-      "status": "clear"
+      "tie_break_used": false,
+      "status": "verified"
     },
     {
       "rank": 60,
@@ -2260,31 +2732,39 @@
       ],
       "measurements": {
         "winter": {
-          "fill_px": 99,
-          "bar_width_px": 306,
-          "fill_ratio": 0.3235
+          "fill_px": 105,
+          "row_y": 1060,
+          "x_start": 500,
+          "x_end": 604,
+          "fill_ratio_image": 0.0875
         },
         "spring": {
-          "fill_px": 58,
-          "bar_width_px": 306,
-          "fill_ratio": 0.1895
+          "fill_px": 61,
+          "row_y": 1051,
+          "x_start": 816,
+          "x_end": 876,
+          "fill_ratio_image": 0.0508
         },
         "summer": {
-          "fill_px": 31,
-          "bar_width_px": 306,
-          "fill_ratio": 0.1013
+          "fill_px": 36,
+          "row_y": 1087,
+          "x_start": 500,
+          "x_end": 535,
+          "fill_ratio_image": 0.03
         },
         "autumn": {
-          "fill_px": 102,
-          "bar_width_px": 306,
-          "fill_ratio": 0.3333
+          "fill_px": 106,
+          "row_y": 1086,
+          "x_start": 816,
+          "x_end": 921,
+          "fill_ratio_image": 0.0883
         }
       },
-      "pixel_winner": "autumn",
-      "runner_up": "winter",
-      "winner_margin_px": 3,
       "season": "autumn",
-      "status": "clear"
+      "runner_up": "winter",
+      "winner_margin_px": 1,
+      "tie_break_used": false,
+      "status": "verified"
     },
     {
       "rank": 61,
@@ -2298,31 +2778,39 @@
       ],
       "measurements": {
         "winter": {
-          "fill_px": 32,
-          "bar_width_px": 306,
-          "fill_ratio": 0.1046
+          "fill_px": 37,
+          "row_y": 1032,
+          "x_start": 500,
+          "x_end": 536,
+          "fill_ratio_image": 0.0308
         },
         "spring": {
-          "fill_px": 115,
-          "bar_width_px": 306,
-          "fill_ratio": 0.3758
+          "fill_px": 119,
+          "row_y": 1051,
+          "x_start": 816,
+          "x_end": 934,
+          "fill_ratio_image": 0.0992
         },
         "summer": {
-          "fill_px": 108,
-          "bar_width_px": 306,
-          "fill_ratio": 0.3529
+          "fill_px": 112,
+          "row_y": 1087,
+          "x_start": 500,
+          "x_end": 611,
+          "fill_ratio_image": 0.0933
         },
         "autumn": {
-          "fill_px": 36,
-          "bar_width_px": 306,
-          "fill_ratio": 0.1176
+          "fill_px": 40,
+          "row_y": 1087,
+          "x_start": 816,
+          "x_end": 855,
+          "fill_ratio_image": 0.0333
         }
       },
-      "pixel_winner": "spring",
+      "season": "spring",
       "runner_up": "summer",
       "winner_margin_px": 7,
-      "season": "spring",
-      "status": "clear"
+      "tie_break_used": false,
+      "status": "verified"
     },
     {
       "rank": 62,
@@ -2336,31 +2824,39 @@
       ],
       "measurements": {
         "winter": {
-          "fill_px": 142,
-          "bar_width_px": 306,
-          "fill_ratio": 0.4641
+          "fill_px": 147,
+          "row_y": 1065,
+          "x_start": 500,
+          "x_end": 646,
+          "fill_ratio_image": 0.1225
         },
         "spring": {
-          "fill_px": 30,
-          "bar_width_px": 306,
-          "fill_ratio": 0.098
+          "fill_px": 32,
+          "row_y": 1051,
+          "x_start": 816,
+          "x_end": 847,
+          "fill_ratio_image": 0.0267
         },
         "summer": {
-          "fill_px": 28,
-          "bar_width_px": 306,
-          "fill_ratio": 0.0915
+          "fill_px": 32,
+          "row_y": 1087,
+          "x_start": 500,
+          "x_end": 531,
+          "fill_ratio_image": 0.0267
         },
         "autumn": {
-          "fill_px": 102,
-          "bar_width_px": 306,
-          "fill_ratio": 0.3333
+          "fill_px": 106,
+          "row_y": 1087,
+          "x_start": 816,
+          "x_end": 921,
+          "fill_ratio_image": 0.0883
         }
       },
-      "pixel_winner": "winter",
-      "runner_up": "autumn",
-      "winner_margin_px": 40,
       "season": "winter",
-      "status": "clear"
+      "runner_up": "autumn",
+      "winner_margin_px": 41,
+      "tie_break_used": false,
+      "status": "verified"
     },
     {
       "rank": 63,
@@ -2374,31 +2870,39 @@
       ],
       "measurements": {
         "winter": {
-          "fill_px": 54,
-          "bar_width_px": 306,
-          "fill_ratio": 0.1765
+          "fill_px": 59,
+          "row_y": 1032,
+          "x_start": 500,
+          "x_end": 558,
+          "fill_ratio_image": 0.0492
         },
         "spring": {
-          "fill_px": 84,
-          "bar_width_px": 306,
-          "fill_ratio": 0.2745
+          "fill_px": 88,
+          "row_y": 1051,
+          "x_start": 816,
+          "x_end": 903,
+          "fill_ratio_image": 0.0733
         },
         "summer": {
-          "fill_px": 81,
-          "bar_width_px": 306,
-          "fill_ratio": 0.2647
+          "fill_px": 85,
+          "row_y": 1087,
+          "x_start": 500,
+          "x_end": 584,
+          "fill_ratio_image": 0.0708
         },
         "autumn": {
-          "fill_px": 70,
-          "bar_width_px": 306,
-          "fill_ratio": 0.2288
+          "fill_px": 74,
+          "row_y": 1120,
+          "x_start": 816,
+          "x_end": 889,
+          "fill_ratio_image": 0.0617
         }
       },
-      "pixel_winner": "spring",
+      "season": "spring",
       "runner_up": "summer",
       "winner_margin_px": 3,
-      "season": "spring",
-      "status": "clear"
+      "tie_break_used": false,
+      "status": "verified"
     },
     {
       "rank": 64,
@@ -2412,31 +2916,39 @@
       ],
       "measurements": {
         "winter": {
-          "fill_px": 27,
-          "bar_width_px": 306,
-          "fill_ratio": 0.0882
+          "fill_px": 38,
+          "row_y": 1049,
+          "x_start": 500,
+          "x_end": 537,
+          "fill_ratio_image": 0.0317
         },
         "spring": {
-          "fill_px": 70,
-          "bar_width_px": 306,
-          "fill_ratio": 0.2288
+          "fill_px": 73,
+          "row_y": 1032,
+          "x_start": 816,
+          "x_end": 888,
+          "fill_ratio_image": 0.0608
         },
         "summer": {
-          "fill_px": 139,
-          "bar_width_px": 306,
-          "fill_ratio": 0.4542
+          "fill_px": 143,
+          "row_y": 1100,
+          "x_start": 500,
+          "x_end": 642,
+          "fill_ratio_image": 0.1192
         },
         "autumn": {
-          "fill_px": 52,
-          "bar_width_px": 306,
-          "fill_ratio": 0.1699
+          "fill_px": 55,
+          "row_y": 1100,
+          "x_start": 816,
+          "x_end": 870,
+          "fill_ratio_image": 0.0458
         }
       },
-      "pixel_winner": "summer",
-      "runner_up": "spring",
-      "winner_margin_px": 69,
       "season": "summer",
-      "status": "clear"
+      "runner_up": "spring",
+      "winner_margin_px": 70,
+      "tie_break_used": false,
+      "status": "verified"
     },
     {
       "rank": 65,
@@ -2450,31 +2962,39 @@
       ],
       "measurements": {
         "winter": {
-          "fill_px": 35,
-          "bar_width_px": 306,
-          "fill_ratio": 0.1144
+          "fill_px": 41,
+          "row_y": 1060,
+          "x_start": 500,
+          "x_end": 540,
+          "fill_ratio_image": 0.0342
         },
         "spring": {
-          "fill_px": 108,
-          "bar_width_px": 306,
-          "fill_ratio": 0.3529
+          "fill_px": 112,
+          "row_y": 1051,
+          "x_start": 816,
+          "x_end": 927,
+          "fill_ratio_image": 0.0933
         },
         "summer": {
-          "fill_px": 95,
-          "bar_width_px": 306,
-          "fill_ratio": 0.3105
+          "fill_px": 100,
+          "row_y": 1087,
+          "x_start": 500,
+          "x_end": 599,
+          "fill_ratio_image": 0.0833
         },
         "autumn": {
-          "fill_px": 48,
-          "bar_width_px": 306,
-          "fill_ratio": 0.1569
+          "fill_px": 52,
+          "row_y": 1087,
+          "x_start": 816,
+          "x_end": 867,
+          "fill_ratio_image": 0.0433
         }
       },
-      "pixel_winner": "spring",
-      "runner_up": "summer",
-      "winner_margin_px": 13,
       "season": "spring",
-      "status": "clear"
+      "runner_up": "summer",
+      "winner_margin_px": 12,
+      "tie_break_used": false,
+      "status": "verified"
     },
     {
       "rank": 66,
@@ -2488,31 +3008,39 @@
       ],
       "measurements": {
         "winter": {
-          "fill_px": 28,
-          "bar_width_px": 306,
-          "fill_ratio": 0.0915
+          "fill_px": 38,
+          "row_y": 1042,
+          "x_start": 500,
+          "x_end": 537,
+          "fill_ratio_image": 0.0317
         },
         "spring": {
-          "fill_px": 94,
-          "bar_width_px": 306,
-          "fill_ratio": 0.3072
+          "fill_px": 97,
+          "row_y": 1032,
+          "x_start": 816,
+          "x_end": 912,
+          "fill_ratio_image": 0.0808
         },
         "summer": {
-          "fill_px": 151,
-          "bar_width_px": 306,
-          "fill_ratio": 0.4935
+          "fill_px": 155,
+          "row_y": 1092,
+          "x_start": 500,
+          "x_end": 654,
+          "fill_ratio_image": 0.1292
         },
         "autumn": {
-          "fill_px": 35,
-          "bar_width_px": 306,
-          "fill_ratio": 0.1144
+          "fill_px": 39,
+          "row_y": 1111,
+          "x_start": 816,
+          "x_end": 854,
+          "fill_ratio_image": 0.0325
         }
       },
-      "pixel_winner": "summer",
-      "runner_up": "spring",
-      "winner_margin_px": 57,
       "season": "summer",
-      "status": "clear"
+      "runner_up": "spring",
+      "winner_margin_px": 58,
+      "tie_break_used": false,
+      "status": "verified"
     },
     {
       "rank": 67,
@@ -2526,31 +3054,39 @@
       ],
       "measurements": {
         "winter": {
-          "fill_px": 65,
-          "bar_width_px": 306,
-          "fill_ratio": 0.2124
+          "fill_px": 71,
+          "row_y": 1045,
+          "x_start": 500,
+          "x_end": 570,
+          "fill_ratio_image": 0.0592
         },
         "spring": {
-          "fill_px": 78,
-          "bar_width_px": 306,
-          "fill_ratio": 0.2549
+          "fill_px": 82,
+          "row_y": 1032,
+          "x_start": 816,
+          "x_end": 897,
+          "fill_ratio_image": 0.0683
         },
         "summer": {
-          "fill_px": 60,
-          "bar_width_px": 306,
-          "fill_ratio": 0.1961
+          "fill_px": 65,
+          "row_y": 1127,
+          "x_start": 500,
+          "x_end": 564,
+          "fill_ratio_image": 0.0542
         },
         "autumn": {
-          "fill_px": 82,
-          "bar_width_px": 306,
-          "fill_ratio": 0.268
+          "fill_px": 85,
+          "row_y": 1100,
+          "x_start": 816,
+          "x_end": 900,
+          "fill_ratio_image": 0.0708
         }
       },
-      "pixel_winner": "autumn",
-      "runner_up": "spring",
-      "winner_margin_px": 4,
       "season": "autumn",
-      "status": "clear"
+      "runner_up": "spring",
+      "winner_margin_px": 3,
+      "tie_break_used": false,
+      "status": "verified"
     },
     {
       "rank": 68,
@@ -2564,31 +3100,39 @@
       ],
       "measurements": {
         "winter": {
-          "fill_px": 39,
-          "bar_width_px": 306,
-          "fill_ratio": 0.1275
+          "fill_px": 44,
+          "row_y": 1032,
+          "x_start": 500,
+          "x_end": 543,
+          "fill_ratio_image": 0.0367
         },
         "spring": {
-          "fill_px": 115,
-          "bar_width_px": 306,
-          "fill_ratio": 0.3758
+          "fill_px": 119,
+          "row_y": 1051,
+          "x_start": 816,
+          "x_end": 934,
+          "fill_ratio_image": 0.0992
         },
         "summer": {
-          "fill_px": 84,
-          "bar_width_px": 306,
-          "fill_ratio": 0.2745
+          "fill_px": 88,
+          "row_y": 1087,
+          "x_start": 500,
+          "x_end": 587,
+          "fill_ratio_image": 0.0733
         },
         "autumn": {
-          "fill_px": 52,
-          "bar_width_px": 306,
-          "fill_ratio": 0.1699
+          "fill_px": 55,
+          "row_y": 1087,
+          "x_start": 816,
+          "x_end": 870,
+          "fill_ratio_image": 0.0458
         }
       },
-      "pixel_winner": "spring",
+      "season": "spring",
       "runner_up": "summer",
       "winner_margin_px": 31,
-      "season": "spring",
-      "status": "clear"
+      "tie_break_used": false,
+      "status": "verified"
     },
     {
       "rank": 69,
@@ -2602,31 +3146,39 @@
       ],
       "measurements": {
         "winter": {
-          "fill_px": 59,
-          "bar_width_px": 306,
-          "fill_ratio": 0.1928
+          "fill_px": 65,
+          "row_y": 1041,
+          "x_start": 500,
+          "x_end": 564,
+          "fill_ratio_image": 0.0542
         },
         "spring": {
-          "fill_px": 81,
-          "bar_width_px": 306,
-          "fill_ratio": 0.2647
+          "fill_px": 85,
+          "row_y": 1032,
+          "x_start": 816,
+          "x_end": 900,
+          "fill_ratio_image": 0.0708
         },
         "summer": {
-          "fill_px": 71,
-          "bar_width_px": 306,
-          "fill_ratio": 0.232
+          "fill_px": 76,
+          "row_y": 1100,
+          "x_start": 500,
+          "x_end": 575,
+          "fill_ratio_image": 0.0633
         },
         "autumn": {
-          "fill_px": 76,
-          "bar_width_px": 306,
-          "fill_ratio": 0.2484
+          "fill_px": 79,
+          "row_y": 1100,
+          "x_start": 816,
+          "x_end": 894,
+          "fill_ratio_image": 0.0658
         }
       },
-      "pixel_winner": "spring",
-      "runner_up": "autumn",
-      "winner_margin_px": 5,
       "season": "spring",
-      "status": "clear"
+      "runner_up": "autumn",
+      "winner_margin_px": 6,
+      "tie_break_used": false,
+      "status": "verified"
     },
     {
       "rank": 70,
@@ -2640,31 +3192,39 @@
       ],
       "measurements": {
         "winter": {
-          "fill_px": 35,
-          "bar_width_px": 306,
-          "fill_ratio": 0.1144
+          "fill_px": 41,
+          "row_y": 1061,
+          "x_start": 500,
+          "x_end": 540,
+          "fill_ratio_image": 0.0342
         },
         "spring": {
-          "fill_px": 112,
-          "bar_width_px": 306,
-          "fill_ratio": 0.366
+          "fill_px": 116,
+          "row_y": 1051,
+          "x_start": 816,
+          "x_end": 931,
+          "fill_ratio_image": 0.0967
         },
         "summer": {
-          "fill_px": 81,
-          "bar_width_px": 306,
-          "fill_ratio": 0.2647
+          "fill_px": 85,
+          "row_y": 1087,
+          "x_start": 500,
+          "x_end": 584,
+          "fill_ratio_image": 0.0708
         },
         "autumn": {
-          "fill_px": 60,
-          "bar_width_px": 306,
-          "fill_ratio": 0.1961
+          "fill_px": 64,
+          "row_y": 1087,
+          "x_start": 816,
+          "x_end": 879,
+          "fill_ratio_image": 0.0533
         }
       },
-      "pixel_winner": "spring",
+      "season": "spring",
       "runner_up": "summer",
       "winner_margin_px": 31,
-      "season": "spring",
-      "status": "clear"
+      "tie_break_used": false,
+      "status": "verified"
     },
     {
       "rank": 71,
@@ -2678,31 +3238,39 @@
       ],
       "measurements": {
         "winter": {
-          "fill_px": 105,
-          "bar_width_px": 306,
-          "fill_ratio": 0.3431
+          "fill_px": 110,
+          "row_y": 1032,
+          "x_start": 500,
+          "x_end": 609,
+          "fill_ratio_image": 0.0917
         },
         "spring": {
-          "fill_px": 54,
-          "bar_width_px": 306,
-          "fill_ratio": 0.1765
+          "fill_px": 58,
+          "row_y": 1051,
+          "x_start": 816,
+          "x_end": 873,
+          "fill_ratio_image": 0.0483
         },
         "summer": {
-          "fill_px": 28,
-          "bar_width_px": 306,
-          "fill_ratio": 0.0915
+          "fill_px": 32,
+          "row_y": 1087,
+          "x_start": 500,
+          "x_end": 531,
+          "fill_ratio_image": 0.0267
         },
         "autumn": {
-          "fill_px": 106,
-          "bar_width_px": 306,
-          "fill_ratio": 0.3464
+          "fill_px": 110,
+          "row_y": 1112,
+          "x_start": 816,
+          "x_end": 925,
+          "fill_ratio_image": 0.0917
         }
       },
-      "pixel_winner": "autumn",
-      "runner_up": "winter",
-      "winner_margin_px": 1,
-      "season": null,
-      "status": "ambiguous"
+      "season": "winter",
+      "runner_up": "autumn",
+      "winner_margin_px": 0,
+      "tie_break_used": true,
+      "status": "verified"
     },
     {
       "rank": 72,
@@ -2716,31 +3284,39 @@
       ],
       "measurements": {
         "winter": {
-          "fill_px": 32,
-          "bar_width_px": 306,
-          "fill_ratio": 0.1046
+          "fill_px": 37,
+          "row_y": 1032,
+          "x_start": 500,
+          "x_end": 536,
+          "fill_ratio_image": 0.0308
         },
         "spring": {
-          "fill_px": 96,
-          "bar_width_px": 306,
-          "fill_ratio": 0.3137
+          "fill_px": 100,
+          "row_y": 1051,
+          "x_start": 816,
+          "x_end": 915,
+          "fill_ratio_image": 0.0833
         },
         "summer": {
-          "fill_px": 105,
-          "bar_width_px": 306,
-          "fill_ratio": 0.3431
+          "fill_px": 109,
+          "row_y": 1087,
+          "x_start": 500,
+          "x_end": 608,
+          "fill_ratio_image": 0.0908
         },
         "autumn": {
-          "fill_px": 58,
-          "bar_width_px": 306,
-          "fill_ratio": 0.1895
+          "fill_px": 62,
+          "row_y": 1115,
+          "x_start": 816,
+          "x_end": 877,
+          "fill_ratio_image": 0.0517
         }
       },
-      "pixel_winner": "summer",
+      "season": "summer",
       "runner_up": "spring",
       "winner_margin_px": 9,
-      "season": "summer",
-      "status": "clear"
+      "tie_break_used": false,
+      "status": "verified"
     },
     {
       "rank": 73,
@@ -2754,31 +3330,39 @@
       ],
       "measurements": {
         "winter": {
-          "fill_px": 93,
-          "bar_width_px": 306,
-          "fill_ratio": 0.3039
+          "fill_px": 99,
+          "row_y": 1063,
+          "x_start": 500,
+          "x_end": 598,
+          "fill_ratio_image": 0.0825
         },
         "spring": {
-          "fill_px": 75,
-          "bar_width_px": 306,
-          "fill_ratio": 0.2451
+          "fill_px": 79,
+          "row_y": 1051,
+          "x_start": 816,
+          "x_end": 894,
+          "fill_ratio_image": 0.0658
         },
         "summer": {
-          "fill_px": 29,
-          "bar_width_px": 306,
-          "fill_ratio": 0.0948
+          "fill_px": 33,
+          "row_y": 1087,
+          "x_start": 500,
+          "x_end": 532,
+          "fill_ratio_image": 0.0275
         },
         "autumn": {
-          "fill_px": 90,
-          "bar_width_px": 306,
-          "fill_ratio": 0.2941
+          "fill_px": 94,
+          "row_y": 1086,
+          "x_start": 816,
+          "x_end": 909,
+          "fill_ratio_image": 0.0783
         }
       },
-      "pixel_winner": "winter",
-      "runner_up": "autumn",
-      "winner_margin_px": 3,
       "season": "winter",
-      "status": "clear"
+      "runner_up": "autumn",
+      "winner_margin_px": 5,
+      "tie_break_used": false,
+      "status": "verified"
     },
     {
       "rank": 74,
@@ -2792,31 +3376,39 @@
       ],
       "measurements": {
         "winter": {
-          "fill_px": 69,
-          "bar_width_px": 306,
-          "fill_ratio": 0.2255
+          "fill_px": 74,
+          "row_y": 1032,
+          "x_start": 500,
+          "x_end": 573,
+          "fill_ratio_image": 0.0617
         },
         "spring": {
-          "fill_px": 87,
-          "bar_width_px": 306,
-          "fill_ratio": 0.2843
+          "fill_px": 91,
+          "row_y": 1051,
+          "x_start": 816,
+          "x_end": 906,
+          "fill_ratio_image": 0.0758
         },
         "summer": {
-          "fill_px": 47,
-          "bar_width_px": 306,
-          "fill_ratio": 0.1536
+          "fill_px": 52,
+          "row_y": 1087,
+          "x_start": 500,
+          "x_end": 551,
+          "fill_ratio_image": 0.0433
         },
         "autumn": {
-          "fill_px": 82,
-          "bar_width_px": 306,
-          "fill_ratio": 0.268
+          "fill_px": 85,
+          "row_y": 1087,
+          "x_start": 816,
+          "x_end": 900,
+          "fill_ratio_image": 0.0708
         }
       },
-      "pixel_winner": "spring",
-      "runner_up": "autumn",
-      "winner_margin_px": 5,
       "season": "spring",
-      "status": "clear"
+      "runner_up": "autumn",
+      "winner_margin_px": 6,
+      "tie_break_used": false,
+      "status": "verified"
     },
     {
       "rank": 75,
@@ -2830,31 +3422,39 @@
       ],
       "measurements": {
         "winter": {
-          "fill_px": 28,
-          "bar_width_px": 306,
-          "fill_ratio": 0.0915
+          "fill_px": 38,
+          "row_y": 1038,
+          "x_start": 500,
+          "x_end": 537,
+          "fill_ratio_image": 0.0317
         },
         "spring": {
-          "fill_px": 108,
-          "bar_width_px": 306,
-          "fill_ratio": 0.3529
+          "fill_px": 112,
+          "row_y": 1051,
+          "x_start": 816,
+          "x_end": 927,
+          "fill_ratio_image": 0.0933
         },
         "summer": {
-          "fill_px": 89,
-          "bar_width_px": 306,
-          "fill_ratio": 0.2908
+          "fill_px": 94,
+          "row_y": 1087,
+          "x_start": 500,
+          "x_end": 593,
+          "fill_ratio_image": 0.0783
         },
         "autumn": {
-          "fill_px": 66,
-          "bar_width_px": 306,
-          "fill_ratio": 0.2157
+          "fill_px": 70,
+          "row_y": 1087,
+          "x_start": 816,
+          "x_end": 885,
+          "fill_ratio_image": 0.0583
         }
       },
-      "pixel_winner": "spring",
-      "runner_up": "summer",
-      "winner_margin_px": 19,
       "season": "spring",
-      "status": "clear"
+      "runner_up": "summer",
+      "winner_margin_px": 18,
+      "tie_break_used": false,
+      "status": "verified"
     },
     {
       "rank": 76,
@@ -2868,31 +3468,39 @@
       ],
       "measurements": {
         "winter": {
-          "fill_px": 123,
-          "bar_width_px": 306,
-          "fill_ratio": 0.402
+          "fill_px": 129,
+          "row_y": 1056,
+          "x_start": 500,
+          "x_end": 628,
+          "fill_ratio_image": 0.1075
         },
         "spring": {
-          "fill_px": 32,
-          "bar_width_px": 306,
-          "fill_ratio": 0.1046
+          "fill_px": 36,
+          "row_y": 1052,
+          "x_start": 816,
+          "x_end": 851,
+          "fill_ratio_image": 0.03
         },
         "summer": {
-          "fill_px": 28,
-          "bar_width_px": 306,
-          "fill_ratio": 0.0915
+          "fill_px": 32,
+          "row_y": 1087,
+          "x_start": 500,
+          "x_end": 531,
+          "fill_ratio_image": 0.0267
         },
         "autumn": {
-          "fill_px": 118,
-          "bar_width_px": 306,
-          "fill_ratio": 0.3856
+          "fill_px": 123,
+          "row_y": 1112,
+          "x_start": 816,
+          "x_end": 938,
+          "fill_ratio_image": 0.1025
         }
       },
-      "pixel_winner": "winter",
-      "runner_up": "autumn",
-      "winner_margin_px": 5,
       "season": "winter",
-      "status": "clear"
+      "runner_up": "autumn",
+      "winner_margin_px": 6,
+      "tie_break_used": false,
+      "status": "verified"
     },
     {
       "rank": 77,
@@ -2906,31 +3514,39 @@
       ],
       "measurements": {
         "winter": {
-          "fill_px": 39,
-          "bar_width_px": 306,
-          "fill_ratio": 0.1275
+          "fill_px": 44,
+          "row_y": 1032,
+          "x_start": 500,
+          "x_end": 543,
+          "fill_ratio_image": 0.0367
         },
         "spring": {
-          "fill_px": 112,
-          "bar_width_px": 306,
-          "fill_ratio": 0.366
+          "fill_px": 116,
+          "row_y": 1051,
+          "x_start": 816,
+          "x_end": 931,
+          "fill_ratio_image": 0.0967
         },
         "summer": {
-          "fill_px": 77,
-          "bar_width_px": 306,
-          "fill_ratio": 0.2516
+          "fill_px": 82,
+          "row_y": 1087,
+          "x_start": 500,
+          "x_end": 581,
+          "fill_ratio_image": 0.0683
         },
         "autumn": {
-          "fill_px": 60,
-          "bar_width_px": 306,
-          "fill_ratio": 0.1961
+          "fill_px": 64,
+          "row_y": 1087,
+          "x_start": 816,
+          "x_end": 879,
+          "fill_ratio_image": 0.0533
         }
       },
-      "pixel_winner": "spring",
-      "runner_up": "summer",
-      "winner_margin_px": 35,
       "season": "spring",
-      "status": "clear"
+      "runner_up": "summer",
+      "winner_margin_px": 34,
+      "tie_break_used": false,
+      "status": "verified"
     },
     {
       "rank": 78,
@@ -2944,31 +3560,39 @@
       ],
       "measurements": {
         "winter": {
-          "fill_px": 60,
-          "bar_width_px": 306,
-          "fill_ratio": 0.1961
+          "fill_px": 65,
+          "row_y": 1040,
+          "x_start": 500,
+          "x_end": 564,
+          "fill_ratio_image": 0.0542
         },
         "spring": {
-          "fill_px": 93,
-          "bar_width_px": 306,
-          "fill_ratio": 0.3039
+          "fill_px": 97,
+          "row_y": 1051,
+          "x_start": 816,
+          "x_end": 912,
+          "fill_ratio_image": 0.0808
         },
         "summer": {
-          "fill_px": 31,
-          "bar_width_px": 306,
-          "fill_ratio": 0.1013
+          "fill_px": 36,
+          "row_y": 1087,
+          "x_start": 500,
+          "x_end": 535,
+          "fill_ratio_image": 0.03
         },
         "autumn": {
-          "fill_px": 102,
-          "bar_width_px": 306,
-          "fill_ratio": 0.3333
+          "fill_px": 106,
+          "row_y": 1087,
+          "x_start": 816,
+          "x_end": 921,
+          "fill_ratio_image": 0.0883
         }
       },
-      "pixel_winner": "autumn",
+      "season": "autumn",
       "runner_up": "spring",
       "winner_margin_px": 9,
-      "season": "autumn",
-      "status": "clear"
+      "tie_break_used": false,
+      "status": "verified"
     },
     {
       "rank": 79,
@@ -2982,31 +3606,39 @@
       ],
       "measurements": {
         "winter": {
-          "fill_px": 135,
-          "bar_width_px": 306,
-          "fill_ratio": 0.4412
+          "fill_px": 140,
+          "row_y": 1032,
+          "x_start": 500,
+          "x_end": 639,
+          "fill_ratio_image": 0.1167
         },
         "spring": {
-          "fill_px": 32,
-          "bar_width_px": 306,
-          "fill_ratio": 0.1046
+          "fill_px": 36,
+          "row_y": 1052,
+          "x_start": 816,
+          "x_end": 851,
+          "fill_ratio_image": 0.03
         },
         "summer": {
-          "fill_px": 28,
-          "bar_width_px": 306,
-          "fill_ratio": 0.0915
+          "fill_px": 32,
+          "row_y": 1087,
+          "x_start": 500,
+          "x_end": 531,
+          "fill_ratio_image": 0.0267
         },
         "autumn": {
-          "fill_px": 106,
-          "bar_width_px": 306,
-          "fill_ratio": 0.3464
+          "fill_px": 110,
+          "row_y": 1112,
+          "x_start": 816,
+          "x_end": 925,
+          "fill_ratio_image": 0.0917
         }
       },
-      "pixel_winner": "winter",
-      "runner_up": "autumn",
-      "winner_margin_px": 29,
       "season": "winter",
-      "status": "clear"
+      "runner_up": "autumn",
+      "winner_margin_px": 30,
+      "tie_break_used": false,
+      "status": "verified"
     },
     {
       "rank": 80,
@@ -3020,31 +3652,39 @@
       ],
       "measurements": {
         "winter": {
-          "fill_px": 76,
-          "bar_width_px": 306,
-          "fill_ratio": 0.2484
+          "fill_px": 81,
+          "row_y": 1037,
+          "x_start": 500,
+          "x_end": 580,
+          "fill_ratio_image": 0.0675
         },
         "spring": {
-          "fill_px": 78,
-          "bar_width_px": 306,
-          "fill_ratio": 0.2549
+          "fill_px": 82,
+          "row_y": 1051,
+          "x_start": 816,
+          "x_end": 897,
+          "fill_ratio_image": 0.0683
         },
         "summer": {
-          "fill_px": 31,
-          "bar_width_px": 306,
-          "fill_ratio": 0.1013
+          "fill_px": 36,
+          "row_y": 1087,
+          "x_start": 500,
+          "x_end": 535,
+          "fill_ratio_image": 0.03
         },
         "autumn": {
-          "fill_px": 102,
-          "bar_width_px": 306,
-          "fill_ratio": 0.3333
+          "fill_px": 106,
+          "row_y": 1087,
+          "x_start": 816,
+          "x_end": 921,
+          "fill_ratio_image": 0.0883
         }
       },
-      "pixel_winner": "autumn",
+      "season": "autumn",
       "runner_up": "spring",
       "winner_margin_px": 24,
-      "season": "autumn",
-      "status": "clear"
+      "tie_break_used": false,
+      "status": "verified"
     },
     {
       "rank": 81,
@@ -3058,31 +3698,39 @@
       ],
       "measurements": {
         "winter": {
-          "fill_px": 28,
-          "bar_width_px": 306,
-          "fill_ratio": 0.0915
+          "fill_px": 38,
+          "row_y": 1038,
+          "x_start": 500,
+          "x_end": 537,
+          "fill_ratio_image": 0.0317
         },
         "spring": {
-          "fill_px": 118,
-          "bar_width_px": 306,
-          "fill_ratio": 0.3856
+          "fill_px": 122,
+          "row_y": 1051,
+          "x_start": 816,
+          "x_end": 937,
+          "fill_ratio_image": 0.1017
         },
         "summer": {
-          "fill_px": 133,
-          "bar_width_px": 306,
-          "fill_ratio": 0.4346
+          "fill_px": 137,
+          "row_y": 1087,
+          "x_start": 500,
+          "x_end": 636,
+          "fill_ratio_image": 0.1142
         },
         "autumn": {
-          "fill_px": 34,
-          "bar_width_px": 306,
-          "fill_ratio": 0.1111
+          "fill_px": 39,
+          "row_y": 1107,
+          "x_start": 816,
+          "x_end": 854,
+          "fill_ratio_image": 0.0325
         }
       },
-      "pixel_winner": "summer",
+      "season": "summer",
       "runner_up": "spring",
       "winner_margin_px": 15,
-      "season": "summer",
-      "status": "clear"
+      "tie_break_used": false,
+      "status": "verified"
     },
     {
       "rank": 82,
@@ -3096,31 +3744,39 @@
       ],
       "measurements": {
         "winter": {
-          "fill_px": 1,
-          "bar_width_px": 306,
-          "fill_ratio": 0.0033
+          "fill_px": 153,
+          "row_y": 1053,
+          "x_start": 500,
+          "x_end": 652,
+          "fill_ratio_image": 0.1275
         },
         "spring": {
-          "fill_px": 1,
-          "bar_width_px": 306,
-          "fill_ratio": 0.0033
+          "fill_px": 32,
+          "row_y": 1053,
+          "x_start": 816,
+          "x_end": 847,
+          "fill_ratio_image": 0.0267
         },
         "summer": {
-          "fill_px": 28,
-          "bar_width_px": 306,
-          "fill_ratio": 0.0915
+          "fill_px": 32,
+          "row_y": 1125,
+          "x_start": 500,
+          "x_end": 531,
+          "fill_ratio_image": 0.0267
         },
         "autumn": {
-          "fill_px": 28,
-          "bar_width_px": 306,
-          "fill_ratio": 0.0915
+          "fill_px": 119,
+          "row_y": 1125,
+          "x_start": 816,
+          "x_end": 934,
+          "fill_ratio_image": 0.0992
         }
       },
-      "pixel_winner": "summer",
+      "season": "winter",
       "runner_up": "autumn",
-      "winner_margin_px": 0,
-      "season": null,
-      "status": "ambiguous"
+      "winner_margin_px": 34,
+      "tie_break_used": false,
+      "status": "verified"
     },
     {
       "rank": 83,
@@ -3134,31 +3790,39 @@
       ],
       "measurements": {
         "winter": {
-          "fill_px": 127,
-          "bar_width_px": 306,
-          "fill_ratio": 0.415
+          "fill_px": 133,
+          "row_y": 1060,
+          "x_start": 500,
+          "x_end": 632,
+          "fill_ratio_image": 0.1108
         },
         "spring": {
-          "fill_px": 32,
-          "bar_width_px": 306,
-          "fill_ratio": 0.1046
+          "fill_px": 36,
+          "row_y": 1052,
+          "x_start": 816,
+          "x_end": 851,
+          "fill_ratio_image": 0.03
         },
         "summer": {
-          "fill_px": 28,
-          "bar_width_px": 306,
-          "fill_ratio": 0.0915
+          "fill_px": 32,
+          "row_y": 1087,
+          "x_start": 500,
+          "x_end": 531,
+          "fill_ratio_image": 0.0267
         },
         "autumn": {
-          "fill_px": 118,
-          "bar_width_px": 306,
-          "fill_ratio": 0.3856
+          "fill_px": 123,
+          "row_y": 1112,
+          "x_start": 816,
+          "x_end": 938,
+          "fill_ratio_image": 0.1025
         }
       },
-      "pixel_winner": "winter",
-      "runner_up": "autumn",
-      "winner_margin_px": 9,
       "season": "winter",
-      "status": "clear"
+      "runner_up": "autumn",
+      "winner_margin_px": 10,
+      "tie_break_used": false,
+      "status": "verified"
     },
     {
       "rank": 84,
@@ -3172,31 +3836,39 @@
       ],
       "measurements": {
         "winter": {
-          "fill_px": 77,
-          "bar_width_px": 306,
-          "fill_ratio": 0.2516
+          "fill_px": 83,
+          "row_y": 1037,
+          "x_start": 500,
+          "x_end": 582,
+          "fill_ratio_image": 0.0692
         },
         "spring": {
-          "fill_px": 82,
-          "bar_width_px": 306,
-          "fill_ratio": 0.268
+          "fill_px": 85,
+          "row_y": 1051,
+          "x_start": 816,
+          "x_end": 900,
+          "fill_ratio_image": 0.0708
         },
         "summer": {
-          "fill_px": 45,
-          "bar_width_px": 306,
-          "fill_ratio": 0.1471
+          "fill_px": 50,
+          "row_y": 1107,
+          "x_start": 500,
+          "x_end": 549,
+          "fill_ratio_image": 0.0417
         },
         "autumn": {
-          "fill_px": 84,
-          "bar_width_px": 306,
-          "fill_ratio": 0.2745
+          "fill_px": 88,
+          "row_y": 1086,
+          "x_start": 816,
+          "x_end": 903,
+          "fill_ratio_image": 0.0733
         }
       },
-      "pixel_winner": "autumn",
+      "season": "autumn",
       "runner_up": "spring",
-      "winner_margin_px": 2,
-      "season": null,
-      "status": "ambiguous"
+      "winner_margin_px": 3,
+      "tie_break_used": false,
+      "status": "verified"
     },
     {
       "rank": 85,
@@ -3210,31 +3882,39 @@
       ],
       "measurements": {
         "winter": {
-          "fill_px": 69,
-          "bar_width_px": 306,
-          "fill_ratio": 0.2255
+          "fill_px": 76,
+          "row_y": 1054,
+          "x_start": 500,
+          "x_end": 575,
+          "fill_ratio_image": 0.0633
         },
         "spring": {
-          "fill_px": 78,
-          "bar_width_px": 306,
-          "fill_ratio": 0.2549
+          "fill_px": 82,
+          "row_y": 1032,
+          "x_start": 816,
+          "x_end": 897,
+          "fill_ratio_image": 0.0683
         },
         "summer": {
-          "fill_px": 47,
-          "bar_width_px": 306,
-          "fill_ratio": 0.1536
+          "fill_px": 52,
+          "row_y": 1100,
+          "x_start": 500,
+          "x_end": 551,
+          "fill_ratio_image": 0.0433
         },
         "autumn": {
-          "fill_px": 90,
-          "bar_width_px": 306,
-          "fill_ratio": 0.2941
+          "fill_px": 94,
+          "row_y": 1100,
+          "x_start": 816,
+          "x_end": 909,
+          "fill_ratio_image": 0.0783
         }
       },
-      "pixel_winner": "autumn",
+      "season": "autumn",
       "runner_up": "spring",
       "winner_margin_px": 12,
-      "season": "autumn",
-      "status": "clear"
+      "tie_break_used": false,
+      "status": "verified"
     },
     {
       "rank": 86,
@@ -3248,31 +3928,39 @@
       ],
       "measurements": {
         "winter": {
-          "fill_px": 63,
-          "bar_width_px": 306,
-          "fill_ratio": 0.2059
+          "fill_px": 69,
+          "row_y": 1040,
+          "x_start": 500,
+          "x_end": 568,
+          "fill_ratio_image": 0.0575
         },
         "spring": {
-          "fill_px": 84,
-          "bar_width_px": 306,
-          "fill_ratio": 0.2745
+          "fill_px": 88,
+          "row_y": 1051,
+          "x_start": 816,
+          "x_end": 903,
+          "fill_ratio_image": 0.0733
         },
         "summer": {
-          "fill_px": 45,
-          "bar_width_px": 306,
-          "fill_ratio": 0.1471
+          "fill_px": 50,
+          "row_y": 1107,
+          "x_start": 500,
+          "x_end": 549,
+          "fill_ratio_image": 0.0417
         },
         "autumn": {
-          "fill_px": 94,
-          "bar_width_px": 306,
-          "fill_ratio": 0.3072
+          "fill_px": 98,
+          "row_y": 1109,
+          "x_start": 816,
+          "x_end": 913,
+          "fill_ratio_image": 0.0817
         }
       },
-      "pixel_winner": "autumn",
+      "season": "autumn",
       "runner_up": "spring",
       "winner_margin_px": 10,
-      "season": "autumn",
-      "status": "clear"
+      "tie_break_used": false,
+      "status": "verified"
     },
     {
       "rank": 87,
@@ -3286,31 +3974,39 @@
       ],
       "measurements": {
         "winter": {
-          "fill_px": 139,
-          "bar_width_px": 306,
-          "fill_ratio": 0.4542
+          "fill_px": 144,
+          "row_y": 1032,
+          "x_start": 500,
+          "x_end": 643,
+          "fill_ratio_image": 0.12
         },
         "spring": {
-          "fill_px": 28,
-          "bar_width_px": 306,
-          "fill_ratio": 0.0915
+          "fill_px": 32,
+          "row_y": 1032,
+          "x_start": 816,
+          "x_end": 847,
+          "fill_ratio_image": 0.0267
         },
         "summer": {
-          "fill_px": 27,
-          "bar_width_px": 306,
-          "fill_ratio": 0.0882
+          "fill_px": 32,
+          "row_y": 1100,
+          "x_start": 500,
+          "x_end": 531,
+          "fill_ratio_image": 0.0267
         },
         "autumn": {
-          "fill_px": 108,
-          "bar_width_px": 306,
-          "fill_ratio": 0.3529
+          "fill_px": 112,
+          "row_y": 1100,
+          "x_start": 816,
+          "x_end": 927,
+          "fill_ratio_image": 0.0933
         }
       },
-      "pixel_winner": "winter",
-      "runner_up": "autumn",
-      "winner_margin_px": 31,
       "season": "winter",
-      "status": "clear"
+      "runner_up": "autumn",
+      "winner_margin_px": 32,
+      "tie_break_used": false,
+      "status": "verified"
     },
     {
       "rank": 88,
@@ -3324,31 +4020,39 @@
       ],
       "measurements": {
         "winter": {
-          "fill_px": 32,
-          "bar_width_px": 306,
-          "fill_ratio": 0.1046
+          "fill_px": 37,
+          "row_y": 1032,
+          "x_start": 500,
+          "x_end": 536,
+          "fill_ratio_image": 0.0308
         },
         "spring": {
-          "fill_px": 78,
-          "bar_width_px": 306,
-          "fill_ratio": 0.2549
+          "fill_px": 82,
+          "row_y": 1051,
+          "x_start": 816,
+          "x_end": 897,
+          "fill_ratio_image": 0.0683
         },
         "summer": {
-          "fill_px": 124,
-          "bar_width_px": 306,
-          "fill_ratio": 0.4052
+          "fill_px": 128,
+          "row_y": 1087,
+          "x_start": 500,
+          "x_end": 627,
+          "fill_ratio_image": 0.1067
         },
         "autumn": {
-          "fill_px": 54,
-          "bar_width_px": 306,
-          "fill_ratio": 0.1765
+          "fill_px": 58,
+          "row_y": 1087,
+          "x_start": 816,
+          "x_end": 873,
+          "fill_ratio_image": 0.0483
         }
       },
-      "pixel_winner": "summer",
+      "season": "summer",
       "runner_up": "spring",
       "winner_margin_px": 46,
-      "season": "summer",
-      "status": "clear"
+      "tie_break_used": false,
+      "status": "verified"
     },
     {
       "rank": 89,
@@ -3362,31 +4066,39 @@
       ],
       "measurements": {
         "winter": {
-          "fill_px": 107,
-          "bar_width_px": 306,
-          "fill_ratio": 0.3497
+          "fill_px": 113,
+          "row_y": 1056,
+          "x_start": 500,
+          "x_end": 612,
+          "fill_ratio_image": 0.0942
         },
         "spring": {
-          "fill_px": 58,
-          "bar_width_px": 306,
-          "fill_ratio": 0.1895
+          "fill_px": 61,
+          "row_y": 1051,
+          "x_start": 816,
+          "x_end": 876,
+          "fill_ratio_image": 0.0508
         },
         "summer": {
-          "fill_px": 28,
-          "bar_width_px": 306,
-          "fill_ratio": 0.0915
+          "fill_px": 32,
+          "row_y": 1087,
+          "x_start": 500,
+          "x_end": 531,
+          "fill_ratio_image": 0.0267
         },
         "autumn": {
-          "fill_px": 108,
-          "bar_width_px": 306,
-          "fill_ratio": 0.3529
+          "fill_px": 112,
+          "row_y": 1087,
+          "x_start": 816,
+          "x_end": 927,
+          "fill_ratio_image": 0.0933
         }
       },
-      "pixel_winner": "autumn",
-      "runner_up": "winter",
+      "season": "winter",
+      "runner_up": "autumn",
       "winner_margin_px": 1,
-      "season": null,
-      "status": "ambiguous"
+      "tie_break_used": false,
+      "status": "verified"
     },
     {
       "rank": 90,
@@ -3400,31 +4112,39 @@
       ],
       "measurements": {
         "winter": {
-          "fill_px": 47,
-          "bar_width_px": 306,
-          "fill_ratio": 0.1536
+          "fill_px": 53,
+          "row_y": 1046,
+          "x_start": 500,
+          "x_end": 552,
+          "fill_ratio_image": 0.0442
         },
         "spring": {
-          "fill_px": 70,
-          "bar_width_px": 306,
-          "fill_ratio": 0.2288
+          "fill_px": 73,
+          "row_y": 1032,
+          "x_start": 816,
+          "x_end": 888,
+          "fill_ratio_image": 0.0608
         },
         "summer": {
-          "fill_px": 105,
-          "bar_width_px": 306,
-          "fill_ratio": 0.3431
+          "fill_px": 109,
+          "row_y": 1100,
+          "x_start": 500,
+          "x_end": 608,
+          "fill_ratio_image": 0.0908
         },
         "autumn": {
-          "fill_px": 64,
-          "bar_width_px": 306,
-          "fill_ratio": 0.2092
+          "fill_px": 67,
+          "row_y": 1100,
+          "x_start": 816,
+          "x_end": 882,
+          "fill_ratio_image": 0.0558
         }
       },
-      "pixel_winner": "summer",
-      "runner_up": "spring",
-      "winner_margin_px": 35,
       "season": "summer",
-      "status": "clear"
+      "runner_up": "spring",
+      "winner_margin_px": 36,
+      "tie_break_used": false,
+      "status": "verified"
     },
     {
       "rank": 91,
@@ -3438,31 +4158,39 @@
       ],
       "measurements": {
         "winter": {
-          "fill_px": 27,
-          "bar_width_px": 306,
-          "fill_ratio": 0.0882
+          "fill_px": 38,
+          "row_y": 1049,
+          "x_start": 500,
+          "x_end": 537,
+          "fill_ratio_image": 0.0317
         },
         "spring": {
-          "fill_px": 102,
-          "bar_width_px": 306,
-          "fill_ratio": 0.3333
+          "fill_px": 106,
+          "row_y": 1032,
+          "x_start": 816,
+          "x_end": 921,
+          "fill_ratio_image": 0.0883
         },
         "summer": {
-          "fill_px": 163,
-          "bar_width_px": 306,
-          "fill_ratio": 0.5327
+          "fill_px": 167,
+          "row_y": 1100,
+          "x_start": 500,
+          "x_end": 666,
+          "fill_ratio_image": 0.1392
         },
         "autumn": {
-          "fill_px": 28,
-          "bar_width_px": 306,
-          "fill_ratio": 0.0915
+          "fill_px": 39,
+          "row_y": 1130,
+          "x_start": 816,
+          "x_end": 854,
+          "fill_ratio_image": 0.0325
         }
       },
-      "pixel_winner": "summer",
+      "season": "summer",
       "runner_up": "spring",
       "winner_margin_px": 61,
-      "season": "summer",
-      "status": "clear"
+      "tie_break_used": false,
+      "status": "verified"
     },
     {
       "rank": 92,
@@ -3476,31 +4204,39 @@
       ],
       "measurements": {
         "winter": {
-          "fill_px": 99,
-          "bar_width_px": 306,
-          "fill_ratio": 0.3235
+          "fill_px": 105,
+          "row_y": 1060,
+          "x_start": 500,
+          "x_end": 604,
+          "fill_ratio_image": 0.0875
         },
         "spring": {
-          "fill_px": 63,
-          "bar_width_px": 306,
-          "fill_ratio": 0.2059
+          "fill_px": 67,
+          "row_y": 1051,
+          "x_start": 816,
+          "x_end": 882,
+          "fill_ratio_image": 0.0558
         },
         "summer": {
-          "fill_px": 29,
-          "bar_width_px": 306,
-          "fill_ratio": 0.0948
+          "fill_px": 33,
+          "row_y": 1087,
+          "x_start": 500,
+          "x_end": 532,
+          "fill_ratio_image": 0.0275
         },
         "autumn": {
-          "fill_px": 96,
-          "bar_width_px": 306,
-          "fill_ratio": 0.3137
+          "fill_px": 100,
+          "row_y": 1086,
+          "x_start": 816,
+          "x_end": 915,
+          "fill_ratio_image": 0.0833
         }
       },
-      "pixel_winner": "winter",
-      "runner_up": "autumn",
-      "winner_margin_px": 3,
       "season": "winter",
-      "status": "clear"
+      "runner_up": "autumn",
+      "winner_margin_px": 5,
+      "tie_break_used": false,
+      "status": "verified"
     },
     {
       "rank": 93,
@@ -3514,31 +4250,39 @@
       ],
       "measurements": {
         "winter": {
-          "fill_px": 127,
-          "bar_width_px": 306,
-          "fill_ratio": 0.415
+          "fill_px": 133,
+          "row_y": 1058,
+          "x_start": 500,
+          "x_end": 632,
+          "fill_ratio_image": 0.1108
         },
         "spring": {
-          "fill_px": 36,
-          "bar_width_px": 306,
-          "fill_ratio": 0.1176
+          "fill_px": 40,
+          "row_y": 1051,
+          "x_start": 816,
+          "x_end": 855,
+          "fill_ratio_image": 0.0333
         },
         "summer": {
-          "fill_px": 28,
-          "bar_width_px": 306,
-          "fill_ratio": 0.0915
+          "fill_px": 32,
+          "row_y": 1087,
+          "x_start": 500,
+          "x_end": 531,
+          "fill_ratio_image": 0.0267
         },
         "autumn": {
-          "fill_px": 118,
-          "bar_width_px": 306,
-          "fill_ratio": 0.3856
+          "fill_px": 123,
+          "row_y": 1112,
+          "x_start": 816,
+          "x_end": 938,
+          "fill_ratio_image": 0.1025
         }
       },
-      "pixel_winner": "winter",
-      "runner_up": "autumn",
-      "winner_margin_px": 9,
       "season": "winter",
-      "status": "clear"
+      "runner_up": "autumn",
+      "winner_margin_px": 10,
+      "tie_break_used": false,
+      "status": "verified"
     },
     {
       "rank": 94,
@@ -3552,31 +4296,39 @@
       ],
       "measurements": {
         "winter": {
-          "fill_px": 129,
-          "bar_width_px": 306,
-          "fill_ratio": 0.4216
+          "fill_px": 135,
+          "row_y": 1060,
+          "x_start": 500,
+          "x_end": 634,
+          "fill_ratio_image": 0.1125
         },
         "spring": {
-          "fill_px": 30,
-          "bar_width_px": 306,
-          "fill_ratio": 0.098
+          "fill_px": 32,
+          "row_y": 1051,
+          "x_start": 816,
+          "x_end": 847,
+          "fill_ratio_image": 0.0267
         },
         "summer": {
-          "fill_px": 28,
-          "bar_width_px": 306,
-          "fill_ratio": 0.0915
+          "fill_px": 32,
+          "row_y": 1087,
+          "x_start": 500,
+          "x_end": 531,
+          "fill_ratio_image": 0.0267
         },
         "autumn": {
-          "fill_px": 122,
-          "bar_width_px": 306,
-          "fill_ratio": 0.3987
+          "fill_px": 125,
+          "row_y": 1087,
+          "x_start": 816,
+          "x_end": 940,
+          "fill_ratio_image": 0.1042
         }
       },
-      "pixel_winner": "winter",
-      "runner_up": "autumn",
-      "winner_margin_px": 7,
       "season": "winter",
-      "status": "clear"
+      "runner_up": "autumn",
+      "winner_margin_px": 10,
+      "tie_break_used": false,
+      "status": "verified"
     },
     {
       "rank": 95,
@@ -3590,31 +4342,39 @@
       ],
       "measurements": {
         "winter": {
-          "fill_px": 102,
-          "bar_width_px": 306,
-          "fill_ratio": 0.3333
+          "fill_px": 107,
+          "row_y": 1037,
+          "x_start": 500,
+          "x_end": 606,
+          "fill_ratio_image": 0.0892
         },
         "spring": {
-          "fill_px": 66,
-          "bar_width_px": 306,
-          "fill_ratio": 0.2157
+          "fill_px": 70,
+          "row_y": 1055,
+          "x_start": 816,
+          "x_end": 885,
+          "fill_ratio_image": 0.0583
         },
         "summer": {
-          "fill_px": 28,
-          "bar_width_px": 306,
-          "fill_ratio": 0.0915
+          "fill_px": 32,
+          "row_y": 1087,
+          "x_start": 500,
+          "x_end": 531,
+          "fill_ratio_image": 0.0267
         },
         "autumn": {
-          "fill_px": 100,
-          "bar_width_px": 306,
-          "fill_ratio": 0.3268
+          "fill_px": 103,
+          "row_y": 1086,
+          "x_start": 816,
+          "x_end": 918,
+          "fill_ratio_image": 0.0858
         }
       },
-      "pixel_winner": "winter",
+      "season": "winter",
       "runner_up": "autumn",
-      "winner_margin_px": 2,
-      "season": null,
-      "status": "ambiguous"
+      "winner_margin_px": 4,
+      "tie_break_used": false,
+      "status": "verified"
     },
     {
       "rank": 96,
@@ -3628,31 +4388,39 @@
       ],
       "measurements": {
         "winter": {
-          "fill_px": 29,
-          "bar_width_px": 306,
-          "fill_ratio": 0.0948
+          "fill_px": 38,
+          "row_y": 1036,
+          "x_start": 500,
+          "x_end": 537,
+          "fill_ratio_image": 0.0317
         },
         "spring": {
-          "fill_px": 84,
-          "bar_width_px": 306,
-          "fill_ratio": 0.2745
+          "fill_px": 88,
+          "row_y": 1051,
+          "x_start": 816,
+          "x_end": 903,
+          "fill_ratio_image": 0.0733
         },
         "summer": {
-          "fill_px": 129,
-          "bar_width_px": 306,
-          "fill_ratio": 0.4216
+          "fill_px": 134,
+          "row_y": 1087,
+          "x_start": 500,
+          "x_end": 633,
+          "fill_ratio_image": 0.1117
         },
         "autumn": {
-          "fill_px": 46,
-          "bar_width_px": 306,
-          "fill_ratio": 0.1503
+          "fill_px": 49,
+          "row_y": 1087,
+          "x_start": 816,
+          "x_end": 864,
+          "fill_ratio_image": 0.0408
         }
       },
-      "pixel_winner": "summer",
-      "runner_up": "spring",
-      "winner_margin_px": 45,
       "season": "summer",
-      "status": "clear"
+      "runner_up": "spring",
+      "winner_margin_px": 46,
+      "tie_break_used": false,
+      "status": "verified"
     },
     {
       "rank": 97,
@@ -3666,31 +4434,39 @@
       ],
       "measurements": {
         "winter": {
-          "fill_px": 27,
-          "bar_width_px": 306,
-          "fill_ratio": 0.0882
+          "fill_px": 38,
+          "row_y": 1049,
+          "x_start": 500,
+          "x_end": 537,
+          "fill_ratio_image": 0.0317
         },
         "spring": {
-          "fill_px": 115,
-          "bar_width_px": 306,
-          "fill_ratio": 0.3758
+          "fill_px": 119,
+          "row_y": 1032,
+          "x_start": 816,
+          "x_end": 934,
+          "fill_ratio_image": 0.0992
         },
         "summer": {
-          "fill_px": 121,
-          "bar_width_px": 306,
-          "fill_ratio": 0.3954
+          "fill_px": 125,
+          "row_y": 1100,
+          "x_start": 500,
+          "x_end": 624,
+          "fill_ratio_image": 0.1042
         },
         "autumn": {
-          "fill_px": 36,
-          "bar_width_px": 306,
-          "fill_ratio": 0.1176
+          "fill_px": 40,
+          "row_y": 1100,
+          "x_start": 816,
+          "x_end": 855,
+          "fill_ratio_image": 0.0333
         }
       },
-      "pixel_winner": "summer",
+      "season": "summer",
       "runner_up": "spring",
       "winner_margin_px": 6,
-      "season": "summer",
-      "status": "clear"
+      "tie_break_used": false,
+      "status": "verified"
     },
     {
       "rank": 98,
@@ -3704,31 +4480,39 @@
       ],
       "measurements": {
         "winter": {
-          "fill_px": 129,
-          "bar_width_px": 306,
-          "fill_ratio": 0.4216
+          "fill_px": 135,
+          "row_y": 1060,
+          "x_start": 500,
+          "x_end": 634,
+          "fill_ratio_image": 0.1125
         },
         "spring": {
-          "fill_px": 36,
-          "bar_width_px": 306,
-          "fill_ratio": 0.1176
+          "fill_px": 40,
+          "row_y": 1051,
+          "x_start": 816,
+          "x_end": 855,
+          "fill_ratio_image": 0.0333
         },
         "summer": {
-          "fill_px": 28,
-          "bar_width_px": 306,
-          "fill_ratio": 0.0915
+          "fill_px": 32,
+          "row_y": 1087,
+          "x_start": 500,
+          "x_end": 531,
+          "fill_ratio_image": 0.0267
         },
         "autumn": {
-          "fill_px": 112,
-          "bar_width_px": 306,
-          "fill_ratio": 0.366
+          "fill_px": 116,
+          "row_y": 1086,
+          "x_start": 816,
+          "x_end": 931,
+          "fill_ratio_image": 0.0967
         }
       },
-      "pixel_winner": "winter",
-      "runner_up": "autumn",
-      "winner_margin_px": 17,
       "season": "winter",
-      "status": "clear"
+      "runner_up": "autumn",
+      "winner_margin_px": 19,
+      "tie_break_used": false,
+      "status": "verified"
     },
     {
       "rank": 99,
@@ -3742,31 +4526,39 @@
       ],
       "measurements": {
         "winter": {
-          "fill_px": 54,
-          "bar_width_px": 306,
-          "fill_ratio": 0.1765
+          "fill_px": 59,
+          "row_y": 1032,
+          "x_start": 500,
+          "x_end": 558,
+          "fill_ratio_image": 0.0492
         },
         "spring": {
-          "fill_px": 82,
-          "bar_width_px": 306,
-          "fill_ratio": 0.268
+          "fill_px": 85,
+          "row_y": 1051,
+          "x_start": 816,
+          "x_end": 900,
+          "fill_ratio_image": 0.0708
         },
         "summer": {
-          "fill_px": 75,
-          "bar_width_px": 306,
-          "fill_ratio": 0.2451
+          "fill_px": 80,
+          "row_y": 1087,
+          "x_start": 500,
+          "x_end": 579,
+          "fill_ratio_image": 0.0667
         },
         "autumn": {
-          "fill_px": 76,
-          "bar_width_px": 306,
-          "fill_ratio": 0.2484
+          "fill_px": 79,
+          "row_y": 1087,
+          "x_start": 816,
+          "x_end": 894,
+          "fill_ratio_image": 0.0658
         }
       },
-      "pixel_winner": "spring",
-      "runner_up": "autumn",
-      "winner_margin_px": 6,
       "season": "spring",
-      "status": "clear"
+      "runner_up": "summer",
+      "winner_margin_px": 5,
+      "tie_break_used": false,
+      "status": "verified"
     },
     {
       "rank": 100,
@@ -3780,31 +4572,39 @@
       ],
       "measurements": {
         "winter": {
-          "fill_px": 129,
-          "bar_width_px": 306,
-          "fill_ratio": 0.4216
+          "fill_px": 135,
+          "row_y": 1060,
+          "x_start": 500,
+          "x_end": 634,
+          "fill_ratio_image": 0.1125
         },
         "spring": {
-          "fill_px": 32,
-          "bar_width_px": 306,
-          "fill_ratio": 0.1046
+          "fill_px": 36,
+          "row_y": 1052,
+          "x_start": 816,
+          "x_end": 851,
+          "fill_ratio_image": 0.03
         },
         "summer": {
-          "fill_px": 28,
-          "bar_width_px": 306,
-          "fill_ratio": 0.0915
+          "fill_px": 32,
+          "row_y": 1087,
+          "x_start": 500,
+          "x_end": 531,
+          "fill_ratio_image": 0.0267
         },
         "autumn": {
-          "fill_px": 116,
-          "bar_width_px": 306,
-          "fill_ratio": 0.3791
+          "fill_px": 119,
+          "row_y": 1086,
+          "x_start": 816,
+          "x_end": 934,
+          "fill_ratio_image": 0.0992
         }
       },
-      "pixel_winner": "winter",
-      "runner_up": "autumn",
-      "winner_margin_px": 13,
       "season": "winter",
-      "status": "clear"
+      "runner_up": "autumn",
+      "winner_margin_px": 16,
+      "tie_break_used": false,
+      "status": "verified"
     }
   ],
   "failures": []
