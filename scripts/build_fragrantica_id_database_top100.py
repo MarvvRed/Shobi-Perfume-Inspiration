@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# Canonical Top100 builder for the official Fragrantica ID Mapping Rule.
 import csv
 import json
 import re
