@@ -1,19 +1,16 @@
 {
-  "schema_version": 2,
+  "schema_version": 3,
   "method": "Fragrantica ID Mapping Rule",
-  "built_at": "2026-08-22T13:59:08.297251+00:00",
+  "built_at": "2026-08-22T14:51:31.406351+00:00",
   "ranking_authority": "Shobi Master Database/shobi-master-current.csv",
   "identity_join_key": "shobi_code",
-  "identity_authorities": [
-    "Fragrantica ID Database/mappings/bestseller-001-100.json",
-    "Fragrantica ID Database/rebuild-top100/new-identities-verified.json"
-  ],
   "target_count": 100,
   "mapped_count": 100,
   "identity_verified_count": 100,
-  "main_notes_verified_count": 90,
+  "main_notes_verified_count": 100,
   "gender_verified_count": 100,
   "season_verified_count": 0,
+  "season_merge_guard": "requires top100-seasons.json verified_count=100",
   "records": [
     {
       "rank": 1,
@@ -67,6 +64,7 @@
       ],
       "gender": "unisex",
       "season": null,
+      "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
         "fragrantica_identity": true,
@@ -129,6 +127,7 @@
       ],
       "gender": "unisex",
       "season": null,
+      "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
         "fragrantica_identity": true,
@@ -191,6 +190,7 @@
       ],
       "gender": "female",
       "season": null,
+      "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
         "fragrantica_identity": true,
@@ -253,6 +253,7 @@
       ],
       "gender": "unisex",
       "season": null,
+      "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
         "fragrantica_identity": true,
@@ -301,6 +302,7 @@
       ],
       "gender": "female",
       "season": null,
+      "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
         "fragrantica_identity": true,
@@ -363,6 +365,7 @@
       ],
       "gender": "unisex",
       "season": null,
+      "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
         "fragrantica_identity": true,
@@ -425,6 +428,7 @@
       ],
       "gender": "unisex",
       "season": null,
+      "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
         "fragrantica_identity": true,
@@ -487,6 +491,7 @@
       ],
       "gender": "unisex",
       "season": null,
+      "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
         "fragrantica_identity": true,
@@ -549,6 +554,7 @@
       ],
       "gender": "female",
       "season": null,
+      "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
         "fragrantica_identity": true,
@@ -611,6 +617,7 @@
       ],
       "gender": "female",
       "season": null,
+      "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
         "fragrantica_identity": true,
@@ -673,6 +680,7 @@
       ],
       "gender": "unisex",
       "season": null,
+      "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
         "fragrantica_identity": true,
@@ -735,6 +743,7 @@
       ],
       "gender": "unisex",
       "season": null,
+      "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
         "fragrantica_identity": true,
@@ -797,6 +806,7 @@
       ],
       "gender": "male",
       "season": null,
+      "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
         "fragrantica_identity": true,
@@ -859,6 +869,7 @@
       ],
       "gender": "female",
       "season": null,
+      "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
         "fragrantica_identity": true,
@@ -921,6 +932,7 @@
       ],
       "gender": "female",
       "season": null,
+      "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
         "fragrantica_identity": true,
@@ -983,6 +995,7 @@
       ],
       "gender": "unisex",
       "season": null,
+      "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
         "fragrantica_identity": true,
@@ -1045,6 +1058,7 @@
       ],
       "gender": "unisex",
       "season": null,
+      "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
         "fragrantica_identity": true,
@@ -1107,6 +1121,7 @@
       ],
       "gender": "unisex",
       "season": null,
+      "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
         "fragrantica_identity": true,
@@ -1169,6 +1184,7 @@
       ],
       "gender": "unisex",
       "season": null,
+      "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
         "fragrantica_identity": true,
@@ -1231,6 +1247,7 @@
       ],
       "gender": "female",
       "season": null,
+      "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
         "fragrantica_identity": true,
@@ -1293,6 +1310,7 @@
       ],
       "gender": "male",
       "season": null,
+      "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
         "fragrantica_identity": true,
@@ -1355,6 +1373,7 @@
       ],
       "gender": "unisex",
       "season": null,
+      "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
         "fragrantica_identity": true,
@@ -1417,6 +1436,7 @@
       ],
       "gender": "female",
       "season": null,
+      "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
         "fragrantica_identity": true,
@@ -1451,6 +1471,7 @@
       ],
       "gender": "unisex",
       "season": null,
+      "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
         "fragrantica_identity": true,
@@ -1513,6 +1534,7 @@
       ],
       "gender": "male",
       "season": null,
+      "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
         "fragrantica_identity": true,
@@ -1575,6 +1597,7 @@
       ],
       "gender": "unisex",
       "season": null,
+      "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
         "fragrantica_identity": true,
@@ -1637,6 +1660,7 @@
       ],
       "gender": "female",
       "season": null,
+      "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
         "fragrantica_identity": true,
@@ -1699,6 +1723,7 @@
       ],
       "gender": "female",
       "season": null,
+      "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
         "fragrantica_identity": true,
@@ -1761,6 +1786,7 @@
       ],
       "gender": "female",
       "season": null,
+      "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
         "fragrantica_identity": true,
@@ -1823,6 +1849,7 @@
       ],
       "gender": "unisex",
       "season": null,
+      "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
         "fragrantica_identity": true,
@@ -1885,6 +1912,7 @@
       ],
       "gender": "unisex",
       "season": null,
+      "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
         "fragrantica_identity": true,
@@ -1947,6 +1975,7 @@
       ],
       "gender": "unisex",
       "season": null,
+      "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
         "fragrantica_identity": true,
@@ -2009,6 +2038,7 @@
       ],
       "gender": "female",
       "season": null,
+      "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
         "fragrantica_identity": true,
@@ -2071,6 +2101,7 @@
       ],
       "gender": "unisex",
       "season": null,
+      "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
         "fragrantica_identity": true,
@@ -2133,6 +2164,7 @@
       ],
       "gender": "female",
       "season": null,
+      "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
         "fragrantica_identity": true,
@@ -2195,6 +2227,7 @@
       ],
       "gender": "unisex",
       "season": null,
+      "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
         "fragrantica_identity": true,
@@ -2216,14 +2249,27 @@
       "fragrantica_url": "https://www.fragrantica.com/perfume/Amouage/Guidance-78656.html",
       "social_card_url": "https://fimgs.net/mdimg/perfume-social-cards/en-p_c_78656.jpeg",
       "image_url": "https://fimgs.net/mdimg/perfume-thumbs/dark-375x500.78656.avif",
-      "main_notes": [],
-      "main_note_evidence": [],
+      "main_notes": [
+        "Sandalwood",
+        "Hazelnut",
+        "Pear",
+        "Vanilla",
+        "Akigalawood",
+        "Olibanum (Frankincense)"
+      ],
+      "main_note_evidence": [
+        {
+          "source": "verified social-card normalization",
+          "detail": "social-card OCR normalized and manually verified"
+        }
+      ],
       "gender": "unisex",
       "season": null,
+      "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
         "fragrantica_identity": true,
-        "main_notes": false,
+        "main_notes": true,
         "gender": true,
         "season": false,
         "mapping_join_key": "shobi_code",
@@ -2282,6 +2328,7 @@
       ],
       "gender": "unisex",
       "season": null,
+      "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
         "fragrantica_identity": true,
@@ -2344,6 +2391,7 @@
       ],
       "gender": "unisex",
       "season": null,
+      "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
         "fragrantica_identity": true,
@@ -2365,14 +2413,27 @@
       "fragrantica_url": "https://www.fragrantica.com/perfume/Kenzo/Flower-by-Kenzo-L-Elixir-31539.html",
       "social_card_url": "https://fimgs.net/mdimg/perfume-social-cards/en-p_c_31539.jpeg",
       "image_url": "https://fimgs.net/mdimg/perfume-thumbs/dark-375x500.31539.avif",
-      "main_notes": [],
-      "main_note_evidence": [],
+      "main_notes": [
+        "Raspberry",
+        "Praline",
+        "Powdery Notes",
+        "Vanilla",
+        "Rose",
+        "Mandarin Orange"
+      ],
+      "main_note_evidence": [
+        {
+          "source": "verified social-card normalization",
+          "detail": "social-card OCR normalized and manually verified"
+        }
+      ],
       "gender": "female",
       "season": null,
+      "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
         "fragrantica_identity": true,
-        "main_notes": false,
+        "main_notes": true,
         "gender": true,
         "season": false,
         "mapping_join_key": "shobi_code",
@@ -2390,14 +2451,27 @@
       "fragrantica_url": "https://www.fragrantica.com/perfume/Valentino/Valentino-Donna-Born-In-Roma-55805.html",
       "social_card_url": "https://fimgs.net/mdimg/perfume-social-cards/en-p_c_55805.jpeg",
       "image_url": "https://fimgs.net/mdimg/perfume-thumbs/dark-375x500.55805.avif",
-      "main_notes": [],
-      "main_note_evidence": [],
+      "main_notes": [
+        "Vanilla",
+        "Black Currant",
+        "Jasmine",
+        "Cashmeran",
+        "Jasmine Tea",
+        "Pink Pepper"
+      ],
+      "main_note_evidence": [
+        {
+          "source": "verified social-card normalization",
+          "detail": "social-card OCR normalized and manually verified"
+        }
+      ],
       "gender": "female",
       "season": null,
+      "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
         "fragrantica_identity": true,
-        "main_notes": false,
+        "main_notes": true,
         "gender": true,
         "season": false,
         "mapping_join_key": "shobi_code",
@@ -2456,6 +2530,7 @@
       ],
       "gender": "unisex",
       "season": null,
+      "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
         "fragrantica_identity": true,
@@ -2518,6 +2593,7 @@
       ],
       "gender": "female",
       "season": null,
+      "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
         "fragrantica_identity": true,
@@ -2580,6 +2656,7 @@
       ],
       "gender": "female",
       "season": null,
+      "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
         "fragrantica_identity": true,
@@ -2642,6 +2719,7 @@
       ],
       "gender": "unisex",
       "season": null,
+      "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
         "fragrantica_identity": true,
@@ -2704,6 +2782,7 @@
       ],
       "gender": "unisex",
       "season": null,
+      "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
         "fragrantica_identity": true,
@@ -2725,14 +2804,27 @@
       "fragrantica_url": "https://www.fragrantica.com/perfume/Acqua-di-Parma/Acqua-di-Parma-Blu-Mediterraneo-Fico-di-Amalfi-1687.html",
       "social_card_url": "https://fimgs.net/mdimg/perfume-social-cards/en-p_c_1687.jpeg",
       "image_url": "https://fimgs.net/mdimg/perfume-thumbs/dark-375x500.1687.avif",
-      "main_notes": [],
-      "main_note_evidence": [],
+      "main_notes": [
+        "Fig",
+        "Fig Tree",
+        "Grapefruit",
+        "Bergamot",
+        "Citron",
+        "Lemon"
+      ],
+      "main_note_evidence": [
+        {
+          "source": "verified social-card normalization",
+          "detail": "social-card OCR normalized and manually verified"
+        }
+      ],
       "gender": "unisex",
       "season": null,
+      "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
         "fragrantica_identity": true,
-        "main_notes": false,
+        "main_notes": true,
         "gender": true,
         "season": false,
         "mapping_join_key": "shobi_code",
@@ -2791,6 +2883,7 @@
       ],
       "gender": "unisex",
       "season": null,
+      "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
         "fragrantica_identity": true,
@@ -2853,6 +2946,7 @@
       ],
       "gender": "female",
       "season": null,
+      "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
         "fragrantica_identity": true,
@@ -2915,6 +3009,7 @@
       ],
       "gender": "unisex",
       "season": null,
+      "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
         "fragrantica_identity": true,
@@ -2977,6 +3072,7 @@
       ],
       "gender": "female",
       "season": null,
+      "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
         "fragrantica_identity": true,
@@ -3039,6 +3135,7 @@
       ],
       "gender": "female",
       "season": null,
+      "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
         "fragrantica_identity": true,
@@ -3101,6 +3198,7 @@
       ],
       "gender": "female",
       "season": null,
+      "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
         "fragrantica_identity": true,
@@ -3163,6 +3261,7 @@
       ],
       "gender": "unisex",
       "season": null,
+      "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
         "fragrantica_identity": true,
@@ -3225,6 +3324,7 @@
       ],
       "gender": "unisex",
       "season": null,
+      "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
         "fragrantica_identity": true,
@@ -3287,6 +3387,7 @@
       ],
       "gender": "unisex",
       "season": null,
+      "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
         "fragrantica_identity": true,
@@ -3342,6 +3443,7 @@
       ],
       "gender": "female",
       "season": null,
+      "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
         "fragrantica_identity": true,
@@ -3397,6 +3499,7 @@
       ],
       "gender": "unisex",
       "season": null,
+      "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
         "fragrantica_identity": true,
@@ -3459,6 +3562,7 @@
       ],
       "gender": "male",
       "season": null,
+      "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
         "fragrantica_identity": true,
@@ -3521,6 +3625,7 @@
       ],
       "gender": "female",
       "season": null,
+      "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
         "fragrantica_identity": true,
@@ -3583,6 +3688,7 @@
       ],
       "gender": "unisex",
       "season": null,
+      "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
         "fragrantica_identity": true,
@@ -3645,6 +3751,7 @@
       ],
       "gender": "female",
       "season": null,
+      "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
         "fragrantica_identity": true,
@@ -3679,6 +3786,7 @@
       ],
       "gender": "unisex",
       "season": null,
+      "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
         "fragrantica_identity": true,
@@ -3741,6 +3849,7 @@
       ],
       "gender": "female",
       "season": null,
+      "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
         "fragrantica_identity": true,
@@ -3762,14 +3871,27 @@
       "fragrantica_url": "https://www.fragrantica.com/perfume/Parfums-de-Marly/Valaya-78574.html",
       "social_card_url": "https://fimgs.net/mdimg/perfume-social-cards/en-p_c_78574.jpeg",
       "image_url": "https://fimgs.net/mdimg/perfume-thumbs/dark-375x500.78574.avif",
-      "main_notes": [],
-      "main_note_evidence": [],
+      "main_notes": [
+        "Musk",
+        "Aldehydes",
+        "Peach",
+        "Ambroxan",
+        "Orange Blossom",
+        "Bergamot"
+      ],
+      "main_note_evidence": [
+        {
+          "source": "verified social-card normalization",
+          "detail": "social-card OCR normalized and manually verified"
+        }
+      ],
       "gender": "female",
       "season": null,
+      "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
         "fragrantica_identity": true,
-        "main_notes": false,
+        "main_notes": true,
         "gender": true,
         "season": false,
         "mapping_join_key": "shobi_code",
@@ -3828,6 +3950,7 @@
       ],
       "gender": "female",
       "season": null,
+      "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
         "fragrantica_identity": true,
@@ -3890,6 +4013,7 @@
       ],
       "gender": "unisex",
       "season": null,
+      "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
         "fragrantica_identity": true,
@@ -3952,6 +4076,7 @@
       ],
       "gender": "female",
       "season": null,
+      "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
         "fragrantica_identity": true,
@@ -4014,6 +4139,7 @@
       ],
       "gender": "unisex",
       "season": null,
+      "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
         "fragrantica_identity": true,
@@ -4076,6 +4202,7 @@
       ],
       "gender": "female",
       "season": null,
+      "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
         "fragrantica_identity": true,
@@ -4138,6 +4265,7 @@
       ],
       "gender": "female",
       "season": null,
+      "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
         "fragrantica_identity": true,
@@ -4200,6 +4328,7 @@
       ],
       "gender": "unisex",
       "season": null,
+      "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
         "fragrantica_identity": true,
@@ -4262,6 +4391,7 @@
       ],
       "gender": "unisex",
       "season": null,
+      "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
         "fragrantica_identity": true,
@@ -4324,6 +4454,7 @@
       ],
       "gender": "female",
       "season": null,
+      "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
         "fragrantica_identity": true,
@@ -4386,6 +4517,7 @@
       ],
       "gender": "male",
       "season": null,
+      "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
         "fragrantica_identity": true,
@@ -4448,6 +4580,7 @@
       ],
       "gender": "unisex",
       "season": null,
+      "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
         "fragrantica_identity": true,
@@ -4510,6 +4643,7 @@
       ],
       "gender": "female",
       "season": null,
+      "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
         "fragrantica_identity": true,
@@ -4572,6 +4706,7 @@
       ],
       "gender": "male",
       "season": null,
+      "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
         "fragrantica_identity": true,
@@ -4634,6 +4769,7 @@
       ],
       "gender": "male",
       "season": null,
+      "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
         "fragrantica_identity": true,
@@ -4696,6 +4832,7 @@
       ],
       "gender": "female",
       "season": null,
+      "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
         "fragrantica_identity": true,
@@ -4717,14 +4854,24 @@
       "fragrantica_url": "https://www.fragrantica.com/perfume/Dior/Dioriviera-81847.html",
       "social_card_url": "https://fimgs.net/mdimg/perfume-social-cards/en-p_c_81847.jpeg",
       "image_url": "https://fimgs.net/mdimg/perfume-thumbs/dark-375x500.81847.avif",
-      "main_notes": [],
-      "main_note_evidence": [],
+      "main_notes": [
+        "Fig",
+        "Green Notes",
+        "Rose"
+      ],
+      "main_note_evidence": [
+        {
+          "source": "verified social-card normalization",
+          "detail": "Fragrantica page composition cross-check; fragrance has three listed notes"
+        }
+      ],
       "gender": "unisex",
       "season": null,
+      "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
         "fragrantica_identity": true,
-        "main_notes": false,
+        "main_notes": true,
         "gender": true,
         "season": false,
         "mapping_join_key": "shobi_code",
@@ -4742,14 +4889,27 @@
       "fragrantica_url": "https://www.fragrantica.com/perfume/Giorgio-Armani/Emporio-Armani-Stronger-With-You-Intensely-52802.html",
       "social_card_url": "https://fimgs.net/mdimg/perfume-social-cards/en-p_c_52802.jpeg",
       "image_url": "https://fimgs.net/mdimg/perfume-thumbs/dark-375x500.52802.avif",
-      "main_notes": [],
-      "main_note_evidence": [],
+      "main_notes": [
+        "Vanilla",
+        "Toffee",
+        "Cinnamon",
+        "Amber",
+        "Tonka Bean",
+        "Pink Pepper"
+      ],
+      "main_note_evidence": [
+        {
+          "source": "verified social-card normalization",
+          "detail": "social-card OCR normalized and manually verified"
+        }
+      ],
       "gender": "male",
       "season": null,
+      "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
         "fragrantica_identity": true,
-        "main_notes": false,
+        "main_notes": true,
         "gender": true,
         "season": false,
         "mapping_join_key": "shobi_code",
@@ -4808,6 +4968,7 @@
       ],
       "gender": "female",
       "season": null,
+      "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
         "fragrantica_identity": true,
@@ -4856,6 +5017,7 @@
       ],
       "gender": "unisex",
       "season": null,
+      "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
         "fragrantica_identity": true,
@@ -4918,6 +5080,7 @@
       ],
       "gender": "unisex",
       "season": null,
+      "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
         "fragrantica_identity": true,
@@ -4973,6 +5136,7 @@
       ],
       "gender": "female",
       "season": null,
+      "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
         "fragrantica_identity": true,
@@ -5035,6 +5199,7 @@
       ],
       "gender": "unisex",
       "season": null,
+      "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
         "fragrantica_identity": true,
@@ -5097,6 +5262,7 @@
       ],
       "gender": "female",
       "season": null,
+      "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
         "fragrantica_identity": true,
@@ -5118,14 +5284,27 @@
       "fragrantica_url": "https://www.fragrantica.com/perfume/BDK-Parfums/Gris-Charnel-Extrait-73645.html",
       "social_card_url": "https://fimgs.net/mdimg/perfume-social-cards/en-p_c_73645.jpeg",
       "image_url": "https://fimgs.net/mdimg/perfume-thumbs/dark-375x500.73645.avif",
-      "main_notes": [],
-      "main_note_evidence": [],
+      "main_notes": [
+        "Sandalwood",
+        "Cardamom",
+        "Fig",
+        "Vanilla",
+        "Tea",
+        "Tonka Bean"
+      ],
+      "main_note_evidence": [
+        {
+          "source": "verified social-card normalization",
+          "detail": "social-card OCR normalized and manually verified"
+        }
+      ],
       "gender": "unisex",
       "season": null,
+      "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
         "fragrantica_identity": true,
-        "main_notes": false,
+        "main_notes": true,
         "gender": true,
         "season": false,
         "mapping_join_key": "shobi_code",
@@ -5184,6 +5363,7 @@
       ],
       "gender": "female",
       "season": null,
+      "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
         "fragrantica_identity": true,
@@ -5246,6 +5426,7 @@
       ],
       "gender": "unisex",
       "season": null,
+      "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
         "fragrantica_identity": true,
@@ -5308,6 +5489,7 @@
       ],
       "gender": "unisex",
       "season": null,
+      "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
         "fragrantica_identity": true,
@@ -5370,6 +5552,7 @@
       ],
       "gender": "male",
       "season": null,
+      "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
         "fragrantica_identity": true,
@@ -5432,6 +5615,7 @@
       ],
       "gender": "unisex",
       "season": null,
+      "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
         "fragrantica_identity": true,
@@ -5494,6 +5678,7 @@
       ],
       "gender": "unisex",
       "season": null,
+      "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
         "fragrantica_identity": true,
@@ -5556,6 +5741,7 @@
       ],
       "gender": "unisex",
       "season": null,
+      "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
         "fragrantica_identity": true,
@@ -5618,6 +5804,7 @@
       ],
       "gender": "unisex",
       "season": null,
+      "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
         "fragrantica_identity": true,
@@ -5639,14 +5826,27 @@
       "fragrantica_url": "https://www.fragrantica.com/perfume/Parfums-de-Marly/Althair-84109.html",
       "social_card_url": "https://fimgs.net/mdimg/perfume-social-cards/en-p_c_84109.jpeg",
       "image_url": "https://fimgs.net/mdimg/perfume-thumbs/dark-375x500.84109.avif",
-      "main_notes": [],
-      "main_note_evidence": [],
+      "main_notes": [
+        "Vanilla",
+        "Praline",
+        "Cinnamon",
+        "Orange Blossom",
+        "Cardamom",
+        "Musk"
+      ],
+      "main_note_evidence": [
+        {
+          "source": "verified social-card normalization",
+          "detail": "social-card OCR normalized and manually verified"
+        }
+      ],
       "gender": "male",
       "season": null,
+      "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
         "fragrantica_identity": true,
-        "main_notes": false,
+        "main_notes": true,
         "gender": true,
         "season": false,
         "mapping_join_key": "shobi_code",
@@ -5664,14 +5864,27 @@
       "fragrantica_url": "https://www.fragrantica.com/perfume/Dior/Sauvage-31861.html",
       "social_card_url": "https://fimgs.net/mdimg/perfume-social-cards/en-p_c_31861.jpeg",
       "image_url": "https://fimgs.net/mdimg/perfume-thumbs/dark-375x500.31861.avif",
-      "main_notes": [],
-      "main_note_evidence": [],
+      "main_notes": [
+        "Ambroxan",
+        "Bergamot",
+        "Pepper",
+        "Sichuan Pepper",
+        "Lavender",
+        "Pink Pepper"
+      ],
+      "main_note_evidence": [
+        {
+          "source": "verified social-card normalization",
+          "detail": "social-card OCR normalized and manually verified"
+        }
+      ],
       "gender": "male",
       "season": null,
+      "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
         "fragrantica_identity": true,
-        "main_notes": false,
+        "main_notes": true,
         "gender": true,
         "season": false,
         "mapping_join_key": "shobi_code",
@@ -5730,6 +5943,7 @@
       ],
       "gender": "unisex",
       "season": null,
+      "season_votes_percent": {},
       "verification": {
         "shobi_ranking": true,
         "fragrantica_identity": true,
