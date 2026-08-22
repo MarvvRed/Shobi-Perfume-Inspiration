@@ -304,6 +304,12 @@ def main():
         for h in output_headers:
             if h == 'prestashop_product_id': continue
             out[h] = clean(site.get(h)) if h != 'description' else str(site.get(h) or '').strip()
+
+        # Best Seller #97 / Terre d'Hermes: never inherit the retired GitHub image-cache URL.
+        # Fragrantica ID 17 has been explicitly verified and is the canonical image source.
+        if norm_code(out.get('shobi_code')) == '1156-HER M' and 'image' in out:
+            out['image'] = 'https://fimgs.net/mdimg/perfume-thumbs/dark-375x500.17.avif'
+
         output.append(out)
 
     out_ids = [r['prestashop_product_id'] for r in output]
