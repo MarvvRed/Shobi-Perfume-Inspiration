@@ -25,7 +25,7 @@
         if(Number(row.rank)===97){
           if(!img || img.dataset.terre97!=='1'){
             const fresh=document.createElement('img');
-            fresh.src='https://fimgs.net/mdimg/perfume-thumbs/375x500.17.jpg';
+            fresh.src='https://fimgs.net/mdimg/perfume-thumbs/dark-375x500.17.avif';
             fresh.alt="Terre d'Hermes - Hermes";
             fresh.loading='lazy'; fresh.decoding='async'; fresh.dataset.terre97='1';
             if(img) img.replaceWith(fresh); else wrap.prepend(fresh);
