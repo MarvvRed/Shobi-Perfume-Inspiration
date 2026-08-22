@@ -1,0 +1,43 @@
+name: Test Social Card Seasons 1-10
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'scripts/test_social_card_seasons_1_10.py'
+      - '.github/workflows/test-social-card-seasons-1-10.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install Pillow
+        run: pip install pillow
+
+      - name: Measure season bars on public Fragrantica social cards 1-10
+        run: python scripts/test_social_card_seasons_1_10.py
+
+      - name: Commit test report
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add 'Fragrantica ID Database/rebuild-top100/social-card-seasons-test-1-10.json'
+          if git diff --cached --quiet; then
+            echo 'No test report changes to commit.'
+          else
+            git commit -m 'Record Top10 social-card season pixel test'
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
