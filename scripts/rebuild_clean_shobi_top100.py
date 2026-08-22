@@ -33,10 +33,10 @@ def norm_code(v):
 
 
 def code_from_row(row):
-    # Prefer the explicit canonical Shobi code. Some official rows have an empty
-    # shobi_code field but retain the full code in shobi_name; use that as a
-    # generic fallback without introducing perfume-specific exceptions.
-    return norm_code(row.get('shobi_code')) or norm_code(row.get('shobi_name'))
+    # shobi_name carries the complete retail code (e.g. suffix EL/WP/N/M/LUX).
+    # shobi_code is often only the prefix. Prefer the complete official name code,
+    # then fall back generically to shobi_code when needed.
+    return norm_code(row.get('shobi_name')) or norm_code(row.get('shobi_code'))
 
 
 def main():
