@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "method": "Fragrantica ID Mapping Rule / verified social-card Main Notes",
+  "scope": "10 identities introduced by clean Top100 rebuild",
+  "records": [
+    {"rank":37,"shobi_code":"2348-AMG N","fragrantica_id":78656,"main_notes":["Sandalwood","Hazelnut","Pear","Vanilla","Akigalawood","Olibanum (Frankincense)"],"verification":"social-card OCR normalized and manually verified"},
+    {"rank":40,"shobi_code":"750-KEN W","fragrantica_id":31539,"main_notes":["Raspberry","Praline","Powdery Notes","Vanilla","Rose","Mandarin Orange"],"verification":"social-card OCR normalized and manually verified"},
+    {"rank":41,"shobi_code":"937-VAL WP","fragrantica_id":55805,"main_notes":["Vanilla","Black Currant","Jasmine","Cashmeran","Jasmine Tea","Pink Pepper"],"verification":"social-card OCR normalized and manually verified"},
+    {"rank":47,"shobi_code":"1493-ACQ","fragrantica_id":1687,"main_notes":["Fig","Fig Tree","Grapefruit","Bergamot","Citron","Lemon"],"verification":"social-card OCR normalized and manually verified"},
+    {"rank":65,"shobi_code":"2136-PARF N","fragrantica_id":78574,"main_notes":["Musk","Aldehydes","Peach","Ambroxan","Orange Blossom","Bergamot"],"verification":"social-card OCR normalized and manually verified"},
+    {"rank":81,"shobi_code":"2282-DRC EL","fragrantica_id":81847,"main_notes":["Fig","Green Notes","Rose"],"verification":"Fragrantica page composition cross-check; fragrance has three listed notes"},
+    {"rank":82,"shobi_code":"1978-ARM M","fragrantica_id":52802,"main_notes":["Vanilla","Toffee","Cinnamon","Amber","Tonka Bean","Pink Pepper"],"verification":"social-card OCR normalized and manually verified"},
+    {"rank":89,"shobi_code":"2053-BDIK N","fragrantica_id":73645,"main_notes":["Sandalwood","Cardamom","Fig","Vanilla","Tea","Tonka Bean"],"verification":"social-card OCR normalized and manually verified"},
+    {"rank":98,"shobi_code":"2261-PARF N","fragrantica_id":84109,"main_notes":["Vanilla","Praline","Cinnamon","Orange Blossom","Cardamom","Musk"],"verification":"social-card OCR normalized and manually verified"},
+    {"rank":99,"shobi_code":"1085-DRC M","fragrantica_id":31861,"main_notes":["Ambroxan","Bergamot","Pepper","Sichuan Pepper","Lavender","Pink Pepper"],"verification":"social-card OCR normalized and manually verified"}
+  ]
+}
