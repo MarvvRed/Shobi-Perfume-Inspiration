@@ -1,0 +1,121 @@
+{
+  "resolved_count": 3,
+  "unresolved_count": 4,
+  "resolved": [
+    {
+      "rank": 142,
+      "code": "1938-YZLO N",
+      "inspired_by": "BABY CAT",
+      "brand": "Ysl",
+      "primary_source": "",
+      "secondary_source": "",
+      "candidate": {
+        "href": "https://www.fragrantica.com/perfume/Yves-Saint-Laurent/Black-Opium-Baby-Cat-Collector-63448.html",
+        "text": "Fragrantica\nhttps://www.fragrantica.com › ...\nTraduci questo risultato",
+        "id": 63448,
+        "ratio": 1,
+        "brandHit": false
+      },
+      "fragrantica_id": 63448,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Yves-Saint-Laurent/Black-Opium-Baby-Cat-Collector-63448.html",
+      "match_score": 1,
+      "resolver": "bing-self-hosted-pass2"
+    },
+    {
+      "rank": 147,
+      "code": "1620-GUR N",
+      "inspired_by": "SPIRITUESE DOUBLE VANILLA",
+      "brand": "Guerlain",
+      "primary_source": "",
+      "secondary_source": "",
+      "candidate": {
+        "href": "https://www.fragrantica.com/perfume/Guerlain/Spiritueuse-Double-Vanille-3345.html",
+        "text": "Fragrantica\nhttps://www.fragrantica.com › perfu…\nTraduci questo risultato",
+        "id": 3345,
+        "ratio": 0.3333333333333333,
+        "brandHit": true
+      },
+      "fragrantica_id": 138503,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Sister-s-Aroma/Double-Vanilla-138503.html",
+      "match_score": 0.667,
+      "resolver": "bing-self-hosted-pass2"
+    },
+    {
+      "rank": 193,
+      "code": "2117-YZLO W",
+      "inspired_by": "LIBRE LE PARFUM",
+      "brand": "Ysl",
+      "primary_source": "",
+      "secondary_source": "",
+      "candidate": {
+        "href": "https://www.fragrantica.com/perfume/Yves-Saint-Laurent/Libre-Le-Parfum-75676.html",
+        "text": "Fragrantica\nhttps://www.fragrantica.com › perfu…\nTraduci questo risultato",
+        "id": 75676,
+        "ratio": 1,
+        "brandHit": false
+      },
+      "fragrantica_id": 75676,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Yves-Saint-Laurent/Libre-Le-Parfum-75676.html",
+      "match_score": 1,
+      "resolver": "bing-self-hosted-pass2"
+    }
+  ],
+  "unresolved": [
+    {
+      "rank": 134,
+      "code": "1726-MNTB WP",
+      "inspired_by": "SIGNATURE - MONT BLANC",
+      "brand": "Montblanc",
+      "primary_source": "",
+      "secondary_source": "",
+      "candidate": {
+        "href": "https://www.fragrantica.com/perfume/Montblanc/Signature-60962.html",
+        "text": "Fragrantica\nhttps://www.fragrantica.com › perfu…\nTraduci questo risultato",
+        "id": 60962,
+        "ratio": 0.3333333333333333
+      }
+    },
+    {
+      "rank": 149,
+      "code": "1289-YZLO M",
+      "inspired_by": "of Y",
+      "brand": "",
+      "primary_source": "",
+      "secondary_source": "",
+      "candidate": {
+        "href": "https://www.fragrantica.com/perfume/Yves-Saint-Laurent/Y-Le-Parfum-2025-102208.html",
+        "text": "Fragrantica\nhttps://www.fragrantica.com › perfu…\nTraduci questo risultato",
+        "id": 102208,
+        "ratio": 0
+      }
+    },
+    {
+      "rank": 183,
+      "code": "1882-MARG N",
+      "inspired_by": "BY THE FIRE PLACE",
+      "brand": "Maison Margiela Replica",
+      "primary_source": "",
+      "secondary_source": "",
+      "candidate": {
+        "href": "https://www.fragrantica.com/perfume/Maison-Martin-Margiela/By-the-Fireplace-31623.html",
+        "text": "Fragrantica\nhttps://www.fragrantica.com › perfu…\nTraduci questo risultato",
+        "id": 31623,
+        "ratio": 0
+      }
+    },
+    {
+      "rank": 196,
+      "code": "2164-LAT EL",
+      "inspired_by": "KHAMRAH - LATTAFA Inspired Perfume Fragrance sweet, warm spicy, amber, vanilla, cinnamon, woody, fresh spicy",
+      "brand": "",
+      "primary_source": "",
+      "secondary_source": "",
+      "candidate": {
+        "href": "https://www.fragrantica.com/perfume/Lattafa-Perfumes/Khamrah-Dukhan-104529.html",
+        "text": "Khamrah Dukhan Lattafa Perfumes cologne - a new fragrance for men 2025",
+        "id": 104529,
+        "ratio": 0.25
+      }
+    }
+  ]
+}
