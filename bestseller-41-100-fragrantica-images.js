@@ -25,6 +25,10 @@
         if(!img){img=document.createElement('img');wrap.prepend(img);}
         img.src=`https://fimgs.net/mdimg/perfume-thumbs/dark-375x500.${row.fragrantica_id}.2x.avif`;
         img.loading='lazy'; img.decoding='async';
+        // Once the verified Fragrantica image is present, remove only the stale placeholder.
+        Array.from(wrap.children).forEach(el=>{
+          if(el!==img && el.tagName!=='A' && el.textContent.trim()==='Image not verified') el.remove();
+        });
         let link=img.closest('a.prototype-fragrantica-link');
         if(!link){
           link=document.createElement('a'); link.className='prototype-fragrantica-link';
