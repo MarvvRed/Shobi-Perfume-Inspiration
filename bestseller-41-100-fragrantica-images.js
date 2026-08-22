@@ -23,7 +23,9 @@
         if(!wrap) return;
         let img=wrap.querySelector('img');
         if(!img){img=document.createElement('img');wrap.prepend(img);}
-        img.src=`https://fimgs.net/mdimg/perfume-thumbs/dark-375x500.${row.fragrantica_id}.2x.avif`;
+        img.src=Number(row.rank)===97
+          ? 'https://fimgs.net/mdimg/perfume-thumbs/375x500.17.jpg'
+          : `https://fimgs.net/mdimg/perfume-thumbs/dark-375x500.${row.fragrantica_id}.2x.avif`;
         img.loading='lazy'; img.decoding='async';
         // Once the verified Fragrantica image is present, remove only the stale placeholder.
         Array.from(wrap.children).forEach(el=>{
