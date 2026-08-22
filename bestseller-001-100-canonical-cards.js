@@ -34,26 +34,17 @@
     const visual=icon
       ? `<img src="${esc(icon)}" alt="" width="22" height="22" loading="lazy" decoding="async" style="width:22px;height:22px;object-fit:cover;border-radius:50%;flex:0 0 22px">`
       : `<span aria-hidden="true" style="width:22px;height:22px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;flex:0 0 22px;background:var(--color-bg-surface);border:1px solid var(--color-border-light);font-size:10px"><i class="fa-solid fa-droplet"></i></span>`;
-    return `<button type="button" class="prototype-meta-badge prototype-filter-badge${state.selectedNote===name?' is-active':''}" data-card-filter="note" data-filter-value="${esc(name)}" title="Filter by ${esc(name)}">${visual}<span>${esc(name)}</span></button>`;
+    return `<button type="button" class="prototype-meta-badge prototype-filter-badge${state.selectedNote===name?' is-active':''}" data-card-filter="note" data-filter-value="${esc(name)}" title="Filter by ${esc(name)}" style="max-width:calc(50% - 4px);min-width:0;white-space:nowrap;overflow:hidden">${visual}<span style="min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${esc(name)}</span></button>`;
   };
 
   // Layout-only spacer: visible empty badge shell, never part of canonical Main Notes data.
-  const emptyNoteBadge=()=>`<span class="prototype-meta-badge canonical-note-placeholder" aria-hidden="true" style="min-width:82px;min-height:34px;pointer-events:none;user-select:none"></span>`;
+  const emptyNoteBadge=()=>`<span class="prototype-meta-badge canonical-note-placeholder" aria-hidden="true" style="min-width:82px;max-width:calc(50% - 4px);min-height:34px;pointer-events:none;user-select:none"></span>`;
   const noteRowsHtml=notes=>{
     const clean=(Array.isArray(notes)?notes:[]).filter(Boolean);
-    const rows=[[],[],[]];
-    if(clean.length>=3){
-      const baseCount=Math.floor(clean.length/3), extra=clean.length%3;
-      let i=0;
-      for(let r=0;r<3;r++){
-        const count=baseCount+(r<extra?1:0);
-        rows[r]=clean.slice(i,i+count);
-        i+=count;
-      }
-    }else{
-      clean.forEach((note,i)=>rows[i].push(note));
-    }
-    return rows.map(row=>`<div class="canonical-note-row flex flex-wrap gap-2">${row.length?row.map(noteBadge).join(''):emptyNoteBadge()}</div>`).join('');
+    const rows=[];
+    for(let i=0;i<clean.length;i+=2) rows.push(clean.slice(i,i+2));
+    while(rows.length<3) rows.push([]);
+    return rows.map(row=>`<div class="canonical-note-row flex gap-2" style="flex-wrap:nowrap;min-width:0">${row.length?row.map(noteBadge).join(''):emptyNoteBadge()}</div>`).join('');
   };
 
   const canonicalVerifiedBadge=`<span class="canonical-top100-verified-badge" title="CANONICAL-TOP100-v1 verified" aria-label="CANONICAL-TOP100-v1 verified" style="position:absolute;right:10px;bottom:10px;width:28px;height:28px;border-radius:9999px;display:flex;align-items:center;justify-content:center;background:#16a34a;color:white;border:2px solid white;box-shadow:0 2px 8px rgba(0,0,0,.28);font-size:14px;z-index:2"><i class="fa-solid fa-check"></i></span>`;
