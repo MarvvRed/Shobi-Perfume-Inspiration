@@ -8,16 +8,20 @@ const pass2=loadJson('Personal Database/bestseller-101-200-fragrantica-pass2.jso
 
 const byRank=new Map();
 for(const rec of (first.resolved||[])) byRank.set(Number(rec.rank),rec);
-for(const rec of (manual.verified||[])) byRank.set(Number(rec.rank),rec);
 for(const rec of (pass2.resolved||[])) byRank.set(Number(rec.rank),rec);
+for(const rec of (manual.verified||[])) byRank.set(Number(rec.rank),rec);
 const records=[...byRank.values()].sort((a,b)=>Number(a.rank)-Number(b.rank));
 if (!records.length) throw new Error('No resolved Fragrantica records found');
+
+const pendingRanks=new Set((manual.pending||[]).map(x=>Number(x.rank)));
+for(const rank of pendingRanks) byRank.delete(rank);
+const finalRecords=[...byRank.values()].sort((a,b)=>Number(a.rank)-Number(b.rank));
 
 const outDir='artifacts/fragrantica-social-cards-101-200';
 fs.rmSync(outDir,{recursive:true,force:true});
 fs.mkdirSync(outDir,{recursive:true});
 const results=[];
-for (const rec of records) {
+for (const rec of finalRecords) {
   const rank=Number(rec.rank), id=Number(rec.fragrantica_id);
   if (!Number.isInteger(rank)||rank<101||rank>200||!Number.isInteger(id)) continue;
   const url=`https://fimgs.net/mdimg/perfume-social-cards/en-p_c_${id}.jpeg`;
@@ -40,5 +44,6 @@ for (const rec of records) {
 fs.writeFileSync(path.join(outDir,'manifest.json'),JSON.stringify(results,null,2)+'\n');
 const okCount=results.filter(x=>x.ok).length;
 console.log(`SOCIAL_CARDS_FETCHED ${okCount}/${results.length}`);
-console.log(`RANKS_WITH_IDS ${records.length}/100`);
+console.log(`RANKS_WITH_IDS ${finalRecords.length}/100`);
+console.log(`PENDING_RANKS ${[...pendingRanks].sort((a,b)=>a-b).join(',')||'none'}`);
 if (okCount!==results.length) process.exitCode=2;
