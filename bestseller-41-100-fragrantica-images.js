@@ -12,9 +12,42 @@
     }).catch(()=>{byCode=new Map();return byCode;});
     return loading;
   }
+  function applyTerre97(card){
+    if(!/Best Seller #97\b/.test(card.textContent||'')) return false;
+    const wrap=card.querySelector('.prototype-image-wrap');
+    if(!wrap) return true;
+    let img=wrap.querySelector('img');
+    if(!img || img.dataset.terre97!=='1'){
+      const fresh=document.createElement('img');
+      fresh.src='https://fimgs.net/mdimg/perfume-thumbs/dark-375x500.17.avif';
+      fresh.alt="Terre d'Hermes";
+      fresh.loading='lazy'; fresh.decoding='async'; fresh.dataset.terre97='1';
+      if(img) img.replaceWith(fresh); else wrap.prepend(fresh);
+      img=fresh;
+    }else{
+      img.src='https://fimgs.net/mdimg/perfume-thumbs/dark-375x500.17.avif';
+    }
+    Array.from(wrap.children).forEach(el=>{
+      if(el!==img && el.tagName!=='A' && el.textContent.trim()==='Image not verified') el.remove();
+    });
+    let link=img.closest('a.prototype-fragrantica-link');
+    if(!link){
+      link=document.createElement('a'); link.className='prototype-fragrantica-link';
+      img.parentNode.insertBefore(link,img); link.appendChild(img);
+    }
+    link.href='https://www.fragrantica.com/perfume/Hermes/Terre-d-Hermes-17.html';
+    link.target='_blank'; link.rel='noopener noreferrer';
+    link.title='View on Fragrantica'; link.setAttribute('aria-label','View Terre d\'Hermes on Fragrantica');
+    if(!link.querySelector('.prototype-fragrantica-hint')){
+      const hint=document.createElement('span'); hint.className='prototype-fragrantica-hint'; hint.setAttribute('aria-hidden','true');
+      hint.innerHTML='<i class="fa-solid fa-arrow-up-right-from-square"></i><span>Fragrantica</span>'; link.appendChild(hint);
+    }
+    return true;
+  }
   function apply(){
     load().then(map=>{
       document.querySelectorAll('.perfume-card-prototype').forEach(card=>{
+        if(applyTerre97(card)) return;
         const details=card.querySelector('[data-action="show-details"][data-code]');
         const code=details?.dataset.code||card.dataset.catcherCode||'';
         const row=map.get(norm(code));
@@ -22,20 +55,9 @@
         const wrap=card.querySelector('.prototype-image-wrap');
         if(!wrap) return;
         let img=wrap.querySelector('img');
-        if(Number(row.rank)===97){
-          if(!img || img.dataset.terre97!=='1'){
-            const fresh=document.createElement('img');
-            fresh.src='https://fimgs.net/mdimg/perfume-thumbs/dark-375x500.17.avif';
-            fresh.alt="Terre d'Hermes - Hermes";
-            fresh.loading='lazy'; fresh.decoding='async'; fresh.dataset.terre97='1';
-            if(img) img.replaceWith(fresh); else wrap.prepend(fresh);
-            img=fresh;
-          }
-        }else{
-          if(!img){img=document.createElement('img');wrap.prepend(img);}
-          img.src=`https://fimgs.net/mdimg/perfume-thumbs/dark-375x500.${row.fragrantica_id}.2x.avif`;
-          img.loading='lazy'; img.decoding='async';
-        }
+        if(!img){img=document.createElement('img');wrap.prepend(img);}
+        img.src=`https://fimgs.net/mdimg/perfume-thumbs/dark-375x500.${row.fragrantica_id}.2x.avif`;
+        img.loading='lazy'; img.decoding='async';
         Array.from(wrap.children).forEach(el=>{
           if(el!==img && el.tagName!=='A' && el.textContent.trim()==='Image not verified') el.remove();
         });
