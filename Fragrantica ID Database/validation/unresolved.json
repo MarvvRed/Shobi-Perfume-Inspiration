@@ -2,7 +2,7 @@
   "schema_version": 1,
   "method": "Fragrantica ID Mapping Rule",
   "scope": "Shobi Best Seller 1-100",
-  "count": 103,
+  "count": 100,
   "items": [
     {
       "rank": 1,
@@ -125,15 +125,15 @@
     },
     {
       "rank": 18,
-      "shobi_code": "179-XER N",
-      "fragrantica_id": 30529,
+      "shobi_code": "229-DIP EL",
+      "fragrantica_id": 3865,
       "field": "season",
       "reason": "Awaiting Fragrantica seasonal-vote capture for canonical ID"
     },
     {
       "rank": 19,
-      "shobi_code": "229-DIP EL",
-      "fragrantica_id": 3865,
+      "shobi_code": "179-XER N",
+      "fragrantica_id": 30529,
       "field": "season",
       "reason": "Awaiting Fragrantica seasonal-vote capture for canonical ID"
     },
@@ -146,50 +146,50 @@
     },
     {
       "rank": 21,
+      "shobi_code": "1644-DRC M",
+      "fragrantica_id": 68415,
+      "field": "season",
+      "reason": "Awaiting Fragrantica seasonal-vote capture for canonical ID"
+    },
+    {
+      "rank": 22,
       "shobi_code": "2398-FRE LUX",
       "fragrantica_id": 91209,
       "field": "season",
       "reason": "Awaiting Fragrantica seasonal-vote capture for canonical ID"
     },
     {
-      "rank": 22,
+      "rank": 23,
       "shobi_code": "401-ARIA WP",
       "fragrantica_id": 50384,
       "field": "season",
       "reason": "Awaiting Fragrantica seasonal-vote capture for canonical ID"
     },
     {
-      "rank": 23,
+      "rank": 24,
       "shobi_code": "1660-ESCE EL",
       "fragrantica_id": 845,
       "field": "season",
       "reason": "Awaiting Fragrantica seasonal-vote capture for canonical ID"
     },
     {
-      "rank": 24,
-      "shobi_code": "1499-BYR EL",
-      "fragrantica_id": 27040,
+      "rank": 25,
+      "shobi_code": "1067-CHA M",
+      "fragrantica_id": 9099,
       "field": "season",
       "reason": "Awaiting Fragrantica seasonal-vote capture for canonical ID"
     },
     {
-      "rank": 25,
+      "rank": 26,
       "shobi_code": "485-CAR WP",
       "fragrantica_id": 39681,
       "field": "season",
       "reason": "Awaiting Fragrantica seasonal-vote capture for canonical ID"
     },
     {
-      "rank": 26,
-      "shobi_code": "1520-YZLO W",
-      "fragrantica_id": 62318,
-      "field": "season",
-      "reason": "Awaiting Fragrantica seasonal-vote capture for canonical ID"
-    },
-    {
       "rank": 27,
-      "shobi_code": "152-PARF N",
-      "fragrantica_id": 50370,
+      "shobi_code": "1499-BYR EL",
+      "fragrantica_id": 27040,
       "field": "season",
       "reason": "Awaiting Fragrantica seasonal-vote capture for canonical ID"
     },
@@ -202,106 +202,85 @@
     },
     {
       "rank": 29,
-      "shobi_code": "1498-BYR EL",
-      "fragrantica_id": 3575,
+      "shobi_code": "1520-YZLO W",
+      "fragrantica_id": 62318,
       "field": "season",
       "reason": "Awaiting Fragrantica seasonal-vote capture for canonical ID"
     },
     {
       "rank": 30,
+      "shobi_code": "152-PARF N",
+      "fragrantica_id": 50370,
+      "field": "season",
+      "reason": "Awaiting Fragrantica seasonal-vote capture for canonical ID"
+    },
+    {
+      "rank": 31,
       "shobi_code": "132-LTN N",
       "fragrantica_id": 49755,
       "field": "season",
       "reason": "Awaiting Fragrantica seasonal-vote capture for canonical ID"
     },
     {
-      "rank": 31,
+      "rank": 32,
+      "shobi_code": "1498-BYR EL",
+      "fragrantica_id": 3575,
+      "field": "season",
+      "reason": "Awaiting Fragrantica seasonal-vote capture for canonical ID"
+    },
+    {
+      "rank": 33,
+      "shobi_code": "1764-GUR W",
+      "fragrantica_id": 53806,
+      "field": "season",
+      "reason": "Awaiting Fragrantica seasonal-vote capture for canonical ID"
+    },
+    {
+      "rank": 34,
       "shobi_code": "1919-PRA WP",
       "fragrantica_id": 75668,
       "field": "season",
       "reason": "Awaiting Fragrantica seasonal-vote capture for canonical ID"
     },
     {
-      "rank": 32,
-      "shobi_code": "1764-GUR W",
-      "fragrantica_id": 53858,
-      "field": "main_notes",
-      "reason": "No verified Fragrantica note capture for mapped ID"
-    },
-    {
-      "rank": 32,
-      "shobi_code": "1764-GUR W",
-      "fragrantica_id": 53858,
-      "field": "season",
-      "reason": "Awaiting Fragrantica seasonal-vote capture for canonical ID"
-    },
-    {
-      "rank": 33,
+      "rank": 35,
       "shobi_code": "131-LEL N",
       "fragrantica_id": 12201,
       "field": "season",
       "reason": "Awaiting Fragrantica seasonal-vote capture for canonical ID"
     },
     {
-      "rank": 34,
+      "rank": 36,
       "shobi_code": "848-NRO WP",
       "fragrantica_id": 53441,
       "field": "season",
       "reason": "Awaiting Fragrantica seasonal-vote capture for canonical ID"
     },
     {
-      "rank": 35,
+      "rank": 37,
       "shobi_code": "2348-AMG",
       "fragrantica_id": 78656,
       "field": "season",
       "reason": "Awaiting Fragrantica seasonal-vote capture for canonical ID"
     },
     {
-      "rank": 36,
+      "rank": 38,
       "shobi_code": "303-JOM EL",
       "fragrantica_id": 25529,
       "field": "season",
       "reason": "Awaiting Fragrantica seasonal-vote capture for canonical ID"
     },
     {
-      "rank": 37,
+      "rank": 39,
       "shobi_code": "2155-KAY EL",
       "fragrantica_id": 79846,
       "field": "season",
       "reason": "Awaiting Fragrantica seasonal-vote capture for canonical ID"
     },
     {
-      "rank": 38,
-      "shobi_code": "750-KEN W",
-      "fragrantica_id": 31539,
-      "field": "main_notes",
-      "reason": "No verified Fragrantica note capture for mapped ID"
-    },
-    {
-      "rank": 38,
-      "shobi_code": "750-KEN W",
-      "fragrantica_id": 31539,
-      "field": "season",
-      "reason": "Awaiting Fragrantica seasonal-vote capture for canonical ID"
-    },
-    {
-      "rank": 39,
+      "rank": 40,
       "shobi_code": "1553-MNT N",
       "fragrantica_id": 57384,
-      "field": "season",
-      "reason": "Awaiting Fragrantica seasonal-vote capture for canonical ID"
-    },
-    {
-      "rank": 40,
-      "shobi_code": "937-VAL WP",
-      "fragrantica_id": 55805,
-      "field": "main_notes",
-      "reason": "No verified Fragrantica note capture for mapped ID"
-    },
-    {
-      "rank": 40,
-      "shobi_code": "937-VAL WP",
-      "fragrantica_id": 55805,
       "field": "season",
       "reason": "Awaiting Fragrantica seasonal-vote capture for canonical ID"
     },

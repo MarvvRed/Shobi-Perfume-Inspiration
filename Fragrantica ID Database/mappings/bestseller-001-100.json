@@ -4,6 +4,7 @@
   "scope": "Shobi Best Seller 1-100",
   "count": 100,
   "canonical_key": "fragrantica_id",
+  "ranking_key": "shobi_code",
   "resource_rule": "One verified identity -> one Fragrantica ID -> page + social card/main notes + image + gender + season",
   "records": [
     {
@@ -61,7 +62,7 @@
         "main_notes": true,
         "season": false,
         "source_status": "source-locked",
-        "source_lock": "Shobi Master Database/bestseller-top100-source-lock.csv",
+        "identity_source": "Shobi Master Database/bestseller-top100-source-lock.csv",
         "note_capture": "Personal Database/fragrantica-main-notes.json"
       }
     },
@@ -120,7 +121,7 @@
         "main_notes": true,
         "season": false,
         "source_status": "source-locked",
-        "source_lock": "Shobi Master Database/bestseller-top100-source-lock.csv",
+        "identity_source": "Shobi Master Database/bestseller-top100-source-lock.csv",
         "note_capture": "Personal Database/fragrantica-main-notes.json"
       }
     },
@@ -179,7 +180,7 @@
         "main_notes": true,
         "season": false,
         "source_status": "source-locked",
-        "source_lock": "Shobi Master Database/bestseller-top100-source-lock.csv",
+        "identity_source": "Shobi Master Database/bestseller-top100-source-lock.csv",
         "note_capture": "Personal Database/fragrantica-main-notes.json"
       }
     },
@@ -238,7 +239,7 @@
         "main_notes": true,
         "season": false,
         "source_status": "source-locked",
-        "source_lock": "Shobi Master Database/bestseller-top100-source-lock.csv",
+        "identity_source": "Shobi Master Database/bestseller-top100-source-lock.csv",
         "note_capture": "Personal Database/fragrantica-main-notes.json"
       }
     },
@@ -283,7 +284,7 @@
         "main_notes": true,
         "season": false,
         "source_status": "source-locked",
-        "source_lock": "Shobi Master Database/bestseller-top100-source-lock.csv",
+        "identity_source": "Shobi Master Database/bestseller-top100-source-lock.csv",
         "note_capture": "Personal Database/fragrantica-main-notes.json"
       }
     },
@@ -342,7 +343,7 @@
         "main_notes": true,
         "season": false,
         "source_status": "source-locked",
-        "source_lock": "Shobi Master Database/bestseller-top100-source-lock.csv",
+        "identity_source": "Shobi Master Database/bestseller-top100-source-lock.csv",
         "note_capture": "Personal Database/fragrantica-main-notes.json"
       }
     },
@@ -401,7 +402,7 @@
         "main_notes": true,
         "season": false,
         "source_status": "source-locked",
-        "source_lock": "Shobi Master Database/bestseller-top100-source-lock.csv",
+        "identity_source": "Shobi Master Database/bestseller-top100-source-lock.csv",
         "note_capture": "Personal Database/fragrantica-main-notes.json"
       }
     },
@@ -460,7 +461,7 @@
         "main_notes": true,
         "season": false,
         "source_status": "source-locked",
-        "source_lock": "Shobi Master Database/bestseller-top100-source-lock.csv",
+        "identity_source": "Shobi Master Database/bestseller-top100-source-lock.csv",
         "note_capture": "Personal Database/fragrantica-main-notes.json"
       }
     },
@@ -519,7 +520,7 @@
         "main_notes": true,
         "season": false,
         "source_status": "source-locked",
-        "source_lock": "Shobi Master Database/bestseller-top100-source-lock.csv",
+        "identity_source": "Shobi Master Database/bestseller-top100-source-lock.csv",
         "note_capture": "Personal Database/fragrantica-main-notes.json"
       }
     },
@@ -578,7 +579,7 @@
         "main_notes": true,
         "season": false,
         "source_status": "source-locked",
-        "source_lock": "Shobi Master Database/bestseller-top100-source-lock.csv",
+        "identity_source": "Shobi Master Database/bestseller-top100-source-lock.csv",
         "note_capture": "Personal Database/fragrantica-main-notes.json"
       }
     },
@@ -637,7 +638,7 @@
         "main_notes": true,
         "season": false,
         "source_status": "source-locked",
-        "source_lock": "Shobi Master Database/bestseller-top100-source-lock.csv",
+        "identity_source": "Shobi Master Database/bestseller-top100-source-lock.csv",
         "note_capture": "Personal Database/fragrantica-main-notes.json"
       }
     },
@@ -696,7 +697,7 @@
         "main_notes": true,
         "season": false,
         "source_status": "source-locked",
-        "source_lock": "Shobi Master Database/bestseller-top100-source-lock.csv",
+        "identity_source": "Shobi Master Database/bestseller-top100-source-lock.csv",
         "note_capture": "Personal Database/fragrantica-main-notes.json"
       }
     },
@@ -755,7 +756,7 @@
         "main_notes": true,
         "season": false,
         "source_status": "source-locked",
-        "source_lock": "Shobi Master Database/bestseller-top100-source-lock.csv",
+        "identity_source": "Shobi Master Database/bestseller-top100-source-lock.csv",
         "note_capture": "Personal Database/fragrantica-main-notes.json"
       }
     },
@@ -814,7 +815,7 @@
         "main_notes": true,
         "season": false,
         "source_status": "source-locked",
-        "source_lock": "Shobi Master Database/bestseller-top100-source-lock.csv",
+        "identity_source": "Shobi Master Database/bestseller-top100-source-lock.csv",
         "note_capture": "Personal Database/fragrantica-main-notes.json"
       }
     },
@@ -873,7 +874,7 @@
         "main_notes": true,
         "season": false,
         "source_status": "source-locked",
-        "source_lock": "Shobi Master Database/bestseller-top100-source-lock.csv",
+        "identity_source": "Shobi Master Database/bestseller-top100-source-lock.csv",
         "note_capture": "Personal Database/fragrantica-main-notes.json"
       }
     },
@@ -932,7 +933,7 @@
         "main_notes": true,
         "season": false,
         "source_status": "source-locked",
-        "source_lock": "Shobi Master Database/bestseller-top100-source-lock.csv",
+        "identity_source": "Shobi Master Database/bestseller-top100-source-lock.csv",
         "note_capture": "Personal Database/fragrantica-main-notes.json"
       }
     },
@@ -991,71 +992,12 @@
         "main_notes": true,
         "season": false,
         "source_status": "source-locked",
-        "source_lock": "Shobi Master Database/bestseller-top100-source-lock.csv",
+        "identity_source": "Shobi Master Database/bestseller-top100-source-lock.csv",
         "note_capture": "Personal Database/fragrantica-main-notes.json"
       }
     },
     {
       "rank": 18,
-      "shobi_code": "179-XER N",
-      "perfume": "XJ 1861 Naxos",
-      "fragrantica_id": 30529,
-      "fragrantica_url": "https://www.fragrantica.com/perfume/Xerjoff/XJ-1861-Naxos-30529.html",
-      "social_card_url": "https://fimgs.net/mdimg/perfume-social-cards/en-p_c_30529.jpeg",
-      "image_url": "https://fimgs.net/mdimg/perfume-thumbs/dark-375x500.30529.avif",
-      "gender": "unisex",
-      "season": null,
-      "main_notes": [
-        "Honey",
-        "Tobacco Leaf",
-        "Lavender",
-        "Vanilla",
-        "Tonka Bean"
-      ],
-      "main_note_evidence": [
-        {
-          "rank": 1,
-          "note": "Honey",
-          "sastojak_id": 181,
-          "votes": 4603
-        },
-        {
-          "rank": 2,
-          "note": "Tobacco Leaf",
-          "sastojak_id": 96,
-          "votes": 3305
-        },
-        {
-          "rank": 3,
-          "note": "Lavender",
-          "sastojak_id": 1,
-          "votes": 3285
-        },
-        {
-          "rank": 4,
-          "note": "Vanilla",
-          "sastojak_id": 74,
-          "votes": 2891
-        },
-        {
-          "rank": 5,
-          "note": "Tonka Bean",
-          "sastojak_id": 73,
-          "votes": 2247
-        }
-      ],
-      "verification": {
-        "identity": true,
-        "gender": true,
-        "main_notes": true,
-        "season": false,
-        "source_status": "source-locked",
-        "source_lock": "Shobi Master Database/bestseller-top100-source-lock.csv",
-        "note_capture": "Personal Database/fragrantica-main-notes.json"
-      }
-    },
-    {
-      "rank": 19,
       "shobi_code": "229-DIP EL",
       "perfume": "Philosykos Eau de Parfum",
       "fragrantica_id": 3865,
@@ -1109,7 +1051,66 @@
         "main_notes": true,
         "season": false,
         "source_status": "source-locked",
-        "source_lock": "Shobi Master Database/bestseller-top100-source-lock.csv",
+        "identity_source": "Shobi Master Database/bestseller-top100-source-lock.csv",
+        "note_capture": "Personal Database/fragrantica-main-notes.json"
+      }
+    },
+    {
+      "rank": 19,
+      "shobi_code": "179-XER N",
+      "perfume": "XJ 1861 Naxos",
+      "fragrantica_id": 30529,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Xerjoff/XJ-1861-Naxos-30529.html",
+      "social_card_url": "https://fimgs.net/mdimg/perfume-social-cards/en-p_c_30529.jpeg",
+      "image_url": "https://fimgs.net/mdimg/perfume-thumbs/dark-375x500.30529.avif",
+      "gender": "unisex",
+      "season": null,
+      "main_notes": [
+        "Honey",
+        "Tobacco Leaf",
+        "Lavender",
+        "Vanilla",
+        "Tonka Bean"
+      ],
+      "main_note_evidence": [
+        {
+          "rank": 1,
+          "note": "Honey",
+          "sastojak_id": 181,
+          "votes": 4603
+        },
+        {
+          "rank": 2,
+          "note": "Tobacco Leaf",
+          "sastojak_id": 96,
+          "votes": 3305
+        },
+        {
+          "rank": 3,
+          "note": "Lavender",
+          "sastojak_id": 1,
+          "votes": 3285
+        },
+        {
+          "rank": 4,
+          "note": "Vanilla",
+          "sastojak_id": 74,
+          "votes": 2891
+        },
+        {
+          "rank": 5,
+          "note": "Tonka Bean",
+          "sastojak_id": 73,
+          "votes": 2247
+        }
+      ],
+      "verification": {
+        "identity": true,
+        "gender": true,
+        "main_notes": true,
+        "season": false,
+        "source_status": "source-locked",
+        "identity_source": "Shobi Master Database/bestseller-top100-source-lock.csv",
         "note_capture": "Personal Database/fragrantica-main-notes.json"
       }
     },
@@ -1168,12 +1169,71 @@
         "main_notes": true,
         "season": false,
         "source_status": "source-locked",
-        "source_lock": "Shobi Master Database/bestseller-top100-source-lock.csv",
+        "identity_source": "Shobi Master Database/bestseller-top100-source-lock.csv",
         "note_capture": "Personal Database/fragrantica-main-notes.json"
       }
     },
     {
       "rank": 21,
+      "shobi_code": "1644-DRC M",
+      "perfume": "Sauvage Elixir",
+      "fragrantica_id": 68415,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Dior/Sauvage-Elixir-68415.html",
+      "social_card_url": "https://fimgs.net/mdimg/perfume-social-cards/en-p_c_68415.jpeg",
+      "image_url": "https://fimgs.net/mdimg/perfume-thumbs/dark-375x500.68415.avif",
+      "gender": "male",
+      "season": null,
+      "main_notes": [
+        "Lavender",
+        "Licorice",
+        "Nutmeg",
+        "Cinnamon",
+        "Sandalwood"
+      ],
+      "main_note_evidence": [
+        {
+          "rank": 1,
+          "note": "Lavender",
+          "sastojak_id": 1,
+          "votes": 2577
+        },
+        {
+          "rank": 2,
+          "note": "Licorice",
+          "sastojak_id": 195,
+          "votes": 2182
+        },
+        {
+          "rank": 3,
+          "note": "Nutmeg",
+          "sastojak_id": 59,
+          "votes": 1850
+        },
+        {
+          "rank": 4,
+          "note": "Cinnamon",
+          "sastojak_id": 65,
+          "votes": 1740
+        },
+        {
+          "rank": 5,
+          "note": "Sandalwood",
+          "sastojak_id": 33,
+          "votes": 1483
+        }
+      ],
+      "verification": {
+        "identity": true,
+        "gender": true,
+        "main_notes": true,
+        "season": false,
+        "source_status": "source-locked",
+        "identity_source": "Personal Database/fragrantica-main-notes-21-40.json",
+        "note_capture": "Personal Database/fragrantica-main-notes-21-40.json"
+      }
+    },
+    {
+      "rank": 22,
       "shobi_code": "2398-FRE LUX",
       "perfume": "Acne Studios",
       "fragrantica_id": 91209,
@@ -1227,12 +1287,12 @@
         "main_notes": true,
         "season": false,
         "source_status": "source-locked",
-        "source_lock": "Shobi Master Database/bestseller-top100-source-lock.csv",
+        "identity_source": "Personal Database/fragrantica-main-notes-21-40.json",
         "note_capture": "Personal Database/fragrantica-main-notes-21-40.json"
       }
     },
     {
-      "rank": 22,
+      "rank": 23,
       "shobi_code": "401-ARIA WP",
       "perfume": "Cloud",
       "fragrantica_id": 50384,
@@ -1286,12 +1346,12 @@
         "main_notes": true,
         "season": false,
         "source_status": "source-locked",
-        "source_lock": "Shobi Master Database/bestseller-top100-source-lock.csv",
+        "identity_source": "Personal Database/fragrantica-main-notes-21-40.json",
         "note_capture": "Personal Database/fragrantica-main-notes-21-40.json"
       }
     },
     {
-      "rank": 23,
+      "rank": 24,
       "shobi_code": "1660-ESCE EL",
       "perfume": "Molecule 01",
       "fragrantica_id": 845,
@@ -1317,57 +1377,57 @@
         "main_notes": true,
         "season": false,
         "source_status": "source-locked",
-        "source_lock": "Shobi Master Database/bestseller-top100-source-lock.csv",
+        "identity_source": "Personal Database/fragrantica-main-notes-21-40.json",
         "note_capture": "Personal Database/fragrantica-main-notes-21-40.json"
       }
     },
     {
-      "rank": 24,
-      "shobi_code": "1499-BYR EL",
-      "perfume": "Mojave Ghost",
-      "fragrantica_id": 27040,
-      "fragrantica_url": "https://www.fragrantica.com/perfume/Byredo/Mojave-Ghost-27040.html",
-      "social_card_url": "https://fimgs.net/mdimg/perfume-social-cards/en-p_c_27040.jpeg",
-      "image_url": "https://fimgs.net/mdimg/perfume-thumbs/dark-375x500.27040.avif",
-      "gender": "unisex",
+      "rank": 25,
+      "shobi_code": "1067-CHA M",
+      "perfume": "Bleu de Chanel",
+      "fragrantica_id": 9099,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Chanel/Bleu-de-Chanel-9099.html",
+      "social_card_url": "https://fimgs.net/mdimg/perfume-social-cards/en-p_c_9099.jpeg",
+      "image_url": "https://fimgs.net/mdimg/perfume-thumbs/dark-375x500.9099.avif",
+      "gender": "male",
       "season": null,
       "main_notes": [
-        "Sapodilla",
-        "Magnolia",
-        "Violet",
-        "Ambrette (Musk Mallow)",
-        "Sandalwood"
+        "Grapefruit",
+        "Incense",
+        "Lemon",
+        "Ginger",
+        "Mint"
       ],
       "main_note_evidence": [
         {
           "rank": 1,
-          "note": "Sapodilla",
-          "sastojak_id": 645,
-          "votes": 1269
+          "note": "Grapefruit",
+          "sastojak_id": 76,
+          "votes": 2983
         },
         {
           "rank": 2,
-          "note": "Magnolia",
-          "sastojak_id": 147,
-          "votes": 1027
+          "note": "Incense",
+          "sastojak_id": 68,
+          "votes": 2224
         },
         {
           "rank": 3,
-          "note": "Violet",
-          "sastojak_id": 116,
-          "votes": 1012
+          "note": "Lemon",
+          "sastojak_id": 77,
+          "votes": 2122
         },
         {
           "rank": 4,
-          "note": "Ambrette (Musk Mallow)",
-          "sastojak_id": 107,
-          "votes": 816
+          "note": "Ginger",
+          "sastojak_id": 62,
+          "votes": 2029
         },
         {
           "rank": 5,
-          "note": "Sandalwood",
-          "sastojak_id": 33,
-          "votes": 746
+          "note": "Mint",
+          "sastojak_id": 160,
+          "votes": 1333
         }
       ],
       "verification": {
@@ -1376,12 +1436,12 @@
         "main_notes": true,
         "season": false,
         "source_status": "source-locked",
-        "source_lock": "Shobi Master Database/bestseller-top100-source-lock.csv",
+        "identity_source": "Personal Database/fragrantica-main-notes-21-40.json",
         "note_capture": "Personal Database/fragrantica-main-notes-21-40.json"
       }
     },
     {
-      "rank": 25,
+      "rank": 26,
       "shobi_code": "485-CAR WP",
       "perfume": "Good Girl",
       "fragrantica_id": 39681,
@@ -1435,116 +1495,57 @@
         "main_notes": true,
         "season": false,
         "source_status": "source-locked",
-        "source_lock": "Shobi Master Database/bestseller-top100-source-lock.csv",
-        "note_capture": "Personal Database/fragrantica-main-notes-21-40.json"
-      }
-    },
-    {
-      "rank": 26,
-      "shobi_code": "1520-YZLO W",
-      "perfume": "Libre Intense",
-      "fragrantica_id": 62318,
-      "fragrantica_url": "https://www.fragrantica.com/perfume/Yves-Saint-Laurent/Libre-Intense-62318.html",
-      "social_card_url": "https://fimgs.net/mdimg/perfume-social-cards/en-p_c_62318.jpeg",
-      "image_url": "https://fimgs.net/mdimg/perfume-thumbs/dark-375x500.62318.avif",
-      "gender": "female",
-      "season": null,
-      "main_notes": [
-        "Madagascar Vanilla",
-        "Lavender",
-        "Tonka Bean",
-        "Tunisian Orange Blossom",
-        "Jasmine Sambac"
-      ],
-      "main_note_evidence": [
-        {
-          "rank": 1,
-          "note": "Madagascar Vanilla",
-          "sastojak_id": 74,
-          "votes": 2016
-        },
-        {
-          "rank": 2,
-          "note": "Lavender",
-          "sastojak_id": 1,
-          "votes": 1728
-        },
-        {
-          "rank": 3,
-          "note": "Tonka Bean",
-          "sastojak_id": 73,
-          "votes": 1289
-        },
-        {
-          "rank": 4,
-          "note": "Tunisian Orange Blossom",
-          "sastojak_id": 16,
-          "votes": 1252
-        },
-        {
-          "rank": 5,
-          "note": "Jasmine Sambac",
-          "sastojak_id": 14,
-          "votes": 924
-        }
-      ],
-      "verification": {
-        "identity": true,
-        "gender": true,
-        "main_notes": true,
-        "season": false,
-        "source_status": "source-locked",
-        "source_lock": "Shobi Master Database/bestseller-top100-source-lock.csv",
+        "identity_source": "Personal Database/fragrantica-main-notes-21-40.json",
         "note_capture": "Personal Database/fragrantica-main-notes-21-40.json"
       }
     },
     {
       "rank": 27,
-      "shobi_code": "152-PARF N",
-      "perfume": "Delina Exclusif",
-      "fragrantica_id": 50370,
-      "fragrantica_url": "https://www.fragrantica.com/perfume/Parfums-de-Marly/Delina-Exclusif-50370.html",
-      "social_card_url": "https://fimgs.net/mdimg/perfume-social-cards/en-p_c_50370.jpeg",
-      "image_url": "https://fimgs.net/mdimg/perfume-thumbs/dark-375x500.50370.avif",
-      "gender": "female",
+      "shobi_code": "1499-BYR EL",
+      "perfume": "Mojave Ghost",
+      "fragrantica_id": 27040,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Byredo/Mojave-Ghost-27040.html",
+      "social_card_url": "https://fimgs.net/mdimg/perfume-social-cards/en-p_c_27040.jpeg",
+      "image_url": "https://fimgs.net/mdimg/perfume-thumbs/dark-375x500.27040.avif",
+      "gender": "unisex",
       "season": null,
       "main_notes": [
-        "Turkish Rose",
-        "Litchi",
-        "Vanilla",
-        "Pear",
-        "Amber"
+        "Sapodilla",
+        "Magnolia",
+        "Violet",
+        "Ambrette (Musk Mallow)",
+        "Sandalwood"
       ],
       "main_note_evidence": [
         {
           "rank": 1,
-          "note": "Turkish Rose",
-          "sastojak_id": 105,
-          "votes": 1769
+          "note": "Sapodilla",
+          "sastojak_id": 645,
+          "votes": 1269
         },
         {
           "rank": 2,
-          "note": "Litchi",
-          "sastojak_id": 194,
-          "votes": 1248
+          "note": "Magnolia",
+          "sastojak_id": 147,
+          "votes": 1027
         },
         {
           "rank": 3,
-          "note": "Vanilla",
-          "sastojak_id": 74,
-          "votes": 1212
+          "note": "Violet",
+          "sastojak_id": 116,
+          "votes": 1012
         },
         {
           "rank": 4,
-          "note": "Pear",
-          "sastojak_id": 182,
-          "votes": 671
+          "note": "Ambrette (Musk Mallow)",
+          "sastojak_id": 107,
+          "votes": 816
         },
         {
           "rank": 5,
-          "note": "Amber",
-          "sastojak_id": 54,
-          "votes": 606
+          "note": "Sandalwood",
+          "sastojak_id": 33,
+          "votes": 746
         }
       ],
       "verification": {
@@ -1553,7 +1554,7 @@
         "main_notes": true,
         "season": false,
         "source_status": "source-locked",
-        "source_lock": "Shobi Master Database/bestseller-top100-source-lock.csv",
+        "identity_source": "Personal Database/fragrantica-main-notes-21-40.json",
         "note_capture": "Personal Database/fragrantica-main-notes-21-40.json"
       }
     },
@@ -1612,57 +1613,57 @@
         "main_notes": true,
         "season": false,
         "source_status": "source-locked",
-        "source_lock": "Shobi Master Database/bestseller-top100-source-lock.csv",
+        "identity_source": "Personal Database/fragrantica-main-notes-21-40.json",
         "note_capture": "Personal Database/fragrantica-main-notes-21-40.json"
       }
     },
     {
       "rank": 29,
-      "shobi_code": "1498-BYR EL",
-      "perfume": "Gypsy Water",
-      "fragrantica_id": 3575,
-      "fragrantica_url": "https://www.fragrantica.com/perfume/Byredo/Gypsy-Water-3575.html",
-      "social_card_url": "https://fimgs.net/mdimg/perfume-social-cards/en-p_c_3575.jpeg",
-      "image_url": "https://fimgs.net/mdimg/perfume-thumbs/dark-375x500.3575.avif",
-      "gender": "unisex",
+      "shobi_code": "1520-YZLO W",
+      "perfume": "Libre Intense",
+      "fragrantica_id": 62318,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Yves-Saint-Laurent/Libre-Intense-62318.html",
+      "social_card_url": "https://fimgs.net/mdimg/perfume-social-cards/en-p_c_62318.jpeg",
+      "image_url": "https://fimgs.net/mdimg/perfume-thumbs/dark-375x500.62318.avif",
+      "gender": "female",
       "season": null,
       "main_notes": [
-        "Juniper",
-        "Vanilla",
-        "Sandalwood",
-        "Lemon",
-        "Pine needles"
+        "Madagascar Vanilla",
+        "Lavender",
+        "Tonka Bean",
+        "Tunisian Orange Blossom",
+        "Jasmine Sambac"
       ],
       "main_note_evidence": [
         {
           "rank": 1,
-          "note": "Juniper",
-          "sastojak_id": 142,
-          "votes": 1737
+          "note": "Madagascar Vanilla",
+          "sastojak_id": 74,
+          "votes": 2016
         },
         {
           "rank": 2,
-          "note": "Vanilla",
-          "sastojak_id": 74,
-          "votes": 1686
+          "note": "Lavender",
+          "sastojak_id": 1,
+          "votes": 1728
         },
         {
           "rank": 3,
-          "note": "Sandalwood",
-          "sastojak_id": 33,
-          "votes": 1512
+          "note": "Tonka Bean",
+          "sastojak_id": 73,
+          "votes": 1289
         },
         {
           "rank": 4,
-          "note": "Lemon",
-          "sastojak_id": 77,
-          "votes": 1476
+          "note": "Tunisian Orange Blossom",
+          "sastojak_id": 16,
+          "votes": 1252
         },
         {
           "rank": 5,
-          "note": "Pine needles",
-          "sastojak_id": 204,
-          "votes": 1327
+          "note": "Jasmine Sambac",
+          "sastojak_id": 14,
+          "votes": 924
         }
       ],
       "verification": {
@@ -1671,12 +1672,71 @@
         "main_notes": true,
         "season": false,
         "source_status": "source-locked",
-        "source_lock": "Shobi Master Database/bestseller-top100-source-lock.csv",
+        "identity_source": "Personal Database/fragrantica-main-notes-21-40.json",
         "note_capture": "Personal Database/fragrantica-main-notes-21-40.json"
       }
     },
     {
       "rank": 30,
+      "shobi_code": "152-PARF N",
+      "perfume": "Delina Exclusif",
+      "fragrantica_id": 50370,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Parfums-de-Marly/Delina-Exclusif-50370.html",
+      "social_card_url": "https://fimgs.net/mdimg/perfume-social-cards/en-p_c_50370.jpeg",
+      "image_url": "https://fimgs.net/mdimg/perfume-thumbs/dark-375x500.50370.avif",
+      "gender": "female",
+      "season": null,
+      "main_notes": [
+        "Turkish Rose",
+        "Litchi",
+        "Vanilla",
+        "Pear",
+        "Amber"
+      ],
+      "main_note_evidence": [
+        {
+          "rank": 1,
+          "note": "Turkish Rose",
+          "sastojak_id": 105,
+          "votes": 1769
+        },
+        {
+          "rank": 2,
+          "note": "Litchi",
+          "sastojak_id": 194,
+          "votes": 1248
+        },
+        {
+          "rank": 3,
+          "note": "Vanilla",
+          "sastojak_id": 74,
+          "votes": 1212
+        },
+        {
+          "rank": 4,
+          "note": "Pear",
+          "sastojak_id": 182,
+          "votes": 671
+        },
+        {
+          "rank": 5,
+          "note": "Amber",
+          "sastojak_id": 54,
+          "votes": 606
+        }
+      ],
+      "verification": {
+        "identity": true,
+        "gender": true,
+        "main_notes": true,
+        "season": false,
+        "source_status": "source-locked",
+        "identity_source": "Personal Database/fragrantica-main-notes-21-40.json",
+        "note_capture": "Personal Database/fragrantica-main-notes-21-40.json"
+      }
+    },
+    {
+      "rank": 31,
       "shobi_code": "132-LTN N",
       "perfume": "Ombre Nomade",
       "fragrantica_id": 49755,
@@ -1730,16 +1790,134 @@
         "main_notes": true,
         "season": false,
         "source_status": "source-locked",
-        "source_lock": "Shobi Master Database/bestseller-top100-source-lock.csv",
+        "identity_source": "Personal Database/fragrantica-main-notes-21-40.json",
         "note_capture": "Personal Database/fragrantica-main-notes-21-40.json"
       }
     },
     {
-      "rank": 31,
+      "rank": 32,
+      "shobi_code": "1498-BYR EL",
+      "perfume": "Gypsy Water",
+      "fragrantica_id": 3575,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Byredo/Gypsy-Water-3575.html",
+      "social_card_url": "https://fimgs.net/mdimg/perfume-social-cards/en-p_c_3575.jpeg",
+      "image_url": "https://fimgs.net/mdimg/perfume-thumbs/dark-375x500.3575.avif",
+      "gender": "unisex",
+      "season": null,
+      "main_notes": [
+        "Juniper",
+        "Vanilla",
+        "Sandalwood",
+        "Lemon",
+        "Pine needles"
+      ],
+      "main_note_evidence": [
+        {
+          "rank": 1,
+          "note": "Juniper",
+          "sastojak_id": 142,
+          "votes": 1737
+        },
+        {
+          "rank": 2,
+          "note": "Vanilla",
+          "sastojak_id": 74,
+          "votes": 1686
+        },
+        {
+          "rank": 3,
+          "note": "Sandalwood",
+          "sastojak_id": 33,
+          "votes": 1512
+        },
+        {
+          "rank": 4,
+          "note": "Lemon",
+          "sastojak_id": 77,
+          "votes": 1476
+        },
+        {
+          "rank": 5,
+          "note": "Pine needles",
+          "sastojak_id": 204,
+          "votes": 1327
+        }
+      ],
+      "verification": {
+        "identity": true,
+        "gender": true,
+        "main_notes": true,
+        "season": false,
+        "source_status": "source-locked",
+        "identity_source": "Personal Database/fragrantica-main-notes-21-40.json",
+        "note_capture": "Personal Database/fragrantica-main-notes-21-40.json"
+      }
+    },
+    {
+      "rank": 33,
+      "shobi_code": "1764-GUR W",
+      "perfume": "Aqua Allegoria Coconut Fizz",
+      "fragrantica_id": 53806,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Guerlain/Aqua-Allegoria-Coconut-Fizz-53806.html",
+      "social_card_url": "https://fimgs.net/mdimg/perfume-social-cards/en-p_c_53806.jpeg",
+      "image_url": "https://fimgs.net/mdimg/perfume-thumbs/dark-375x500.53806.avif",
+      "gender": "unisex",
+      "season": null,
+      "main_notes": [
+        "Coconut Nectar",
+        "Water Fruit",
+        "Freesia",
+        "Bergamot",
+        "Sandalwood"
+      ],
+      "main_note_evidence": [
+        {
+          "rank": 1,
+          "note": "Coconut Nectar",
+          "sastojak_id": 138,
+          "votes": 719
+        },
+        {
+          "rank": 2,
+          "note": "Water Fruit",
+          "sastojak_id": 702,
+          "votes": 454
+        },
+        {
+          "rank": 3,
+          "note": "Freesia",
+          "sastojak_id": 94,
+          "votes": 264
+        },
+        {
+          "rank": 4,
+          "note": "Bergamot",
+          "sastojak_id": 75,
+          "votes": 212
+        },
+        {
+          "rank": 5,
+          "note": "Sandalwood",
+          "sastojak_id": 33,
+          "votes": 158
+        }
+      ],
+      "verification": {
+        "identity": true,
+        "gender": true,
+        "main_notes": true,
+        "season": false,
+        "source_status": "source-locked",
+        "identity_source": "Personal Database/fragrantica-main-notes-21-40.json",
+        "note_capture": "Personal Database/fragrantica-main-notes-21-40.json"
+      }
+    },
+    {
+      "rank": 34,
       "shobi_code": "1919-PRA WP",
       "perfume": "Prada Paradoxe",
       "fragrantica_id": 75668,
-      "fragrantica_url": "https://www.fragrantica.com/perfume/Prada/Paradoxe-75668.html",
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Prada/Prada-Paradoxe-75668.html",
       "social_card_url": "https://fimgs.net/mdimg/perfume-social-cards/en-p_c_75668.jpeg",
       "image_url": "https://fimgs.net/mdimg/perfume-thumbs/dark-375x500.75668.avif",
       "gender": "female",
@@ -1789,34 +1967,12 @@
         "main_notes": true,
         "season": false,
         "source_status": "source-locked",
-        "source_lock": "Shobi Master Database/bestseller-top100-source-lock.csv",
+        "identity_source": "Personal Database/fragrantica-main-notes-21-40.json",
         "note_capture": "Personal Database/fragrantica-main-notes-21-40.json"
       }
     },
     {
-      "rank": 32,
-      "shobi_code": "1764-GUR W",
-      "perfume": "Aqua Allegoria Coconut Fizz",
-      "fragrantica_id": 53858,
-      "fragrantica_url": "https://www.fragrantica.com/perfume/Guerlain/Aqua-Allegoria-Coconut-Fizz-53858.html",
-      "social_card_url": "https://fimgs.net/mdimg/perfume-social-cards/en-p_c_53858.jpeg",
-      "image_url": "https://fimgs.net/mdimg/perfume-thumbs/dark-375x500.53858.avif",
-      "gender": "unisex",
-      "season": null,
-      "main_notes": [],
-      "main_note_evidence": [],
-      "verification": {
-        "identity": true,
-        "gender": true,
-        "main_notes": false,
-        "season": false,
-        "source_status": "source-locked",
-        "source_lock": "Shobi Master Database/bestseller-top100-source-lock.csv",
-        "note_capture": null
-      }
-    },
-    {
-      "rank": 33,
+      "rank": 35,
       "shobi_code": "131-LEL N",
       "perfume": "Santal 33",
       "fragrantica_id": 12201,
@@ -1870,16 +2026,16 @@
         "main_notes": true,
         "season": false,
         "source_status": "source-locked",
-        "source_lock": "Shobi Master Database/bestseller-top100-source-lock.csv",
+        "identity_source": "Personal Database/fragrantica-main-notes-21-40.json",
         "note_capture": "Personal Database/fragrantica-main-notes-21-40.json"
       }
     },
     {
-      "rank": 34,
+      "rank": 36,
       "shobi_code": "848-NRO WP",
       "perfume": "Pure Musc For Her",
       "fragrantica_id": 53441,
-      "fragrantica_url": "https://www.fragrantica.com/perfume/Narciso-Rodriguez/Pure-Musc-For-Her-53441.html",
+      "fragrantica_url": "https://www.fragrantica.com/perfume/narciso-rodriguez/pure-musc-for-her-53441.html",
       "social_card_url": "https://fimgs.net/mdimg/perfume-social-cards/en-p_c_53441.jpeg",
       "image_url": "https://fimgs.net/mdimg/perfume-thumbs/dark-375x500.53441.avif",
       "gender": "female",
@@ -1929,12 +2085,12 @@
         "main_notes": true,
         "season": false,
         "source_status": "source-locked",
-        "source_lock": "Shobi Master Database/bestseller-top100-source-lock.csv",
+        "identity_source": "Personal Database/fragrantica-main-notes-21-40.json",
         "note_capture": "Personal Database/fragrantica-main-notes-21-40.json"
       }
     },
     {
-      "rank": 35,
+      "rank": 37,
       "shobi_code": "2348-AMG",
       "perfume": "Guidance",
       "fragrantica_id": 78656,
@@ -1988,12 +2144,12 @@
         "main_notes": true,
         "season": false,
         "source_status": "source-locked",
-        "source_lock": "Shobi Master Database/bestseller-top100-source-lock.csv",
+        "identity_source": "Personal Database/fragrantica-main-notes-21-40.json",
         "note_capture": "Personal Database/fragrantica-main-notes-21-40.json"
       }
     },
     {
-      "rank": 36,
+      "rank": 38,
       "shobi_code": "303-JOM EL",
       "perfume": "Wood Sage & Sea Salt",
       "fragrantica_id": 25529,
@@ -2047,12 +2203,12 @@
         "main_notes": true,
         "season": false,
         "source_status": "source-locked",
-        "source_lock": "Shobi Master Database/bestseller-top100-source-lock.csv",
+        "identity_source": "Personal Database/fragrantica-main-notes-21-40.json",
         "note_capture": "Personal Database/fragrantica-main-notes-21-40.json"
       }
     },
     {
-      "rank": 37,
+      "rank": 39,
       "shobi_code": "2155-KAY EL",
       "perfume": "Yum Pistachio Gelato 33",
       "fragrantica_id": 79846,
@@ -2106,34 +2262,12 @@
         "main_notes": true,
         "season": false,
         "source_status": "source-locked",
-        "source_lock": "Shobi Master Database/bestseller-top100-source-lock.csv",
+        "identity_source": "Personal Database/fragrantica-main-notes-21-40.json",
         "note_capture": "Personal Database/fragrantica-main-notes-21-40.json"
       }
     },
     {
-      "rank": 38,
-      "shobi_code": "750-KEN W",
-      "perfume": "Flower by Kenzo L'Elixir",
-      "fragrantica_id": 31539,
-      "fragrantica_url": "https://www.fragrantica.com/perfume/Kenzo/Flower-by-Kenzo-L-Elixir-31539.html",
-      "social_card_url": "https://fimgs.net/mdimg/perfume-social-cards/en-p_c_31539.jpeg",
-      "image_url": "https://fimgs.net/mdimg/perfume-thumbs/dark-375x500.31539.avif",
-      "gender": "female",
-      "season": null,
-      "main_notes": [],
-      "main_note_evidence": [],
-      "verification": {
-        "identity": true,
-        "gender": true,
-        "main_notes": false,
-        "season": false,
-        "source_status": "source-locked",
-        "source_lock": "Shobi Master Database/bestseller-top100-source-lock.csv",
-        "note_capture": null
-      }
-    },
-    {
-      "rank": 39,
+      "rank": 40,
       "shobi_code": "1553-MNT N",
       "perfume": "Arabians Tonka",
       "fragrantica_id": 57384,
@@ -2187,30 +2321,8 @@
         "main_notes": true,
         "season": false,
         "source_status": "source-locked",
-        "source_lock": "Shobi Master Database/bestseller-top100-source-lock.csv",
+        "identity_source": "Personal Database/fragrantica-main-notes-21-40.json",
         "note_capture": "Personal Database/fragrantica-main-notes-21-40.json"
-      }
-    },
-    {
-      "rank": 40,
-      "shobi_code": "937-VAL WP",
-      "perfume": "Donna Born In Roma",
-      "fragrantica_id": 55805,
-      "fragrantica_url": "https://www.fragrantica.com/perfume/Valentino/Valentino-Donna-Born-In-Roma-55805.html",
-      "social_card_url": "https://fimgs.net/mdimg/perfume-social-cards/en-p_c_55805.jpeg",
-      "image_url": "https://fimgs.net/mdimg/perfume-thumbs/dark-375x500.55805.avif",
-      "gender": "female",
-      "season": null,
-      "main_notes": [],
-      "main_note_evidence": [],
-      "verification": {
-        "identity": true,
-        "gender": true,
-        "main_notes": false,
-        "season": false,
-        "source_status": "source-locked",
-        "source_lock": "Shobi Master Database/bestseller-top100-source-lock.csv",
-        "note_capture": null
       }
     },
     {
@@ -2268,7 +2380,7 @@
         "main_notes": true,
         "season": false,
         "source_status": "source-locked",
-        "source_lock": "Shobi Master Database/bestseller-top100-source-lock.csv",
+        "identity_source": "Personal Database/fragrantica-main-notes-41-100.json",
         "note_capture": "Personal Database/fragrantica-main-notes-41-100.json"
       }
     },
@@ -2327,7 +2439,7 @@
         "main_notes": true,
         "season": false,
         "source_status": "source-locked",
-        "source_lock": "Shobi Master Database/bestseller-top100-source-lock.csv",
+        "identity_source": "Personal Database/fragrantica-main-notes-41-100.json",
         "note_capture": "Personal Database/fragrantica-main-notes-41-100.json"
       }
     },
@@ -2386,7 +2498,7 @@
         "main_notes": true,
         "season": false,
         "source_status": "source-locked",
-        "source_lock": "Shobi Master Database/bestseller-top100-source-lock.csv",
+        "identity_source": "Personal Database/fragrantica-main-notes-41-100.json",
         "note_capture": "Personal Database/fragrantica-main-notes-41-100.json"
       }
     },
@@ -2395,7 +2507,7 @@
       "shobi_code": "760-KIL WP",
       "perfume": "Black Phantom",
       "fragrantica_id": 43632,
-      "fragrantica_url": "https://www.fragrantica.it/perfume/By-Kilian/Black-Phantom-43632.html",
+      "fragrantica_url": "https://www.fragrantica.com/perfume/By-Kilian/Black-Phantom-43632.html",
       "social_card_url": "https://fimgs.net/mdimg/perfume-social-cards/en-p_c_43632.jpeg",
       "image_url": "https://fimgs.net/mdimg/perfume-thumbs/dark-375x500.43632.avif",
       "gender": "unisex",
@@ -2445,7 +2557,7 @@
         "main_notes": true,
         "season": false,
         "source_status": "source-locked",
-        "source_lock": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+        "identity_source": "Personal Database/fragrantica-main-notes-41-100.json",
         "note_capture": "Personal Database/fragrantica-main-notes-41-100.json"
       }
     },
@@ -2504,7 +2616,7 @@
         "main_notes": true,
         "season": false,
         "source_status": "source-locked",
-        "source_lock": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+        "identity_source": "Personal Database/fragrantica-main-notes-41-100.json",
         "note_capture": "Personal Database/fragrantica-main-notes-41-100.json"
       }
     },
@@ -2563,7 +2675,7 @@
         "main_notes": true,
         "season": false,
         "source_status": "source-locked",
-        "source_lock": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+        "identity_source": "Personal Database/fragrantica-main-notes-41-100.json",
         "note_capture": "Personal Database/fragrantica-main-notes-41-100.json"
       }
     },
@@ -2622,7 +2734,7 @@
         "main_notes": true,
         "season": false,
         "source_status": "source-locked",
-        "source_lock": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+        "identity_source": "Personal Database/fragrantica-main-notes-41-100.json",
         "note_capture": "Personal Database/fragrantica-main-notes-41-100.json"
       }
     },
@@ -2681,7 +2793,7 @@
         "main_notes": true,
         "season": false,
         "source_status": "source-locked",
-        "source_lock": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+        "identity_source": "Personal Database/fragrantica-main-notes-41-100.json",
         "note_capture": "Personal Database/fragrantica-main-notes-41-100.json"
       }
     },
@@ -2740,7 +2852,7 @@
         "main_notes": true,
         "season": false,
         "source_status": "source-locked",
-        "source_lock": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+        "identity_source": "Personal Database/fragrantica-main-notes-41-100.json",
         "note_capture": "Personal Database/fragrantica-main-notes-41-100.json"
       }
     },
@@ -2799,7 +2911,7 @@
         "main_notes": true,
         "season": false,
         "source_status": "source-locked",
-        "source_lock": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+        "identity_source": "Personal Database/fragrantica-main-notes-41-100.json",
         "note_capture": "Personal Database/fragrantica-main-notes-41-100.json"
       }
     },
@@ -2858,7 +2970,7 @@
         "main_notes": true,
         "season": false,
         "source_status": "source-locked",
-        "source_lock": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+        "identity_source": "Personal Database/fragrantica-main-notes-41-100.json",
         "note_capture": "Personal Database/fragrantica-main-notes-41-100.json"
       }
     },
@@ -2867,7 +2979,7 @@
       "shobi_code": "1909-XER N",
       "perfume": "Torino21",
       "fragrantica_id": 70424,
-      "fragrantica_url": "https://www.fragrantica.it/perfume/Xerjoff/Torino21-70424.html",
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Xerjoff/Torino21-70424.html",
       "social_card_url": "https://fimgs.net/mdimg/perfume-social-cards/en-p_c_70424.jpeg",
       "image_url": "https://fimgs.net/mdimg/perfume-thumbs/dark-375x500.70424.avif",
       "gender": "unisex",
@@ -2917,7 +3029,7 @@
         "main_notes": true,
         "season": false,
         "source_status": "source-locked",
-        "source_lock": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+        "identity_source": "Personal Database/fragrantica-main-notes-41-100.json",
         "note_capture": "Personal Database/fragrantica-main-notes-41-100.json"
       }
     },
@@ -2976,7 +3088,7 @@
         "main_notes": true,
         "season": false,
         "source_status": "source-locked",
-        "source_lock": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+        "identity_source": "Personal Database/fragrantica-main-notes-41-100.json",
         "note_capture": "Personal Database/fragrantica-main-notes-41-100.json"
       }
     },
@@ -3028,7 +3140,7 @@
         "main_notes": true,
         "season": false,
         "source_status": "source-locked",
-        "source_lock": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+        "identity_source": "Personal Database/fragrantica-main-notes-41-100.json",
         "note_capture": "Personal Database/fragrantica-main-notes-41-100.json"
       }
     },
@@ -3087,7 +3199,7 @@
         "main_notes": true,
         "season": false,
         "source_status": "source-locked",
-        "source_lock": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+        "identity_source": "Personal Database/fragrantica-main-notes-41-100.json",
         "note_capture": "Personal Database/fragrantica-main-notes-41-100.json"
       }
     },
@@ -3139,7 +3251,7 @@
         "main_notes": true,
         "season": false,
         "source_status": "source-locked",
-        "source_lock": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+        "identity_source": "Personal Database/fragrantica-main-notes-41-100.json",
         "note_capture": "Personal Database/fragrantica-main-notes-41-100.json"
       }
     },
@@ -3198,7 +3310,7 @@
         "main_notes": true,
         "season": false,
         "source_status": "source-locked",
-        "source_lock": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+        "identity_source": "Personal Database/fragrantica-main-notes-41-100.json",
         "note_capture": "Personal Database/fragrantica-main-notes-41-100.json"
       }
     },
@@ -3257,7 +3369,7 @@
         "main_notes": true,
         "season": false,
         "source_status": "source-locked",
-        "source_lock": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+        "identity_source": "Personal Database/fragrantica-main-notes-41-100.json",
         "note_capture": "Personal Database/fragrantica-main-notes-41-100.json"
       }
     },
@@ -3316,7 +3428,7 @@
         "main_notes": true,
         "season": false,
         "source_status": "source-locked",
-        "source_lock": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+        "identity_source": "Personal Database/fragrantica-main-notes-41-100.json",
         "note_capture": "Personal Database/fragrantica-main-notes-41-100.json"
       }
     },
@@ -3347,7 +3459,7 @@
         "main_notes": true,
         "season": false,
         "source_status": "source-locked",
-        "source_lock": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+        "identity_source": "Personal Database/fragrantica-main-notes-41-100.json",
         "note_capture": "Personal Database/fragrantica-main-notes-41-100.json"
       }
     },
@@ -3406,7 +3518,7 @@
         "main_notes": true,
         "season": false,
         "source_status": "source-locked",
-        "source_lock": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+        "identity_source": "Personal Database/fragrantica-main-notes-41-100.json",
         "note_capture": "Personal Database/fragrantica-main-notes-41-100.json"
       }
     },
@@ -3465,7 +3577,7 @@
         "main_notes": true,
         "season": false,
         "source_status": "source-locked",
-        "source_lock": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+        "identity_source": "Personal Database/fragrantica-main-notes-41-100.json",
         "note_capture": "Personal Database/fragrantica-main-notes-41-100.json"
       }
     },
@@ -3474,7 +3586,7 @@
       "shobi_code": "2161-GUR W",
       "perfume": "Aqua Allegoria Mandarine Basilic",
       "fragrantica_id": 2060,
-      "fragrantica_url": "https://www.fragrantica.com/p/2060",
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Guerlain/Aqua-Allegoria-Mandarine-Basilic-2060.html",
       "social_card_url": "https://fimgs.net/mdimg/perfume-social-cards/en-p_c_2060.jpeg",
       "image_url": "https://fimgs.net/mdimg/perfume-thumbs/dark-375x500.2060.avif",
       "gender": "female",
@@ -3524,7 +3636,7 @@
         "main_notes": true,
         "season": false,
         "source_status": "source-locked",
-        "source_lock": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+        "identity_source": "Personal Database/fragrantica-main-notes-41-100.json",
         "note_capture": "Personal Database/fragrantica-main-notes-41-100.json"
       }
     },
@@ -3583,7 +3695,7 @@
         "main_notes": true,
         "season": false,
         "source_status": "source-locked",
-        "source_lock": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+        "identity_source": "Personal Database/fragrantica-main-notes-41-100.json",
         "note_capture": "Personal Database/fragrantica-main-notes-41-100.json"
       }
     },
@@ -3592,7 +3704,7 @@
       "shobi_code": "1850-LEL N",
       "perfume": "Another 13",
       "fragrantica_id": 10131,
-      "fragrantica_url": "https://www.fragrantica.it/perfume/Le-Labo/Another-13-10131.html",
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Le-Labo/Another-13-10131.html",
       "social_card_url": "https://fimgs.net/mdimg/perfume-social-cards/en-p_c_10131.jpeg",
       "image_url": "https://fimgs.net/mdimg/perfume-thumbs/dark-375x500.10131.avif",
       "gender": "unisex",
@@ -3642,7 +3754,7 @@
         "main_notes": true,
         "season": false,
         "source_status": "source-locked",
-        "source_lock": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+        "identity_source": "Personal Database/fragrantica-main-notes-41-100.json",
         "note_capture": "Personal Database/fragrantica-main-notes-41-100.json"
       }
     },
@@ -3651,7 +3763,7 @@
       "shobi_code": "151-PARF N",
       "perfume": "Delina",
       "fragrantica_id": 43871,
-      "fragrantica_url": "https://www.fragrantica.it/perfume/Parfums-de-Marly/Delina-43871.html",
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Parfums-de-Marly/Delina-43871.html",
       "social_card_url": "https://fimgs.net/mdimg/perfume-social-cards/en-p_c_43871.jpeg",
       "image_url": "https://fimgs.net/mdimg/perfume-thumbs/dark-375x500.43871.avif",
       "gender": "female",
@@ -3701,7 +3813,7 @@
         "main_notes": true,
         "season": false,
         "source_status": "source-locked",
-        "source_lock": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+        "identity_source": "Personal Database/fragrantica-main-notes-41-100.json",
         "note_capture": "Personal Database/fragrantica-main-notes-41-100.json"
       }
     },
@@ -3760,7 +3872,7 @@
         "main_notes": true,
         "season": false,
         "source_status": "source-locked",
-        "source_lock": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+        "identity_source": "Personal Database/fragrantica-main-notes-41-100.json",
         "note_capture": "Personal Database/fragrantica-main-notes-41-100.json"
       }
     },
@@ -3819,7 +3931,7 @@
         "main_notes": true,
         "season": false,
         "source_status": "source-locked",
-        "source_lock": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+        "identity_source": "Personal Database/fragrantica-main-notes-41-100.json",
         "note_capture": "Personal Database/fragrantica-main-notes-41-100.json"
       }
     },
@@ -3878,7 +3990,7 @@
         "main_notes": true,
         "season": false,
         "source_status": "source-locked",
-        "source_lock": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+        "identity_source": "Personal Database/fragrantica-main-notes-41-100.json",
         "note_capture": "Personal Database/fragrantica-main-notes-41-100.json"
       }
     },
@@ -3937,7 +4049,7 @@
         "main_notes": true,
         "season": false,
         "source_status": "source-locked",
-        "source_lock": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+        "identity_source": "Personal Database/fragrantica-main-notes-41-100.json",
         "note_capture": "Personal Database/fragrantica-main-notes-41-100.json"
       }
     },
@@ -3946,7 +4058,7 @@
       "shobi_code": "506-CHA W",
       "perfume": "Coco Mademoiselle",
       "fragrantica_id": 611,
-      "fragrantica_url": "https://www.fragrantica.it/perfume/Chanel/Coco-Mademoiselle-611.html",
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Chanel/Coco-Mademoiselle-611.html",
       "social_card_url": "https://fimgs.net/mdimg/perfume-social-cards/en-p_c_611.jpeg",
       "image_url": "https://fimgs.net/mdimg/perfume-thumbs/dark-375x500.611.avif",
       "gender": "female",
@@ -3996,7 +4108,7 @@
         "main_notes": true,
         "season": false,
         "source_status": "source-locked",
-        "source_lock": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+        "identity_source": "Personal Database/fragrantica-main-notes-41-100.json",
         "note_capture": "Personal Database/fragrantica-main-notes-41-100.json"
       }
     },
@@ -4055,7 +4167,7 @@
         "main_notes": true,
         "season": false,
         "source_status": "source-locked",
-        "source_lock": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+        "identity_source": "Personal Database/fragrantica-main-notes-41-100.json",
         "note_capture": "Personal Database/fragrantica-main-notes-41-100.json"
       }
     },
@@ -4114,7 +4226,7 @@
         "main_notes": true,
         "season": false,
         "source_status": "source-locked",
-        "source_lock": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+        "identity_source": "Personal Database/fragrantica-main-notes-41-100.json",
         "note_capture": "Personal Database/fragrantica-main-notes-41-100.json"
       }
     },
@@ -4173,7 +4285,7 @@
         "main_notes": true,
         "season": false,
         "source_status": "source-locked",
-        "source_lock": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+        "identity_source": "Personal Database/fragrantica-main-notes-41-100.json",
         "note_capture": "Personal Database/fragrantica-main-notes-41-100.json"
       }
     },
@@ -4232,7 +4344,7 @@
         "main_notes": true,
         "season": false,
         "source_status": "source-locked",
-        "source_lock": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+        "identity_source": "Personal Database/fragrantica-main-notes-41-100.json",
         "note_capture": "Personal Database/fragrantica-main-notes-41-100.json"
       }
     },
@@ -4241,7 +4353,7 @@
       "shobi_code": "2167-GUL MP",
       "perfume": "Le Male Elixir",
       "fragrantica_id": 81642,
-      "fragrantica_url": "https://www.fragrantica.it/perfume/Jean-Paul-Gaultier/Le-Male-Elixir-81642.html",
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Jean-Paul-Gaultier/Le-Male-Elixir-81642.html",
       "social_card_url": "https://fimgs.net/mdimg/perfume-social-cards/en-p_c_81642.jpeg",
       "image_url": "https://fimgs.net/mdimg/perfume-thumbs/dark-375x500.81642.avif",
       "gender": "male",
@@ -4291,7 +4403,7 @@
         "main_notes": true,
         "season": false,
         "source_status": "source-locked",
-        "source_lock": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+        "identity_source": "Personal Database/fragrantica-main-notes-41-100.json",
         "note_capture": "Personal Database/fragrantica-main-notes-41-100.json"
       }
     },
@@ -4350,7 +4462,7 @@
         "main_notes": true,
         "season": false,
         "source_status": "source-locked",
-        "source_lock": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+        "identity_source": "Personal Database/fragrantica-main-notes-41-100.json",
         "note_capture": "Personal Database/fragrantica-main-notes-41-100.json"
       }
     },
@@ -4409,7 +4521,7 @@
         "main_notes": true,
         "season": false,
         "source_status": "source-locked",
-        "source_lock": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+        "identity_source": "Personal Database/fragrantica-main-notes-41-100.json",
         "note_capture": "Personal Database/fragrantica-main-notes-41-100.json"
       }
     },
@@ -4454,7 +4566,7 @@
         "main_notes": true,
         "season": false,
         "source_status": "source-locked",
-        "source_lock": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+        "identity_source": "Personal Database/fragrantica-main-notes-41-100.json",
         "note_capture": "Personal Database/fragrantica-main-notes-41-100.json"
       }
     },
@@ -4506,7 +4618,7 @@
         "main_notes": true,
         "season": false,
         "source_status": "source-locked",
-        "source_lock": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+        "identity_source": "Personal Database/fragrantica-main-notes-41-100.json",
         "note_capture": "Personal Database/fragrantica-main-notes-41-100.json"
       }
     },
@@ -4565,7 +4677,7 @@
         "main_notes": true,
         "season": false,
         "source_status": "source-locked",
-        "source_lock": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+        "identity_source": "Personal Database/fragrantica-main-notes-41-100.json",
         "note_capture": "Personal Database/fragrantica-main-notes-41-100.json"
       }
     },
@@ -4624,7 +4736,7 @@
         "main_notes": true,
         "season": false,
         "source_status": "source-locked",
-        "source_lock": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+        "identity_source": "Personal Database/fragrantica-main-notes-41-100.json",
         "note_capture": "Personal Database/fragrantica-main-notes-41-100.json"
       }
     },
@@ -4683,7 +4795,7 @@
         "main_notes": true,
         "season": false,
         "source_status": "source-locked",
-        "source_lock": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+        "identity_source": "Personal Database/fragrantica-main-notes-41-100.json",
         "note_capture": "Personal Database/fragrantica-main-notes-41-100.json"
       }
     },
@@ -4742,7 +4854,7 @@
         "main_notes": true,
         "season": false,
         "source_status": "source-locked",
-        "source_lock": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+        "identity_source": "Personal Database/fragrantica-main-notes-41-100.json",
         "note_capture": "Personal Database/fragrantica-main-notes-41-100.json"
       }
     },
@@ -4801,7 +4913,7 @@
         "main_notes": true,
         "season": false,
         "source_status": "source-locked",
-        "source_lock": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+        "identity_source": "Personal Database/fragrantica-main-notes-41-100.json",
         "note_capture": "Personal Database/fragrantica-main-notes-41-100.json"
       }
     },
@@ -4860,7 +4972,7 @@
         "main_notes": true,
         "season": false,
         "source_status": "source-locked",
-        "source_lock": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+        "identity_source": "Personal Database/fragrantica-main-notes-41-100.json",
         "note_capture": "Personal Database/fragrantica-main-notes-41-100.json"
       }
     },
@@ -4919,7 +5031,7 @@
         "main_notes": true,
         "season": false,
         "source_status": "source-locked",
-        "source_lock": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+        "identity_source": "Personal Database/fragrantica-main-notes-41-100.json",
         "note_capture": "Personal Database/fragrantica-main-notes-41-100.json"
       }
     },
@@ -4928,7 +5040,7 @@
       "shobi_code": "359-TMFO EL",
       "perfume": "Noir Extreme",
       "fragrantica_id": 29675,
-      "fragrantica_url": "https://www.fragrantica.it/perfume/Tom-Ford/Noir-Extreme-29675.html",
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Tom-Ford/Noir-Extreme-29675.html",
       "social_card_url": "https://fimgs.net/mdimg/perfume-social-cards/en-p_c_29675.jpeg",
       "image_url": "https://fimgs.net/mdimg/perfume-thumbs/dark-375x500.29675.avif",
       "gender": "male",
@@ -4978,7 +5090,7 @@
         "main_notes": true,
         "season": false,
         "source_status": "source-locked",
-        "source_lock": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+        "identity_source": "Personal Database/fragrantica-main-notes-41-100.json",
         "note_capture": "Personal Database/fragrantica-main-notes-41-100.json"
       }
     },
@@ -5037,7 +5149,7 @@
         "main_notes": true,
         "season": false,
         "source_status": "source-locked",
-        "source_lock": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+        "identity_source": "Personal Database/fragrantica-main-notes-41-100.json",
         "note_capture": "Personal Database/fragrantica-main-notes-41-100.json"
       }
     },
@@ -5096,7 +5208,7 @@
         "main_notes": true,
         "season": false,
         "source_status": "source-locked",
-        "source_lock": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+        "identity_source": "Personal Database/fragrantica-main-notes-41-100.json",
         "note_capture": "Personal Database/fragrantica-main-notes-41-100.json"
       }
     },
@@ -5155,7 +5267,7 @@
         "main_notes": true,
         "season": false,
         "source_status": "source-locked",
-        "source_lock": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+        "identity_source": "Personal Database/fragrantica-main-notes-41-100.json",
         "note_capture": "Personal Database/fragrantica-main-notes-41-100.json"
       }
     },
@@ -5214,7 +5326,7 @@
         "main_notes": true,
         "season": false,
         "source_status": "source-locked",
-        "source_lock": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+        "identity_source": "Personal Database/fragrantica-main-notes-41-100.json",
         "note_capture": "Personal Database/fragrantica-main-notes-41-100.json"
       }
     },
@@ -5273,7 +5385,7 @@
         "main_notes": true,
         "season": false,
         "source_status": "source-locked",
-        "source_lock": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+        "identity_source": "Personal Database/fragrantica-main-notes-41-100.json",
         "note_capture": "Personal Database/fragrantica-main-notes-41-100.json"
       }
     },
@@ -5332,7 +5444,7 @@
         "main_notes": true,
         "season": false,
         "source_status": "source-locked",
-        "source_lock": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+        "identity_source": "Personal Database/fragrantica-main-notes-41-100.json",
         "note_capture": "Personal Database/fragrantica-main-notes-41-100.json"
       }
     },
@@ -5391,7 +5503,7 @@
         "main_notes": true,
         "season": false,
         "source_status": "source-locked",
-        "source_lock": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+        "identity_source": "Personal Database/fragrantica-main-notes-41-100.json",
         "note_capture": "Personal Database/fragrantica-main-notes-41-100.json"
       }
     },
@@ -5443,7 +5555,7 @@
         "main_notes": true,
         "season": false,
         "source_status": "source-locked",
-        "source_lock": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+        "identity_source": "Personal Database/fragrantica-main-notes-41-100.json",
         "note_capture": "Personal Database/fragrantica-main-notes-41-100.json"
       }
     },
@@ -5502,7 +5614,7 @@
         "main_notes": true,
         "season": false,
         "source_status": "source-locked",
-        "source_lock": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+        "identity_source": "Personal Database/fragrantica-main-notes-41-100.json",
         "note_capture": "Personal Database/fragrantica-main-notes-41-100.json"
       }
     },
@@ -5561,7 +5673,7 @@
         "main_notes": true,
         "season": false,
         "source_status": "source-locked",
-        "source_lock": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+        "identity_source": "Personal Database/fragrantica-main-notes-41-100.json",
         "note_capture": "Personal Database/fragrantica-main-notes-41-100.json"
       }
     },
@@ -5620,7 +5732,7 @@
         "main_notes": true,
         "season": false,
         "source_status": "source-locked",
-        "source_lock": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+        "identity_source": "Personal Database/fragrantica-main-notes-41-100.json",
         "note_capture": "Personal Database/fragrantica-main-notes-41-100.json"
       }
     },
@@ -5679,7 +5791,7 @@
         "main_notes": true,
         "season": false,
         "source_status": "source-locked",
-        "source_lock": "Shobi Master Database/bestseller-top100-source-lock-pass2.csv",
+        "identity_source": "Personal Database/fragrantica-main-notes-41-100.json",
         "note_capture": "Personal Database/fragrantica-main-notes-41-100.json"
       }
     }
