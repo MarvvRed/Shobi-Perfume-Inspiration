@@ -90,9 +90,8 @@ jobs:
           addBatch(batch41100,41,100,60,'Playwright 41-100');
           if(Object.keys(byCode).length!==100)throw new Error(`Expected 100 catcher codes, got ${Object.keys(byCode).length}`);
 
-          // IMPORTANT: bestseller-catcher-notes.js is versioned in the repository and now
-          // contains the authoritative Fragrantica social-card Top100 map (up to 6 notes).
-          // Do not regenerate/overwrite it here from the legacy Show Votes datasets.
+          // bestseller-catcher-notes.js is versioned and contains the authoritative
+          // Fragrantica social-card Top100 map. Never overwrite it from legacy Top5 data.
 
           const extension=batch41100.results
             .map(src=>({
@@ -123,6 +122,14 @@ jobs:
           fs.writeFileSync('bestseller-41-100-runtime.js',runtime);
           console.log('LEGACY_CATCHER_VALIDATION_OK',Object.keys(byCode).length,'RANKING_EXTENSION_OK',extension.length,'SOCIAL_CARD_NOTES_PRESERVED');
           NODE
+
+      - name: Bust social-card runtime caches
+        shell: bash
+        run: |
+          sed -i 's/bestseller-catcher-visual-check.js?v=8/bestseller-catcher-visual-check.js?v=9/g' index.html
+          sed -i 's/fragrantica-note-icons.js?v=1/fragrantica-note-icons.js?v=2/g' index.html
+          grep -q 'bestseller-catcher-visual-check.js?v=9' index.html
+          grep -q 'fragrantica-note-icons.js?v=2' index.html
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
