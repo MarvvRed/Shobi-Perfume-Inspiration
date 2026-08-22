@@ -1,0 +1,27 @@
+name: Fetch Fragrantica Social Cards 101-200
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/fetch-fragrantica-social-cards-101-200.yml'
+      - 'scripts/fetch-fragrantica-social-cards-101-200.mjs'
+      - 'Personal Database/bestseller-101-200-fragrantica-resolved.json'
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Fetch resolved social cards
+        run: node scripts/fetch-fragrantica-social-cards-101-200.mjs
+      - name: Upload social cards
+        uses: actions/upload-artifact@v4
+        with:
+          name: fragrantica-social-cards-101-200
+          path: artifacts/fragrantica-social-cards-101-200
+          if-no-files-found: error
