@@ -19,34 +19,15 @@
         const code=details?.dataset.code||card.dataset.catcherCode||'';
         const row=map.get(norm(code));
         if(!row) return;
-        // Rule: title contains perfume name only; brand stays in its separate badge.
-        const title=card.querySelector('h3');
-        const brandEl=card.querySelector('[data-action="filter-brand"]');
-        if(title&&brandEl){
-          const brand=brandEl.textContent.trim();
-          let name=title.textContent.trim();
-          if(brand){
-            const escaped=brand.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
-            name=name.replace(new RegExp('\\s*[-–—]\\s*'+escaped+'\\s*$','i'),'').trim();
-          }
-          title.textContent=name;
-        }
         const wrap=card.querySelector('.prototype-image-wrap');
         if(!wrap) return;
         let img=wrap.querySelector('img');
         if(!img){img=document.createElement('img');wrap.prepend(img);}
-        const primary=Number(row.rank)===97
-          ? 'https://fimgs.net/mdimg/perfume-thumbs/dark-375x500.17.jpg'
+        img.src=Number(row.rank)===97
+          ? 'https://fimgs.net/mdimg/perfume-thumbs/375x500.17.jpg'
           : `https://fimgs.net/mdimg/perfume-thumbs/dark-375x500.${row.fragrantica_id}.2x.avif`;
-        img.src=primary;
         img.loading='lazy'; img.decoding='async';
-        if(Number(row.rank)===97){
-          img.onerror=function(){
-            if(this.dataset.fallback97)return;
-            this.dataset.fallback97='1';
-            this.src='https://fimgs.net/mdimg/perfume-thumbs/375x500.17.jpg';
-          };
-        }
+        // Once the verified Fragrantica image is present, remove only the stale placeholder.
         Array.from(wrap.children).forEach(el=>{
           if(el!==img && el.tagName!=='A' && el.textContent.trim()==='Image not verified') el.remove();
         });
