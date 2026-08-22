@@ -1,9 +1,10 @@
 {
   "count": 99,
-  "candidate_count": 15,
-  "review_count": 84,
+  "verified_count": 6,
+  "review_count": 93,
   "missing_image_count": 0,
   "pending_rank": 149,
+  "vocabulary_size": 47,
   "rows": [
     {
       "rank": 101,
@@ -12,39 +13,51 @@
       "brand": "Xerjoff",
       "fragrantica_id": 17786,
       "fragrantica_url": "https://www.fragrantica.com/perfume/Xerjoff/Alexandria-II-17786.html",
-      "status": "candidate",
+      "status": "verified",
       "note_count": 6,
-      "min_confidence": 64.8,
+      "min_vocab_match": 84.2,
       "notes": [
         {
           "position": 1,
           "text": "Palisander Rosewood",
-          "confidence": 96.5
+          "raw_ocr": "Palisander Rosewood",
+          "ocr_confidence": 96.5,
+          "vocab_match": 100.0
         },
         {
           "position": 2,
-          "text": "Agarwoo (Oud)",
-          "confidence": 93.0
+          "text": "Agarwood (Oud)",
+          "raw_ocr": "Agarwoo (Oud)",
+          "ocr_confidence": 93.0,
+          "vocab_match": 95.2
         },
         {
           "position": 3,
-          "text": "d Lavender",
-          "confidence": 94.0
+          "text": "Lavender",
+          "raw_ocr": "d Lavender",
+          "ocr_confidence": 94.0,
+          "vocab_match": 94.2
         },
         {
           "position": 4,
-          "text": "Sandalwoc",
-          "confidence": 89.7
+          "text": "Sandalwood",
+          "raw_ocr": "Sandalwoc",
+          "ocr_confidence": 89.7,
+          "vocab_match": 84.2
         },
         {
           "position": 5,
-          "text": "Ee 1d Amber",
-          "confidence": 64.8
+          "text": "Amber",
+          "raw_ocr": "Ee 1d Amber",
+          "ocr_confidence": 64.8,
+          "vocab_match": 85.9
         },
         {
           "position": 6,
-          "text": "in Vanilla",
-          "confidence": 68.3
+          "text": "Vanilla",
+          "raw_ocr": "in Vanilla",
+          "ocr_confidence": 68.3,
+          "vocab_match": 91.4
         }
       ]
     },
@@ -55,39 +68,51 @@
       "brand": "Hermes",
       "fragrantica_id": 17,
       "fragrantica_url": "https://www.fragrantica.com/perfume/Hermes/Terre-d-Hermes-17.html",
-      "status": "review",
+      "status": "verified",
       "note_count": 6,
-      "min_confidence": 38.1,
+      "min_vocab_match": 84.5,
       "notes": [
         {
           "position": 1,
           "text": "Orange",
-          "confidence": 57.0
+          "raw_ocr": "Orange",
+          "ocr_confidence": 57.0,
+          "vocab_match": 100.0
         },
         {
           "position": 2,
           "text": "Vetiver",
-          "confidence": 96.7
+          "raw_ocr": "Vetiver",
+          "ocr_confidence": 96.7,
+          "vocab_match": 100.0
         },
         {
           "position": 3,
-          "text": "lle Se Pepper",
-          "confidence": 43.8
+          "text": "Pepper",
+          "raw_ocr": "lle Se Pepper",
+          "ocr_confidence": 43.8,
+          "vocab_match": 85.6
         },
         {
           "position": 4,
           "text": "Grapefruit",
-          "confidence": 95.4
+          "raw_ocr": "Grapefruit",
+          "ocr_confidence": 95.4,
+          "vocab_match": 100.0
         },
         {
           "position": 5,
-          "text": "ee) 5 ee Cedar",
-          "confidence": 39.7
+          "text": "Cedar",
+          "raw_ocr": "ee) 5 ee Cedar",
+          "ocr_confidence": 39.7,
+          "vocab_match": 84.5
         },
         {
           "position": 6,
-          "text": "3 oe Patchouli",
-          "confidence": 38.1
+          "text": "Patchouli",
+          "raw_ocr": "3 oe Patchouli",
+          "ocr_confidence": 38.1,
+          "vocab_match": 90.8
         }
       ]
     },
@@ -98,34 +123,44 @@
       "brand": "Victoria's Secret",
       "fragrantica_id": 114727,
       "fragrantica_url": "https://www.fragrantica.com/perfume/Victoria-s-Secret/Coconut-Passion-114727.html",
-      "status": "review",
+      "status": "verified",
       "note_count": 5,
-      "min_confidence": 52.4,
+      "min_vocab_match": 91.4,
       "notes": [
         {
           "position": 1,
-          "text": "Coconut ry",
-          "confidence": 80.1
+          "text": "Coconut",
+          "raw_ocr": "Coconut ry",
+          "ocr_confidence": 80.1,
+          "vocab_match": 91.4
         },
         {
           "position": 2,
-          "text": "Vanilla . Of",
-          "confidence": 52.4
+          "text": "Vanilla",
+          "raw_ocr": "Vanilla . Of",
+          "ocr_confidence": 52.4,
+          "vocab_match": 91.4
         },
         {
           "position": 3,
           "text": "Chamomile",
-          "confidence": 96.3
+          "raw_ocr": "Chamomile",
+          "ocr_confidence": 96.3,
+          "vocab_match": 100.0
         },
         {
           "position": 4,
           "text": "Aloe Vera",
-          "confidence": 96.6
+          "raw_ocr": "Aloe Vera",
+          "ocr_confidence": 96.6,
+          "vocab_match": 100.0
         },
         {
           "position": 5,
-          "text": "Lily-of- the-Valley",
-          "confidence": 92.6
+          "text": "Lily-of-the-Valley",
+          "raw_ocr": "Lily-of- the-Valley",
+          "ocr_confidence": 92.6,
+          "vocab_match": 100.0
         }
       ]
     },
@@ -136,39 +171,51 @@
       "brand": "Mugler",
       "fragrantica_id": 15452,
       "fragrantica_url": "https://www.fragrantica.com/perfume/Mugler/Alien-Essence-Absolue-15452.html",
-      "status": "candidate",
+      "status": "review",
       "note_count": 6,
-      "min_confidence": 59.2,
+      "min_vocab_match": 79.1,
       "notes": [
         {
           "position": 1,
-          "text": "Vanilla a a",
-          "confidence": 59.2
+          "text": "Vanilla",
+          "raw_ocr": "Vanilla a a",
+          "ocr_confidence": 59.2,
+          "vocab_match": 91.4
         },
         {
           "position": 2,
-          "text": "Ja",
-          "confidence": 96.8
+          "text": "Jasmine",
+          "raw_ocr": "Ja",
+          "ocr_confidence": 96.8,
+          "vocab_match": 79.1
         },
         {
           "position": 3,
-          "text": "Amber Te",
-          "confidence": 76.1
+          "text": "Amber",
+          "raw_ocr": "Amber Te",
+          "ocr_confidence": 76.1,
+          "vocab_match": 89.9
         },
         {
           "position": 4,
           "text": "Myrrh",
-          "confidence": 94.0
+          "raw_ocr": "Myrrh",
+          "ocr_confidence": 94.0,
+          "vocab_match": 100.0
         },
         {
           "position": 5,
           "text": "Incense",
-          "confidence": 95.7
+          "raw_ocr": "Incense",
+          "ocr_confidence": 95.7,
+          "vocab_match": 100.0
         },
         {
           "position": 6,
-          "text": "Cashmir wood",
-          "confidence": 94.3
+          "text": "Cashmir Wood",
+          "raw_ocr": "Cashmir wood",
+          "ocr_confidence": 94.3,
+          "vocab_match": 100.0
         }
       ]
     },
@@ -181,37 +228,49 @@
       "fragrantica_url": "https://www.fragrantica.com/perfume/Versace/Crystal-Noir-631.html",
       "status": "review",
       "note_count": 6,
-      "min_confidence": 24.4,
+      "min_vocab_match": 47.1,
       "notes": [
         {
           "position": 1,
-          "text": "a Coconut",
-          "confidence": 68.6
+          "text": "Coconut",
+          "raw_ocr": "a Coconut",
+          "ocr_confidence": 68.6,
+          "vocab_match": 93.9
         },
         {
           "position": 2,
           "text": "pardenia sf",
-          "confidence": 24.4
+          "raw_ocr": "pardenia sf",
+          "ocr_confidence": 24.4,
+          "vocab_match": 47.1
         },
         {
           "position": 3,
-          "text": "Te 2 -epper",
-          "confidence": 36.3
+          "text": "Pepper",
+          "raw_ocr": "Te 2 -epper",
+          "ocr_confidence": 36.3,
+          "vocab_match": 71.4
         },
         {
           "position": 4,
           "text": "Ginger",
-          "confidence": 37.7
+          "raw_ocr": "Ginger",
+          "ocr_confidence": 37.7,
+          "vocab_match": 100.0
         },
         {
           "position": 5,
-          "text": "5 rardamom",
-          "confidence": 36.5
+          "text": "Cardamom",
+          "raw_ocr": "5 rardamom",
+          "ocr_confidence": 36.5,
+          "vocab_match": 82.4
         },
         {
           "position": 6,
-          "text": "iS Sill Sandalwood",
-          "confidence": 39.8
+          "text": "Sandalwood",
+          "raw_ocr": "iS Sill Sandalwood",
+          "ocr_confidence": 39.8,
+          "vocab_match": 87.6
         }
       ]
     },
@@ -222,39 +281,51 @@
       "brand": "Joop",
       "fragrantica_id": 1721,
       "fragrantica_url": "https://www.fragrantica.com/perfume/Joop/Nightflight-1721.html",
-      "status": "review",
+      "status": "verified",
       "note_count": 6,
-      "min_confidence": 44.8,
+      "min_vocab_match": 92.5,
       "notes": [
         {
           "position": 1,
-          "text": "Pineapple Tm",
-          "confidence": 59.0
+          "text": "Pineapple",
+          "raw_ocr": "Pineapple Tm",
+          "ocr_confidence": 59.0,
+          "vocab_match": 92.5
         },
         {
           "position": 2,
           "text": "Lavender",
-          "confidence": 96.6
+          "raw_ocr": "Lavender",
+          "ocr_confidence": 96.6,
+          "vocab_match": 100.0
         },
         {
           "position": 3,
           "text": "Lemon",
-          "confidence": 44.8
+          "raw_ocr": "Lemon",
+          "ocr_confidence": 44.8,
+          "vocab_match": 100.0
         },
         {
           "position": 4,
           "text": "Bergamot",
-          "confidence": 96.8
+          "raw_ocr": "Bergamot",
+          "ocr_confidence": 96.8,
+          "vocab_match": 100.0
         },
         {
           "position": 5,
           "text": "Green Notes",
-          "confidence": 96.4
+          "raw_ocr": "Green Notes",
+          "ocr_confidence": 96.4,
+          "vocab_match": 100.0
         },
         {
           "position": 6,
           "text": "Tonka Bean",
-          "confidence": 96.3
+          "raw_ocr": "Tonka Bean",
+          "ocr_confidence": 96.3,
+          "vocab_match": 100.0
         }
       ]
     },
@@ -265,29 +336,37 @@
       "brand": "",
       "fragrantica_id": 84094,
       "fragrantica_url": "https://www.fragrantica.com/perfume/Yves-Saint-Laurent/MYSLF-Eau-de-Parfum-84094.html",
-      "status": "candidate",
+      "status": "review",
       "note_count": 4,
-      "min_confidence": 73.7,
+      "min_vocab_match": 80.0,
       "notes": [
         {
           "position": 1,
           "text": "Orange Blossom",
-          "confidence": 96.4
+          "raw_ocr": "Orange Blossom",
+          "ocr_confidence": 96.4,
+          "vocab_match": 100.0
         },
         {
           "position": 2,
           "text": "Bergamot",
-          "confidence": 96.5
+          "raw_ocr": "Bergamot",
+          "ocr_confidence": 96.5,
+          "vocab_match": 100.0
         },
         {
           "position": 3,
           "text": "Ambrofix",
-          "confidence": 73.7
+          "raw_ocr": "Ambrofix",
+          "ocr_confidence": 73.7,
+          "vocab_match": 100.0
         },
         {
           "position": 4,
-          "text": "Om Patchoull",
-          "confidence": 74.5
+          "text": "Patchouli",
+          "raw_ocr": "Om Patchoull",
+          "ocr_confidence": 74.5,
+          "vocab_match": 80.0
         }
       ]
     },
@@ -300,37 +379,49 @@
       "fragrantica_url": "https://www.fragrantica.com/perfume/Tom-Ford/Bitter-Peach-62707.html",
       "status": "review",
       "note_count": 6,
-      "min_confidence": 44.0,
+      "min_vocab_match": 76.2,
       "notes": [
         {
           "position": 1,
           "text": "Peach",
-          "confidence": 96.8
+          "raw_ocr": "Peach",
+          "ocr_confidence": 96.8,
+          "vocab_match": 100.0
         },
         {
           "position": 2,
           "text": "Rum",
-          "confidence": 96.5
+          "raw_ocr": "Rum",
+          "ocr_confidence": 96.5,
+          "vocab_match": 100.0
         },
         {
           "position": 3,
           "text": "Blood Orange",
-          "confidence": 96.3
+          "raw_ocr": "Blood Orange",
+          "ocr_confidence": 96.3,
+          "vocab_match": 100.0
         },
         {
           "position": 4,
-          "text": "in Vanilla",
-          "confidence": 57.3
+          "text": "Vanilla",
+          "raw_ocr": "in Vanilla",
+          "ocr_confidence": 57.3,
+          "vocab_match": 91.4
         },
         {
           "position": 5,
           "text": "Cognac",
-          "confidence": 68.1
+          "raw_ocr": "Cognac",
+          "ocr_confidence": 68.1,
+          "vocab_match": 100.0
         },
         {
           "position": 6,
-          "text": "a. ie Patchoull",
-          "confidence": 44.0
+          "text": "Patchouli",
+          "raw_ocr": "a. ie Patchoull",
+          "ocr_confidence": 44.0,
+          "vocab_match": 76.2
         }
       ]
     },
@@ -343,37 +434,49 @@
       "fragrantica_url": "https://www.fragrantica.com/perfume/Kayali-Fragrances/Yum-Boujee-Marshmallow-81-99254.html",
       "status": "review",
       "note_count": 6,
-      "min_confidence": 48.3,
+      "min_vocab_match": 66.7,
       "notes": [
         {
           "position": 1,
-          "text": "Marshmall",
-          "confidence": 73.9
+          "text": "Marshmallow",
+          "raw_ocr": "Marshmall",
+          "ocr_confidence": 73.9,
+          "vocab_match": 92.5
         },
         {
           "position": 2,
           "text": "al ow Strawbe",
-          "confidence": 55.9
+          "raw_ocr": "al ow Strawbe",
+          "ocr_confidence": 55.9,
+          "vocab_match": 66.7
         },
         {
           "position": 3,
-          "text": "rr rry Cream ee, 14",
-          "confidence": 54.1
+          "text": "Cream",
+          "raw_ocr": "rr rry Cream ee, 14",
+          "ocr_confidence": 54.1,
+          "vocab_match": 80.9
         },
         {
           "position": 4,
           "text": "Sugar",
-          "confidence": 96.4
+          "raw_ocr": "Sugar",
+          "ocr_confidence": 96.4,
+          "vocab_match": 100.0
         },
         {
           "position": 5,
           "text": "Vanilla",
-          "confidence": 48.3
+          "raw_ocr": "Vanilla",
+          "ocr_confidence": 48.3,
+          "vocab_match": 100.0
         },
         {
           "position": 6,
-          "text": "J Coconu",
-          "confidence": 50.3
+          "text": "Coconut",
+          "raw_ocr": "J Coconu",
+          "ocr_confidence": 50.3,
+          "vocab_match": 85.7
         }
       ]
     },
@@ -386,37 +489,49 @@
       "fragrantica_url": "https://www.fragrantica.com/perfume/Lancome/La-Vie-Est-Belle-14982.html",
       "status": "review",
       "note_count": 6,
-      "min_confidence": 42.0,
+      "min_vocab_match": 75.0,
       "notes": [
         {
           "position": 1,
-          "text": "Praline oa",
-          "confidence": 58.3
+          "text": "Praline",
+          "raw_ocr": "Praline oa",
+          "ocr_confidence": 58.3,
+          "vocab_match": 91.4
         },
         {
           "position": 2,
           "text": "Vanilla",
-          "confidence": 42.0
+          "raw_ocr": "Vanilla",
+          "ocr_confidence": 42.0,
+          "vocab_match": 100.0
         },
         {
           "position": 3,
-          "text": "Patchoull , a",
-          "confidence": 51.6
+          "text": "Patchouli",
+          "raw_ocr": "Patchoull , a",
+          "ocr_confidence": 51.6,
+          "vocab_match": 84.2
         },
         {
           "position": 4,
           "text": "Black Currant",
-          "confidence": 96.5
+          "raw_ocr": "Black Currant",
+          "ocr_confidence": 96.5,
+          "vocab_match": 100.0
         },
         {
           "position": 5,
           "text": "Tonka Bean",
-          "confidence": 96.2
+          "raw_ocr": "Tonka Bean",
+          "ocr_confidence": 96.2,
+          "vocab_match": 100.0
         },
         {
           "position": 6,
-          "text": "lris",
-          "confidence": 91.2
+          "text": "Iris",
+          "raw_ocr": "lris",
+          "ocr_confidence": 91.2,
+          "vocab_match": 75.0
         }
       ]
     },
@@ -427,39 +542,51 @@
       "brand": "",
       "fragrantica_id": 32269,
       "fragrantica_url": "https://www.fragrantica.com/perfume/Yves-Saint-Laurent/Tuxedo-32269.html",
-      "status": "review",
+      "status": "verified",
       "note_count": 6,
-      "min_confidence": 43.5,
+      "min_vocab_match": 88.7,
       "notes": [
         {
           "position": 1,
-          "text": "ee ee Patchouli",
-          "confidence": 43.5
+          "text": "Patchouli",
+          "raw_ocr": "ee ee Patchouli",
+          "ocr_confidence": 43.5,
+          "vocab_match": 89.3
         },
         {
           "position": 2,
-          "text": "i Vanilla",
-          "confidence": 47.3
+          "text": "Vanilla",
+          "raw_ocr": "i Vanilla",
+          "ocr_confidence": 47.3,
+          "vocab_match": 93.9
         },
         {
           "position": 3,
-          "text": "eel Ambergris",
-          "confidence": 64.9
+          "text": "Ambergris",
+          "raw_ocr": "eel Ambergris",
+          "ocr_confidence": 64.9,
+          "vocab_match": 90.8
         },
         {
           "position": 4,
-          "text": "rr Violet Leaf",
-          "confidence": 49.7
+          "text": "Violet Leaf",
+          "raw_ocr": "rr Violet Leaf",
+          "ocr_confidence": 49.7,
+          "vocab_match": 92.8
         },
         {
           "position": 5,
-          "text": "ae Rose",
-          "confidence": 61.2
+          "text": "Rose",
+          "raw_ocr": "ae Rose",
+          "ocr_confidence": 61.2,
+          "vocab_match": 88.7
         },
         {
           "position": 6,
-          "text": "a Rs Pepper",
-          "confidence": 54.6
+          "text": "Pepper",
+          "raw_ocr": "a Rs Pepper",
+          "ocr_confidence": 54.6,
+          "vocab_match": 88.7
         }
       ]
     },
@@ -470,39 +597,51 @@
       "brand": "Maison Francis Kurkdjian",
       "fragrantica_id": 30352,
       "fragrantica_url": "https://www.fragrantica.com/perfume/Maison-Francis-Kurkdjian/Oud-Satin-Mood-30352.html",
-      "status": "candidate",
+      "status": "review",
       "note_count": 6,
-      "min_confidence": 55.2,
+      "min_vocab_match": 40.0,
       "notes": [
         {
           "position": 1,
           "text": "Rose",
-          "confidence": 96.6
+          "raw_ocr": "Rose",
+          "ocr_confidence": 96.6,
+          "vocab_match": 100.0
         },
         {
           "position": 2,
           "text": "Agarwood (Oud)",
-          "confidence": 94.3
+          "raw_ocr": "Agarwood (Oud)",
+          "ocr_confidence": 94.3,
+          "vocab_match": 100.0
         },
         {
           "position": 3,
           "text": "Vanilla",
-          "confidence": 96.2
+          "raw_ocr": "Vanilla",
+          "ocr_confidence": 96.2,
+          "vocab_match": 100.0
         },
         {
           "position": 4,
-          "text": "eee Amber",
-          "confidence": 71.3
+          "text": "Amber",
+          "raw_ocr": "eee Amber",
+          "ocr_confidence": 71.3,
+          "vocab_match": 87.6
         },
         {
           "position": 5,
           "text": "s Se Violet",
-          "confidence": 55.2
+          "raw_ocr": "s Se Violet",
+          "ocr_confidence": 55.2,
+          "vocab_match": 63.2
         },
         {
           "position": 6,
           "text": "her Benzoin",
-          "confidence": 63.3
+          "raw_ocr": "her Benzoin",
+          "ocr_confidence": 63.3,
+          "vocab_match": 40.0
         }
       ]
     },
@@ -515,37 +654,49 @@
       "fragrantica_url": "https://www.fragrantica.com/perfume/Essential-Parfums/Bois-Imperial-64338.html",
       "status": "review",
       "note_count": 6,
-      "min_confidence": 0.0,
+      "min_vocab_match": 45.5,
       "notes": [
         {
           "position": 1,
           "text": "Akigalawov",
-          "confidence": 0.0
+          "raw_ocr": "Akigalawov",
+          "ocr_confidence": 0.0,
+          "vocab_match": 50.0
         },
         {
           "position": 2,
           "text": "od Woody Notes",
-          "confidence": 85.8
+          "raw_ocr": "od Woody Notes",
+          "ocr_confidence": 85.8,
+          "vocab_match": 45.5
         },
         {
           "position": 3,
           "text": "Basil",
-          "confidence": 93.8
+          "raw_ocr": "Basil",
+          "ocr_confidence": 93.8,
+          "vocab_match": 50.0
         },
         {
           "position": 4,
           "text": "Vetiver",
-          "confidence": 96.6
+          "raw_ocr": "Vetiver",
+          "ocr_confidence": 96.6,
+          "vocab_match": 100.0
         },
         {
           "position": 5,
           "text": "ns Timur",
-          "confidence": 47.4
+          "raw_ocr": "ns Timur",
+          "ocr_confidence": 47.4,
+          "vocab_match": 50.0
         },
         {
           "position": 6,
-          "text": "Ambroxan",
-          "confidence": 90.8
+          "text": "Ambrofix",
+          "raw_ocr": "Ambroxan",
+          "ocr_confidence": 90.8,
+          "vocab_match": 75.0
         }
       ]
     },
@@ -558,37 +709,49 @@
       "fragrantica_url": "https://www.fragrantica.com/perfume/Tom-Ford/Vanille-Fatale-48029.html",
       "status": "review",
       "note_count": 6,
-      "min_confidence": 42.4,
+      "min_vocab_match": 42.1,
       "notes": [
         {
           "position": 1,
-          "text": "Mwy Vanilla",
-          "confidence": 59.9
+          "text": "Vanilla",
+          "raw_ocr": "Mwy Vanilla",
+          "ocr_confidence": 59.9,
+          "vocab_match": 89.5
         },
         {
           "position": 2,
           "text": "a a Suede",
-          "confidence": 56.4
+          "raw_ocr": "a a Suede",
+          "ocr_confidence": 56.4,
+          "vocab_match": 53.3
         },
         {
           "position": 3,
-          "text": "a Rum EAL eC",
-          "confidence": 42.4
+          "text": "Rum",
+          "raw_ocr": "a Rum EAL eC",
+          "ocr_confidence": 42.4,
+          "vocab_match": 80.3
         },
         {
           "position": 4,
-          "text": "FC Myrrh",
-          "confidence": 47.8
+          "text": "Myrrh",
+          "raw_ocr": "FC Myrrh",
+          "ocr_confidence": 47.8,
+          "vocab_match": 89.9
         },
         {
           "position": 5,
           "text": "Tobacco",
-          "confidence": 82.3
+          "raw_ocr": "Tobacco",
+          "ocr_confidence": 82.3,
+          "vocab_match": 50.0
         },
         {
           "position": 6,
           "text": "Ae bo Barley",
-          "confidence": 59.1
+          "raw_ocr": "Ae bo Barley",
+          "ocr_confidence": 59.1,
+          "vocab_match": 42.1
         }
       ]
     },
@@ -601,37 +764,49 @@
       "fragrantica_url": "https://www.fragrantica.com/perfume/Viktor-Rolf/Spicebomb-Extreme-30499.html",
       "status": "review",
       "note_count": 6,
-      "min_confidence": 51.3,
+      "min_vocab_match": 40.0,
       "notes": [
         {
           "position": 1,
-          "text": "Vanilla Be Se",
-          "confidence": 51.3
+          "text": "Vanilla",
+          "raw_ocr": "Vanilla Be Se",
+          "ocr_confidence": 51.3,
+          "vocab_match": 87.9
         },
         {
           "position": 2,
           "text": "Tobacco",
-          "confidence": 57.6
+          "raw_ocr": "Tobacco",
+          "ocr_confidence": 57.6,
+          "vocab_match": 50.0
         },
         {
           "position": 3,
           "text": "Cinnamon",
-          "confidence": 96.1
+          "raw_ocr": "Cinnamon",
+          "ocr_confidence": 96.1,
+          "vocab_match": 50.0
         },
         {
           "position": 4,
           "text": "Cumin",
-          "confidence": 95.0
+          "raw_ocr": "Cumin",
+          "ocr_confidence": 95.0,
+          "vocab_match": 50.0
         },
         {
           "position": 5,
           "text": "Bourbon Whiskey",
-          "confidence": 96.4
+          "raw_ocr": "Bourbon Whiskey",
+          "ocr_confidence": 96.4,
+          "vocab_match": 40.0
         },
         {
           "position": 6,
           "text": "Saftron",
-          "confidence": 90.0
+          "raw_ocr": "Saftron",
+          "ocr_confidence": 90.0,
+          "vocab_match": 54.5
         }
       ]
     },
@@ -644,17 +819,21 @@
       "fragrantica_url": "https://www.fragrantica.com/perfume/Miu-Miu/Miu-Miu-Fleur-de-Lait-78755.html",
       "status": "review",
       "note_count": 2,
-      "min_confidence": 0.0,
+      "min_vocab_match": 33.3,
       "notes": [
         {
           "position": 1,
           "text": "ay",
-          "confidence": 33.2
+          "raw_ocr": "ay",
+          "ocr_confidence": 33.2,
+          "vocab_match": 33.3
         },
         {
           "position": 3,
-          "text": "y",
-          "confidence": 0.0
+          "text": "Myrrh",
+          "raw_ocr": "y",
+          "ocr_confidence": 0.0,
+          "vocab_match": 77.0
         }
       ]
     },
@@ -667,37 +846,49 @@
       "fragrantica_url": "https://www.fragrantica.com/perfume/Le-Labo/The-Noir-29-31872.html",
       "status": "review",
       "note_count": 6,
-      "min_confidence": 32.4,
+      "min_vocab_match": 40.0,
       "notes": [
         {
           "position": 1,
           "text": "4 Fig",
-          "confidence": 69.3
+          "raw_ocr": "4 Fig",
+          "ocr_confidence": 69.3,
+          "vocab_match": 40.0
         },
         {
           "position": 2,
           "text": "Tobacco",
-          "confidence": 57.7
+          "raw_ocr": "Tobacco",
+          "ocr_confidence": 57.7,
+          "vocab_match": 50.0
         },
         {
           "position": 3,
-          "text": "Md is sal Cedar",
-          "confidence": 32.4
+          "text": "Cedar",
+          "raw_ocr": "Md is sal Cedar",
+          "ocr_confidence": 32.4,
+          "vocab_match": 82.4
         },
         {
           "position": 4,
           "text": "a a Bay Leaf",
-          "confidence": 47.5
+          "raw_ocr": "a a Bay Leaf",
+          "ocr_confidence": 47.5,
+          "vocab_match": 44.4
         },
         {
           "position": 5,
           "text": "eee Hay",
-          "confidence": 65.8
+          "raw_ocr": "eee Hay",
+          "ocr_confidence": 65.8,
+          "vocab_match": 42.9
         },
         {
           "position": 6,
-          "text": "hms Vetiver",
-          "confidence": 52.7
+          "text": "Vetiver",
+          "raw_ocr": "hms Vetiver",
+          "ocr_confidence": 52.7,
+          "vocab_match": 89.5
         }
       ]
     },
@@ -710,32 +901,42 @@
       "fragrantica_url": "https://www.fragrantica.com/perfume/Narciso-Rodriguez/Narciso-26127.html",
       "status": "review",
       "note_count": 5,
-      "min_confidence": 32.8,
+      "min_vocab_match": 46.2,
       "notes": [
         {
           "position": 1,
           "text": "eo ee Musk",
-          "confidence": 52.0
+          "raw_ocr": "eo ee Musk",
+          "ocr_confidence": 52.0,
+          "vocab_match": 46.2
         },
         {
           "position": 2,
           "text": "Gardenia",
-          "confidence": 96.1
+          "raw_ocr": "Gardenia",
+          "ocr_confidence": 96.1,
+          "vocab_match": 53.3
         },
         {
           "position": 3,
-          "text": "Me is 5 all Cedar",
-          "confidence": 32.8
+          "text": "Cedar",
+          "raw_ocr": "Me is 5 all Cedar",
+          "ocr_confidence": 32.8,
+          "vocab_match": 81.6
         },
         {
           "position": 4,
           "text": "Vetiver",
-          "confidence": 96.6
+          "raw_ocr": "Vetiver",
+          "ocr_confidence": 96.6,
+          "vocab_match": 100.0
         },
         {
           "position": 5,
-          "text": "aa Rose",
-          "confidence": 67.9
+          "text": "Rose",
+          "raw_ocr": "aa Rose",
+          "ocr_confidence": 67.9,
+          "vocab_match": 88.7
         }
       ]
     },
@@ -746,39 +947,51 @@
       "brand": "Dolce & Gabbana",
       "fragrantica_id": 486,
       "fragrantica_url": "https://www.fragrantica.com/perfume/Dolce-Gabbana/Sicily-486.html",
-      "status": "candidate",
+      "status": "review",
       "note_count": 6,
-      "min_confidence": 65.7,
+      "min_vocab_match": 28.6,
       "notes": [
         {
           "position": 1,
           "text": "Banana H",
-          "confidence": 89.7
+          "raw_ocr": "Banana H",
+          "ocr_confidence": 89.7,
+          "vocab_match": 42.9
         },
         {
           "position": 2,
           "text": "oneysuckle",
-          "confidence": 92.6
+          "raw_ocr": "oneysuckle",
+          "ocr_confidence": 92.6,
+          "vocab_match": 47.1
         },
         {
           "position": 3,
           "text": "Orange Blossom",
-          "confidence": 96.5
+          "raw_ocr": "Orange Blossom",
+          "ocr_confidence": 96.5,
+          "vocab_match": 100.0
         },
         {
           "position": 4,
           "text": "Nutmeg N",
-          "confidence": 65.7
+          "raw_ocr": "Nutmeg N",
+          "ocr_confidence": 65.7,
+          "vocab_match": 42.9
         },
         {
           "position": 5,
           "text": "lusk",
-          "confidence": 90.2
+          "raw_ocr": "lusk",
+          "ocr_confidence": 90.2,
+          "vocab_match": 28.6
         },
         {
           "position": 6,
-          "text": "Sandalwoo",
-          "confidence": 66.1
+          "text": "Sandalwood",
+          "raw_ocr": "Sandalwoo",
+          "ocr_confidence": 66.1,
+          "vocab_match": 94.7
         }
       ]
     },
@@ -791,37 +1004,49 @@
       "fragrantica_url": "https://www.fragrantica.com/perfume/Yves-Saint-Laurent/La-Nuit-de-l-Homme-5521.html",
       "status": "review",
       "note_count": 6,
-      "min_confidence": 36.6,
+      "min_vocab_match": 50.0,
       "notes": [
         {
           "position": 1,
-          "text": "Cardamorr a",
-          "confidence": 36.6
+          "text": "Cardamom",
+          "raw_ocr": "Cardamorr a",
+          "ocr_confidence": 36.6,
+          "vocab_match": 77.8
         },
         {
           "position": 2,
-          "text": "Slc( ( lr 1. Lavender",
-          "confidence": 50.5
+          "text": "Lavender",
+          "raw_ocr": "Slc( ( lr 1. Lavender",
+          "ocr_confidence": 50.5,
+          "vocab_match": 86.3
         },
         {
           "position": 3,
-          "text": "Rs 2 Cedar",
-          "confidence": 37.5
+          "text": "Cedar",
+          "raw_ocr": "Rs 2 Cedar",
+          "ocr_confidence": 37.5,
+          "vocab_match": 87.6
         },
         {
           "position": 4,
-          "text": "oe Bergamot",
-          "confidence": 63.8
+          "text": "Bergamot",
+          "raw_ocr": "oe Bergamot",
+          "ocr_confidence": 63.8,
+          "vocab_match": 92.0
         },
         {
           "position": 5,
           "text": "Vetiver",
-          "confidence": 96.5
+          "raw_ocr": "Vetiver",
+          "ocr_confidence": 96.5,
+          "vocab_match": 100.0
         },
         {
           "position": 6,
           "text": "7 Caraway",
-          "confidence": 62.2
+          "raw_ocr": "7 Caraway",
+          "ocr_confidence": 62.2,
+          "vocab_match": 50.0
         }
       ]
     },
@@ -834,37 +1059,49 @@
       "fragrantica_url": "https://www.fragrantica.com/perfume/Lorenzo-Villoresi/Teint-de-Neige-5079.html",
       "status": "review",
       "note_count": 6,
-      "min_confidence": 11.2,
+      "min_vocab_match": 40.0,
       "notes": [
         {
           "position": 1,
           "text": "FOWCETY Notes",
-          "confidence": 68.0
+          "raw_ocr": "FOWCETY Notes",
+          "ocr_confidence": 68.0,
+          "vocab_match": 54.5
         },
         {
           "position": 2,
           "text": "Hellotrrope",
-          "confidence": 11.2
+          "raw_ocr": "Hellotrrope",
+          "ocr_confidence": 11.2,
+          "vocab_match": 40.0
         },
         {
           "position": 3,
-          "text": "MUSK",
-          "confidence": 57.7
+          "text": "Ambrette (Musk Mallow)",
+          "raw_ocr": "MUSK",
+          "ocr_confidence": 57.7,
+          "vocab_match": 77.6
         },
         {
           "position": 4,
-          "text": "aa Rose",
-          "confidence": 64.6
+          "text": "Rose",
+          "raw_ocr": "aa Rose",
+          "ocr_confidence": 64.6,
+          "vocab_match": 88.7
         },
         {
           "position": 5,
-          "text": "i Bs Tonka Bean",
-          "confidence": 61.0
+          "text": "Tonka Bean",
+          "raw_ocr": "i Bs Tonka Bean",
+          "ocr_confidence": 61.0,
+          "vocab_match": 90.8
         },
         {
           "position": 6,
           "text": "Vi Floral Notes",
-          "confidence": 80.9
+          "raw_ocr": "Vi Floral Notes",
+          "ocr_confidence": 80.9,
+          "vocab_match": 52.6
         }
       ]
     },
@@ -877,37 +1114,49 @@
       "fragrantica_url": "https://www.fragrantica.com/perfume/Orto-Parisi/Megamare-53471.html",
       "status": "review",
       "note_count": 6,
-      "min_confidence": 50.8,
+      "min_vocab_match": 42.9,
       "notes": [
         {
           "position": 1,
           "text": "Seaweed",
-          "confidence": 77.4
+          "raw_ocr": "Seaweed",
+          "ocr_confidence": 77.4,
+          "vocab_match": 100.0
         },
         {
           "position": 2,
           "text": "a Se Musk lee",
-          "confidence": 50.8
+          "raw_ocr": "a Se Musk lee",
+          "ocr_confidence": 50.8,
+          "vocab_match": 50.0
         },
         {
           "position": 3,
-          "text": "Ambroxan",
-          "confidence": 91.6
+          "text": "Ambrofix",
+          "raw_ocr": "Ambroxan",
+          "ocr_confidence": 91.6,
+          "vocab_match": 75.0
         },
         {
           "position": 4,
           "text": "Calone",
-          "confidence": 90.0
+          "raw_ocr": "Calone",
+          "ocr_confidence": 90.0,
+          "vocab_match": 61.5
         },
         {
           "position": 5,
-          "text": "ae Bergamot",
-          "confidence": 51.7
+          "text": "Bergamot",
+          "raw_ocr": "ae Bergamot",
+          "ocr_confidence": 51.7,
+          "vocab_match": 92.0
         },
         {
           "position": 6,
           "text": "WY Hedione",
-          "confidence": 73.8
+          "raw_ocr": "WY Hedione",
+          "ocr_confidence": 73.8,
+          "vocab_match": 42.9
         }
       ]
     },
@@ -918,39 +1167,51 @@
       "brand": "Etat Libre D'Orange",
       "fragrantica_id": 4521,
       "fragrantica_url": "https://www.fragrantica.com/perfume/Etat-Libre-d-Orange/Putain-des-Palaces-4521.html",
-      "status": "candidate",
+      "status": "review",
       "note_count": 6,
-      "min_confidence": 67.4,
+      "min_vocab_match": 54.5,
       "notes": [
         {
           "position": 1,
           "text": "Powdery Notes",
-          "confidence": 96.5
+          "raw_ocr": "Powdery Notes",
+          "ocr_confidence": 96.5,
+          "vocab_match": 54.5
         },
         {
           "position": 2,
-          "text": "Violet",
-          "confidence": 96.1
+          "text": "Violet Leaf",
+          "raw_ocr": "Violet",
+          "ocr_confidence": 96.1,
+          "vocab_match": 87.0
         },
         {
           "position": 3,
           "text": "Leather",
-          "confidence": 95.9
+          "raw_ocr": "Leather",
+          "ocr_confidence": 95.9,
+          "vocab_match": 57.1
         },
         {
           "position": 4,
-          "text": "Musk",
-          "confidence": 67.4
+          "text": "Ambrette (Musk Mallow)",
+          "raw_ocr": "Musk",
+          "ocr_confidence": 67.4,
+          "vocab_match": 77.6
         },
         {
           "position": 5,
-          "text": "See Amber",
-          "confidence": 74.6
+          "text": "Amber",
+          "raw_ocr": "See Amber",
+          "ocr_confidence": 74.6,
+          "vocab_match": 87.6
         },
         {
           "position": 6,
-          "text": "ie Rose",
-          "confidence": 68.1
+          "text": "Rose",
+          "raw_ocr": "ie Rose",
+          "ocr_confidence": 68.1,
+          "vocab_match": 88.7
         }
       ]
     },
@@ -963,37 +1224,49 @@
       "fragrantica_url": "https://www.fragrantica.com/perfume/By-Kilian/Moonlight-in-Heaven-35973.html",
       "status": "review",
       "note_count": 6,
-      "min_confidence": 26.2,
+      "min_vocab_match": 50.0,
       "notes": [
         {
           "position": 1,
           "text": "ee Mango",
-          "confidence": 59.5
+          "raw_ocr": "ee Mango",
+          "ocr_confidence": 59.5,
+          "vocab_match": 50.0
         },
         {
           "position": 2,
-          "text": "i Grapefruit Litt, T 6 ( CtC",
-          "confidence": 26.2
+          "text": "Grapefruit",
+          "raw_ocr": "i Grapefruit Litt, T 6 ( CtC",
+          "ocr_confidence": 26.2,
+          "vocab_match": 84.5
         },
         {
           "position": 3,
-          "text": "a ae Coconut a",
-          "confidence": 42.9
+          "text": "Coconut",
+          "raw_ocr": "a ae Coconut a",
+          "ocr_confidence": 42.9,
+          "vocab_match": 87.9
         },
         {
           "position": 4,
           "text": "Vetiver",
-          "confidence": 96.6
+          "raw_ocr": "Vetiver",
+          "ocr_confidence": 96.6,
+          "vocab_match": 100.0
         },
         {
           "position": 5,
           "text": "a Rice",
-          "confidence": 45.5
+          "raw_ocr": "a Rice",
+          "ocr_confidence": 45.5,
+          "vocab_match": 50.0
         },
         {
           "position": 6,
-          "text": "7 Lemon",
-          "confidence": 47.6
+          "text": "Lemon",
+          "raw_ocr": "7 Lemon",
+          "ocr_confidence": 47.6,
+          "vocab_match": 92.8
         }
       ]
     },
@@ -1006,27 +1279,35 @@
       "fragrantica_url": "https://www.fragrantica.com/perfume/Valentino/Valentino-Donna-Born-In-Roma-Intense-78739.html",
       "status": "review",
       "note_count": 4,
-      "min_confidence": 47.8,
+      "min_vocab_match": 40.0,
       "notes": [
         {
           "position": 1,
           "text": "Vanilla",
-          "confidence": 47.8
+          "raw_ocr": "Vanilla",
+          "ocr_confidence": 47.8,
+          "vocab_match": 100.0
         },
         {
           "position": 2,
-          "text": "er i Jasmine",
-          "confidence": 59.9
+          "text": "Jasmine",
+          "raw_ocr": "er i Jasmine",
+          "ocr_confidence": 59.9,
+          "vocab_match": 89.5
         },
         {
           "position": 3,
           "text": "Amber",
-          "confidence": 95.6
+          "raw_ocr": "Amber",
+          "ocr_confidence": 95.6,
+          "vocab_match": 100.0
         },
         {
           "position": 4,
           "text": "Benzoin",
-          "confidence": 92.1
+          "raw_ocr": "Benzoin",
+          "ocr_confidence": 92.1,
+          "vocab_match": 40.0
         }
       ]
     },
@@ -1039,37 +1320,49 @@
       "fragrantica_url": "https://www.fragrantica.com/perfume/Jo-Malone-London/Scarlet-Poppy-Intense-64551.html",
       "status": "review",
       "note_count": 6,
-      "min_confidence": 25.7,
+      "min_vocab_match": 44.4,
       "notes": [
         {
           "position": 1,
-          "text": "lOnkKa Bean",
-          "confidence": 63.2
+          "text": "Tonka Bean",
+          "raw_ocr": "lOnkKa Bean",
+          "ocr_confidence": 63.2,
+          "vocab_match": 84.2
         },
         {
           "position": 2,
           "text": "OrrlS ROOT",
-          "confidence": 73.1
+          "raw_ocr": "OrrlS ROOT",
+          "ocr_confidence": 73.1,
+          "vocab_match": 45.5
         },
         {
           "position": 3,
           "text": "Felotrope",
-          "confidence": 25.7
+          "raw_ocr": "Felotrope",
+          "ocr_confidence": 25.7,
+          "vocab_match": 46.2
         },
         {
           "position": 4,
-          "text": "Ambrette (Musk",
-          "confidence": 61.8
+          "text": "Ambrette (Musk Mallow)",
+          "raw_ocr": "Ambrette (Musk",
+          "ocr_confidence": 61.8,
+          "vocab_match": 88.7
         },
         {
           "position": 5,
           "text": "Fig",
-          "confidence": 48.4
+          "raw_ocr": "Fig",
+          "ocr_confidence": 48.4,
+          "vocab_match": 44.4
         },
         {
           "position": 6,
           "text": "eae bY Barley",
-          "confidence": 61.9
+          "raw_ocr": "eae bY Barley",
+          "ocr_confidence": 61.9,
+          "vocab_match": 44.4
         }
       ]
     },
@@ -1082,7 +1375,7 @@
       "fragrantica_url": "https://www.fragrantica.com/perfume/Victoria-s-Secret/Warm-Coconut-Sugar-38834.html",
       "status": "review",
       "note_count": 0,
-      "min_confidence": 0,
+      "min_vocab_match": 0,
       "notes": []
     },
     {
@@ -1094,37 +1387,49 @@
       "fragrantica_url": "https://www.fragrantica.com/perfume/Kayali-Fragrances/Musk-12-52615.html",
       "status": "review",
       "note_count": 6,
-      "min_confidence": 18.2,
+      "min_vocab_match": 46.2,
       "notes": [
         {
           "position": 1,
           "text": "eo ee Musk",
-          "confidence": 52.2
+          "raw_ocr": "eo ee Musk",
+          "ocr_confidence": 52.2,
+          "vocab_match": 46.2
         },
         {
           "position": 2,
           "text": "Vanilla",
-          "confidence": 72.4
+          "raw_ocr": "Vanilla",
+          "ocr_confidence": 72.4,
+          "vocab_match": 100.0
         },
         {
           "position": 3,
           "text": "e n A Freesia",
-          "confidence": 41.0
+          "raw_ocr": "e n A Freesia",
+          "ocr_confidence": 41.0,
+          "vocab_match": 47.1
         },
         {
           "position": 4,
           "text": "es Lotus",
-          "confidence": 73.1
+          "raw_ocr": "es Lotus",
+          "ocr_confidence": 73.1,
+          "vocab_match": 54.5
         },
         {
           "position": 5,
-          "text": "a alll Sandalwoot",
-          "confidence": 18.2
+          "text": "Sandalwood",
+          "raw_ocr": "a alll Sandalwoot",
+          "ocr_confidence": 18.2,
+          "vocab_match": 72.0
         },
         {
           "position": 6,
-          "text": "4 1 Jasmine",
-          "confidence": 76.4
+          "text": "Jasmine",
+          "raw_ocr": "4 1 Jasmine",
+          "ocr_confidence": 76.4,
+          "vocab_match": 91.4
         }
       ]
     },
@@ -1137,37 +1442,49 @@
       "fragrantica_url": "https://www.fragrantica.com/perfume/Diptyque/Fleur-de-Peau-Eau-de-Parfum-48681.html",
       "status": "review",
       "note_count": 6,
-      "min_confidence": 48.3,
+      "min_vocab_match": 41.7,
       "notes": [
         {
           "position": 1,
           "text": "Musk Pa",
-          "confidence": 64.3
+          "raw_ocr": "Musk Pa",
+          "ocr_confidence": 64.3,
+          "vocab_match": 41.7
         },
         {
           "position": 2,
-          "text": "Iris ee",
-          "confidence": 48.6
+          "text": "Iris",
+          "raw_ocr": "Iris ee",
+          "ocr_confidence": 48.6,
+          "vocab_match": 88.7
         },
         {
           "position": 3,
           "text": "Aldehydes la",
-          "confidence": 48.3
+          "raw_ocr": "Aldehydes la",
+          "ocr_confidence": 48.3,
+          "vocab_match": 52.6
         },
         {
           "position": 4,
-          "text": "Ambrette (Musk",
-          "confidence": 92.6
+          "text": "Ambrette (Musk Mallow)",
+          "raw_ocr": "Ambrette (Musk",
+          "ocr_confidence": 92.6,
+          "vocab_match": 88.7
         },
         {
           "position": 5,
-          "text": "Pink Pepper",
-          "confidence": 95.9
+          "text": "Pepper",
+          "raw_ocr": "Pink Pepper",
+          "ocr_confidence": 95.9,
+          "vocab_match": 87.0
         },
         {
           "position": 6,
           "text": "Carrot",
-          "confidence": 96.1
+          "raw_ocr": "Carrot",
+          "ocr_confidence": 96.1,
+          "vocab_match": 57.1
         }
       ]
     },
@@ -1180,37 +1497,49 @@
       "fragrantica_url": "https://www.fragrantica.com/perfume/Mugler/Alien-Eau-de-Toilette-6616.html",
       "status": "review",
       "note_count": 6,
-      "min_confidence": 16.5,
+      "min_vocab_match": 41.7,
       "notes": [
         {
           "position": 1,
-          "text": "Jasmine EEEE",
-          "confidence": 47.1
+          "text": "Jasmine",
+          "raw_ocr": "Jasmine EEEE",
+          "ocr_confidence": 47.1,
+          "vocab_match": 87.9
         },
         {
           "position": 2,
           "text": "Amber",
-          "confidence": 79.1
+          "raw_ocr": "Amber",
+          "ocr_confidence": 79.1,
+          "vocab_match": 100.0
         },
         {
           "position": 3,
           "text": "yv nNIte Flowers",
-          "confidence": 60.2
+          "raw_ocr": "yv nNIte Flowers",
+          "ocr_confidence": 60.2,
+          "vocab_match": 41.7
         },
         {
           "position": 4,
           "text": "Cashmeral",
-          "confidence": 16.5
+          "raw_ocr": "Cashmeral",
+          "ocr_confidence": 16.5,
+          "vocab_match": 60.0
         },
         {
           "position": 5,
           "text": "1 Citruses",
-          "confidence": 87.1
+          "raw_ocr": "1 Citruses",
+          "ocr_confidence": 87.1,
+          "vocab_match": 46.2
         },
         {
           "position": 6,
-          "text": "re Mandarin Orange",
-          "confidence": 57.1
+          "text": "Orange",
+          "raw_ocr": "re Mandarin Orange",
+          "ocr_confidence": 57.1,
+          "vocab_match": 81.4
         }
       ]
     },
@@ -1223,37 +1552,49 @@
       "fragrantica_url": "https://www.fragrantica.com/perfume/Chanel/Chance-Eau-Tendre-8069.html",
       "status": "review",
       "note_count": 6,
-      "min_confidence": 32.2,
+      "min_vocab_match": 44.4,
       "notes": [
         {
           "position": 1,
           "text": "pe Quince",
-          "confidence": 59.0
+          "raw_ocr": "pe Quince",
+          "ocr_confidence": 59.0,
+          "vocab_match": 53.3
         },
         {
           "position": 2,
           "text": "Grapefruit",
-          "confidence": 65.9
+          "raw_ocr": "Grapefruit",
+          "ocr_confidence": 65.9,
+          "vocab_match": 100.0
         },
         {
           "position": 3,
           "text": "be Hyacinth",
-          "confidence": 49.8
+          "raw_ocr": "be Hyacinth",
+          "ocr_confidence": 49.8,
+          "vocab_match": 53.3
         },
         {
           "position": 4,
-          "text": "Saris Jasmine",
-          "confidence": 65.5
+          "text": "Jasmine",
+          "raw_ocr": "Saris Jasmine",
+          "ocr_confidence": 65.5,
+          "vocab_match": 86.6
         },
         {
           "position": 5,
           "text": "i .- Musk",
-          "confidence": 32.2
+          "raw_ocr": "i .- Musk",
+          "ocr_confidence": 32.2,
+          "vocab_match": 44.4
         },
         {
           "position": 6,
-          "text": "lris",
-          "confidence": 63.7
+          "text": "Iris",
+          "raw_ocr": "lris",
+          "ocr_confidence": 63.7,
+          "vocab_match": 75.0
         }
       ]
     },
@@ -1266,37 +1607,49 @@
       "fragrantica_url": "https://www.fragrantica.com/perfume/Van-Cleef-Arpels/Tsar-1098.html",
       "status": "review",
       "note_count": 6,
-      "min_confidence": 53.8,
+      "min_vocab_match": 50.0,
       "notes": [
         {
           "position": 1,
           "text": "Oakmoss",
-          "confidence": 91.7
+          "raw_ocr": "Oakmoss",
+          "ocr_confidence": 91.7,
+          "vocab_match": 50.0
         },
         {
           "position": 2,
           "text": "Green Notes",
-          "confidence": 96.2
+          "raw_ocr": "Green Notes",
+          "ocr_confidence": 96.2,
+          "vocab_match": 100.0
         },
         {
           "position": 3,
           "text": "Pine Tree",
-          "confidence": 96.0
+          "raw_ocr": "Pine Tree",
+          "ocr_confidence": 96.0,
+          "vocab_match": 58.8
         },
         {
           "position": 4,
-          "text": "a & Lavender",
-          "confidence": 53.8
+          "text": "Lavender",
+          "raw_ocr": "a & Lavender",
+          "ocr_confidence": 53.8,
+          "vocab_match": 94.2
         },
         {
           "position": 5,
           "text": "wy Leather",
-          "confidence": 62.1
+          "raw_ocr": "wy Leather",
+          "ocr_confidence": 62.1,
+          "vocab_match": 50.0
         },
         {
           "position": 6,
-          "text": "eo Cedar",
-          "confidence": 77.4
+          "text": "Cedar",
+          "raw_ocr": "eo Cedar",
+          "ocr_confidence": 77.4,
+          "vocab_match": 89.9
         }
       ]
     },
@@ -1309,37 +1662,49 @@
       "fragrantica_url": "https://www.fragrantica.com/perfume/Rabanne/1-Million-3747.html",
       "status": "review",
       "note_count": 6,
-      "min_confidence": 46.3,
+      "min_vocab_match": 47.1,
       "notes": [
         {
           "position": 1,
           "text": "Cinnamon",
-          "confidence": 46.3
+          "raw_ocr": "Cinnamon",
+          "ocr_confidence": 46.3,
+          "vocab_match": 50.0
         },
         {
           "position": 2,
           "text": "Amber",
-          "confidence": 95.3
+          "raw_ocr": "Amber",
+          "ocr_confidence": 95.3,
+          "vocab_match": 100.0
         },
         {
           "position": 3,
           "text": "OPICcy Notes",
-          "confidence": 67.7
+          "raw_ocr": "OPICcy Notes",
+          "ocr_confidence": 67.7,
+          "vocab_match": 47.6
         },
         {
           "position": 4,
           "text": "Yr 2 Leather",
-          "confidence": 57.9
+          "raw_ocr": "Yr 2 Leather",
+          "ocr_confidence": 57.9,
+          "vocab_match": 47.1
         },
         {
           "position": 5,
-          "text": "aa Rose",
-          "confidence": 68.6
+          "text": "Rose",
+          "raw_ocr": "aa Rose",
+          "ocr_confidence": 68.6,
+          "vocab_match": 88.7
         },
         {
           "position": 6,
-          "text": "se Mandarin Orange",
-          "confidence": 57.3
+          "text": "Orange",
+          "raw_ocr": "se Mandarin Orange",
+          "ocr_confidence": 57.3,
+          "vocab_match": 81.4
         }
       ]
     },
@@ -1352,37 +1717,49 @@
       "fragrantica_url": "https://www.fragrantica.com/perfume/Montblanc/Signature-60962.html",
       "status": "review",
       "note_count": 6,
-      "min_confidence": 43.1,
+      "min_vocab_match": 38.1,
       "notes": [
         {
           "position": 1,
           "text": "Vanilla",
-          "confidence": 48.2
+          "raw_ocr": "Vanilla",
+          "ocr_confidence": 48.2,
+          "vocab_match": 100.0
         },
         {
           "position": 2,
-          "text": "Musk",
-          "confidence": 61.6
+          "text": "Ambrette (Musk Mallow)",
+          "raw_ocr": "Musk",
+          "ocr_confidence": 61.6,
+          "vocab_match": 77.6
         },
         {
           "position": 3,
           "text": "Clementine wy -2e e",
-          "confidence": 43.1
+          "raw_ocr": "Clementine wy -2e e",
+          "ocr_confidence": 43.1,
+          "vocab_match": 40.0
         },
         {
           "position": 4,
           "text": "Magnolia",
-          "confidence": 96.0
+          "raw_ocr": "Magnolia",
+          "ocr_confidence": 96.0,
+          "vocab_match": 53.3
         },
         {
           "position": 5,
           "text": "Ylang- Ylang",
-          "confidence": 92.4
+          "raw_ocr": "Ylang- Ylang",
+          "ocr_confidence": 92.4,
+          "vocab_match": 38.1
         },
         {
           "position": 6,
           "text": "Benzoin",
-          "confidence": 91.1
+          "raw_ocr": "Benzoin",
+          "ocr_confidence": 91.1,
+          "vocab_match": 40.0
         }
       ]
     },
@@ -1395,37 +1772,49 @@
       "fragrantica_url": "https://www.fragrantica.com/perfume/Byredo/Bibliotheque-43324.html",
       "status": "review",
       "note_count": 6,
-      "min_confidence": 38.3,
+      "min_vocab_match": 44.4,
       "notes": [
         {
           "position": 1,
           "text": "EE Plum",
-          "confidence": 66.7
+          "raw_ocr": "EE Plum",
+          "ocr_confidence": 66.7,
+          "vocab_match": 44.4
         },
         {
           "position": 2,
           "text": "Leather",
-          "confidence": 93.3
+          "raw_ocr": "Leather",
+          "ocr_confidence": 93.3,
+          "vocab_match": 57.1
         },
         {
           "position": 3,
           "text": "Peach",
-          "confidence": 48.4
+          "raw_ocr": "Peach",
+          "ocr_confidence": 48.4,
+          "vocab_match": 100.0
         },
         {
           "position": 4,
           "text": "oe ae Violet",
-          "confidence": 48.4
+          "raw_ocr": "oe ae Violet",
+          "ocr_confidence": 48.4,
+          "vocab_match": 60.0
         },
         {
           "position": 5,
-          "text": "3 oe Patchouli",
-          "confidence": 38.3
+          "text": "Patchouli",
+          "raw_ocr": "3 oe Patchouli",
+          "ocr_confidence": 38.3,
+          "vocab_match": 90.8
         },
         {
           "position": 6,
           "text": "Vanilla",
-          "confidence": 51.4
+          "raw_ocr": "Vanilla",
+          "ocr_confidence": 51.4,
+          "vocab_match": 100.0
         }
       ]
     },
@@ -1438,37 +1827,49 @@
       "fragrantica_url": "https://www.fragrantica.com/perfume/By-Kilian/Sunkissed-Goddess-90336.html",
       "status": "review",
       "note_count": 6,
-      "min_confidence": 46.8,
+      "min_vocab_match": 38.1,
       "notes": [
         {
           "position": 1,
           "text": "Ylang- Ylang",
-          "confidence": 94.0
+          "raw_ocr": "Ylang- Ylang",
+          "ocr_confidence": 94.0,
+          "vocab_match": 38.1
         },
         {
           "position": 2,
           "text": "Tiare Flower",
-          "confidence": 96.2
+          "raw_ocr": "Tiare Flower",
+          "ocr_confidence": 96.2,
+          "vocab_match": 52.6
         },
         {
           "position": 3,
           "text": "Coconut",
-          "confidence": 96.0
+          "raw_ocr": "Coconut",
+          "ocr_confidence": 96.0,
+          "vocab_match": 100.0
         },
         {
           "position": 4,
-          "text": "iin Vanilla",
-          "confidence": 48.4
+          "text": "Vanilla",
+          "raw_ocr": "iin Vanilla",
+          "ocr_confidence": 48.4,
+          "vocab_match": 89.5
         },
         {
           "position": 5,
           "text": "eS Neroll",
-          "confidence": 46.8
+          "raw_ocr": "eS Neroll",
+          "ocr_confidence": 46.8,
+          "vocab_match": 50.0
         },
         {
           "position": 6,
           "text": "Bergamot",
-          "confidence": 84.4
+          "raw_ocr": "Bergamot",
+          "ocr_confidence": 84.4,
+          "vocab_match": 100.0
         }
       ]
     },
@@ -1481,37 +1882,49 @@
       "fragrantica_url": "https://www.fragrantica.com/perfume/Giorgio-Armani/Acqua-di-Gio-Profondo-59532.html",
       "status": "review",
       "note_count": 6,
-      "min_confidence": 36.2,
+      "min_vocab_match": 42.9,
       "notes": [
         {
           "position": 1,
           "text": "o a vvater",
-          "confidence": 57.5
+          "raw_ocr": "o a vvater",
+          "ocr_confidence": 57.5,
+          "vocab_match": 53.3
         },
         {
           "position": 2,
           "text": "Aquozone",
-          "confidence": 36.2
+          "raw_ocr": "Aquozone",
+          "ocr_confidence": 36.2,
+          "vocab_match": 42.9
         },
         {
           "position": 3,
           "text": "MINEfal Notes wef",
-          "confidence": 37.6
+          "raw_ocr": "MINEfal Notes wef",
+          "ocr_confidence": 37.6,
+          "vocab_match": 50.0
         },
         {
           "position": 4,
-          "text": "a Bergamot",
-          "confidence": 49.8
+          "text": "Bergamot",
+          "raw_ocr": "a Bergamot",
+          "ocr_confidence": 49.8,
+          "vocab_match": 94.2
         },
         {
           "position": 5,
-          "text": "se Mandarin Orange",
-          "confidence": 57.6
+          "text": "Orange",
+          "raw_ocr": "se Mandarin Orange",
+          "ocr_confidence": 57.6,
+          "vocab_match": 81.4
         },
         {
           "position": 6,
-          "text": "Rosemary",
-          "confidence": 92.4
+          "text": "Rose",
+          "raw_ocr": "Rosemary",
+          "ocr_confidence": 92.4,
+          "vocab_match": 84.5
         }
       ]
     },
@@ -1524,37 +1937,49 @@
       "fragrantica_url": "https://www.fragrantica.com/perfume/Diptyque/Do-Son-Eau-de-Toilette-6501.html",
       "status": "review",
       "note_count": 6,
-      "min_confidence": 43.8,
+      "min_vocab_match": 47.1,
       "notes": [
         {
           "position": 1,
-          "text": "Tuberose",
-          "confidence": 91.9
+          "text": "Rose",
+          "raw_ocr": "Tuberose",
+          "ocr_confidence": 91.9,
+          "vocab_match": 84.5
         },
         {
           "position": 2,
           "text": "Orange Blossom",
-          "confidence": 96.5
+          "raw_ocr": "Orange Blossom",
+          "ocr_confidence": 96.5,
+          "vocab_match": 100.0
         },
         {
           "position": 3,
-          "text": "Musk",
-          "confidence": 96.6
+          "text": "Ambrette (Musk Mallow)",
+          "raw_ocr": "Musk",
+          "ocr_confidence": 96.6,
+          "vocab_match": 77.6
         },
         {
           "position": 4,
           "text": "ar Benzoin",
-          "confidence": 49.8
+          "raw_ocr": "ar Benzoin",
+          "ocr_confidence": 49.8,
+          "vocab_match": 47.1
         },
         {
           "position": 5,
           "text": "Iris",
-          "confidence": 43.8
+          "raw_ocr": "Iris",
+          "ocr_confidence": 43.8,
+          "vocab_match": 100.0
         },
         {
           "position": 6,
-          "text": "ie Rose",
-          "confidence": 66.2
+          "text": "Rose",
+          "raw_ocr": "ie Rose",
+          "ocr_confidence": 66.2,
+          "vocab_match": 88.7
         }
       ]
     },
@@ -1567,37 +1992,49 @@
       "fragrantica_url": "https://www.fragrantica.com/perfume/Initio-Parfums-Prives/Musk-Therapy-66097.html",
       "status": "review",
       "note_count": 6,
-      "min_confidence": 0.0,
+      "min_vocab_match": 44.4,
       "notes": [
         {
           "position": 1,
           "text": "MIUSK",
-          "confidence": 86.3
+          "raw_ocr": "MIUSK",
+          "ocr_confidence": 86.3,
+          "vocab_match": 44.4
         },
         {
           "position": 2,
-          "text": "bIaCK t Currant",
-          "confidence": 60.2
+          "text": "Black Currant",
+          "raw_ocr": "bIaCK t Currant",
+          "ocr_confidence": 60.2,
+          "vocab_match": 88.0
         },
         {
           "position": 3,
-          "text": "sErgaMot",
-          "confidence": 0.0
+          "text": "Bergamot",
+          "raw_ocr": "sErgaMot",
+          "ocr_confidence": 0.0,
+          "vocab_match": 87.5
         },
         {
           "position": 4,
-          "text": "Le Mandarin Orange",
-          "confidence": 73.7
+          "text": "Orange",
+          "raw_ocr": "Le Mandarin Orange",
+          "ocr_confidence": 73.7,
+          "vocab_match": 81.4
         },
         {
           "position": 5,
           "text": "SF Magnolia",
-          "confidence": 32.2
+          "raw_ocr": "SF Magnolia",
+          "ocr_confidence": 32.2,
+          "vocab_match": 47.1
         },
         {
           "position": 6,
-          "text": "i ile Sandalwood",
-          "confidence": 47.0
+          "text": "Sandalwood",
+          "raw_ocr": "i ile Sandalwood",
+          "ocr_confidence": 47.0,
+          "vocab_match": 89.9
         }
       ]
     },
@@ -1610,37 +2047,49 @@
       "fragrantica_url": "https://www.fragrantica.com/perfume/Creed/Absolu-Aventus-106624.html",
       "status": "review",
       "note_count": 6,
-      "min_confidence": 0.0,
+      "min_vocab_match": 80.0,
       "notes": [
         {
           "position": 1,
-          "text": "FiIneapple",
-          "confidence": 41.9
+          "text": "Pineapple",
+          "raw_ocr": "FiIneapple",
+          "ocr_confidence": 41.9,
+          "vocab_match": 84.2
         },
         {
           "position": 2,
-          "text": "black Currant",
-          "confidence": 84.0
+          "text": "Black Currant",
+          "raw_ocr": "black Currant",
+          "ocr_confidence": 84.0,
+          "vocab_match": 100.0
         },
         {
           "position": 3,
-          "text": "Grapelrult",
-          "confidence": 0.0
+          "text": "Grapefruit",
+          "raw_ocr": "Grapelrult",
+          "ocr_confidence": 0.0,
+          "vocab_match": 80.0
         },
         {
           "position": 4,
           "text": "Vetiver",
-          "confidence": 96.7
+          "raw_ocr": "Vetiver",
+          "ocr_confidence": 96.7,
+          "vocab_match": 100.0
         },
         {
           "position": 5,
-          "text": "7, Lemon",
-          "confidence": 51.5
+          "text": "Lemon",
+          "raw_ocr": "7, Lemon",
+          "ocr_confidence": 51.5,
+          "vocab_match": 92.8
         },
         {
           "position": 6,
-          "text": "Pink Pepper",
-          "confidence": 85.9
+          "text": "Pepper",
+          "raw_ocr": "Pink Pepper",
+          "ocr_confidence": 85.9,
+          "vocab_match": 87.0
         }
       ]
     },
@@ -1653,37 +2102,49 @@
       "fragrantica_url": "https://www.fragrantica.com/perfume/Narcotica/Dulce-Diablo-73265.html",
       "status": "review",
       "note_count": 6,
-      "min_confidence": 28.3,
+      "min_vocab_match": 43.5,
       "notes": [
         {
           "position": 1,
           "text": "KUM",
-          "confidence": 54.2
+          "raw_ocr": "KUM",
+          "ocr_confidence": 54.2,
+          "vocab_match": 66.7
         },
         {
           "position": 2,
           "text": "Uried Apricot",
-          "confidence": 85.9
+          "raw_ocr": "Uried Apricot",
+          "ocr_confidence": 85.9,
+          "vocab_match": 54.5
         },
         {
           "position": 3,
           "text": "Apricot",
-          "confidence": 28.3
+          "raw_ocr": "Apricot",
+          "ocr_confidence": 28.3,
+          "vocab_match": 58.8
         },
         {
           "position": 4,
           "text": "a ee Dark Chocolate",
-          "confidence": 68.2
+          "raw_ocr": "a ee Dark Chocolate",
+          "ocr_confidence": 68.2,
+          "vocab_match": 43.5
         },
         {
           "position": 5,
-          "text": "ed Cognac",
-          "confidence": 65.2
+          "text": "Cognac",
+          "raw_ocr": "ed Cognac",
+          "ocr_confidence": 65.2,
+          "vocab_match": 90.8
         },
         {
           "position": 6,
           "text": "Vanilla",
-          "confidence": 47.6
+          "raw_ocr": "Vanilla",
+          "ocr_confidence": 47.6,
+          "vocab_match": 100.0
         }
       ]
     },
@@ -1696,37 +2157,49 @@
       "fragrantica_url": "https://www.fragrantica.com/perfume/Yves-Saint-Laurent/Babycat-73149.html",
       "status": "review",
       "note_count": 6,
-      "min_confidence": 27.4,
+      "min_vocab_match": 44.4,
       "notes": [
         {
           "position": 1,
           "text": "Vanilla",
-          "confidence": 27.4
+          "raw_ocr": "Vanilla",
+          "ocr_confidence": 27.4,
+          "vocab_match": 100.0
         },
         {
           "position": 2,
           "text": "suede OO (Fri",
-          "confidence": 55.8
+          "raw_ocr": "suede OO (Fri",
+          "ocr_confidence": 55.8,
+          "vocab_match": 44.4
         },
         {
           "position": 3,
-          "text": "9anumM ankincense)",
-          "confidence": 74.8
+          "text": "Incense",
+          "raw_ocr": "9anumM ankincense)",
+          "ocr_confidence": 74.8,
+          "vocab_match": 82.9
         },
         {
           "position": 4,
-          "text": "a Pepper 5",
-          "confidence": 43.5
+          "text": "Pepper",
+          "raw_ocr": "a Pepper 5",
+          "ocr_confidence": 43.5,
+          "vocab_match": 90.8
         },
         {
           "position": 5,
           "text": "a. CU lem Pin",
-          "confidence": 40.1
+          "raw_ocr": "a. CU lem Pin",
+          "ocr_confidence": 40.1,
+          "vocab_match": 57.1
         },
         {
           "position": 6,
-          "text": "fa) kK Pepper",
-          "confidence": 67.2
+          "text": "Pepper",
+          "raw_ocr": "fa) kK Pepper",
+          "ocr_confidence": 67.2,
+          "vocab_match": 87.0
         }
       ]
     },
@@ -1739,37 +2212,49 @@
       "fragrantica_url": "https://www.fragrantica.com/perfume/Tom-Ford/Black-Orchid-1018.html",
       "status": "review",
       "note_count": 6,
-      "min_confidence": 13.6,
+      "min_vocab_match": 44.4,
       "notes": [
         {
           "position": 1,
           "text": "Wark Chocolate",
-          "confidence": 66.0
+          "raw_ocr": "Wark Chocolate",
+          "ocr_confidence": 66.0,
+          "vocab_match": 50.0
         },
         {
           "position": 2,
-          "text": "I rume a",
-          "confidence": 13.6
+          "text": "Rum",
+          "raw_ocr": "I rume a",
+          "ocr_confidence": 13.6,
+          "vocab_match": 84.5
         },
         {
           "position": 3,
           "text": "FalCnoull",
-          "confidence": 81.0
+          "raw_ocr": "FalCnoull",
+          "ocr_confidence": 81.0,
+          "vocab_match": 55.6
         },
         {
           "position": 4,
           "text": "aes e Orchid",
-          "confidence": 46.2
+          "raw_ocr": "aes e Orchid",
+          "ocr_confidence": 46.2,
+          "vocab_match": 44.4
         },
         {
           "position": 5,
           "text": "Quan Spicy Notes",
-          "confidence": 70.5
+          "raw_ocr": "Quan Spicy Notes",
+          "ocr_confidence": 70.5,
+          "vocab_match": 50.0
         },
         {
           "position": 6,
           "text": "Vanilla",
-          "confidence": 45.2
+          "raw_ocr": "Vanilla",
+          "ocr_confidence": 45.2,
+          "vocab_match": 100.0
         }
       ]
     },
@@ -1782,37 +2267,49 @@
       "fragrantica_url": "https://www.fragrantica.com/perfume/Amouage/Dia-Woman-1109.html",
       "status": "review",
       "note_count": 6,
-      "min_confidence": 54.7,
+      "min_vocab_match": 46.2,
       "notes": [
         {
           "position": 1,
           "text": "Aldehydes",
-          "confidence": 96.0
+          "raw_ocr": "Aldehydes",
+          "ocr_confidence": 96.0,
+          "vocab_match": 47.1
         },
         {
           "position": 2,
           "text": "Peony",
-          "confidence": 54.7
+          "raw_ocr": "Peony",
+          "ocr_confidence": 54.7,
+          "vocab_match": 60.0
         },
         {
           "position": 3,
           "text": "eo See Musk",
-          "confidence": 55.2
+          "raw_ocr": "eo See Musk",
+          "ocr_confidence": 55.2,
+          "vocab_match": 46.2
         },
         {
           "position": 4,
-          "text": "etd Rose",
-          "confidence": 65.7
+          "text": "Rose",
+          "raw_ocr": "etd Rose",
+          "ocr_confidence": 65.7,
+          "vocab_match": 86.3
         },
         {
           "position": 5,
           "text": "Se Orris Root",
-          "confidence": 61.5
+          "raw_ocr": "Se Orris Root",
+          "ocr_confidence": 61.5,
+          "vocab_match": 50.0
         },
         {
           "position": 6,
           "text": "Cyclamen",
-          "confidence": 84.2
+          "raw_ocr": "Cyclamen",
+          "ocr_confidence": 84.2,
+          "vocab_match": 50.0
         }
       ]
     },
@@ -1825,37 +2322,49 @@
       "fragrantica_url": "https://www.fragrantica.com/perfume/Prada/Luna-Rossa-Black-48682.html",
       "status": "review",
       "note_count": 6,
-      "min_confidence": 33.2,
+      "min_vocab_match": 42.1,
       "notes": [
         {
           "position": 1,
           "text": "he bs Coumarin",
-          "confidence": 33.2
+          "raw_ocr": "he bs Coumarin",
+          "ocr_confidence": 33.2,
+          "vocab_match": 47.1
         },
         {
           "position": 2,
-          "text": "I Amber",
-          "confidence": 37.3
+          "text": "Amber",
+          "raw_ocr": "I Amber",
+          "ocr_confidence": 37.3,
+          "vocab_match": 92.8
         },
         {
           "position": 3,
           "text": "eo ee Musk",
-          "confidence": 53.3
+          "raw_ocr": "eo ee Musk",
+          "ocr_confidence": 53.3,
+          "vocab_match": 46.2
         },
         {
           "position": 4,
           "text": "at atl Angelica",
-          "confidence": 51.0
+          "raw_ocr": "at atl Angelica",
+          "ocr_confidence": 51.0,
+          "vocab_match": 42.1
         },
         {
           "position": 5,
-          "text": "3 oe Patchouli",
-          "confidence": 41.1
+          "text": "Patchouli",
+          "raw_ocr": "3 oe Patchouli",
+          "ocr_confidence": 41.1,
+          "vocab_match": 90.8
         },
         {
           "position": 6,
-          "text": "a Bergamot",
-          "confidence": 49.9
+          "text": "Bergamot",
+          "raw_ocr": "a Bergamot",
+          "ocr_confidence": 49.9,
+          "vocab_match": 94.2
         }
       ]
     },
@@ -1868,37 +2377,49 @@
       "fragrantica_url": "https://www.fragrantica.com/perfume/Carolina-Herrera/Good-Girl-Blush-78576.html",
       "status": "review",
       "note_count": 6,
-      "min_confidence": 48.2,
+      "min_vocab_match": 38.1,
       "notes": [
         {
           "position": 1,
           "text": "Peony ge",
-          "confidence": 48.2
+          "raw_ocr": "Peony ge",
+          "ocr_confidence": 48.2,
+          "vocab_match": 61.5
         },
         {
           "position": 2,
-          "text": "Vanilla fa",
-          "confidence": 71.0
+          "text": "Vanilla",
+          "raw_ocr": "Vanilla fa",
+          "ocr_confidence": 71.0,
+          "vocab_match": 91.4
         },
         {
           "position": 3,
           "text": "Bergamot",
-          "confidence": 48.5
+          "raw_ocr": "Bergamot",
+          "ocr_confidence": 48.5,
+          "vocab_match": 100.0
         },
         {
           "position": 4,
           "text": "Ylang- Ylang",
-          "confidence": 94.1
+          "raw_ocr": "Ylang- Ylang",
+          "ocr_confidence": 94.1,
+          "vocab_match": 38.1
         },
         {
           "position": 5,
-          "text": "Almond",
-          "confidence": 96.2
+          "text": "Lemon",
+          "raw_ocr": "Almond",
+          "ocr_confidence": 96.2,
+          "vocab_match": 72.7
         },
         {
           "position": 6,
           "text": "Coumarin",
-          "confidence": 91.8
+          "raw_ocr": "Coumarin",
+          "ocr_confidence": 91.8,
+          "vocab_match": 47.1
         }
       ]
     },
@@ -1911,37 +2432,49 @@
       "fragrantica_url": "https://www.fragrantica.com/perfume/Guerlain/Spiritueuse-Double-Vanille-3345.html",
       "status": "review",
       "note_count": 6,
-      "min_confidence": 48.2,
+      "min_vocab_match": 38.1,
       "notes": [
         {
           "position": 1,
-          "text": "Vanilla a",
-          "confidence": 55.1
+          "text": "Vanilla",
+          "raw_ocr": "Vanilla a",
+          "ocr_confidence": 55.1,
+          "vocab_match": 93.9
         },
         {
           "position": 2,
           "text": "Benzoin Merit",
-          "confidence": 59.4
+          "raw_ocr": "Benzoin Merit",
+          "ocr_confidence": 59.4,
+          "vocab_match": 44.4
         },
         {
           "position": 3,
           "text": "Incense",
-          "confidence": 48.2
+          "raw_ocr": "Incense",
+          "ocr_confidence": 48.2,
+          "vocab_match": 100.0
         },
         {
           "position": 4,
           "text": "Cedar",
-          "confidence": 96.6
+          "raw_ocr": "Cedar",
+          "ocr_confidence": 96.6,
+          "vocab_match": 100.0
         },
         {
           "position": 5,
-          "text": "Pink Pepper",
-          "confidence": 96.0
+          "text": "Pepper",
+          "raw_ocr": "Pink Pepper",
+          "ocr_confidence": 96.0,
+          "vocab_match": 87.0
         },
         {
           "position": 6,
           "text": "Ylang- Ylang",
-          "confidence": 92.5
+          "raw_ocr": "Ylang- Ylang",
+          "ocr_confidence": 92.5,
+          "vocab_match": 38.1
         }
       ]
     },
@@ -1952,39 +2485,51 @@
       "brand": "Tom Ford",
       "fragrantica_id": 25481,
       "fragrantica_url": "https://www.fragrantica.com/perfume/Tom-Ford/Mandarino-di-Amalfi-25481.html",
-      "status": "candidate",
+      "status": "review",
       "note_count": 6,
-      "min_confidence": 70.9,
+      "min_vocab_match": 46.2,
       "notes": [
         {
           "position": 1,
           "text": "Lemon",
-          "confidence": 96.0
+          "raw_ocr": "Lemon",
+          "ocr_confidence": 96.0,
+          "vocab_match": 100.0
         },
         {
           "position": 2,
           "text": "Grapefruit",
-          "confidence": 90.8
+          "raw_ocr": "Grapefruit",
+          "ocr_confidence": 90.8,
+          "vocab_match": 100.0
         },
         {
           "position": 3,
           "text": "Orange Blossom",
-          "confidence": 96.5
+          "raw_ocr": "Orange Blossom",
+          "ocr_confidence": 96.5,
+          "vocab_match": 100.0
         },
         {
           "position": 4,
           "text": "Mint",
-          "confidence": 96.1
+          "raw_ocr": "Mint",
+          "ocr_confidence": 96.1,
+          "vocab_match": 54.5
         },
         {
           "position": 5,
           "text": "a Basil",
-          "confidence": 70.9
+          "raw_ocr": "a Basil",
+          "ocr_confidence": 70.9,
+          "vocab_match": 46.2
         },
         {
           "position": 6,
-          "text": "Musk",
-          "confidence": 96.3
+          "text": "Ambrette (Musk Mallow)",
+          "raw_ocr": "Musk",
+          "ocr_confidence": 96.3,
+          "vocab_match": 77.6
         }
       ]
     },
@@ -1997,37 +2542,49 @@
       "fragrantica_url": "https://www.fragrantica.com/perfume/Hermes/Terre-d-Hermes-Eau-Givree-72439.html",
       "status": "review",
       "note_count": 6,
-      "min_confidence": 36.5,
+      "min_vocab_match": 42.9,
       "notes": [
         {
           "position": 1,
           "text": "Citron",
-          "confidence": 36.5
+          "raw_ocr": "Citron",
+          "ocr_confidence": 36.5,
+          "vocab_match": 50.0
         },
         {
           "position": 2,
           "text": "bagas ae Zimbro",
-          "confidence": 88.2
+          "raw_ocr": "bagas ae Zimbro",
+          "ocr_confidence": 88.2,
+          "vocab_match": 47.6
         },
         {
           "position": 3,
           "text": "MINefal Notes",
-          "confidence": 48.3
+          "raw_ocr": "MINefal Notes",
+          "ocr_confidence": 48.3,
+          "vocab_match": 57.1
         },
         {
           "position": 4,
           "text": "all Woody Notes",
-          "confidence": 78.7
+          "raw_ocr": "all Woody Notes",
+          "ocr_confidence": 78.7,
+          "vocab_match": 52.2
         },
         {
           "position": 5,
           "text": "rr, Timur",
-          "confidence": 49.1
+          "raw_ocr": "rr, Timur",
+          "ocr_confidence": 49.1,
+          "vocab_match": 42.9
         },
         {
           "position": 6,
-          "text": "al",
-          "confidence": 43.6
+          "text": "Salt",
+          "raw_ocr": "al",
+          "ocr_confidence": 43.6,
+          "vocab_match": 84.5
         }
       ]
     },
@@ -2040,27 +2597,35 @@
       "fragrantica_url": "https://www.fragrantica.com/perfume/Diptyque/Eau-Duelle-Eau-de-Parfum-49100.html",
       "status": "review",
       "note_count": 4,
-      "min_confidence": 25.8,
+      "min_vocab_match": 40.0,
       "notes": [
         {
           "position": 1,
           "text": "Vanilla",
-          "confidence": 81.4
+          "raw_ocr": "Vanilla",
+          "ocr_confidence": 81.4,
+          "vocab_match": 100.0
         },
         {
           "position": 2,
-          "text": "Incense (",
-          "confidence": 63.2
+          "text": "Incense",
+          "raw_ocr": "Incense (",
+          "ocr_confidence": 63.2,
+          "vocab_match": 100.0
         },
         {
           "position": 3,
           "text": "JY Pro Oll or",
-          "confidence": 25.8
+          "raw_ocr": "JY Pro Oll or",
+          "ocr_confidence": 25.8,
+          "vocab_match": 40.0
         },
         {
           "position": 4,
-          "text": "Pink Pepper",
-          "confidence": 90.1
+          "text": "Pepper",
+          "raw_ocr": "Pink Pepper",
+          "ocr_confidence": 90.1,
+          "vocab_match": 87.0
         }
       ]
     },
@@ -2073,37 +2638,49 @@
       "fragrantica_url": "https://www.fragrantica.com/perfume/Nishane/Hundred-Silent-Ways-37602.html",
       "status": "review",
       "note_count": 6,
-      "min_confidence": 38.4,
+      "min_vocab_match": 53.3,
       "notes": [
         {
           "position": 1,
-          "text": "i Vanilla",
-          "confidence": 47.5
+          "text": "Vanilla",
+          "raw_ocr": "i Vanilla",
+          "ocr_confidence": 47.5,
+          "vocab_match": 93.9
         },
         {
           "position": 2,
-          "text": "Tuberose",
-          "confidence": 91.0
+          "text": "Rose",
+          "raw_ocr": "Tuberose",
+          "ocr_confidence": 91.0,
+          "vocab_match": 84.5
         },
         {
           "position": 3,
           "text": "Peach",
-          "confidence": 53.3
+          "raw_ocr": "Peach",
+          "ocr_confidence": 53.3,
+          "vocab_match": 100.0
         },
         {
           "position": 4,
           "text": "Gardenia",
-          "confidence": 96.6
+          "raw_ocr": "Gardenia",
+          "ocr_confidence": 96.6,
+          "vocab_match": 53.3
         },
         {
           "position": 5,
-          "text": "SS Sandalwoot",
-          "confidence": 38.4
+          "text": "Sandalwood",
+          "raw_ocr": "SS Sandalwoot",
+          "ocr_confidence": 38.4,
+          "vocab_match": 81.8
         },
         {
           "position": 6,
-          "text": "i 1 Jasmine",
-          "confidence": 55.9
+          "text": "Jasmine",
+          "raw_ocr": "i 1 Jasmine",
+          "ocr_confidence": 55.9,
+          "vocab_match": 91.4
         }
       ]
     },
@@ -2116,37 +2693,49 @@
       "fragrantica_url": "https://www.fragrantica.com/perfume/Giorgio-Armani/Acqua-di-Gio-Profumo-29727.html",
       "status": "review",
       "note_count": 6,
-      "min_confidence": 31.2,
+      "min_vocab_match": 58.8,
       "notes": [
         {
           "position": 1,
           "text": "Sa Sea Water",
-          "confidence": 64.5
+          "raw_ocr": "Sa Sea Water",
+          "ocr_confidence": 64.5,
+          "vocab_match": 58.8
         },
         {
           "position": 2,
-          "text": "Incense wef",
-          "confidence": 58.3
+          "text": "Incense",
+          "raw_ocr": "Incense wef",
+          "ocr_confidence": 58.3,
+          "vocab_match": 89.5
         },
         {
           "position": 3,
           "text": "Bergamot",
-          "confidence": 52.2
+          "raw_ocr": "Bergamot",
+          "ocr_confidence": 52.2,
+          "vocab_match": 100.0
         },
         {
           "position": 4,
-          "text": "3 os ae Patchouli",
-          "confidence": 31.2
+          "text": "Patchouli",
+          "raw_ocr": "3 os ae Patchouli",
+          "ocr_confidence": 31.2,
+          "vocab_match": 88.1
         },
         {
           "position": 5,
-          "text": "Rosemary",
-          "confidence": 91.4
+          "text": "Rose",
+          "raw_ocr": "Rosemary",
+          "ocr_confidence": 91.4,
+          "vocab_match": 84.5
         },
         {
           "position": 6,
-          "text": "2s Sage",
-          "confidence": 56.5
+          "text": "Sage",
+          "raw_ocr": "2s Sage",
+          "ocr_confidence": 56.5,
+          "vocab_match": 88.7
         }
       ]
     },
@@ -2159,37 +2748,49 @@
       "fragrantica_url": "https://www.fragrantica.com/perfume/Dolce-Gabbana/Light-Blue-485.html",
       "status": "review",
       "note_count": 6,
-      "min_confidence": 28.2,
+      "min_vocab_match": 47.1,
       "notes": [
         {
           "position": 1,
-          "text": "ws Lemon . )",
-          "confidence": 28.2
+          "text": "Lemon",
+          "raw_ocr": "ws Lemon . )",
+          "ocr_confidence": 28.2,
+          "vocab_match": 89.9
         },
         {
           "position": 2,
-          "text": "Apple",
-          "confidence": 48.1
+          "text": "Pineapple",
+          "raw_ocr": "Apple",
+          "ocr_confidence": 48.1,
+          "vocab_match": 85.9
         },
         {
           "position": 3,
-          "text": "Md iS al Cedar",
-          "confidence": 35.0
+          "text": "Cedar",
+          "raw_ocr": "Md iS al Cedar",
+          "ocr_confidence": 35.0,
+          "vocab_match": 83.4
         },
         {
           "position": 4,
           "text": "& iff Bamboo",
-          "confidence": 58.8
+          "raw_ocr": "& iff Bamboo",
+          "ocr_confidence": 58.8,
+          "vocab_match": 47.1
         },
         {
           "position": 5,
-          "text": "Musk",
-          "confidence": 53.5
+          "text": "Ambrette (Musk Mallow)",
+          "raw_ocr": "Musk",
+          "ocr_confidence": 53.5,
+          "vocab_match": 77.6
         },
         {
           "position": 6,
-          "text": "rie Jasmine",
-          "confidence": 68.5
+          "text": "Jasmine",
+          "raw_ocr": "rie Jasmine",
+          "ocr_confidence": 68.5,
+          "vocab_match": 89.5
         }
       ]
     },
@@ -2202,37 +2803,49 @@
       "fragrantica_url": "https://www.fragrantica.com/perfume/Juliette-Has-A-Gun/Sunny-Side-Up-46128.html",
       "status": "review",
       "note_count": 6,
-      "min_confidence": 19.0,
+      "min_vocab_match": 50.0,
       "notes": [
         {
           "position": 1,
-          "text": "oandalwoc",
-          "confidence": 39.3
+          "text": "Sandalwood",
+          "raw_ocr": "oandalwoc",
+          "ocr_confidence": 39.3,
+          "vocab_match": 73.7
         },
         {
           "position": 2,
-          "text": "a VCOoconut",
-          "confidence": 19.0
+          "text": "Coconut",
+          "raw_ocr": "a VCOoconut",
+          "ocr_confidence": 19.0,
+          "vocab_match": 82.4
         },
         {
           "position": 3,
           "text": "ISOE super",
-          "confidence": 83.9
+          "raw_ocr": "ISOE super",
+          "ocr_confidence": 83.9,
+          "vocab_match": 53.3
         },
         {
           "position": 4,
           "text": "Vanilla",
-          "confidence": 31.8
+          "raw_ocr": "Vanilla",
+          "ocr_confidence": 31.8,
+          "vocab_match": 100.0
         },
         {
           "position": 5,
-          "text": "Ambrette (Musk",
-          "confidence": 58.4
+          "text": "Ambrette (Musk Mallow)",
+          "raw_ocr": "Ambrette (Musk",
+          "ocr_confidence": 58.4,
+          "vocab_match": 88.7
         },
         {
           "position": 6,
           "text": "Se . Orris Root",
-          "confidence": 53.3
+          "raw_ocr": "Se . Orris Root",
+          "ocr_confidence": 53.3,
+          "vocab_match": 50.0
         }
       ]
     },
@@ -2245,37 +2858,49 @@
       "fragrantica_url": "https://www.fragrantica.com/perfume/Giorgio-Armani/My-Way-62036.html",
       "status": "review",
       "note_count": 6,
-      "min_confidence": 47.9,
+      "min_vocab_match": 77.6,
       "notes": [
         {
           "position": 1,
-          "text": "Tuberose",
-          "confidence": 91.4
+          "text": "Rose",
+          "raw_ocr": "Tuberose",
+          "ocr_confidence": 91.4,
+          "vocab_match": 84.5
         },
         {
           "position": 2,
           "text": "Orange Blossom",
-          "confidence": 96.6
+          "raw_ocr": "Orange Blossom",
+          "ocr_confidence": 96.6,
+          "vocab_match": 100.0
         },
         {
           "position": 3,
           "text": "Jasmine",
-          "confidence": 95.8
+          "raw_ocr": "Jasmine",
+          "ocr_confidence": 95.8,
+          "vocab_match": 100.0
         },
         {
           "position": 4,
-          "text": "a 2 Bergamot",
-          "confidence": 57.0
+          "text": "Bergamot",
+          "raw_ocr": "a 2 Bergamot",
+          "ocr_confidence": 57.0,
+          "vocab_match": 92.0
         },
         {
           "position": 5,
-          "text": "iin Vanilla",
-          "confidence": 47.9
+          "text": "Vanilla",
+          "raw_ocr": "iin Vanilla",
+          "ocr_confidence": 47.9,
+          "vocab_match": 89.5
         },
         {
           "position": 6,
-          "text": "Musk",
-          "confidence": 48.3
+          "text": "Ambrette (Musk Mallow)",
+          "raw_ocr": "Musk",
+          "ocr_confidence": 48.3,
+          "vocab_match": 77.6
         }
       ]
     },
@@ -2288,32 +2913,42 @@
       "fragrantica_url": "https://www.fragrantica.com/perfume/Escentric-Molecules/Escentric-01-846.html",
       "status": "review",
       "note_count": 5,
-      "min_confidence": 33.7,
+      "min_vocab_match": 33.3,
       "notes": [
         {
           "position": 1,
           "text": "ISOE Super",
-          "confidence": 94.3
+          "raw_ocr": "ISOE Super",
+          "ocr_confidence": 94.3,
+          "vocab_match": 53.3
         },
         {
           "position": 2,
-          "text": "Pink Pepper",
-          "confidence": 96.3
+          "text": "Pepper",
+          "raw_ocr": "Pink Pepper",
+          "ocr_confidence": 96.3,
+          "vocab_match": 87.0
         },
         {
           "position": 3,
           "text": "Lemon",
-          "confidence": 95.9
+          "raw_ocr": "Lemon",
+          "ocr_confidence": 95.9,
+          "vocab_match": 100.0
         },
         {
           "position": 4,
           "text": "Iris",
-          "confidence": 38.3
+          "raw_ocr": "Iris",
+          "ocr_confidence": 38.3,
+          "vocab_match": 100.0
         },
         {
           "position": 6,
           "text": "a7",
-          "confidence": 33.7
+          "raw_ocr": "a7",
+          "ocr_confidence": 33.7,
+          "vocab_match": 33.3
         }
       ]
     },
@@ -2326,32 +2961,42 @@
       "fragrantica_url": "https://www.fragrantica.com/perfume/Narciso-Rodriguez/Narciso-Rodriguez-for-Her-Eau-de-Parfum-14319.html",
       "status": "review",
       "note_count": 5,
-      "min_confidence": 28.0,
+      "min_vocab_match": 50.0,
       "notes": [
         {
           "position": 1,
           "text": "Ae",
-          "confidence": 28.0
+          "raw_ocr": "Ae",
+          "ocr_confidence": 28.0,
+          "vocab_match": 66.7
         },
         {
           "position": 2,
-          "text": "Sa",
-          "confidence": 32.9
+          "text": "Sage",
+          "raw_ocr": "Sa",
+          "ocr_confidence": 32.9,
+          "vocab_match": 84.5
         },
         {
           "position": 4,
           "text": "Daarch",
-          "confidence": 42.5
+          "raw_ocr": "Daarch",
+          "ocr_confidence": 42.5,
+          "vocab_match": 54.5
         },
         {
           "position": 5,
           "text": "Candalhnary",
-          "confidence": 46.2
+          "raw_ocr": "Candalhnary",
+          "ocr_confidence": 46.2,
+          "vocab_match": 50.0
         },
         {
           "position": 6,
-          "text": "Ambar",
-          "confidence": 44.4
+          "text": "Amber",
+          "raw_ocr": "Ambar",
+          "ocr_confidence": 44.4,
+          "vocab_match": 80.0
         }
       ]
     },
@@ -2364,37 +3009,49 @@
       "fragrantica_url": "https://www.fragrantica.com/perfume/Jo-Malone-London/English-Pear-Freesia-10314.html",
       "status": "review",
       "note_count": 6,
-      "min_confidence": 38.1,
+      "min_vocab_match": 46.2,
       "notes": [
         {
           "position": 1,
           "text": "A Freesia",
-          "confidence": 39.0
+          "raw_ocr": "A Freesia",
+          "ocr_confidence": 39.0,
+          "vocab_match": 46.2
         },
         {
           "position": 2,
           "text": "Pear",
-          "confidence": 96.6
+          "raw_ocr": "Pear",
+          "ocr_confidence": 96.6,
+          "vocab_match": 66.7
         },
         {
           "position": 3,
-          "text": "iw Rose",
-          "confidence": 48.0
+          "text": "Rose",
+          "raw_ocr": "iw Rose",
+          "ocr_confidence": 48.0,
+          "vocab_match": 88.7
         },
         {
           "position": 4,
-          "text": "Musk",
-          "confidence": 48.0
+          "text": "Ambrette (Musk Mallow)",
+          "raw_ocr": "Musk",
+          "ocr_confidence": 48.0,
+          "vocab_match": 77.6
         },
         {
           "position": 5,
-          "text": "3 oe Patchouli",
-          "confidence": 38.1
+          "text": "Patchouli",
+          "raw_ocr": "3 oe Patchouli",
+          "ocr_confidence": 38.1,
+          "vocab_match": 90.8
         },
         {
           "position": 6,
           "text": "Melon",
-          "confidence": 96.6
+          "raw_ocr": "Melon",
+          "ocr_confidence": 96.6,
+          "vocab_match": 60.0
         }
       ]
     },
@@ -2405,39 +3062,51 @@
       "brand": "Kenzo",
       "fragrantica_id": 76,
       "fragrantica_url": "https://www.fragrantica.com/perfume/Kenzo/Summer-by-Kenzo-76.html",
-      "status": "candidate",
+      "status": "review",
       "note_count": 6,
-      "min_confidence": 66.2,
+      "min_vocab_match": 40.0,
       "notes": [
         {
           "position": 1,
           "text": "Mimosa",
-          "confidence": 96.6
+          "raw_ocr": "Mimosa",
+          "ocr_confidence": 96.6,
+          "vocab_match": 40.0
         },
         {
           "position": 2,
-          "text": "Almond",
-          "confidence": 96.7
+          "text": "Lemon",
+          "raw_ocr": "Almond",
+          "ocr_confidence": 96.7,
+          "vocab_match": 72.7
         },
         {
           "position": 3,
-          "text": "Lily-of- the-Valley",
-          "confidence": 92.2
+          "text": "Lily-of-the-Valley",
+          "raw_ocr": "Lily-of- the-Valley",
+          "ocr_confidence": 92.2,
+          "vocab_match": 100.0
         },
         {
           "position": 4,
-          "text": "Musk",
-          "confidence": 95.9
+          "text": "Ambrette (Musk Mallow)",
+          "raw_ocr": "Musk",
+          "ocr_confidence": 95.9,
+          "vocab_match": 77.6
         },
         {
           "position": 5,
-          "text": "Violet",
-          "confidence": 66.2
+          "text": "Violet Leaf",
+          "raw_ocr": "Violet",
+          "ocr_confidence": 66.2,
+          "vocab_match": 87.0
         },
         {
           "position": 6,
           "text": "ee Freesia",
-          "confidence": 68.9
+          "raw_ocr": "ee Freesia",
+          "ocr_confidence": 68.9,
+          "vocab_match": 47.1
         }
       ]
     },
@@ -2450,37 +3119,49 @@
       "fragrantica_url": "https://www.fragrantica.com/perfume/Lancome/Oud-Bouquet-39739.html",
       "status": "review",
       "note_count": 6,
-      "min_confidence": 54.0,
+      "min_vocab_match": 47.6,
       "notes": [
         {
           "position": 1,
-          "text": "Fraline",
-          "confidence": 65.3
+          "text": "Praline",
+          "raw_ocr": "Fraline",
+          "ocr_confidence": 65.3,
+          "vocab_match": 85.7
         },
         {
           "position": 2,
-          "text": "AQGarwood (Oud)",
-          "confidence": 66.4
+          "text": "Agarwood (Oud)",
+          "raw_ocr": "AQGarwood (Oud)",
+          "ocr_confidence": 66.4,
+          "vocab_match": 95.7
         },
         {
           "position": 3,
           "text": "Vanilla",
-          "confidence": 69.2
+          "raw_ocr": "Vanilla",
+          "ocr_confidence": 69.2,
+          "vocab_match": 100.0
         },
         {
           "position": 4,
-          "text": "etd Rose",
-          "confidence": 70.4
+          "text": "Rose",
+          "raw_ocr": "etd Rose",
+          "ocr_confidence": 70.4,
+          "vocab_match": 86.3
         },
         {
           "position": 5,
           "text": "Guaiac Wood",
-          "confidence": 86.5
+          "raw_ocr": "Guaiac Wood",
+          "ocr_confidence": 86.5,
+          "vocab_match": 60.0
         },
         {
           "position": 6,
           "text": "Fg Copahu Balm",
-          "confidence": 54.0
+          "raw_ocr": "Fg Copahu Balm",
+          "ocr_confidence": 54.0,
+          "vocab_match": 47.6
         }
       ]
     },
@@ -2493,37 +3174,49 @@
       "fragrantica_url": "https://www.fragrantica.com/perfume/Nasomatto/Black-Afgano-6472.html",
       "status": "review",
       "note_count": 6,
-      "min_confidence": 41.3,
+      "min_vocab_match": 46.2,
       "notes": [
         {
           "position": 1,
-          "text": "AQgarwood (Oud)",
-          "confidence": 54.7
+          "text": "Agarwood (Oud)",
+          "raw_ocr": "AQgarwood (Oud)",
+          "ocr_confidence": 54.7,
+          "vocab_match": 95.7
         },
         {
           "position": 2,
-          "text": "Incense ee",
-          "confidence": 42.9
+          "text": "Incense",
+          "raw_ocr": "Incense ee",
+          "ocr_confidence": 42.9,
+          "vocab_match": 91.4
         },
         {
           "position": 3,
           "text": "Cannabis",
-          "confidence": 41.3
+          "raw_ocr": "Cannabis",
+          "ocr_confidence": 41.3,
+          "vocab_match": 47.1
         },
         {
           "position": 4,
           "text": "Resins",
-          "confidence": 61.4
+          "raw_ocr": "Resins",
+          "ocr_confidence": 61.4,
+          "vocab_match": 46.2
         },
         {
           "position": 5,
           "text": "all Woody Notes",
-          "confidence": 78.2
+          "raw_ocr": "all Woody Notes",
+          "ocr_confidence": 78.2,
+          "vocab_match": 52.2
         },
         {
           "position": 6,
           "text": "Tobacco",
-          "confidence": 57.0
+          "raw_ocr": "Tobacco",
+          "ocr_confidence": 57.0,
+          "vocab_match": 50.0
         }
       ]
     },
@@ -2534,39 +3227,51 @@
       "brand": "Initio Parfums Privés",
       "fragrantica_id": 30989,
       "fragrantica_url": "https://www.fragrantica.com/perfume/Initio-Parfums-Prives/Absolute-Aphrodisiac-30989.html",
-      "status": "candidate",
+      "status": "review",
       "note_count": 6,
-      "min_confidence": 56.7,
+      "min_vocab_match": 40.0,
       "notes": [
         {
           "position": 1,
-          "text": "Vanilla Ey",
-          "confidence": 56.7
+          "text": "Vanilla",
+          "raw_ocr": "Vanilla Ey",
+          "ocr_confidence": 56.7,
+          "vocab_match": 91.4
         },
         {
           "position": 2,
-          "text": "Amber (",
-          "confidence": 67.1
+          "text": "Amber",
+          "raw_ocr": "Amber (",
+          "ocr_confidence": 67.1,
+          "vocab_match": 100.0
         },
         {
           "position": 3,
           "text": "Castoreum",
-          "confidence": 92.6
+          "raw_ocr": "Castoreum",
+          "ocr_confidence": 92.6,
+          "vocab_match": 57.1
         },
         {
           "position": 4,
           "text": "Leather",
-          "confidence": 94.2
+          "raw_ocr": "Leather",
+          "ocr_confidence": 94.2,
+          "vocab_match": 57.1
         },
         {
           "position": 5,
-          "text": "Musk",
-          "confidence": 96.0
+          "text": "Ambrette (Musk Mallow)",
+          "raw_ocr": "Musk",
+          "ocr_confidence": 96.0,
+          "vocab_match": 77.6
         },
         {
           "position": 6,
           "text": "White Flowers",
-          "confidence": 96.2
+          "raw_ocr": "White Flowers",
+          "ocr_confidence": 96.2,
+          "vocab_match": 40.0
         }
       ]
     },
@@ -2579,37 +3284,49 @@
       "fragrantica_url": "https://www.fragrantica.com/perfume/Tiziana-Terenzi/Kirke-32172.html",
       "status": "review",
       "note_count": 6,
-      "min_confidence": 38.6,
+      "min_vocab_match": 34.8,
       "notes": [
         {
           "position": 1,
           "text": "Musk P",
-          "confidence": 53.4
+          "raw_ocr": "Musk P",
+          "ocr_confidence": 53.4,
+          "vocab_match": 34.8
         },
         {
           "position": 2,
           "text": "assionfruit",
-          "confidence": 70.4
+          "raw_ocr": "assionfruit",
+          "ocr_confidence": 70.4,
+          "vocab_match": 57.1
         },
         {
           "position": 3,
-          "text": "ff each",
-          "confidence": 38.6
+          "text": "Peach",
+          "raw_ocr": "ff each",
+          "ocr_confidence": 38.6,
+          "vocab_match": 72.7
         },
         {
           "position": 4,
           "text": "Pear R",
-          "confidence": 64.5
+          "raw_ocr": "Pear R",
+          "ocr_confidence": 64.5,
+          "vocab_match": 60.0
         },
         {
           "position": 5,
           "text": "aspberry",
-          "confidence": 45.1
+          "raw_ocr": "aspberry",
+          "ocr_confidence": 45.1,
+          "vocab_match": 66.7
         },
         {
           "position": 6,
-          "text": "SS ll Sandalwood",
-          "confidence": 39.9
+          "text": "Sandalwood",
+          "raw_ocr": "SS ll Sandalwood",
+          "ocr_confidence": 39.9,
+          "vocab_match": 89.9
         }
       ]
     },
@@ -2622,37 +3339,49 @@
       "fragrantica_url": "https://www.fragrantica.com/perfume/Givenchy/L-Interdit-Eau-de-Parfum-51488.html",
       "status": "review",
       "note_count": 6,
-      "min_confidence": 42.3,
+      "min_vocab_match": 66.7,
       "notes": [
         {
           "position": 1,
-          "text": "Tuberose",
-          "confidence": 92.0
+          "text": "Rose",
+          "raw_ocr": "Tuberose",
+          "ocr_confidence": 92.0,
+          "vocab_match": 84.5
         },
         {
           "position": 2,
           "text": "Pear",
-          "confidence": 96.2
+          "raw_ocr": "Pear",
+          "ocr_confidence": 96.2,
+          "vocab_match": 66.7
         },
         {
           "position": 3,
           "text": "Orange Blossom",
-          "confidence": 96.3
+          "raw_ocr": "Orange Blossom",
+          "ocr_confidence": 96.3,
+          "vocab_match": 100.0
         },
         {
           "position": 4,
-          "text": "95,2 Jasmine",
-          "confidence": 42.3
+          "text": "Jasmine",
+          "raw_ocr": "95,2 Jasmine",
+          "ocr_confidence": 42.3,
+          "vocab_match": 89.5
         },
         {
           "position": 5,
-          "text": "Om Patchoull",
-          "confidence": 76.1
+          "text": "Patchouli",
+          "raw_ocr": "Om Patchoull",
+          "ocr_confidence": 76.1,
+          "vocab_match": 80.0
         },
         {
           "position": 6,
-          "text": "in Vanilla",
-          "confidence": 61.9
+          "text": "Vanilla",
+          "raw_ocr": "in Vanilla",
+          "ocr_confidence": 61.9,
+          "vocab_match": 91.4
         }
       ]
     },
@@ -2665,32 +3394,42 @@
       "fragrantica_url": "https://www.fragrantica.com/perfume/Profumum-Roma/Acqua-di-Sale-3886.html",
       "status": "review",
       "note_count": 5,
-      "min_confidence": 25.7,
+      "min_vocab_match": 42.9,
       "notes": [
         {
           "position": 1,
-          "text": "Wee Salt",
-          "confidence": 65.4
+          "text": "Salt",
+          "raw_ocr": "Wee Salt",
+          "ocr_confidence": 65.4,
+          "vocab_match": 86.3
         },
         {
           "position": 2,
           "text": "Seaweed",
-          "confidence": 79.7
+          "raw_ocr": "Seaweed",
+          "ocr_confidence": 79.7,
+          "vocab_match": 100.0
         },
         {
           "position": 3,
           "text": "Swat Myrtle",
-          "confidence": 65.1
+          "raw_ocr": "Swat Myrtle",
+          "ocr_confidence": 65.1,
+          "vocab_match": 42.9
         },
         {
           "position": 4,
-          "text": "ees 5 al Cedar",
-          "confidence": 39.9
+          "text": "Cedar",
+          "raw_ocr": "ees 5 al Cedar",
+          "ocr_confidence": 39.9,
+          "vocab_match": 83.4
         },
         {
           "position": 5,
           "text": "atl",
-          "confidence": 25.7
+          "raw_ocr": "atl",
+          "ocr_confidence": 25.7,
+          "vocab_match": 57.1
         }
       ]
     },
@@ -2703,37 +3442,49 @@
       "fragrantica_url": "https://www.fragrantica.com/perfume/By-Kilian/Rolling-in-Love-56402.html",
       "status": "review",
       "note_count": 6,
-      "min_confidence": 46.9,
+      "min_vocab_match": 66.7,
       "notes": [
         {
           "position": 1,
           "text": "Almond , a",
-          "confidence": 52.0
+          "raw_ocr": "Almond , a",
+          "ocr_confidence": 52.0,
+          "vocab_match": 66.7
         },
         {
           "position": 2,
-          "text": "Tuberose",
-          "confidence": 46.9
+          "text": "Rose",
+          "raw_ocr": "Tuberose",
+          "ocr_confidence": 46.9,
+          "vocab_match": 84.5
         },
         {
           "position": 3,
-          "text": "Vanilla Pa",
-          "confidence": 65.2
+          "text": "Vanilla",
+          "raw_ocr": "Vanilla Pa",
+          "ocr_confidence": 65.2,
+          "vocab_match": 91.4
         },
         {
           "position": 4,
-          "text": "lris",
-          "confidence": 89.1
+          "text": "Iris",
+          "raw_ocr": "lris",
+          "ocr_confidence": 89.1,
+          "vocab_match": 75.0
         },
         {
           "position": 5,
           "text": "Tonka Bean",
-          "confidence": 96.2
+          "raw_ocr": "Tonka Bean",
+          "ocr_confidence": 96.2,
+          "vocab_match": 100.0
         },
         {
           "position": 6,
-          "text": "Ambrette (Musk",
-          "confidence": 91.5
+          "text": "Ambrette (Musk Mallow)",
+          "raw_ocr": "Ambrette (Musk",
+          "ocr_confidence": 91.5,
+          "vocab_match": 88.7
         }
       ]
     },
@@ -2746,37 +3497,49 @@
       "fragrantica_url": "https://www.fragrantica.com/perfume/Valentino/Valentino-Uomo-Born-in-Roma-55963.html",
       "status": "review",
       "note_count": 6,
-      "min_confidence": 52.6,
+      "min_vocab_match": 50.0,
       "notes": [
         {
           "position": 1,
           "text": "Mineral Notes",
-          "confidence": 96.4
+          "raw_ocr": "Mineral Notes",
+          "ocr_confidence": 96.4,
+          "vocab_match": 57.1
         },
         {
           "position": 2,
           "text": "Violet Leaf",
-          "confidence": 70.0
+          "raw_ocr": "Violet Leaf",
+          "ocr_confidence": 70.0,
+          "vocab_match": 100.0
         },
         {
           "position": 3,
           "text": "Woody Notes",
-          "confidence": 95.8
+          "raw_ocr": "Woody Notes",
+          "ocr_confidence": 95.8,
+          "vocab_match": 50.0
         },
         {
           "position": 4,
-          "text": "ey Salt",
-          "confidence": 55.7
+          "text": "Salt",
+          "raw_ocr": "ey Salt",
+          "ocr_confidence": 55.7,
+          "vocab_match": 88.7
         },
         {
           "position": 5,
           "text": "Sage",
-          "confidence": 63.1
+          "raw_ocr": "Sage",
+          "ocr_confidence": 63.1,
+          "vocab_match": 100.0
         },
         {
           "position": 6,
-          "text": "ee all Ginger",
-          "confidence": 52.6
+          "text": "Ginger",
+          "raw_ocr": "ee all Ginger",
+          "ocr_confidence": 52.6,
+          "vocab_match": 85.6
         }
       ]
     },
@@ -2789,32 +3552,42 @@
       "fragrantica_url": "https://www.fragrantica.com/perfume/Guerlain/Vanille-Planifolia-Extrait-21-87539.html",
       "status": "review",
       "note_count": 5,
-      "min_confidence": 46.0,
+      "min_vocab_match": 40.0,
       "notes": [
         {
           "position": 1,
           "text": "Vanilla",
-          "confidence": 96.2
+          "raw_ocr": "Vanilla",
+          "ocr_confidence": 96.2,
+          "vocab_match": 100.0
         },
         {
           "position": 2,
           "text": "Spicy Notes",
-          "confidence": 96.6
+          "raw_ocr": "Spicy Notes",
+          "ocr_confidence": 96.6,
+          "vocab_match": 50.0
         },
         {
           "position": 3,
           "text": "Amber",
-          "confidence": 94.9
+          "raw_ocr": "Amber",
+          "ocr_confidence": 94.9,
+          "vocab_match": 100.0
         },
         {
           "position": 4,
           "text": "a Opoponax",
-          "confidence": 46.0
+          "raw_ocr": "a Opoponax",
+          "ocr_confidence": 46.0,
+          "vocab_match": 40.0
         },
         {
           "position": 5,
-          "text": "Musk",
-          "confidence": 96.3
+          "text": "Ambrette (Musk Mallow)",
+          "raw_ocr": "Musk",
+          "ocr_confidence": 96.3,
+          "vocab_match": 77.6
         }
       ]
     },
@@ -2827,37 +3600,49 @@
       "fragrantica_url": "https://www.fragrantica.com/perfume/Frederic-Malle-Editions-de-parfums/Carnal-Flower-1024.html",
       "status": "review",
       "note_count": 6,
-      "min_confidence": 47.5,
+      "min_vocab_match": 37.5,
       "notes": [
         {
           "position": 1,
           "text": "rF Eucalyptus",
-          "confidence": 47.5
+          "raw_ocr": "rF Eucalyptus",
+          "ocr_confidence": 47.5,
+          "vocab_match": 37.5
         },
         {
           "position": 2,
-          "text": "a - Coconut",
-          "confidence": 47.8
+          "text": "Coconut",
+          "raw_ocr": "a - Coconut",
+          "ocr_confidence": 47.8,
+          "vocab_match": 93.9
         },
         {
           "position": 3,
           "text": "Musk a",
-          "confidence": 57.3
+          "raw_ocr": "Musk a",
+          "ocr_confidence": 57.3,
+          "vocab_match": 44.4
         },
         {
           "position": 4,
-          "text": "Tuberose",
-          "confidence": 92.2
+          "text": "Rose",
+          "raw_ocr": "Tuberose",
+          "ocr_confidence": 92.2,
+          "vocab_match": 84.5
         },
         {
           "position": 5,
           "text": "Melon",
-          "confidence": 95.5
+          "raw_ocr": "Melon",
+          "ocr_confidence": 95.5,
+          "vocab_match": 60.0
         },
         {
           "position": 6,
           "text": "Bergamot",
-          "confidence": 53.9
+          "raw_ocr": "Bergamot",
+          "ocr_confidence": 53.9,
+          "vocab_match": 100.0
         }
       ]
     },
@@ -2870,37 +3655,49 @@
       "fragrantica_url": "https://www.fragrantica.com/perfume/Laura-Mercier/Eau-Gourmande-Ambre-Vanille-18364.html",
       "status": "review",
       "note_count": 6,
-      "min_confidence": 39.0,
+      "min_vocab_match": 41.4,
       "notes": [
         {
           "position": 1,
           "text": "a ie Almond",
-          "confidence": 39.0
+          "raw_ocr": "a ie Almond",
+          "ocr_confidence": 39.0,
+          "vocab_match": 57.1
         },
         {
           "position": 2,
-          "text": "a Coconut",
-          "confidence": 55.4
+          "text": "Coconut",
+          "raw_ocr": "a Coconut",
+          "ocr_confidence": 55.4,
+          "vocab_match": 93.9
         },
         {
           "position": 3,
           "text": "Sas Orchid",
-          "confidence": 66.7
+          "raw_ocr": "Sas Orchid",
+          "ocr_confidence": 66.7,
+          "vocab_match": 44.4
         },
         {
           "position": 4,
           "text": "tain ee Heliotrope",
-          "confidence": 39.7
+          "raw_ocr": "tain ee Heliotrope",
+          "ocr_confidence": 39.7,
+          "vocab_match": 41.4
         },
         {
           "position": 5,
           "text": "i alle Sandalwoc",
-          "confidence": 42.4
+          "raw_ocr": "i alle Sandalwoc",
+          "ocr_confidence": 42.4,
+          "vocab_match": 66.7
         },
         {
           "position": 6,
           "text": "d Tangerine",
-          "confidence": 93.9
+          "raw_ocr": "d Tangerine",
+          "ocr_confidence": 93.9,
+          "vocab_match": 50.0
         }
       ]
     },
@@ -2913,37 +3710,49 @@
       "fragrantica_url": "https://www.fragrantica.com/perfume/Estee-Lauder/Bronze-Goddess-Soleil-11537.html",
       "status": "review",
       "note_count": 6,
-      "min_confidence": 47.9,
+      "min_vocab_match": 50.0,
       "notes": [
         {
           "position": 1,
-          "text": "Lemon YY)",
-          "confidence": 47.9
+          "text": "Lemon",
+          "raw_ocr": "Lemon YY)",
+          "ocr_confidence": 47.9,
+          "vocab_match": 89.9
         },
         {
           "position": 2,
-          "text": "Jasmine ff",
-          "confidence": 86.2
+          "text": "Jasmine",
+          "raw_ocr": "Jasmine ff",
+          "ocr_confidence": 86.2,
+          "vocab_match": 91.4
         },
         {
           "position": 3,
           "text": "Tangerine AS",
-          "confidence": 59.1
+          "raw_ocr": "Tangerine AS",
+          "ocr_confidence": 59.1,
+          "vocab_match": 50.0
         },
         {
           "position": 4,
           "text": "Orange Blossom",
-          "confidence": 96.1
+          "raw_ocr": "Orange Blossom",
+          "ocr_confidence": 96.1,
+          "vocab_match": 100.0
         },
         {
           "position": 5,
           "text": "Petitgrain",
-          "confidence": 90.1
+          "raw_ocr": "Petitgrain",
+          "ocr_confidence": 90.1,
+          "vocab_match": 58.8
         },
         {
           "position": 6,
           "text": "Bergamot",
-          "confidence": 96.6
+          "raw_ocr": "Bergamot",
+          "ocr_confidence": 96.6,
+          "vocab_match": 100.0
         }
       ]
     },
@@ -2956,37 +3765,49 @@
       "fragrantica_url": "https://www.fragrantica.com/perfume/Chanel/Allure-Homme-Sport-607.html",
       "status": "review",
       "note_count": 6,
-      "min_confidence": 20.0,
+      "min_vocab_match": 47.1,
       "notes": [
         {
           "position": 1,
-          "text": "Orange Va",
-          "confidence": 75.6
+          "text": "Orange",
+          "raw_ocr": "Orange Va",
+          "ocr_confidence": 75.6,
+          "vocab_match": 90.8
         },
         {
           "position": 2,
           "text": "Sea Water 7",
-          "confidence": 65.9
+          "raw_ocr": "Sea Water 7",
+          "ocr_confidence": 65.9,
+          "vocab_match": 62.5
         },
         {
           "position": 3,
           "text": "Aldehydes",
-          "confidence": 20.0
+          "raw_ocr": "Aldehydes",
+          "ocr_confidence": 20.0,
+          "vocab_match": 47.1
         },
         {
           "position": 4,
-          "text": "Mandarin Orange",
-          "confidence": 96.5
+          "text": "Orange",
+          "raw_ocr": "Mandarin Orange",
+          "ocr_confidence": 96.5,
+          "vocab_match": 82.7
         },
         {
           "position": 5,
           "text": "Vanilla",
-          "confidence": 96.7
+          "raw_ocr": "Vanilla",
+          "ocr_confidence": 96.7,
+          "vocab_match": 100.0
         },
         {
           "position": 6,
           "text": "Tonka Bean",
-          "confidence": 96.4
+          "raw_ocr": "Tonka Bean",
+          "ocr_confidence": 96.4,
+          "vocab_match": 100.0
         }
       ]
     },
@@ -2999,37 +3820,49 @@
       "fragrantica_url": "https://www.fragrantica.com/perfume/Jo-Malone-London/Ginger-Biscuit-17685.html",
       "status": "review",
       "note_count": 6,
-      "min_confidence": 42.3,
+      "min_vocab_match": 50.0,
       "notes": [
         {
           "position": 1,
           "text": "Caramel The",
-          "confidence": 57.5
+          "raw_ocr": "Caramel The",
+          "ocr_confidence": 57.5,
+          "vocab_match": 55.6
         },
         {
           "position": 2,
-          "text": "Vanilla a",
-          "confidence": 67.5
+          "text": "Vanilla",
+          "raw_ocr": "Vanilla a",
+          "ocr_confidence": 67.5,
+          "vocab_match": 93.9
         },
         {
           "position": 3,
           "text": "Hazelnut",
-          "confidence": 42.3
+          "raw_ocr": "Hazelnut",
+          "ocr_confidence": 42.3,
+          "vocab_match": 50.0
         },
         {
           "position": 4,
           "text": "Ginger",
-          "confidence": 96.3
+          "raw_ocr": "Ginger",
+          "ocr_confidence": 96.3,
+          "vocab_match": 100.0
         },
         {
           "position": 5,
           "text": "Cinnamon",
-          "confidence": 95.8
+          "raw_ocr": "Cinnamon",
+          "ocr_confidence": 95.8,
+          "vocab_match": 50.0
         },
         {
           "position": 6,
           "text": "Tonka Bean",
-          "confidence": 96.2
+          "raw_ocr": "Tonka Bean",
+          "ocr_confidence": 96.2,
+          "vocab_match": 100.0
         }
       ]
     },
@@ -3040,29 +3873,37 @@
       "brand": "Bobbi Brown",
       "fragrantica_id": 10456,
       "fragrantica_url": "https://www.fragrantica.com/perfume/Bobbi-Brown/Beach-10456.html",
-      "status": "candidate",
+      "status": "review",
       "note_count": 4,
-      "min_confidence": 75.7,
+      "min_vocab_match": 66.7,
       "notes": [
         {
           "position": 1,
-          "text": "Jasmine Va",
-          "confidence": 75.7
+          "text": "Jasmine",
+          "raw_ocr": "Jasmine Va",
+          "ocr_confidence": 75.7,
+          "vocab_match": 91.4
         },
         {
           "position": 2,
           "text": "Sea Water",
-          "confidence": 96.4
+          "raw_ocr": "Sea Water",
+          "ocr_confidence": 96.4,
+          "vocab_match": 66.7
         },
         {
           "position": 3,
-          "text": "Sand",
-          "confidence": 96.5
+          "text": "Sandalwood",
+          "raw_ocr": "Sand",
+          "ocr_confidence": 96.5,
+          "vocab_match": 82.0
         },
         {
           "position": 4,
-          "text": "Mandarin Orange",
-          "confidence": 96.3
+          "text": "Orange",
+          "raw_ocr": "Mandarin Orange",
+          "ocr_confidence": 96.3,
+          "vocab_match": 82.7
         }
       ]
     },
@@ -3075,37 +3916,49 @@
       "fragrantica_url": "https://www.fragrantica.com/perfume/Maison-Martin-Margiela/Beach-Walk-15261.html",
       "status": "review",
       "note_count": 6,
-      "min_confidence": 35.4,
+      "min_vocab_match": 38.1,
       "notes": [
         {
           "position": 1,
           "text": "Ylang- Ylang",
-          "confidence": 93.1
+          "raw_ocr": "Ylang- Ylang",
+          "ocr_confidence": 93.1,
+          "vocab_match": 38.1
         },
         {
           "position": 2,
           "text": "Coconut",
-          "confidence": 95.9
+          "raw_ocr": "Coconut",
+          "ocr_confidence": 95.9,
+          "vocab_match": 100.0
         },
         {
           "position": 3,
-          "text": "Musk",
-          "confidence": 96.7
+          "text": "Ambrette (Musk Mallow)",
+          "raw_ocr": "Musk",
+          "ocr_confidence": 96.7,
+          "vocab_match": 77.6
         },
         {
           "position": 4,
           "text": "oO Beall Heliotrope",
-          "confidence": 35.4
+          "raw_ocr": "oO Beall Heliotrope",
+          "ocr_confidence": 35.4,
+          "vocab_match": 40.0
         },
         {
           "position": 5,
           "text": "Bergamot",
-          "confidence": 48.3
+          "raw_ocr": "Bergamot",
+          "ocr_confidence": 48.3,
+          "vocab_match": 100.0
         },
         {
           "position": 6,
           "text": "Lemon",
-          "confidence": 95.1
+          "raw_ocr": "Lemon",
+          "ocr_confidence": 95.1,
+          "vocab_match": 100.0
         }
       ]
     },
@@ -3118,37 +3971,49 @@
       "fragrantica_url": "https://www.fragrantica.com/perfume/Melanie-Martinez/Cry-Baby-Perfume-Milk-41799.html",
       "status": "review",
       "note_count": 6,
-      "min_confidence": 28.7,
+      "min_vocab_match": 41.7,
       "notes": [
         {
           "position": 1,
           "text": "MIIIK",
-          "confidence": 28.7
+          "raw_ocr": "MIIIK",
+          "ocr_confidence": 28.7,
+          "vocab_match": 44.4
         },
         {
           "position": 2,
           "text": "FOwdery Notes",
-          "confidence": 70.2
+          "raw_ocr": "FOwdery Notes",
+          "ocr_confidence": 70.2,
+          "vocab_match": 54.5
         },
         {
           "position": 3,
-          "text": "olrawbderrry",
-          "confidence": 49.6
+          "text": "Strawberry",
+          "raw_ocr": "olrawbderrry",
+          "ocr_confidence": 49.6,
+          "vocab_match": 72.7
         },
         {
           "position": 4,
           "text": "OO Caramel",
-          "confidence": 47.9
+          "raw_ocr": "OO Caramel",
+          "ocr_confidence": 47.9,
+          "vocab_match": 58.8
         },
         {
           "position": 5,
           "text": "a, Forest Fruits",
-          "confidence": 69.8
+          "raw_ocr": "a, Forest Fruits",
+          "ocr_confidence": 69.8,
+          "vocab_match": 60.9
         },
         {
           "position": 6,
           "text": "oF iw Woody Notes",
-          "confidence": 49.1
+          "raw_ocr": "oF iw Woody Notes",
+          "ocr_confidence": 49.1,
+          "vocab_match": 41.7
         }
       ]
     },
@@ -3161,37 +4026,49 @@
       "fragrantica_url": "https://www.fragrantica.com/perfume/Marc-Antoine-Barrois/Tilia-91688.html",
       "status": "review",
       "note_count": 6,
-      "min_confidence": 12.3,
+      "min_vocab_match": 50.0,
       "notes": [
         {
           "position": 1,
           "text": "Lime F (Linde",
-          "confidence": 34.9
+          "raw_ocr": "Lime F (Linde",
+          "ocr_confidence": 34.9,
+          "vocab_match": 55.6
         },
         {
           "position": 2,
           "text": "IMOFOTIX J",
-          "confidence": 48.0
+          "raw_ocr": "IMOFOTIX J",
+          "ocr_confidence": 48.0,
+          "vocab_match": 58.8
         },
         {
           "position": 3,
-          "text": "asmIne",
-          "confidence": 12.3
+          "text": "Jasmine",
+          "raw_ocr": "asmIne",
+          "ocr_confidence": 12.3,
+          "vocab_match": 93.4
         },
         {
           "position": 4,
           "text": "Spanish Broom E",
-          "confidence": 49.1
+          "raw_ocr": "Spanish Broom E",
+          "ocr_confidence": 49.1,
+          "vocab_match": 50.0
         },
         {
           "position": 5,
-          "text": "yrange lossom",
-          "confidence": 44.3
+          "text": "Orange Blossom",
+          "raw_ocr": "yrange lossom",
+          "ocr_confidence": 44.3,
+          "vocab_match": 88.0
         },
         {
           "position": 6,
           "text": "eorgywood",
-          "confidence": 27.6
+          "raw_ocr": "eorgywood",
+          "ocr_confidence": 27.6,
+          "vocab_match": 50.0
         }
       ]
     },
@@ -3204,37 +4081,49 @@
       "fragrantica_url": "https://www.fragrantica.com/perfume/Kayali-Fragrances/Vanilla-Candy-Rock-Sugar-42-92258.html",
       "status": "review",
       "note_count": 6,
-      "min_confidence": 0.0,
+      "min_vocab_match": 47.1,
       "notes": [
         {
           "position": 1,
           "text": "Vanilla",
-          "confidence": 45.0
+          "raw_ocr": "Vanilla",
+          "ocr_confidence": 45.0,
+          "vocab_match": 100.0
         },
         {
           "position": 2,
-          "text": "sugar",
-          "confidence": 49.3
+          "text": "Sugar",
+          "raw_ocr": "sugar",
+          "ocr_confidence": 49.3,
+          "vocab_match": 100.0
         },
         {
           "position": 3,
           "text": "Bubble Gum",
-          "confidence": 96.0
+          "raw_ocr": "Bubble Gum",
+          "ocr_confidence": 96.0,
+          "vocab_match": 47.1
         },
         {
           "position": 4,
           "text": "ea Pear h",
-          "confidence": 37.8
+          "raw_ocr": "ea Pear h",
+          "ocr_confidence": 37.8,
+          "vocab_match": 66.7
         },
         {
           "position": 5,
-          "text": "Miarshmallov",
-          "confidence": 0.0
+          "text": "Marshmallow",
+          "raw_ocr": "Miarshmallov",
+          "ocr_confidence": 0.0,
+          "vocab_match": 87.0
         },
         {
           "position": 6,
           "text": "v Jellybean",
-          "confidence": 84.8
+          "raw_ocr": "v Jellybean",
+          "ocr_confidence": 84.8,
+          "vocab_match": 50.0
         }
       ]
     },
@@ -3247,17 +4136,21 @@
       "fragrantica_url": "https://www.fragrantica.com/perfume/Victoria-s-Secret/Bare-Vanilla-56836.html",
       "status": "review",
       "note_count": 2,
-      "min_confidence": 43.9,
+      "min_vocab_match": 44.4,
       "notes": [
         {
           "position": 1,
           "text": "aA",
-          "confidence": 43.9
+          "raw_ocr": "aA",
+          "ocr_confidence": 43.9,
+          "vocab_match": 44.4
         },
         {
           "position": 3,
-          "text": "al",
-          "confidence": 64.7
+          "text": "Salt",
+          "raw_ocr": "al",
+          "ocr_confidence": 64.7,
+          "vocab_match": 84.5
         }
       ]
     },
@@ -3270,37 +4163,49 @@
       "fragrantica_url": "https://www.fragrantica.com/perfume/Xerjoff/40-Knots-16445.html",
       "status": "review",
       "note_count": 6,
-      "min_confidence": 16.1,
+      "min_vocab_match": 43.5,
       "notes": [
         {
           "position": 1,
           "text": "VvVOOaYy Notes",
-          "confidence": 62.6
+          "raw_ocr": "VvVOOaYy Notes",
+          "ocr_confidence": 62.6,
+          "vocab_match": 43.5
         },
         {
           "position": 2,
           "text": "Cedar",
-          "confidence": 16.1
+          "raw_ocr": "Cedar",
+          "ocr_confidence": 16.1,
+          "vocab_match": 100.0
         },
         {
           "position": 3,
           "text": "oall",
-          "confidence": 81.7
+          "raw_ocr": "oall",
+          "ocr_confidence": 81.7,
+          "vocab_match": 54.5
         },
         {
           "position": 4,
           "text": "Sea Water",
-          "confidence": 68.7
+          "raw_ocr": "Sea Water",
+          "ocr_confidence": 68.7,
+          "vocab_match": 66.7
         },
         {
           "position": 5,
-          "text": "8 Ff Green Notes",
-          "confidence": 58.6
+          "text": "Green Notes",
+          "raw_ocr": "8 Ff Green Notes",
+          "ocr_confidence": 58.6,
+          "vocab_match": 91.2
         },
         {
           "position": 6,
-          "text": "al",
-          "confidence": 57.7
+          "text": "Salt",
+          "raw_ocr": "al",
+          "ocr_confidence": 57.7,
+          "vocab_match": 84.5
         }
       ]
     },
@@ -3313,37 +4218,49 @@
       "fragrantica_url": "https://www.fragrantica.com/perfume/Maison-Francis-Kurkdjian/Grand-Soir-40816.html",
       "status": "review",
       "note_count": 6,
-      "min_confidence": 50.5,
+      "min_vocab_match": 44.4,
       "notes": [
         {
           "position": 1,
           "text": "Amber",
-          "confidence": 94.2
+          "raw_ocr": "Amber",
+          "ocr_confidence": 94.2,
+          "vocab_match": 100.0
         },
         {
           "position": 2,
           "text": "Vanilla",
-          "confidence": 96.7
+          "raw_ocr": "Vanilla",
+          "ocr_confidence": 96.7,
+          "vocab_match": 100.0
         },
         {
           "position": 3,
           "text": "Tonka Bean",
-          "confidence": 96.1
+          "raw_ocr": "Tonka Bean",
+          "ocr_confidence": 96.1,
+          "vocab_match": 100.0
         },
         {
           "position": 4,
-          "text": "wo Lavender",
-          "confidence": 56.4
+          "text": "Lavender",
+          "raw_ocr": "wo Lavender",
+          "ocr_confidence": 56.4,
+          "vocab_match": 92.0
         },
         {
           "position": 5,
           "text": "ar Benzoin",
-          "confidence": 50.5
+          "raw_ocr": "ar Benzoin",
+          "ocr_confidence": 50.5,
+          "vocab_match": 47.1
         },
         {
           "position": 6,
           "text": "se a Labdanum",
-          "confidence": 52.0
+          "raw_ocr": "se a Labdanum",
+          "ocr_confidence": 52.0,
+          "vocab_match": 44.4
         }
       ]
     },
@@ -3356,37 +4273,49 @@
       "fragrantica_url": "https://www.fragrantica.com/perfume/Maison-Martin-Margiela/By-the-Fireplace-31623.html",
       "status": "review",
       "note_count": 6,
-      "min_confidence": 38.3,
+      "min_vocab_match": 42.1,
       "notes": [
         {
           "position": 1,
-          "text": "vanilla",
-          "confidence": 60.5
+          "text": "Vanilla",
+          "raw_ocr": "vanilla",
+          "ocr_confidence": 60.5,
+          "vocab_match": 100.0
         },
         {
           "position": 2,
           "text": "Cnestnut",
-          "confidence": 81.1
+          "raw_ocr": "Cnestnut",
+          "ocr_confidence": 81.1,
+          "vocab_match": 53.3
         },
         {
           "position": 3,
           "text": "GuUalac Wood",
-          "confidence": 63.0
+          "raw_ocr": "GuUalac Wood",
+          "ocr_confidence": 63.0,
+          "vocab_match": 57.1
         },
         {
           "position": 4,
           "text": "e S Cloves",
-          "confidence": 38.3
+          "raw_ocr": "e S Cloves",
+          "ocr_confidence": 38.3,
+          "vocab_match": 50.0
         },
         {
           "position": 5,
           "text": "Sl Peru Balsam",
-          "confidence": 70.5
+          "raw_ocr": "Sl Peru Balsam",
+          "ocr_confidence": 70.5,
+          "vocab_match": 42.1
         },
         {
           "position": 6,
           "text": "ey. ER Cashmeran",
-          "confidence": 39.9
+          "raw_ocr": "ey. ER Cashmeran",
+          "ocr_confidence": 39.9,
+          "vocab_match": 50.0
         }
       ]
     },
@@ -3399,37 +4328,49 @@
       "fragrantica_url": "https://www.fragrantica.com/perfume/Frederic-Malle-Editions-de-parfums/Iris-Poudre-4771.html",
       "status": "review",
       "note_count": 6,
-      "min_confidence": 35.0,
+      "min_vocab_match": 38.1,
       "notes": [
         {
           "position": 1,
           "text": "Iris",
-          "confidence": 47.8
+          "raw_ocr": "Iris",
+          "ocr_confidence": 47.8,
+          "vocab_match": 100.0
         },
         {
           "position": 2,
-          "text": "Musk",
-          "confidence": 60.1
+          "text": "Ambrette (Musk Mallow)",
+          "raw_ocr": "Musk",
+          "ocr_confidence": 60.1,
+          "vocab_match": 77.6
         },
         {
           "position": 3,
           "text": "Sandalwood",
-          "confidence": 81.3
+          "raw_ocr": "Sandalwood",
+          "ocr_confidence": 81.3,
+          "vocab_match": 100.0
         },
         {
           "position": 4,
-          "text": "Violet",
-          "confidence": 96.5
+          "text": "Violet Leaf",
+          "raw_ocr": "Violet",
+          "ocr_confidence": 96.5,
+          "vocab_match": 87.0
         },
         {
           "position": 5,
           "text": "Ylang- Ylang",
-          "confidence": 93.3
+          "raw_ocr": "Ylang- Ylang",
+          "ocr_confidence": 93.3,
+          "vocab_match": 38.1
         },
         {
           "position": 6,
-          "text": "etiver",
-          "confidence": 35.0
+          "text": "Vetiver",
+          "raw_ocr": "etiver",
+          "ocr_confidence": 35.0,
+          "vocab_match": 93.4
         }
       ]
     },
@@ -3442,32 +4383,42 @@
       "fragrantica_url": "https://www.fragrantica.com/perfume/Giorgio-Armani/Emporio-Armani-Stronger-With-You-Absolutely-64501.html",
       "status": "review",
       "note_count": 5,
-      "min_confidence": 0.0,
+      "min_vocab_match": 0.0,
       "notes": [
         {
           "position": 1,
           "text": "RK",
-          "confidence": 9.0
+          "raw_ocr": "RK",
+          "ocr_confidence": 9.0,
+          "vocab_match": 40.0
         },
         {
           "position": 2,
           "text": "4",
-          "confidence": 0.0
+          "raw_ocr": "4",
+          "ocr_confidence": 0.0,
+          "vocab_match": 0.0
         },
         {
           "position": 4,
           "text": "peal andar",
-          "confidence": 33.5
+          "raw_ocr": "peal andar",
+          "ocr_confidence": 33.5,
+          "vocab_match": 58.8
         },
         {
           "position": 5,
           "text": "avyrandar",
-          "confidence": 32.8
+          "raw_ocr": "avyrandar",
+          "ocr_confidence": 32.8,
+          "vocab_match": 58.8
         },
         {
           "position": 6,
           "text": "Clami",
-          "confidence": 70.8
+          "raw_ocr": "Clami",
+          "ocr_confidence": 70.8,
+          "vocab_match": 60.0
         }
       ]
     },
@@ -3478,39 +4429,51 @@
       "brand": "Chloé",
       "fragrantica_id": 1733,
       "fragrantica_url": "https://www.fragrantica.com/perfume/Chloe/Chloe-Eau-de-Parfum-1733.html",
-      "status": "candidate",
+      "status": "review",
       "note_count": 6,
-      "min_confidence": 60.6,
+      "min_vocab_match": 47.1,
       "notes": [
         {
           "position": 1,
           "text": "Rose",
-          "confidence": 96.7
+          "raw_ocr": "Rose",
+          "ocr_confidence": 96.7,
+          "vocab_match": 100.0
         },
         {
           "position": 2,
           "text": "Peony",
-          "confidence": 62.4
+          "raw_ocr": "Peony",
+          "ocr_confidence": 62.4,
+          "vocab_match": 60.0
         },
         {
           "position": 3,
           "text": "Litchi Be",
-          "confidence": 60.6
+          "raw_ocr": "Litchi Be",
+          "ocr_confidence": 60.6,
+          "vocab_match": 47.1
         },
         {
           "position": 4,
           "text": "Freesia",
-          "confidence": 91.3
+          "raw_ocr": "Freesia",
+          "ocr_confidence": 91.3,
+          "vocab_match": 50.0
         },
         {
           "position": 5,
-          "text": "Lily-of- the-Valley",
-          "confidence": 92.4
+          "text": "Lily-of-the-Valley",
+          "raw_ocr": "Lily-of- the-Valley",
+          "ocr_confidence": 92.4,
+          "vocab_match": 100.0
         },
         {
           "position": 6,
           "text": "Magnolia",
-          "confidence": 96.0
+          "raw_ocr": "Magnolia",
+          "ocr_confidence": 96.0,
+          "vocab_match": 53.3
         }
       ]
     },
@@ -3523,37 +4486,49 @@
       "fragrantica_url": "https://www.fragrantica.com/perfume/Versace/Eros-16657.html",
       "status": "review",
       "note_count": 6,
-      "min_confidence": 39.3,
+      "min_vocab_match": 46.2,
       "notes": [
         {
           "position": 1,
           "text": "Vanilla",
-          "confidence": 46.2
+          "raw_ocr": "Vanilla",
+          "ocr_confidence": 46.2,
+          "vocab_match": 100.0
         },
         {
           "position": 2,
           "text": "Mint aa",
-          "confidence": 85.3
+          "raw_ocr": "Mint aa",
+          "ocr_confidence": 85.3,
+          "vocab_match": 46.2
         },
         {
           "position": 3,
           "text": "Apple pf",
-          "confidence": 39.3
+          "raw_ocr": "Apple pf",
+          "ocr_confidence": 39.3,
+          "vocab_match": 62.5
         },
         {
           "position": 4,
           "text": "Tonka Bean",
-          "confidence": 96.4
+          "raw_ocr": "Tonka Bean",
+          "ocr_confidence": 96.4,
+          "vocab_match": 100.0
         },
         {
           "position": 5,
           "text": "Lemon",
-          "confidence": 90.0
+          "raw_ocr": "Lemon",
+          "ocr_confidence": 90.0,
+          "vocab_match": 100.0
         },
         {
           "position": 6,
-          "text": "Ambroxan",
-          "confidence": 91.0
+          "text": "Ambrofix",
+          "raw_ocr": "Ambroxan",
+          "ocr_confidence": 91.0,
+          "vocab_match": 75.0
         }
       ]
     },
@@ -3566,37 +4541,49 @@
       "fragrantica_url": "https://www.fragrantica.com/perfume/Giorgio-Armani/Emporio-Armani-Stronger-With-You-45258.html",
       "status": "review",
       "note_count": 6,
-      "min_confidence": 47.2,
+      "min_vocab_match": 50.0,
       "notes": [
         {
           "position": 1,
           "text": "Vanilla",
-          "confidence": 47.2
+          "raw_ocr": "Vanilla",
+          "ocr_confidence": 47.2,
+          "vocab_match": 100.0
         },
         {
           "position": 2,
           "text": "Chestnut -s",
-          "confidence": 48.2
+          "raw_ocr": "Chestnut -s",
+          "ocr_confidence": 48.2,
+          "vocab_match": 50.0
         },
         {
           "position": 3,
-          "text": "Sugar ss",
-          "confidence": 51.2
+          "text": "Sugar",
+          "raw_ocr": "Sugar ss",
+          "ocr_confidence": 51.2,
+          "vocab_match": 89.9
         },
         {
           "position": 4,
-          "text": "sage",
-          "confidence": 84.1
+          "text": "Sage",
+          "raw_ocr": "sage",
+          "ocr_confidence": 84.1,
+          "vocab_match": 100.0
         },
         {
           "position": 5,
           "text": "Lavender",
-          "confidence": 95.9
+          "raw_ocr": "Lavender",
+          "ocr_confidence": 95.9,
+          "vocab_match": 100.0
         },
         {
           "position": 6,
           "text": "Smoke",
-          "confidence": 95.0
+          "raw_ocr": "Smoke",
+          "ocr_confidence": 95.0,
+          "vocab_match": 50.0
         }
       ]
     },
@@ -3609,37 +4596,49 @@
       "fragrantica_url": "https://www.fragrantica.com/perfume/Giorgio-Armani/Acqua-di-Gio-410.html",
       "status": "review",
       "note_count": 6,
-      "min_confidence": 36.7,
+      "min_vocab_match": 54.5,
       "notes": [
         {
           "position": 1,
           "text": "Sa Sea Water",
-          "confidence": 64.3
+          "raw_ocr": "Sa Sea Water",
+          "ocr_confidence": 64.3,
+          "vocab_match": 58.8
         },
         {
           "position": 2,
           "text": "Lime",
-          "confidence": 77.4
+          "raw_ocr": "Lime",
+          "ocr_confidence": 77.4,
+          "vocab_match": 54.5
         },
         {
           "position": 3,
-          "text": "2 Lemon",
-          "confidence": 36.7
+          "text": "Lemon",
+          "raw_ocr": "2 Lemon",
+          "ocr_confidence": 36.7,
+          "vocab_match": 92.8
         },
         {
           "position": 4,
-          "text": "ae Bergamot",
-          "confidence": 60.5
+          "text": "Bergamot",
+          "raw_ocr": "ae Bergamot",
+          "ocr_confidence": 60.5,
+          "vocab_match": 92.0
         },
         {
           "position": 5,
-          "text": "Sg Jasmine",
-          "confidence": 66.2
+          "text": "Jasmine",
+          "raw_ocr": "Sg Jasmine",
+          "ocr_confidence": 66.2,
+          "vocab_match": 91.4
         },
         {
           "position": 6,
           "text": "Orange",
-          "confidence": 59.0
+          "raw_ocr": "Orange",
+          "ocr_confidence": 59.0,
+          "vocab_match": 100.0
         }
       ]
     },
@@ -3652,37 +4651,49 @@
       "fragrantica_url": "https://www.fragrantica.com/perfume/Juliette-Has-A-Gun/Vanilla-Vibes-54878.html",
       "status": "review",
       "note_count": 6,
-      "min_confidence": 8.6,
+      "min_vocab_match": 37.5,
       "notes": [
         {
           "position": 1,
           "text": "Vanilla",
-          "confidence": 45.3
+          "raw_ocr": "Vanilla",
+          "ocr_confidence": 45.3,
+          "vocab_match": 100.0
         },
         {
           "position": 2,
           "text": "Salt",
-          "confidence": 54.5
+          "raw_ocr": "Salt",
+          "ocr_confidence": 54.5,
+          "vocab_match": 100.0
         },
         {
           "position": 3,
           "text": "Musk A",
-          "confidence": 58.9
+          "raw_ocr": "Musk A",
+          "ocr_confidence": 58.9,
+          "vocab_match": 44.4
         },
         {
           "position": 4,
           "text": "Tonka Bean",
-          "confidence": 96.2
+          "raw_ocr": "Tonka Bean",
+          "ocr_confidence": 96.2,
+          "vocab_match": 100.0
         },
         {
           "position": 5,
-          "text": "Sandalwoot",
-          "confidence": 8.6
+          "text": "Sandalwood",
+          "raw_ocr": "Sandalwoot",
+          "ocr_confidence": 8.6,
+          "vocab_match": 90.0
         },
         {
           "position": 6,
           "text": "1 Orchid",
-          "confidence": 73.2
+          "raw_ocr": "1 Orchid",
+          "ocr_confidence": 73.2,
+          "vocab_match": 37.5
         }
       ]
     },
@@ -3693,39 +4704,51 @@
       "brand": "Maison Francis Kurkdjian",
       "fragrantica_id": 75754,
       "fragrantica_url": "https://www.fragrantica.com/perfume/Maison-Francis-Kurkdjian/724-75754.html",
-      "status": "candidate",
+      "status": "review",
       "note_count": 6,
-      "min_confidence": 78.2,
+      "min_vocab_match": 47.1,
       "notes": [
         {
           "position": 1,
           "text": "Aldenydes",
-          "confidence": 84.1
+          "raw_ocr": "Aldenydes",
+          "ocr_confidence": 84.1,
+          "vocab_match": 47.1
         },
         {
           "position": 2,
-          "text": "Musk",
-          "confidence": 96.5
+          "text": "Ambrette (Musk Mallow)",
+          "raw_ocr": "Musk",
+          "ocr_confidence": 96.5,
+          "vocab_match": 77.6
         },
         {
           "position": 3,
-          "text": "Bergamot a",
-          "confidence": 78.2
+          "text": "Bergamot",
+          "raw_ocr": "Bergamot a",
+          "ocr_confidence": 78.2,
+          "vocab_match": 94.2
         },
         {
           "position": 4,
           "text": "Jasmine",
-          "confidence": 96.3
+          "raw_ocr": "Jasmine",
+          "ocr_confidence": 96.3,
+          "vocab_match": 100.0
         },
         {
           "position": 5,
-          "text": "Mock Orange",
-          "confidence": 96.7
+          "text": "Orange",
+          "raw_ocr": "Mock Orange",
+          "ocr_confidence": 96.7,
+          "vocab_match": 87.0
         },
         {
           "position": 6,
           "text": "Sweet Pea",
-          "confidence": 96.4
+          "raw_ocr": "Sweet Pea",
+          "ocr_confidence": 96.4,
+          "vocab_match": 53.3
         }
       ]
     },
@@ -3738,37 +4761,49 @@
       "fragrantica_url": "https://www.fragrantica.com/perfume/By-Kilian/Intoxicated-25991.html",
       "status": "review",
       "note_count": 6,
-      "min_confidence": 47.5,
+      "min_vocab_match": 40.0,
       "notes": [
         {
           "position": 1,
-          "text": "Cardamorr",
-          "confidence": 55.2
+          "text": "Cardamom",
+          "raw_ocr": "Cardamorr",
+          "ocr_confidence": 55.2,
+          "vocab_match": 82.4
         },
         {
           "position": 2,
           "text": "1. Coffee",
-          "confidence": 57.6
+          "raw_ocr": "1. Coffee",
+          "ocr_confidence": 57.6,
+          "vocab_match": 42.9
         },
         {
           "position": 3,
           "text": "Se Nutmeg",
-          "confidence": 57.9
+          "raw_ocr": "Se Nutmeg",
+          "ocr_confidence": 57.9,
+          "vocab_match": 46.2
         },
         {
           "position": 4,
           "text": "I Cinnamon",
-          "confidence": 57.5
+          "raw_ocr": "I Cinnamon",
+          "ocr_confidence": 57.5,
+          "vocab_match": 47.1
         },
         {
           "position": 5,
           "text": "eEEE Caramel",
-          "confidence": 47.5
+          "raw_ocr": "eEEE Caramel",
+          "ocr_confidence": 47.5,
+          "vocab_match": 52.6
         },
         {
           "position": 6,
           "text": "4 Mocha",
-          "confidence": 59.1
+          "raw_ocr": "4 Mocha",
+          "ocr_confidence": 59.1,
+          "vocab_match": 40.0
         }
       ]
     },
@@ -3781,37 +4816,49 @@
       "fragrantica_url": "https://www.fragrantica.com/perfume/Yves-Saint-Laurent/Libre-Le-Parfum-75676.html",
       "status": "review",
       "note_count": 6,
-      "min_confidence": 0.0,
+      "min_vocab_match": 66.7,
       "notes": [
         {
           "position": 1,
           "text": "Vanilla",
-          "confidence": 39.3
+          "raw_ocr": "Vanilla",
+          "ocr_confidence": 39.3,
+          "vocab_match": 100.0
         },
         {
           "position": 2,
           "text": "roney",
-          "confidence": 0.0
+          "raw_ocr": "roney",
+          "ocr_confidence": 0.0,
+          "vocab_match": 66.7
         },
         {
           "position": 3,
-          "text": "Urange Blossom",
-          "confidence": 72.4
+          "text": "Orange Blossom",
+          "raw_ocr": "Urange Blossom",
+          "ocr_confidence": 72.4,
+          "vocab_match": 92.3
         },
         {
           "position": 4,
           "text": "Lavender",
-          "confidence": 95.7
+          "raw_ocr": "Lavender",
+          "ocr_confidence": 95.7,
+          "vocab_match": 100.0
         },
         {
           "position": 5,
-          "text": "i Bs Tonka Bean",
-          "confidence": 60.3
+          "text": "Tonka Bean",
+          "raw_ocr": "i Bs Tonka Bean",
+          "ocr_confidence": 60.3,
+          "vocab_match": 90.8
         },
         {
           "position": 6,
           "text": "Ginger",
-          "confidence": 73.5
+          "raw_ocr": "Ginger",
+          "ocr_confidence": 73.5,
+          "vocab_match": 100.0
         }
       ]
     },
@@ -3824,37 +4871,49 @@
       "fragrantica_url": "https://www.fragrantica.com/perfume/Tom-Ford/Fabulous-46513.html",
       "status": "review",
       "note_count": 6,
-      "min_confidence": 34.6,
+      "min_vocab_match": 57.1,
       "notes": [
         {
           "position": 1,
           "text": "Leather",
-          "confidence": 42.4
+          "raw_ocr": "Leather",
+          "ocr_confidence": 42.4,
+          "vocab_match": 57.1
         },
         {
           "position": 2,
           "text": "Almond S &",
-          "confidence": 34.6
+          "raw_ocr": "Almond S &",
+          "ocr_confidence": 34.6,
+          "vocab_match": 66.7
         },
         {
           "position": 3,
-          "text": "Lavender 29",
-          "confidence": 69.5
+          "text": "Lavender",
+          "raw_ocr": "Lavender 29",
+          "ocr_confidence": 69.5,
+          "vocab_match": 92.0
         },
         {
           "position": 4,
           "text": "Tonka Bean",
-          "confidence": 96.2
+          "raw_ocr": "Tonka Bean",
+          "ocr_confidence": 96.2,
+          "vocab_match": 100.0
         },
         {
           "position": 5,
-          "text": "Clary Sage",
-          "confidence": 96.3
+          "text": "Sage",
+          "raw_ocr": "Clary Sage",
+          "ocr_confidence": 96.3,
+          "vocab_match": 83.1
         },
         {
           "position": 6,
           "text": "Vanilla",
-          "confidence": 96.4
+          "raw_ocr": "Vanilla",
+          "ocr_confidence": 96.4,
+          "vocab_match": 100.0
         }
       ]
     },
@@ -3865,39 +4924,51 @@
       "brand": "Jean Paul Gaultier",
       "fragrantica_id": 55786,
       "fragrantica_url": "https://www.fragrantica.com/perfume/Jean-Paul-Gaultier/La-Belle-55786.html",
-      "status": "candidate",
+      "status": "review",
       "note_count": 6,
-      "min_confidence": 56.6,
+      "min_vocab_match": 58.8,
       "notes": [
         {
           "position": 1,
           "text": "Pear",
-          "confidence": 61.2
+          "raw_ocr": "Pear",
+          "ocr_confidence": 61.2,
+          "vocab_match": 66.7
         },
         {
           "position": 2,
-          "text": "Vanilla an",
-          "confidence": 69.1
+          "text": "Vanilla",
+          "raw_ocr": "Vanilla an",
+          "ocr_confidence": 69.1,
+          "vocab_match": 91.4
         },
         {
           "position": 3,
-          "text": "Vetiver (4",
-          "confidence": 56.6
+          "text": "Vetiver",
+          "raw_ocr": "Vetiver (4",
+          "ocr_confidence": 56.6,
+          "vocab_match": 93.9
         },
         {
           "position": 4,
           "text": "Amber",
-          "confidence": 94.7
+          "raw_ocr": "Amber",
+          "ocr_confidence": 94.7,
+          "vocab_match": 100.0
         },
         {
           "position": 5,
           "text": "Floral Notes",
-          "confidence": 96.7
+          "raw_ocr": "Floral Notes",
+          "ocr_confidence": 96.7,
+          "vocab_match": 58.8
         },
         {
           "position": 6,
-          "text": "Musk",
-          "confidence": 96.1
+          "text": "Ambrette (Musk Mallow)",
+          "raw_ocr": "Musk",
+          "ocr_confidence": 96.1,
+          "vocab_match": 77.6
         }
       ]
     },
@@ -3910,37 +4981,49 @@
       "fragrantica_url": "https://www.fragrantica.com/perfume/Lattafa-Perfumes/Khamrah-75805.html",
       "status": "review",
       "note_count": 6,
-      "min_confidence": 47.3,
+      "min_vocab_match": 44.4,
       "notes": [
         {
           "position": 1,
           "text": "Cinnamon 2",
-          "confidence": 61.2
+          "raw_ocr": "Cinnamon 2",
+          "ocr_confidence": 61.2,
+          "vocab_match": 47.1
         },
         {
           "position": 2,
           "text": "Vanilla",
-          "confidence": 47.3
+          "raw_ocr": "Vanilla",
+          "ocr_confidence": 47.3,
+          "vocab_match": 100.0
         },
         {
           "position": 3,
           "text": "Dates",
-          "confidence": 66.0
+          "raw_ocr": "Dates",
+          "ocr_confidence": 66.0,
+          "vocab_match": 44.4
         },
         {
           "position": 4,
           "text": "Praline",
-          "confidence": 96.7
+          "raw_ocr": "Praline",
+          "ocr_confidence": 96.7,
+          "vocab_match": 100.0
         },
         {
           "position": 5,
           "text": "Tonka Bean",
-          "confidence": 96.1
+          "raw_ocr": "Tonka Bean",
+          "ocr_confidence": 96.1,
+          "vocab_match": 100.0
         },
         {
           "position": 6,
           "text": "Nutmeg",
-          "confidence": 96.2
+          "raw_ocr": "Nutmeg",
+          "ocr_confidence": 96.2,
+          "vocab_match": 46.2
         }
       ]
     },
@@ -3951,39 +5034,51 @@
       "brand": "Paco Rabanne",
       "fragrantica_id": 31666,
       "fragrantica_url": "https://www.fragrantica.com/perfume/Rabanne/Olympea-31666.html",
-      "status": "review",
+      "status": "verified",
       "note_count": 6,
-      "min_confidence": 44.4,
+      "min_vocab_match": 82.7,
       "notes": [
         {
           "position": 1,
-          "text": "Vanilla Va",
-          "confidence": 78.4
+          "text": "Vanilla",
+          "raw_ocr": "Vanilla Va",
+          "ocr_confidence": 78.4,
+          "vocab_match": 91.4
         },
         {
           "position": 2,
-          "text": "Salt ne Oe",
-          "confidence": 44.4
+          "text": "Salt",
+          "raw_ocr": "Salt ne Oe",
+          "ocr_confidence": 44.4,
+          "vocab_match": 84.5
         },
         {
           "position": 3,
-          "text": "Jasmine Te",
-          "confidence": 76.4
+          "text": "Jasmine",
+          "raw_ocr": "Jasmine Te",
+          "ocr_confidence": 76.4,
+          "vocab_match": 91.4
         },
         {
           "position": 4,
-          "text": "Mandarin Orange",
-          "confidence": 96.4
+          "text": "Orange",
+          "raw_ocr": "Mandarin Orange",
+          "ocr_confidence": 96.4,
+          "vocab_match": 82.7
         },
         {
           "position": 5,
           "text": "Ginger",
-          "confidence": 96.8
+          "raw_ocr": "Ginger",
+          "ocr_confidence": 96.8,
+          "vocab_match": 100.0
         },
         {
           "position": 6,
-          "text": "Cashmir wood",
-          "confidence": 94.3
+          "text": "Cashmir Wood",
+          "raw_ocr": "Cashmir wood",
+          "ocr_confidence": 94.3,
+          "vocab_match": 100.0
         }
       ]
     },
@@ -3994,39 +5089,51 @@
       "brand": "Maison Margiela Replica",
       "fragrantica_id": 20541,
       "fragrantica_url": "https://www.fragrantica.com/perfume/Maison-Martin-Margiela/Jazz-Club-20541.html",
-      "status": "candidate",
+      "status": "review",
       "note_count": 6,
-      "min_confidence": 59.7,
+      "min_vocab_match": 47.6,
       "notes": [
         {
           "position": 1,
           "text": "Tobacco Merle",
-          "confidence": 59.7
+          "raw_ocr": "Tobacco Merle",
+          "ocr_confidence": 59.7,
+          "vocab_match": 47.6
         },
         {
           "position": 2,
-          "text": "Rum fie",
-          "confidence": 61.9
+          "text": "Rum",
+          "raw_ocr": "Rum fie",
+          "ocr_confidence": 61.9,
+          "vocab_match": 84.5
         },
         {
           "position": 3,
-          "text": "Vanilla a",
-          "confidence": 66.2
+          "text": "Vanilla",
+          "raw_ocr": "Vanilla a",
+          "ocr_confidence": 66.2,
+          "vocab_match": 93.9
         },
         {
           "position": 4,
-          "text": "Pink Pepper",
-          "confidence": 96.3
+          "text": "Pepper",
+          "raw_ocr": "Pink Pepper",
+          "ocr_confidence": 96.3,
+          "vocab_match": 87.0
         },
         {
           "position": 5,
           "text": "Vetiver",
-          "confidence": 96.3
+          "raw_ocr": "Vetiver",
+          "ocr_confidence": 96.3,
+          "vocab_match": 100.0
         },
         {
           "position": 6,
           "text": "styrax",
-          "confidence": 92.0
+          "raw_ocr": "styrax",
+          "ocr_confidence": 92.0,
+          "vocab_match": 50.0
         }
       ]
     },
@@ -4037,39 +5144,51 @@
       "brand": "Maison Francis Kurkdjian",
       "fragrantica_id": 53401,
       "fragrantica_url": "https://www.fragrantica.com/perfume/Maison-Francis-Kurkdjian/Gentle-Fluidity-Gold-53401.html",
-      "status": "candidate",
+      "status": "review",
       "note_count": 6,
-      "min_confidence": 55.3,
+      "min_vocab_match": 44.4,
       "notes": [
         {
           "position": 1,
           "text": "Vanilla",
-          "confidence": 96.7
+          "raw_ocr": "Vanilla",
+          "ocr_confidence": 96.7,
+          "vocab_match": 100.0
         },
         {
           "position": 2,
-          "text": "Musk",
-          "confidence": 96.5
+          "text": "Ambrette (Musk Mallow)",
+          "raw_ocr": "Musk",
+          "ocr_confidence": 96.5,
+          "vocab_match": 77.6
         },
         {
           "position": 3,
           "text": "Bagas de Zimbro",
-          "confidence": 92.8
+          "raw_ocr": "Bagas de Zimbro",
+          "ocr_confidence": 92.8,
+          "vocab_match": 47.6
         },
         {
           "position": 4,
           "text": "Caramel",
-          "confidence": 57.8
+          "raw_ocr": "Caramel",
+          "ocr_confidence": 57.8,
+          "vocab_match": 66.7
         },
         {
           "position": 5,
-          "text": "a Amberwoor",
-          "confidence": 55.8
+          "text": "Amber",
+          "raw_ocr": "a Amberwoor",
+          "ocr_confidence": 55.8,
+          "vocab_match": 84.5
         },
         {
           "position": 6,
           "text": "ct el 1 Nutmeg",
-          "confidence": 55.3
+          "raw_ocr": "ct el 1 Nutmeg",
+          "ocr_confidence": 55.3,
+          "vocab_match": 44.4
         }
       ]
     },
@@ -4082,37 +5201,49 @@
       "fragrantica_url": "https://www.fragrantica.com/perfume/Byredo/Vanille-Antique-73438.html",
       "status": "review",
       "note_count": 6,
-      "min_confidence": 54.1,
+      "min_vocab_match": 44.4,
       "notes": [
         {
           "position": 1,
           "text": "Vanilla",
-          "confidence": 96.3
+          "raw_ocr": "Vanilla",
+          "ocr_confidence": 96.3,
+          "vocab_match": 100.0
         },
         {
           "position": 2,
           "text": "Amber",
-          "confidence": 96.4
+          "raw_ocr": "Amber",
+          "ocr_confidence": 96.4,
+          "vocab_match": 100.0
         },
         {
           "position": 3,
           "text": "Woody Notes",
-          "confidence": 96.1
+          "raw_ocr": "Woody Notes",
+          "ocr_confidence": 96.1,
+          "vocab_match": 50.0
         },
         {
           "position": 4,
-          "text": "Musk",
-          "confidence": 96.4
+          "text": "Ambrette (Musk Mallow)",
+          "raw_ocr": "Musk",
+          "ocr_confidence": 96.4,
+          "vocab_match": 77.6
         },
         {
           "position": 5,
           "text": "et (a Labdanum",
-          "confidence": 54.5
+          "raw_ocr": "et (a Labdanum",
+          "ocr_confidence": 54.5,
+          "vocab_match": 50.0
         },
         {
           "position": 6,
           "text": "Ff Plum",
-          "confidence": 54.1
+          "raw_ocr": "Ff Plum",
+          "ocr_confidence": 54.1,
+          "vocab_match": 44.4
         }
       ]
     }
