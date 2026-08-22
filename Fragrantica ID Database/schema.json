@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "name": "Fragrantica ID Mapping Rule canonical record",
+  "required": [
+    "rank",
+    "shobi_code",
+    "fragrantica_id",
+    "fragrantica_url",
+    "verification_status"
+  ],
+  "record": {
+    "rank": "integer or null when not ranked",
+    "shobi_code": "string",
+    "perfume_name": "string",
+    "brand": "string",
+    "fragrantica_id": "integer",
+    "fragrantica_url": "string",
+    "social_card_url": "https://fimgs.net/mdimg/perfume-social-cards/en-p_c_{fragrantica_id}.jpeg",
+    "image_url": "https://fimgs.net/mdimg/perfume-thumbs/dark-375x500.{fragrantica_id}.avif",
+    "main_notes": ["string"],
+    "gender": "men | women | unisex | unresolved",
+    "season": "spring | summer | autumn | winter | unresolved",
+    "season_evidence": "object or null",
+    "verification_status": "verified | partial | unresolved",
+    "source": "string",
+    "verified_at": "ISO-8601 timestamp or null"
+  },
+  "integrity_rule": "All Fragrantica-derived fields in one record must belong to the same verified fragrantica_id."
+}
