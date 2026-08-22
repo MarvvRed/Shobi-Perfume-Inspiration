@@ -1,32 +1,53 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "method": "Fragrantica ID Mapping Rule",
   "scope": "Best Seller 1-100",
-  "status": "canonical-source-index",
+  "status": "canonical-complete-verified-100-of-100",
+  "canonical_dataset": "Fragrantica ID Database/rebuild-top100/top100-fragrantica-mapped.json",
+  "canonical_seasons": "Fragrantica ID Database/rebuild-top100/top100-seasons.json",
+  "verification_summary": {
+    "target_count": 100,
+    "fragrantica_identity_verified": 100,
+    "main_notes_exact_social_card": 100,
+    "gender_verified": 100,
+    "season_verified": 100,
+    "unresolved": 0,
+    "season_detector_canary_rank_82": "winter"
+  },
   "ranges": [
     {
       "range": [1, 20],
-      "identity_and_main_notes_source": "Personal Database/fragrantica-main-notes.json",
-      "notes": "Verified Fragrantica IDs and captured Main Notes for the first 20 Best Sellers."
+      "identity_and_historical_main_notes_source": "Personal Database/fragrantica-main-notes.json",
+      "notes": "Historical verified Fragrantica identity source for the first 20 Best Sellers; canonical Main Notes are now governed by the public social-card exact-order/count rule."
     },
     {
       "range": [21, 40],
-      "identity_and_main_notes_source": "Personal Database/fragrantica-main-notes-21-40.json",
-      "notes": "Verified Fragrantica IDs and captured Main Notes for Best Sellers 21-40."
+      "identity_and_historical_main_notes_source": "Personal Database/fragrantica-main-notes-21-40.json",
+      "notes": "Historical verified Fragrantica identity source for Best Sellers 21-40; canonical Main Notes are now governed by the public social-card exact-order/count rule."
     },
     {
       "range": [41, 100],
-      "identity_and_main_notes_source": "Personal Database/fragrantica-main-notes-41-100.json",
+      "identity_and_historical_main_notes_source": "Personal Database/fragrantica-main-notes-41-100.json",
       "identity_lock_sources": [
         "Shobi Master Database/bestseller-top100-source-lock.csv",
         "Shobi Master Database/bestseller-top100-source-lock-pass2.csv"
       ],
-      "notes": "Verified Fragrantica IDs and captured Main Notes for Best Sellers 41-100."
+      "notes": "Historical verified identity source for Best Sellers 41-100; canonical Main Notes are now governed by the public social-card exact-order/count rule."
     }
   ],
   "resource_rules": {
     "social_card_url": "https://fimgs.net/mdimg/perfume-social-cards/en-p_c_{fragrantica_id}.jpeg",
-    "image_url": "https://fimgs.net/mdimg/perfume-thumbs/dark-375x500.{fragrantica_id}.avif"
+    "image_url": "https://fimgs.net/mdimg/perfume-thumbs/dark-375x500.{fragrantica_id}.avif",
+    "main_notes": "all notes visible on the public social card, exact displayed order and count; fixed Top-N truncation forbidden",
+    "season": "one canonical season from the longest dynamically detected social-card seasonal bar; exact ties resolve by Winter, Spring, Summer, Autumn order; fixed pixel coordinates forbidden"
+  },
+  "validation_guards": {
+    "require_identity": "100/100",
+    "require_main_notes_exact_social_card": "100/100",
+    "require_gender": "100/100",
+    "require_season": "100/100",
+    "require_unresolved": 0,
+    "season_canary": "rank 82 Emporio Armani Stronger With You Intensely = winter"
   },
   "canonical_integrity_rule": "Every image, social card, Main Notes, gender and season record must resolve to the same verified Fragrantica ID."
 }
