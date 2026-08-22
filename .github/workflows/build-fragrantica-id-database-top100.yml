@@ -52,6 +52,8 @@ jobs:
           assert all(str(r['fragrantica_id']) in r['fragrantica_url'] for r in rows)
           assert all(r['image_url'].endswith(f".{r['fragrantica_id']}.avif") for r in rows)
           assert all(r['social_card_url'].endswith(f"_{r['fragrantica_id']}.jpeg") for r in rows)
+          js=Path('bestseller-001-100-canonical-data.js').read_text(encoding='utf-8')
+          assert 'window.SHOBI_FRAGRANTICA_CANONICAL_TOP100=' in js
           print('CANONICAL_TOP100_VALIDATION_PASS')
           PY
 
@@ -60,7 +62,7 @@ jobs:
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add 'Fragrantica ID Database/mappings/bestseller-001-100.json' 'Fragrantica ID Database/validation/unresolved.json'
+          git add 'Fragrantica ID Database/mappings/bestseller-001-100.json' 'Fragrantica ID Database/validation/unresolved.json' 'bestseller-001-100-canonical-data.js'
           if git diff --cached --quiet; then
             echo 'No canonical database changes.'
           else
