@@ -1,0 +1,43 @@
+name: Audit Social Card Seasons Top100
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'scripts/audit_social_card_seasons_top100.py'
+      - '.github/workflows/audit-social-card-seasons-top100.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install Pillow
+        run: pip install pillow
+
+      - name: Audit all Top100 social-card season bars
+        run: python scripts/audit_social_card_seasons_top100.py
+
+      - name: Commit audit report
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add 'Fragrantica ID Database/rebuild-top100/social-card-seasons-audit-top100.json'
+          if git diff --cached --quiet; then
+            echo 'No audit report changes.'
+          else
+            git commit -m 'Capture Top100 social-card season audit'
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
