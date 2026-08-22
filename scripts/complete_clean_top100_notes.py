@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# Canonical clean Top100 missing-note completion.
 import json, re, subprocess, tempfile, difflib, time
 from pathlib import Path
 from urllib.request import Request, urlopen
@@ -55,7 +56,7 @@ def fetch_image(fid,path):
             data=urlopen(req,timeout=30).read()
             if len(data)<1000: raise RuntimeError(f'too-small:{len(data)}')
             path.write_bytes(data); return url,len(data)
-        except Exception as e:
+        except Exception:
             if attempt==4: raise
             time.sleep(attempt*2)
 
