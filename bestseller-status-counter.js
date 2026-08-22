@@ -1,4 +1,5 @@
 // Live counter for verification badges on the currently rendered page.
+// Green/red describe validation status, not data-source type.
 (function () {
   function ensureCounter() {
     let el = document.getElementById('bestseller-status-counter');
@@ -13,16 +14,26 @@
     return el;
   }
 
+  function cardStatus(card) {
+    // Canonical status has priority when present.
+    if (card.querySelector('.canonical-top100-error-badge,[data-validation-status="error"]')) return 'red';
+    if (card.querySelector('.canonical-top100-verified-badge,[data-validation-status="verified"]')) return 'green';
+
+    // Legacy/non-canonical cards remain supported.
+    if (card.querySelector('.catcher-error-badge')) return 'red';
+    if (card.querySelector('.catcher-verified-badge')) return 'green';
+    return null;
+  }
+
   function updateCounter() {
     const el = ensureCounter();
     if (!el) return;
     const cards = Array.from(document.querySelectorAll('#resultsContainer .perfume-card-prototype'));
     let green = 0, red = 0;
     cards.forEach(card => {
-      const badge = card.querySelector('.catcher-status-badge');
-      if (!badge) return;
-      if (badge.classList.contains('catcher-verified-badge')) green++;
-      else if (badge.classList.contains('catcher-error-badge')) red++;
+      const status = cardStatus(card);
+      if (status === 'green') green++;
+      else if (status === 'red') red++;
     });
     const g = el.querySelector('[data-status-green]');
     const r = el.querySelector('[data-status-red]');
@@ -34,7 +45,12 @@
   document.addEventListener('DOMContentLoaded', () => {
     ensureCounter();
     const container = document.getElementById('resultsContainer');
-    if (container) new MutationObserver(updateCounter).observe(container, { childList: true, subtree: true, attributes: true, attributeFilter: ['class'] });
+    if (container) new MutationObserver(updateCounter).observe(container, {
+      childList: true,
+      subtree: true,
+      attributes: true,
+      attributeFilter: ['class','data-validation-status']
+    });
     updateCounter();
   });
 })();
