@@ -1,11 +1,16 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "name": "Fragrantica ID Mapping Rule canonical record",
+  "canonical_key": "fragrantica_id",
   "required": [
     "rank",
     "shobi_code",
     "fragrantica_id",
     "fragrantica_url",
+    "social_card_url",
+    "main_notes",
+    "gender",
+    "season",
     "verification_status"
   ],
   "record": {
@@ -18,12 +23,32 @@
     "social_card_url": "https://fimgs.net/mdimg/perfume-social-cards/en-p_c_{fragrantica_id}.jpeg",
     "image_url": "https://fimgs.net/mdimg/perfume-thumbs/dark-375x500.{fragrantica_id}.avif",
     "main_notes": ["string"],
+    "main_note_count": "integer; must equal the number of notes visibly present on the authoritative public social card",
     "gender": "men | women | unisex | unresolved",
     "season": "spring | summer | autumn | winter | unresolved",
-    "season_evidence": "object or null",
+    "season_evidence": "object containing social-card authority and/or dynamically measured seasonal bars",
     "verification_status": "verified | partial | unresolved",
     "source": "string",
     "verified_at": "ISO-8601 timestamp or null"
+  },
+  "main_notes_rule": {
+    "authority": "Fragrantica public social card for the same verified fragrantica_id",
+    "completeness": "all visible Main Notes",
+    "ordering": "exact displayed order",
+    "count": "exact displayed count",
+    "fixed_top_n_truncation": "forbidden"
+  },
+  "season_rule": {
+    "authority": "four seasonal bars on the Fragrantica public social card for the same verified fragrantica_id",
+    "card_order": ["winter", "spring", "summer", "autumn"],
+    "selection": "one canonical season: longest dynamically detected seasonal bar",
+    "fixed_pixel_coordinates": "forbidden",
+    "exact_tie_break": "first season in card_order",
+    "regression_canary": {
+      "top100_rank": 82,
+      "perfume": "Emporio Armani Stronger With You Intensely",
+      "required_season": "winter"
+    }
   },
   "integrity_rule": "All Fragrantica-derived fields in one record must belong to the same verified fragrantica_id."
 }
