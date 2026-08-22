@@ -4,6 +4,8 @@ on:
   workflow_dispatch:
   push:
     paths:
+      - 'shobi-best-sales-raw.csv'
+      - 'shobi-master-en.csv'
       - 'scripts/rebuild_clean_shobi_top100.py'
       - '.github/workflows/rebuild-clean-shobi-top100.yml'
 
@@ -28,13 +30,7 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install beautifulsoup4 playwright
-          playwright install chromium
-
-      - name: Rebuild clean Shobi Top100 from official Best Sales
+      - name: Rebuild clean Shobi Top100 from real-browser snapshot
         run: python scripts/rebuild_clean_shobi_top100.py
 
       - name: Validate clean Top100
@@ -50,6 +46,8 @@ jobs:
           assert len({r['shobi_code'] for r in rows})==100
           assert all(r['global_rank']>=r['rank'] for r in rows)
           assert all(r['shobi_code'] for r in rows)
+          assert d['source_snapshot']=='shobi-best-sales-raw.csv'
+          assert d['master_source']=='shobi-master-en.csv'
           print('CLEAN_SHOBI_TOP100_VALIDATION_PASS')
           PY
 
@@ -62,7 +60,7 @@ jobs:
           if git diff --cached --quiet; then
             echo 'No clean Top100 changes.'
           else
-            git commit -m 'Capture clean Shobi official Top100'
+            git commit -m 'Build clean Shobi Top100 from browser snapshot'
             git pull --rebase origin main
             git push origin HEAD:main
           fi
