@@ -31,15 +31,14 @@ jobs:
       - name: Capture public Fragrantica WHEN TO WEAR seasons for clean Top100
         run: python scripts/capture_clean_top100_seasons.py
 
-      - name: Commit season evidence output
-        if: always()
+      - name: Commit validated season evidence output
         run: |
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add 'Fragrantica ID Database/rebuild-top100/top100-seasons.json' || true
+          git add 'Fragrantica ID Database/rebuild-top100/top100-seasons.json'
           if git diff --cached --quiet; then
-            echo 'No season output changes to commit.'
+            echo 'No validated season output changes to commit.'
           else
             git commit -m 'Capture canonical Top100 public When To Wear seasons'
             git pull --rebase origin main
