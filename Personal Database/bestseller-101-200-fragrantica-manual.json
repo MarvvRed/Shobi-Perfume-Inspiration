@@ -19,6 +19,33 @@
       "resolver": "manual-web-verified"
     },
     {
+      "rank": 134,
+      "code": "1726-MNTB WP",
+      "inspired_by": "SIGNATURE - MONT BLANC",
+      "brand": "Montblanc",
+      "fragrantica_id": 60962,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Montblanc/Signature-60962.html",
+      "resolver": "manual-web-verified"
+    },
+    {
+      "rank": 142,
+      "code": "1938-YZLO N",
+      "inspired_by": "BABY CAT",
+      "brand": "Yves Saint Laurent",
+      "fragrantica_id": 73149,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Yves-Saint-Laurent/Babycat-73149.html",
+      "resolver": "manual-web-verified"
+    },
+    {
+      "rank": 147,
+      "code": "1620-GUR N",
+      "inspired_by": "SPIRITUEUSE DOUBLE VANILLE",
+      "brand": "Guerlain",
+      "fragrantica_id": 3345,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Guerlain/Spiritueuse-Double-Vanille-3345.html",
+      "resolver": "manual-web-verified"
+    },
+    {
       "rank": 173,
       "code": "1065-CHA M",
       "inspired_by": "ALLURE HOMME SPORT",
@@ -26,6 +53,41 @@
       "fragrantica_id": 607,
       "fragrantica_url": "https://www.fragrantica.com/perfume/Chanel/Allure-Homme-Sport-607.html",
       "resolver": "manual-web-verified"
+    },
+    {
+      "rank": 183,
+      "code": "1882-MARG N",
+      "inspired_by": "BY THE FIREPLACE",
+      "brand": "Maison Margiela Replica",
+      "fragrantica_id": 31623,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Maison-Martin-Margiela/By-the-Fireplace-31623.html",
+      "resolver": "manual-web-verified"
+    },
+    {
+      "rank": 193,
+      "code": "2117-YZLO W",
+      "inspired_by": "LIBRE LE PARFUM",
+      "brand": "Yves Saint Laurent",
+      "fragrantica_id": 75676,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Yves-Saint-Laurent/Libre-Le-Parfum-75676.html",
+      "resolver": "manual-web-verified"
+    },
+    {
+      "rank": 196,
+      "code": "2164-LAT EL",
+      "inspired_by": "KHAMRAH - LATTAFA",
+      "brand": "Lattafa Perfumes",
+      "fragrantica_id": 75805,
+      "fragrantica_url": "https://www.fragrantica.com/perfume/Lattafa-Perfumes/Khamrah-75805.html",
+      "resolver": "manual-web-verified"
+    }
+  ],
+  "pending": [
+    {
+      "rank": 149,
+      "code": "1289-YZLO M",
+      "inspired_by": "of Y",
+      "reason": "Ambiguous source name; do not guess Y concentration/flanker"
     }
   ]
 }
